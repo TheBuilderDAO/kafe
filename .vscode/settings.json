@@ -1,0 +1,20 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.rulers": [120],
+  "editor.wordWrapColumn": 115,
+  "editor.wordWrap": "wordWrapColumn",
+  "files.exclude": {
+    "node_modules": true,
+    "archives": false,
+    ".anchor": true
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust", // Makes the magic
+    "editor.formatOnSave": true // Optional
+  }
+}

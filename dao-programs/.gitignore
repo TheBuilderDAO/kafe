@@ -1,0 +1,13 @@
+.anchor
+.DS_Store
+**/*.rs.bk
+node_modules
+archive
+.vscode
+scripts/test-ledger
+yarn-error.log
+programs/**/target
+programs/**/dist
+archives
+programs/**/test-ledger
+test-ledger

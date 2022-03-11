@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Larken";
+  src: url('/assets/fonts/larken/Larken-Regular.otf');
+}
+
+@font-face {
+  font-family: "Larken Italic";
+  src: url('/assets/fonts/larken/Larken-Italic.otf');
+}
+
+@font-face {
+  font-family: "Larken Extra Bold";
+  src: url('/assets/fonts/larken/Larken-ExtraBold.otf');
+}
+
+@font-face {
+  font-family: "Larken Extra Bold Italic";
+  src: url('/assets/fonts/larken/Larken-ExtraBoldItalic.otf');
+}

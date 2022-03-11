@@ -1,0 +1,17 @@
+{
+  "name": "@builderdao-learn/solana-wallet-in-depth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

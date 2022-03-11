@@ -1,0 +1,142 @@
+name: Proposal Reviewers Check
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+    branches:    
+      - 'groundwork'
+      - 'main'
+  
+
+jobs:
+  get_proposal_slug:
+    if: ${{startsWith(github.head_ref, 'tutorials/')}}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      slug: ${{ steps.set_output.outputs.slug }}
+    steps:
+      - uses: actions/github-script@v6
+        id: regex_extract_proposal_id
+        with:
+          result-encoding: string
+          script: |
+              const headBranch = context.payload.pull_request.head.ref
+              const regex = /tutorials\/([A-z0-9]+(?:[_-][A-z0-9]+)*)/
+              const slug = headBranch.match(regex)
+              return slug && slug[1] || ''
+      - name: Set Output
+        id: set_output
+        run: |
+          echo "::set-output name=slug::${{ steps.regex_extract_proposal_id.outputs.result }}"
+
+  fetch_proposal:
+    needs: get_proposal_slug
+    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      proposalId: ${{ steps.fetch.outputs.proposalId }}
+      reviewer1: ${{ steps.fetch.outputs.reviewer1 }}
+      reviewer2: ${{ steps.fetch.outputs.reviewer2 }}
+      reviewer1_githubName: ${{ steps.fetch.outputs.reviewer1_githubName }}
+      reviewer2_githubName: ${{ steps.fetch.outputs.reviewer2_githubName }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-builderdao-cli/
+    - id: fetch
+      env:
+        SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+      run: |
+        builderdao proposal get -s $SLUG
+        REVIEWER1=$(builderdao proposal get -s $SLUG -k reviewer1)
+        REVIEWER2=$(builderdao proposal get -s $SLUG -k reviewer2)
+        PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
+        REVIEWER1_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER1 -k githubName)
+        REVIEWER2_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER2 -k githubName)
+        echo "::set-output name=reviewer1::$REVIEWER1"
+        echo "::set-output name=reviewer2::$REVIEWER2"
+        echo "::set-output name=proposalId::$PROPOSAL_ID"
+        echo "::set-output name=reviewer1_githubName::$REVIEWER1_GITHUBNAME"
+        echo "::set-output name=reviewer2_githubName::$REVIEWER2_GITHUBNAME"
+
+
+  check_review_status:
+    needs: fetch_proposal
+    name: Check if all reviewers are present and approved
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      state: ${{ steps.fetch.outputs.proposalId }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/check-required-reviewer
+        id: reviewer1_review
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AUTHOR: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
+      - uses: ./.github/actions/check-required-reviewer
+        id: reviewer2_review
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AUTHOR: ${{needs.fetch_proposal.outputs.reviewer2_githubName}}
+      - run: |
+          echo "reviewer0 ${{ steps.reviewer0_review.outputs.state }}"
+          echo "reviewer1 ${{ steps.reviewer1_review.outputs.state }}"
+          echo "reviewer2 ${{ steps.reviewer2_review.outputs.state }}"
+      - name: Approved
+        id: all_reviewers_approved
+        if: |
+          ${{ steps.reviewer1_review.outputs.state }} == "APPROVED" && ${{ steps.reviewer2_review.outputs.state }} == "APPROVED"
+        run: |
+          echo "::set-output name=state::APPROVED"
+      - name: Report Status
+        if: ${{steps.all_reviewers_approved.outputs.state}} != "APPROVED"
+        uses: actions/github-script@v3
+        with:
+          script: |
+              core.setFailed('Assigned reviewers are not approved yet')
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: set_ready_to_publish 
+        env:
+          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+        run: |
+            builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
+
+
+  request_review_from_reviewer1:
+    needs: fetch_proposal
+    if: ${{needs.fetch_proposal.outputs.reviewer1}}
+    name: Request reviews on opened PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create PR review request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
+        run: |
+          echo "gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME"
+
+  request_review_from_reviewer2:
+    needs: fetch_proposal
+    if: ${{needs.fetch_proposal.outputs.reviewer2}}
+    name: Request reviews on opened PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create PR review request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
+        run: |
+          echo "gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME"

@@ -1,0 +1,123 @@
+name: Program Tutorial 
+
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+
+env:
+  CARGO_TERM_COLOR: always
+  SOLANA_VERSION: 1.8.5
+  RUST_TOOLCHAIN: stable
+  ANCHOR_VERSION: 0.22.0
+  PR_NUMBER: ${{ github.event.number }}
+  CACHE_ID: program-tutorial-2
+
+jobs:
+  # changes:
+  #   runs-on: ubuntu-latest
+  #   # Set job outputs to values from filter step
+  #   outputs:
+  #     package: ${{ steps.filter.outputs.package }}
+
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   # For pull requests it's not necessary to checkout the code
+  #   - uses: dorny/paths-filter@v2
+  #     id: filter
+  #     with:
+  #       filters: |
+  #         package:
+  #           - 'dao-programs/programs/tutorial/**'
+
+  upsert-devnet-keypair:
+    # needs: changes
+    if: ${{false}}
+    # if: ${{ needs.changes.outputs.package == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/upsert-keypair
+        with: 
+          solana_version: ${{ env.SOLANA_VERSION }}
+
+
+  build-and-test-tutorial:
+    # needs: changes
+    # if: ${{ needs.changes.outputs.package == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      # Setup Deps
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/install-linux-build-deps
+      - uses: ./.github/actions/install-solana
+        with: 
+          solana_version: ${{ env.SOLANA_VERSION }}
+      - uses: ./.github/actions/install-rust
+        with: 
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+      # - uses: ./.github/actions/install-anchor-version-manager
+      - uses: ./.github/actions/install-anchor
+        with:
+          anchor_version: ${{ env.ANCHOR_VERSION }} 
+
+      - uses: ./.github/actions/install-node-dependencies
+
+      # Restore Cache from previous build/test
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            ./rust/target
+          key: ${{ env.CACHE_ID }}-${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}-${{ env.RUSTC_HASH }}
+
+      # Build deps
+      - uses: ./.github/actions/build-tutorial
+
+      - run: yarn test:anchor --skip-build
+
+      # Run rust test
+      - name: test-tutorial-program
+        id: run_test
+        working-directory: ./dao-programs/programs/tutorial
+        run: |
+          cargo +${{ env.RUST_TOOLCHAIN }} test -- --nocapture --test-threads 1
+          cargo +${{ env.RUST_TOOLCHAIN }} test-bpf --version
+          cargo +${{ env.RUST_TOOLCHAIN }} test-bpf -- --nocapture --test-threads 1
+
+  deploy-to-devnet:
+    needs: [upsert-devnet-keypair, build-and-test-tutorial]
+    runs-on: ubuntu-latest
+    steps:
+      # Setup Deps
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/upsert-keypair
+        id: upsert-devnet-keypair
+        with: 
+          solana_version: ${{ env.SOLANA_VERSION }}
+      - uses: ./.github/actions/airdrop-solana
+        with:
+          publicKey: ${{ steps.upsert-devnet-keypair.outputs.publicKey }}
+          amount: 2
+      - uses: ./.github/actions/airdrop-solana
+        with:
+          publicKey: ${{ steps.upsert-devnet-keypair.outputs.publicKey }}
+          amount: 2
+      - uses: ./.github/actions/airdrop-solana
+        with:
+          publicKey: ${{ steps.upsert-devnet-keypair.outputs.publicKey }}
+          amount: 2
+      - name: set solana-cli config.
+        run: solana config --devnet 
+      - name: Deploy to devnet.
+        working-directory: ./dao-programs/programs/tutorial
+        run: anchor deploy --provider.wallet devnet-${{env.PR_NUMBER}}-keypair.json 
+
+  # upgrade-devnet-program:
+  #   needs: [generate-devnet-keypair, build-and-test-tutorial, deploy-to-devnet]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Setup Deps
+  #     - uses: actions/checkout@v2

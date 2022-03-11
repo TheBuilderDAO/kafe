@@ -1,0 +1,20 @@
+name:  Airdrop Sol
+
+inputs:
+  publicKey:
+    description: PublicKey of the wallet  
+    required: true
+  amount:
+    description: Amount of sol to send
+    default: 2
+  
+runs:
+  using: "composite"
+  steps:
+    - name: Airdrop
+      run: solana airdrop ${{inputs.amount}} ${{inputs.publicKey}} --url https://api.devnet.solana.com
+      shell: bash
+
+    - name: Balance 
+      run: solana balance ${{inputs.publicKey}} --url https://api.devnet.solana.com
+      shell: bash

@@ -1,0 +1,1 @@
+export const ARWEAVE_REQUIRED_CONFIRMATIONS = 2;

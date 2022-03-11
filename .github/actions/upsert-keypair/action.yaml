@@ -1,0 +1,64 @@
+name: Upser Keypair for Devnet. 
+
+inputs:
+  solana_version:
+    description: Version of Solana to install
+    required: true
+
+outputs:
+  publicKey:
+    description: "Devnet Public Key for the project"
+    value: ${{ steps.get_publicKey.outputs.publicKey }}
+  key_exist:
+    description: "Check is there default key for this PR"
+    value: ${{ steps.check_keypair.outputs.key_exist }}
+
+runs:
+  using: "composite"
+  steps:
+      - uses: actions/cache@v2
+        if: ${{ !env.ACT }}
+        id: cache-devnet-keypair
+        with:
+          path: |
+            ~/.config/solana/id.json
+          key: ${{ env.CACHE_ID }}-${{ runner.os }}-keypair-${{ env.PR_NUMBER }}
+
+      - uses: ./.github/actions/install-solana
+        with: 
+          solana_version: ${{ env.SOLANA_VERSION }}
+      - name: Check keypair existence
+        id: check_keypair
+        run: |
+          test -f ~/.config/solana/id.json && KEY_EXIST="true" || KEY_EXIST="false"
+          echo "::set-output name=key_exists::$(echo $KEY_EXIST)"
+        shell: bash
+      - name: Get Public Key
+        id: check_keypair_stdout
+        run: |
+          echo Key Exist: ${{steps.check_keypair.outputs.key_exists}}
+        shell: bash
+      - name: Generate Devnet Keypair
+        if: ${{steps.check_keypair.outputs.key_exists != 'true' }}
+        id: keygen
+        run: |
+          solana-keygen new
+        shell: bash
+      - name: Get Public Key
+        id: get_publicKey
+        run: |
+          echo "::set-output name=publicKey::$(solana-keygen pubkey ~/.config/solana/id.json)"
+        shell: bash
+      - name: Get Public Key
+        id: get_publicKey_stdout
+        run: |
+          echo PublicKey: ${{steps.get_publicKey.outputs.publicKey}}
+        shell: bash
+      - uses: ./.github/actions/airdrop-solana
+        with:
+          publicKey: ${{ steps.get_publicKey.outputs.publicKey }}
+          amount: 2
+      - uses: actions/upload-artifact@v2
+        with:
+          name: devnet-${{env.PR_NUMBER}}-keypair.json
+          path: ~/.config/solana/id.json

@@ -1,0 +1,18 @@
+[programs.localnet]
+tutorial = "DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX"
+
+[programs.devnet]
+tutorial = "DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX"
+
+[programs.testnet]
+tutorial = "DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn test:programs"

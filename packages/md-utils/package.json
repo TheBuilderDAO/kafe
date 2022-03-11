@@ -1,0 +1,44 @@
+{
+  "name": "@builderdao/md-utils",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "source": "./src/index.ts",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "dev": "yarn build --watch",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "lint": "TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "keywords": [],
+  "author": "@builderdao",
+  "license": "ISC",
+  "devDependencies": {
+    "@builderdao/config": "*",
+    "@builderdao/tsconfig": "*",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "eslint": "^8.9.0",
+    "tsup": "^5.11.11",
+    "typescript": "^4.5.3"
+  },
+  "dependencies": {
+    "@agentofuser/rehype-section": "^1.0.5",
+    "@jsdevtools/rehype-toc": "^3.0.2",
+    "gray-matter": "^4.0.3",
+    "image-size": "^1.0.1",
+    "mdx-bundler": "^8.0.1",
+    "next": "^12.0.8",
+    "next-mdx-remote": "^3.0.8",
+    "reading-time": "^1.5.0"
+  }
+}

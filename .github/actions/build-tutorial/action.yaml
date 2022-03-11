@@ -1,0 +1,31 @@
+# Implicit dependencies
+# - actions/checkout@v2
+# - ./.github/actions/install-linux-build-deps
+# - ./.github/actions/install-solana
+# - ./.github/actions/install-rust
+
+name: Build Tutorial Program 
+runs:
+  using: 'composite'
+  steps:
+    - name: Create Temp Keypair for localnet test.
+      run: solana-keygen new --no-bip39-passphrase --force
+      shell: bash
+
+    - run: solana config set --url localhost
+      shell: bash
+    - name: get cargo cache
+      uses: actions/cache@v2
+      with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            ./target/
+          key: ${{env.CACHE_ID}}-${{ runner.os }}-v0000-${{ hashFiles('./dao-programs/programs/tutorial/src/**') }}
+
+    - name: build-tutorial-program
+      working-directory: ./dao-programs/programs/tutorial
+      run: anchor build
+      shell: bash

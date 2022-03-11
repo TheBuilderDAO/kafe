@@ -1,0 +1,55 @@
+name: 'Checks for required reviewer PR review state'
+description: 'Makes a Github Graphql request to get the PR review status of author'
+inputs:
+  AUTHOR:  # id of input
+    description: 'Reviewer Github Login'
+    required: true
+  GITHUB_TOKEN:
+    required: true
+  OWNER:
+    default: ${{ github.repository_owner }}
+  REPO:
+    default: ${{ github.event.repository.name }}
+  PR_NUMBER:
+    default: ${{ github.event.pull_request.number }}
+
+outputs:
+  status:
+    description: "Status of the review"
+    value: ${{ steps.review_state.outputs.state }}
+
+runs:
+  using: "composite"
+  steps:
+      - name: Check if all reviewer are present and approved
+        id: review_state
+        env:
+          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+          OWNER: ${{ inputs.OWNER }}
+          REPO: ${{ inputs.REPO }}
+          PR_NUMBER: ${{ inputs.PR_NUMBER }}
+          AUTHOR: ${{ inputs.AUTHOR}}
+        shell: bash
+        run: |
+          state="$(gh api graphql -F owner=$OWNER -F name=$REPO -F pr_number=$PR_NUMBER -F author=$AUTHOR -f query='
+            query($name: String!, $owner: String!, $pr_number: Int!, $author: String!) {
+              repository(owner: $owner, name: $name) {
+                pullRequest(number: $pr_number) {
+                  reviews(author: $author, last: 1) {
+                    nodes {
+                      state
+                    }
+                  }
+                }
+              }
+            }
+          ' --jq '.data.repository.pullRequest.reviews.nodes.[].state')"
+          echo "::set-output name=state::$state"
+      - name: result
+        shell: bash
+        env: 
+          STATE: ${{ steps.review_state.outputs.state }}
+          PR_NUMBER: ${{ inputs.PR_NUMBER }}
+          AUTHOR: ${{ inputs.AUTHOR}}
+        run: |
+            echo "$AUTHOR is $STATE on PR $PR_NUMBER"

@@ -1,0 +1,37 @@
+name: Setup Anchor cli
+
+inputs:
+  anchor_git:
+    description: Link to Anchor cli GH repository
+    default: 'https://github.com/project-serum/anchor'
+    required: true
+  anchor_version:
+    description: Version of the Anchor CLI.
+    default: 'v0.22.0'
+    required: true
+  
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache@v2
+      name: Cache Cargo registry + index
+      id: cache-anchor
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          ./target/
+        key: ${{ env.CACHE_ID }}-${{ runner.os }}-anchor-${{inputs.anchor_version}}-cargo-${{ hashFiles('**/Cargo.lock') }}-
+    - name: Install Anchor Version Manager
+      run: cargo install --git ${{inputs.anchor_git}} --tag v${{inputs.anchor_version}} anchor-cli --locked
+      if: ${{steps.cache-anchor.outputs.cache-hit != 'true'}}
+      shell: bash
+
+    # - name: Install Anchor Version ${{inputs.anchor_version}}
+    #   if: ${{steps.cache-anchor.outputs.cache-hit != 'true'}}
+    #   run: avm install ${{inputs.anchor_version}} && avm use ${{inputs.anchor_version}} 
+    #   shell: bash
+    - run: anchor -V 
+      shell: bash

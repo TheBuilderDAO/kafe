@@ -1,0 +1,59 @@
+{
+  "name": "turborepo-basic-shared",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tutorials/*",
+    "dao-programs/programs/*"
+  ],
+  "scripts": {
+    "builderdao": "builderdao",
+    "build": "turbo run build",
+    "build:localnet": "turbo run build:localnet",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "turbo run test --parallel",
+    "test:anchor": "cd dao-programs && anchor test",
+    "test:programs": "turbo run test:program --parallel --scope=@builderdao-sdk*",
+    "clean": "turbo run clean --parallel",
+    "prepare": "husky install",
+    "prepublish": "turbo run prepublish"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "dao-programs/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "packages/ui/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "packages/dao-utils/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "packages/md-utils/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "tutorials/**/content/**/*.{md,mdx}": [
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.5"
+}

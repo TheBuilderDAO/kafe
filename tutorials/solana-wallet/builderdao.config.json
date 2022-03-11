@@ -1,0 +1,26 @@
+{
+  "title": "Make a Solana Explorer clone using React",
+  "authors": [
+    {
+      "name": "Necmttn",
+      "nickname": "necmttn",
+      "avatarUrl": ""
+    }
+  ],
+  "description": "In this tutorial, we will learn how everything works in The Graph Network Subgraphs under the hood, right from the moment an event is emitted by a smart contract on the blockchain...",
+  "imageUrl": "https://github.com/figment-networks/learn-tutorials/raw/master/assets/The-Simpsons-Season-33.jpeg",
+  "categories": [
+    {
+      "name": "Wallet",
+      "slug": "wallet"
+    },
+    {
+      "name": "Advanced",
+      "slug": "advanced"
+    }
+  ],
+  "href": "/learn//Users/necmttn/Projects/crypto/kafe/publishing/tutorials",
+  "content": {
+    "index.mdx": "048b5e0790757764916215498dcfd33593b2455b9c4c302e2eed32a40d4518f6"
+  }
+}
