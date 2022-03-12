@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import { Low, JSONFile } from 'lowdb-node'
 import lodash from 'lodash'
 import path from 'path';
@@ -21,13 +22,13 @@ type BuilderDaoConfigJson = {
   }[];
   href: string;
 }
-
 class LowWithLodash<T> extends Low<T> {
   chain: lodash.ExpChain<this['data']> = lodash.chain(this).get('data')
 }
 
 export class BuilderDaoConfig {
   public db: LowWithLodash<BuilderDaoConfigJson>
+
   public git: SimpleGit 
 
   constructor(rootFolder: string) {
@@ -36,21 +37,23 @@ export class BuilderDaoConfig {
     this.git = simpleGit().clean(CleanOptions.FORCE);
   }
 
-  initial(): BuilderDaoConfigJson {
-    // const spawn = require('child_process').spawn;
-    // spawn('git' ,['config --get user.name'])
+  async initial({
+    proposalId,
+    title,
+    
+  }): Promise<BuilderDaoConfigJson>{
+    const name = (await this.git.getConfig('user.name')).value
+    const email = (await this.git.getConfig('user.email')).value
 
-    const name = this.git.getConfig('user.name')
-    const email = this.git.getConfig('user.email')
-    console.log(name, email)
+    const author = {
+        name: name ?? 'The Builder Dao',
+        avatarUrl: "",
+        email: email ?? 'root@thebuilderdao.com',
+        nickname: ''
+    }
 
     return {
-      authors: [{
-        name: "",
-        avatarUrl: "",
-        email: "",
-        nickname: ''
-      }],
+      authors: [author],
       categories: [],
       content: {},
       description: "",

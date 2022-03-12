@@ -1,4 +1,3 @@
-import { BuilderDaoConfig } from './../services/builderdao-config.service';
 import * as commander from 'commander';
 import path from 'path';
 import {
@@ -8,6 +7,7 @@ import {
 } from '@builderdao/md-utils';
 
 import { log as _log, hashSumDigest } from '../utils';
+import { BuilderDaoConfig } from '../services/builderdao-config.service';
 
 export function makeTutorialCommand() {
   const rootFolderPath = path.join(
@@ -62,8 +62,8 @@ export function makeTutorialCommand() {
         ? path.join(rootFolderPath, learnPackageName)
         : process.cwd();
 
-      const config = new BuilderDaoConfig(rootFolder)
-      config.initial()
+
+      // const config = new BuilderDaoConfig(rootFolder)
     })
 
 
