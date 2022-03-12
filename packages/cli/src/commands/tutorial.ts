@@ -1,3 +1,4 @@
+import { BuilderDaoConfig } from './../services/builderdao-config.service';
 import * as commander from 'commander';
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -47,18 +48,13 @@ export function makeTutorialCommand() {
       const tutorialMetadata = await getTutorialContentByPath({
         rootFolder,
       });
-      const content: { [filename: string]: string } = {};
+      const configFilePath = path.join(rootFolder, 'builderdao.config.json');
+      const config = new BuilderDaoConfig(configFilePath)
       for (const file of tutorialMetadata.content) {
         const digest = await hashSumDigest(file.path);
-        content[file.name] = digest;
+        config.db.chain.set(`content.${file.name}`, digest).value();
       }
-
-      const configFilePath = path.join(rootFolder, 'builderdao.config.json');
-      tutorialMetadata.config.content = content;
-      await fs.writeFile(
-        configFilePath,
-        JSON.stringify(tutorialMetadata.config, null, 2),
-      );
+      await config.write();
     });
 
   return tutorial;
