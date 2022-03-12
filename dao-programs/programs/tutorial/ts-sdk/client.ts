@@ -91,13 +91,6 @@ export class TutorialProgramClient {
     )
   }
 
-  async getReviewerByReviewerAccountPDA(reviewerAccountPk: PublicKey) {
-    return reviewerAccountByReviewerAccountPDA(
-      this.tutorialProgram,
-      reviewerAccountPk,
-    );
-  }
-
   async getReviewerByGithubLogin(githubLogin: string) {
     return reviewerAccountByGithubLogin(this.tutorialProgram, githubLogin)
   }
