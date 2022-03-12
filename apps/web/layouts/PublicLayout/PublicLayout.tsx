@@ -46,7 +46,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
             <LeftSidebar />
           </div>
 
-          <div className="grow">
+          <div className="w-minimum">
             <Content>{children}</Content>
           </div>
         </div>

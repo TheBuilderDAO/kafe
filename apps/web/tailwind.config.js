@@ -41,7 +41,11 @@ module.exports = {
           '100%': { transform: 'translateY(-70px)' },
         },
       },
+      width: {
+        minimum: '1300px',
+        maximum: '1500px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
-}
+};
