@@ -21,7 +21,8 @@ export const usePublishTutorial = <AD>(): [
         setError(null);
         setSubmitting(true);
 
-        const txHash = await tutorialProgram.publishProposal(data);
+        // const txHash = await tutorialProgram.publishProposal(data);
+        const txHash = "TODO:";
 
         console.log('TX Hash', txHash);
 
