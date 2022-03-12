@@ -2,10 +2,10 @@
   "name": "@builderdao/cli",
   "version": "0.0.1",
   "description": "",
-  "main": "./dist/cli.cjs",
   "types": "./dist/cli.d.ts",
   "source": "./src/cli.ts",
   "type": "module",
+  "exports": "./dist/index.js",
   "files": [
     "dist/**"
   ],
@@ -36,11 +36,13 @@
     "@builderdao/md-utils": "*",
     "@project-serum/anchor": "^0.17.0",
     "@solana/web3.js": "1.33.0",
-    "bs58": "^5.0.0",
+    "base58-js": "^1.0.0",
     "commander": "^9.0.0",
     "lodash": "^4.17.21",
     "lowdb": "^3.0.0",
+    "lowdb-node": "^3.0.2",
     "plop": "^3.0.5",
-    "prettyjson": "^1.2.5"
+    "prettyjson": "^1.2.5",
+    "simple-git": "^3.3.0"
   }
 }

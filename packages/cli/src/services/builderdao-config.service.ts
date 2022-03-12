@@ -1,5 +1,7 @@
-import { Low, JSONFile } from 'lowdb'
+import { Low, JSONFile } from 'lowdb-node'
 import lodash from 'lodash'
+import path from 'path';
+import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
 
 type BuilderDaoConfigJson = {
   proposalId: null | number;
@@ -26,14 +28,29 @@ class LowWithLodash<T> extends Low<T> {
 
 export class BuilderDaoConfig {
   public db: LowWithLodash<BuilderDaoConfigJson>
+  public git: SimpleGit 
 
-  constructor(configFilePath: string) {
+  constructor(rootFolder: string) {
+    const configFilePath = path.join(rootFolder, 'builderdao.config.json');
     this.db = new LowWithLodash(new JSONFile<BuilderDaoConfigJson>(configFilePath))
+    this.git = simpleGit().clean(CleanOptions.FORCE);
   }
 
   initial(): BuilderDaoConfigJson {
+    // const spawn = require('child_process').spawn;
+    // spawn('git' ,['config --get user.name'])
+
+    const name = this.git.getConfig('user.name')
+    const email = this.git.getConfig('user.email')
+    console.log(name, email)
+
     return {
-      authors: [],
+      authors: [{
+        name: "",
+        avatarUrl: "",
+        email: "",
+        nickname: ''
+      }],
       categories: [],
       content: {},
       description: "",

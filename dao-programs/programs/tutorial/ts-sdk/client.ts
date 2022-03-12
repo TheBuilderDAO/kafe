@@ -1,5 +1,4 @@
 import { Commitment, Connection, PublicKey } from '@solana/web3.js';
-import { Program, Provider } from '@project-serum/anchor';
 import * as anchor from '@project-serum/anchor';
 
 import {
@@ -39,15 +38,15 @@ const providerOptions: { commitment: Commitment } = {
 }
 
 export class TutorialProgramClient {
-  public readonly provider: Provider
-  public readonly tutorialProgram: Program<Tutorial>
+  public readonly provider: anchor.Provider
+  public readonly tutorialProgram: anchor.Program<Tutorial>
   public readonly kafeMint: PublicKey
   public readonly programId: PublicKey
 
   private readonly pda
 
   constructor(connection: Connection, wallet: typeof anchor.Wallet, kafeMint: PublicKey) {
-    this.provider = new Provider(connection, wallet, providerOptions);
+    this.provider = new anchor.Provider(connection, wallet, providerOptions);
     const { getProgram, PROGRAM_ID } = TutorialProgramConfig.getConfig();
     this.programId = PROGRAM_ID;
     this.tutorialProgram = getProgram(this.provider);

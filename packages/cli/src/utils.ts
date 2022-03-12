@@ -1,7 +1,7 @@
-import { set, get } from 'lodash';
+import * as _ from 'lodash';
 import prettyjson from 'prettyjson';
 import * as anchor from '@project-serum/anchor';
-import * as bs58 from 'bs58';
+import { base58_to_binary, binary_to_base58 } from 'base58-js'
 import { Keypair } from '@solana/web3.js';
 import { promises as fs } from 'fs';
 import crypto from 'crypto';
@@ -13,15 +13,15 @@ function stringifyPublicKeys(obj: any) {
   for (let i = 0; i < keys.length; i++) {
     const val = obj[keys[i]];
     if (val?.toBuffer) {
-      set(result, keys[i], val.toString());
+      _.set(result, keys[i], val.toString());
     } else if (
       val instanceof Object &&
       Object.keys.length > 0 &&
       !Array.isArray(val)
     ) {
-      set(result, keys[i], stringifyPublicKeys(val));
+      _.set(result, keys[i], stringifyPublicKeys(val));
     } else {
-      set(result, keys[i], val);
+      _.set(result, keys[i], val);
     }
   }
   return result;
@@ -29,16 +29,18 @@ function stringifyPublicKeys(obj: any) {
 
 export const log = (object: any, key = undefined) => {
   if (key) {
-    console.log(stringifyPublicKeys({ [key]: get(object, key) })[key]);
+    console.log(stringifyPublicKeys({ [key]: _.get(object, key) })[key]);
   } else {
     console.log(prettyjson.render(stringifyPublicKeys(object)));
   }
 };
 
 export const createKeypairFromSecretKey = (secretKey: string) => {
-  const array = Uint8Array.from(bs58.decode(secretKey));
+  const array = Uint8Array.from(base58_to_binary(secretKey));
   return anchor.web3.Keypair.fromSecretKey(array);
 };
+
+export const encodeKeypairSecretKey = (keypair: Keypair) => binary_to_base58(keypair.secretKey);
 
 export const loadKeypairJson = async (path: string) =>
   Keypair.fromSecretKey(

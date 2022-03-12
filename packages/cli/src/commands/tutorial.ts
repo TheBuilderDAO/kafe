@@ -1,6 +1,5 @@
 import { BuilderDaoConfig } from './../services/builderdao-config.service';
 import * as commander from 'commander';
-import { promises as fs } from 'fs';
 import path from 'path';
 import {
   getTutorialPaths,
@@ -48,14 +47,25 @@ export function makeTutorialCommand() {
       const tutorialMetadata = await getTutorialContentByPath({
         rootFolder,
       });
-      const configFilePath = path.join(rootFolder, 'builderdao.config.json');
-      const config = new BuilderDaoConfig(configFilePath)
+      const config = new BuilderDaoConfig(rootFolder)
       for (const file of tutorialMetadata.content) {
         const digest = await hashSumDigest(file.path);
         config.db.chain.set(`content.${file.name}`, digest).value();
       }
       await config.write();
     });
+
+  tutorial.command('init')
+    .argument('[learnPackageName]', 'Tutorial name')
+    .action(async (learnPackageName) => {
+      const rootFolder = learnPackageName
+        ? path.join(rootFolderPath, learnPackageName)
+        : process.cwd();
+
+      const config = new BuilderDaoConfig(rootFolder)
+      config.initial()
+    })
+
 
   return tutorial;
 }
