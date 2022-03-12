@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import routes from 'routes';
 import Tags from '../Tags/Tags';
 import VoteButton from '@app/components/VoteButton/VoteButton';
 import { addEllipsis } from 'utils/strings';

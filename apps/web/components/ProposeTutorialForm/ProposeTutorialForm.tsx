@@ -76,7 +76,9 @@ const ProposeTutorialForm = () => {
                     height="25"
                   />
                 </div>
-                <p className="font-black">{wallet.wallet.adapter.name}</p>
+                <p className="font-black">
+                  {wallet?.wallet?.adapter?.name || 'builderDAO'}
+                </p>
               </div>
               <div className="mt-1">
                 <InputTitle

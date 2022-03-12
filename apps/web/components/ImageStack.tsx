@@ -8,7 +8,7 @@ const ImageStack = ({ images }) => {
       {images.map(image => (
         <div
           className={`-mr-6 shadow:md border-[0.5px] w-[${size}px] h-[${size}px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110`}
-          key="hey"
+          key={image.image.src}
         >
           <Image
             src={image.image}

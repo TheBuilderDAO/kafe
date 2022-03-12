@@ -71,6 +71,7 @@ const App = ({ Component, pageProps }: AppProps) => {
               content="width=device-width, initial-scale=1"
               name="viewport"
             />
+            <link rel="shortcut icon" href="/favicon.ico" />
           </Head>
           {/* TODO: <Analytics /> */}
           <SWRDevTools>

@@ -1,21 +1,18 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 
-const InputCheckbox = ({options}) => {
-  return (
-    options.map(option => 
-      <label
-          key={option}
-          htmlFor={option}
-          className="cursor-pointer">
-            <input
-              type="radio"
-              id={option}
-              name="radio"
-              value={option}
-              className="peer absolute opacity-0 cursor-pointer"
+const InputCheckbox = React.forwardRef(({ options }, refs) => {
+  return options.map(option => (
+    <label key={option} htmlFor={option} className="cursor-pointer">
+      <input
+        type="radio"
+        id={option}
+        name="radio"
+        value={option}
+        className="peer absolute opacity-0 cursor-pointer"
       />
-          <span 
-            className="
+      <span
+        className="
             p-1
             px-2
             border-[1px]
@@ -30,12 +27,11 @@ const InputCheckbox = ({options}) => {
             dark:peer-hover:border-kafered
             text-[12px]
             mr-4"
-          >
-            {option}
-            </span>
-        </label>
-      )
-  )
-}
+      >
+        {option}
+      </span>
+    </label>
+  ));
+});
 
-export default InputCheckbox
+export default InputCheckbox;

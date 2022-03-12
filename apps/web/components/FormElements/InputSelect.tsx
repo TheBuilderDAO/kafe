@@ -2,7 +2,8 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import Select from 'react-select';
 
-const InputSelect = ({ options }) => {
+// eslint-disable-next-line react/display-name
+const InputSelect = React.forwardRef(({ options }, ref) => {
   const { theme } = useTheme();
   options = options.map(option => ({
     value: option,
@@ -13,7 +14,7 @@ const InputSelect = ({ options }) => {
   const toggleBg = theme === 'dark' ? '#131213' : '#FCFBF9';
   const toggleText = theme === 'dark' ? '#EAE4D9' : '#1E1C1E';
   const customStyles = {
-    control: (provided, state) => ({
+    control: provided => ({
       ...provided,
       backgroundColor: toggleBg,
       border: 'none',
@@ -74,6 +75,6 @@ const InputSelect = ({ options }) => {
       })}
     />
   );
-};
+});
 
 export default InputSelect;
