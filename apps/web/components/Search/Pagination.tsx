@@ -12,7 +12,7 @@ const Pagination = ({ currentRefinement, nbPages, refine, createURL }) => (
         <a
           key={index}
           href={createURL(page)}
-          className="px-2 py-2 mr-2 rounded border border-gray-300 bg-white text-sm font-medium text-gray-500"
+          className="px-8 py-2 mr-2 rounded-3xl border border-kafeblack dark:border-kafewhite bg-kafelighter dark:bg-kafedarker text-sm font-medium text-kafeblack dark:text-kafewhite hover:bg-kafegold dark:hover:bg-kafegold dark:hover:text-kafeblack"
           onClick={event => {
             event.preventDefault();
             refine(page);

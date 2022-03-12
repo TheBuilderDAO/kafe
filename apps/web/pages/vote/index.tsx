@@ -4,14 +4,9 @@ import Head from 'next/head';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import TutorialProposalHit from '../../components/Search/TutorialProposalHit';
+import TutorialFilter from '../../components/TutorialFilter';
 import Pagination from '../../components/Search/Pagination';
-import MenuSelect from '../../components/Search/MenuSelect';
-import ClearRefinements from '../../components/Search/ClearRefinements';
-import RefinementList from '../../components/Search/RefinementList';
-import routes from '../../routes';
 import Link from 'next/link';
-import SortBy from '@app/components/Search/SortBy';
-import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import { useGetListOfProposals } from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 
@@ -64,7 +59,9 @@ const Home: NextPage = () => {
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />
             </div>
-            <RightSidebar>Hey</RightSidebar>
+            <RightSidebar>
+              <TutorialFilter />
+            </RightSidebar>
           </div>
         </InstantSearch>
       </main>
