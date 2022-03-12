@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const BorderSVG = () => {
   return (
@@ -9,7 +9,7 @@ const BorderSVG = () => {
     >
       <rect width="100%" height="100%" rx="34.5" strokeDasharray="1 5" />
     </svg>
-  )
-}
+  );
+};
 
-export default BorderSVG
+export default BorderSVG;

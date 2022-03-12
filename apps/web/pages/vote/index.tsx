@@ -13,6 +13,7 @@ import Link from 'next/link';
 import SortBy from '@app/components/Search/SortBy';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import { useGetListOfProposals } from '@builderdao-sdk/dao-program';
+import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -58,11 +59,12 @@ const Home: NextPage = () => {
             hitsPerPage={4}
             analytics={false}
           />
-          <div className="flex flex-row gap-10">
-            <div className="w-full">
+          <div className="flex justify-between items-start">
+            <div className="flex flex-col grow">
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />
             </div>
+            <RightSidebar>Hey</RightSidebar>
           </div>
         </InstantSearch>
       </main>

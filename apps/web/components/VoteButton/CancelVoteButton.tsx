@@ -22,8 +22,7 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
         loading: `Cancelling vote`,
         success: `Vote cancelled successfully`,
         error: `Error cancelling vote`,
-      })
-
+      });
     } catch (err) {
       toast.error(err.message);
     }
