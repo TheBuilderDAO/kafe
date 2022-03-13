@@ -26,23 +26,21 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
   return (
     <div
       key={tutorial.title}
-      className="p-10 my-10 border-2 border-dotted tutorial rounded-3xl bg-kafelight dark:bg-kafedark"
+      className="p-10 my-10 border-[1.5px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark min-w-[700px]"
     >
-      <div className="flex mb-16 row">
-        <div className="flex flex-shrink-0">
-          Proposal by
-          {tutorial.authors.map(author => (
-            <a key={author.nickname} href={author.nickname} className="mx-2">
-              <span className="sr-only">{author.name}</span>
-              <Image
-                src={author.avatarUrl ? author.avatarUrl : defaultAvatar}
-                alt="avatar"
-                width={25}
-                height={25}
-              />
-            </a>
-          ))}
-        </div>
+      <div className="flex items-center mb-10">
+        <p>Proposal by</p>
+        {tutorial.authors.map(author => (
+          <a key={author.nickname} href={author.nickname} className="mx-2">
+            <span className="sr-only">{author.name}</span>
+            <Image
+              src={author.avatarUrl ? author.avatarUrl : defaultAvatar}
+              alt="avatar"
+              width={25}
+              height={25}
+            />
+          </a>
+        ))}
         <div>
           <p className="text-sm font-bold">
             {tutorial.authors.map(author => (

@@ -1,9 +1,9 @@
 import React from 'react';
 import { TutorialCard } from '@builderdao/ui';
-import defaultAvatar from '../../public/assets/icons/default_avatar.svg'; //figure out why direct import not working here
+import defaultAvatar from '/public/assets/icons/default_avatar.svg';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { getTutorialPaths } from '@builderdao/md-utils';
-import _ from 'lodash';
+import RightSidebar from 'layouts/PublicLayout/RightSidebar';
 
 const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -22,6 +22,9 @@ const LearnIndexPage: NextPage<
           ))}
         </div>
       </section>
+      <RightSidebar>
+        <p>Hey</p>
+      </RightSidebar>
     </div>
   );
 };
