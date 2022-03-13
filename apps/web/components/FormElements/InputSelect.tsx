@@ -67,7 +67,7 @@ const InputSelect = React.forwardRef(({ options }, ref) => {
     }),
   };
   return (
-    <div className="w-full bg-kafedarker rounded-2xl">
+    <div className="w-full dark:bg-kafedarker bg-kafelighter rounded-2xl">
       <Select
         options={options}
         isMulti
