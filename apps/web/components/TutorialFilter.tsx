@@ -31,16 +31,13 @@ const TutorialFilter = () => {
     control: provided => ({
       ...provided,
       backgroundColor: 'none',
-      padding: '0',
-      borderRadius: '20px',
+      padding: '0px',
       minHeight: '60px',
-      marginTop: '5px',
-      border: '0',
+      margin: '0px',
+      border: 'none',
       boxShadow: 'none',
       cursor: 'pointer',
-      '&:hover': {
-        transform: 'scale(1.05)',
-      },
+      transform: 'scale(1.05)',
     }),
 
     menu: provided => ({
@@ -56,6 +53,13 @@ const TutorialFilter = () => {
       '&:hover': {
         color: toggleHover,
       },
+    }),
+
+    singleValue: provided => ({
+      ...provided,
+      color: toggleText,
+      margin: '0px',
+      padding: '0px',
     }),
 
     indicatorSeparator: provided => ({
@@ -84,13 +88,13 @@ const TutorialFilter = () => {
       ...provided,
       color: toggleText,
       outline: 'none',
-      border: 'none',
+      fontSize: 'larger',
     }),
   };
   return (
     <div>
       <div>
-        <p>sort by</p>
+        <p className="text-kafemellow">sort by</p>
         <Select
           options={[
             { label: 'popularity', value: 'popularity' },
