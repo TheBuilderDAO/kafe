@@ -16,13 +16,14 @@ const InputSelect = React.forwardRef(({ options }, ref) => {
   const customStyles = {
     control: provided => ({
       ...provided,
-      backgroundColor: toggleBg,
+      backgroundColor: 'none',
       border: 'none',
       padding: '10px',
       maxWidth: '400px',
       borderRadius: '20px',
       minHeight: '60px',
       marginTop: '10px',
+      cursor: 'pointer',
     }),
 
     menu: provided => ({
@@ -54,26 +55,38 @@ const InputSelect = React.forwardRef(({ options }, ref) => {
       ...provided,
       color: 'white',
     }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      display: state.isFocused ? 'none' : 'block',
+    }),
+
+    input: (provided, state) => ({
+      ...provided,
+      color: toggleText,
+      '&:focus': {},
+    }),
   };
   return (
-    <Select
-      options={options}
-      isMulti
-      isSearchable
-      className="text-kafered"
-      classNamePrefix="text-kafeblack dark:text-white-200 text-kafeblack"
-      placeholder="Select tags"
-      styles={customStyles}
-      theme={theme => ({
-        ...theme,
-        borderRadius: 0,
-        colors: {
-          ...theme.colors,
-          primary25: innerTheme === 'dark' ? '#EB5F49' : '#9462F7',
-          primary: 'none',
-        },
-      })}
-    />
+    <div className="w-full bg-kafedarker rounded-2xl">
+      <Select
+        options={options}
+        isMulti
+        isSearchable
+        className="text-kafered"
+        classNamePrefix="text-kafeblack dark:text-white-200 text-kafeblack"
+        placeholder="Select tags"
+        styles={customStyles}
+        theme={theme => ({
+          ...theme,
+          borderRadius: 0,
+          colors: {
+            ...theme.colors,
+            primary25: innerTheme === 'dark' ? '#EB5F49' : '#9462F7',
+            primary: 'none',
+          },
+        })}
+      />
+    </div>
   );
 });
 
