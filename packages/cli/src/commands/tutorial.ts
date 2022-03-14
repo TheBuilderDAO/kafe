@@ -252,7 +252,7 @@ export function makeTutorialCommand() {
 
         if (q.name === 'push_changes') {
           if (q.answer) {
-            await git.push(['-u'])
+            await git.push(['-u', 'origin', `tutorials/${proposalSlug}`])
             ui.log.write(
               `🚀 ${proposalSlug} Tutorial Initialized`
             )
