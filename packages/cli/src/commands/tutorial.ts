@@ -236,18 +236,30 @@ export function makeTutorialCommand() {
         }
 
         if (q.name === 'stage_changes') {
-          if(q.answer) {
+          if (q.answer) {
+            ui.log.write('Staging changes');
             await git.add('./*')
-            await git.commit(`🚀: ${proposalSlug} Tutorial created`);
+            console.log(await git.status())
+            ui.log.write('Adding Commit');
+            await git.commit(`🚀 ${proposalSlug} Tutorial Initial`);
+            emitter.next({
+              type: "confirm",
+              name: "push_changes",
+              message: "Push Changes",
+            })
           }
-
         }
 
-
+        if (q.name === 'push_changes') {
+          if (q.answer) {
+            await git.push({
+              '--setUpstream': null,
+            })
+          }
+        }
       })
+    })
 
-})
 
-
-return tutorial;
+  return tutorial;
 }
