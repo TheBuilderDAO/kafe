@@ -1,0 +1,32 @@
+{
+  "proposalId": "01",
+  "slug": "near-101",
+  "authors": [
+    {
+      "name": "Necmettin Karakaya",
+      "avatarUrl": "",
+      "email": "necmettin.karakaya@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "HeS5zcKVg6SrVreMeLSEznxKKEbPDp6zstVykzoGcCF4",
+        "pubkey": "Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy",
+        "githubName": "silentlight"
+      }
+    },
+    {
+      "pda": "9UmKjrRtvFPXgeknAfMsLxWwVGMPEuYzEpta7SQWTptE",
+      "pubkey": "5uKXYaHes21BoBN3EcNDf13EFqUybzirLwSUfSF218As",
+      "githubName": "dgamboa"
+    }
+  ],
+  "content": {},
+  "description": "",
+  "href": "",
+  "imageUrl": "",
+  "title": ""
+}
