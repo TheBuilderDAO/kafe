@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import { Low, JSONFile } from 'lowdb-node'
+import { Low, JSONFile,  } from 'lowdb-node'
 import lodash from 'lodash'
 import path from 'path';
 import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
@@ -7,7 +7,11 @@ import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
 type BuilderDaoConfigJson = {
   proposalId: null | number;
   title: string;
-  content: { [filename: string]: string };
+  content: {[filename: string]: {
+    name: string;
+    path: string;
+    digest: string;
+  }};
   authors: {
     name: string;
     nickname: string;
@@ -40,7 +44,6 @@ export class BuilderDaoConfig {
   async initial({
     proposalId,
     title,
-    
   }): Promise<BuilderDaoConfigJson>{
     const name = (await this.git.getConfig('user.name')).value
     const email = (await this.git.getConfig('user.email')).value

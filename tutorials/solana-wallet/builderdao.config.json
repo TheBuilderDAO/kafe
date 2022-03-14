@@ -21,6 +21,10 @@
   ],
   "href": "/learn//Users/necmttn/Projects/crypto/kafe/publishing/tutorials",
   "content": {
-    "index.mdx": "048b5e0790757764916215498dcfd33593b2455b9c4c302e2eed32a40d4518f6"
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "048b5e0790757764916215498dcfd33593b2455b9c4c302e2eed32a40d4518f6"
+    }
   }
 }

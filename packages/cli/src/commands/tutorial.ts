@@ -8,6 +8,7 @@ import {
 
 import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
+import _ from 'lodash';
 
 export function makeTutorialCommand() {
   const rootFolderPath = path.join(
@@ -21,8 +22,8 @@ export function makeTutorialCommand() {
   tutorial.command('list').action(async () => {
     const { allTutorials } = await getTutorialPaths(rootFolderPath);
     log(allTutorials.reduce((prev: any, curr) => {
-        prev[curr.slug] = curr
-        return prev 
+      prev[curr.slug] = curr
+      return prev
     }, {}));
   });
 
@@ -47,12 +48,22 @@ export function makeTutorialCommand() {
       const tutorialMetadata = await getTutorialContentByPath({
         rootFolder,
       });
-      const config = new BuilderDaoConfig(rootFolder)
-      for (const file of tutorialMetadata.content) {
+      const { db } = new BuilderDaoConfig(rootFolder)
+      await db.read()
+      // const content = db.data?.content || {}
+      // for (const file of tutorialMetadata.content) {
+      await db.read()
+      tutorialMetadata.content.forEach(async file => {
         const digest = await hashSumDigest(file.path);
-        config.db.chain.set(`content.${file.name}`, digest).value();
-      }
-      await config.write();
+        const relativePath = path.relative(rootFolder,file.path);
+        db.chain
+          .set(`content["${relativePath}"]`, {
+            name: file.name,
+            path: relativePath, 
+            digest
+          }).value()
+        await db.write();
+      })
     });
 
   tutorial.command('init')
