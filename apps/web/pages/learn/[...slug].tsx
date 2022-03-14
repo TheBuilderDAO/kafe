@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import {
   getFileByPath,
   getPathForFile,
+  getTutorialContentByPackageName,
   getTutorialPaths,
   PostType,
 } from '@builderdao/md-utils';
@@ -65,8 +66,19 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async context => {
   const slug = context.params.slug as string[];
-  const pathForFile = getPathForFile(slug[0], slug[1]);
-  const post = await getFileByPath<PostType.TUTORIAL>('learn', pathForFile);
+  const getFile = getTutorialContentByPackageName({learnPackageName: slug[0]});
+  const getPost  = async (slug: string[]): Promise<{content: string, data: any}>  => {
+    if (process.env.NODE_ENV === 'production') {
+
+
+    } else {
+      const pathForFile = getPathForFile(slug[0], slug[1]);
+      return await getFileByPath<PostType.TUTORIAL>('learn', pathForFile);
+    }
+  }
+
+  const post = await getPost(slug);
+
   const mdxSource = await serializeContent({
     content: post.content,
     data: post.data,

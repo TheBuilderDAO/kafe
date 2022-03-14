@@ -14,11 +14,9 @@ export const getFileByPath = async <T extends PostType>(
   pathForFile: string,
 ): Promise<FrontMatterPostType<T>> => {
   const source = await fs.readFile(pathForFile, 'utf8');
-
   const parsedFile = matter(source);
 
   const { data, content } = parsedFile;
-  // const mdxSource = await serializeContent(parsedFile);
 
   // TODO: maybe we want to extract this in its own lib?
   /**
@@ -137,6 +135,8 @@ export const getTutorialContentByPath = async ({
       path: path.join(rootFolder, 'content', contentName),
     };
   });
+  const config = new BuilderDaoConfig(rootFolder);
+  config.db.read();
   const rawConfigFile = await fs.readFile(
     path.join(rootFolder, 'builderdao.config.json'),
     'utf8',

@@ -28,12 +28,14 @@
     "content/fetching.mdx": {
       "name": "fetching.mdx",
       "path": "content/fetching.mdx",
-      "digest": "43b82c4a47a5ff2e532383100dff49e7a7baf66375ad08d9ecc1f9bb5b3a658a"
+      "digest": "43b82c4a47a5ff2e532383100dff49e7a7baf66375ad08d9ecc1f9bb5b3a658a",
+      "arweaveHash": "xeiaekHJBsvXIuijVQJL99XyMQOBgSQeTxCFDKzs8xI"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ecd117c3490acdc2ade6422fd3e61ad76945cf9b773c6a695ba466632cbb493f"
+      "digest": "ecd117c3490acdc2ade6422fd3e61ad76945cf9b773c6a695ba466632cbb493f",
+      "arweaveHash": "A7THph4UquX4j1UdCwGC4hxnROzppXMlcZxEO0Fb31U"
     }
   },
   "description": "",

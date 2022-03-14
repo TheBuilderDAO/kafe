@@ -97,14 +97,30 @@ export function makeTutorialCommand() {
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option('--wallet <wallet>', 'Arweave wallet')
+      new commander.Option('--arweave_wallet <arweave_wallet>', 'Arweave wallet')
         .env('ARWEAVE_WALLET')
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option('--appName <appName>', 'Arweave App Name')
+      new commander.Option('--arweave_appName <arweave_appName>', 'Arweave App Name')
         .env('ARWEAVE_APP_NAME')
         .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--arweave_host <arweave_host>', 'Arweave Host')
+        .env('ARWEAVE_HOST')
+        .makeOptionMandatory(),
+    )
+
+    .addOption(
+      new commander.Option('--arweave_port <arweave_port>', 'Arweave Port')
+        .env('ARWEAVE_PORT')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--arweave_protocol <arweave_protocol>', 'Arweave Protocol')
+        .env('ARWEAVE_PROTOCOL')
+        .default('https')
     )
     .action(async (learnPackageName, options) => {
       const rootFolder = learnPackageName
@@ -121,21 +137,52 @@ export function makeTutorialCommand() {
         seed: options.seed,
       });
         const arweave = new ArweaveApi({
-          wallet: options.wallet,
-          appName: options.appName,
+          wallet: options.arweave_wallet,
+          appName: options.arweave_appName,
+          host: options.arweave_host,
+          port: options.arweave_port,
+          protocol: options.arweave_protocol
         });
       const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
       console.log(proposal)
       console.log(ceramicMetadata);
-
-      if (proposal.state === 'published') {
-        console.log("Kicking update process.")
+      
+      const toDeployFiles = []; 
+      if (Object.keys(proposal.state).some((k: string) =>  k === 'readyToPublish')) {
+        console.log('Kicking initial process.')
+        Object.values(content).forEach(async (file) => {
+          console.log(file)
+          const filePath = path.join(rootFolder, file.path);
+          toDeployFiles.push({
+            ...file,
+            fullPath: filePath,
+          })
+          // const fileDigest = await hashSumDigest(filePath);
+          // if (fileDigest !== file.digest) {
+          //   toDeployFiles.push(file);
+          // }
+        })
         // Compare the content.*.digest of the proposal with the content of the ceramicMetadata and update the proposal if needed 
         // find the files chagged and redopley them to arweave.
-      } else if (proposal.state === 'readyToPublish') {
-        console.log('Kicking initial process.')
+      } else if (Object.keys(proposal.state).some((k: string) => k === 'published')) {
+        console.log("Kicking update process.")
         // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
         // Kicking initial process.
+      }
+
+      if (toDeployFiles.length > 0) {
+        console.log("Starting Uploading to Arweave")
+        toDeployFiles.forEach(async (file) => {
+          console.log('Uploading', file.name)
+          const fileContent = await fs.readFile(file.fullPath, 'utf8');
+          const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}-${file.path}`)
+          console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`, file.name, arweaveHash)
+          config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
+          await config.db.write();
+          console.log('Updated builderdao.config.json')
+          await ceramic.updateMetadata(proposal.streamId, {content: {[file.path]: arweaveHash}})
+          console.log('Updated ceramic metadata')
+        })
       }
 
       // End of the ceramic & arweave process.
