@@ -109,7 +109,10 @@ var _ArweaveApi = class {
       const tx = await this.client.transactions.get(transactionHash);
       const tags = {};
       tx.get("tags").forEach((tag) => {
-        const key = tag.get("name", { decode: true, string: true });
+        const key = tag.get("name", {
+          decode: true,
+          string: true
+        });
         tags[key] = tag.get("value", { decode: true, string: true });
       });
       return {

@@ -20,7 +20,7 @@
     "test:programs": "turbo run test:program --parallel --scope=@builderdao-sdk*",
     "clean": "turbo run clean --parallel",
     "prepare": "husky install",
-    "prepublish": "turbo run prepublish"
+    "prepublish:tutorials": "turbo run prepublish"
   },
   "devDependencies": {
     "husky": "^7.0.4",
