@@ -2,8 +2,7 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import Select from 'react-select';
 
-// eslint-disable-next-line react/display-name
-const InputSelect = React.forwardRef(({ options }, ref) => {
+const InputSelect = ({ options }) => {
   const { theme } = useTheme();
   options = options.map(option => ({
     value: option,
@@ -88,6 +87,6 @@ const InputSelect = React.forwardRef(({ options }, ref) => {
       />
     </div>
   );
-});
+};
 
 export default InputSelect;

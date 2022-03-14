@@ -4,7 +4,7 @@ import LoginButton from '../LoginButton/LoginButton';
 
 type IsLoggedInProps = {
   children: ReactNode;
-  Placeholder: React.ComponentType;
+  Placeholder?: React.ComponentType;
 };
 
 const IsLoggedIn = (props: IsLoggedInProps) => {

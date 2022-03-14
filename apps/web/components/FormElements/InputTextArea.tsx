@@ -12,7 +12,7 @@ const InputTextArea = ({ maxLength }) => {
     <div>
       <p
         className={`absolute right-14 bottom-16 text-md dark:bg-kafedarker select-none bg-kafelighter shadow-sm p-2 rounded-xl ${
-          inputLength / maxLength > 0.90 ? 'text-kafered' : null
+          inputLength / maxLength > 0.9 ? 'text-kafered' : null
         }`}
       >{`${inputLength}/${maxLength}`}</p>
       <textarea

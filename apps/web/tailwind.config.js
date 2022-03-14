@@ -34,7 +34,6 @@ module.exports = {
       },
       animation: {
         'slide-up': 'bazinga 0.5s ease forwards',
-        // 'slide-down': 'bazinga 0.5s ease backwards',
       },
       keyframes: {
         bazinga: {

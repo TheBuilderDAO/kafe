@@ -7,7 +7,7 @@ const ImageStack = ({ images }) => {
     <div className="flex flex-row-reverse mr-8">
       {images.map(image => (
         <div
-          className={`-mr-6 shadow:md border-[0.5px] w-[${size}px] h-[${size}px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110`}
+          className={`-mr-6 shadow:md border-[0.5px] w-[40px] h-[40px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110`}
           key={image.image.src}
         >
           <Image

@@ -68,7 +68,7 @@ const WriteForm = ({ tags, register }) => {
             </label>
             <div>
               <InputCheckbox
-                options={['Beginner', 'Intermediate', 'Advanced']}
+                options={['Beginner', 'Advanced']}
                 name="difficulty levels"
                 {...register('difficulty', { required: true })}
               />

@@ -78,12 +78,7 @@ const TutorialProposalHit = props => {
                 {props.hit.title}
               </div>
               <div className="font-thin tracking-wider text-sm leading-6 pt-2 pb-6">
-                {/* {props.hit.description}  */}
-                {/* Commenting the above out to test longer description */}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Temporibus facere pariatur error at dolorem quod sed tempore
-                sit! Officiis maxime illo adipisci rerum praesentium cupiditate
-                animi reprehenderit minus dolores impedit?
+                {props.hit.description}
               </div>
             </div>
             <div className="mb-4">
