@@ -46,8 +46,7 @@
       "eslint --fix"
     ],
     "tutorials/**/content/**/*.{md,mdx}": [
-      "prettier --write",
-      "yarn run prepublish:tutorials"
+      "prettier --write"
     ],
     "*.json": [
       "prettier --write"
