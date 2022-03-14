@@ -81,6 +81,28 @@ export function makeTutorialCommand() {
       })
     });
 
+  tutorial.command('publish')
+    .argument('[learnPackageName]', 'Tutorial name')
+    .action(async learnPackageName => {
+      const rootFolder = learnPackageName
+        ? path.join(rootNodeModulesFolderPath, learnPackageName)
+        : process.cwd();
+
+      const config = new BuilderDaoConfig(rootFolder)
+      await config.db.read();
+      const proposalId = config.db.chain.get('proposalId').parseInt().value()
+      const proposal = await client.getTutorialById(proposalId)
+      const content = config.db.chain.get('content').value();
+      console.log(content);
+      if (proposal.state === 'published') {
+        // Kicking update process.
+      } else (proposal.state === 'readyToPublish') {
+        // Kicking initial process.
+
+      }
+
+    })
+
   tutorial.command('init')
     .action(async () => {
       let emitter: Rx.Subscriber<DistinctQuestion<Answers>>;

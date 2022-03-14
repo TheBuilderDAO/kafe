@@ -24,7 +24,18 @@
       "githubName": "dgamboa"
     }
   ],
-  "content": {},
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "43b82c4a47a5ff2e532383100dff49e7a7baf66375ad08d9ecc1f9bb5b3a658a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ecd117c3490acdc2ade6422fd3e61ad76945cf9b773c6a695ba466632cbb493f"
+    }
+  },
   "description": "",
   "href": "",
   "imageUrl": "",
