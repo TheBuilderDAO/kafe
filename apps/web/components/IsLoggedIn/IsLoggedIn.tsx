@@ -12,7 +12,7 @@ const IsLoggedIn = (props: IsLoggedInProps) => {
 
   const wallet = useWallet();
 
-  if (Placeholder) {
+  if (Placeholder && (!wallet || !wallet.connected)) {
     return <Placeholder />;
   }
 
