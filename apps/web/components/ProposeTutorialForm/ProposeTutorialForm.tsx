@@ -8,6 +8,7 @@ import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import WriteForm from '../FormElements/WriteForm';
 import WriteSidebar from '../Sidebars/WriteSidebar';
 import WriteFormWrapper from '../Wrappers/WriteFormWrapper';
+import LoginButton from '../LoginButton/LoginButton';
 
 type FormData = {
   title: string;
@@ -22,6 +23,15 @@ const ProposeTutorialForm = () => {
   const { loading, error, tags } = useTags();
 
   const [proposeTutorial, { submitting }] = useProposeTutorial();
+
+  const Placeholder = () => {
+    return (
+      <div className="w-full flex flex-col items-center min-h-[200px] justify-center font-larken text-3xl -ml-12">
+        <p className="pb-4">Connect your wallet to view this section.</p>
+        <LoginButton />
+      </div>
+    );
+  };
 
   const onSubmit = useCallback(
     async data => {
@@ -49,7 +59,7 @@ const ProposeTutorialForm = () => {
   }
 
   return (
-    <IsLoggedIn>
+    <IsLoggedIn Placeholder={Placeholder}>
       <WriteFormWrapper handleSubmit={handleSubmit} onSubmit={onSubmit}>
         <WriteForm tags={tags} register={register} />
         <RightSidebar>

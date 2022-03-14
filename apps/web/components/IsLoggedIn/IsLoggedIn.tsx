@@ -1,14 +1,20 @@
 import React, { ReactNode } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
+import LoginButton from '../LoginButton/LoginButton';
 
 type IsLoggedInProps = {
   children: ReactNode;
+  Placeholder: React.ComponentType;
 };
 
 const IsLoggedIn = (props: IsLoggedInProps) => {
-  const { children } = props;
+  const { children, Placeholder } = props;
 
   const wallet = useWallet();
+
+  if (Placeholder) {
+    return <Placeholder />;
+  }
 
   if (!wallet || !wallet.connected) {
     return null;
