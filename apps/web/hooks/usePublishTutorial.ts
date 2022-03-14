@@ -3,7 +3,6 @@ import { useDapp } from './useDapp';
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { usePublishTutorial as solanaUsePublishTutorial } from '@builderdao-sdk/dao-program';
 
 export const usePublishTutorial = (): [
   (tutorialId: number) => Promise<void>,
@@ -19,7 +18,6 @@ export const usePublishTutorial = (): [
     wallet: { publicKey },
   } = useDapp();
 
-  const [publishTutorial] = solanaUsePublishTutorial();
   const [triggerWorkflow] = useApiCall<any, any>(
     routes.api.tutorials.triggerWorkflow,
   );
@@ -33,14 +31,6 @@ export const usePublishTutorial = (): [
         setSubmitting(true);
 
         await triggerWorkflow();
-
-        // Update tutorial in Solana program
-        const txHash = await publishTutorial({
-          id: tutorialId,
-          creatorPk: publicKey,
-        });
-
-        console.log('TX Hash', txHash);
       } catch (err) {
         console.log('ERR:', err);
         setError(err);
@@ -49,7 +39,7 @@ export const usePublishTutorial = (): [
         setSubmitting(false);
       }
     },
-    [publicKey, publishTutorial, triggerWorkflow],
+    [publicKey, triggerWorkflow],
   );
 
   return [handleAction, { submitting, error }];
