@@ -1,4 +1,3 @@
-import { TemplateService } from './../services/template.service';
 import * as commander from 'commander';
 import path from 'path';
 import fs from 'fs-extra'
@@ -15,8 +14,8 @@ import simpleGit, { CleanOptions } from 'simple-git';
 
 import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
+import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
-import { format } from 'prettier';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
