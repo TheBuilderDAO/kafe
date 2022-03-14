@@ -24,7 +24,18 @@
       "githubName": "vunderkind"
     }
   ],
-  "content": {},
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "f26b6b860050d88cb22c59b65a91ea92f253e6e9b4770da2a539a95255fd9e99"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "5b834e8668caacfc29def37a5f9005856762291942db13f46b8cd53f60774dba"
+    }
+  },
   "description": "",
   "href": "",
   "imageUrl": "",
