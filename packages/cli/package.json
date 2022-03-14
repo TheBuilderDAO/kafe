@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "yarn build --watch",
     "build": "tsup src/cli.ts --format esm,cjs --dts",
-    "postbuild": "yarn unlink && yarn link",
+    "postbuild": "yarn link",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
