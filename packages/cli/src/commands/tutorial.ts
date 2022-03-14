@@ -16,6 +16,7 @@ import simpleGit, { CleanOptions } from 'simple-git';
 import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { getClient } from '../client';
+import { format } from 'prettier';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -190,9 +191,15 @@ export function makeTutorialCommand() {
             slug: proposal.slug,
           })
 
-          const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1)
-          const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2)
-          config.db.chain.get('reviewers').push(reviewer1 as any, reviewer2 as any).value()
+          const formatReviewer = (data: any) => ({
+            pda,
+            pubkey: data.pubkey,
+            githubName: data.githubName,
+          })
+          const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1).then(formatReviewer)
+          const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2).then(formatReviewer)
+
+          config.db.chain.get('reviewers').push({reviewer1} as any, reviewer2 as any).value()
 
           await config.db.write();
           emitter.next({

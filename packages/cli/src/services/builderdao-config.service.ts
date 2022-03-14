@@ -20,6 +20,7 @@ type BuilderDaoConfigJson = {
     email: string;
   }[]
   reviewers: {
+    pda: string;
     pubkey: string;
     githubName: string;
   }[];
@@ -45,6 +46,7 @@ export class BuilderDaoConfig {
     this.db = new LowWithLodash(new JSONFile<BuilderDaoConfigJson>(configFilePath))
     this.git = simpleGit().clean(CleanOptions.FORCE);
   }
+
 
   async initial({proposalId, slug}:{
     proposalId: number,
