@@ -27,6 +27,11 @@ export class TemplateService  {
     return this.replace("{{title}}", title)
   }
 
+  async setDescription(description: string) {
+    return this.replace('{{description}}', description);
+  }
+
+
   private async replace(from: string, to: string) {
     console.log('replace => ', from, to)
     const result = await replaceInFile({

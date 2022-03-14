@@ -184,6 +184,12 @@ export function makeTutorialCommand() {
         if (q.name === 'tutorial_file_creation_confirm') {
           await template.copy(q.answer);
           await template.setName(proposalSlug);
+          const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          config.db.data ||= await config.initial({
+            proposalId: proposal.id,
+            slug: proposal.slug,
+          })
+          await config.db.write();
           emitter.next({
             type: "input",
             name: "tutorial_title",
@@ -193,17 +199,51 @@ export function makeTutorialCommand() {
         }
 
 
-        if (q.name === 'tutorial.title') {
+        if (q.name === 'tutorial_title') {
+          await template.setTitle(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          config.db.data ||= await config.initial({
-            proposalId: proposal.id,
-            slug: proposal.slug,
-          })
           config.db.chain.set('title', q.answer).value();
           await config.db.write();
-          await template.setTitle(q.answer);
-          emitter.complete()
+          emitter.next({
+            type: "input",
+            name: "tutorial_description",
+            message: "Tutorial Description",
+          })
         }
+
+        if (q.name === 'tutorial_descrition') {
+          await template.setDescription(q.answer);
+          const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          config.db.chain.set('description', q.answer).value();
+          await config.db.write();
+          emitter.next({
+            type: "input",
+            name: "tutorial_tags",
+            message: "Tags?  Commo seperated.",
+          })
+        }
+
+        if (q.name === 'tutorial_tags') {
+          await template.setDescription(q.answer);
+          const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          config.db.chain.set('description', q.answer).value();
+          await config.db.write();
+          emitter.next({
+            type: "confirm",
+            name: "stage_changes",
+            message: "Stage changes",
+          })
+        }
+
+        if (q.name === 'stage_changes') {
+          if(q.answer) {
+            await git.add('./*')
+            await git.commit(`🚀: ${proposalSlug} Tutorial created`);
+          }
+
+        }
+
+
       })
 
 })
