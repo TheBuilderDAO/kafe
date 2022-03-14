@@ -7,6 +7,7 @@ import InputSelect from './InputSelect';
 import InputCheckbox from './InputCheckbox';
 import { useDapp } from '../../hooks/useDapp';
 import defaultAvatar from '/public/assets/icons/default_avatar.svg';
+import { addEllipsis } from 'utils/strings';
 
 const WriteForm = ({ tags, register }) => {
   const { wallet } = useDapp();
@@ -28,7 +29,7 @@ const WriteForm = ({ tags, register }) => {
               />
             </div>
             <p className="font-black">
-              {wallet?.wallet?.adapter?.name || 'builderDAO'}
+              {addEllipsis(wallet?.publicKey.toString())}
             </p>
           </div>
           <div className="mt-1">
