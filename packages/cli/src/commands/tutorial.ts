@@ -192,7 +192,7 @@ export function makeTutorialCommand() {
           })
 
           const formatReviewer = (data: any) => ({
-            pda,
+            pda: data.pda,
             pubkey: data.pubkey,
             githubName: data.githubName,
           })
