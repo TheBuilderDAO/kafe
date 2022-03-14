@@ -180,20 +180,32 @@ export function makeTutorialCommand() {
           }
         }
 
+        const template = new TemplateService(getTutorialFolder(proposalSlug));
         if (q.name === 'tutorial_file_creation_confirm') {
-          await TemplateService.copy(q.answer, getTutorialFolder(proposalSlug))
-          const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          config.db.data ||= config.initial({
-            proposalId: proposal.id,
-            slug: proposal.slug,
+          await template.copy(q.answer);
+          await template.setName(proposalSlug);
+          emitter.next({
+            type: "input",
+            name: "tutorial_title",
+            message: "Tutorial title",
+            default: proposalSlug,
           })
         }
 
 
-
-
-
+        if (q.name === 'tutorial.title') {
+          const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          config.db.data ||= await config.initial({
+            proposalId: proposal.id,
+            slug: proposal.slug,
+          })
+          config.db.chain.set('title', q.answer).value();
+          await config.db.write();
+          await template.setTitle(q.answer);
+          emitter.complete()
+        }
       })
+
 })
 
 

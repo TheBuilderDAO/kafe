@@ -1,14 +1,36 @@
 import path from 'path';
 import fs from 'fs-extra'
+import {replaceInFile} from 'replace-in-file'
 
 export class TemplateService  {
-
-  static async copy(templateName: string, destination: string) {
-    const template = path.join(__dirname, `../../../templates/${templateName}`)
-    await fs.copy(template, destination)
+  public target: string;
+  public templateName: "simple" | "multipage" | undefined;
+  constructor(target: string) {
+    this.target = target
   }
 
-  static replace(target: string) {
-    
+  async copy(templateName: "simple" | "multipage") {
+    const template = path.join(__dirname, `../../../templates/${templateName}`)
+    await fs.copy(template, this.target, {
+      recursive: true
+    })
+  }
+
+  async setName(name: string) {
+    return await this.replace(`template_${this.templateName}`, name)
+  }
+
+  async setTitle(title: string) {
+    return await this.replace("{{title}}", title)
+  }
+
+  private async replace(from: string, to: string) {
+    console.log('replace => ', from, to)
+    const result = await replaceInFile({
+      files: `${this.target}/**/*`,
+      from,
+      to
+    })  
+    console.log(result);
   }
 }
