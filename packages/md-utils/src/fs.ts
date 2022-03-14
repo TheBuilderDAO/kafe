@@ -58,7 +58,7 @@ export const getFileParse = async <T extends PostType>(source: string) => {
 
 }
 
-const rootFolderPathForTutorials = process.env.NODE_ENV === 'production'? path.join('.content') : path.join(
+const rootFolderPathForTutorials = process.env.NODE_ENV === 'production'? path.join(process.cwd(), '.content') : path.join(
   process.cwd(),
   '..',
   '..',
