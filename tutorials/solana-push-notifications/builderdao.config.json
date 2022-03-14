@@ -1,0 +1,32 @@
+{
+  "proposalId": "06",
+  "slug": "solana-push-notifications",
+  "authors": [
+    {
+      "name": "Necmettin Karakaya",
+      "avatarUrl": "",
+      "email": "necmettin.karakaya@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "FWp5ZmJU57gpvNqjAjewAGW6WPEGqdqjAPiyzMEXpcqj",
+        "pubkey": "8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU",
+        "githubName": "Necmttn"
+      }
+    },
+    {
+      "pda": "FdW4ieKucCXZy1i8hMdaJ5ztTwrFBnXVKmFBjVufToRe",
+      "pubkey": "HtdezEbemuLpAh9no1jp7Eezy8drWcbFuk3VPhs17bM4",
+      "githubName": "vunderkind"
+    }
+  ],
+  "content": {},
+  "description": "",
+  "href": "",
+  "imageUrl": "",
+  "title": ""
+}
