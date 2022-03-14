@@ -167,6 +167,9 @@ export function makeTutorialCommand() {
           case 'file_creation_confirm': {
             if (q.answer) {
               console.log('create folder')
+
+            } else {
+              emitter.complete()
             }
             break;
           }
