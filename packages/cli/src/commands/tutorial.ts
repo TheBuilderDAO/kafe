@@ -1,6 +1,7 @@
+import { TemplateService } from './../services/template.service';
 import * as commander from 'commander';
 import path from 'path';
-import { promises as fs } from 'fs'
+import fs from 'fs-extra'
 import Rx from 'rxjs'
 import {
   getTutorialPaths,
@@ -10,16 +11,16 @@ import {
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import { binary_to_base58 } from 'base58-js'
+import simpleGit, { CleanOptions } from 'simple-git';
 
 import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { getClient } from '../client';
-import simpleGit, { CleanOptions } from 'simple-git';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
 export function makeTutorialCommand() {
-  const rootFolderPath = path.join(
+  const rootNodeModulesFolderPath = path.join(
     __dirname,
     '../../../',
     'node_modules',
@@ -34,7 +35,7 @@ export function makeTutorialCommand() {
   })
   const log = (object: any) => _log(object, tutorial.optsWithGlobals().key);
   tutorial.command('list').action(async () => {
-    const { allTutorials } = await getTutorialPaths(rootFolderPath);
+    const { allTutorials } = await getTutorialPaths(rootNodeModulesFolderPath);
     log(allTutorials.reduce((prev: any, curr) => {
       prev[curr.slug] = curr
       return prev
@@ -46,7 +47,7 @@ export function makeTutorialCommand() {
     .argument('<learnPackageName>', 'Tutorial name')
     .action(async learnPackageName => {
       const tutorialMetadata = await getTutorialContentByPackageName({
-        rootFolderPath,
+        rootFolderPath: rootNodeModulesFolderPath,
         learnPackageName,
       });
       log(tutorialMetadata);
@@ -57,7 +58,7 @@ export function makeTutorialCommand() {
     .argument('[learnPackageName]', 'Tutorial name')
     .action(async learnPackageName => {
       const rootFolder = learnPackageName
-        ? path.join(rootFolderPath, learnPackageName)
+        ? path.join(rootNodeModulesFolderPath, learnPackageName)
         : process.cwd();
       const tutorialMetadata = await getTutorialContentByPath({
         rootFolder,
@@ -82,14 +83,6 @@ export function makeTutorialCommand() {
 
   tutorial.command('init')
     .action(async () => {
-      // const a = await client.getTutorialById(0);
-      // const rootFolder = path.join(rootFolderPath, a.slug);
-      // console.log(a);
-
-      // const b = await fs.access(rootFolder).then(() => true).catch(() => false);
-      // if (b) {
-      //   throw tutorial.error('Tutorial already exists')
-      // }
       let emitter: Rx.Subscriber<DistinctQuestion<Answers>>;
       const observe = new Rx.Observable<DistinctQuestion<Answers>>((obs) => {
         emitter = obs;
@@ -117,11 +110,11 @@ export function makeTutorialCommand() {
       });
 
       let proposalSlug: string;
-      let proposal;
+      const getTutorialFolder = (slug: string) => path.join(path.join(__dirname, '../../../tutorials'), slug);
+      let proposal: any;
       const git = simpleGit().clean(CleanOptions.FORCE)
       const ui = new inquirer.ui.BottomBar();
-      inquirer.prompt(observe).ui.process.subscribe(async q => {
-
+      inquirer.prompt(observe).ui.process.subscribe(async (q) => {
         if (q.name === 'proposal_slug') {
           proposalSlug = q.answer;
           proposal = await client.getTutorialBySlug(proposalSlug);
@@ -143,104 +136,66 @@ export function makeTutorialCommand() {
                 message: "You have uncommitted changes. Are you sure you want to continue?",
                 default: false,
               });
+            } else {
+              ui.log.write('Git status is clean. Continuing...');
             }
+            emitter.next({
+              type: "confirm",
+              name: "proposal_git_checkout_confirm",
+              message: `Are you confirm to checkout the branch "tutorials/${proposalSlug}" ?`,
+            })
           }
-          return;
         }
 
-        emitter.next({
-          type: "confirm",
-          name: "proposal_git_checkout_confirm",
-          message: `Are you confirm to checkout the branch "tutorials/${proposalSlug}" ?`,
-        })
         if (q.name === 'proposal_git_checkout_confirm') {
-          if (q.answer) {
+          if (q.answer === true) {
             await git.checkoutBranch(`tutorials/${proposalSlug}`, 'origin/dev')
           } else {
             ui.log.write('Skipping checkout branch')
           }
-          return;
-        }
 
-        ui.log.write('Creating tutorial folder')
-        await fs.mkdir(path.join(rootFolderPath, proposalSlug))
-        
+          const tutorialExist = await fs.access(getTutorialFolder(proposalSlug))
+            .then(() => true)
+            .catch(() => false)
 
-
-        switch (q.name) {
-          // case 'proposal_slug': {
-          //   proposalSlug = q.answer;
-          //   proposal = await client.getTutorialBySlug(proposalSlug);
-          //   log(proposal)
-          //   emitter.next({
-          //     type: "confirm",
-          //     name: "proposal_confirm",
-          //     message: `Are you sure you want to create a tutorial for ${q.answer}?`,
-          //   });
-          //   break;
-          // }
-          // case 'proposal_confirm': {
-          //   if (q.answer) {
-          //     if (!(await git.status()).isClean()) {
-          //       emitter.next({
-          //         type: "confirm",
-          //         name: "proposal_git_confirm",
-          //         message: "You have uncommitted changes. Are you sure you want to continue?",
-          //         default: false,
-          //       });
-          //     } else {
-          //       emitter.next({
-          //         type: "confirm",
-          //         name: "proposal_git_checkout_confirm",
-          //         message: `Are you confirm to checkout the branch "tutorials/${proposalSlug}" ?`,
-          //       })
-          //     }
-          //   }
-          //   break;
-          // }
-          case 'proposal_git_fork_confirm':
-          case 'proposal_git_confirm':
-          case 'proposal_git_checkout_confirm': {
-            if (q.answer) {
-              await git.checkoutBranch(`tutorials/${proposalSlug}`, 'origin/dev')
-
-            } else {
-              emitter.complete()
-            }
-            break;
-          }
-          case 'file_creation_confirm': {
-            if (q.answer) {
-              console.log('create folder')
-
-            } else {
-              emitter.complete()
-            }
-            break;
-          }
-          case 'checkout': {
-            const remoteOrigin = await git.remote(['get-url', 'origin']) || ''
-            if (remoteOrigin === 'git@github.com:TheBuilderDAO/kafe.git') {
-              emitter.next({
-                type: "confirm",
-                name: "proposal_git_fork_confirm",
-                message: "Looks like you didn't fork the repository yet. Do you want to contuine ?",
-                default: remoteOrigin
-              });
-            } else {
-              ui.log.write(`Fork branch confirm: ${remoteOrigin} \n`);
-            }
-            break;
-          }
-          default: {
-            emitter.complete()
+          if (tutorialExist) {
+            ui.log.write('Tutorial folder already exists')
+            emitter.complete();
+          } else {
+            emitter.next({
+              type: "list",
+              name: "tutorial_file_creation_confirm",
+              message: `Select tutorial type "${getTutorialFolder(proposalSlug)}" ?`,
+              choices: [
+                {
+                  name: "Single page Tutorial",
+                  value: "simple",
+                },
+                {
+                  name: "Multi page Tutorial",
+                  value: "multipage"
+                }
+              ],
+            })
           }
         }
-        console.log(q);
+
+        if (q.name === 'tutorial_file_creation_confirm') {
+          await TemplateService.copy(q.answer, getTutorialFolder(proposalSlug))
+          const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          config.db.data ||= config.initial({
+            proposalId: proposal.id,
+            slug: proposal.slug,
+          })
+        }
+
+
+
+
+
       })
-      // const config = new BuilderDaoConfig(rootFolder)
-    })
+})
 
 
-  return tutorial;
+return tutorial;
 }

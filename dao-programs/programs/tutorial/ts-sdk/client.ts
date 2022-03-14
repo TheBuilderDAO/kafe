@@ -37,6 +37,7 @@ const providerOptions: { commitment: Commitment } = {
   commitment: 'processed',
 }
 
+
 export class TutorialProgramClient {
   public readonly provider: anchor.Provider
   public readonly tutorialProgram: anchor.Program<Tutorial>

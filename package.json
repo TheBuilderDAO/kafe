@@ -6,6 +6,7 @@
     "apps/*",
     "packages/*",
     "tutorials/*",
+    "templates/*",
     "dao-programs/programs/*"
   ],
   "scripts": {

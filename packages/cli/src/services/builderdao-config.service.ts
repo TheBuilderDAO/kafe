@@ -7,6 +7,7 @@ import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
 type BuilderDaoConfigJson = {
   proposalId: null | number;
   title: string;
+  slug: string;
   content: {[filename: string]: {
     name: string;
     path: string;
@@ -41,9 +42,9 @@ export class BuilderDaoConfig {
     this.git = simpleGit().clean(CleanOptions.FORCE);
   }
 
-  async initial({
-    proposalId,
-    title,
+  async initial({proposalId, slug}:{
+    proposalId: number,
+    slug: string,
   }): Promise<BuilderDaoConfigJson>{
     const name = (await this.git.getConfig('user.name')).value
     const email = (await this.git.getConfig('user.email')).value
@@ -56,6 +57,8 @@ export class BuilderDaoConfig {
     }
 
     return {
+      proposalId,
+      slug,
       authors: [author],
       categories: [],
       content: {},
@@ -63,11 +66,6 @@ export class BuilderDaoConfig {
       href: "",
       imageUrl: "",
       title: "",
-      proposalId: null
     }
-  }
-
-  async write() {
-    await this.db.write()
   }
 }
