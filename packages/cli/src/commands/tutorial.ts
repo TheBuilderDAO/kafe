@@ -252,9 +252,7 @@ export function makeTutorialCommand() {
 
         if (q.name === 'push_changes') {
           if (q.answer) {
-            await git.push({
-              '--set-upstream': 'origin',
-            })
+            await git.push(['-u'])
             ui.log.write(
               `🚀 ${proposalSlug} Tutorial Initialized`
             )
