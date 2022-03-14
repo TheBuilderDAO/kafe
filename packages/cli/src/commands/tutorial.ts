@@ -253,7 +253,7 @@ export function makeTutorialCommand() {
         if (q.name === 'push_changes') {
           if (q.answer) {
             await git.push({
-              '--setUpstream': null,
+              '--set-upstream': null,
             })
           }
         }
