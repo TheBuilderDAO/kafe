@@ -189,6 +189,11 @@ export function makeTutorialCommand() {
             proposalId: proposal.id,
             slug: proposal.slug,
           })
+
+          const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1)
+          const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2)
+          config.db.chain.get('reviewers').push(reviewer1 as any, reviewer2 as any).value()
+
           await config.db.write();
           emitter.next({
             type: "input",

@@ -1,6 +1,7 @@
 {
   "title": "{{title}}",
   "authors": [],
+  "reviewers:": [],
   "description": "{{description}}",
   "imageUrl": "https://github.com/figment-networks/learn-tutorials/raw/master/assets/The-Simpsons-Season-33.jpeg",
   "categories": [],

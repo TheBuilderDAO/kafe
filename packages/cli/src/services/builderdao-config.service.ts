@@ -19,6 +19,10 @@ type BuilderDaoConfigJson = {
     avatarUrl: string;
     email: string;
   }[]
+  reviewers: {
+    pubkey: string;
+    githubName: string;
+  }[];
   description: string;
   imageUrl: string;
   categories: {
@@ -61,6 +65,7 @@ export class BuilderDaoConfig {
       slug,
       authors: [author],
       categories: [],
+      reviewers: [],
       content: {},
       description: "",
       href: "",
