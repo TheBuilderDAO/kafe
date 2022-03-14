@@ -255,6 +255,10 @@ export function makeTutorialCommand() {
             await git.push({
               '--set-upstream': null,
             })
+            ui.log.write(
+              `🚀 ${proposalSlug} Tutorial Initialized`
+            )
+            emitter.complete()
           }
         }
       })
