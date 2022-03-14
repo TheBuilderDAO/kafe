@@ -4,8 +4,10 @@ import fs from 'fs-extra'
 import Rx from 'rxjs'
 import {
   getTutorialPaths,
+  getFileByPath,
   getTutorialContentByPath,
   getTutorialContentByPackageName,
+  PostType,
 } from '@builderdao/md-utils';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
@@ -16,6 +18,7 @@ import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
+import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -83,7 +86,27 @@ export function makeTutorialCommand() {
 
   tutorial.command('publish')
     .argument('[learnPackageName]', 'Tutorial name')
-    .action(async learnPackageName => {
+    .addOption(
+      new commander.Option('--nodeUrl <nodeUrl>', 'Ceramic Node Url')
+        .env('CERAMIC_NODE_URL')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--seed <seed>', 'Ceramic Seed')
+        .env('CERAMIC_SEED')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--wallet <wallet>', 'Arweave wallet')
+        .env('ARWEAVE_WALLET')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--appName <appName>', 'Arweave App Name')
+        .env('ARWEAVE_APP_NAME')
+        .makeOptionMandatory(),
+    )
+    .action(async (learnPackageName, options) => {
       const rootFolder = learnPackageName
         ? path.join(rootNodeModulesFolderPath, learnPackageName)
         : process.cwd();
@@ -93,13 +116,41 @@ export function makeTutorialCommand() {
       const proposalId = config.db.chain.get('proposalId').parseInt().value()
       const proposal = await client.getTutorialById(proposalId)
       const content = config.db.chain.get('content').value();
-      console.log(content);
-      if (proposal.state === 'published') {
-        // Kicking update process.
-      } else if (proposal.state === 'readyToPublish') {
-        // Kicking initial process.
+      const ceramic = new CeramicApi({
+        nodeUrl: options.nodeUrl,
+        seed: options.seed,
+      });
+        const arweave = new ArweaveApi({
+          wallet: options.wallet,
+          appName: options.appName,
+        });
+      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
+      console.log(proposal)
+      console.log(ceramicMetadata);
 
+      if (proposal.state === 'published') {
+        console.log("Kicking update process.")
+        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata and update the proposal if needed 
+        // find the files chagged and redopley them to arweave.
+      } else if (proposal.state === 'readyToPublish') {
+        console.log('Kicking initial process.')
+        // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
+        // Kicking initial process.
       }
+
+      // End of the ceramic & arweave process.
+
+
+      
+
+      // Object.values(content).forEach(async file => {
+      //   const filePath = path.join(rootFolder, file.path);
+      //   const digest = await hashSumDigest(file.path);
+      //   if (digest !== file.digest) {
+      //     console.log(`File ${file.path} has changed.`);
+      //   }
+      //   const fileContent = await getFileByPath<PostType.TUTORIAL>(file.name, filePath);
+      // })
 
     })
 

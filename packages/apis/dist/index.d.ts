@@ -73,6 +73,13 @@ declare type TutorialMetadata = {
     difficulty: string;
     tags: string[];
     publishedUri?: string;
+    content: {
+        [filename: string]: {
+            name: string;
+            path: string;
+            digest: string;
+        };
+    };
 };
 declare type ApiConfig$1 = {
     nodeUrl: string;

@@ -48,3 +48,5 @@ tutorial-keypair.json
 dao-programs/program-id-testnet.json
 
 arweave-wallet.json
+
+.env

@@ -11,6 +11,11 @@ export type TutorialMetadata = {
   difficulty: string;
   tags: string[];
   publishedUri?: string;
+  content: {[filename: string]: {
+    name: string;
+    path: string;
+    digest: string;
+  }};
 };
 
 export type ApiConfig = {
