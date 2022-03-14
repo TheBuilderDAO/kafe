@@ -211,7 +211,7 @@ export function makeTutorialCommand() {
           })
         }
 
-        if (q.name === 'tutorial_descrition') {
+        if (q.name === 'tutorial_description') {
           await template.setDescription(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
           config.db.chain.set('description', q.answer).value();
