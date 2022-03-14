@@ -1,4 +1,4 @@
-import { Commitment, Connection, PublicKey } from '@solana/web3.js';
+import { Commitment, Connection, GetProgramAccountsFilter, PublicKey } from '@solana/web3.js';
 import * as anchor from '@project-serum/anchor';
 
 import {
@@ -59,8 +59,8 @@ export class TutorialProgramClient {
     return daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount)
   }
 
-  async getProposals() {
-    return proposalAccountList(this.tutorialProgram)
+  async getProposals(filter: Buffer | GetProgramAccountsFilter[] | undefined = undefined) {
+    return proposalAccountList(this.tutorialProgram, filter)
   }
 
   async getIsAdmin() {
