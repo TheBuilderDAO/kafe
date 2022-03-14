@@ -4,12 +4,15 @@ import {replaceInFile} from 'replace-in-file'
 
 export class TemplateService  {
   public target: string;
+
   public templateName: "simple" | "multipage" | undefined;
+
   constructor(target: string) {
     this.target = target
   }
 
   async copy(templateName: "simple" | "multipage") {
+    this.templateName = templateName
     const template = path.join(__dirname, `../../../templates/${templateName}`)
     await fs.copy(template, this.target, {
       recursive: true
@@ -17,11 +20,11 @@ export class TemplateService  {
   }
 
   async setName(name: string) {
-    return await this.replace(`template_${this.templateName}`, name)
+    return this.replace(`template_${this.templateName}`, name)
   }
 
   async setTitle(title: string) {
-    return await this.replace("{{title}}", title)
+    return this.replace("{{title}}", title)
   }
 
   private async replace(from: string, to: string) {
