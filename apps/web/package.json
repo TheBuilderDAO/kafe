@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "cp -r ../../node_modules/@builderdao-learn ./.content",
+    "prebuild": "cp -r ../../node_modules/@builderdao-learn ./content && ls -la @builderdao-learn",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

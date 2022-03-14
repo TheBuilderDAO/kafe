@@ -58,13 +58,15 @@ export const getFileParse = async <T extends PostType>(source: string) => {
 
 }
 
-const rootFolderPathForTutorials = process.env.NODE_ENV === 'production'? path.join(process.cwd(), '.content') : path.join(
-  process.cwd(),
-  '..',
-  '..',
-  'node_modules',
-  '@builderdao-learn',
-); // TODO: make this direct path.
+const rootFolderPathForTutorials = process.env.NODE_ENV === 'production'
+  ? path.join(process.cwd(), '@builderdao-learn')
+  : path.join(
+    process.cwd(),
+    '..',
+    '..',
+    'node_modules',
+    '@builderdao-learn',
+  ); // TODO: make this direct path.
 
 
 type TutorialPath = {
