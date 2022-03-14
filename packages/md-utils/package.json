@@ -24,7 +24,6 @@
   "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
-    "@builderdao/cli": "*",
     "@builderdao/tsconfig": "*",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
