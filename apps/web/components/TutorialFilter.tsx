@@ -6,6 +6,7 @@ import Select, {
 } from 'react-select';
 import { VscTriangleDown } from 'react-icons/vsc';
 import { useTheme } from 'next-themes';
+import InputCheckbox from './FormElements/InputCheckbox';
 
 const DropdownIndicator = (props: DropdownIndicatorProps<any>) => {
   return (
@@ -32,7 +33,7 @@ const TutorialFilter = () => {
       ...provided,
       backgroundColor: 'none',
       padding: '0px',
-      minHeight: '60px',
+      minHeight: '50px',
       margin: '0px',
       border: 'none',
       boxShadow: 'none',
@@ -92,8 +93,8 @@ const TutorialFilter = () => {
     }),
   };
   return (
-    <div>
-      <div>
+    <div className="divide-y-2 dark:divide-kafeblack divide-kafewhite">
+      <div className="px-10 pt-5">
         <p className="text-kafemellow">sort by</p>
         <Select
           options={[
@@ -114,6 +115,33 @@ const TutorialFilter = () => {
             },
           })}
         />
+      </div>
+      <div className="px-10 pt-5">
+        <p className="text-kafemellow">protocols</p>
+        <Select
+          options={[
+            { label: 'Celo', value: 'Celo' },
+            { label: 'Chainlink', value: 'Chainlink' },
+            { label: 'Arweave', value: 'Arweave' },
+          ]}
+          components={{ Control, DropdownIndicator }}
+          styles={customStyles}
+          isMulti
+          placeholder="select"
+          theme={theme => ({
+            ...theme,
+            borderRadius: 0,
+            colors: {
+              ...theme.colors,
+              primary25: innerTheme === 'dark' ? '#EB5F49' : '#9462F7',
+              primary: 'none',
+            },
+          })}
+        />
+      </div>
+      <div className="px-10 pt-5 pb-8">
+        <p className="text-kafemellow pb-5">difficulty</p>
+        <InputCheckbox options={['BEGINNER', 'ADVANCED']} />
       </div>
     </div>
   );

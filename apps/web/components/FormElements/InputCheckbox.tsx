@@ -19,14 +19,17 @@ const InputCheckbox = React.forwardRef(({ options }, refs) => {
             rounded-md
             dark:border-kafewhite
             border-kafeblack
-            dark:peer-checked:border-kafered
-            peer-checked:border-kafepurple
-            dark:peer-checked:text-kafered
-            peer-checked:text-kafepurple
-            peer-hover:border-kafepurple
-            dark:peer-hover:border-kafered
+            dark:peer-checked:border-kafewhite
+            peer-checked:border-kafeblack
+            dark:peer-checked:text-kafeblack
+            peer-checked:text-kafewhite
+            dark:peer-checked:bg-kafewhite
+            peer-checked:bg-kafeblack
+            dark:bg-kafeblack
+            bg-kafelighter
             text-[12px]
-            mr-4"
+            mr-4
+            "
       >
         {option}
       </span>

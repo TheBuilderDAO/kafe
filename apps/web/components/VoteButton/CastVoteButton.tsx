@@ -5,6 +5,7 @@ import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import coffeeIdle from '/public/assets/icons/coffee_cup_idle.svg';
+import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 
 type CastVoteButtonProps = {
   id: number;
@@ -32,11 +33,11 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
   return (
     <button
       disabled={submitting}
-      className="w-24 h-24 rounded-full dark:bg-kafedarker bg-kafegold dark:hover:bg-kafewhite hover:bg-kafeblack"
+      className="w-24 h-24 rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group shadow-xl"
       onClick={handleClick}
     >
       <div className="flex items-center justify-center p-0 m-0">
-        <Image src={coffeeIdle} width={40} height={40} alt="coffee votes" />
+        <VotedSVG voted={true} />
       </div>
     </button>
   );

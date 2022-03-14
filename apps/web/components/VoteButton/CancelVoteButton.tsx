@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useCancelVote } from '../../hooks/useCancelVote';
 import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
+import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 
 type CancelVoteButtonProps = {
   id: number;
@@ -32,10 +33,12 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
     <div>
       <button
         disabled={submitting}
-        className="items-center w-full px-4 py-2 mt-4 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+        className="w-24 h-24 rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group shadow-xl"
         onClick={handleClick}
       >
-        {submitting ? 'Submitting...' : 'cancel vote'}
+        <div className="flex items-center justify-center p-0 m-0">
+          <VotedSVG voted={false} />
+        </div>
       </button>
     </div>
   );

@@ -3,7 +3,7 @@ import KafePassSVG from '../SVG/KafePassSVG';
 
 const WriteSidebar = ({ submitting }) => {
   return (
-    <div>
+    <div className="p-10">
       <p className="font-larken text-xl pb-2">Kafé token</p>
       <p>
         You&apos;ll need 1 Kafé token to submit a proposal.{' '}

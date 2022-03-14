@@ -1,14 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
-import TutorialProposalHit from '../../components/Search/TutorialProposalHit';
-import TutorialFilter from '../../components/TutorialFilter';
-import Pagination from '../../components/Search/Pagination';
+import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
+import TutorialFilter from '@app/components/TutorialFilter';
+import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
 import { useGetListOfProposals } from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+import InputCheckbox from '@app/components/FormElements/InputCheckbox';
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -56,6 +56,9 @@ const Home: NextPage = () => {
           />
           <div className="flex justify-between items-start">
             <div className="flex flex-col grow">
+              <div className="my-6">
+                <InputCheckbox options={['current', 'funded']} />
+              </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />
             </div>

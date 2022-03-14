@@ -12,7 +12,7 @@ const Tags = (props: TagsProps): JSX.Element => {
       {tags.map(tag => (
         <span
           key={tag}
-          className="inline-flex items-center px-4 py-1.5 mr-2 rounded-sm text-xs font-extralight dark:bg-[#2A2829] text-kafewhite dark:text-kafewhite bg-kafeblack"
+          className="inline-flex items-center px-4 py-1.5 mr-2 rounded-sm text-xs font-extralight dark:bg-[#2A2829] text-kafeblack dark:text-kafewhite bg-kafelighter"
         >
           {tag.toUpperCase()}
         </span>
