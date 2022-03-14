@@ -149,7 +149,7 @@ export function makeTutorialCommand() {
 
         if (q.name === 'proposal_git_checkout_confirm') {
           if (q.answer === true) {
-            await git.checkoutBranch(`tutorials/${proposalSlug}`, 'origin/dev')
+            await git.checkoutLocalBranch(`tutorials/${proposalSlug}`)
           } else {
             ui.log.write('Skipping checkout branch')
           }
