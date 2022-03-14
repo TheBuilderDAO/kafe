@@ -7,7 +7,7 @@ const InputCheckbox = React.forwardRef(({ options }, refs) => {
       <input
         type="radio"
         id={option}
-        name="radio"
+        name={option}
         value={option}
         className="peer absolute opacity-0 cursor-pointer"
       />
