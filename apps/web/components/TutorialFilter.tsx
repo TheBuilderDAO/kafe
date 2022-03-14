@@ -141,7 +141,7 @@ const TutorialFilter = () => {
       </div>
       <div className="px-10 pt-5 pb-8">
         <p className="text-kafemellow pb-5">difficulty</p>
-        <InputCheckbox options={['BEGINNER', 'ADVANCED']} />
+        <InputCheckbox options={['BEGINNER', 'ADVANCED']} name="diff" />
       </div>
     </div>
   );

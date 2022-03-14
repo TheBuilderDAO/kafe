@@ -57,7 +57,10 @@ const Home: NextPage = () => {
           <div className="flex justify-between items-start">
             <div className="flex flex-col grow">
               <div className="my-6">
-                <InputCheckbox options={['current', 'funded']} />
+                <InputCheckbox
+                  options={['current', 'funded']}
+                  name="filter tutorials"
+                />
               </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />
