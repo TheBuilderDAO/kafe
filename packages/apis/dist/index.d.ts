@@ -30,7 +30,6 @@ declare class AlgoliaApi {
 
 declare type ApiConfig$2 = {
     appName: string;
-    wallet: string;
     host?: string;
     port?: number;
     protocol?: string;
@@ -47,10 +46,9 @@ declare type TutorialTags = {
 declare class ArweaveApi {
     private readonly appName;
     private client;
-    private readonly wallet;
     private static ARWEAVE_REQUIRED_CONFIRMATIONS;
     constructor(config: ApiConfig$2);
-    publishTutorial(data: string, address: string): Promise<string>;
+    publishTutorial(data: string, address: string, wallet: string): Promise<string>;
     getTutorialByHash(transactionHash: string): Promise<{
         id: string;
         data: string;

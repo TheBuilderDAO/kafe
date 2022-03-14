@@ -80,19 +80,19 @@ var import_arweave = __toESM(require("arweave"), 1);
 var _ArweaveApi = class {
   constructor(config) {
     this.appName = config.appName;
-    this.wallet = JSON.parse(config.wallet);
     this.client = import_arweave.default.init({
       host: config.host || "localhost",
       port: config.port || 1984,
       protocol: config.protocol || "http"
     });
   }
-  async publishTutorial(data, address) {
-    const transaction = await this.client.createTransaction({ data }, this.wallet);
+  async publishTutorial(data, address, wallet) {
+    const parsedWallet = JSON.parse(wallet);
+    const transaction = await this.client.createTransaction({ data }, parsedWallet);
     transaction.addTag("App-Name", this.appName);
     transaction.addTag("Content-Type", "application/json");
     transaction.addTag("Address", address);
-    await this.client.transactions.sign(transaction, this.wallet);
+    await this.client.transactions.sign(transaction, parsedWallet);
     await this.client.transactions.post(transaction);
     return transaction.id;
   }

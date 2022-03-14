@@ -97,14 +97,12 @@ export const getStaticProps: GetStaticProps = async context => {
     if (config.content[relativePath].arweaveHash && process.env.NODE_ENV === 'production')  {
       console.log({
         appName: process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,
-        wallet: process.env.NEXT_PUBLIC_ARWEAVE_WALLET,
         host: process.env.NEXT_PUBLIC_ARWEAVE_HOST,
         port: parseInt(process.env.NEXT_PUBLIC_ARWEAVE_PORT),
         protocol: process.env.NEXT_PUBLIC_ARWEAVE_PROTOCOL,
       })
       const arweave =  await new ArweaveApi({
         appName: process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,
-        wallet: process.env.NEXT_PUBLIC_ARWEAVE_WALLET,
         host: process.env.NEXT_PUBLIC_ARWEAVE_HOST,
         port: parseInt(process.env.NEXT_PUBLIC_ARWEAVE_PORT),
         protocol: process.env.NEXT_PUBLIC_ARWEAVE_PROTOCOL,

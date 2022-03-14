@@ -137,7 +137,6 @@ export function makeTutorialCommand() {
         seed: options.seed,
       });
         const arweave = new ArweaveApi({
-          wallet: options.arweave_wallet,
           appName: options.arweave_appName,
           host: options.arweave_host,
           port: options.arweave_port,
@@ -175,7 +174,7 @@ export function makeTutorialCommand() {
         toDeployFiles.forEach(async (file) => {
           console.log('Uploading', file.name)
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
-          const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}-${file.path}`)
+          const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}-${file.path}`, options.arweave_wallet)
           console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`, file.name, arweaveHash)
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();
