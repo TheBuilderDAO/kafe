@@ -268,8 +268,8 @@ export function makeTutorialCommand() {
             ui.log.write(
               `🚀 ${proposalSlug} Tutorial Initialized`
             )
-            emitter.complete()
           }
+          emitter.complete()
         }
       })
     })
