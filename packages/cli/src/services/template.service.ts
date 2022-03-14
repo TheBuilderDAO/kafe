@@ -20,7 +20,7 @@ export class TemplateService  {
   }
 
   async setName(name: string) {
-    return this.replace(`template_${this.templateName}`, name)
+    return this.replace(`template/template_${this.templateName}`, `learn/${name}`)
   }
 
   async setTitle(title: string) {
