@@ -239,7 +239,7 @@ export function makeTutorialCommand() {
           if (q.answer) {
             ui.log.write('Staging changes');
             await git.add('./*')
-            console.log(await git.status())
+            console.log(await (await git.status()).staged)
             ui.log.write('Adding Commit');
             await git.commit(`🚀 ${proposalSlug} Tutorial Initial`);
             emitter.next({
@@ -261,7 +261,5 @@ export function makeTutorialCommand() {
         }
       })
     })
-
-
   return tutorial;
 }

@@ -33,12 +33,10 @@ export class TemplateService  {
 
 
   private async replace(from: string, to: string) {
-    console.log('replace => ', from, to)
-    const result = await replaceInFile({
+     await replaceInFile({
       files: `${this.target}/**/*`,
       from,
       to
     })  
-    console.log(result);
   }
 }
