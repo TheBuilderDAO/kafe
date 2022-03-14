@@ -3,10 +3,13 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import path from 'path';
 import {
   getFileByPath,
   getPathForFile,
+  getPathForRootFolder,
   getTutorialContentByPackageName,
+  getTutorialContentByPath,
   getTutorialPaths,
   PostType,
 } from '@builderdao/md-utils';
@@ -14,6 +17,7 @@ import { MDXComponents, MDXWrapper, Navbar, TOCInline } from '@builderdao/ui';
 import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
+import { ArweaveApi } from '@builderdao/apis';
 
 const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -23,6 +27,8 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
   const { mdxSource, frontMatter } = props.post;
+  const {config, relativePath} = props
+  console.log(config, relativePath);
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(
       (child: any) =>
@@ -47,6 +53,20 @@ const TutorialPage: NextPage<
         prev={frontMatter.prev}
       >
         <MDXRemote components={MDXComponents} {...mdxSource} />
+        <div className='p-2 border border-black divide-y-2 rounded-lg dark:border-white'>
+          <div>
+            <span>Digest</span>: {config.content[relativePath].digest}
+          </div>
+          <div>
+            <span>Arweave Hash</span>: {config.content[relativePath].arweaveHash}
+          </div>
+          <pre>
+          <code>
+            {JSON.stringify(config, null, 2)}
+          </code>
+          </pre>
+
+        </div>
       </TutorialLayout>
     </>
   );
@@ -66,13 +86,17 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async context => {
   const slug = context.params.slug as string[];
-  const getFile = getTutorialContentByPackageName({learnPackageName: slug[0]});
+  const rootFolder = getPathForRootFolder(slug[0])
+  const {config} = await getTutorialContentByPath({rootFolder});
+  const pathForFile = getPathForFile(slug[0], slug[1]);
+  const relativePath = path.relative(rootFolder, pathForFile)
   const getPost  = async (slug: string[]): Promise<{content: string, data: any}>  => {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production')  {
+      // return await new ArweaveApi({
+      //   appName: process.env.NEXT_PUBLIC_ARWEAVE_APPNAME,
 
-
+      // })
     } else {
-      const pathForFile = getPathForFile(slug[0], slug[1]);
       return await getFileByPath<PostType.TUTORIAL>('learn', pathForFile);
     }
   }
@@ -85,7 +109,9 @@ export const getStaticProps: GetStaticProps = async context => {
   });
   return {
     props: {
-      post: { ...post, mdxSource },
+      config,
+      relativePath,
+      post: { ...post, mdxSource,  },
       slug,
     },
   };

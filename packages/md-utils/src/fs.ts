@@ -135,8 +135,6 @@ export const getTutorialContentByPath = async ({
       path: path.join(rootFolder, 'content', contentName),
     };
   });
-  const config = new BuilderDaoConfig(rootFolder);
-  config.db.read();
   const rawConfigFile = await fs.readFile(
     path.join(rootFolder, 'builderdao.config.json'),
     'utf8',
@@ -161,9 +159,17 @@ export const getPathForFile = (
   mdFileName: string | undefined = 'index',
 ) => {
   return path.join(
-    rootFolderPathForTutorials,
-    packageName,
+    getPathForRootFolder(packageName),
     'content',
     `${mdFileName}.mdx`,
   );
 };
+
+export const getPathForRootFolder = (
+  packageName: string,
+) => {
+  return path.join(
+    rootFolderPathForTutorials,
+    packageName,
+  );
+}
