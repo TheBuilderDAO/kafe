@@ -9,11 +9,16 @@ import { FrontMatterPostType, PostType } from './types';
 // Regex to find all the custom static tweets in a MDX file
 const TWEET_RE = /<StaticTweet\sid="[0-9]+"\s\/>/g;
 
+
+
 export const getFileByPath = async <T extends PostType>(
-  slug: string,
   pathForFile: string,
 ): Promise<FrontMatterPostType<T>> => {
   const source = await fs.readFile(pathForFile, 'utf8');
+  return await getFileParse<T>(source);
+};
+
+export const getFileParse = async <T extends PostType>(source: string) => {
   const parsedFile = matter(source);
 
   const { data, content } = parsedFile;
@@ -45,13 +50,13 @@ export const getFileByPath = async <T extends PostType>(
     tweetIDs: tweetIDs || [],
     frontMatter: {
       readingTime: readingTime(content),
-      slug,
       ...data,
     },
   };
 
   return result as unknown as FrontMatterPostType<T>;
-};
+
+}
 
 const rootFolderPathForTutorials = path.join(
   process.cwd(),
@@ -61,10 +66,6 @@ const rootFolderPathForTutorials = path.join(
   '@builderdao-learn',
 ); // TODO: make this direct path.
 
-export const getTutorialContent = (slug: string) => {
-  const filePath = path.join(rootFolderPathForTutorials, slug, 'content.mdx');
-  return getFileByPath(slug, filePath);
-};
 
 type TutorialPath = {
   params: {

@@ -73,7 +73,6 @@ class ArweaveApi {
         string: true,
       },
     )) as string;
-    const txData = JSON.parse(txDataResp);
 
     // Get Arweave transaction status. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
     const txStatusResp = await this.client.transactions.getStatus(
@@ -110,7 +109,7 @@ class ArweaveApi {
 
       return {
         id: transactionHash as string,
-        data: txData,
+        data: txDataResp,
         status: txStatus,
         timestamp: block?.timestamp,
         tags,
@@ -119,7 +118,7 @@ class ArweaveApi {
 
     return {
       id: transactionHash as string,
-      data: txData,
+        data: txDataResp,
       status: txStatus,
     };
   }

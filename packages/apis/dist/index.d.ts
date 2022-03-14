@@ -53,13 +53,13 @@ declare class ArweaveApi {
     publishTutorial(data: string, address: string): Promise<string>;
     getTutorialByHash(transactionHash: string): Promise<{
         id: string;
-        data: any;
+        data: string;
         status: TransactionStatus;
         timestamp: number | undefined;
         tags: TutorialTags;
     } | {
         id: string;
-        data: any;
+        data: string;
         status: TransactionStatus;
         timestamp?: undefined;
         tags?: undefined;

@@ -101,7 +101,6 @@ var _ArweaveApi = class {
       decode: true,
       string: true
     });
-    const txData = JSON.parse(txDataResp);
     const txStatusResp = await this.client.transactions.getStatus(transactionHash);
     const txStatus = txStatusResp.status === 200 && txStatusResp.confirmed && txStatusResp.confirmed.number_of_confirmations >= _ArweaveApi.ARWEAVE_REQUIRED_CONFIRMATIONS ? 1 /* CONFIRMED */ : 0 /* NOT_CONFIRMED */;
     if (txStatus === 1 /* CONFIRMED */) {
@@ -117,7 +116,7 @@ var _ArweaveApi = class {
       });
       return {
         id: transactionHash,
-        data: txData,
+        data: txDataResp,
         status: txStatus,
         timestamp: block == null ? void 0 : block.timestamp,
         tags
@@ -125,7 +124,7 @@ var _ArweaveApi = class {
     }
     return {
       id: transactionHash,
-      data: txData,
+      data: txDataResp,
       status: txStatus
     };
   }

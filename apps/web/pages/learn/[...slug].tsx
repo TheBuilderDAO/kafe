@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import path from 'path';
 import {
   getFileByPath,
+  getFileParse,
   getPathForFile,
   getPathForRootFolder,
   getTutorialContentByPackageName,
@@ -55,10 +56,10 @@ const TutorialPage: NextPage<
         <MDXRemote components={MDXComponents} {...mdxSource} />
         <div className='p-2 border border-black divide-y-2 rounded-lg dark:border-white'>
           <div>
-            <span>Digest</span>: {config.content[relativePath].digest}
+            <span>Digest</span>: {config?.content[relativePath].digest}
           </div>
           <div>
-            <span>Arweave Hash</span>: {config.content[relativePath].arweaveHash}
+            <span>Arweave Hash</span>: {config?.content[relativePath].arweaveHash}
           </div>
           <pre>
           <code>
@@ -91,13 +92,33 @@ export const getStaticProps: GetStaticProps = async context => {
   const pathForFile = getPathForFile(slug[0], slug[1]);
   const relativePath = path.relative(rootFolder, pathForFile)
   const getPost  = async (slug: string[]): Promise<{content: string, data: any}>  => {
-    if (process.env.NODE_ENV === 'production')  {
-      // return await new ArweaveApi({
-      //   appName: process.env.NEXT_PUBLIC_ARWEAVE_APPNAME,
-
-      // })
+    console.log('HASHHSHSHHSH', config.content[relativePath].arweaveHash)
+    
+    if (config.content[relativePath].arweaveHash && process.env.NODE_ENV === 'production')  {
+      console.log({
+        appName: process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,
+        wallet: process.env.NEXT_PUBLIC_ARWEAVE_WALLET,
+        host: process.env.NEXT_PUBLIC_ARWEAVE_HOST,
+        port: parseInt(process.env.NEXT_PUBLIC_ARWEAVE_PORT),
+        protocol: process.env.NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+      })
+      const arweave =  await new ArweaveApi({
+        appName: process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,
+        wallet: process.env.NEXT_PUBLIC_ARWEAVE_WALLET,
+        host: process.env.NEXT_PUBLIC_ARWEAVE_HOST,
+        port: parseInt(process.env.NEXT_PUBLIC_ARWEAVE_PORT),
+        protocol: process.env.NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+      })
+     const response =  await arweave.getTutorialByHash(config.content[relativePath].arweaveHash)
+     console.log(response)
+     
+     if (response) {
+      return getFileParse<PostType.TUTORIAL>(response.data)
+     } else {
+      return await getFileByPath<PostType.TUTORIAL>(pathForFile);
+     }
     } else {
-      return await getFileByPath<PostType.TUTORIAL>('learn', pathForFile);
+      return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
   }
 
