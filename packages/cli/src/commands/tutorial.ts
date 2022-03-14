@@ -96,7 +96,7 @@ export function makeTutorialCommand() {
       console.log(content);
       if (proposal.state === 'published') {
         // Kicking update process.
-      } else (proposal.state === 'readyToPublish') {
+      } else if (proposal.state === 'readyToPublish') {
         // Kicking initial process.
 
       }
