@@ -174,7 +174,7 @@ export function makeTutorialCommand() {
         toDeployFiles.forEach(async (file) => {
           console.log('Uploading', file.name)
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
-          const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}-${file.path}`, options.arweave_wallet)
+          const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
           console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`, file.name, arweaveHash)
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();

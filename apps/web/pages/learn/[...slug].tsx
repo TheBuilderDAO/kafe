@@ -76,7 +76,7 @@ const TutorialPage: NextPage<
 export async function getStaticPaths() {
   const { allPaths } = await getTutorialPaths();
   return {
-    paths: allPaths,
+    paths: [], // arweave download takes time. skip it
     /**
      * // TODO: this will be failing some cases .
      * This could be 2 different fuction one in local dev which basically search for the package.json. another one could utilize the github raw api to get the mdx file.
