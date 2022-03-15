@@ -5,7 +5,7 @@ const MenuSelect = ({ items, currentRefinement, refine }) => (
     value={currentRefinement || ''}
     onChange={event => refine(event.currentTarget.value)}
   >
-    <option value="">See all options</option>
+    <option value="">select</option>
     {items.map(item => (
       <option
         key={item.label}

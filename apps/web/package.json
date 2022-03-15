@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild:content": "rimraf ./public/tutorials && cp -r ../../tutorials ./public/ && ls -la public/tutorials",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@builderdao-sdk/dao-program": "*",
+    "@builderdao/cli": "*",
     "@builderdao/apis": "*",
     "@builderdao/dao-utils": "*",
     "@builderdao/md-utils": "*",
@@ -40,6 +42,8 @@
     "react-dom": "17.0.2",
     "react-hook-form": "^7.26.1",
     "react-hot-toast": "^2.2.0",
+    "react-icons": "^4.3.1",
+    "react-identicons": "^1.2.5",
     "react-instantsearch-dom": "^6.22.0",
     "react-select": "^5.2.2",
     "remark-autolink-headings": "^7.0.1",
@@ -63,6 +67,7 @@
     "eslint": "7.32.0",
     "next-transpile-modules": "9.0.0",
     "postcss": "^8.4.5",
+    "rimraf": "^3.0.2",
     "tailwind-styled-components": "^2.1.4",
     "tailwindcss": "^3.0.15",
     "typescript": "^4.5.3"

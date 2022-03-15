@@ -1,18 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
-import TutorialProposalHit from '../../components/Search/TutorialProposalHit';
-import Pagination from '../../components/Search/Pagination';
-import MenuSelect from '../../components/Search/MenuSelect';
-import ClearRefinements from '../../components/Search/ClearRefinements';
-import RefinementList from '../../components/Search/RefinementList';
-import routes from '../../routes';
+import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
+import TutorialFilter from '@app/components/TutorialFilter';
+import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
-import SortBy from '@app/components/Search/SortBy';
-import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import { useGetListOfProposals } from '@builderdao-sdk/dao-program';
+import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+import FundedTabs from '@app/components/Search/FundedTabs'
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -49,30 +45,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className="mb-5 bg-white shadow sm:rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <div className="sm:flex sm:items-start sm:justify-between">
-              <div>
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  Have an idea for proposal?
-                </h3>
-                <div className="mt-2 text-sm text-gray-500">
-                  <p>Submit your tutorial proposal and get paid</p>
-                </div>
-              </div>
-              <div className="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
-                <IsLoggedIn>
-                  <Link href={routes.write.index} passHref>
-                    <a className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-                      Propose Tutorial
-                    </a>
-                  </Link>
-                </IsLoggedIn>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <InstantSearch
           searchClient={searchClient}
           indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
@@ -82,11 +54,17 @@ const Home: NextPage = () => {
             hitsPerPage={4}
             analytics={false}
           />
-          <div className="flex flex-row gap-10">
-            <div className="w-full">
+          <div className="flex justify-between items-start">
+            <div className="flex flex-col grow">
+              <div className="my-6">
+                <FundedTabs attribute="funded" defaultRefinement={false} />
+              </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />
             </div>
+            <RightSidebar>
+              <TutorialFilter />
+            </RightSidebar>
           </div>
         </InstantSearch>
       </main>

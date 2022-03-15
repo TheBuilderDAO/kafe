@@ -6,7 +6,6 @@ const HelpButton = () => {
   const iconSize = 20;
 
   const handleHelp = () => {
-    //TODO implement help button
     console.log('Help!');
   };
   return (

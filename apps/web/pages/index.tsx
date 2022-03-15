@@ -1,5 +1,4 @@
 import React from 'react';
-import { TutorialCard } from '@builderdao/ui';
 import Head from 'next/head';
 import { NextPage } from 'next';
 import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
@@ -43,7 +42,7 @@ const LandingPage: NextPage = () => {
               Support creators by voting for proposals you want written.
             </div>
             <div>
-              <Link href={routes.vote.index}>
+              <Link href={routes.vote.index} passHref={true}>
                 <span className="inline-flex items-center px-4 py-2 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                   view all guides
                 </span>

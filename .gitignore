@@ -49,4 +49,6 @@ dao-programs/program-id-testnet.json
 
 arweave-wallet.json
 
+.env
+
 packages/apis/dist

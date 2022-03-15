@@ -1,0 +1,47 @@
+{
+  "proposalId": "04",
+  "slug": "polkadot-101",
+  "authors": [
+    {
+      "name": "Necmettin Karakaya",
+      "avatarUrl": "",
+      "email": "necmettin.karakaya@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "HeS5zcKVg6SrVreMeLSEznxKKEbPDp6zstVykzoGcCF4",
+        "pubkey": "Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy",
+        "githubName": "silentlight"
+      }
+    },
+    {
+      "reviewer2": {
+        "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+        "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+        "githubName": "zurgl"
+      }
+    }
+  ],
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "a137fe976f4069f70a36dc416fc2da1be1d4d238da2ffc2a1abdbe44631442e0",
+      "arweaveHash": "LrCIBJ_NnaHSi4bowtjt1tnMU1pKgYGVr7LZP_GYd2c"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "389cd8084fc84f11e82518353e69ab34a95615a7f30066bcf09774848aaa364b",
+      "arweaveHash": "WYLrsMvAeWkq0eksB0cpK9dJV73NWC8WrpfAMDYrUYI"
+    }
+  },
+  "description": "",
+  "href": "",
+  "imageUrl": "",
+  "title": ""
+}
