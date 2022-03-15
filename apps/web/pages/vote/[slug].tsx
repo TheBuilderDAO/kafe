@@ -26,8 +26,6 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
 
   const { data: tutorial } = useGetTutorialBySlugWithMetadata(slug as string)
 
-  console.log('TUTORIALLL', tutorial);
-
   return (
     <div>
       <Head>

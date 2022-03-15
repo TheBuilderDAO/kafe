@@ -67,8 +67,6 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
     return error.message;
   }
 
-  console.log('REVVVV', reviewers, reviewersMap);
-
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-5">
