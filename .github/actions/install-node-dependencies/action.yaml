@@ -19,5 +19,3 @@ runs:
           turbo-${{ github.job }}-${{ github.ref_name }}-
     - run: yarn
       shell: bash
-    - run: yarn build
-      shell: bash

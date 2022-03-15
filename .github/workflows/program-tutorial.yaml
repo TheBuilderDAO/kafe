@@ -61,6 +61,8 @@ jobs:
           anchor_version: ${{ env.ANCHOR_VERSION }} 
 
       - uses: ./.github/actions/install-node-dependencies
+      
+      - run: yarn build
 
       # Restore Cache from previous build/test
       - uses: actions/cache@v2
