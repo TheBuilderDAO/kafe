@@ -310,29 +310,40 @@ export function makeTutorialCommand() {
 
         const template = new TemplateService(getTutorialFolder(proposalSlug));
         if (q.name === 'tutorial_file_creation_confirm') {
+          console.log(1)
           await template.copy(q.answer);
+          console.log(2)
           await template.setName(proposalSlug);
+          console.log(3)
 
           await sleep(1000)
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          console.log(4)
           config.db.data ||= await config.initial({
             proposalId: proposal.id,
             slug: proposal.slug,
           })
+          console.log(5)
 
           const formatReviewer = (data: any) => ({
             pda: data.pda,
             pubkey: data.pubkey,
             githubName: data.githubName,
           })
+
+          console.log(6)
           const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1).then(formatReviewer)
           const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2).then(formatReviewer)
 
+          console.log(7)
           config.db.chain.get('reviewers').push({ reviewer1 } as any, reviewer2 as any).value()
+          console.log(8)
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
+          console.log(9)
 
           await config.db.write();
+          console.log(10)
           emitter.next({
             type: "input",
             name: "tutorial_title",
