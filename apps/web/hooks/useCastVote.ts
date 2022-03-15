@@ -5,7 +5,7 @@ import { useCastVote as solanaUseCastVote, useGetDaoState } from '@builderdao-sd
 
 type IndexVotesData = {
   id: number;
-  newNumberOfVotes: number;
+  numberOfVotes: number;
 };
 
 export const useCastVote = (
@@ -37,7 +37,7 @@ export const useCastVote = (
         const newNumberOfVotes = currentVotes.length + 1;
         const partialIndexData = {
           id: tutorialId,
-          newNumberOfVotes,
+          numberOfVotes: newNumberOfVotes,
           funded: false,
         }
 

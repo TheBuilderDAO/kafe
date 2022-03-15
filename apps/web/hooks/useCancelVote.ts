@@ -5,7 +5,7 @@ import { useCancelVote as solanaUseCancelVote } from '@builderdao-sdk/dao-progra
 
 type IndexVotesData = {
   id: number;
-  newNumberOfVotes: number;
+  numberOfVotes: number;
 };
 
 export const useCancelVote = (
@@ -34,7 +34,7 @@ export const useCancelVote = (
         await cancelVote(tutorialId);
 
         await updateTutorialIndex({
-          data: { id: tutorialId, newNumberOfVotes: currentVotes.length - 1 },
+          data: { id: tutorialId, numberOfVotes: currentVotes.length - 1 },
         });
       } catch (err) {
         console.log('Err:', err);
