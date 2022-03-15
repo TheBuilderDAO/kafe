@@ -13,4 +13,3 @@ export * from './useReviewersAssign';
 export * from './useGetListOfReviewers';
 export * from './useReviewerDelete';
 export * from './useIsAdmin';
-export * from './usePublishTutorial';

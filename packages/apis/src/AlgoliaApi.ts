@@ -10,6 +10,7 @@ export type TutorialIndex = {
   tags: string[];
   difficulty: string;
   numberOfVotes: number;
+  funded: boolean;
 };
 
 export type ApiConfig = {
@@ -33,11 +34,11 @@ class AlgoliaApi {
     await this.index.saveObject(record).wait();
   }
 
-  async updateNumberOfVotes(objectID: string, numberOfVotes: number) {
+  async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {
     await this.index
       .partialUpdateObject({
         objectID,
-        numberOfVotes,
+        ...record,
       })
       .wait();
   }
