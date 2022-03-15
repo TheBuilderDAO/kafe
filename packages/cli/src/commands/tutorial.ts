@@ -28,14 +28,13 @@ async function updateHashDigestOfFolder(rootFolder: string) {
   });
   const { db } = new BuilderDaoConfig(rootFolder)
   await db.read()
-  // const content = db.data?.content || {}
-  // for (const file of tutorialMetadata.content) {
-  await db.read()
   tutorialMetadata.content.forEach(async file => {
     const digest = await hashSumDigest(file.path);
     const relativePath = path.relative(rootFolder, file.path);
+    const prev = db.chain.get(`content["${relativePath}"]`).value()
     db.chain
       .set(`content["${relativePath}"]`, {
+        ...prev,
         name: file.name,
         path: relativePath,
         digest
