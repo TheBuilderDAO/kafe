@@ -1,18 +1,13 @@
 import Tags from '../Tags/Tags';
 import VoteButton from '@app/components/VoteButton/VoteButton';
-import { addEllipsis } from 'utils/strings';
 import BorderSVG from '../SVG/BorderSVG';
-import Image from 'next/image';
-import defaultAvatar from '/public/assets/icons/default_avatar.svg';
-import defaultAvatar2 from '/public/assets/icons/default_avatar_2.svg';
-import defaultAvatar3 from '/public/assets/icons/default_avatar_3.svg';
-import defaultAvatar4 from '/public/assets/icons/default_avatar_4.svg';
 import {
   useGetDaoState,
   useGetListOfVoters,
 } from '@builderdao-sdk/dao-program';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import ImageStack from '../ImageStack';
+import UserAvatar from '@app/components/UserAvatar/UserAvatar'
 
 const TutorialProposalHit = props => {
   const { loading, daoState, error } = useGetDaoState();
@@ -23,20 +18,8 @@ const TutorialProposalHit = props => {
     error: listError,
   } = useGetListOfVoters(props.hit.objectID);
 
-  const mockList = [
-    {
-      image: defaultAvatar,
-    },
-    {
-      image: defaultAvatar2,
-    },
-    {
-      image: defaultAvatar3,
-    },
-    {
-      image: defaultAvatar4,
-    },
-  ];
+  console.log('VOTERS', voters);
+
   return (
     <div className="mb-8 text-kafeblack dark:text-kafewhite z-10 relative min-w-[800px]">
       <BorderSVG />
@@ -44,10 +27,7 @@ const TutorialProposalHit = props => {
         <div className="flex flex-row justify-between">
           <div className="flex items-center p-6">
             <p>Proposal by</p>
-            <div className="px-2">
-              <Image src={defaultAvatar} width={25} height={25} alt="avatar" />
-            </div>
-            <p>{addEllipsis(props.hit.author)}</p>
+            <UserAvatar address={props.hit.author} />
           </div>
 
           {loading || listLoading ? (
@@ -62,7 +42,7 @@ const TutorialProposalHit = props => {
                   </span>
                   <p className="-mt-1.5 text-[#8E8980]">votes</p>
                 </div>
-                <ImageStack images={mockList} />
+                <ImageStack addresses={voters.map(vote => vote.account.author.toString())} />
               </div>
               <IsLoggedIn>
                 <VoteButton id={props.hit.objectID} />
