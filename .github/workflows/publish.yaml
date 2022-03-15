@@ -73,6 +73,13 @@ jobs:
       - id: publish_tutorial
         env:
           SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+          ARWEAVE_WALLET: ${{ secrets.NEXT_PUBLIC_ARWEAVE_WALLET }}
+          ARWEAVE_APP_NAME: ${{ secrets.NEXT_PUBLIC_ARWEAVE_APP_NAME }}
+          ARWEAVE_HOST: ${{ secrets.NEXT_PUBLIC_ARWEAVE_HOST }}
+          ARWEAVE_PORT: ${{ secrets.NEXT_PUBLIC_ARWEAVE_PORT }}
+          ARWEAVE_PROTOCOL: ${{ secrets.NEXT_PUBLIC_ARWEAVE_PROTOCOL }}
+          CERAMIC_NODE_URL: ${{ secrets.CERAMIC_NODE_URL }}
+          CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
         run: |
           builderdao tutorial publish $SLUG
       - uses: stefanzweifel/git-auto-commit-action@v4
