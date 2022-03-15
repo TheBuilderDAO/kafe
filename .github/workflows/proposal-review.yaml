@@ -93,7 +93,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTHOR: ${{needs.fetch_proposal.outputs.reviewer2_githubName}}
       - run: |
-          echo "reviewer0 ${{ steps.reviewer0_review.outputs.state }}"
           echo "reviewer1 ${{ steps.reviewer1_review.outputs.state }}"
           echo "reviewer2 ${{ steps.reviewer2_review.outputs.state }}"
       - name: Approved
@@ -128,7 +127,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
         run: |
-          echo "gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME"
+          gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME
 
   request_review_from_reviewer2:
     needs: fetch_proposal
@@ -141,4 +140,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
         run: |
-          echo "gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME"
+          gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME
