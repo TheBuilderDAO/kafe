@@ -3,6 +3,9 @@ import React, { useCallback } from 'react';
 import { useCastVote } from '../../hooks/useCastVote';
 import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
+import Image from 'next/image';
+import coffeeIdle from '/public/assets/icons/coffee_cup_idle.svg';
+import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 
 type CastVoteButtonProps = {
   id: number;
@@ -21,7 +24,7 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
         loading: `Casting vote`,
         success: `Vote cast successfully`,
         error: `Error casting vote`,
-      })
+      });
     } catch (err) {
       toast.error(err.message);
     }
@@ -30,10 +33,12 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
   return (
     <button
       disabled={submitting}
-      className="items-center w-full px-4 py-2 mt-4 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+      className="w-24 h-24 rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group shadow-xl"
       onClick={handleClick}
     >
-      {submitting ? 'Submitting...' : 'up vote'}
+      <div className="flex items-center justify-center p-0 m-0">
+        <VotedSVG voted={true} />
+      </div>
     </button>
   );
 };

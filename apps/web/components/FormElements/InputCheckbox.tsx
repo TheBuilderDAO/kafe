@@ -1,20 +1,32 @@
 import React from 'react';
 
-const InputCheckbox = ({options}) => {
+type CheckboxProps = {
+  options: string[];
+  name: string;
+  inputRef?: any;
+  onChange?: any;
+};
+
+const InputCheckbox = ({
+  options,
+  name,
+  inputRef,
+  onChange,
+}: CheckboxProps) => {
   return (
-    options.map(option => 
-      <label
-          key={option}
-          htmlFor={option}
-          className="cursor-pointer">
-            <input
-              type="radio"
-              id={option}
-              name="radio"
-              value={option}
-              className="peer absolute opacity-0 cursor-pointer"
-      />
-          <span 
+    <>
+      {options.map(option => (
+        <label key={option} htmlFor={option} className="cursor-pointer">
+          <input
+            type="radio"
+            id={option}
+            name={name}
+            value={option}
+            className="peer absolute opacity-0 cursor-pointer"
+            onChange={onChange}
+            ref={inputRef}
+          />
+          <span
             className="
             p-1
             px-2
@@ -22,20 +34,24 @@ const InputCheckbox = ({options}) => {
             rounded-md
             dark:border-kafewhite
             border-kafeblack
-            dark:peer-checked:border-kafered
-            peer-checked:border-kafepurple
-            dark:peer-checked:text-kafered
-            peer-checked:text-kafepurple
-            peer-hover:border-kafepurple
-            dark:peer-hover:border-kafered
+            dark:peer-checked:border-kafewhite
+            peer-checked:border-kafeblack
+            dark:peer-checked:text-kafeblack
+            peer-checked:text-kafewhite
+            dark:peer-checked:bg-kafewhite
+            peer-checked:bg-kafeblack
+            dark:bg-kafeblack
+            bg-kafelighter
             text-[12px]
-            mr-4"
+            mr-4
+            "
           >
             {option}
-            </span>
+          </span>
         </label>
-      )
-  )
-}
+      ))}
+    </>
+  );
+};
 
-export default InputCheckbox
+export default InputCheckbox;

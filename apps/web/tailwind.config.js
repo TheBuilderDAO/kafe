@@ -22,6 +22,7 @@ module.exports = {
         kafered: '#EB5F49',
         kafedarker: '#131213',
         kafelighter: '#FCFBF9',
+        kafemellow: '#B2ADA4',
       },
       fontFamily: {
         larken: ['Larken', 'sans-serif'],
@@ -33,7 +34,6 @@ module.exports = {
       },
       animation: {
         'slide-up': 'bazinga 0.5s ease forwards',
-        // 'slide-down': 'bazinga 0.5s ease backwards',
       },
       keyframes: {
         bazinga: {
@@ -41,7 +41,11 @@ module.exports = {
           '100%': { transform: 'translateY(-70px)' },
         },
       },
+      width: {
+        minimum: '1300px',
+        maximum: '1500px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
-}
+};

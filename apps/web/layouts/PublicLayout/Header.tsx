@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 const Header = () => {
   const router = useRouter();
   return (
-    <div className="flex justify-between w-full text-sm">
+    <div className="flex justify-between w-full text-sm min-w-[1300px]">
       <div>
         <LogoSVG />
       </div>

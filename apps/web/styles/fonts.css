@@ -1,19 +1,23 @@
 @font-face {
-  font-family: "Larken";
+  font-family: 'Larken';
   src: url('/assets/fonts/larken/Larken-Regular.otf');
 }
 
 @font-face {
-  font-family: "Larken Italic";
+  font-family: 'Larken Italic';
   src: url('/assets/fonts/larken/Larken-Italic.otf');
 }
 
 @font-face {
-  font-family: "Larken Extra Bold";
+  font-family: 'Larken Extra Bold';
   src: url('/assets/fonts/larken/Larken-ExtraBold.otf');
 }
 
 @font-face {
-  font-family: "Larken Extra Bold Italic";
+  font-family: 'Larken Extra Bold Italic';
   src: url('/assets/fonts/larken/Larken-ExtraBoldItalic.otf');
+}
+
+input[type='text']:focus {
+  box-shadow: none;
 }
