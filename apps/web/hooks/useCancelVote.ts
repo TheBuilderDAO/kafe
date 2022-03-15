@@ -18,8 +18,8 @@ export const useCancelVote = (
   },
 ] => {
   const [cancelVote] = solanaUseCancelVote();
-  const [updateIndex] = useApiCall<IndexVotesData, any>(
-    routes.api.tutorials.updateIndexRecord,
+  const [updateTutorialIndex] = useApiCall<IndexVotesData, any>(
+    routes.api.algolia.updateTutorial,
   );
 
   const [submitting, setSubmitting] = useState(false);
@@ -33,7 +33,7 @@ export const useCancelVote = (
 
         await cancelVote(tutorialId);
 
-        await updateIndex({
+        await updateTutorialIndex({
           data: { id: tutorialId, newNumberOfVotes: currentVotes.length - 1 },
         });
       } catch (err) {
@@ -44,7 +44,7 @@ export const useCancelVote = (
         setSubmitting(false);
       }
     },
-    [cancelVote, updateIndex, currentVotes.length],
+    [cancelVote, updateTutorialIndex, currentVotes.length],
   );
 
   return [handleAction, { submitting, error }];

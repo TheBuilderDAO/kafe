@@ -4,14 +4,14 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { AlgoliaApi } from '@builderdao/apis';
 
 type ResponseData = {
-  numberOfVotes: number;
+  success: boolean;
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
-  const { id, newNumberOfVotes } = req.body;
+  const { id, ...data } = req.body;
 
   const algoliaApi = new AlgoliaApi({
     appId: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -20,12 +20,12 @@ export default async function handler(
   });
 
   try {
-    await algoliaApi.updateNumberOfVotes(id, newNumberOfVotes);
+    await algoliaApi.updateTutorial(id, data);
   } catch (err) {
     console.log('ERR', err);
   }
 
   res.status(200).json({
-    numberOfVotes: newNumberOfVotes,
+    success: true,
   });
 }
