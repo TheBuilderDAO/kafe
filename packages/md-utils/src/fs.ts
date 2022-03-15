@@ -9,16 +9,19 @@ import { FrontMatterPostType, PostType } from './types';
 // Regex to find all the custom static tweets in a MDX file
 const TWEET_RE = /<StaticTweet\sid="[0-9]+"\s\/>/g;
 
+
+
 export const getFileByPath = async <T extends PostType>(
-  slug: string,
   pathForFile: string,
 ): Promise<FrontMatterPostType<T>> => {
   const source = await fs.readFile(pathForFile, 'utf8');
+  return await getFileParse<T>(source);
+};
 
+export const getFileParse = async <T extends PostType>(source: string) => {
   const parsedFile = matter(source);
 
   const { data, content } = parsedFile;
-  // const mdxSource = await serializeContent(parsedFile);
 
   // TODO: maybe we want to extract this in its own lib?
   /**
@@ -47,26 +50,24 @@ export const getFileByPath = async <T extends PostType>(
     tweetIDs: tweetIDs || [],
     frontMatter: {
       readingTime: readingTime(content),
-      slug,
       ...data,
     },
   };
 
   return result as unknown as FrontMatterPostType<T>;
-};
 
-const rootFolderPathForTutorials = path.join(
-  process.cwd(),
-  '..',
-  '..',
-  'node_modules',
-  '@builderdao-learn',
-); // TODO: make this direct path.
+}
 
-export const getTutorialContent = (slug: string) => {
-  const filePath = path.join(rootFolderPathForTutorials, slug, 'content.mdx');
-  return getFileByPath(slug, filePath);
-};
+const rootFolderPathForTutorials = process.env.NODE_ENV === 'production'
+  ? path.join(process.cwd(), 'public/tutorials')
+  : path.join(
+    process.cwd(),
+    '..',
+    '..',
+    'node_modules',
+    '@builderdao-learn',
+  ); // TODO: make this direct path.
+
 
 type TutorialPath = {
   params: {
@@ -161,9 +162,17 @@ export const getPathForFile = (
   mdFileName: string | undefined = 'index',
 ) => {
   return path.join(
-    rootFolderPathForTutorials,
-    packageName,
+    getPathForRootFolder(packageName),
     'content',
     `${mdFileName}.mdx`,
   );
 };
+
+export const getPathForRootFolder = (
+  packageName: string,
+) => {
+  return path.join(
+    rootFolderPathForTutorials,
+    packageName,
+  );
+}

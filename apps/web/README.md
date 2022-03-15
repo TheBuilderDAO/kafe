@@ -44,7 +44,7 @@ npm i -g vercel
 
 ```bash
 vc login <figment-mail>@figment.io
-vc teams switch figment-learn
+vc teams switch builder-dao 
 ```
 
 ```bash

@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import * as bs58 from 'bs58';
 import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
 
 import { makeProposalCommand } from './commands/proposal';
 import { makeReviewerCommand } from './commands/reviewer';
-import { createKeypairFromSecretKey } from './utils';
+import { createKeypairFromSecretKey, encodeKeypairSecretKey } from './utils';
 import { makeArweaveCommand } from './commands/arweave';
 import { makeCeramicCommand } from './commands/ceramic';
 import { makeAlgoliaCommand } from './commands/algolia';
@@ -39,7 +38,7 @@ program.addOption(
 );
 program.addOption(
   new commander.Option('--payer <payer>', 'Keypair to sign trasactions')
-    .default(bs58.encode(new anchor.web3.Keypair().secretKey))
+    .default(encodeKeypairSecretKey(new anchor.web3.Keypair()))
     .argParser((val: string) => createKeypairFromSecretKey(val)),
 );
 program.addOption(

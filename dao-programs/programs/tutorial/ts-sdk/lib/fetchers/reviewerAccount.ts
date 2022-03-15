@@ -15,4 +15,4 @@ export const reviewerAccountByReviewerPK = async (
 export const reviewerAccountByReviewerAccountPDA = async (
   program: Program<Tutorial>,
   reviewerAccountPk: anchor.web3.PublicKey,
-) => program.account.reviewerAccount.fetch(reviewerAccountPk);
+) => ({...await program.account.reviewerAccount.fetch(reviewerAccountPk), pda: reviewerAccountPk});

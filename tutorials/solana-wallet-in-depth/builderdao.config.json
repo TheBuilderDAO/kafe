@@ -19,9 +19,17 @@
       "slug": "advanced"
     }
   ],
-  "href": "/learn//Users/necmttn/Projects/crypto/kafe/publishing/tutorials",
+  "href": "/learn/solana-wallet-in-depth",
   "content": {
-    "fetching.mdx": "daf14ac255fe9f64be1779d684d42138d692157d68f7e6fc9e1c034e8e1e0ca3",
-    "index.mdx": "048b5e0790757764916215498dcfd33593b2455b9c4c302e2eed32a40d4518f6"
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "517a404a0feb7105e39616afae673568f27d438aa5e0f70e956146f759f15515"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e502e359ab8c1259b32c30330637681a4a2b6ef326de071b78b0099d2f9dd9f2"
+    }
   }
 }

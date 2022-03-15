@@ -1,5 +1,4 @@
-import { Commitment, Connection, PublicKey } from '@solana/web3.js';
-import { Program, Provider } from '@project-serum/anchor';
+import { Commitment, Connection, GetProgramAccountsFilter, PublicKey } from '@solana/web3.js';
 import * as anchor from '@project-serum/anchor';
 
 import {
@@ -38,16 +37,17 @@ const providerOptions: { commitment: Commitment } = {
   commitment: 'processed',
 }
 
+
 export class TutorialProgramClient {
-  public readonly provider: Provider
-  public readonly tutorialProgram: Program<Tutorial>
+  public readonly provider: anchor.Provider
+  public readonly tutorialProgram: anchor.Program<Tutorial>
   public readonly kafeMint: PublicKey
   public readonly programId: PublicKey
 
   private readonly pda
 
   constructor(connection: Connection, wallet: typeof anchor.Wallet, kafeMint: PublicKey) {
-    this.provider = new Provider(connection, wallet, providerOptions);
+    this.provider = new anchor.Provider(connection, wallet, providerOptions);
     const { getProgram, PROGRAM_ID } = TutorialProgramConfig.getConfig();
     this.programId = PROGRAM_ID;
     this.tutorialProgram = getProgram(this.provider);
@@ -60,8 +60,8 @@ export class TutorialProgramClient {
     return daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount)
   }
 
-  async getProposals() {
-    return proposalAccountList(this.tutorialProgram)
+  async getProposals(filter: Buffer | GetProgramAccountsFilter[] | undefined = undefined) {
+    return proposalAccountList(this.tutorialProgram, filter)
   }
 
   async getIsAdmin() {
