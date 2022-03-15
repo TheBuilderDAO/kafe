@@ -24,7 +24,18 @@
       "githubName": "zurgl"
     }
   ],
-  "content": {},
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "079737b5f6f7770e37ab55a810d06146e8c665d94ccb6eb09acbf01b4086fa7c"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fdea7fc03cf907dec3e98743d6493793fb4f127d49d3a8ece7b106c2af05db60"
+    }
+  },
   "description": "",
   "href": "",
   "imageUrl": "",
