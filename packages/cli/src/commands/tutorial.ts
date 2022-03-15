@@ -189,21 +189,7 @@ export function makeTutorialCommand() {
           // console.log('Updated ceramic metadata')
         })
       }
-
       // End of the ceramic & arweave process.
-
-
-
-
-      // Object.values(content).forEach(async file => {
-      //   const filePath = path.join(rootFolder, file.path);
-      //   const digest = await hashSumDigest(file.path);
-      //   if (digest !== file.digest) {
-      //     console.log(`File ${file.path} has changed.`);
-      //   }
-      //   const fileContent = await getFileByPath<PostType.TUTORIAL>(file.name, filePath);
-      // })
-
     })
 
   tutorial.command('init')
