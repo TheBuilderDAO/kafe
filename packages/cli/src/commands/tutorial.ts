@@ -127,7 +127,7 @@ export function makeTutorialCommand() {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-
+      console.log(rootFolder);
       const config = new BuilderDaoConfig(rootFolder)
       await config.db.read();
       const proposalId = config.db.chain.get('proposalId').parseInt().value()
