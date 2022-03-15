@@ -30,14 +30,14 @@
     "content/fetching.mdx": {
       "name": "fetching.mdx",
       "path": "content/fetching.mdx",
-      "digest": {},
-      "arweaveHash": "W2hOlJiaSCKtfCjdNQgpICxeShzYKOO4iau4xHWUeO4"
+      "digest": "a11f30519d5d7ea9fdf48bde7fcdf4a2f133099693999f7e51a247854fe82a9c",
+      "arweaveHash": "znGIdFkFG3L3sCSld_uL2G-1fpgq2-0EDo_qercNFJk"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
       "digest": "389cd8084fc84f11e82518353e69ab34a95615a7f30066bcf09774848aaa364b",
-      "arweaveHash": "V84dEfzKialR7m2-4S8-S3sv7kHzB6dOXKsREbYuMr0"
+      "arweaveHash": "WYLrsMvAeWkq0eksB0cpK9dJV73NWC8WrpfAMDYrUYI"
     }
   },
   "description": "",
