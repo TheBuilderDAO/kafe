@@ -1,17 +1,33 @@
 import React from 'react';
 
-const InputCheckbox = ({ options, name }) => {
-  return options.map(option => (
-    <label key={option} htmlFor={option} className="cursor-pointer">
-      <input
-        type="radio"
-        id={option}
-        name={name}
-        value={option}
-        className="peer absolute opacity-0 cursor-pointer"
-      />
-      <span
-        className="
+type CheckboxProps = {
+  options: string[];
+  name: string;
+  inputRef?: any;
+  onChange?: any;
+};
+
+const InputCheckbox = ({
+  options,
+  name,
+  inputRef,
+  onChange,
+}: CheckboxProps) => {
+  return (
+    <>
+      {options.map(option => (
+        <label key={option} htmlFor={option} className="cursor-pointer">
+          <input
+            type="radio"
+            id={option}
+            name={name}
+            value={option}
+            className="peer absolute opacity-0 cursor-pointer"
+            onChange={onChange}
+            ref={inputRef}
+          />
+          <span
+            className="
             p-1
             px-2
             border-[1px]
@@ -29,11 +45,13 @@ const InputCheckbox = ({ options, name }) => {
             text-[12px]
             mr-4
             "
-      >
-        {option}
-      </span>
-    </label>
-  ));
+          >
+            {option}
+          </span>
+        </label>
+      ))}
+    </>
+  );
 };
 
 export default InputCheckbox;

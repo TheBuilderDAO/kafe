@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import useTags from '../../hooks/useTags';
 import { useCallback } from 'react';
 import { useProposeTutorial } from '../../hooks/useProposeTutorial';
@@ -19,7 +19,7 @@ type FormData = {
 };
 
 const ProposeTutorialForm = () => {
-  const { register, handleSubmit, reset } = useForm<FormData>();
+  const { register, handleSubmit, reset, watch, control } = useForm<FormData>();
   const { loading, error, tags } = useTags();
 
   const [proposeTutorial, { submitting }] = useProposeTutorial();
@@ -61,7 +61,13 @@ const ProposeTutorialForm = () => {
   return (
     <IsLoggedIn Placeholder={Placeholder}>
       <WriteFormWrapper handleSubmit={handleSubmit} onSubmit={onSubmit}>
-        <WriteForm tags={tags} register={register} />
+        <WriteForm
+          tags={tags}
+          register={register}
+          Controller={Controller}
+          control={control}
+          watch={watch}
+        />
         <RightSidebar>
           <WriteSidebar submitting={submitting} />
         </RightSidebar>

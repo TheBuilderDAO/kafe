@@ -37,7 +37,6 @@ const TutorialProposalHit = props => {
       image: defaultAvatar4,
     },
   ];
-
   return (
     <div className="mb-8 text-kafeblack dark:text-kafewhite z-10 relative min-w-[800px]">
       <BorderSVG />

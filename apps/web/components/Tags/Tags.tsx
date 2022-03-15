@@ -1,11 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
-type TagsProps = {
-  tags: string[];
-};
-
-const Tags = (props: TagsProps): JSX.Element => {
-  const { tags } = props;
+const Tags = (props): JSX.Element => {
+  let { tags } = props;
+  tags = tags.map(tag => (tag.value ? tag.value : tag));
 
   return (
     <span>
@@ -14,7 +11,7 @@ const Tags = (props: TagsProps): JSX.Element => {
           key={tag}
           className="inline-flex items-center px-4 py-1.5 mr-2 rounded-sm text-xs font-extralight dark:bg-[#2A2829] text-kafeblack dark:text-kafewhite bg-kafelighter"
         >
-          {tag.toUpperCase()}
+          {tag?.value || tag}
         </span>
       ))}
     </span>

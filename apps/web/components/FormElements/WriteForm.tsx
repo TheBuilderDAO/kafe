@@ -9,7 +9,7 @@ import { useDapp } from '../../hooks/useDapp';
 import defaultAvatar from '/public/assets/icons/default_avatar.svg';
 import { addEllipsis } from 'utils/strings';
 
-const WriteForm = ({ tags, register }) => {
+const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
   const walletIcon = wallet?.wallet?.adapter?.icon; //TO-DO: figure out better way to create user icons
 
@@ -33,13 +33,7 @@ const WriteForm = ({ tags, register }) => {
             </p>
           </div>
           <div className="mt-1">
-            <InputTitle
-              placeholder="Enter a title"
-              {...register('title', {
-                required: true,
-                maxLength: 100,
-              })}
-            />
+            <InputTitle placeholder="Enter a title" register={register} />
           </div>
         </div>
 
@@ -51,12 +45,18 @@ const WriteForm = ({ tags, register }) => {
             >
               Enter tags
             </label>
-            <div>
-              <InputSelect
-                options={tags}
-                {...register('tags', { required: true })}
-              />
-            </div>
+            <Controller
+              name="tags"
+              rules={{ required: true }}
+              render={({ field: { ref, onChange } }) => (
+                <InputSelect
+                  options={tags}
+                  inputRef={ref}
+                  onChange={onChange}
+                />
+              )}
+              control={control}
+            />
           </div>
 
           <div>
@@ -67,10 +67,18 @@ const WriteForm = ({ tags, register }) => {
               Difficulty level
             </label>
             <div>
-              <InputCheckbox
-                options={['Beginner', 'Advanced']}
-                name="difficulty levels"
-                {...register('difficulty', { required: true })}
+              <Controller
+                name="difficulty"
+                control={control}
+                rules={{ required: true }}
+                render={({ field: { name, ref, onChange } }) => (
+                  <InputCheckbox
+                    options={['Beginner', 'Advanced']}
+                    onChange={onChange}
+                    inputRef={ref}
+                    name={name}
+                  />
+                )}
               />
             </div>
           </div>
@@ -80,7 +88,12 @@ const WriteForm = ({ tags, register }) => {
             Summary
           </label>
           <div className="mt-1">
-            <InputTextArea maxLength={480} />
+            <InputTextArea
+              maxLength={480}
+              name="description"
+              register={register}
+              watch={watch}
+            />
           </div>
         </div>
       </div>

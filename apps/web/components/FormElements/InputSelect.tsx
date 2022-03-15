@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import Select from 'react-select';
 
-const InputSelect = ({ options }) => {
+const InputSelect = ({ options, inputRef, onChange }) => {
   const { theme } = useTheme();
   options = options.map(option => ({
     value: option,
@@ -66,10 +66,12 @@ const InputSelect = ({ options }) => {
     }),
   };
   return (
-    <div className="w-full dark:bg-kafedarker bg-kafelighter rounded-2xl">
+    <div className="w-96 dark:bg-kafedarker bg-kafelighter rounded-2xl">
       <Select
         options={options}
+        onChange={onChange}
         isMulti
+        ref={inputRef}
         isSearchable
         className="text-kafered"
         classNamePrefix="text-kafeblack dark:text-white-200 text-kafeblack"

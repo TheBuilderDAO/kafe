@@ -97,6 +97,7 @@ const TutorialFilter = () => {
       <div className="px-10 pt-5">
         <p className="text-kafemellow">sort by</p>
         <Select
+          instanceId="sort-by"
           options={[
             { label: 'popularity', value: 'popularity' },
             { label: 'date published', value: 'date published' },
@@ -124,6 +125,7 @@ const TutorialFilter = () => {
             { label: 'Chainlink', value: 'Chainlink' },
             { label: 'Arweave', value: 'Arweave' },
           ]}
+          instanceId="protocols"
           components={{ Control, DropdownIndicator }}
           styles={customStyles}
           isMulti
