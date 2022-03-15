@@ -1,11 +1,12 @@
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { useCallback, useState } from 'react';
-import { useCastVote as solanaUseCastVote, useGetDaoState } from '@builderdao-sdk/dao-program'
+import { ProposalStateE, useCastVote as solanaUseCastVote, useGetDaoState } from '@builderdao-sdk/dao-program'
 
 type IndexVotesData = {
   id: number;
   numberOfVotes: number;
+  state?: ProposalStateE;
 };
 
 export const useCastVote = (
@@ -35,14 +36,13 @@ export const useCastVote = (
         await castVote(tutorialId);
 
         const newNumberOfVotes = currentVotes.length + 1;
-        const partialIndexData = {
+        const partialIndexData: IndexVotesData = {
           id: tutorialId,
           numberOfVotes: newNumberOfVotes,
-          funded: false,
         }
 
         if (newNumberOfVotes >= daoState.quorum.toNumber()) {
-          partialIndexData.funded = true;
+          partialIndexData.state = ProposalStateE.funded;
         }
 
         await updateTutorialIndex({

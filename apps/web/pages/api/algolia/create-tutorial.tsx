@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { TutorialIndex, TutorialState } from '@app/types/index';
 import { AlgoliaApi } from '@builderdao/apis';
+import { ProposalStateE } from '@builderdao-sdk/dao-program'
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,7 +19,7 @@ export default async function handler(
 
     const record = {
       objectID: id,
-      state: TutorialState.Proposed,
+      state: ProposalStateE.submitted,
       title,
       description,
       author,
