@@ -11,6 +11,10 @@
     "lint": {
       "outputs": []
     },
+    "link": {
+      "dependsOn": ["build"],
+      "cache": false
+    },
     "dev": {
       "cache": false
     },
