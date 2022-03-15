@@ -310,20 +310,18 @@ export function makeTutorialCommand() {
 
         const template = new TemplateService(getTutorialFolder(proposalSlug));
         if (q.name === 'tutorial_file_creation_confirm') {
-          console.log(1)
+          ui.log.write('🚧 Creating tutorial folder...')
           await template.copy(q.answer);
-          console.log(2)
+          ui.log.write('🧱 Copying template folder...')
           await template.setName(proposalSlug);
-          console.log(3)
+          ui.log.write('🖌 Updating Titles folder...')
 
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          console.log(4)
           config.db.data ||= await config.initial({
             proposalId: proposal.id,
             slug: proposal.slug,
           })
-          console.log(5)
 
           const formatReviewer = (data: any) => ({
             pda: data.pda,
@@ -331,19 +329,17 @@ export function makeTutorialCommand() {
             githubName: data.githubName,
           })
 
-          console.log(6)
           const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1).then(formatReviewer)
+          ui.log.write(`🕵️‍♂️ Adding Reviewer ... ${reviewer1.githubName}`)
           const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2).then(formatReviewer)
+          ui.log.write(`🧙‍♂️ Adding Reviewer ... ${reviewer2.githubName}`)
 
-          console.log(7)
           config.db.chain.get('reviewers').push({ reviewer1 } as any, reviewer2 as any).value()
-          console.log(8)
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
-          console.log(9)
+          ui.log.write(`⛓ updating content folders`)
 
           await sleep(1000)
           await config.db.write();
-          console.log(10)
           emitter.next({
             type: "input",
             name: "tutorial_title",
