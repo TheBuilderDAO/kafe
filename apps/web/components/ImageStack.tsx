@@ -1,26 +1,28 @@
-import React from 'react';
-import Image from 'next/image';
+import React from 'react'
+import Image from 'next/image'
+import Identicon from 'react-identicons'
 
-const ImageStack = ({ images }) => {
-  const size = 40;
+type ImageStackProps = {
+  addresses: string[];
+  size?: number;
+  limit?: number;
+}
+
+const ImageStack = (props: ImageStackProps) => {
+  const { addresses, size = 40, limit = 5 } = props
+
   return (
-    <div className="flex flex-row-reverse mr-8">
-      {images.map(image => (
+    <div className='flex flex-row-reverse mr-8'>
+      {addresses.slice(0, limit).map(address => (
         <div
-          className={`-mr-6 shadow:md border-[0.5px] w-[40px] h-[40px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110`}
-          key={image.image.src}
+          className={`-mr-4 shadow:md border-[1px] w-[40px] h-[40px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110 overflow-hidden`}
+          key={address}
         >
-          <Image
-            src={image.image}
-            key={image.image}
-            width={size}
-            height={size}
-            alt="stack"
-          />
+          <Identicon string={address} size={size} bg="white" />
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default ImageStack;
+export default ImageStack

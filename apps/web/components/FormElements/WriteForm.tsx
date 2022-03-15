@@ -1,17 +1,14 @@
 import React from 'react';
-import Image from 'next/image';
 import BorderSVG from '../SVG/BorderSVG';
 import InputTitle from './InputTitle';
 import InputTextArea from './InputTextArea';
 import InputSelect from './InputSelect';
 import InputCheckbox from './InputCheckbox';
 import { useDapp } from '../../hooks/useDapp';
-import defaultAvatar from '/public/assets/icons/default_avatar.svg';
-import { addEllipsis } from 'utils/strings';
+import UserAvatar from '@app/components/UserAvatar/UserAvatar'
 
 const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
-  const walletIcon = wallet?.wallet?.adapter?.icon; //TO-DO: figure out better way to create user icons
 
   return (
     <div className="relative min-w-[700px] grow">
@@ -20,17 +17,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
         <div className="mb-5">
           <div className="text-sm flex items-center">
             <p>Proposal by{'  '}</p>
-            <div className="mx-2">
-              <Image
-                src={walletIcon ? walletIcon : defaultAvatar}
-                alt="wallet icon"
-                width="25"
-                height="25"
-              />
-            </div>
-            <p className="font-black">
-              {addEllipsis(wallet?.publicKey.toString())}
-            </p>
+            <UserAvatar address={wallet.publicKey.toString()} />
           </div>
           <div className="mt-1">
             <InputTitle placeholder="Enter a title" register={register} />
