@@ -314,7 +314,7 @@ export function makeTutorialCommand() {
           await template.copy(q.answer);
           ui.log.write('🧱 Copying template folder...')
           await template.setName(proposalSlug);
-          ui.log.write('🖌 Updating Titles folder...')
+          ui.log.write('🖌  Updating Slugs folder...')
 
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
