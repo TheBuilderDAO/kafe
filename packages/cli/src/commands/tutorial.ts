@@ -176,11 +176,12 @@ export function makeTutorialCommand() {
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
           console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`, file.name, arweaveHash)
+          config.db.chain.set(`content["${file.path}"].digest`, hashSumDigest(file.path)).value()
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();
           console.log('Updated builderdao.config.json')
-          await ceramic.updateMetadata(proposal.streamId, {content: {[file.path]: arweaveHash}})
-          console.log('Updated ceramic metadata')
+          // await ceramic.updateMetadata(proposal.streamId, {content: {[file.path]: arweaveHash}})
+          // console.log('Updated ceramic metadata')
         })
       }
 

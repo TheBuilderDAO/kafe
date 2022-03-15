@@ -8,6 +8,8 @@ on:
   pull_request:
     types: [ opened, reopened, synchronize ]
     branches:    
+    # TODO: change this back to designated branch.
+      - 'nk/publishing-lowdb-config'
       - 'dev'
       - 'main'
   
