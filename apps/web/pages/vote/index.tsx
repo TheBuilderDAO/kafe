@@ -66,7 +66,10 @@ const Home: NextPage = () => {
               <Pagination />
             </div>
             <RightSidebar>
-              <TutorialFilter />
+              <TutorialFilter
+                searchClient={searchClient}
+                indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+              />
             </RightSidebar>
           </div>
         </InstantSearch>
