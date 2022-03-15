@@ -2,6 +2,7 @@ import * as commander from 'commander';
 import path from 'path';
 import fs from 'fs-extra'
 import Rx from 'rxjs'
+import async from 'async'
 import {
   getTutorialPaths,
   getTutorialContentByPath,
@@ -147,41 +148,12 @@ export function makeTutorialCommand() {
       console.log(proposal)
       console.log(ceramicMetadata);
 
-      const toDeployFiles = [];
-      console.log({
-        proposal,
-        ceramicMetadata,
-        data: config.db.data
-      })
-      if (Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')) {
-        console.log('Kicking initial process.')
-        Object.values(content).forEach(async (file) => {
-          console.log(file)
-          const filePath = path.join(rootFolder, file.path);
-          toDeployFiles.push({
-            ...file,
-            fullPath: filePath,
-          })
-          // const fileDigest = await hashSumDigest(filePath);
-          // if (fileDigest !== file.digest) {
-          //   toDeployFiles.push(file);
-          // }
-        })
-        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata and update the proposal if needed 
-        // find the files chagged and redopley them to arweave.
-      } else if (Object.keys(proposal.state).some((k: string) => k === 'published')) {
-        console.log("Kicking update process.")
-        // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
-        // Kicking initial process.
-      } else {
-        tutorial.error(`
-        🚧 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]}
-        `)
-      }
-
-      if (toDeployFiles.length > 0) {
-        console.log("Starting Uploading to Arweave")
-        toDeployFiles.forEach(async (file) => {
+      const deployQueue = async.queue( async (file: {
+        path: string,
+        name: string,
+        digest: string,
+        fullPath: string,
+      }) =>  {
           console.log('Uploading', file.name)
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
@@ -191,10 +163,43 @@ export function makeTutorialCommand() {
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();
           console.log('Updated builderdao.config.json')
-          // await ceramic.updateMetadata(proposal.streamId, {content: {[file.path]: arweaveHash}})
-          // console.log('Updated ceramic metadata')
+      }, 2);
+
+      // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
+      // Kicking initial process.
+      const isReadyToPublish =Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')
+      const isPublished = Object.keys(proposal.state).some((k: string) => k === 'published')
+      if (isReadyToPublish) {
+        console.log('Kicking initial process.')
+        Object.values(content).forEach(async (file) => {
+          const filePath = path.join(rootFolder, file.path);
+          deployQueue.push({
+            ...file,
+            fullPath: filePath,
+          })
         })
+        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata and update the proposal if needed 
+        // find the files chagged and redopley them to arweave.
+      } else if (isPublished) {
+        console.log("Kicking update process.")
+        Object.values(content).forEach(async (file) => {
+          const filePath = path.join(rootFolder, file.path);
+          const digest = await hashSumDigest(filePath)
+          if(file.digest !== digest) {
+            deployQueue.push({
+              ...file,
+              fullPath: filePath,
+            })
+          }
+        })
+      } else {
+        tutorial.error(`
+        🚧 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]}
+        `)
       }
+      await deployQueue.drain()
+      console.log('all items have been processed');
+
       // End of the ceramic & arweave process.
     })
 
