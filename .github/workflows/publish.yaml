@@ -176,9 +176,9 @@ jobs:
     steps:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: set_published
-      env:
-        PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-        TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
-      run: |
-        builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
+        env:
+          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+        run: |
+          builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
 
