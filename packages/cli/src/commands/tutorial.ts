@@ -22,6 +22,29 @@ import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
+async function updateHashDigestOfFolder(rootFolder: string) {
+  const tutorialMetadata = await getTutorialContentByPath({
+    rootFolder,
+  });
+  const { db } = new BuilderDaoConfig(rootFolder)
+  await db.read()
+  // const content = db.data?.content || {}
+  // for (const file of tutorialMetadata.content) {
+  await db.read()
+  tutorialMetadata.content.forEach(async file => {
+    const digest = await hashSumDigest(file.path);
+    const relativePath = path.relative(rootFolder, file.path);
+    db.chain
+      .set(`content["${relativePath}"]`, {
+        name: file.name,
+        path: relativePath,
+        digest
+      }).value()
+    await db.write();
+  })
+}
+
+
 export function makeTutorialCommand() {
   const rootNodeModulesFolderPath = path.join(
     __dirname,
@@ -63,25 +86,7 @@ export function makeTutorialCommand() {
       const rootFolder = learnPackageName
         ? path.join(rootNodeModulesFolderPath, learnPackageName)
         : process.cwd();
-      const tutorialMetadata = await getTutorialContentByPath({
-        rootFolder,
-      });
-      const { db } = new BuilderDaoConfig(rootFolder)
-      await db.read()
-      // const content = db.data?.content || {}
-      // for (const file of tutorialMetadata.content) {
-      await db.read()
-      tutorialMetadata.content.forEach(async file => {
-        const digest = await hashSumDigest(file.path);
-        const relativePath = path.relative(rootFolder, file.path);
-        db.chain
-          .set(`content["${relativePath}"]`, {
-            name: file.name,
-            path: relativePath,
-            digest
-          }).value()
-        await db.write();
-      })
+      await updateHashDigestOfFolder(rootFolder)
     });
 
   tutorial.command('publish')
@@ -136,18 +141,18 @@ export function makeTutorialCommand() {
         nodeUrl: options.nodeUrl,
         seed: options.seed,
       });
-        const arweave = new ArweaveApi({
-          appName: options.arweave_appName,
-          host: options.arweave_host,
-          port: options.arweave_port,
-          protocol: options.arweave_protocol
-        });
+      const arweave = new ArweaveApi({
+        appName: options.arweave_appName,
+        host: options.arweave_host,
+        port: options.arweave_port,
+        protocol: options.arweave_protocol
+      });
       const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
       console.log(proposal)
       console.log(ceramicMetadata);
-      
-      const toDeployFiles = []; 
-      if (Object.keys(proposal.state).some((k: string) =>  k === 'readyToPublish')) {
+
+      const toDeployFiles = [];
+      if (Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')) {
         console.log('Kicking initial process.')
         Object.values(content).forEach(async (file) => {
           console.log(file)
@@ -188,7 +193,7 @@ export function makeTutorialCommand() {
       // End of the ceramic & arweave process.
 
 
-      
+
 
       // Object.values(content).forEach(async file => {
       //   const filePath = path.join(rootFolder, file.path);
@@ -318,7 +323,8 @@ export function makeTutorialCommand() {
           const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1).then(formatReviewer)
           const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2).then(formatReviewer)
 
-          config.db.chain.get('reviewers').push({reviewer1} as any, reviewer2 as any).value()
+          config.db.chain.get('reviewers').push({ reviewer1 } as any, reviewer2 as any).value()
+          await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
 
           await config.db.write();
           emitter.next({
