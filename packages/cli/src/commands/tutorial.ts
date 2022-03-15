@@ -43,11 +43,10 @@ async function updateHashDigestOfFolder(rootFolder: string) {
 
 
 export function makeTutorialCommand() {
-  const rootNodeModulesFolderPath = path.join(
+  const rootTutorialFolderPath = path.join(
     __dirname,
     '../../../',
-    'node_modules',
-    '@builderdao-learn',
+    'tutorials'
   );
 
   const tutorial = new commander.Command('tutorial').description('Tutorial');
@@ -58,7 +57,7 @@ export function makeTutorialCommand() {
   })
   const log = (object: any) => _log(object, tutorial.optsWithGlobals().key);
   tutorial.command('list').action(async () => {
-    const { allTutorials } = await getTutorialPaths(rootNodeModulesFolderPath);
+    const { allTutorials } = await getTutorialPaths(rootTutorialFolderPath);
     log(allTutorials.reduce((prev: any, curr) => {
       prev[curr.slug] = curr
       return prev
@@ -70,7 +69,7 @@ export function makeTutorialCommand() {
     .argument('<learnPackageName>', 'Tutorial name')
     .action(async learnPackageName => {
       const tutorialMetadata = await getTutorialContentByPackageName({
-        rootFolderPath: rootNodeModulesFolderPath,
+        rootFolderPath: rootTutorialFolderPath,
         learnPackageName,
       });
       log(tutorialMetadata);
@@ -81,7 +80,7 @@ export function makeTutorialCommand() {
     .argument('[learnPackageName]', 'Tutorial name')
     .action(async learnPackageName => {
       const rootFolder = learnPackageName
-        ? path.join(rootNodeModulesFolderPath, learnPackageName)
+        ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
       await updateHashDigestOfFolder(rootFolder)
     });
@@ -126,9 +125,9 @@ export function makeTutorialCommand() {
     )
     .action(async (learnPackageName, options) => {
       const rootFolder = learnPackageName
-        ? path.join(rootNodeModulesFolderPath, learnPackageName)
+        ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-
+      console.log(rootFolder);
       const config = new BuilderDaoConfig(rootFolder)
       await config.db.read();
       const proposalId = config.db.chain.get('proposalId').parseInt().value()
@@ -149,6 +148,11 @@ export function makeTutorialCommand() {
       console.log(ceramicMetadata);
 
       const toDeployFiles = [];
+      console.log({
+        proposal,
+        ceramicMetadata,
+        data: config.db.data
+      })
       if (Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')) {
         console.log('Kicking initial process.')
         Object.values(content).forEach(async (file) => {
@@ -169,6 +173,10 @@ export function makeTutorialCommand() {
         console.log("Kicking update process.")
         // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
         // Kicking initial process.
+      } else {
+        tutorial.error(`
+        🚧 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]}
+        `)
       }
 
       if (toDeployFiles.length > 0) {
@@ -177,8 +185,9 @@ export function makeTutorialCommand() {
           console.log('Uploading', file.name)
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
-          console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`, file.name, arweaveHash)
-          config.db.chain.set(`content["${file.path}"].digest`, hashSumDigest(file.path)).value()
+          console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`)
+          const digest = await hashSumDigest(file.fullPath)
+          config.db.chain.set(`content["${file.path}"].digest`, digest).value()
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();
           console.log('Updated builderdao.config.json')
@@ -186,21 +195,7 @@ export function makeTutorialCommand() {
           // console.log('Updated ceramic metadata')
         })
       }
-
       // End of the ceramic & arweave process.
-
-
-
-
-      // Object.values(content).forEach(async file => {
-      //   const filePath = path.join(rootFolder, file.path);
-      //   const digest = await hashSumDigest(file.path);
-      //   if (digest !== file.digest) {
-      //     console.log(`File ${file.path} has changed.`);
-      //   }
-      //   const fileContent = await getFileByPath<PostType.TUTORIAL>(file.name, filePath);
-      // })
-
     })
 
   tutorial.command('init')
@@ -332,7 +327,7 @@ export function makeTutorialCommand() {
           const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2).then(formatReviewer)
           ui.log.write(`🧙‍♂️ Adding Reviewer ... ${reviewer2.githubName}`)
 
-          config.db.chain.get('reviewers').push({ reviewer1 } as any, reviewer2 as any).value()
+          config.db.chain.get('reviewers').push({ reviewer1 } as any, {reviewer2} as any).value()
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
           ui.log.write(`⛓ updating content folders`)
 

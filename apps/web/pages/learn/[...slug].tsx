@@ -86,6 +86,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const relativePath = path.relative(rootFolder, pathForFile)
   const getPost = async (): Promise<{ content: string, data: any }> => {
     if (config.content[relativePath].arweaveHash && process.env.NODE_ENV === 'production') {
+      try {
       const arweave = await new ArweaveApi({
         appName: process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,
         host: process.env.NEXT_PUBLIC_ARWEAVE_HOST,
@@ -95,9 +96,10 @@ export const getStaticProps: GetStaticProps = async context => {
       const response = await arweave.getTutorialByHash(config.content[relativePath].arweaveHash)
       if (response) {
         return getFileParse<PostType.TUTORIAL>(response.data)
-      } else {
-        return await getFileByPath<PostType.TUTORIAL>(pathForFile);
       }
+    } catch(err) {
+      return await getFileByPath<PostType.TUTORIAL>(pathForFile);
+    }
     } else {
       return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
