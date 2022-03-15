@@ -10,7 +10,7 @@ import {
 } from '@builderdao/md-utils';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
-import { binary_to_base58 } from 'base58-js'
+import * as bs58 from  'bs58'
 import simpleGit, { CleanOptions } from 'simple-git';
 
 import { log as _log, hashSumDigest, sleep } from '../utils';
@@ -221,7 +221,7 @@ export function makeTutorialCommand() {
                 {
                   memcmp: {
                     offset: 134,
-                    bytes: binary_to_base58(Buffer.from(input)),
+                    bytes: bs58.encode(Buffer.from(input)),
                   },
                 },
               ])

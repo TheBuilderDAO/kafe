@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import prettyjson from 'prettyjson';
+import * as bs58 from 'bs58'
 import * as anchor from '@project-serum/anchor';
-import { base58_to_binary, binary_to_base58 } from 'base58-js'
 import { Keypair } from '@solana/web3.js';
 import { promises as fs } from 'fs';
 import crypto from 'crypto';
@@ -36,11 +36,11 @@ export const log = (object: any, key = undefined) => {
 };
 
 export const createKeypairFromSecretKey = (secretKey: string) => {
-  const array = Uint8Array.from(base58_to_binary(secretKey));
+  const array = Uint8Array.from(bs58.decode(secretKey));
   return anchor.web3.Keypair.fromSecretKey(array);
 };
 
-export const encodeKeypairSecretKey = (keypair: Keypair) => binary_to_base58(keypair.secretKey);
+export const encodeKeypairSecretKey = (keypair: Keypair) => bs58.encode(keypair.secretKey);
 
 export const loadKeypairJson = async (path: string) =>
   Keypair.fromSecretKey(
