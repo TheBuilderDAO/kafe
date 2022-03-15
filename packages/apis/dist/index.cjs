@@ -60,11 +60,10 @@ var AlgoliaApi = class {
   async createTutorial(record) {
     await this.index.saveObject(record).wait();
   }
-  async updateNumberOfVotes(objectID, numberOfVotes) {
-    await this.index.partialUpdateObject({
-      objectID,
-      numberOfVotes
-    }).wait();
+  async updateTutorial(objectID, record) {
+    await this.index.partialUpdateObject(__spreadValues({
+      objectID
+    }, record)).wait();
   }
   async publishTutorial(objectID, state) {
     await this.index.partialUpdateObject({

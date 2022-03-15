@@ -13,6 +13,7 @@ declare type TutorialIndex = {
     tags: string[];
     difficulty: string;
     numberOfVotes: number;
+    funded: boolean;
 };
 declare type ApiConfig$3 = {
     appId: string;
@@ -24,7 +25,7 @@ declare class AlgoliaApi {
     private index;
     constructor(config: ApiConfig$3);
     createTutorial(record: Partial<TutorialIndex>): Promise<void>;
-    updateNumberOfVotes(objectID: string, numberOfVotes: number): Promise<void>;
+    updateTutorial(objectID: string, record: Partial<TutorialIndex>): Promise<void>;
     publishTutorial(objectID: string, state: any): Promise<void>;
 }
 
