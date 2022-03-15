@@ -160,10 +160,10 @@ const TutorialFilter = () => {
           <div className="mb-6">
             <h2 className="font-bold">Sort by</h2>
             <SortBy
-              defaultRefinement={'number_of_votes_desc'}
+              defaultRefinement={`${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`}
               items={[
-                { value: 'number_of_votes_desc', label: 'Most votes' },
-                { value: 'number_of_votes_asc', label: 'Least votes' },
+                { value: `${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`, label: 'Most votes' },
+                { value: `${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_asc`, label: 'Least votes' },
               ]}
             />
           </div>

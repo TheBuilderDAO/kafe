@@ -64,6 +64,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           value={{
             fallback: pageProps?.fallback || {},
             fetcher: fetcherWithConfig,
+            revalidateIfStale: false,
           }}
         >
           <Head>
