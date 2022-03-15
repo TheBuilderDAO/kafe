@@ -408,7 +408,7 @@ export function makeTutorialCommand() {
           if (q.answer) {
             await git.push(['-u', 'origin', `tutorials/${proposalSlug}`])
             ui.log.write(
-              `🚀 ${proposalSlug} Tutorial Initialized`
+              `🧱 [${proposalSlug}] Tutorial Initialized`
             )
           }
           emitter.complete()
