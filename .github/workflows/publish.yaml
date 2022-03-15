@@ -2,14 +2,16 @@ name: Publish tutorial
 
 on:
   workflow_dispatch:
-    branches: [ 
-      tutorials/**
-     ]
-  pull_request:
-    branches:
-    # TODO: change this back to designated branch.
-      - 'nk/publishing-lowdb-config'
-    types: [closed]
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
+  # pull_request:
+  #   branches:
+  #   # TODO: change this back to designated branch.
+  #     - 'nk/publishing-lowdb-config'
+  #   types: [closed]
 
 jobs:
   get_proposal_slug:
