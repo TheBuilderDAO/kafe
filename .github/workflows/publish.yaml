@@ -65,7 +65,7 @@ jobs:
           echo "::set-output name=streamId::$STATE"
 
   publish_tutorial:
-    needs: fetch_proposal
+    needs: [get_proposal_slug, fetch_proposal]
     if: ${{ needs.fetch_proposal.outputs.proposalId }} != ''
     runs-on: ubuntu-latest
     defaults:
