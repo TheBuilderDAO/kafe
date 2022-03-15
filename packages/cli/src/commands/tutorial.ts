@@ -4,10 +4,8 @@ import fs from 'fs-extra'
 import Rx from 'rxjs'
 import {
   getTutorialPaths,
-  getFileByPath,
   getTutorialContentByPath,
   getTutorialContentByPackageName,
-  PostType,
 } from '@builderdao/md-utils';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';

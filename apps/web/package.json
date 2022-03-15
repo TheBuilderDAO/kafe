@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "cp -r ../../tutorials ./public/tutorials && ls -la public/tutorials",
+    "prebuild": "cp -r ../../tutorials ./public/ && ls -la public/tutorials",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
