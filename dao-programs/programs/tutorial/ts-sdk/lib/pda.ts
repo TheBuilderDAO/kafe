@@ -2,7 +2,7 @@ import * as anchor from '@project-serum/anchor';
 
 import { getNumberBuffer } from './utils';
 
-const PROGRAM_SEED = 'BuilderDAO';
+const PROGRAM_SEED = 'TheBuilderDAO';
 
 export const getPda = (
   programId: anchor.web3.PublicKey,

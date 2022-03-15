@@ -7,7 +7,7 @@ pub mod state;
 pub mod instructions;
 use instructions::*;
 
-declare_id!("DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX");
+declare_id!("ELbkJGD6w6TVwH76Wq7ALRCNvaQ3ELdFjkpD3TJ9sZnf");
 
 #[program]
 pub mod tutorial {
@@ -53,10 +53,6 @@ pub mod tutorial {
 
   pub fn proposal_set_state(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
     instructions::proposal_set_state::handler(ctx, state)
-  }
-
-  pub fn guide_tipping(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {
-    instructions::guide_tipping::handler(ctx, amount)
   }
 
   pub fn guide_tipping(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {

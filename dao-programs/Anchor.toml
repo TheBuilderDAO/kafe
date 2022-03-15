@@ -1,11 +1,11 @@
 [programs.localnet]
-tutorial = "DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX"
+tutorial = "ELbkJGD6w6TVwH76Wq7ALRCNvaQ3ELdFjkpD3TJ9sZnf"
 
 [programs.devnet]
-tutorial = "DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX"
+tutorial = "ELbkJGD6w6TVwH76Wq7ALRCNvaQ3ELdFjkpD3TJ9sZnf"
 
 [programs.testnet]
-tutorial = "DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX"
+tutorial = "ELbkJGD6w6TVwH76Wq7ALRCNvaQ3ELdFjkpD3TJ9sZnf"
 
 [registry]
 url = "https://anchor.projectserum.com"
