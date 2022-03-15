@@ -1,6 +1,10 @@
 name: Publish tutorial
 
 on:
+  workflow_dispatch:
+    branches: [ 
+      tutorials/**
+     ]
   pull_request:
     branches:
     # TODO: change this back to designated branch.
