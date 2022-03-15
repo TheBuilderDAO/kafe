@@ -1,21 +1,23 @@
 name: Publish tutorial
 
 
-on:
-  pull_request:
-    types: [ labeled ]
-
+# for test only
 # on:
 #   pull_request:
-#     branches:
-#     # TODO: change this back to designated branch.
-#       - 'nk/publishing-lowdb-config'
-#     types: [ready_]
+#     types: [ labeled ]
+
+on:
+  pull_request:
+    branches:
+    # TODO: change this back to designated branch.
+      - 'nk/publishing-lowdb-config'
+      - 'dev'
 
 jobs:
   get_proposal_slug:
-    if: ${{ github.event.label.name == 'publish' }}
-    # if: ${{startsWith(github.head_ref, 'tutorials/')}} && ${{ github.event.pull_request.merged }}
+    # for test only
+    # if: ${{ github.event.label.name == 'publish' }} 
+    if: ${{startsWith(github.head_ref, 'tutorials/')}} && ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     defaults:
       run:
