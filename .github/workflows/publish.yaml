@@ -82,10 +82,10 @@ jobs:
           CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
         run: |
           builderdao tutorial publish $SLUG
+
       - uses: stefanzweifel/git-auto-commit-action@v4
-          with:
-            commit_message: Apply php-cs-fixer changes
-            file_pattern: tutorials/**/builderdao.config.js
+        with:
+          commit_message: Apply php-cs-fixer changes
 
 
 
