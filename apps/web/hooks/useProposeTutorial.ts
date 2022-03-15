@@ -4,7 +4,6 @@ import useApiCall from './useApiCall';
 import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { TutorialMetadata } from '@app/types/index';
-import { stringToSlug } from 'utils/strings';
 import {
   useGetDaoState,
   useProposeTutorial as solanaUseProposeTutorial,
@@ -47,13 +46,12 @@ export const useProposeTutorial = <AD>(): [
         setSubmitting(true);
 
         const id = daoState.numberOfTutorial.toNumber();
-        const slug = stringToSlug(data.title);
 
         // Store Metadata to Ceramic. Get CID
         const { streamId } = await storeMetadata({
           data: {
             title: data.title,
-            slug,
+            slug: data.slug,
             description: data.description,
             difficulty: data.difficulty,
             tags: data.tags,
@@ -66,7 +64,7 @@ export const useProposeTutorial = <AD>(): [
         const txHash = await proposeTutorial({
           id,
           userPk: publicKey,
-          slug,
+          slug: data.slug,
           streamId,
         });
 
@@ -75,7 +73,7 @@ export const useProposeTutorial = <AD>(): [
         await createIndexRecord({
           data: {
             id: id.toString(),
-            slug,
+            slug: data.slug,
             title: data.title,
             description: data.description,
             author: publicKey.toString(),

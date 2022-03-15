@@ -44,7 +44,7 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
           ],
         });
 
-        toast.promise(tx, {
+        await toast.promise(tx, {
           loading: "Assigning Reviewer",
           success: "Reviewer assigned successfully",
           error: "Error Assigning reviewer",
@@ -78,12 +78,11 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
         <div className="mt-1">
           <select
             className="w-full mb-4 text-black border-b-2"
-            // defaultValue={tutorial.reviewer1}
-            {...register('reviewer1', { required: true, setValueAs: (value) => reviewersMap[value].pubkey.toString() })}
+            {...register('reviewer1', { required: true })}
           >
             <option value="-1">Select reviewer...</option>
             {reviewers?.map(reviewer => {
-              const pubKey = reviewer.publicKey.toString();
+              const pubKey = reviewer.account.pubkey.toString();
               const githubName = reviewer.account.githubName.toString();
               return (
                 <option key={pubKey} value={pubKey}>
@@ -105,12 +104,11 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
         <div className="mt-1">
           <select
             className="w-full mb-4 text-black border-b-2"
-            // defaultValue={tutorial?.reviewer2}
-            {...register('reviewer2', { required: true , setValueAs: (value) => reviewersMap[value].pubkey.toString()})}
+            {...register('reviewer2', { required: true })}
           >
             <option value="-1">Select reviewer...</option>
             {reviewers?.map(reviewer => {
-              const pubKey = reviewer.publicKey.toString();
+              const pubKey = reviewer.account.pubkey.toString();
               const githubName = reviewer.account.githubName.toString();
               return (
                 <option key={pubKey} value={pubKey}>
