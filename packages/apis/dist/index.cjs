@@ -83,7 +83,8 @@ var _ArweaveApi = class {
     this.client = import_arweave.default.init({
       host: config.host || "localhost",
       port: config.port || 1984,
-      protocol: config.protocol || "http"
+      protocol: config.protocol || "http",
+      timeout: 2e5
     });
   }
   async publishTutorial(data, address, wallet) {

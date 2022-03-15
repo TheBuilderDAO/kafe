@@ -148,6 +148,11 @@ export function makeTutorialCommand() {
       console.log(ceramicMetadata);
 
       const toDeployFiles = [];
+      console.log({
+        proposal,
+        ceramicMetadata,
+        data: config.db.data
+      })
       if (Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')) {
         console.log('Kicking initial process.')
         Object.values(content).forEach(async (file) => {
@@ -180,7 +185,7 @@ export function makeTutorialCommand() {
           console.log('Uploading', file.name)
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
-          console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`, file.name, arweaveHash)
+          console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`)
           config.db.chain.set(`content["${file.path}"].digest`, hashSumDigest(file.fullPath)).value()
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();
