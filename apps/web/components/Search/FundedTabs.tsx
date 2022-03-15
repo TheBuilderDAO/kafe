@@ -1,5 +1,6 @@
-import { connectToggleRefinement } from 'react-instantsearch-dom'
+import { connectRefinementList } from 'react-instantsearch-dom'
 import React from 'react'
+import { ProposalStateE } from '@builderdao-sdk/dao-program'
 
 const FundedTabs = ({
   currentRefinement,
@@ -17,7 +18,7 @@ const FundedTabs = ({
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
             event.preventDefault()
-            refine(false)
+            refine(ProposalStateE.submitted)
           }}
         />
         <span
@@ -52,7 +53,7 @@ const FundedTabs = ({
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
             event.preventDefault()
-            refine(true)
+            refine(ProposalStateE.funded)
           }}
         />
         <span
@@ -82,4 +83,4 @@ const FundedTabs = ({
   )
 }
 
-export default connectToggleRefinement(FundedTabs)
+export default connectRefinementList(FundedTabs)

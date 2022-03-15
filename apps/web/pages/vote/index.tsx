@@ -6,7 +6,7 @@ import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
 import TutorialFilter from '@app/components/TutorialFilter';
 import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
-import { useGetListOfProposals } from '@builderdao-sdk/dao-program';
+import { ProposalStateE, useGetListOfProposals } from '@builderdao-sdk/dao-program'
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import FundedTabs from '@app/components/Search/FundedTabs'
 
@@ -50,14 +50,13 @@ const Home: NextPage = () => {
           indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
           <Configure
-            filters="state:proposed"
             hitsPerPage={4}
             analytics={false}
           />
           <div className="flex justify-between items-start">
             <div className="flex flex-col grow">
               <div className="my-6">
-                <FundedTabs attribute="funded" defaultRefinement={false} />
+                <FundedTabs attribute="state" defaultRefinement={[ProposalStateE.submitted]} />
               </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />
