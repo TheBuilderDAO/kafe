@@ -316,7 +316,6 @@ export function makeTutorialCommand() {
           await template.setName(proposalSlug);
           console.log(3)
 
-          await sleep(1000)
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
           console.log(4)
@@ -342,6 +341,7 @@ export function makeTutorialCommand() {
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
           console.log(9)
 
+          await sleep(1000)
           await config.db.write();
           console.log(10)
           emitter.next({
@@ -354,6 +354,7 @@ export function makeTutorialCommand() {
 
 
         if (q.name === 'tutorial_title') {
+          await sleep(1000)
           await template.setTitle(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
           config.db.chain.set('title', q.answer).value();
@@ -401,7 +402,10 @@ export function makeTutorialCommand() {
               name: "push_changes",
               message: "Push Changes",
             })
+          } else {
+            emitter.complete()
           }
+          
         }
 
         if (q.name === 'push_changes') {
