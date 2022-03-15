@@ -186,7 +186,8 @@ export function makeTutorialCommand() {
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
           console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`)
-          config.db.chain.set(`content["${file.path}"].digest`, hashSumDigest(file.fullPath)).value()
+          const digest = await hashSumDigest(file.fullPath)
+          config.db.chain.set(`content["${file.path}"].digest`, digest).value()
           config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
           await config.db.write();
           console.log('Updated builderdao.config.json')
