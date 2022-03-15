@@ -34,7 +34,6 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const [assignReviewers, { submitting }] = useReviewersAssign();
   const onSubmit = useCallback(
     async (data: FormData) => {
-      console.log('DATAAAA', data);
       try {
         const tx = assignReviewers({
           id: tutorial.id,

@@ -82,8 +82,12 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
             </div>
             {(tutorial.state !== ProposalStateE.readyToPublish && tutorial.state !== ProposalStateE.published) && (
               <div className='p-6 bg-white shadow w-60 sm:rounded-lg'>
-                <RenderReviewer reviewerAccountPk={tutorial.reviewer1} />
-                <RenderReviewer reviewerAccountPk={tutorial.reviewer2} />
+                {tutorial.reviewer1 !== ZERO_ADDRESS && (
+                  <RenderReviewer pubkey={tutorial.reviewer1} />
+                )}
+                {tutorial.reviewer2 !== ZERO_ADDRESS && (
+                  <RenderReviewer pubkey={tutorial.reviewer2} />
+                )}
                 <IsAdmin>
                   <AssignReviewersForm tutorial={tutorial} />
                 </IsAdmin>
@@ -96,19 +100,16 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   )
 }
 
-const RenderReviewer = (props: { reviewerAccountPk: string }) => {
-  const { reviewerAccountPk } = props
-  const { reviewer, loading, error } = useGetReviewer(new PublicKey(reviewerAccountPk))
-
-  if (reviewerAccountPk === ZERO_ADDRESS) {
-    return null
-  }
+const RenderReviewer = (props: { pubkey: string }) => {
+  const { pubkey } = props
+  const { reviewer, loading, error } = useGetReviewer(new PublicKey(pubkey))
 
   return (
     <div className='px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
       <dd className='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>
         {loading ? '...'
-          : addEllipsis(reviewer.pubkey.toString())} ({reviewer.githubName})
+          : `${addEllipsis(reviewer.pubkey.toString())} (${reviewer.githubName})`
+        }
       </dd>
     </div>
   )
