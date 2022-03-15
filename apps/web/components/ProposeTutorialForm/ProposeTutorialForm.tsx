@@ -15,7 +15,7 @@ type FormData = {
   slug: string;
   description: string;
   difficulty: string;
-  tags: string[];
+  tags: {value: string, label: string}[];
 };
 
 const ProposeTutorialForm = () => {
@@ -36,6 +36,9 @@ const ProposeTutorialForm = () => {
   const onSubmit = useCallback(
     async data => {
       try {
+
+        data.tags = data.tags.map(tag => tag.value);
+
         const tx = proposeTutorial(data);
         toast.promise(tx, {
           loading: `Proposing Tutorial`,

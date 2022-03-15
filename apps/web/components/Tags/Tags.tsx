@@ -2,7 +2,6 @@ import React from 'react';
 
 const Tags = (props): JSX.Element => {
   let { tags } = props;
-  tags = tags.map(tag => (tag.value ? tag.value : tag));
 
   return (
     <span>
