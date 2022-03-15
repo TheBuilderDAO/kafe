@@ -4,16 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "cp -r ../../tutorials ./public/ && ls -la public/tutorials",
+    "prebuild:content": "rimraf ./public/tutorials && cp -r ../../tutorials ./public/ && ls -la public/tutorials",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@builderdao-sdk/dao-program": "*",
+    "@builderdao/cli": "*",
     "@builderdao/dao-utils": "*",
     "@builderdao/md-utils": "*",
-    "@builderdao/cli": "*",
     "@builderdao/ui": "*",
     "@ceramicnetwork/http-client": "^1.5.7",
     "@emotion/react": "^11.7.1",
@@ -64,6 +64,7 @@
     "eslint": "7.32.0",
     "next-transpile-modules": "9.0.0",
     "postcss": "^8.4.5",
+    "rimraf": "^3.0.2",
     "tailwind-styled-components": "^2.1.4",
     "tailwindcss": "^3.0.15",
     "typescript": "^4.5.3"

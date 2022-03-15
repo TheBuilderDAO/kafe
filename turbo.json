@@ -1,7 +1,10 @@
 {
   "pipeline": {
+    "prebuild:content": {
+      "cache": false
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["prebuild:content", "^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "build:localnet": {

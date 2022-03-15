@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "builderdao": "builderdao",
-    "build": "turbo run build link",
+    "build": "turbo run prebuild:content build link",
     "build:localnet": "turbo run build:localnet",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
