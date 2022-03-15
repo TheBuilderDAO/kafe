@@ -37,8 +37,9 @@ export const getApplicationFetcher = () => {
   });
   const ceramicApi = new CeramicApi({
     nodeUrl: process.env.NEXT_PUBLIC_CERAMIC_NODE_URL,
-    seed: process.env.CERAMIC_SEED,
   });
+
+  ceramicApi.setSeed(process.env.CERAMIC_SEED);
 
   return new ApplicationFetcher(solanaApi, ceramicApi);
 };

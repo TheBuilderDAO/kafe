@@ -15,8 +15,9 @@ export default async function handler(
 
     const ceramicApi = new CeramicApi({
       nodeUrl: process.env.NEXT_PUBLIC_CERAMIC_NODE_URL as string,
-      seed: process.env.CERAMIC_SEED as string,
     });
+
+    ceramicApi.setSeed(process.env.CERAMIC_SEED as string);
 
     const doc = await ceramicApi.storeMetadata(metadata);
 

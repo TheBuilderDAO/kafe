@@ -77,13 +77,13 @@ declare type TutorialMetadata = {
 };
 declare type ApiConfig$1 = {
     nodeUrl: string;
-    seed?: string;
 };
 declare class CeramicApi {
     authenticatedDid: string | undefined;
-    private readonly seed;
+    private seed;
     private readonly client;
     constructor(config: ApiConfig$1);
+    setSeed(seed: string): void;
     private ensureAppAuthenticated;
     authenticateApp(): Promise<string>;
     getMetadata(streamId: string): Promise<TutorialMetadata>;

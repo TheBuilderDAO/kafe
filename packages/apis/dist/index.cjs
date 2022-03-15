@@ -141,8 +141,10 @@ var import_dids = require("dids");
 var import_key_did_provider_ed25519 = require("key-did-provider-ed25519");
 var CeramicApi = class {
   constructor(config) {
-    this.seed = config.seed;
     this.client = new import_http_client.CeramicClient(config.nodeUrl);
+  }
+  setSeed(seed) {
+    this.seed = seed;
   }
   async ensureAppAuthenticated() {
     var _a;
