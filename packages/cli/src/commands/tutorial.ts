@@ -14,7 +14,7 @@ import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import { binary_to_base58 } from 'base58-js'
 import simpleGit, { CleanOptions } from 'simple-git';
 
-import { log as _log, hashSumDigest } from '../utils';
+import { log as _log, hashSumDigest, sleep } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
@@ -313,6 +313,9 @@ export function makeTutorialCommand() {
         if (q.name === 'tutorial_file_creation_confirm') {
           await template.copy(q.answer);
           await template.setName(proposalSlug);
+
+          await sleep(1000)
+
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
           config.db.data ||= await config.initial({
             proposalId: proposal.id,
