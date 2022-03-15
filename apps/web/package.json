@@ -12,6 +12,7 @@
   "dependencies": {
     "@builderdao-sdk/dao-program": "*",
     "@builderdao/cli": "*",
+    "@builderdao/apis": "*",
     "@builderdao/dao-utils": "*",
     "@builderdao/md-utils": "*",
     "@builderdao/ui": "*",

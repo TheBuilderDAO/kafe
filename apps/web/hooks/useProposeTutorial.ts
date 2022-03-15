@@ -32,10 +32,10 @@ export const useProposeTutorial = <AD>(): [
 
   const [proposeTutorial] = solanaUseProposeTutorial();
   const [createIndexRecord] = useApiCall<any, any>(
-    routes.api.tutorials.createIndexRecord,
+    routes.api.algolia.createTutorial,
   );
   const [storeMetadata] = useApiCall<TutorialMetadata, StoreMetadataResponse>(
-    routes.api.tutorials.storeMetadata,
+    routes.api.ceramic.storeMetadata,
   );
 
   const handleAction = useCallback(
@@ -81,6 +81,7 @@ export const useProposeTutorial = <AD>(): [
             author: publicKey.toString(),
             difficulty: data.difficulty,
             tags: data.tags,
+            funded: false,
           },
         });
       } catch (err) {

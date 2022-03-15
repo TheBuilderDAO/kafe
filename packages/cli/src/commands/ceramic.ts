@@ -39,8 +39,10 @@ export function makeCeramicCommand() {
       ) => {
         const client = new CeramicApi({
           nodeUrl: options.nodeUrl,
-          seed: options.seed,
         });
+
+        client.setSeed(options.seed);
+
         const result = await client.updateMetadata(streamId, {
           publishedUri: options.publishedUri,
         });
