@@ -271,10 +271,14 @@ export function makeTutorialCommand() {
             })
           }
         }
-
+        const targetBranchName = `tutorials/${proposalSlug}`
         if (q.name === 'proposal_git_checkout_confirm') {
           if (q.answer === true) {
-            await git.checkoutLocalBranch(`tutorials/${proposalSlug}`)
+            if ((await git.branchLocal()).current !== targetBranchName) {
+              await git.checkoutLocalBranch(`tutorials/${proposalSlug}`)
+            } else {
+              ui.log.write('Branch name correct.')
+            }
           } else {
             ui.log.write('Skipping checkout branch')
           }
