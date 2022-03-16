@@ -8,6 +8,7 @@ const MenuSelect = ({ items, currentRefinement, refine, attribute }) => {
           key={item.value}
           htmlFor={item.label}
           className="cursor-pointer pb-10"
+          onClick={() => refine(item.value)}
         >
           <input
             type="radio"
@@ -15,6 +16,7 @@ const MenuSelect = ({ items, currentRefinement, refine, attribute }) => {
             name={attribute}
             value={item.isRefined ? currentRefinement : item.value}
             className="peer absolute opacity-0 cursor-pointer"
+            checked={item.isRefined}
           />
           <span
             className="
@@ -48,20 +50,3 @@ const MenuSelect = ({ items, currentRefinement, refine, attribute }) => {
 };
 
 export default connectMenu(MenuSelect);
-
-{
-  /* <select
-value={currentRefinement || ''}
-onChange={event => refine(event.currentTarget.value)}
->
-<option value="">select</option>
-{items.map(item => (
-  <option
-    key={item.label}
-    value={item.isRefined ? currentRefinement : item.value}
-  >
-    {item.label}
-  </option>
-))}
-</select> */
-}
