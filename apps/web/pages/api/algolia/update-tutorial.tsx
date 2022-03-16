@@ -2,6 +2,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { AlgoliaApi } from '@builderdao/apis';
+import {
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  ALGOLIA_SEARCH_ADMIN_KEY,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+} from '@app/constants';
 
 type ResponseData = {
   success: boolean;
@@ -14,9 +19,9 @@ export default async function handler(
   const { id, ...data } = req.body;
 
   const algoliaApi = new AlgoliaApi({
-    appId: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-    accessKey: process.env.ALGOLIA_SEARCH_ADMIN_KEY as string,
-    indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME as string,
+    appId: NEXT_PUBLIC_ALGOLIA_APP_ID,
+    accessKey: ALGOLIA_SEARCH_ADMIN_KEY,
+    indexName: NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   });
 
   try {
