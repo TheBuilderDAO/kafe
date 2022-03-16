@@ -18,7 +18,7 @@ jobs:
       run:
         shell: bash
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/checkout@v2
         id: print_output
       - name: Set Output
         id: set_output
