@@ -7,7 +7,7 @@ name: Publish tutorial
 #     types: [ labeled ]
 
 on:
-  pull_request:
+  push:
     branches:
       - 'dev'
 
@@ -15,7 +15,7 @@ jobs:
   get_proposal_slug:
     # for test only
     # if: ${{ github.event.label.name == 'publish' }} 
-    if: ${{startsWith(github.head_ref, 'tutorials/') }} && ${{ github.event.pull_request.merged  == 'true'}}
+    if: startsWith(github.head_ref, 'tutorials/') && github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     defaults:
       run:
