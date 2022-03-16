@@ -65,7 +65,7 @@ export const DappProvider = (props: DappProviderProps) => {
     kafeMint: new PublicKey(process.env.NEXT_PUBLIC_KAFE_MINT),
   });
   const ceramicApi = new CeramicApi({
-    nodeUrl: config?.ceramicApiUrl,
+    nodeUrl: config?.ceramicApiUrl || process.env.NEXT_PUBLIC_CERAMIC_NODE_URL,
   });
 
   const applicationFetcher = new ApplicationFetcher(solanaApi, ceramicApi);

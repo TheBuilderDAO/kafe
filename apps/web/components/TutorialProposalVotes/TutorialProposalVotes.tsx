@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
-import { addEllipsis } from '../../utils/strings';
-import { useDapp } from '../../hooks/useDapp';
-import VoteButton from '../VoteButton/VoteButton';
-import {
-  useGetDaoState,
-  useGetListOfVoters,
-} from '@builderdao-sdk/dao-program';
+import React from 'react'
+import { addEllipsis } from '../../utils/strings'
+import VoteButton from '../VoteButton/VoteButton'
+import { ProposalStateE, useGetDaoState, useGetListOfVoters } from '@builderdao-sdk/dao-program'
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn'
 
 type TutorialProposalVotesProps = {
   id: number;
+  state: ProposalStateE;
 };
 
 const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
-  const { id } = props;
-  const { wallet } = useDapp();
+  const { id, state } = props;
 
   const { daoState, loading, error } = useGetDaoState();
   const {
@@ -46,7 +43,11 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
         ))}
       </ul>
 
-      {wallet.connected && <VoteButton id={id} />}
+      <IsLoggedIn>
+        {state === ProposalStateE.submitted && (
+          <VoteButton id={id} />
+        )}
+      </IsLoggedIn>
     </div>
   );
 };
