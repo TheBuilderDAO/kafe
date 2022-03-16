@@ -4,13 +4,14 @@ import defaultAvatar from '/public/assets/icons/default_avatar.svg';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { getTutorialPaths } from '@builderdao/md-utils';
 import RightSidebar from 'layouts/PublicLayout/RightSidebar';
+import TutorialFilter from '@app/components/TutorialFilter';
 
 const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const { allTutorials } = props;
   return (
-    <div>
+    <div className="flex mt-10">
       <section>
         <div>
           {allTutorials.map((tutorial, index) => (
@@ -22,9 +23,7 @@ const LearnIndexPage: NextPage<
           ))}
         </div>
       </section>
-      <RightSidebar>
-        <p>Hey</p>
-      </RightSidebar>
+      <RightSidebar>{/* <TutorialFilter /> */}</RightSidebar>
     </div>
   );
 };
