@@ -13,11 +13,6 @@ export function makeAlgoliaCommand() {
     .description('Update index when tutorial is published')
     .argument('<objectId>', 'Object ID')
     .addOption(
-      new commander.Option('--content <content>', 'Tutorial content')
-        .env('CONTENT')
-        .makeOptionMandatory(),
-    )
-    .addOption(
       new commander.Option('--appId <appId>', 'Algolia App Id')
         .env('ALGOLIA_APP_ID')
         .makeOptionMandatory(),
@@ -46,11 +41,10 @@ export function makeAlgoliaCommand() {
           accessKey: options.accessKey,
           indexName: options.indexName,
         });
-        const txId = await client.publishTutorial(
+        await client.publishTutorial(
           objectId,
           ProposalStateE.published,
         );
-        log({ txId });
       },
     );
 
