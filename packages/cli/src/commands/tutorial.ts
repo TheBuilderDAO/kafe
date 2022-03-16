@@ -327,9 +327,9 @@ export function makeTutorialCommand() {
             githubName: data.githubName,
           })
 
-          const reviewer1 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer1).then(formatReviewer)
+          const reviewer1 = await client.getReviewerByReviewerPk(proposal.reviewer1).then(formatReviewer)
           ui.log.write(`🕵️‍♂️ Adding Reviewer ... ${reviewer1.githubName}`)
-          const reviewer2 = await client.getReviewerByReviewerAccountPDA(proposal.reviewer2).then(formatReviewer)
+          const reviewer2 = await client.getReviewerByReviewerPk(proposal.reviewer2).then(formatReviewer)
           ui.log.write(`🧙‍♂️ Adding Reviewer ... ${reviewer2.githubName}`)
 
           config.db.chain.get('reviewers').push({ reviewer1 } as any, {reviewer2} as any).value()
