@@ -7,9 +7,9 @@ name: Publish tutorial
 #     types: [ labeled ]
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - tutorials/facebook-clone
 
 jobs:
   get_proposal_slug:
