@@ -26,9 +26,15 @@
       }
     }
   ],
-  "content": {},
-  "description": "",
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ce259d58dae9b0811b4f8f0ccfbab0edf920782478e4d3e81c44739a9660c3c9"
+    }
+  },
+  "description": "This is a Facebook clone",
   "href": "",
   "imageUrl": "",
-  "title": ""
+  "title": "Facebook title"
 }
