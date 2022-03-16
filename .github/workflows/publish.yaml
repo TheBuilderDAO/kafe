@@ -9,7 +9,7 @@ name: Publish tutorial
 on:
   push:
     branches:
-      - 'dev'
+      - 'tutorials/facebook-clone'
 
 jobs:
   check_values:
