@@ -96,7 +96,7 @@ jobs:
           echo "reviewer2 $REVIEWER2_REVIEW"
       - name: Report Status
         if: |
-          ${{ steps.reviewer1_review.outputs.state }} == "APPROVED" && ${{ steps.reviewer2_review.outputs.state }} == "APPROVED"
+          ${{ steps.reviewer1_review.outputs.state }} != "APPROVED" || ${{ steps.reviewer2_review.outputs.state }} != "APPROVED"
         uses: actions/github-script@v3
         with:
           script: |
