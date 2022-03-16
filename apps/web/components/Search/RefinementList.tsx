@@ -1,4 +1,4 @@
-import { Highlight, connectRefinementList } from 'react-instantsearch-dom';
+import { connectRefinementList } from 'react-instantsearch-dom';
 import Select from 'react-select';
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
@@ -6,6 +6,7 @@ import { useState } from 'react';
 const RefinementList = ({
   items,
   refine,
+  clear,
   Control,
   DropdownIndicator,
   customStyles,
@@ -16,17 +17,21 @@ const RefinementList = ({
   const [filteredItems, setFilteredItems] = useState('');
 
   const handleMenuChange = (options, meta) => {
-    options.map(option => {
-      refine(option.value);
-    });
-    setFilteredItems(options);
+    if (meta.action === 'clear' || options.length === 0) {
+      refine([]);
+      setFilteredItems('');
+    } else {
+      const filter = options.map(item => item.label);
+      refine(filter);
+      setFilteredItems(filter);
+    }
   };
   return (
     <Select
       instanceId="tags"
       isMulti
       options={items}
-      value={items.find(item => filteredItems.includes(item.value))}
+      value={items.filter(item => filteredItems.includes(item.label))}
       components={{ Control, DropdownIndicator }}
       styles={customStyles}
       placeholder="select"

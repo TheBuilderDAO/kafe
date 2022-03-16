@@ -21,7 +21,6 @@ const Control = ({ children, ...props }: ControlProps) => (
 
 const TutorialFilter = () => {
   const { theme } = useTheme();
-  const innerTheme = theme;
 
   const toggleBg = theme === 'dark' ? '#131213' : '#FCFBF9';
   const toggleText = theme === 'dark' ? '#EAE4D9' : '#1E1C1E';
@@ -76,6 +75,7 @@ const TutorialFilter = () => {
     valueContainer: provided => ({
       ...provided,
       color: toggleText,
+      width: '500px',
     }),
 
     placeholder: (provided, state) => ({
