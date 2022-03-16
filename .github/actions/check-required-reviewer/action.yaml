@@ -14,7 +14,7 @@ inputs:
     default: ${{ github.event.pull_request.number }}
 
 outputs:
-  status:
+  state:
     description: "Status of the review"
     value: ${{ steps.review_state.outputs.state }}
 
