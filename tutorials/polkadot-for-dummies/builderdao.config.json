@@ -1,0 +1,34 @@
+{
+  "proposalId": "0a",
+  "slug": "polkadot-for-dummies",
+  "authors": [
+    {
+      "name": "Bartosz Hejman",
+      "avatarUrl": "",
+      "email": "bartoszhejman@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+        "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+        "githubName": "zurgl"
+      }
+    },
+    {
+      "reviewer2": {
+        "pda": "FWp5ZmJU57gpvNqjAjewAGW6WPEGqdqjAPiyzMEXpcqj",
+        "pubkey": "8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU",
+        "githubName": "Necmttn"
+      }
+    }
+  ],
+  "content": {},
+  "description": "",
+  "href": "",
+  "imageUrl": "",
+  "title": ""
+}
