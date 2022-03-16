@@ -8,7 +8,8 @@ name: Publish tutorial
 
 on:
   pull_request:
-    types: [closed]
+    types:
+      - closed
 
 jobs:
   check_values:
@@ -23,7 +24,6 @@ jobs:
         id: set_output
         run: |
           echo "github.head_ref ${{ toJSON(github) }}"
-          echo "github.event_name ${{ github.event_name }}"
           echo "startsWith(github.head_ref, 'tutorials/') ${{ startsWith(github.head_ref, 'tutorials/') }}"
           echo "github.event_name == 'pull_request' ${{ github.event_name == 'pull_request' }}"
           echo "github.event.action == 'closed' ${{ github.event.action == 'closed' }}"
