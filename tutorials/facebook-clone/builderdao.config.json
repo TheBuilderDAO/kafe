@@ -1,0 +1,34 @@
+{
+  "proposalId": "10",
+  "slug": "facebook-clone",
+  "authors": [
+    {
+      "name": "Bartosz Hejman",
+      "avatarUrl": "",
+      "email": "bartoszhejman@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "HeS5zcKVg6SrVreMeLSEznxKKEbPDp6zstVykzoGcCF4",
+        "pubkey": "Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy",
+        "githubName": "silentlight"
+      }
+    },
+    {
+      "reviewer2": {
+        "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+        "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+        "githubName": "zurgl"
+      }
+    }
+  ],
+  "content": {},
+  "description": "",
+  "href": "",
+  "imageUrl": "",
+  "title": ""
+}
