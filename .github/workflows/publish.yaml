@@ -23,6 +23,7 @@ jobs:
       - name: Set Output
         id: set_output
         run: |
+          echo "github.head_ref ${{ github.head_ref }}"
           echo "startsWith(github.head_ref, 'tutorials/') ${{ startsWith(github.head_ref, 'tutorials/') }}"
           echo "github.event_name == 'pull_request' ${{ github.event_name == 'pull_request' }}"
           echo "github.event.action == 'closed' ${{ github.event.action == 'closed' }}"
