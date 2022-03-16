@@ -30,7 +30,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ce259d58dae9b0811b4f8f0ccfbab0edf920782478e4d3e81c44739a9660c3c9"
+      "digest": "bd3c23d5fc402f81053e7bb8d40248986d43a3ac988ede8e02e4440d42fdf3f9",
+      "arweaveHash": "i6tYkhH_1c-EdJk9wCLSTwaCqHzqMc4pL6I97Ws-F5k"
     }
   },
   "description": "This is a Facebook clone",
