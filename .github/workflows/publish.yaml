@@ -9,8 +9,6 @@ name: Publish tutorial
 on:
   pull_request:
     branches:
-    # TODO: change this back to designated branch.
-      - 'nk/publishing-lowdb-config'
       - 'dev'
 
 jobs:
