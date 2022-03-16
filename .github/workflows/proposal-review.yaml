@@ -94,9 +94,12 @@ jobs:
         run: |
           echo "reviewer1 $REVIEWER1_REVIEW"
           echo "reviewer2 $REVIEWER2_REVIEW"
+      - if: ${{ steps.reviewer1_review.outputs.state }} == 'APPROVED' && ${{ steps.reviewer2_review.outputs.state }} == 'APPROVED'
+        id: check_all_reviewers_approved
+        run: |
+          echo "::set-output name=all_reviewers_approved::true"
       - name: Report Status
-        if: |
-          ${{ steps.reviewer1_review.outputs.state }} != "APPROVED" || ${{ steps.reviewer2_review.outputs.state }} != "APPROVED"
+        if: ${{ !steps.check_all_reviewers_approved.outputs.all_reviewers_approved }} 
         uses: actions/github-script@v3
         with:
           script: |
