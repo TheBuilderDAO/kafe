@@ -1,5 +1,5 @@
 {
-  "proposalId": "0a",
+  "proposalId": "10",
   "slug": "polkadot-for-dummies",
   "authors": [
     {
@@ -26,9 +26,15 @@
       }
     }
   ],
-  "content": {},
-  "description": "",
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6cb73bfab4719afd204c93973790e7a077ec6e9aa2c786d0fab964e0d024dc34"
+    }
+  },
+  "description": "This is cool",
   "href": "",
   "imageUrl": "",
-  "title": ""
+  "title": "Polkadot for Dummies"
 }
