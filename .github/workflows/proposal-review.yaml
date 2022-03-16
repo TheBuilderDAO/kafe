@@ -76,8 +76,6 @@ jobs:
     defaults:
       run:
         shell: bash
-    outputs:
-      state: ${{ steps.fetch.outputs.proposalId }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/check-required-reviewer
@@ -90,17 +88,15 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTHOR: ${{needs.fetch_proposal.outputs.reviewer2_githubName}}
-      - run: |
-          echo "reviewer1 ${{ steps.reviewer1_review.outputs.state }}"
-          echo "reviewer2 ${{ steps.reviewer2_review.outputs.state }}"
-      - name: Approved
-        id: all_reviewers_approved
+      - env:
+          REVIEWER1_REVIEW: ${{ steps.reviewer1_review.outputs.state }}
+          REVIEWER2_REVIEW: ${{ steps.reviewer2_review.outputs.state }}
+        run: |
+          echo "reviewer1 $REVIEWER1_REVIEW"
+          echo "reviewer2 $REVIEWER2_REVIEW"
+      - name: Report Status
         if: |
           ${{ steps.reviewer1_review.outputs.state }} == "APPROVED" && ${{ steps.reviewer2_review.outputs.state }} == "APPROVED"
-        run: |
-          echo "::set-output name=state::APPROVED"
-      - name: Report Status
-        if: ${{steps.all_reviewers_approved.outputs.state}} != "APPROVED"
         uses: actions/github-script@v3
         with:
           script: |
