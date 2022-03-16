@@ -5,11 +5,18 @@ import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { getTutorialPaths } from '@builderdao/md-utils';
 import RightSidebar from 'layouts/PublicLayout/RightSidebar';
 import TutorialFilter from '@app/components/TutorialFilter';
+import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
+import algoliasearch from 'algoliasearch/lite';
 
 const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const { allTutorials } = props;
+  const searchClient = algoliasearch(
+    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+  );
+
   return (
     <div className="flex mt-10">
       <section>
@@ -23,7 +30,15 @@ const LearnIndexPage: NextPage<
           ))}
         </div>
       </section>
-      <RightSidebar>hm</RightSidebar>
+      <RightSidebar>
+        <InstantSearch
+          searchClient={searchClient}
+          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+        >
+          <Configure hitsPerPage={4} analytics={false} />
+          <TutorialFilter />
+        </InstantSearch>
+      </RightSidebar>
     </div>
   );
 };
