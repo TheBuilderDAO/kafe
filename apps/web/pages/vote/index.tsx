@@ -6,9 +6,12 @@ import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
 import TutorialFilter from '@app/components/TutorialFilter';
 import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
-import { ProposalStateE, useGetListOfProposals } from '@builderdao-sdk/dao-program'
+import {
+  ProposalStateE,
+  useGetListOfProposals,
+} from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
-import FundedTabs from '@app/components/Search/FundedTabs'
+import FundedTabs from '@app/components/Search/FundedTabs';
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -49,14 +52,14 @@ const Home: NextPage = () => {
           searchClient={searchClient}
           indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
-          <Configure
-            hitsPerPage={4}
-            analytics={false}
-          />
-          <div className="flex justify-between items-start">
+          <Configure hitsPerPage={4} analytics={false} />
+          <div className="flex justify-between items-start mt-8">
             <div className="flex flex-col grow">
               <div className="my-6">
-                <FundedTabs attribute="state" defaultRefinement={[ProposalStateE.submitted]} />
+                <FundedTabs
+                  attribute="state"
+                  defaultRefinement={[ProposalStateE.submitted]}
+                />
               </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />

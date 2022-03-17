@@ -29,7 +29,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
       className="p-10 mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark min-w-[700px] text-kafeblack dark:text-kafewhite"
     >
       <div className="flex items-center mb-10">
-        <p>Proposal by</p>
+        <p>Guide by</p>
         {tutorial.authors.map(author => (
           <a key={author.nickname} href={author.nickname} className="mx-2">
             <span className="sr-only">{author.name}</span>
