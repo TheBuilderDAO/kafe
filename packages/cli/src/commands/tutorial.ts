@@ -10,7 +10,7 @@ import {
 } from '@builderdao/md-utils';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
-import * as bs58 from  'bs58'
+import * as bs58 from 'bs58'
 import simpleGit, { CleanOptions } from 'simple-git';
 
 import { log as _log, hashSumDigest, sleep } from '../utils';
@@ -27,7 +27,11 @@ async function updateHashDigestOfFolder(rootFolder: string) {
   });
   const { db } = new BuilderDaoConfig(rootFolder)
   await db.read()
-  tutorialMetadata.content.forEach(async file => {
+  const hashQueue = async.queue(async (file: {
+    path: string,
+    name: string,
+    digest: string,
+  }) => {
     const digest = await hashSumDigest(file.path);
     const relativePath = path.relative(rootFolder, file.path);
     const prev = db.chain.get(`content["${relativePath}"]`).value()
@@ -39,7 +43,11 @@ async function updateHashDigestOfFolder(rootFolder: string) {
         digest
       }).value()
     await db.write();
+  }, 2)
+  tutorialMetadata.content.forEach(file => {
+    hashQueue.push(file)
   })
+  await hashQueue.drain()
 }
 
 
@@ -128,7 +136,7 @@ export function makeTutorialCommand() {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-      console.log(rootFolder);
+      log({rootFolder});
       const config = new BuilderDaoConfig(rootFolder)
       await config.db.read();
       const proposalId = config.db.chain.get('proposalId').parseInt().value()
@@ -145,29 +153,27 @@ export function makeTutorialCommand() {
         protocol: options.arweave_protocol
       });
       const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
-      console.log(proposal)
-      console.log(ceramicMetadata);
 
-      const deployQueue = async.queue( async (file: {
+      const deployQueue = async.queue(async (file: {
         path: string,
         name: string,
         digest: string,
         fullPath: string,
-      }) =>  {
-          console.log('Uploading', file.name)
-          const fileContent = await fs.readFile(file.fullPath, 'utf8');
-          const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
-          console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`)
-          const digest = await hashSumDigest(file.fullPath)
-          config.db.chain.set(`content["${file.path}"].digest`, digest).value()
-          config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
-          await config.db.write();
-          console.log('Updated builderdao.config.json')
+      }) => {
+        console.log('Uploading', file.name)
+        const fileContent = await fs.readFile(file.fullPath, 'utf8');
+        const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
+        console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`)
+        const digest = await hashSumDigest(file.fullPath)
+        config.db.chain.set(`content["${file.path}"].digest`, digest).value()
+        config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
+        await config.db.write();
+        console.log('Updated builderdao.config.json')
       }, 2);
 
       // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
       // Kicking initial process.
-      const isReadyToPublish =Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')
+      const isReadyToPublish = Object.keys(proposal.state).some((k: string) => k === 'readyToPublish')
       const isPublished = Object.keys(proposal.state).some((k: string) => k === 'published')
       if (isReadyToPublish) {
         console.log('Kicking initial process.')
@@ -185,7 +191,7 @@ export function makeTutorialCommand() {
         Object.values(content).forEach(async (file) => {
           const filePath = path.join(rootFolder, file.path);
           const digest = await hashSumDigest(filePath)
-          if(file.digest !== digest) {
+          if (file.digest !== digest) {
             deployQueue.push({
               ...file,
               fullPath: filePath,
@@ -317,7 +323,7 @@ export function makeTutorialCommand() {
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
           config.db.data ||= await config.initial({
-            proposalId: proposal.id,
+            proposalId: proposal.id.toNumber(),
             slug: proposal.slug,
           })
 
@@ -332,12 +338,10 @@ export function makeTutorialCommand() {
           const reviewer2 = await client.getReviewerByReviewerPk(proposal.reviewer2).then(formatReviewer)
           ui.log.write(`🧙‍♂️ Adding Reviewer ... ${reviewer2.githubName}`)
 
-          config.db.chain.get('reviewers').push({ reviewer1 } as any, {reviewer2} as any).value()
+          config.db.chain.get('reviewers').push({ reviewer1 } as any, { reviewer2 } as any).value()
+          await config.db.write();
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
           ui.log.write(`⛓ updating content folders`)
-
-          await sleep(1000)
-          await config.db.write();
           emitter.next({
             type: "input",
             name: "tutorial_title",
@@ -348,11 +352,12 @@ export function makeTutorialCommand() {
 
 
         if (q.name === 'tutorial_title') {
-          await sleep(1000)
           await template.setTitle(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          await config.db.read();
           config.db.chain.set('title', q.answer).value();
           await config.db.write();
+
           emitter.next({
             type: "input",
             name: "tutorial_description",
@@ -363,6 +368,7 @@ export function makeTutorialCommand() {
         if (q.name === 'tutorial_description') {
           await template.setDescription(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
+          await config.db.read();
           config.db.chain.set('description', q.answer).value();
           await config.db.write();
           emitter.next({
@@ -373,9 +379,14 @@ export function makeTutorialCommand() {
         }
 
         if (q.name === 'tutorial_tags') {
-          await template.setDescription(q.answer);
+          await template.setTags(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          config.db.chain.set('description', q.answer).value();
+          await config.db.read();
+          const tags = q.answer.split(',').map(t => t.trim()).map(t => ({
+              name: t,
+              slug: t.toLowerCase(),
+            }))
+          config.db.chain.set('categories', tags).value();
           await config.db.write();
           emitter.next({
             type: "confirm",
@@ -388,7 +399,7 @@ export function makeTutorialCommand() {
           if (q.answer) {
             ui.log.write('Staging changes');
             await git.add('./*')
-            console.log(await (await git.status()).staged)
+            log(await (await git.status()).staged)
             ui.log.write('Adding Commit');
             await git.commit(`🚀 ${proposalSlug} Tutorial Initial`);
             emitter.next({
@@ -399,7 +410,7 @@ export function makeTutorialCommand() {
           } else {
             emitter.complete()
           }
-          
+
         }
 
         if (q.name === 'push_changes') {
