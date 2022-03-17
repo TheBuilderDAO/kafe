@@ -13,6 +13,7 @@ import MenuSelect from './Search/MenuSelect';
 import ClearRefinements from './Search/ClearRefinements';
 import algoliasearch from 'algoliasearch/lite';
 import SearchBox from './Search/SearchBox';
+import { NEXT_PUBLIC_ALGOLIA_INDEX_NAME } from '@app/constants';
 
 const DropdownIndicator = (props: DropdownIndicatorProps<any>) => {
   return (

@@ -8,7 +8,6 @@ export enum ProposalStateE {
   submitted = 'submitted',
   funded = 'funded',
   writing = 'writing',
-  hasReviewers = 'hasReviewers',
   readyToPublish = 'readyToPublish',
   published = 'published',
 }

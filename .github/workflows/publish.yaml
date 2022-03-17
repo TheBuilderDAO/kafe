@@ -8,16 +8,15 @@ name: Publish tutorial
 
 on:
   pull_request:
-    branches:
-    # TODO: change this back to designated branch.
-      - 'nk/publishing-lowdb-config'
-      - 'dev'
+    types:
+      - closed
 
 jobs:
   get_proposal_slug:
+    name: Get Proposal Slug
     # for test only
-    # if: ${{ github.event.label.name == 'publish' }} 
-    if: ${{startsWith(github.head_ref, 'tutorials/')}} && ${{ github.event.pull_request.merged }}
+    # if: ${{ github.event.label.name == 'publish' }}
+    if: startsWith(github.head_ref, 'tutorials/') && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -40,6 +39,7 @@ jobs:
           echo "::set-output name=slug::${{ steps.regex_extract_proposal_id.outputs.result }}"
 
   fetch_proposal:
+    name: Fetch Proposal
     needs: get_proposal_slug
     if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
@@ -69,7 +69,8 @@ jobs:
           echo "::set-output name=streamId::$STATE"
 
   publish_tutorial:
-    needs: [get_proposal_slug, fetch_proposal]
+    name: Publish Tutorial
+    needs: [ get_proposal_slug, fetch_proposal ]
     if: ${{ needs.fetch_proposal.outputs.proposalId }} != ''
     runs-on: ubuntu-latest
     defaults:
@@ -95,27 +96,9 @@ jobs:
         with:
           commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
 
-  # update_index:
-  #   needs: update_metadata
-  #   runs-on: ubuntu-latest
-  #   defaults:
-  #     run:
-  #       shell: bash
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: ./.github/actions/build-builderdao-cli/
-  #     - id: update_algolia_index
-  #       env:
-  #         OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-  #         CONTENT: ${{ needs.get_tutorial_content.outputs.content }}
-  #         ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-  #         ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_ACCESS_KEY }}
-  #         ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-  #       run: |
-  #         builderdao algolia updateIndex $OBJECT_ID --content $CONTENT --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
-
   set_state:
-    needs: [publish_tutorial, fetch_proposal]
+    name: Set state to published
+    needs: [ publish_tutorial, fetch_proposal ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -130,3 +113,21 @@ jobs:
         run: |
           builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
 
+  update_index:
+    name: Update Algolia index
+    needs: [ fetch_proposal, set_state ]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: update_algolia_index
+        env:
+          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
+        run: |
+          builderdao algolia updateIndex $OBJECT_ID --newState published --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME

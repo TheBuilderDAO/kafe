@@ -12,10 +12,15 @@ import {
 } from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import FundedTabs from '@app/components/Search/FundedTabs';
+import {
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+} from '@app/constants';
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 );
 
 const ProposalList = () => {
@@ -50,7 +55,7 @@ const Home: NextPage = () => {
       <main>
         <InstantSearch
           searchClient={searchClient}
-          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
           <Configure hitsPerPage={4} analytics={false} />
           <div className="flex justify-between items-start mt-8">

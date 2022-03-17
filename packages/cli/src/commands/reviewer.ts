@@ -37,7 +37,7 @@ export function makeReviewerCommand() {
           );
       }
       if (options.publicKey) {
-        log(await client.getReviewerByReviewerAccountPDA(options.publicKey));
+        log(await client.getReviewerByReviewerPk(options.publicKey));
       } else if (options.login) {
         log(await client.getReviewerByGithubLogin(options.login));
       }

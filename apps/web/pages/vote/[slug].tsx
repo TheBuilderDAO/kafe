@@ -84,7 +84,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
           </div>
           <div className='w-100'>
             <div className='p-6 mb-6 bg-white shadow sm:rounded-lg'>
-              <TutorialProposalVotes id={tutorial.id} />
+              <TutorialProposalVotes id={tutorial.id} state={tutorial.state as ProposalStateE} />
             </div>
             {(tutorial.state !== ProposalStateE.readyToPublish && tutorial.state !== ProposalStateE.published) && (
               <div className='p-6 bg-white shadow w-60 sm:rounded-lg'>
