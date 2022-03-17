@@ -1,0 +1,40 @@
+{
+  "proposalId": "10",
+  "slug": "polkadot-for-dummies",
+  "authors": [
+    {
+      "name": "Bartosz Hejman",
+      "avatarUrl": "",
+      "email": "bartoszhejman@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+        "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+        "githubName": "zurgl"
+      }
+    },
+    {
+      "reviewer2": {
+        "pda": "FWp5ZmJU57gpvNqjAjewAGW6WPEGqdqjAPiyzMEXpcqj",
+        "pubkey": "8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU",
+        "githubName": "Necmttn"
+      }
+    }
+  ],
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6cb73bfab4719afd204c93973790e7a077ec6e9aa2c786d0fab964e0d024dc34"
+    }
+  },
+  "description": "This is cool",
+  "href": "",
+  "imageUrl": "",
+  "title": "Polkadot for Dummies"
+}
