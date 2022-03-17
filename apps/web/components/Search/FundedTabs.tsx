@@ -21,11 +21,11 @@ const FundedTabs = ({ currentRefinement, refine, createURL }) => {
           className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
+            dark:bg-kafedarker bg-kafelighter
             ${
               currentRefinement[0] === 'submitted'
-                ? 'dark:bg-kafewhite bg:kafeblack text-kafewhite dark:text-kafeblack'
+                ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
                 : null
             }
             text-[12px]
@@ -51,11 +51,11 @@ const FundedTabs = ({ currentRefinement, refine, createURL }) => {
           className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
+            dark:bg-kafedarker bg-kafelighter
                         ${
                           currentRefinement[0] === 'funded'
-                            ? 'dark:bg-kafewhite bg:kafeblack text-kafewhite dark:text-kafeblack'
+                            ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
                             : null
                         }
             text-[12px]
