@@ -7,10 +7,10 @@ permissions:
 on:
   pull_request:
     types: [ opened, reopened, synchronize ]
-    branches:    
+    branches:
       - 'dev'
       - 'main'
-  
+
 
 jobs:
   get_proposal_slug:
@@ -45,6 +45,7 @@ jobs:
         shell: bash
     outputs:
       proposalId: ${{ steps.fetch.outputs.proposalId }}
+      proposalState: ${{ steps.fetch.outputs.proposalState }}
       reviewer1: ${{ steps.fetch.outputs.reviewer1 }}
       reviewer2: ${{ steps.fetch.outputs.reviewer2 }}
       reviewer1_githubName: ${{ steps.fetch.outputs.reviewer1_githubName }}
@@ -60,17 +61,20 @@ jobs:
         REVIEWER1=$(builderdao proposal get -s $SLUG -k reviewer1)
         REVIEWER2=$(builderdao proposal get -s $SLUG -k reviewer2)
         PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
+        PROPOSAL_STATE=$(builderdao proposal get -s $SLUG -k state)
         REVIEWER1_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER1 -k githubName)
         REVIEWER2_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER2 -k githubName)
         echo "::set-output name=reviewer1::$REVIEWER1"
         echo "::set-output name=reviewer2::$REVIEWER2"
         echo "::set-output name=proposalId::$PROPOSAL_ID"
+        echo "::set-output name=proposalState::$PROPOSAL_STATE"
         echo "::set-output name=reviewer1_githubName::$REVIEWER1_GITHUBNAME"
         echo "::set-output name=reviewer2_githubName::$REVIEWER2_GITHUBNAME"
 
 
   check_review_status:
     needs: fetch_proposal
+    if: ${{ needs.fetch_proposal.outputs.tutorialState }} != 'published'
     name: Check if all reviewers are present and approved
     runs-on: ubuntu-latest
     defaults:
@@ -99,13 +103,13 @@ jobs:
         run: |
           echo "::set-output name=all_reviewers_approved::true"
       - name: Report Status
-        if: ${{ !steps.check_all_reviewers_approved.outputs.all_reviewers_approved }} 
+        if: ${{ !steps.check_all_reviewers_approved.outputs.all_reviewers_approved }}
         uses: actions/github-script@v3
         with:
           script: |
               core.setFailed('Assigned reviewers are not approved yet')
       - uses: ./.github/actions/build-builderdao-cli/
-      - id: set_ready_to_publish 
+      - id: set_ready_to_publish
         env:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
@@ -138,3 +142,37 @@ jobs:
           REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
         run: |
           gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME
+
+  set_state:
+    needs: fetch_proposal
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: set_writing
+        env:
+          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+        run: |
+          builderdao proposal setstate $PROPOSAL_ID --state='writing' --adminKp $TESTNET_ADMIN_KP
+
+  update_index:
+    needs: [ fetch_proposal, set_state ]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: update_algolia_index
+        env:
+          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
+        run: |
+          builderdao algolia updateIndex $OBJECT_ID --newState writing --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
