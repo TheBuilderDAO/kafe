@@ -5,7 +5,7 @@ import { useTutorialProgram } from './index';
 import { PublicKey } from '@solana/web3.js';
 
 type ActionData = {
-  id: number;
+  slug: string;
   authorityPk: PublicKey;
   reviewerPks: PublicKey[];
 };
@@ -30,7 +30,7 @@ export const useReviewersAssign = (): [
 
         await tutorialProgram.assignReviewer(data);
 
-        mutate(routes.tutorialById(data.id));
+        mutate(routes.tutorialBySlug(data.slug));
       } catch (err) {
         if (err instanceof Error) {
           console.log('Err:', err);

@@ -1,7 +1,5 @@
 import * as anchor from '@project-serum/anchor';
 
-import { getNumberBuffer } from './utils';
-
 const PROGRAM_SEED = 'BuilderDAO';
 
 export const getPda = (
@@ -24,23 +22,37 @@ export const getPda = (
     return { pda, bump };
   };
 
-  const pdaTutorialById = async (id: number) => {
+  const pdaUserVoteAccountBySlug = async (
+    user: anchor.web3.PublicKey,
+    proposalPda: anchor.web3.PublicKey,
+  ) => {
     const [pda, bump] = await anchor.web3.PublicKey.findProgramAddress(
-      [Buffer.from(PROGRAM_SEED), getNumberBuffer(id)],
+      [Buffer.from(PROGRAM_SEED), proposalPda.toBuffer(), user.toBuffer()],
       programId,
     );
     return { pda, bump };
   };
 
-  const pdaUserVoteAccountById = async (
-    user: anchor.web3.PublicKey,
-    id: number,
-  ) => {
-    const [pda, bump] = await anchor.web3.PublicKey.findProgramAddress(
-      [Buffer.from(PROGRAM_SEED), getNumberBuffer(id), user.toBuffer()],
+  const makeSlugSeed = async (slug: string) => {
+    let seeds = [];
+    while (slug.length > 32) {
+      seeds.push(Buffer.from(slug.slice(0, 32)));
+      slug = slug.slice(32);
+    }
+    const [pda] = await anchor.web3.PublicKey.findProgramAddress(
+      [...seeds, Buffer.from(slug)],
       programId,
     );
-    return { pda, bump };
+    return pda;
+  };
+
+  const pdaTutorialBySlug = async (slug: string) => {
+    const slugSeed = await makeSlugSeed(slug);
+    const [pda, bump] = await anchor.web3.PublicKey.findProgramAddress(
+      [Buffer.from(PROGRAM_SEED), slugSeed.toBuffer()],
+      programId,
+    );
+    return { pda, bump, slugSeed };
   };
 
   const pdaReviewerAccount = async (reviewer: anchor.web3.PublicKey) => {
@@ -54,8 +66,8 @@ export const getPda = (
   return {
     pdaDaoAccount,
     pdaDaoVaultAccount,
-    pdaTutorialById,
-    pdaUserVoteAccountById,
+    pdaUserVoteAccountBySlug,
     pdaReviewerAccount,
+    pdaTutorialBySlug,
   };
 };

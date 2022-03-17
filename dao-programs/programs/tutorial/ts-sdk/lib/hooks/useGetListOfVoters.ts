@@ -2,11 +2,11 @@ import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './index';
 
-export const useGetListOfVoters = <D>(tutorialId: number) => {
+export const useGetListOfVoters = <D>(slug: string) => {
   const tutorialProgram = useTutorialProgram();
   const { data, error } = useSWR(
-    tutorialProgram ? routes.listOfVoters(tutorialId) : null,
-    async () => tutorialProgram?.getListOfVoters(tutorialId),
+    tutorialProgram ? routes.listOfVoters(slug) : null,
+    async () => tutorialProgram?.getListOfVoters(slug),
   );
 
   return {

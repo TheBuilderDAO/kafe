@@ -33,18 +33,19 @@ export const proposalCreate = async ({
   streamId: string;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaDaoVaultAccount, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaDaoVaultAccount, pdaTutorialBySlug } = getPda(
     program.programId,
     mintPk,
   );
   const userAta = await getAta(userPk, mintPk);
   const daoAccount = await pdaDaoAccount();
   const daoVaultAccount = await pdaDaoVaultAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
+  const proposalAccount = await pdaTutorialBySlug(slug);
 
   const signature = await program.rpc.proposalCreate(
     proposalAccount.bump,
     new anchor.BN(tutorialId),
+    proposalAccount.slugSeed,
     slug,
     streamId,
     {

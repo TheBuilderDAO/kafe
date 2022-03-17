@@ -6,12 +6,12 @@ export default {
   admin: '/admin',
   tutorialBySlug: (slug: string) => ['tutorials/slug', slug],
   tutorialById: (id: number) => ['tutorials/id', id],
-  listOfVoters: (tutorialId: number) => ['tutorials', tutorialId, 'voters'],
+  listOfVoters: (slug: string) => ['tutorials', slug, 'voters'],
   listOfReviewers: '/reviewers',
   reviewer: (publicKey: PublicKey) => ['reviewers', publicKey.toString()],
-  vote: (tutorialId: number, publicKey: PublicKey) => [
+  vote: (slug: string, publicKey: PublicKey) => [
     'tutorials',
-    tutorialId,
+    slug,
     'voters',
     publicKey.toString(),
   ],

@@ -201,6 +201,10 @@ export type Tutorial = {
           "type": "u64"
         },
         {
+          "name": "slugPda",
+          "type": "publicKey"
+        },
+        {
           "name": "slug",
           "type": "string"
         },
@@ -347,11 +351,6 @@ export type Tutorial = {
           "isSigner": false
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
           "name": "rent",
           "isMut": false,
           "isSigner": false
@@ -366,10 +365,6 @@ export type Tutorial = {
         {
           "name": "bump",
           "type": "u8"
-        },
-        {
-          "name": "tutorialId",
-          "type": "u64"
         }
       ]
     },
@@ -546,6 +541,10 @@ export type Tutorial = {
             "type": "u64"
           },
           {
+            "name": "state",
+            "type": "u8"
+          },
+          {
             "name": "bump",
             "type": "u8"
           },
@@ -568,12 +567,6 @@ export type Tutorial = {
           {
             "name": "createdAt",
             "type": "i64"
-          },
-          {
-            "name": "state",
-            "type": {
-              "defined": "ProposalState"
-            }
           },
           {
             "name": "slug",
@@ -620,8 +613,8 @@ export type Tutorial = {
             "type": "u8"
           },
           {
-            "name": "tutorialId",
-            "type": "u64"
+            "name": "tutorialPk",
+            "type": "publicKey"
           },
           {
             "name": "author",
@@ -630,34 +623,6 @@ export type Tutorial = {
           {
             "name": "votedAt",
             "type": "i64"
-          }
-        ]
-      }
-    }
-  ],
-  "types": [
-    {
-      "name": "ProposalState",
-      "type": {
-        "kind": "enum",
-        "variants": [
-          {
-            "name": "Submitted"
-          },
-          {
-            "name": "Funded"
-          },
-          {
-            "name": "Writing"
-          },
-          {
-            "name": "HasReviewers"
-          },
-          {
-            "name": "ReadyToPublish"
-          },
-          {
-            "name": "Published"
           }
         ]
       }
@@ -722,6 +687,11 @@ export type Tutorial = {
     {
       "code": 6011,
       "name": "BadPreviousState",
+      "msg": "Error: Cannot setState: bad previous state"
+    },
+    {
+      "code": 6012,
+      "name": "NotEnoughSolError",
       "msg": "Error: Cannot setState: bad previous state"
     }
   ]
@@ -930,6 +900,10 @@ export const IDL: Tutorial = {
           "type": "u64"
         },
         {
+          "name": "slugPda",
+          "type": "publicKey"
+        },
+        {
           "name": "slug",
           "type": "string"
         },
@@ -1076,11 +1050,6 @@ export const IDL: Tutorial = {
           "isSigner": false
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
           "name": "rent",
           "isMut": false,
           "isSigner": false
@@ -1095,10 +1064,6 @@ export const IDL: Tutorial = {
         {
           "name": "bump",
           "type": "u8"
-        },
-        {
-          "name": "tutorialId",
-          "type": "u64"
         }
       ]
     },
@@ -1275,6 +1240,10 @@ export const IDL: Tutorial = {
             "type": "u64"
           },
           {
+            "name": "state",
+            "type": "u8"
+          },
+          {
             "name": "bump",
             "type": "u8"
           },
@@ -1297,12 +1266,6 @@ export const IDL: Tutorial = {
           {
             "name": "createdAt",
             "type": "i64"
-          },
-          {
-            "name": "state",
-            "type": {
-              "defined": "ProposalState"
-            }
           },
           {
             "name": "slug",
@@ -1349,8 +1312,8 @@ export const IDL: Tutorial = {
             "type": "u8"
           },
           {
-            "name": "tutorialId",
-            "type": "u64"
+            "name": "tutorialPk",
+            "type": "publicKey"
           },
           {
             "name": "author",
@@ -1359,34 +1322,6 @@ export const IDL: Tutorial = {
           {
             "name": "votedAt",
             "type": "i64"
-          }
-        ]
-      }
-    }
-  ],
-  "types": [
-    {
-      "name": "ProposalState",
-      "type": {
-        "kind": "enum",
-        "variants": [
-          {
-            "name": "Submitted"
-          },
-          {
-            "name": "Funded"
-          },
-          {
-            "name": "Writing"
-          },
-          {
-            "name": "HasReviewers"
-          },
-          {
-            "name": "ReadyToPublish"
-          },
-          {
-            "name": "Published"
           }
         ]
       }
@@ -1451,6 +1386,11 @@ export const IDL: Tutorial = {
     {
       "code": 6011,
       "name": "BadPreviousState",
+      "msg": "Error: Cannot setState: bad previous state"
+    },
+    {
+      "code": 6012,
+      "name": "NotEnoughSolError",
       "msg": "Error: Cannot setState: bad previous state"
     }
   ]

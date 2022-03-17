@@ -5,8 +5,9 @@ export { default as daoVaultAccountBalance } from './daoVaultAccountBalance';
 export { default as proposalAccountById } from './proposalAccountById';
 export { default as proposalAccountBySlug } from './proposalAccountBySlug';
 export { default as proposalAccountList } from './proposalAccountList';
-export { default as listOfVoterById } from './listOfVoterById';
-export { default as userVoteAccountById } from './userVoteAccountById';
+export { default as proposalAccountFunded } from './proposalAccountFunded';
+export { default as listOfVoterBySlug } from './listOfVoterBySlug';
+export { default as userVoteAccountBySlug } from './userVoteAccountBySlug';
 export {
   reviewerAccountByReviewerPK,
   reviewerAccountByReviewerAccountPDA,

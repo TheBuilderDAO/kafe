@@ -12,7 +12,7 @@ import { getPda } from '../pda';
  * @param signer (optinal, default to provider.wallet.publicKey) signer of the transaction.
  * @returns signature of the transaction
  */
-export const voteCast = async ({
+export const voteCaster = async ({
   program,
   mintPk,
   slug,
@@ -25,25 +25,17 @@ export const voteCast = async ({
   userPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaUserVoteAccountBySlug, pdaTutorialBySlug } = getPda(
+  const [pda, bump] = await anchor.web3.PublicKey.findProgramAddress(
+    [Buffer.from('BuilderDAO'), userPk.toBuffer()],
     program.programId,
-    mintPk,
-  );
-  const daoAccount = await pdaDaoAccount();
-  const proposalAccount = await pdaTutorialBySlug(slug);
-  const voteAccount = await pdaUserVoteAccountBySlug(
-    userPk,
-    proposalAccount.pda,
   );
 
-  const signature = await program.rpc.voteCast(voteAccount.bump, {
+  const signature = await program.rpc.voteCaster({
     accounts: {
-      vote: voteAccount.pda,
-      daoConfig: daoAccount.pda,
-      tutorial: proposalAccount.pda,
+      vote: pda,
       systemProgram: anchor.web3.SystemProgram.programId,
       rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-      author: userPk,
+      signer: userPk,
     },
     ...(signer && { signers: [signer] }),
   });
@@ -51,4 +43,4 @@ export const voteCast = async ({
   return signature;
 };
 
-export default voteCast;
+export default voteCaster;

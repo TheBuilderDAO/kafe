@@ -18,23 +18,23 @@ import { getAta } from '../utils';
 export const proposalClose = async ({
   program,
   mintPk,
-  tutorialId,
+  slug,
   userPk,
   signer,
 }: {
   program: Program<Tutorial>;
   mintPk: anchor.web3.PublicKey;
-  tutorialId: number;
+  slug: string;
   userPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaTutorialById, pdaDaoVaultAccount } = getPda(
+  const { pdaDaoAccount, pdaTutorialBySlug, pdaDaoVaultAccount } = getPda(
     program.programId,
     mintPk,
   );
   const userAta = await getAta(userPk, mintPk);
   const daoAccount = await pdaDaoAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
+  const proposalAccount = await pdaTutorialBySlug(slug);
   const daoVaultAccount = await pdaDaoVaultAccount();
 
   const signature = await program.rpc.proposalClose(daoVaultAccount.bump, {

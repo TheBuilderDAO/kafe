@@ -17,7 +17,6 @@ export type DaoVaultAccountBalanceT = {
 export enum ProposalStateE {
   Submitted = 'submitted',
   Funded = 'funded',
-  Writing = 'writing',
   HasReviewers = 'hasReviewer',
   ReadyToPublish = 'readyToPublish',
   Published = 'published',

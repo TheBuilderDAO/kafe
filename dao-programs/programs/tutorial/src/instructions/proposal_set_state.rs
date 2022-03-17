@@ -1,5 +1,4 @@
 use anchor_lang::prelude::*;
-use std::str::FromStr;
 
 use crate::state::*;
 
@@ -17,6 +16,6 @@ pub struct ProposalSetState<'info> {
 
 pub fn handler(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
   let current_state = &mut ctx.accounts.proposal.state;
-  *current_state = ProposalState::from_str(&state).unwrap();
+  *current_state = state_from_str(&state).unwrap();
   Ok(())
 }

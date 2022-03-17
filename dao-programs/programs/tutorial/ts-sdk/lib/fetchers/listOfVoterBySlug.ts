@@ -1,21 +1,23 @@
 import { Program } from '@project-serum/anchor';
+import * as anchor from '@project-serum/anchor';
 import * as bs58 from 'bs58';
 
 import { Tutorial } from '../idl/tutorial';
-import { getNumberBuffer } from '../utils';
 
-const listOfVoterById = async (
+const listOfVoterBySlug = async (
   program: Program<Tutorial>,
-  tutorialId: number,
+  pdaTutorialBySlug: any,
+  slug: string,
 ) => {
+  const { pda } = await pdaTutorialBySlug(slug);
   return program.account.voteAccount.all([
     {
       memcmp: {
         offset: 9,
-        bytes: bs58.encode(getNumberBuffer(tutorialId)),
+        bytes: bs58.encode(pda.toBuffer()),
       },
     },
   ]);
 };
 
-export default listOfVoterById;
+export default listOfVoterBySlug;

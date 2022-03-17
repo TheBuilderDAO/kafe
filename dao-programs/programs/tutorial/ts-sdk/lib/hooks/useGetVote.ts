@@ -3,11 +3,11 @@ import routes from '../routes';
 import { PublicKey } from '@solana/web3.js';
 import { useTutorialProgram } from './index';
 
-export const useGetVote = <D>(tutorialId: number, publicKey: PublicKey) => {
+export const useGetVote = <D>(slug: string, publicKey: PublicKey) => {
   const tutorialProgram = useTutorialProgram();
 
-  const { data, error } = useSWR(routes.vote(tutorialId, publicKey), async () =>
-    tutorialProgram?.getVote(tutorialId, publicKey),
+  const { data, error } = useSWR(routes.vote(slug, publicKey), async () =>
+    tutorialProgram?.getVote(slug, publicKey),
   );
 
   return {

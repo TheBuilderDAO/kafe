@@ -11,6 +11,12 @@ export const getNumberBuffer = (n: number, alloc = 8) => {
   return buffer;
 };
 
+export const getU8Buffer = (n: number, alloc = 1) => {
+  const buffer = Buffer.alloc(alloc);
+  buffer.writeUIntLE(n, 0, 6);
+  return buffer;
+};
+
 export const getAta = async (
   ownerPk: PublicKey,
   mintPublicKey: PublicKey,

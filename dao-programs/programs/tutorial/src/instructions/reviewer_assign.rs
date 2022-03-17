@@ -32,7 +32,8 @@ pub fn handler(ctx: Context<ReviewerAssign>) -> Result<()> {
 
   ctx.accounts.tutorial.reviewer1 = ctx.accounts.reviewer1.pubkey;
   ctx.accounts.tutorial.reviewer2 = ctx.accounts.reviewer2.pubkey;
-  ctx.accounts.tutorial.state = ProposalState::HasReviewers;
+  ctx.accounts.tutorial.state = state_from_str("hasReviewers").unwrap();
+
 
   return Ok(());
 }

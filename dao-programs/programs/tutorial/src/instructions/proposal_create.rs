@@ -6,14 +6,14 @@ use crate::constants::*;
 use crate::state::*;
 
 #[derive(Accounts)]
-#[instruction(bump:u8, id: u64)]
+#[instruction(bump:u8, id: u64, slug_pda: Pubkey)]
 pub struct ProposalCreate<'info> {
   #[account(
     init,
     payer = payer,
-    seeds = [
+    seeds = [ 
       PROGRAM_SEED.as_bytes(), 
-      id.to_le_bytes().as_ref(),
+      slug_pda.as_ref(),
     ],
     bump,
     space = ProposalAccount::LEN
@@ -41,7 +41,6 @@ impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Trans
         to: accounts.dao_vault.to_account_info(),
         authority: accounts.payer.to_account_info(),
     };
-
     CpiContext::new(cpi_program, cpi_accounts)
   }
 }
@@ -49,7 +48,8 @@ impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Trans
 pub fn handler(
   ctx: Context<ProposalCreate>, 
   bump: u8,  
-  id: u64,   
+  id: u64,
+  _slug_pda: Pubkey,   
   slug: String,
   stream_id: String,
 ) -> Result<()> {
@@ -66,12 +66,12 @@ pub fn handler(
 
   ctx.accounts.proposal.created_at = Clock::get()?.unix_timestamp;
   ctx.accounts.proposal.creator = ctx.accounts.payer.key();
-  ctx.accounts.proposal.state = ProposalState::default();
   ctx.accounts.proposal.stream_id = stream_id;
   ctx.accounts.proposal.bump = bump;
   ctx.accounts.proposal.slug = slug;
   ctx.accounts.proposal.id = id;
   ctx.accounts.proposal.number_of_voter = 0;
+  ctx.accounts.proposal.state = 0;
   ctx.accounts.proposal.reviewer1 = Pubkey::default();
   ctx.accounts.proposal.reviewer2 = Pubkey::default();
 

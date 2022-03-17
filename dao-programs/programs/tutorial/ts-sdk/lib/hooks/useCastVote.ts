@@ -4,7 +4,7 @@ import { mutate } from 'swr';
 import { useTutorialProgram } from './index';
 
 export const useCastVote = (): [
-  (tutorialId: number) => Promise<void>,
+  (slug: string) => Promise<void>,
   {
     submitting: boolean;
     error: Error | null;
@@ -16,19 +16,16 @@ export const useCastVote = (): [
   const [error, setError] = useState<Error | null>(null);
 
   const handleAction = useCallback(
-    async (tutorialId: number) => {
+    async (slug: string) => {
       try {
         setError(null);
         setSubmitting(true);
 
-        await tutorialProgram?.castVote(tutorialId);
+        await tutorialProgram?.castVote(slug);
 
-        mutate(routes.listOfVoters(tutorialId));
+        mutate(routes.listOfVoters(slug));
         mutate(
-          routes.vote(
-            tutorialId,
-            tutorialProgram?.provider?.wallet?.publicKey!,
-          ),
+          routes.vote(slug, tutorialProgram?.provider?.wallet?.publicKey!),
         );
       } catch (err) {
         if (err instanceof Error) {

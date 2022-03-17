@@ -34,9 +34,13 @@ pub struct GuideTipping<'info> {
 }
 
 pub fn handler(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {
-  if ctx.accounts.proposal.state != ProposalState::Published {
+  if ctx.accounts.proposal.state != state_from_str("published").unwrap() {
     return Err(error!(ErrorDao::InvalidState))
   };
+
+  if ctx.accounts.signer.to_account_info().lamports.borrow().checked_sub(amount) == None {
+    return Err(error!(ErrorDao::NotEnoughSolError))
+  }
 
   let creator_amount: u64 = unwrap_int!((amount)
     .checked_mul(CREATOR_TIP_WEIGHT)

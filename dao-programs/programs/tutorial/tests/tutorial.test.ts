@@ -1,3 +1,5 @@
+/* eslint-disable jest/expect-expect */
+/* eslint-disable jest/no-commented-out-tests */
 import { logDebug } from './utils/index';
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
@@ -8,9 +10,11 @@ import {
   daoAccount as getDaoAccount,
   daoVaultAccountBalance as getDaoVaultAccountBalance,
   proposalAccountBySlug as getProposalAccountBySlug,
+  proposalAccountById as getProposalAccountById,
   reviewerAccountByReviewerPK as getReviewerAccount,
-  userVoteAccountById as getUserVoteAccountById,
-  listOfVoterById as getListOfVoterById,
+  userVoteAccountBySlug as getUserVoteAccountBySlug,
+  listOfVoterBySlug as getListOfVoterBySlug,
+  proposalAccountFunded,
 } from '../ts-sdk/lib/fetchers';
 
 import { Tutorial } from '../ts-sdk/lib/idl/tutorial';
@@ -35,6 +39,8 @@ import { ProposalStateE } from '../ts-sdk';
 
 import { airdrops, getAta } from '../ts-sdk/lib/utils';
 import { getPda } from '../ts-sdk/lib/pda';
+import { numberFromProposalE } from '../ts-sdk/lib/instructions/proposalSetState';
+import voteCaster from '../ts-sdk/lib/instructions/voteCaster';
 
 describe('tutorial-program', () => {
   const provider = anchor.Provider.env();
@@ -199,52 +205,80 @@ describe('tutorial-program', () => {
       signer: user1,
     });
     logDebug(response);
-    const proposalAccount = await getProposalAccountBySlug(program, slug);
+    const { pdaTutorialBySlug } = getPda(program.programId, mint.publicKey);
+    const proposalAccount = await getProposalAccountBySlug(
+      program,
+      pdaTutorialBySlug,
+      slug,
+    );
     logDebug(proposalAccount);
     expect(proposalAccount.id.toNumber()).toBe(0);
     expect(proposalAccount.creator.toString()).toBe(user1.publicKey.toString());
     expect(proposalAccount.numberOfVoter.toNumber()).toBe(0);
     expect(proposalAccount.slug).toBe(slug);
     expect(proposalAccount.streamId).toBe(streamId);
-    expect(Object.keys(proposalAccount.state)[0]).toBe('submitted');
+    expect(proposalAccount.state).toBe(0);
+    await proposalSetState({
+      program: program,
+      mintPk: mint.publicKey,
+      slug,
+      adminPk: auth1.publicKey,
+      newState: ProposalStateE.funded,
+      signer: auth1,
+    });
+    const proposalAccountById = await getProposalAccountById(program, 0);
+    expect(proposalAccountById.id.toNumber()).toBe(0);
+    const fundedProposal = await proposalAccountFunded(program);
+    expect(fundedProposal.length).toBe(1);
   });
 
   test('User1 Cast a Vote on Tutorial0', async () => {
+    const slug = 'delpoy-a-polkadot-smart-contract';
     const response = await voteCast({
       program,
       mintPk: mint.publicKey,
-      tutorialId: 0,
+      slug,
       userPk: user1.publicKey,
       signer: user1,
     });
     logDebug(response);
-    const { pdaUserVoteAccountById } = getPda(
+    const { pdaUserVoteAccountBySlug, pdaTutorialBySlug } = getPda(
       program.programId,
       mint.publicKey,
     );
-    let voteAccount = await getUserVoteAccountById(
+    let voteAccount = await getUserVoteAccountBySlug(
       program,
-      pdaUserVoteAccountById,
+      pdaTutorialBySlug,
+      pdaUserVoteAccountBySlug,
       user1.publicKey,
-      0,
+      slug,
     );
     logDebug(voteAccount);
-    expect(voteAccount.tutorialId.toNumber()).toBe(0);
     expect(voteAccount.author.toString()).toBe(user1.publicKey.toString());
-    let listOfVoter = await getListOfVoterById(program, 0);
+    let listOfVoter = await getListOfVoterBySlug(
+      program,
+      pdaTutorialBySlug,
+      slug,
+    );
     expect(listOfVoter).toHaveLength(1);
   });
 
   it('User1 Cancel a Vote on Tutorial0', async () => {
+    const slug = 'delpoy-a-polkadot-smart-contract';
     const response = await voteCancel({
       program,
       mintPk: mint.publicKey,
-      tutorialId: 0,
+      slug,
       userPk: user1.publicKey,
       signer: user1,
     });
     logDebug(response);
-    let listOfVoter = await getListOfVoterById(program, 0);
+    const { pdaTutorialBySlug } = getPda(program.programId, mint.publicKey);
+    let listOfVoter = await getListOfVoterBySlug(
+      program,
+      pdaTutorialBySlug,
+      slug,
+    );
     expect(listOfVoter).toHaveLength(0);
   });
 
@@ -315,7 +349,7 @@ describe('tutorial-program', () => {
       adminPk: auth1.publicKey,
       reviewer1Pk: reviewer1.publicKey,
       reviewer2Pk: reviewer2.publicKey,
-      tutorialId: 0,
+      slug,
       signer: auth1,
     });
 
@@ -334,7 +368,12 @@ describe('tutorial-program', () => {
     );
     expect(reviewerAccount2.numberOfAssignment).toBe(1);
 
-    const proposalAccount = await getProposalAccountBySlug(program, slug);
+    const { pdaTutorialBySlug } = getPda(program.programId, mint.publicKey);
+    const proposalAccount = await getProposalAccountBySlug(
+      program,
+      pdaTutorialBySlug,
+      slug,
+    );
     expect(proposalAccount.reviewer1.toString()).toBe(
       reviewer1.publicKey.toString(),
     );
@@ -377,7 +416,6 @@ describe('tutorial-program', () => {
     const validState = [
       ProposalStateE.funded,
       ProposalStateE.submitted,
-      ProposalStateE.writing,
       ProposalStateE.hasReviewers,
       ProposalStateE.readyToPublish,
       ProposalStateE.published,
@@ -386,24 +424,30 @@ describe('tutorial-program', () => {
       await proposalSetState({
         program: program,
         mintPk: mint.publicKey,
-        tutorialId: 0,
+        slug,
         adminPk: auth1.publicKey,
         newState: state,
         signer: auth1,
       });
-      proposalAccount = await getProposalAccountBySlug(program, slug);
+      const { pdaTutorialBySlug } = getPda(program.programId, mint.publicKey);
+      proposalAccount = await getProposalAccountBySlug(
+        program,
+        pdaTutorialBySlug,
+        slug,
+      );
       logDebug(proposalAccount);
-      expect(Object.keys(proposalAccount.state)[0]).toBe(state);
+      expect(proposalAccount.state).toBe(numberFromProposalE(state));
     }
   });
 
   test('Proposal set State: test an invalid state', async () => {
     const invalidState = 'badstate';
+    const slug = 'delpoy-a-polkadot-smart-contract';
     await expect(
       proposalSetState({
         program: program,
         mintPk: mint.publicKey,
-        tutorialId: 0,
+        slug,
         adminPk: auth1.publicKey,
         // @ts-ignore
         newState: invalidState,
@@ -413,6 +457,7 @@ describe('tutorial-program', () => {
   });
 
   test('user2 tip a tutorial', async () => {
+    const slug = 'delpoy-a-polkadot-smart-contract';
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(1_000_000);
     const CREATOR_WEIGHT = 70 / 100;
@@ -436,7 +481,7 @@ describe('tutorial-program', () => {
     await guideTipping({
       program,
       mintPk: mint.publicKey,
-      proposalId: 0,
+      slug,
       tipperPk: user2.publicKey,
       amount: tippedAmount,
       signer: user2,
@@ -471,51 +516,16 @@ describe('tutorial-program', () => {
     );
   });
 
-    test('user2 tip a tutorial', async () => {
-    // Amount to tip in LAMPORT
-    const tippedAmount = new anchor.BN(1_000_000); 
-    const CREATOR_WEIGHT = 70 / 100;
-    const REVIEWER_WEIGHT = 15 / 100;
-  
-    // Initial balance of actors
-    const initialTipperBalance = await provider.connection.getBalance(user2.publicKey) 
-    const initialCreatorBalance = await provider.connection.getBalance(user1.publicKey) 
-    const initialReviewer1Balance = await provider.connection.getBalance(reviewer1.publicKey) 
-    const initialReviewer2Balance = await provider.connection.getBalance(reviewer2.publicKey) 
-
-    // Tipping instruction
-    await guideTipping({
-        program,
-        mintPk: mint.publicKey,
-        proposalId: 0,
-        tipperPk: user2.publicKey,
-        amount: tippedAmount,
-        signer: user2,
-      });
-    
-    // Final balance of actors
-    const finalTipperBalance = await provider.connection.getBalance(user2.publicKey) 
-    const finalCreatorBalance = await provider.connection.getBalance(user1.publicKey) 
-    const finalReviewer1Balance = await provider.connection.getBalance(reviewer1.publicKey) 
-    const finalReviewer2Balance = await provider.connection.getBalance(reviewer2.publicKey) 
-
-    // Basic check
-    expect(initialTipperBalance - finalTipperBalance).toBe(tippedAmount.toNumber());  
-    expect(finalCreatorBalance - initialCreatorBalance).toBe(CREATOR_WEIGHT * tippedAmount.toNumber());  
-    expect(finalReviewer1Balance - initialReviewer1Balance).toBe(REVIEWER_WEIGHT * tippedAmount.toNumber());  
-    expect(finalReviewer2Balance - initialReviewer2Balance).toBe(REVIEWER_WEIGHT * tippedAmount.toNumber());  
-  });
-
   test('User1 Close Tutorial0', async () => {
+    const slug = 'delpoy-a-polkadot-smart-contract';
     await expect(
       proposalClose({
         program,
         mintPk: mint.publicKey,
-        tutorialId: 0,
+        slug,
         userPk: user1.publicKey,
         signer: user1,
       }),
     ).resolves.toBeTruthy();
   });
-
 });

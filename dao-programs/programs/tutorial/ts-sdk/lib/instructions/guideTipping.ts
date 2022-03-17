@@ -16,24 +16,22 @@ import { getPda } from '../pda';
 export const guideTipping = async ({
   program,
   mintPk,
-  proposalId,
+  slug,
   tipperPk,
   amount,
   signer,
 }: {
   program: Program<Tutorial>;
   mintPk: anchor.web3.PublicKey;
-  proposalId: number;
+  slug: string;
   tipperPk: anchor.web3.PublicKey;
-  amount: anchor.BN,
+  amount: anchor.BN;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaTutorialById} = getPda(
-    program.programId,
-    mintPk,
-  );
-  const { pda: proposalPda } = await pdaTutorialById(proposalId);
-  const {creator, reviewer1, reviewer2} = await program.account.proposalAccount.fetch(proposalPda)
+  const { pdaTutorialBySlug } = getPda(program.programId, mintPk);
+  const { pda: proposalPda } = await pdaTutorialBySlug(slug);
+  const { creator, reviewer1, reviewer2 } =
+    await program.account.proposalAccount.fetch(proposalPda);
   const signature = await program.rpc.guideTipping(amount, {
     accounts: {
       proposal: proposalPda,

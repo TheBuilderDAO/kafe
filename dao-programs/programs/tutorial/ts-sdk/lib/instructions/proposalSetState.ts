@@ -13,6 +13,15 @@ export enum ProposalStateE {
   published = 'published',
 }
 
+export const numberFromProposalE = (state: ProposalStateE) => {
+  if (state === ProposalStateE.submitted) return 0;
+  if (state === ProposalStateE.funded) return 1;
+  if (state === ProposalStateE.writing) return 2;
+  if (state === ProposalStateE.hasReviewers) return 3;
+  if (state === ProposalStateE.readyToPublish) return 4;
+  if (state === ProposalStateE.published) return 5;
+};
+
 /**
  * @param program Dao program.
  * @param mintPk  token mint pk.
@@ -25,21 +34,24 @@ export enum ProposalStateE {
 export const proposalSetState = async ({
   program,
   mintPk,
-  tutorialId,
+  slug,
   adminPk,
   newState,
   signer,
 }: {
   program: Program<Tutorial>;
   mintPk: anchor.web3.PublicKey;
-  tutorialId: number;
+  slug: string;
   adminPk: anchor.web3.PublicKey;
   newState: ProposalStateE;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaTutorialById } = getPda(program.programId, mintPk);
+  const { pdaDaoAccount, pdaTutorialBySlug } = getPda(
+    program.programId,
+    mintPk,
+  );
   const daoAccount = await pdaDaoAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
+  const proposalAccount = await pdaTutorialBySlug(slug);
 
   const signature = await program.rpc.proposalSetState(newState, {
     accounts: {

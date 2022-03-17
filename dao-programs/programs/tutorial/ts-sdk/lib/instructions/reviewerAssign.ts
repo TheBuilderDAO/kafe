@@ -19,7 +19,7 @@ export const reviewerAssign = async ({
   mintPk,
   reviewer1Pk,
   reviewer2Pk,
-  tutorialId,
+  slug,
   adminPk,
   signer,
 }: {
@@ -27,16 +27,16 @@ export const reviewerAssign = async ({
   mintPk: anchor.web3.PublicKey;
   reviewer1Pk: anchor.web3.PublicKey;
   reviewer2Pk: anchor.web3.PublicKey;
-  tutorialId: number;
+  slug: string;
   adminPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaReviewerAccount, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaReviewerAccount, pdaTutorialBySlug } = getPda(
     program.programId,
     mintPk,
   );
   const daoAccount = await pdaDaoAccount();
-  const tutorialAccount = await pdaTutorialById(tutorialId);
+  const tutorialAccount = await pdaTutorialBySlug(slug);
   const reviewerAccount1 = await pdaReviewerAccount(reviewer1Pk);
   const reviewerAccount2 = await pdaReviewerAccount(reviewer2Pk);
 
