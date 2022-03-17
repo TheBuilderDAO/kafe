@@ -651,9 +651,6 @@
             "name": "Writing"
           },
           {
-            "name": "HasReviewers"
-          },
-          {
             "name": "ReadyToPublish"
           },
           {
@@ -728,6 +725,11 @@
       "code": 6012,
       "name": "NotEnoughSolError",
       "msg": "Error: Cannot tips: not enough SOL"
+    },
+    {
+      "code": 6013,
+      "name": "CreatorCannotBeAReviewer",
+      "msg": "Error: Assign Reviewer: Creator Cannot be reviewer"
     }
   ],
   "metadata": {

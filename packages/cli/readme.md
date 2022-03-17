@@ -60,7 +60,7 @@ $ builderdao proposal list
     numberOfVoter: 1
     createdAt:     1646224528
     state:
-      hasReviewers:
+      writing:
     slug:          near-101
     streamId:      kjzl6cwe1jw145wg457n52vguustdhrk4k5gb2btvcmekczc3is9wrcst9b3fdr
 1:
@@ -106,7 +106,7 @@ reviewer2:     BQfAioQkL1P6yb9jsgjbXN5LraTDdTNzoNgSTXatYnBM
 numberOfVoter: 1
 createdAt:     1646224528
 state:
-  hasReviewers:
+  writing:
 slug:          near-101
 streamId:      kjzl6cwe1jw145wg457n52vguustdhrk4k5gb2btvcmekczc3is9wrcst9b3fdr
 
@@ -157,7 +157,7 @@ Arguments:
   proposalId               Proposal ID
 
 Options:
-  -s, --state <state>      State of the proposal (choices: "funded", "hasReviewers", "published", "readyToPublish", "submitted", "writing")
+  -s, --state <state>      State of the proposal (choices: "funded", "published", "readyToPublish", "submitted", "writing")
   -a, --adminKp <adminKp>  Admin KeyPair (env: ADMIN_KP)
   -h, --help               display help for command
 ```
