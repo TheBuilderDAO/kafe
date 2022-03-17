@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { CeramicApi } from '@builderdao/apis';
+import { CERAMIC_SEED, NEXT_PUBLIC_CERAMIC_NODE_URL } from '@app/constants';
 
 type ResponseData = {
   streamId: string;
@@ -14,10 +15,10 @@ export default async function handler(
     const metadata = req.body;
 
     const ceramicApi = new CeramicApi({
-      nodeUrl: process.env.NEXT_PUBLIC_CERAMIC_NODE_URL as string,
+      nodeUrl: NEXT_PUBLIC_CERAMIC_NODE_URL,
     });
 
-    ceramicApi.setSeed(process.env.CERAMIC_SEED as string);
+    ceramicApi.setSeed(CERAMIC_SEED);
 
     const doc = await ceramicApi.storeMetadata(metadata);
 

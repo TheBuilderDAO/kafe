@@ -13,6 +13,7 @@ import MenuSelect from './Search/MenuSelect';
 import ClearRefinements from './Search/ClearRefinements';
 import algoliasearch from 'algoliasearch/lite';
 import SearchBox from './Search/SearchBox';
+import { NEXT_PUBLIC_ALGOLIA_INDEX_NAME } from '@app/constants';
 
 // Uncomment for styled filter component
 // const DropdownIndicator = (props: DropdownIndicatorProps<any>) => {
@@ -150,7 +151,7 @@ const TutorialFilter = () => {
     //     />
     //   </div>
     //   <div className="px-10 pt-5 pb-8">
-    //     <p className="text-kafemellow pb-5">difficulty</p>
+    //     <p className="pb-5 text-kafemellow">difficulty</p>
     //     <InputCheckbox options={['BEGINNER', 'ADVANCED']} name="diff" />
     //   </div>
     // </div>
@@ -160,10 +161,16 @@ const TutorialFilter = () => {
           <div className="mb-6">
             <h2 className="font-bold">Sort by</h2>
             <SortBy
-              defaultRefinement={`${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`}
+              defaultRefinement={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`}
               items={[
-                { value: `${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`, label: 'Most votes' },
-                { value: `${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_asc`, label: 'Least votes' },
+                {
+                  value: `${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`,
+                  label: 'Most votes',
+                },
+                {
+                  value: `${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_asc`,
+                  label: 'Least votes',
+                },
               ]}
             />
           </div>
