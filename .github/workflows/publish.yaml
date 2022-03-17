@@ -110,7 +110,7 @@ jobs:
           builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
 
   update_index:
-    needs: set_state
+    needs: [ fetch_proposal, set_state ]
     runs-on: ubuntu-latest
     defaults:
       run:
