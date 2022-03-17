@@ -38,6 +38,10 @@ pub fn handler(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {
     return Err(error!(ErrorDao::InvalidState))
   };
 
+  if ctx.accounts.signer.to_account_info().lamports.borrow().checked_sub(amount) == None {
+    return Err(error!(ErrorDao::NotEnoughSolError))
+  }
+
   let creator_amount: u64 = unwrap_int!((amount)
     .checked_mul(CREATOR_TIP_WEIGHT)
     .and_then(|v| v.checked_div(100))

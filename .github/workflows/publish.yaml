@@ -114,12 +114,8 @@ jobs:
           builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
 
   update_index:
-<<<<<<< Updated upstream
-    needs: set_state
-=======
     name: Update Algolia index
     needs: [ fetch_proposal, set_state ]
->>>>>>> Stashed changes
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -134,4 +130,4 @@ jobs:
           ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
-          builderdao algolia updateIndex $OBJECT_ID --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+          builderdao algolia updateIndex $OBJECT_ID --newState published --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
