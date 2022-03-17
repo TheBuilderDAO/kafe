@@ -30,7 +30,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "6cb73bfab4719afd204c93973790e7a077ec6e9aa2c786d0fab964e0d024dc34"
+      "digest": "f86727cc8ab22684ff5312a32cb5d32cf291d252a5e3ba67e78186d77b7cdff8",
+      "arweaveHash": "ZQlkv9uFp2Vqt68P4ZdBzU89ulPy4LWHDkajpa6tESI"
     }
   },
   "description": "This is cool",
