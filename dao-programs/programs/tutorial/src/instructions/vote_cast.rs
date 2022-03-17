@@ -1,7 +1,6 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{Mint};
 
-use crate::errors::*;
 use crate::constants::*;
 use crate::state::*;
 
@@ -32,15 +31,7 @@ pub struct VoteCast<'info> {
 }
 
 pub fn handler(ctx: Context<VoteCast>, bump: u8, tutorial_id: u64) -> Result<()> {
-  if ctx.accounts.vote.voted_at != 0 {
-    return Err(error!(ErrorDao::AlreadyVoter));
-  }
-
   let quorum = ctx.accounts.dao_config.quorum;
-
-  if ctx.accounts.tutorial.number_of_voter >= quorum {
-    return Err(error!(ErrorDao::CannotCastVoteAnymore));
-  }
 
   ctx.accounts.vote.bump = bump;
   ctx.accounts.vote.tutorial_id = tutorial_id;

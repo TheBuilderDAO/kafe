@@ -723,6 +723,11 @@ export type Tutorial = {
       "code": 6011,
       "name": "BadPreviousState",
       "msg": "Error: Cannot setState: bad previous state"
+    },
+    {
+      "code": 6012,
+      "name": "NotEnoughSolError",
+      "msg": "Error: Cannot tips: not enough SOL"
     }
   ]
 };
@@ -1452,6 +1457,11 @@ export const IDL: Tutorial = {
       "code": 6011,
       "name": "BadPreviousState",
       "msg": "Error: Cannot setState: bad previous state"
+    },
+    {
+      "code": 6012,
+      "name": "NotEnoughSolError",
+      "msg": "Error: Cannot tips: not enough SOL"
     }
   ]
 };

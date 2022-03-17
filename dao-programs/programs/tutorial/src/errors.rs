@@ -26,4 +26,6 @@ pub enum ErrorDao {
   InvalidState,
   #[msg("Error: Cannot setState: bad previous state")]
   BadPreviousState,
+  #[msg("Error: Cannot tips: not enough SOL")]
+  NotEnoughSolError
 }
