@@ -278,47 +278,6 @@
       ]
     },
     {
-      "name": "guideTipping",
-      "accounts": [
-        {
-          "name": "proposal",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "creator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "reviewer2",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "reviewer1",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "signer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
-    },
-    {
       "name": "proposalClose",
       "accounts": [
         {
@@ -764,6 +723,11 @@
       "code": 6011,
       "name": "BadPreviousState",
       "msg": "Error: Cannot setState: bad previous state"
+    },
+    {
+      "code": 6012,
+      "name": "NotEnoughSolError",
+      "msg": "Error: Cannot tips: not enough SOL"
     }
   ],
   "metadata": {
