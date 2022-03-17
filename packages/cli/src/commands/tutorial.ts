@@ -13,11 +13,11 @@ import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import * as bs58 from 'bs58';
 import simpleGit, { CleanOptions } from 'simple-git';
 
+import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 import { log as _log, hashSumDigest, sleep } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -47,7 +47,7 @@ export function makeTutorialCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
   const tutorial = new commander.Command('tutorial').description('Tutorial');
-  let client = getClient({
+  const client = getClient({
     kafePk: tutorial.optsWithGlobals().kafePk,
     network: tutorial.optsWithGlobals().network,
     payer: tutorial.optsWithGlobals().payer,
@@ -144,15 +144,15 @@ export function makeTutorialCommand() {
       const content = config.db.chain.get('content').value();
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
-        seed: options.seed,
       });
+      ceramic.setSeed(options.seed)
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,
         port: options.arweave_port,
         protocol: options.arweave_protocol,
       });
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
+      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
       console.log(proposal);
       console.log(ceramicMetadata);
 

@@ -2,7 +2,6 @@ import * as commander from 'commander'
 import * as anchor from '@project-serum/anchor'
 import { ProposalStateE } from '@builderdao-sdk/dao-program'
 
-import { getTutorialContent } from '@builderdao/md-utils'
 import { getClient } from '../client'
 import { log as _log, createKeypairFromSecretKey } from '../utils'
 
@@ -97,15 +96,6 @@ export function makeProposalCommand() {
           ),
         )
       }
-    })
-
-  proposal
-    .command('content')
-    .description('Get the content of tutorial')
-    .argument('<slug>', 'Proposal slug')
-    .action(async (slug: string) => {
-      const content = await getTutorialContent(slug)
-      log(content)
     })
 
   return proposal

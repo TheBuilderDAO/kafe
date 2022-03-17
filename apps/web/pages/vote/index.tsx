@@ -8,7 +8,7 @@ import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
 import { ProposalStateE, useGetListOfProposals } from '@builderdao-sdk/dao-program'
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
-import FundedTabs from '@app/components/Search/FundedTabs'
+import ProposalStateTabs from '@app/components/Search/ProposalStateTabs'
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Search Tutorial Proposals</title>
+        <title>Search Proposals</title>
       </Head>
 
       <main>
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
           <div className="flex justify-between items-start">
             <div className="flex flex-col grow">
               <div className="my-6">
-                <FundedTabs attribute="state" defaultRefinement={[ProposalStateE.submitted]} />
+                <ProposalStateTabs attribute="state" defaultRefinement={[ProposalStateE.submitted]} />
               </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />

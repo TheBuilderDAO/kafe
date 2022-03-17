@@ -1,24 +1,24 @@
-import { connectRefinementList } from 'react-instantsearch-dom'
 import React from 'react'
+import { connectRefinementList } from 'react-instantsearch-dom'
 import { ProposalStateE } from '@builderdao-sdk/dao-program'
 
-const FundedTabs = ({
+const GuideStateTabs = ({
   currentRefinement,
   refine,
   createURL,
 }) => {
   return (
     <div>
-      <label key="current" htmlFor="current" className="cursor-pointer">
+      <label key="current" htmlFor="published" className="cursor-pointer">
         <input
           type="radio"
-          id="current"
-          name="fundedTabs"
-          value="current"
+          id="published"
+          name="GuideStateTabs"
+          value="published"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
             event.preventDefault()
-            refine(ProposalStateE.submitted)
+            refine(ProposalStateE.published)
           }}
         />
         <span
@@ -41,19 +41,19 @@ const FundedTabs = ({
             mr-4
             "
         >
-            Current
+            Published
           </span>
       </label>
-      <label key="funded" htmlFor="funded" className="cursor-pointer">
+      <label key="readyToPublish" htmlFor="readyToPublish" className="cursor-pointer">
         <input
           type="radio"
-          id="funded"
-          name="fundedTabs"
-          value="funded"
+          id="readyToPublish"
+          name="GuideStateTabs"
+          value="readyToPublish"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
             event.preventDefault()
-            refine(ProposalStateE.funded)
+            refine(ProposalStateE.readyToPublish)
           }}
         />
         <span
@@ -76,11 +76,46 @@ const FundedTabs = ({
             mr-4
             "
         >
-            Funded
+            Ready to publish
+          </span>
+      </label>
+      <label key="writing" htmlFor="writing" className="cursor-pointer">
+        <input
+          type="radio"
+          id="writing"
+          name="GuideStateTabs"
+          value="writing"
+          className="peer absolute opacity-0 cursor-pointer"
+          onChange={event => {
+            event.preventDefault()
+            refine(ProposalStateE.writing)
+          }}
+        />
+        <span
+          className="
+            p-1
+            px-2
+            border-[1px]
+            rounded-md
+            dark:border-kafewhite
+            border-kafeblack
+            dark:peer-checked:border-kafewhite
+            peer-checked:border-kafeblack
+            dark:peer-checked:text-kafeblack
+            peer-checked:text-kafewhite
+            dark:peer-checked:bg-kafewhite
+            peer-checked:bg-kafeblack
+            dark:bg-kafeblack
+            bg-kafelighter
+            text-[12px]
+            mr-4
+            "
+        >
+            Writing
           </span>
       </label>
     </div>
   )
 }
 
-export default connectRefinementList(FundedTabs)
+export default connectRefinementList(GuideStateTabs)

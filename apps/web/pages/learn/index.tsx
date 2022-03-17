@@ -1,39 +1,52 @@
 import React from 'react';
-import { TutorialCard } from '@builderdao/ui';
-import defaultAvatar from '../../public/assets/icons/default_avatar.svg'; //figure out why direct import not working here
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import { getTutorialPaths } from '@builderdao/md-utils';
-import _ from 'lodash';
+import { NextPage } from 'next';
+import Head from 'next/head'
+import { ProposalStateE } from '@builderdao-sdk/dao-program'
+import Pagination from '@app/components/Search/Pagination'
+import RightSidebar from '../../layouts/PublicLayout/RightSidebar'
+import TutorialFilter from '@app/components/TutorialFilter'
+import algoliasearch from 'algoliasearch/lite'
+import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
+import GuideStateTabs from '@app/components/Search/GuideStateTabs'
+import GuideHit from '@app/components/Search/GuideHit'
 
-const LearnIndexPage: NextPage<
-  InferGetStaticPropsType<typeof getStaticProps>
-> = props => {
-  const { allTutorials } = props;
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+);
+
+const LearnIndexPage: NextPage = () => {
   return (
     <div>
-      <section>
-        <div>
-          {allTutorials.map((tutorial, index) => (
-            <TutorialCard
-              key={`tutorial-${tutorial.config.slug}`}
-              tutorial={tutorial.config}
-              defaultAvatar={defaultAvatar}
-            />
-          ))}
-        </div>
-      </section>
+      <Head>
+        <title>Search Guides</title>
+      </Head>
+
+      <main>
+        <InstantSearch
+          searchClient={searchClient}
+          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+        >
+          <Configure
+            hitsPerPage={4}
+            analytics={false}
+          />
+          <div className="flex justify-between items-start">
+            <div className="flex flex-col grow">
+              <div className="my-6">
+                <GuideStateTabs attribute="state" defaultRefinement={[ProposalStateE.published]} />
+              </div>
+              <Hits hitComponent={GuideHit} />
+              <Pagination />
+            </div>
+            <RightSidebar>
+              <TutorialFilter />
+            </RightSidebar>
+          </div>
+        </InstantSearch>
+      </main>
     </div>
   );
-};
-
-export const getStaticProps: GetStaticProps = async context => {
-  const { allPaths, allTutorials } = await getTutorialPaths();
-  return {
-    props: {
-      allPaths,
-      allTutorials,
-    },
-  };
 };
 
 export default LearnIndexPage;

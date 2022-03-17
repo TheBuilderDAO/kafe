@@ -226,9 +226,8 @@ export class TutorialProgramClient {
     })
   }
   async guideTipping(data: {
-    newState: ProposalStateE;
-    tipperPk: anchor.web3.PublicKey;
     id: number;
+    tipperPk: anchor.web3.PublicKey;
     amount: anchor.BN;
   }): Promise<string> {
     return guideTipping({

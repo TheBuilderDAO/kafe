@@ -4,6 +4,7 @@ export default {
   home: '/',
   learn: {
     index: '/learn',
+    guide: slug => `/learn/${slug}`
   },
   vote: {
     index: '/vote',

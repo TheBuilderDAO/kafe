@@ -19,6 +19,8 @@ import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
 import { ArweaveApi } from '@builderdao/apis';
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn'
+import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm'
 
 const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -65,6 +67,12 @@ const TutorialPage: NextPage<
             </span>
           </div>
         </div>
+        <IsLoggedIn>
+          <div className="mt-6">
+            <p>Support Project</p>
+            <TipTutorialForm id={config.id} />
+          </div>
+        </IsLoggedIn>
       </TutorialLayout>
     </>
   );
@@ -118,7 +126,7 @@ export const getStaticProps: GetStaticProps = async context => {
       post: { ...post, mdxSource, },
       slug,
     },
-    revalidate: 60 * 10, // In seconds 
+    revalidate: 60 * 10, // In seconds
   };
 };
 
