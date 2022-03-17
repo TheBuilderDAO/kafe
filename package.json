@@ -31,19 +31,24 @@
   },
   "lint-staged": {
     "apps/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "dao-programs/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "packages/ui/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "packages/dao-utils/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "packages/md-utils/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "tutorials/**/content/**/*.{md,mdx}": [
       "prettier --write"

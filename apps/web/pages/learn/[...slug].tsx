@@ -19,8 +19,15 @@ import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
 import { ArweaveApi } from '@builderdao/apis';
-import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn'
-import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm'
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
+import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm';
+import {
+  NEXT_PUBLIC_ARWEAVE_APP_NAME,
+  NEXT_PUBLIC_ARWEAVE_HOST,
+  NEXT_PUBLIC_ARWEAVE_PORT,
+  NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+  NODE_ENV,
+} from '@app/constants';
 
 const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -30,7 +37,7 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
   const { mdxSource, frontMatter } = props.post;
-  const { config, relativePath } = props
+  const { config, relativePath } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(
       (child: any) =>
@@ -55,14 +62,16 @@ const TutorialPage: NextPage<
         prev={frontMatter.prev}
       >
         <MDXRemote components={MDXComponents} {...mdxSource} />
-        <div className='p-2 border border-black divide-y-2 divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite'>
+        <div className="p-2 border border-black divide-y-2 divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite">
           <div>
-            <span>Digest</span>: <span className='font-mono text-sm'>
+            <span>Digest</span>:{' '}
+            <span className="font-mono text-sm">
               {config?.content[relativePath].digest}
             </span>
           </div>
           <div>
-            <span>Arweave Hash</span>: <span className='font-mono text-sm'>
+            <span>Arweave Hash</span>:{' '}
+            <span className="font-mono text-sm">
               {config?.content[relativePath].arweaveHash}
             </span>
           </div>
@@ -88,30 +97,32 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async context => {
   const slug = context.params.slug as string[];
-  const rootFolder = getPathForRootFolder(slug[0])
+  const rootFolder = getPathForRootFolder(slug[0]);
   const { config } = await getTutorialContentByPath({ rootFolder });
   const pathForFile = getPathForFile(slug[0], slug[1]);
-  const relativePath = path.relative(rootFolder, pathForFile)
-  const getPost = async (): Promise<{ content: string, data: any }> => {
-    if (config.content[relativePath].arweaveHash && process.env.NODE_ENV === 'production') {
+  const relativePath = path.relative(rootFolder, pathForFile);
+  const getPost = async (): Promise<{ content: string; data: any }> => {
+    if (config.content[relativePath].arweaveHash && NODE_ENV === 'production') {
       try {
-      const arweave = await new ArweaveApi({
-        appName: process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,
-        host: process.env.NEXT_PUBLIC_ARWEAVE_HOST,
-        port: parseInt(process.env.NEXT_PUBLIC_ARWEAVE_PORT),
-        protocol: process.env.NEXT_PUBLIC_ARWEAVE_PROTOCOL,
-      })
-      const response = await arweave.getTutorialByHash(config.content[relativePath].arweaveHash)
-      if (response) {
-        return getFileParse<PostType.TUTORIAL>(response.data)
+        const arweave = await new ArweaveApi({
+          appName: NEXT_PUBLIC_ARWEAVE_APP_NAME,
+          host: NEXT_PUBLIC_ARWEAVE_HOST,
+          port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
+          protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+        });
+        const response = await arweave.getTutorialByHash(
+          config.content[relativePath].arweaveHash,
+        );
+        if (response) {
+          return getFileParse<PostType.TUTORIAL>(response.data);
+        }
+      } catch (err) {
+        return await getFileByPath<PostType.TUTORIAL>(pathForFile);
       }
-    } catch(err) {
-      return await getFileByPath<PostType.TUTORIAL>(pathForFile);
-    }
     } else {
       return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
-  }
+  };
 
   const post = await getPost();
 
@@ -123,7 +134,7 @@ export const getStaticProps: GetStaticProps = async context => {
     props: {
       config,
       relativePath,
-      post: { ...post, mdxSource, },
+      post: { ...post, mdxSource },
       slug,
     },
     revalidate: 60 * 10, // In seconds

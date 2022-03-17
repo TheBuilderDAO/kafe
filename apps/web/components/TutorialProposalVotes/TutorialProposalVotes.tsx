@@ -48,7 +48,8 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
       </ul>
 
       <IsLoggedIn>
-        {state.toString() === ProposalStateE.submitted && (
+        {(state.toString() === ProposalStateE.submitted ||
+          state.toString() === ProposalStateE.writing) && (
           <VoteButton id={id} />
         )}
       </IsLoggedIn>

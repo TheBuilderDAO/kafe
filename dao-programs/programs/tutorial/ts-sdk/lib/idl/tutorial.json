@@ -240,6 +240,11 @@
       "name": "guideTipping",
       "accounts": [
         {
+          "name": "tipper",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "proposal",
           "isMut": false,
           "isSigner": false
@@ -271,6 +276,10 @@
         }
       ],
       "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        },
         {
           "name": "amount",
           "type": "u64"
@@ -611,6 +620,30 @@
       }
     },
     {
+      "name": "TipperAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tutorialId",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "pubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
       "name": "VoteAccount",
       "type": {
         "kind": "struct",
@@ -649,6 +682,9 @@
           },
           {
             "name": "Writing"
+          },
+          {
+            "name": "HasReviewers"
           },
           {
             "name": "ReadyToPublish"
