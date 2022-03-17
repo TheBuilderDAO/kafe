@@ -9,3 +9,6 @@ pub use vote_account::*;
 
 mod reviewer_account;
 pub use reviewer_account::*;
+
+mod tipper_account;
+pub use tipper_account::*;
