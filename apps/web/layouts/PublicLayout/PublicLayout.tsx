@@ -35,7 +35,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="bg-kafewhite dark:bg-kafeblack flex p-8">
+    <div>
       <Notifications />
       <Wrapper>
         <div className="flex">
