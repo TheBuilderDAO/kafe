@@ -8,7 +8,6 @@ const MenuSelect = ({ items, currentRefinement, refine, attribute }) => {
           key={item.value}
           htmlFor={item.label}
           className="cursor-pointer pb-10"
-          onClick={() => refine(item.value)}
         >
           <input
             type="radio"
@@ -17,6 +16,7 @@ const MenuSelect = ({ items, currentRefinement, refine, attribute }) => {
             value={item.isRefined ? currentRefinement : item.value}
             className="peer absolute opacity-0 cursor-pointer"
             checked={item.isRefined}
+            onChange={() => refine(item.value)}
           />
           <span
             className="
