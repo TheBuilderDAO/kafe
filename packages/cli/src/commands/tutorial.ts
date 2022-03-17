@@ -136,7 +136,7 @@ export function makeTutorialCommand() {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-      log({rootFolder});
+      log({ rootFolder });
       const config = new BuilderDaoConfig(rootFolder)
       await config.db.read();
       const proposalId = config.db.chain.get('proposalId').parseInt().value()
@@ -333,13 +333,25 @@ export function makeTutorialCommand() {
             githubName: data.githubName,
           })
 
-          const reviewer1 = await client.getReviewerByReviewerPk(proposal.reviewer1).then(formatReviewer)
-          ui.log.write(`🕵️‍♂️ Adding Reviewer ... ${reviewer1.githubName}`)
-          const reviewer2 = await client.getReviewerByReviewerPk(proposal.reviewer2).then(formatReviewer)
-          ui.log.write(`🧙‍♂️ Adding Reviewer ... ${reviewer2.githubName}`)
+          const nullReviewer = '11111111111111111111111111111111'
 
-          config.db.chain.get('reviewers').push({ reviewer1 } as any, { reviewer2 } as any).value()
-          await config.db.write();
+          if (proposal.reviewer1.toString() !== nullReviewer) {
+            const reviewer1 = await client.getReviewerByReviewerPk(proposal.reviewer1).then(formatReviewer)
+            ui.log.write(`🕵️‍♂️ Adding Reviewer 1... ${reviewer1.githubName}`)
+
+            config.db.chain.get('reviewers').push({ reviewer1 } as any,).value()
+            await config.db.write();
+          } else {
+            ui.log.write('No Reviewer1 found yet.')
+          }
+          if (proposal.reviewer2.toString() !== nullReviewer) {
+            const reviewer2 = await client.getReviewerByReviewerPk(proposal.reviewer2).then(formatReviewer)
+            ui.log.write(`🧙‍♂️ Adding Reviewer 2... ${reviewer2.githubName}`)
+            config.db.chain.get('reviewers').push({ reviewer2 } as any,).value()
+            await config.db.write();
+          } else {
+            ui.log.write('No Reviewer2 found yet.')
+          }
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug))
           ui.log.write(`⛓ updating content folders`)
           emitter.next({
@@ -383,9 +395,9 @@ export function makeTutorialCommand() {
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
           await config.db.read();
           const tags = q.answer.split(',').map(t => t.trim()).map(t => ({
-              name: t,
-              slug: t.toLowerCase(),
-            }))
+            name: t,
+            slug: t.toLowerCase(),
+          }))
           config.db.chain.set('categories', tags).value();
           await config.db.write();
           emitter.next({
