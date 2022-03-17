@@ -651,6 +651,9 @@
             "name": "Writing"
           },
           {
+            "name": "HasReviewers"
+          },
+          {
             "name": "ReadyToPublish"
           },
           {
