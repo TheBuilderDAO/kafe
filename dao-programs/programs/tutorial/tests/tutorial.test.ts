@@ -471,6 +471,26 @@ describe('tutorial-program', () => {
     );
   });
 
+
+  test('user2 tip too  much', async () => {
+    // Amount to tip in LAMPORT
+    const tippedAmount = new anchor.BN(1_000_000_000);
+
+    // Tipping instruction
+    await expect(
+      guideTipping({
+        program,
+        mintPk: mint.publicKey,
+        proposalId: 0,
+        tipperPk: user2.publicKey,
+        amount: tippedAmount,
+        signer: user2,
+    })).rejects.toThrow();
+
+
+  });
+
+
   test('User1 Close Tutorial0', async () => {
     await expect(
       proposalClose({
