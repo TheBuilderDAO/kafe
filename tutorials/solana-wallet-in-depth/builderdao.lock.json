@@ -1,0 +1,32 @@
+{
+  "proposalId": 10,
+  "slug": "polkadot-for-dummies",
+  "authors": [
+    {
+      "name": "Necmettin Karakaya",
+      "avatarUrl": "",
+      "email": "necmettin.karakaya@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+      "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+      "githubName": "zurgl"
+    },
+    "reviewer2": {
+      "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+      "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+      "githubName": "zurgl"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c4860c00f40d0b657d1d8fc550e5637952bd25e7fb399f96e0fd50328e2bab21"
+    }
+  },
+  "href": "/learn/polkadot-for-dummies"
+}

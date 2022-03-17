@@ -142,12 +142,17 @@ export const getTutorialContentByPath = async ({
     path.join(rootFolder, 'builderdao.config.json'),
     'utf8',
   );
+  const rawLockFile = await fs.readFile(
+    path.join(rootFolder, 'builderdao.lock.json'),
+    'utf8',
+  );
   const config = JSON.parse(rawConfigFile);
-  config.href = `/learn/${learnPackageName}`;
+  const lock = JSON.parse(rawConfigFile);
   return {
     paths,
     content: filepathWithoutExtension,
     config,
+    lock
   };
 };
 

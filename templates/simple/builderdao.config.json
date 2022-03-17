@@ -1,10 +1,6 @@
 {
   "title": "{{title}}",
-  "authors": [],
-  "reviewers:": [],
   "description": "{{description}}",
   "imageUrl": "",
-  "categories": [],
-  "href": "/learn/template_simple",
-  "content": {}
+  "categories": []
 }

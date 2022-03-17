@@ -1,3 +1,5 @@
+import { TutorialProgramClient } from '@builderdao-sdk/dao-program';
+import { PublicKey } from '@solana/web3.js';
 import * as commander from 'commander';
 import path from 'path';
 import fs from 'fs-extra'
@@ -13,7 +15,7 @@ import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import * as bs58 from 'bs58'
 import simpleGit, { CleanOptions } from 'simple-git';
 
-import { log as _log, hashSumDigest, sleep } from '../utils';
+import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
@@ -25,7 +27,7 @@ async function updateHashDigestOfFolder(rootFolder: string) {
   const tutorialMetadata = await getTutorialContentByPath({
     rootFolder,
   });
-  const { db } = new BuilderDaoConfig(rootFolder)
+  const { lock: db } = new BuilderDaoConfig(rootFolder)
   await db.read()
   const hashQueue = async.queue(async (file: {
     path: string,
@@ -48,6 +50,16 @@ async function updateHashDigestOfFolder(rootFolder: string) {
     hashQueue.push(file)
   })
   await hashQueue.drain()
+}
+
+async function getReviewer(client: TutorialProgramClient, reviewerPK: PublicKey) {
+  const formatReviewer = (data: any) => ({
+    pda: data.pda,
+    pubkey: data.pubkey,
+    githubName: data.githubName,
+  })
+  const reviewer = await client.getReviewerByReviewerPk(reviewerPK).then(formatReviewer)
+  return reviewer;
 }
 
 
@@ -91,6 +103,21 @@ export function makeTutorialCommand() {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
+
+      const proposal = await client.getTutorialBySlug(learnPackageName)
+      console.log(rootFolder)
+      const { lock, initial } = new BuilderDaoConfig(rootFolder)
+      const {lock: lockDefault} = await initial({proposalId: proposal.id.toNumber(), slug: proposal.slug as string})
+      await lock.read()
+      lock.data ||= lockDefault
+      console.log(lock.data)
+      await lock.write()
+      lock.chain.set('proposalId', proposal.id.toNumber());
+      const reviewer1 = await getReviewer(client, proposal.reviewer1);
+      lock.chain.get('reviewers').set('reviewer1', reviewer1,).value()
+      const reviewer2 = await getReviewer(client, proposal.reviewer1);
+      lock.chain.get('reviewers').set('reviewer2', reviewer2 ).value()
+      await lock.write();
       await updateHashDigestOfFolder(rootFolder)
     });
 
@@ -137,22 +164,21 @@ export function makeTutorialCommand() {
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
       log({ rootFolder });
-      const config = new BuilderDaoConfig(rootFolder)
-      await config.db.read();
-      const proposalId = config.db.chain.get('proposalId').parseInt().value()
+      const { lock } = new BuilderDaoConfig(rootFolder)
+      await lock.read();
+      const proposalId = lock.chain.get('proposalId').parseInt().value()
       const proposal = await client.getTutorialById(proposalId)
-      const content = config.db.chain.get('content').value();
+      const content = lock.chain.get('content').value();
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
-        seed: options.seed,
       });
+      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,
         port: options.arweave_port,
         protocol: options.arweave_protocol
       });
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
 
       const deployQueue = async.queue(async (file: {
         path: string,
@@ -165,9 +191,9 @@ export function makeTutorialCommand() {
         const arweaveHash = await arweave.publishTutorial(fileContent, `${learnPackageName}/${file.path}`, options.arweave_wallet)
         console.log(`Arweave Upload Complete: ${file.name} = [${arweaveHash}]`)
         const digest = await hashSumDigest(file.fullPath)
-        config.db.chain.set(`content["${file.path}"].digest`, digest).value()
-        config.db.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
-        await config.db.write();
+        lock.chain.set(`content["${file.path}"].digest`, digest).value()
+        lock.chain.set(`content["${file.path}"].arweaveHash`, arweaveHash).value()
+        await lock.write();
         console.log('Updated builderdao.config.json')
       }, 2);
 
@@ -240,12 +266,14 @@ export function makeTutorialCommand() {
       let proposalSlug: string;
       const getTutorialFolder = (slug: string) => path.join(path.join(__dirname, '../../../tutorials'), slug);
       let proposal: any;
+
       const git = simpleGit().clean(CleanOptions.FORCE)
       const ui = new inquirer.ui.BottomBar();
       inquirer.prompt(observe).ui.process.subscribe(async (q) => {
         if (q.name === 'proposal_slug') {
           proposalSlug = q.answer;
           proposal = await client.getTutorialBySlug(proposalSlug);
+
           log(proposal)
           emitter.next({
             type: "confirm",
@@ -322,33 +350,29 @@ export function makeTutorialCommand() {
 
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          config.db.data ||= await config.initial({
+          const defaults = await config.initial({
             proposalId: proposal.id.toNumber(),
             slug: proposal.slug,
           })
+          config.config.data ||= defaults.config
+          config.lock.data ||= defaults.lock
 
-          const formatReviewer = (data: any) => ({
-            pda: data.pda,
-            pubkey: data.pubkey,
-            githubName: data.githubName,
-          })
 
           const nullReviewer = '11111111111111111111111111111111'
 
           if (proposal.reviewer1.toString() !== nullReviewer) {
-            const reviewer1 = await client.getReviewerByReviewerPk(proposal.reviewer1).then(formatReviewer)
+            const reviewer1 = await getReviewer(client, proposal.reviewer1);
             ui.log.write(`🕵️‍♂️ Adding Reviewer 1... ${reviewer1.githubName}`)
-
-            config.db.chain.get('reviewers').push({ reviewer1 } as any,).value()
-            await config.db.write();
+            config.lock.chain.get('reviewers').set('reviewer1', reviewer1 ).value()
+            await config.lock.write();
           } else {
             ui.log.write('No Reviewer1 found yet.')
           }
           if (proposal.reviewer2.toString() !== nullReviewer) {
-            const reviewer2 = await client.getReviewerByReviewerPk(proposal.reviewer2).then(formatReviewer)
+            const reviewer2 = await getReviewer(client, proposal.reviewer2);
             ui.log.write(`🧙‍♂️ Adding Reviewer 2... ${reviewer2.githubName}`)
-            config.db.chain.get('reviewers').push({ reviewer2 } as any,).value()
-            await config.db.write();
+            config.lock.chain.get('reviewers').set('reviewer2', reviewer2 ).value()
+            await config.lock.write();
           } else {
             ui.log.write('No Reviewer2 found yet.')
           }
@@ -366,9 +390,9 @@ export function makeTutorialCommand() {
         if (q.name === 'tutorial_title') {
           await template.setTitle(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          await config.db.read();
-          config.db.chain.set('title', q.answer).value();
-          await config.db.write();
+          await config.config.read();
+          config.config.chain.set('title', q.answer).value();
+          await config.config.write();
 
           emitter.next({
             type: "input",
@@ -380,9 +404,9 @@ export function makeTutorialCommand() {
         if (q.name === 'tutorial_description') {
           await template.setDescription(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          await config.db.read();
-          config.db.chain.set('description', q.answer).value();
-          await config.db.write();
+          await config.config.read();
+          config.config.chain.set('description', q.answer).value();
+          await config.config.write();
           emitter.next({
             type: "input",
             name: "tutorial_tags",
@@ -393,13 +417,13 @@ export function makeTutorialCommand() {
         if (q.name === 'tutorial_tags') {
           await template.setTags(q.answer);
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
-          await config.db.read();
+          await config.config.read();
           const tags = q.answer.split(',').map(t => t.trim()).map(t => ({
             name: t,
             slug: t.toLowerCase(),
           }))
-          config.db.chain.set('categories', tags).value();
-          await config.db.write();
+          config.config.chain.set('categories', tags).value();
+          await config.config.write();
           emitter.next({
             type: "confirm",
             name: "stage_changes",
