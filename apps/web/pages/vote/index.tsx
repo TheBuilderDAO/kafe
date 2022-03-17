@@ -58,7 +58,7 @@ const Home: NextPage = () => {
           indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
           <Configure hitsPerPage={4} analytics={false} />
-          <div className="flex items-start justify-between">
+          <div className="flex justify-between items-start mt-8">
             <div className="flex flex-col grow">
               <div className="my-6">
                 <FundedTabs

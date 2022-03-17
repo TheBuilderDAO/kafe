@@ -3,7 +3,7 @@ import { connectPagination } from 'react-instantsearch-dom';
 const Pagination = ({ currentRefinement, nbPages, refine, createURL }) => {
   return (
     <nav
-      className="relative z-0 inline-flex rounded-md mb-40 mt-10"
+      className="relative z-0 inline-flex rounded-md mb-40 mt-5"
       aria-label="Pagination"
     >
       {new Array(nbPages).fill(null).map((_, index) => {

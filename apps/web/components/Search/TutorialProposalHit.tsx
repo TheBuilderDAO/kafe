@@ -55,12 +55,12 @@ const TutorialProposalHit = props => {
         <div className="flex flex-row content-center justify-between px-4 py-5 sm:p-6">
           <div>
             <div className="mb-4">
-              <div className="font-bold font-larken text-5xl tracking-wider w-4/5">
+              <div className="font-bold font-larken text-5xl tracking-wider">
                 <Link href={routes.vote.proposal(props.hit.slug)}>
                   {props.hit.title}
                 </Link>
               </div>
-              <div className="font-thin tracking-wider text-sm leading-8 pt-1 pb-6 line-clamp-2 w-4/5">
+              <div className="font-thin tracking-wider text-sm leading-8 pt-1 pb-6 line-clamp-2">
                 <p>{props.hit.description}</p>
               </div>
             </div>
