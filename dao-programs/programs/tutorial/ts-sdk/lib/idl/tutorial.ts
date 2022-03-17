@@ -240,6 +240,11 @@ export type Tutorial = {
       name: 'guideTipping';
       accounts: [
         {
+          name: 'tipper';
+          isMut: true;
+          isSigner: false;
+        },
+        {
           name: 'proposal';
           isMut: false;
           isSigner: false;
@@ -271,6 +276,10 @@ export type Tutorial = {
         },
       ];
       args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
         {
           name: 'amount';
           type: 'u64';
@@ -606,6 +615,30 @@ export type Tutorial = {
           {
             name: 'githubName';
             type: 'string';
+          },
+        ];
+      };
+    },
+    {
+      name: 'tipperAccount';
+      type: {
+        kind: 'struct';
+        fields: [
+          {
+            name: 'tutorialId';
+            type: 'u64';
+          },
+          {
+            name: 'bump';
+            type: 'u8';
+          },
+          {
+            name: 'pubkey';
+            type: 'publicKey';
+          },
+          {
+            name: 'amount';
+            type: 'u64';
           },
         ];
       };
@@ -979,6 +1012,11 @@ export const IDL: Tutorial = {
       name: 'guideTipping',
       accounts: [
         {
+          name: 'tipper',
+          isMut: true,
+          isSigner: false,
+        },
+        {
           name: 'proposal',
           isMut: false,
           isSigner: false,
@@ -1010,6 +1048,10 @@ export const IDL: Tutorial = {
         },
       ],
       args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
         {
           name: 'amount',
           type: 'u64',
@@ -1345,6 +1387,30 @@ export const IDL: Tutorial = {
           {
             name: 'githubName',
             type: 'string',
+          },
+        ],
+      },
+    },
+    {
+      name: 'tipperAccount',
+      type: {
+        kind: 'struct',
+        fields: [
+          {
+            name: 'tutorialId',
+            type: 'u64',
+          },
+          {
+            name: 'bump',
+            type: 'u8',
+          },
+          {
+            name: 'pubkey',
+            type: 'publicKey',
+          },
+          {
+            name: 'amount',
+            type: 'u64',
           },
         ],
       },
