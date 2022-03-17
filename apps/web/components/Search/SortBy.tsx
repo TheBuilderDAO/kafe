@@ -2,6 +2,10 @@ import { connectSortBy } from 'react-instantsearch-dom';
 import Select from 'react-select';
 import { useTheme } from 'next-themes';
 
+type Item = {
+  value?: string;
+};
+
 const SortBy = ({
   items,
   refine,
@@ -18,7 +22,7 @@ const SortBy = ({
       components={{ Control, DropdownIndicator }}
       styles={customStyles}
       placeholder="select"
-      onChange={item => refine(item.value)}
+      onChange={(item: Item) => refine(item.value)}
       theme={theme => ({
         ...theme,
         borderRadius: 0,
