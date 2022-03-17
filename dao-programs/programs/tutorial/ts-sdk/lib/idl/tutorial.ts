@@ -651,9 +651,6 @@ export type Tutorial = {
             "name": "Writing"
           },
           {
-            "name": "HasReviewers"
-          },
-          {
             "name": "ReadyToPublish"
           },
           {
@@ -728,6 +725,11 @@ export type Tutorial = {
       "code": 6012,
       "name": "NotEnoughSolError",
       "msg": "Error: Cannot tips: not enough SOL"
+    },
+    {
+      "code": 6013,
+      "name": "CreatorCannotBeAReviewer",
+      "msg": "Error: Assign Reviewer: Creator Cannot be reviewer"
     }
   ]
 };
@@ -1385,9 +1387,6 @@ export const IDL: Tutorial = {
             "name": "Writing"
           },
           {
-            "name": "HasReviewers"
-          },
-          {
             "name": "ReadyToPublish"
           },
           {
@@ -1462,6 +1461,11 @@ export const IDL: Tutorial = {
       "code": 6012,
       "name": "NotEnoughSolError",
       "msg": "Error: Cannot tips: not enough SOL"
+    },
+    {
+      "code": 6013,
+      "name": "CreatorCannotBeAReviewer",
+      "msg": "Error: Assign Reviewer: Creator Cannot be reviewer"
     }
   ]
 };

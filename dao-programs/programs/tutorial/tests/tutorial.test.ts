@@ -378,7 +378,6 @@ describe('tutorial-program', () => {
       ProposalStateE.funded,
       ProposalStateE.submitted,
       ProposalStateE.writing,
-      ProposalStateE.hasReviewers,
       ProposalStateE.readyToPublish,
       ProposalStateE.published,
     ];
@@ -471,7 +470,6 @@ describe('tutorial-program', () => {
     );
   });
 
-
   test('user2 tip too  much', async () => {
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(1_000_000_000);
@@ -485,11 +483,9 @@ describe('tutorial-program', () => {
         tipperPk: user2.publicKey,
         amount: tippedAmount,
         signer: user2,
-    })).rejects.toThrow();
-
-
+      }),
+    ).rejects.toThrow();
   });
-
 
   test('User1 Close Tutorial0', async () => {
     await expect(
@@ -502,5 +498,4 @@ describe('tutorial-program', () => {
       }),
     ).resolves.toBeTruthy();
   });
-
 });

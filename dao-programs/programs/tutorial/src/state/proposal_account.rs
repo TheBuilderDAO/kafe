@@ -23,9 +23,8 @@ pub enum ProposalState {
   Submitted = 0,
   Funded = 1,
   Writing = 2,
-  HasReviewers = 3,
-  ReadyToPublish = 4,
-  Published = 5,
+  ReadyToPublish = 3,
+  Published = 4,
 }
 
 impl Default for ProposalState {
@@ -42,7 +41,6 @@ impl FromStr for ProposalState {
       "submitted" => Ok(ProposalState::Submitted),
       "funded" => Ok(ProposalState::Funded),
       "writing" => Ok(ProposalState::Writing),
-      "hasReviewers" => Ok(ProposalState::HasReviewers),
       "readyToPublish" => Ok(ProposalState::ReadyToPublish),
       "published" => Ok(ProposalState::Published),
       _ => Err(error!(ErrorDao::InvalidState)),
