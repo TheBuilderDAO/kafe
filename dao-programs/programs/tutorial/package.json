@@ -15,7 +15,7 @@
     "test": "tests"
   },
   "scripts": {
-    "prebuild": "cp ../../target/types/tutorial.ts ts-sdk/lib/idl && cp ../../target/idl/tutorial.json ts-sdk/lib/idl",
+    "prebuild:testnet": "cp ../../target/types/tutorial.ts ts-sdk/lib/idl && cp ../../target/idl/tutorial.json ts-sdk/lib/idl",
     "build": "tsup ts-sdk/index.ts --format esm,cjs --dts --external react ",
     "dev": "yarn build --watch",
     "lint": "TIMING=1 eslint ts-sdk --fix",
