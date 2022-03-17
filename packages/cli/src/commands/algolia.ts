@@ -1,17 +1,19 @@
 import * as commander from 'commander';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
 import { AlgoliaApi } from '@builderdao/apis';
-import { log as _log } from '../utils';
 
 export function makeAlgoliaCommand() {
   const algolia = new commander.Command('algolia').description('Algolia');
-  const log = (object: any) => _log(object, algolia.optsWithGlobals().key);
 
   algolia
     .command('updateIndex')
     .description('Update index when tutorial is published')
     .argument('<objectId>', 'Object ID')
+    .addOption(
+      new commander.Option('--newState <newState>', 'New state of tutorial')
+        .env('NEW_STATE')
+        .makeOptionMandatory(),
+    )
     .addOption(
       new commander.Option('--appId <appId>', 'Algolia App Id')
         .env('ALGOLIA_APP_ID')
@@ -31,6 +33,7 @@ export function makeAlgoliaCommand() {
       async (
         objectId: string,
         options: {
+          newState: string,
           appId: string;
           accessKey: string;
           indexName: string;
@@ -43,7 +46,7 @@ export function makeAlgoliaCommand() {
         });
         await client.publishTutorial(
           objectId,
-          ProposalStateE.published,
+          options.newState,
         );
       },
     );

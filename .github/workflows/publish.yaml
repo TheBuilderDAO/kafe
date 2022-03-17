@@ -13,6 +13,7 @@ on:
 
 jobs:
   get_proposal_slug:
+    name: Get Proposal Slug
     # for test only
     # if: ${{ github.event.label.name == 'publish' }}
     if: startsWith(github.head_ref, 'tutorials/') && github.event.pull_request.merged == true
@@ -38,6 +39,7 @@ jobs:
           echo "::set-output name=slug::${{ steps.regex_extract_proposal_id.outputs.result }}"
 
   fetch_proposal:
+    name: Fetch Proposal
     needs: get_proposal_slug
     if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
@@ -67,6 +69,7 @@ jobs:
           echo "::set-output name=streamId::$STATE"
 
   publish_tutorial:
+    name: Publish Tutorial
     needs: [ get_proposal_slug, fetch_proposal ]
     if: ${{ needs.fetch_proposal.outputs.proposalId }} != ''
     runs-on: ubuntu-latest
@@ -94,6 +97,7 @@ jobs:
           commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
 
   set_state:
+    name: Set state to published
     needs: [ publish_tutorial, fetch_proposal ]
     runs-on: ubuntu-latest
     defaults:
@@ -110,7 +114,8 @@ jobs:
           builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
 
   update_index:
-    needs: set_state
+    name: Update Algolia index
+    needs: [ fetch_proposal, set_state ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -125,4 +130,4 @@ jobs:
           ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
-          builderdao algolia updateIndex $OBJECT_ID --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+          builderdao algolia updateIndex $OBJECT_ID --newState published --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
