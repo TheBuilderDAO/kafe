@@ -13,11 +13,11 @@ import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import * as bs58 from 'bs58';
 import simpleGit, { CleanOptions } from 'simple-git';
 
+import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 import { log as _log, hashSumDigest, sleep } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -47,7 +47,7 @@ export function makeTutorialCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
   const tutorial = new commander.Command('tutorial').description('Tutorial');
-  let client = getClient({
+  const client = getClient({
     kafePk: tutorial.optsWithGlobals().kafePk,
     network: tutorial.optsWithGlobals().network,
     payer: tutorial.optsWithGlobals().payer,
