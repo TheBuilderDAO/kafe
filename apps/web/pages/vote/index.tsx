@@ -70,7 +70,7 @@ const Home: NextPage = () => {
             <Configure hitsPerPage={4} analytics={false} />
             <div className="flex items-start justify-between mt-8">
               <div className="flex flex-col grow mt-[70px]">
-                <div className="my-6">
+                <div className="my-6 z-10">
                   <FundedTabs
                     attribute="state"
                     defaultRefinement={[ProposalStateE.submitted]}
