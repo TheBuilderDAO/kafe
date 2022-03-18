@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c4860c00f40d0b657d1d8fc550e5637952bd25e7fb399f96e0fd50328e2bab21"
+      "digest": "d64db5b5b39ba1354e100b5ee89ddb36cf3cfd438c1d458610119a49d0770705",
+      "arweaveHash": "Cq-MJYygsvachpS7EO902blPyIGKA1Zh4nLdx1GWUuc"
     }
   },
   "href": "/learn/polkadot-for-dummies"
