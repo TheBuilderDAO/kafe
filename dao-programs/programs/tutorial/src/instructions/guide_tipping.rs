@@ -11,7 +11,8 @@ use crate::errors::*;
 use crate::constants::{
   REVIEWER_TIP_WEIGHT, 
   CREATOR_TIP_WEIGHT,
-  PROGRAM_SEED
+  PROGRAM_SEED,
+  TIPPING_SEED
 };
 use vipers::unwrap_int;
 
@@ -22,6 +23,7 @@ pub struct GuideTipping<'info> {
     payer = signer,
     seeds = [
       PROGRAM_SEED.as_bytes(), 
+      TIPPING_SEED.as_bytes(), 
       proposal.id.to_le_bytes().as_ref(),
       signer.key().as_ref(),
     ],
@@ -44,6 +46,7 @@ pub struct GuideTipping<'info> {
   #[account(address = system_program::ID)]
   /// CHECK: we do not perform any mutation here
   pub system_program : AccountInfo<'info>,
+  pub rent: Sysvar<'info, Rent>,
 }
 
 pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> {

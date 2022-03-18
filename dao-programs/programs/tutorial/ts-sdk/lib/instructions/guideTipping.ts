@@ -43,6 +43,7 @@ export const guideTipping = async ({
       proposal: proposal.pda,
       signer: tipperPk,
       systemProgram: anchor.web3.SystemProgram.programId,
+      rent: anchor.web3.SYSVAR_RENT_PUBKEY,
       creator,
       reviewer1,
       reviewer2,
