@@ -42,10 +42,10 @@ const PublicLayout = (props: PublicLayoutProps) => {
           <Header />
         </div>
         <div className="grid grid-cols-12">
-          <div className="col-span-2 max-content">
+          <div className="z-0 col-span-2 max-content">
             <LeftSidebar />
           </div>
-          <div className="col-span-2 w-minimum z-1">
+          <div className="col-span-2 w-minimum">
             <Content>{children}</Content>
           </div>
         </div>
