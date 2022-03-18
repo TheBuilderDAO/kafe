@@ -1,0 +1,53 @@
+{
+  "proposalId": 18,
+  "slug": "kafe-clone",
+  "authors": [
+    {
+      "name": "Bartosz Hejman",
+      "avatarUrl": "",
+      "email": "bartoszhejman@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [
+    {
+      "name": "Solana",
+      "slug": "solana"
+    },
+    {
+      "name": "Arweave",
+      "slug": "arweave"
+    },
+    {
+      "name": "Ceramic",
+      "slug": "ceramic"
+    }
+  ],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+        "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+        "githubName": "zurgl"
+      }
+    },
+    {
+      "reviewer2": {
+        "pda": "FWp5ZmJU57gpvNqjAjewAGW6WPEGqdqjAPiyzMEXpcqj",
+        "pubkey": "8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU",
+        "githubName": "Necmttn"
+      }
+    }
+  ],
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "82a9820aeafffac3e0f67d506035e25984195e1f67502118570322ba50b19cf4"
+    }
+  },
+  "description": "Build Kafe Clone using web3 technology",
+  "href": "",
+  "imageUrl": "",
+  "title": "Kafe Clone"
+}
