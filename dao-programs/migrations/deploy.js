@@ -1,19 +1,19 @@
-const anchor = require('@project-serum/anchor')
-const { TOKEN_PROGRAM_ID } = require('@solana/spl-token')
+const anchor = require('@project-serum/anchor');
+const { TOKEN_PROGRAM_ID } = require('@solana/spl-token');
 
 // anchor deploy --provider.cluster testnet
 // anchor migrate --provider.cluster testnet
 // DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX
 module.exports = async function (provider) {
-  console.log('Deploying anchor...', provider)
-  anchor.setProvider(provider)
-  let program = anchor.workspace.Tutorial
+  console.log('Deploying anchor...', provider);
+  anchor.setProvider(provider);
+  let program = anchor.workspace.Tutorial;
 
-  let PROGRAM_SEED = 'BuilderDAO'
+  let PROGRAM_SEED = 'BuilderDAO';
 
   let mint = new anchor.web3.PublicKey(
     'KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW',
-  )
+  );
 
   let authorities = [
     ...[provider.wallet.payer.publicKey.toString()],
@@ -25,17 +25,17 @@ module.exports = async function (provider) {
     '8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU',
     'HtdezEbemuLpAh9no1jp7Eezy8drWcbFuk3VPhs17bM4',
     'githDLGadJhMkAGPGoAiNMLA8HWdV9BTrNvpmU3Jz6n',
-  ].map(pk => new anchor.web3.PublicKey(pk))
+  ].map(pk => new anchor.web3.PublicKey(pk));
 
   let [daoConfig, bump] = await anchor.web3.PublicKey.findProgramAddress(
     [Buffer.from(PROGRAM_SEED)],
     program.programId,
-  )
+  );
 
   let [daoVault] = await anchor.web3.PublicKey.findProgramAddress(
     [Buffer.from(PROGRAM_SEED), mint.toBuffer()],
     program.programId,
-  )
+  );
 
   console.log({
     walletPk: provider.wallet.payer.publicKey.toString(),
@@ -44,9 +44,9 @@ module.exports = async function (provider) {
     daoVault: daoVault.toString(),
     mintPk: mint.toString(),
     authorities: authorities.slice(0, 2).map(pk => pk.toString()),
-  })
+  });
 
-  const quorum = new anchor.BN(50)
+  const quorum = new anchor.BN(2);
 
   let signature = await program.rpc.daoInitialize(bump, quorum, authorities, {
     accounts: {
@@ -58,11 +58,11 @@ module.exports = async function (provider) {
       rent: anchor.web3.SYSVAR_RENT_PUBKEY,
       payer: provider.wallet.payer.publicKey,
     },
-  })
+  });
 
-  console.log(`Creation of daoAccount: ${daoConfig.toString()}`)
-  console.log(`Creation of daoVaultAccount: ${daoVault.toString()}`)
-  console.log('signature', signature)
+  console.log(`Creation of daoAccount: ${daoConfig.toString()}`);
+  console.log(`Creation of daoVaultAccount: ${daoVault.toString()}`);
+  console.log('signature', signature);
 
   let reviewers = [
     {
@@ -107,14 +107,14 @@ module.exports = async function (provider) {
       ),
       name: 'vunderkind',
     },
-  ]
+  ];
 
   for (let reviewer of reviewers) {
     const [reviewerAccountPda, reviewerAccountBump] =
       await anchor.web3.PublicKey.findProgramAddress(
         [Buffer.from(PROGRAM_SEED), reviewer.pk.toBuffer()],
         program.programId,
-      )
+      );
 
     signature = await program.rpc.reviewerCreate(
       reviewerAccountBump,
@@ -129,11 +129,11 @@ module.exports = async function (provider) {
           authority: provider.wallet.payer.publicKey,
         },
       },
-    )
+    );
 
-    console.log('Creation of reviewer:', reviewer.name)
+    console.log('Creation of reviewer:', reviewer.name);
   }
 
-  const data1 = await program.account.daoAccount.fetch(daoConfig)
-  console.log(data1.admins.map(pk => pk.toString()))
-}
+  const proposals = await program.account.proposalAccount.all();
+  console.log(proposals);
+};

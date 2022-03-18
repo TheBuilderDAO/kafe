@@ -6,13 +6,21 @@ import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
 import TutorialFilter from '@app/components/TutorialFilter';
 import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
-import { ProposalStateE, useGetListOfProposals } from '@builderdao-sdk/dao-program'
+import {
+  ProposalStateE,
+  useGetListOfProposals,
+} from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
-import FundedTabs from '@app/components/Search/FundedTabs'
+import FundedTabs from '@app/components/Search/FundedTabs';
+import {
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+} from '@app/constants';
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 );
 
 const ProposalList = () => {
@@ -47,16 +55,16 @@ const Home: NextPage = () => {
       <main>
         <InstantSearch
           searchClient={searchClient}
-          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
-          <Configure
-            hitsPerPage={4}
-            analytics={false}
-          />
-          <div className="flex justify-between items-start">
+          <Configure hitsPerPage={4} analytics={false} />
+          <div className="flex items-start justify-between">
             <div className="flex flex-col grow">
               <div className="my-6">
-                <FundedTabs attribute="state" defaultRefinement={[ProposalStateE.submitted]} />
+                <FundedTabs
+                  attribute="state"
+                  defaultRefinement={[ProposalStateE.submitted]}
+                />
               </div>
               <Hits hitComponent={TutorialProposalHit} />
               <Pagination />

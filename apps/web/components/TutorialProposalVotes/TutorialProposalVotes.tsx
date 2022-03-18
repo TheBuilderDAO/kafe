@@ -1,8 +1,12 @@
-import React from 'react'
-import { addEllipsis } from '../../utils/strings'
-import VoteButton from '../VoteButton/VoteButton'
-import { ProposalStateE, useGetDaoState, useGetListOfVoters } from '@builderdao-sdk/dao-program'
-import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn'
+import React from 'react';
+import { addEllipsis } from '../../utils/strings';
+import VoteButton from '../VoteButton/VoteButton';
+import {
+  ProposalStateE,
+  useGetDaoState,
+  useGetListOfVoters,
+} from '@builderdao-sdk/dao-program';
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 
 type TutorialProposalVotesProps = {
   id: number;
@@ -44,7 +48,9 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
       </ul>
 
       <IsLoggedIn>
-        {(state.toString() === ProposalStateE.submitted || state.toString() === ProposalStateE.hasReviewers) && (
+        {/* A modification need to be performed here */}
+        {(state.toString() === ProposalStateE.submitted ||
+          state.toString() === ProposalStateE.writing) && (
           <VoteButton id={id} />
         )}
       </IsLoggedIn>

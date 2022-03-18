@@ -26,13 +26,17 @@ pub fn handler(ctx: Context<ReviewerAssign>) -> Result<()> {
   ctx.accounts.reviewer1.number_of_assignment += 1;
   ctx.accounts.reviewer2.number_of_assignment += 1;
 
+  if ctx.accounts.reviewer1.key() == ctx.accounts.tutorial.creator 
+    || ctx.accounts.reviewer2.key() == ctx.accounts.tutorial.creator {
+    return Err(error!(ErrorDao::CreatorCannotBeAReviewer));
+  }
+
   if ctx.accounts.reviewer1.key() == ctx.accounts.reviewer2.key() {
     return Err(error!(ErrorDao::ReviewerNeedToBeDifferents));
   }
 
   ctx.accounts.tutorial.reviewer1 = ctx.accounts.reviewer1.pubkey;
   ctx.accounts.tutorial.reviewer2 = ctx.accounts.reviewer2.pubkey;
-  ctx.accounts.tutorial.state = ProposalState::HasReviewers;
 
   return Ok(());
 }

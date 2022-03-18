@@ -51,11 +51,23 @@ export const getPda = (
     return { pda, bump };
   };
 
+  const pdaTipperAccount = async (
+    guide_id: number,
+    tipper: anchor.web3.PublicKey,
+  ) => {
+    const [pda, bump] = await anchor.web3.PublicKey.findProgramAddress(
+      [Buffer.from(PROGRAM_SEED), getNumberBuffer(guide_id), tipper.toBuffer()],
+      programId,
+    );
+    return { pda, bump };
+  };
+
   return {
     pdaDaoAccount,
     pdaDaoVaultAccount,
     pdaTutorialById,
     pdaUserVoteAccountById,
     pdaReviewerAccount,
+    pdaTipperAccount,
   };
 };

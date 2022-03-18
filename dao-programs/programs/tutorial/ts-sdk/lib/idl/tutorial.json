@@ -240,6 +240,11 @@
       "name": "guideTipping",
       "accounts": [
         {
+          "name": "tipper",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "proposal",
           "isMut": false,
           "isSigner": false
@@ -272,46 +277,9 @@
       ],
       "args": [
         {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "guideTipping",
-      "accounts": [
-        {
-          "name": "proposal",
-          "isMut": false,
-          "isSigner": false
+          "name": "bump",
+          "type": "u8"
         },
-        {
-          "name": "creator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "reviewer2",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "reviewer1",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "signer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
         {
           "name": "amount",
           "type": "u64"
@@ -652,6 +620,30 @@
       }
     },
     {
+      "name": "TipperAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tutorialId",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "pubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
       "name": "VoteAccount",
       "type": {
         "kind": "struct",
@@ -764,6 +756,16 @@
       "code": 6011,
       "name": "BadPreviousState",
       "msg": "Error: Cannot setState: bad previous state"
+    },
+    {
+      "code": 6012,
+      "name": "NotEnoughSolError",
+      "msg": "Error: Cannot tips: not enough SOL"
+    },
+    {
+      "code": 6013,
+      "name": "CreatorCannotBeAReviewer",
+      "msg": "Error: Assign Reviewer: Creator Cannot be reviewer"
     }
   ],
   "metadata": {

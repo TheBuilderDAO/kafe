@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 import { logDebug } from './utils/index';
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
@@ -11,6 +12,9 @@ import {
   reviewerAccountByReviewerPK as getReviewerAccount,
   userVoteAccountById as getUserVoteAccountById,
   listOfVoterById as getListOfVoterById,
+  tipperAccountList as getTipperAccountList,
+  tipperAccountListByUser as getTipperAccountListByUser,
+  tipperAccountsListById as getTipperAccountsListById,
 } from '../ts-sdk/lib/fetchers';
 
 import { Tutorial } from '../ts-sdk/lib/idl/tutorial';
@@ -378,7 +382,6 @@ describe('tutorial-program', () => {
       ProposalStateE.funded,
       ProposalStateE.submitted,
       ProposalStateE.writing,
-      ProposalStateE.hasReviewers,
       ProposalStateE.readyToPublish,
       ProposalStateE.published,
     ];
@@ -415,6 +418,8 @@ describe('tutorial-program', () => {
   test('user2 tip a tutorial', async () => {
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(1_000_000);
+    const tippingCost = new anchor.BN(1_287_600);
+
     const CREATOR_WEIGHT = 70 / 100;
     const REVIEWER_WEIGHT = 15 / 100;
 
@@ -458,8 +463,9 @@ describe('tutorial-program', () => {
 
     // Basic check
     expect(initialTipperBalance - finalTipperBalance).toBe(
-      tippedAmount.toNumber(),
+      tippedAmount.toNumber() + tippingCost.toNumber(),
     );
+
     expect(finalCreatorBalance - initialCreatorBalance).toBe(
       CREATOR_WEIGHT * tippedAmount.toNumber(),
     );
@@ -471,39 +477,47 @@ describe('tutorial-program', () => {
     );
   });
 
-    test('user2 tip a tutorial', async () => {
+  test('user2 tip again the same guide', async () => {
+    await guideTipping({
+      program,
+      mintPk: mint.publicKey,
+      proposalId: 0,
+      tipperPk: user2.publicKey,
+      amount: new anchor.BN(1_000_000),
+      signer: user2,
+    });
+    const tipperInfo = await getTipperAccountsListById(program, 0);
+    expect(tipperInfo[0].account.amount.toNumber()).toBe(2_000_000);
+  });
+
+  test('reviewer3 tip the guide', async () => {
+    await guideTipping({
+      program,
+      mintPk: mint.publicKey,
+      proposalId: 0,
+      tipperPk: reviewer3.publicKey,
+      amount: new anchor.BN(1_000_000),
+      signer: reviewer3,
+    });
+    const tipperInfo = await getTipperAccountsListById(program, 0);
+    expect(tipperInfo.length).toBe(2);
+  });
+
+  test('user2 tip too  much', async () => {
     // Amount to tip in LAMPORT
-    const tippedAmount = new anchor.BN(1_000_000); 
-    const CREATOR_WEIGHT = 70 / 100;
-    const REVIEWER_WEIGHT = 15 / 100;
-  
-    // Initial balance of actors
-    const initialTipperBalance = await provider.connection.getBalance(user2.publicKey) 
-    const initialCreatorBalance = await provider.connection.getBalance(user1.publicKey) 
-    const initialReviewer1Balance = await provider.connection.getBalance(reviewer1.publicKey) 
-    const initialReviewer2Balance = await provider.connection.getBalance(reviewer2.publicKey) 
+    const tippedAmount = new anchor.BN(1_000_000_000);
 
     // Tipping instruction
-    await guideTipping({
+    await expect(
+      guideTipping({
         program,
         mintPk: mint.publicKey,
         proposalId: 0,
         tipperPk: user2.publicKey,
         amount: tippedAmount,
         signer: user2,
-      });
-    
-    // Final balance of actors
-    const finalTipperBalance = await provider.connection.getBalance(user2.publicKey) 
-    const finalCreatorBalance = await provider.connection.getBalance(user1.publicKey) 
-    const finalReviewer1Balance = await provider.connection.getBalance(reviewer1.publicKey) 
-    const finalReviewer2Balance = await provider.connection.getBalance(reviewer2.publicKey) 
-
-    // Basic check
-    expect(initialTipperBalance - finalTipperBalance).toBe(tippedAmount.toNumber());  
-    expect(finalCreatorBalance - initialCreatorBalance).toBe(CREATOR_WEIGHT * tippedAmount.toNumber());  
-    expect(finalReviewer1Balance - initialReviewer1Balance).toBe(REVIEWER_WEIGHT * tippedAmount.toNumber());  
-    expect(finalReviewer2Balance - initialReviewer2Balance).toBe(REVIEWER_WEIGHT * tippedAmount.toNumber());  
+      }),
+    ).rejects.toThrow();
   });
 
   test('User1 Close Tutorial0', async () => {
@@ -517,5 +531,4 @@ describe('tutorial-program', () => {
       }),
     ).resolves.toBeTruthy();
   });
-
 });
