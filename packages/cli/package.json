@@ -42,6 +42,7 @@
     "async": "^3.2.3",
     "bs58": "^5.0.0",
     "commander": "^9.0.0",
+    "dotenv": "^16.0.0",
     "fs-extra": "^10.0.1",
     "inquirer": "^8.2.1",
     "inquirer-autocomplete-prompt": "^2.0.0",

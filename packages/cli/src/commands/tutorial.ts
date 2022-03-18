@@ -1,3 +1,4 @@
+import { TutorialMetadata } from '@app/types/index';
 import { TutorialProgramClient } from '@builderdao-sdk/dao-program';
 import { PublicKey } from '@solana/web3.js';
 import * as commander from 'commander';
@@ -20,6 +21,7 @@ import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
 import { ArweaveApi, CeramicApi } from '@builderdao/apis';
+import { protocols, technologies } from '../constants';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -244,7 +246,12 @@ export function makeTutorialCommand() {
       // End of the ceramic & arweave process.
     });
 
-  tutorial.command('init').action(async () => {
+  tutorial.command('init')
+    .addOption(
+      new commander.Option('--nodeUrl <nodeUrl>', 'Ceramic Node Url')
+        .env('CERAMIC_NODE_URL')
+    )
+  .action(async (options) => {
     let emitter: Rx.Subscriber<DistinctQuestion<Answers>>;
     const observe = new Rx.Observable<DistinctQuestion<Answers>>(obs => {
       emitter = obs;
@@ -274,13 +281,21 @@ export function makeTutorialCommand() {
     let proposalSlug: string;
     const getTutorialFolder = (slug: string) => path.join(path.join(__dirname, '../../../tutorials'), slug);
     let proposal: any;
+    let ceramicMetadata: TutorialMetadata;
 
     const git = simpleGit().clean(CleanOptions.FORCE)
+    const ceramic = new CeramicApi({
+      nodeUrl: options.nodeUrl,
+    });
     const ui = new inquirer.ui.BottomBar();
     inquirer.prompt(observe).ui.process.subscribe(async (q) => {
       if (q.name === 'proposal_slug') {
         proposalSlug = q.answer;
         proposal = await client.getTutorialBySlug(proposalSlug);
+        ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
+        log(ceramicMetadata)
+        ui.log.write('-'.repeat(80));
+
 
         log(proposal)
         emitter.next({
@@ -309,6 +324,9 @@ export function makeTutorialCommand() {
             name: 'proposal_git_checkout_confirm',
             message: `Are you confirm to checkout the branch "tutorials/${proposalSlug}" ?`,
           });
+        } else {
+          ui.log.write('Okay 🤷, exiting...');
+          emitter.complete();
         }
       }
       const targetBranchName = `tutorials/${proposalSlug}`;
@@ -393,7 +411,7 @@ export function makeTutorialCommand() {
           type: "input",
           name: "tutorial_title",
           message: "Tutorial title",
-          default: proposalSlug,
+          default: ceramicMetadata.title,
         })
       }
 
@@ -409,6 +427,7 @@ export function makeTutorialCommand() {
           type: "input",
           name: "tutorial_description",
           message: "Tutorial Description",
+          default: ceramicMetadata.description,
         })
       }
 
@@ -419,13 +438,28 @@ export function makeTutorialCommand() {
         config.config.chain.set('description', q.answer).value();
         await config.config.write();
         emitter.next({
-          type: "input",
-          name: "tutorial_tags",
-          message: "Tags?  Commo seperated.",
+          type: 'checkbox',
+          name: 'tutorial_tags',
+          message: 'Please select the keywords you would like to use with a maximum of 5.',
+          choices: [
+            new inquirer.Separator(' = Protocols = '),
+            ...protocols.map((protocol) => ({name: protocol, checked: ceramicMetadata.tags.includes(protocol)})),
+            new inquirer.Separator(' = Technologies = '),
+            ...technologies.map((tech) => ({name: tech, checked: ceramicMetadata.tags.includes(tech)})),
+          ],
+          validate(answer) {
+            if (answer.length < 1) {
+              return 'You must choose at least one tag.';
+            }
+    
+            return true;
+          },
         })
       }
 
       if (q.name === 'tutorial_tags') {
+        console.log(q.answer)
+        return;
         await template.setTags(q.answer);
         const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
         await config.config.read();
