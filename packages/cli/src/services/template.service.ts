@@ -24,11 +24,15 @@ export class TemplateService  {
   }
 
   async setTitle(title: string) {
-    return this.replace("{{title}}", title)
+    return this.replace('{{title}}', title)
   }
 
   async setDescription(description: string) {
     return this.replace('{{description}}', description);
+  }
+
+  async setTags(tags: string) {
+    return this.replace('{{tags}}', tags);
   }
 
 
@@ -37,6 +41,6 @@ export class TemplateService  {
       files: `${this.target}/**/*`,
       from,
       to
-    })  
+    })
   }
 }

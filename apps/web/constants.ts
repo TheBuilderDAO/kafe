@@ -8,8 +8,14 @@ const getEnvOrFail = <T>(
   if (val) {
     return val as unknown as T;
   } else {
-    if (!optional) {
-      throw Error(`Environment variable ${key} is not set`);
+    if (key.startsWith('NEXT_PUBLIC') && !optional) {
+      throw new Error(`Missing env ${key}`);
+    } else if (
+      !key.startsWith('NEXT_PUBLIC') &&
+      !process.browser &&
+      !optional
+    ) {
+      throw new Error(`Missing env ${key}`);
     }
   }
 };
