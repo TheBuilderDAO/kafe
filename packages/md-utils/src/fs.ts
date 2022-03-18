@@ -9,8 +9,6 @@ import { FrontMatterPostType, PostType } from './types';
 // Regex to find all the custom static tweets in a MDX file
 const TWEET_RE = /<StaticTweet\sid="[0-9]+"\s\/>/g;
 
-
-
 export const getFileByPath = async <T extends PostType>(
   pathForFile: string,
 ): Promise<FrontMatterPostType<T>> => {
@@ -55,19 +53,12 @@ export const getFileParse = async <T extends PostType>(source: string) => {
   };
 
   return result as unknown as FrontMatterPostType<T>;
+};
 
-}
-
-const rootFolderPathForTutorials = process.env.NODE_ENV === 'production'
-  ? path.join(process.cwd(), 'public/tutorials')
-  : path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'node_modules',
-    '@builderdao-learn',
-  ); // TODO: make this direct path.
-
+const rootFolderPathForTutorials =
+  process.env.NODE_ENV === 'production'
+    ? path.join(process.cwd(), 'public/tutorials')
+    : path.join(process.cwd(), '..', '..', 'tutorials'); // TODO: make this direct path.
 
 type TutorialPath = {
   params: {
@@ -86,20 +77,22 @@ export const getTutorialPaths = async (
   const allPaths: TutorialPath[] = [];
   const allTutorials = [];
   for (const learnPackageName of rootFolder) {
-    const { config, content, paths } = await getTutorialContentByPackageName({
-      learnPackageName,
-      rootFolderPath,
-    });
+    const { config, lock, content, paths } =
+      await getTutorialContentByPackageName({
+        learnPackageName,
+        rootFolderPath,
+      });
     allPaths.push(...paths);
     allTutorials.push({
       slug: learnPackageName,
       config,
+      lock,
       content,
     });
   }
   return {
-    allPaths: allPaths,
-    allTutorials: allTutorials,
+    allPaths,
+    allTutorials,
   };
 };
 
@@ -147,12 +140,12 @@ export const getTutorialContentByPath = async ({
     'utf8',
   );
   const config = JSON.parse(rawConfigFile);
-  const lock = JSON.parse(rawConfigFile);
+  const lock = JSON.parse(rawLockFile);
   return {
     paths,
     content: filepathWithoutExtension,
     config,
-    lock
+    lock,
   };
 };
 
@@ -173,11 +166,6 @@ export const getPathForFile = (
   );
 };
 
-export const getPathForRootFolder = (
-  packageName: string,
-) => {
-  return path.join(
-    rootFolderPathForTutorials,
-    packageName,
-  );
-}
+export const getPathForRootFolder = (packageName: string) => {
+  return path.join(rootFolderPathForTutorials, packageName);
+};

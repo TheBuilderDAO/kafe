@@ -34,7 +34,7 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
   const { mdxSource, frontMatter } = props.post;
-  const { config, relativePath } = props;
+  const { config, lock, relativePath } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(
       (child: any) =>
@@ -63,13 +63,13 @@ const TutorialPage: NextPage<
           <div>
             <span>Digest</span>:{' '}
             <span className="font-mono text-sm">
-              {config?.content[relativePath].digest}
+              {lock?.content[relativePath].digest}
             </span>
           </div>
           <div>
             <span>Arweave Hash</span>:{' '}
             <span className="font-mono text-sm">
-              {config?.content[relativePath].arweaveHash}
+              {lock?.content[relativePath].arweaveHash}
             </span>
           </div>
         </div>

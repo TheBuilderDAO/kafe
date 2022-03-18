@@ -9,6 +9,7 @@ const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const { allTutorials } = props;
+  console.log(allTutorials);
   return (
     <div>
       <section>
@@ -16,7 +17,7 @@ const LearnIndexPage: NextPage<
           {allTutorials.map((tutorial, index) => (
             <TutorialCard
               key={`tutorial-${tutorial.config.slug}`}
-              tutorial={tutorial.config}
+              tutorial={{ ...tutorial.config, ...tutorial.lock }}
               defaultAvatar={defaultAvatar}
             />
           ))}
