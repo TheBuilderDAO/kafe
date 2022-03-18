@@ -274,6 +274,11 @@ export type Tutorial = {
           isMut: false;
           isSigner: false;
         },
+        {
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
       ];
       args: [
         {
@@ -1043,6 +1048,11 @@ export const IDL: Tutorial = {
         },
         {
           name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
           isMut: false,
           isSigner: false,
         },
