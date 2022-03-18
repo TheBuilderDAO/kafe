@@ -50,7 +50,7 @@ export const TutorialLayout: React.FC<Props> = ({
       <>
         <SectionContainer>
           {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-          <article className="bg-kafewhite dark:bg-kafeblack border-[1px] dark:border-kafewhite border-kafeblack dark:text-kafewhite text-kafeblack px-8 py-4 ">
+          <article className="bg-kafewhite dark:bg-kafeblack border-[1px] dark:border-kafewhite border-kafeblack dark:text-kafewhite text-kafeblack px-8 py-4 min-w-[780px]">
             <div className="p-6">
               <header>
                 <div className="pb-5 space-y-1 text-center">

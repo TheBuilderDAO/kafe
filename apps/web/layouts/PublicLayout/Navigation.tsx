@@ -3,14 +3,6 @@ import Link from 'next/link';
 import routes from '../../routes';
 import tw from 'tailwind-styled-components';
 import { useRouter } from 'next/router';
-import LogoSVG from '../../components/SVG/LogoSVG';
-import {
-  motion,
-  useMotionTemplate,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion';
 
 export interface NavigateProps {
   $active: boolean;
@@ -30,21 +22,8 @@ const Navigation = () => {
     dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite p-2 rounded-3xl w-32 px-5
   `;
 
-  const { scrollYProgress } = useViewportScroll();
-  const headingSize = useTransform(scrollYProgress, [0, 0.2], [350, 200]);
-  const headingSizeSpring = useSpring(headingSize, {
-    mass: 0.005,
-  });
-
-  const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
-
   return (
     <>
-      <div className="z-0 mt-0 invisible lg:visible">
-        <motion.div style={{ width: headingSizePx }}>
-          <LogoSVG />
-        </motion.div>
-      </div>
       <div className="flex flex-col flex-1 mt-5">
         <nav className="flex-1 space-y-1">
           <div>
