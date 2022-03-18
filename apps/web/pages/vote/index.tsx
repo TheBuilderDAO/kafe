@@ -6,11 +6,15 @@ import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
 import TutorialFilter from '@app/components/TutorialFilter';
 import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
+
+import Banner from '@app/components/Banner';
 import {
   ProposalStateE,
   useGetListOfProposals,
 } from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+
+import HighlightSVG from '../../components/SVG/Highlight';
 import FundedTabs from '@app/components/Search/FundedTabs';
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -52,13 +56,18 @@ const Home: NextPage = () => {
         <title>Search Tutorial Proposals</title>
       </Head>
 
-      <main>
+      <main className="mt-10">
+        <Banner
+          header="Upvote proposals you want to see get written."
+          description="Once a proposal gets 100 votes it will be funded by the community."
+          link="https://figment.io"
+        />
         <InstantSearch
           searchClient={searchClient}
           indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
           <Configure hitsPerPage={4} analytics={false} />
-          <div className="flex justify-between items-start mt-8">
+          <div className="flex items-start justify-between mt-8">
             <div className="flex flex-col grow">
               <div className="my-6">
                 <FundedTabs

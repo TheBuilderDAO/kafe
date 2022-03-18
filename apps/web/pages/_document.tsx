@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
           />
           <meta property="og:url" content="https://learn.figment.io/" />
         </Head>
-        <body className="h-full">
+        <body className="">
           <Main />
           <NextScript />
         </body>
