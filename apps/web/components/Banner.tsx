@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import HighlightSVG from './SVG/Highlight';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
@@ -7,7 +7,7 @@ const Banner = ({ header, description, link }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.2]);
   return (
     <motion.div
-      className={'w-3/4 ml-auto pr-10'}
+      className={'absolute left-0 right-0 mx-auto w-2/5 top-8'}
       style={{
         opacity,
       }}

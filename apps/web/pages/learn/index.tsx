@@ -35,8 +35,8 @@ const LearnIndexPage: NextPage<
           description="If you like a guide, you can support the creators by tipping"
           link="https://figment.io"
         />
-        <div className="z-30 flex mt-10 mb-20">
-          <section className="z-10">
+        <div className="z-30 flex mt-24 mb-20">
+          <section className="z-10 mt-24">
             <div>
               {allTutorials.map((tutorial, index) => (
                 <TutorialCard

@@ -69,7 +69,7 @@ const Home: NextPage = () => {
           >
             <Configure hitsPerPage={4} analytics={false} />
             <div className="flex items-start justify-between mt-8">
-              <div className="flex flex-col grow">
+              <div className="flex flex-col grow mt-[70px]">
                 <div className="my-6">
                   <FundedTabs
                     attribute="state"

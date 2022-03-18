@@ -3,7 +3,8 @@ import tw from 'tailwind-styled-components';
 
 const Wrapper = ({ children }) => {
   const StyledDiv = tw.div`
-  p-8
+  px-2
+  pt-0
   dark:bg-kafeblack
   bg-kafewhite
   mx-auto
