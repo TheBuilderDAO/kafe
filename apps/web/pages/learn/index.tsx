@@ -29,14 +29,14 @@ const LearnIndexPage: NextPage<
       <Head>
         <title>Search Tutorial Proposals</title>
       </Head>
-      <main className="mt-10  min-w-[900px]">
+      <main className="mt-10 min-w-[900px]">
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
           link="https://figment.io"
         />
-        <div className="z-30 flex mt-20 mb-20">
-          <section className="z-10 mt-32 min-w-[780px]">
+        <div className="z-30 flex mb-20">
+          <section className="z-10">
             <div>
               {allTutorials.map((tutorial, index) => (
                 <TutorialCard
@@ -47,15 +47,17 @@ const LearnIndexPage: NextPage<
               ))}
             </div>
           </section>
-          <RightSidebar>
-            <InstantSearch
-              searchClient={searchClient}
-              indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-            >
-              <Configure hitsPerPage={4} analytics={false} />
-              <TutorialFilter />
-            </InstantSearch>
-          </RightSidebar>
+          <div className="-mt-20">
+            <RightSidebar>
+              <InstantSearch
+                searchClient={searchClient}
+                indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+              >
+                <Configure hitsPerPage={4} analytics={false} />
+                <TutorialFilter />
+              </InstantSearch>
+            </RightSidebar>
+          </div>
         </div>
       </main>
     </>

@@ -20,8 +20,8 @@ const Header = () => {
 
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
   return (
-    <div className="flex items-center justify-between w-full">
-      <div className="sticky top-10 z-0 mt-0 invisible lg:visible">
+    <div className="flex items-start justify-between w-full">
+      <div className="z-0 mt-0">
         <motion.div style={{ width: headingSizePx }}>
           <LogoSVG />
         </motion.div>

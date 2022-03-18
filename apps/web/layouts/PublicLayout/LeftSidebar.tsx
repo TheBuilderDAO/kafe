@@ -6,7 +6,7 @@ const LeftSidebar = () => {
   return (
     <div className="sticky w-full top-36">
       <Navigation />
-      <a className="fixed bottom-10 left-8" href="#">
+      <a className="fixed bottom-10 left-10" href="#">
         <DAOSVG />
       </a>
     </div>

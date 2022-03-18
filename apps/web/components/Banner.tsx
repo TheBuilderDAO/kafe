@@ -7,7 +7,7 @@ const Banner = ({ header, description, link }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.2]);
   return (
     <motion.div
-      className={'absolute left-0 right-0 mx-auto w-96 top-32'}
+      className={'absolute left-0 right-0 mx-auto w-96 top-20'}
       style={{
         opacity,
       }}

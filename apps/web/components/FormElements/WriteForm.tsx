@@ -11,7 +11,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
 
   return (
-    <div className="relative min-w-[780px] grow">
+    <div className="relative grow">
       <BorderSVG />
       <div className="p-10">
         <div className="mb-5">

@@ -14,7 +14,7 @@ const InputCheckbox = ({
   onChange,
 }: CheckboxProps) => {
   return (
-    <>
+    <div className="flex">
       {options.map(option => (
         <label key={option} htmlFor={option} className="cursor-pointer">
           <input
@@ -43,6 +43,7 @@ const InputCheckbox = ({
             dark:bg-kafeblack
             bg-kafelighter
             text-[12px]
+            mb-2
             mr-4
             "
           >
@@ -50,7 +51,7 @@ const InputCheckbox = ({
           </span>
         </label>
       ))}
-    </>
+    </div>
   );
 };
 
