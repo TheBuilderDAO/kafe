@@ -1,18 +1,10 @@
 import React from 'react';
-import Select, {
-  components,
-  DropdownIndicatorProps,
-  ControlProps,
-} from 'react-select';
+import { components, DropdownIndicatorProps, ControlProps } from 'react-select';
 import { VscTriangleDown } from 'react-icons/vsc';
 import { useTheme } from 'next-themes';
-import InputCheckbox from './FormElements/InputCheckbox';
 import SortBy from '@app/components/Search/SortBy';
 import RefinementList from './Search/RefinementList';
 import MenuSelect from './Search/MenuSelect';
-import ClearRefinements from './Search/ClearRefinements';
-import algoliasearch from 'algoliasearch/lite';
-import SearchBox from './Search/SearchBox';
 import { NEXT_PUBLIC_ALGOLIA_INDEX_NAME } from '@app/constants';
 
 const DropdownIndicator = (props: DropdownIndicatorProps<any>) => {
@@ -104,14 +96,14 @@ const TutorialFilter = () => {
       <div className="px-10 pt-5">
         <p className="text-kafemellow">sort by</p>
         <SortBy
-          defaultRefinement={`${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`}
+          defaultRefinement={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`}
           items={[
             {
-              value: `${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`,
+              value: `${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`,
               label: 'Most votes',
             },
             {
-              value: `${process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_asc`,
+              value: `${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_asc`,
               label: 'Least votes',
             },
           ]}
