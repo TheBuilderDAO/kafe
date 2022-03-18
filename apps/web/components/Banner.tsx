@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HighlightSVG from './SVG/Highlight';
+import { motion } from 'framer-motion';
 
 const Banner = ({ header, description, link }) => {
+  const [fade, setFade] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const yPos = window.scrollY;
+      if (yPos > 0) {
+        setFade(true);
+      } else {
+        setFade(false);
+      }
+    }
+    window.addEventListener('scroll', handleScroll, false);
+    return () => {
+      window.removeEventListener('scroll', handleScroll, false);
+    };
+  }, [fade]);
   return (
-    <div className="flex flex-col justify-center w-1/3">
+    <motion.div
+      animate={{
+        opacity: fade ? 0 : 1,
+      }}
+    >
       <HighlightSVG />
       <div>
         <p className="font-black">{header}</p>
@@ -14,7 +35,7 @@ const Banner = ({ header, description, link }) => {
           </a>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

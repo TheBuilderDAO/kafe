@@ -22,7 +22,7 @@ const Navigation = () => {
     dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-white dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite p-2 rounded-3xl w-32 px-5
   `;
   return (
-    <div className="mt-5 flex-1 flex flex-col">
+    <div className="mt-5 flex-1 flex flex-col fixed">
       <nav className="flex-1 px-2 space-y-1">
         <div>
           <Link key="learn" href={routes.learn.index} passHref>
