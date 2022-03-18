@@ -26,6 +26,7 @@
     "@builderdao/config": "*",
     "@builderdao/data": "*",
     "@builderdao/tsconfig": "*",
+    "@types/async": "^3.2.12",
     "@types/bs58": "^4.0.1",
     "@types/fs-extra": "^9.0.13",
     "@types/prettyjson": "^0.0.30",
