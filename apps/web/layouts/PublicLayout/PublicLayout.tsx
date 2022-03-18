@@ -35,7 +35,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="flex p-8 bg-kafewhite dark:bg-kafeblack">
+    <div className="flex min-h-screen p-8 bg-kafewhite dark:bg-kafeblack">
       <Notifications />
       <Wrapper>
         <div className="flex">
@@ -45,7 +45,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
           <div className="col-span-2 max-content">
             <LeftSidebar />
           </div>
-          <div className="col-span-2 w-minimum">
+          <div className="col-span-2 w-minimum z-1">
             <Content>{children}</Content>
           </div>
         </div>

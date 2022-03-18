@@ -31,7 +31,7 @@ const Navigation = () => {
   `;
 
   const { scrollYProgress } = useViewportScroll();
-  const headingSize = useTransform(scrollYProgress, [0, 1], [400, 230]);
+  const headingSize = useTransform(scrollYProgress, [0, 0.2], [400, 230]);
   const headingSizeSpring = useSpring(headingSize, {
     mass: 0.008,
   });
@@ -40,7 +40,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="sticky pt-4 -mt-10">
+      <div className="sticky z-0 pt-4 -mt-10">
         <motion.div style={{ width: headingSizePx }}>
           <LogoSVG />
         </motion.div>

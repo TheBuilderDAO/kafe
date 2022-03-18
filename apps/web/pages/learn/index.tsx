@@ -31,7 +31,7 @@ const LearnIndexPage: NextPage<
           link="https://figment.io"
         />
         <div className="z-30 flex mt-10 mb-20">
-          <section>
+          <section className="z-10">
             <div>
               {allTutorials.map((tutorial, index) => (
                 <TutorialCard
