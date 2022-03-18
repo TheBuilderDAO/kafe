@@ -21,6 +21,7 @@ const Banner = ({ header, description, link }) => {
   }, [fade]);
   return (
     <motion.div
+      className={'w-3/4 ml-auto pr-10'}
       animate={{
         opacity: fade ? 0 : 1,
       }}

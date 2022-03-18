@@ -9,7 +9,6 @@ import {
   getFileParse,
   getPathForFile,
   getPathForRootFolder,
-  getTutorialContentByPackageName,
   getTutorialContentByPath,
   getTutorialPaths,
   PostType,

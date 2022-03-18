@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { TutorialCard } from '@builderdao/ui';
 import defaultAvatar from '/public/assets/icons/default_avatar.svg';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
@@ -20,33 +21,38 @@ const LearnIndexPage: NextPage<
 
   return (
     <>
-      <Banner
-        header="Learm from guides written by our community"
-        description="If you like a guide, you can support the creators by tipping"
-        link="https://figment.io"
-      />
-      <div className="z-30 flex mt-10 mb-20">
-        <section>
-          <div>
-            {allTutorials.map((tutorial, index) => (
-              <TutorialCard
-                key={`tutorial-${tutorial.config.slug}`}
-                tutorial={tutorial.config}
-                defaultAvatar={defaultAvatar}
-              />
-            ))}
-          </div>
-        </section>
-        <RightSidebar>
-          <InstantSearch
-            searchClient={searchClient}
-            indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-          >
-            <Configure hitsPerPage={4} analytics={false} />
-            <TutorialFilter />
-          </InstantSearch>
-        </RightSidebar>
-      </div>
+      <Head>
+        <title>Search Tutorial Proposals</title>
+      </Head>
+      <main className="mt-10">
+        <Banner
+          header="Learm from guides written by our community"
+          description="If you like a guide, you can support the creators by tipping"
+          link="https://figment.io"
+        />
+        <div className="z-30 flex mt-10 mb-20">
+          <section>
+            <div>
+              {allTutorials.map((tutorial, index) => (
+                <TutorialCard
+                  key={`tutorial-${tutorial.config.slug}`}
+                  tutorial={tutorial.config}
+                  defaultAvatar={defaultAvatar}
+                />
+              ))}
+            </div>
+          </section>
+          <RightSidebar>
+            <InstantSearch
+              searchClient={searchClient}
+              indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+            >
+              <Configure hitsPerPage={4} analytics={false} />
+              <TutorialFilter />
+            </InstantSearch>
+          </RightSidebar>
+        </div>
+      </main>
     </>
   );
 };

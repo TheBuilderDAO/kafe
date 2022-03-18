@@ -7,16 +7,11 @@ const Wrapper = ({ children }) => {
   dark:bg-kafeblack
   bg-kafewhite
   mx-auto
-  min-h-screen
-  w-full
-  overflow-auto
+  min-w-[1200px]
+  max-w-[1500px]
     `;
 
-  return (
-    <StyledDiv>
-      <div>{children}</div>
-    </StyledDiv>
-  );
+  return <StyledDiv>{children}</StyledDiv>;
 };
 
 export default Wrapper;

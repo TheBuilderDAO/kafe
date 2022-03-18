@@ -6,6 +6,8 @@ import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
 import TutorialFilter from '@app/components/TutorialFilter';
 import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
+
+import Banner from '@app/components/Banner';
 import {
   ProposalStateE,
   useGetListOfProposals,
@@ -55,24 +57,17 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="mt-10">
-        <div className="flex flex-col justify-center w-3/4 px-10 py-4 mx-auto">
-          <HighlightSVG />
-          <div>
-            <p className="font-black">
-              Upvote proposals you want to see get written.
-            </p>
-            <p>
-              Once a proposal gets 100 votes it will be funded by the community.{' '}
-              <a className="underline">Learn more</a>
-            </p>
-          </div>
-        </div>
+        <Banner
+          header="Upvote proposals you want to see get written."
+          description="Once a proposal gets 100 votes it will be funded by the community."
+          link="https://figment.io"
+        />
         <InstantSearch
           searchClient={searchClient}
           indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
         >
           <Configure hitsPerPage={4} analytics={false} />
-          <div className="flex justify-between items-start mt-8">
+          <div className="flex items-start justify-between mt-8">
             <div className="flex flex-col grow">
               <div className="my-6">
                 <FundedTabs

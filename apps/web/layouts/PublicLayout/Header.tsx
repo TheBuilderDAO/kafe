@@ -5,12 +5,10 @@ import HelpButton from '../../components/Button/HelpButton';
 
 const Header = () => {
   return (
-    <div className="w-full h-28">
-      <div className="flex items-center ml-auto">
-        <HelpButton />
-        <ThemeSwitch />
-        <LoginButton />
-      </div>
+    <div className="flex items-center ml-auto">
+      <HelpButton />
+      <ThemeSwitch />
+      <LoginButton />
     </div>
   );
 };
