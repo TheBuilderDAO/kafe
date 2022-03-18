@@ -1,4 +1,4 @@
-const protocols = [
+export const protocols: string[] = [
   'Solana',
   'Polygon',
   'Polkadot',
@@ -11,7 +11,7 @@ const protocols = [
   'The Graph',
 ];
 
-const technologies = [
+export const technologies: string[] = [
   'React',
   'React Native',
   'NodeJS',
@@ -31,5 +31,3 @@ const technologies = [
   'Hardhat',
   'Typescript',
 ];
-
-export default [...protocols, ...technologies];

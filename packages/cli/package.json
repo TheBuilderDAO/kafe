@@ -24,6 +24,7 @@
   "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
+    "@builderdao/data": "*",
     "@builderdao/tsconfig": "*",
     "@types/bs58": "^4.0.1",
     "@types/fs-extra": "^9.0.13",

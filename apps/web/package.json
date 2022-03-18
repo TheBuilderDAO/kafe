@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@builderdao-sdk/dao-program": "*",
-    "@builderdao/cli": "*",
     "@builderdao/apis": "*",
+    "@builderdao/cli": "*",
     "@builderdao/dao-utils": "*",
+    "@builderdao/data": "*",
     "@builderdao/md-utils": "*",
     "@builderdao/ui": "*",
     "@ceramicnetwork/http-client": "^1.5.7",

@@ -1,27 +1,28 @@
-import { TutorialMetadata } from '@app/types/index';
-import { TutorialProgramClient } from '@builderdao-sdk/dao-program';
 import { PublicKey } from '@solana/web3.js';
 import * as commander from 'commander';
 import path from 'path';
 import fs from 'fs-extra';
 import Rx from 'rxjs';
 import async from 'async';
-import {
-  getTutorialPaths,
-  getTutorialContentByPath,
-  getTutorialContentByPackageName,
-} from '@builderdao/md-utils';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import * as bs58 from 'bs58';
 import simpleGit, { CleanOptions } from 'simple-git';
 
+import {
+  getTutorialPaths,
+  getTutorialContentByPath,
+  getTutorialContentByPackageName,
+} from '@builderdao/md-utils';
+import { ArweaveApi, CeramicApi } from '@builderdao/apis';
+import { protocols, technologies } from '@builderdao/data';
+import { TutorialProgramClient } from '@builderdao-sdk/dao-program';
+
+import { TutorialMetadata } from '@app/types/index';
 import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
-import { protocols, technologies } from '../constants';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 

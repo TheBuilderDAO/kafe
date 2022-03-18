@@ -23,7 +23,6 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
   tutorial,
   defaultAvatar,
 }) => {
-  console.log(tutorial);
   return (
     <div
       key={tutorial.title}
