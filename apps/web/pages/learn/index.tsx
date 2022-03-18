@@ -31,11 +31,11 @@ const LearnIndexPage: NextPage<
       </Head>
       <main className="mt-10">
         <Banner
-          header="Learm from guides written by our community"
+          header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
           link="https://figment.io"
         />
-        <div className="z-30 flex mt-24 mb-20">
+        <div className="z-30 flex mt-20 mb-20">
           <section className="z-10 mt-24">
             <div>
               {allTutorials.map((tutorial, index) => (

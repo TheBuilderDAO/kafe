@@ -14,7 +14,7 @@ const WritePage = () => {
       <Head>
         <title>Propose Tutorial</title>
       </Head>
-      <main className="relative z-10">
+      <main className="relative z-10 mt-20">
         <ProposeTutorialForm />
       </main>
     </div>
