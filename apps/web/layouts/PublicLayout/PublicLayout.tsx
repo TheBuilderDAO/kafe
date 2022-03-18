@@ -45,7 +45,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
           <div className="z-0 col-span-2">
             <LeftSidebar />
           </div>
-          <div className="col-span-10">
+          <div className="col-end-auto">
             <Content>{children}</Content>
           </div>
         </div>
