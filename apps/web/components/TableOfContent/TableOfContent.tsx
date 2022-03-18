@@ -17,7 +17,7 @@ const Wrapper = styled('div')<WrapperProps>`
   position: fixed;
   top: 266px;
   display: flex;
-  left: 30px;
+  right: 210px;
 
   ${p =>
     !p.showTableOfContents
@@ -33,7 +33,7 @@ const Wrapper = styled('div')<WrapperProps>`
       display: none;
     }
 
-    max-width: 200px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
 
@@ -136,15 +136,27 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
 
   return (
     <Wrapper showTableOfContents={shouldShowTableOfContent}>
-      <ProgressBar progress={readingProgress} />
+      {/* <ProgressBar progress={readingProgress} /> */}
       {ids.length > 0 ? (
         <ul>
+          <motion.p
+            initial="hide"
+            variants={variants}
+            animate="show"
+            transition={{ type: 'spring' }}
+            custom={shouldShowTableOfContent}
+            className="font-larken text-xl p-2 pb-6"
+          >
+            Contents
+          </motion.p>
           {ids.map((item, index) => {
             return (
               <motion.li
                 initial="hide"
                 className={
-                  currentActiveIndex === index ? 'text-blue-400 font-bold' : ''
+                  currentActiveIndex === index
+                    ? 'text-kafered dark:text-kafegold font-bold'
+                    : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
                 }
                 variants={variants}
                 animate="show"
