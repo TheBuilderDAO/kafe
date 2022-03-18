@@ -35,10 +35,10 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="flex min-h-screen p-8 bg-kafewhite dark:bg-kafeblack">
+    <div className="flex min-h-screen p-8 bg-kafewhite dark:bg-kafeblack relative">
       <Notifications />
       <Wrapper>
-        <div className="flex">
+        <div className="flex relative min-w-[1200px]">
           <Header />
         </div>
         <div className="grid grid-cols-12">

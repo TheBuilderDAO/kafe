@@ -5,13 +5,13 @@ import InputTextArea from './InputTextArea';
 import InputSelect from './InputSelect';
 import InputCheckbox from './InputCheckbox';
 import { useDapp } from '../../hooks/useDapp';
-import UserAvatar from '@app/components/UserAvatar/UserAvatar'
+import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 
 const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
 
   return (
-    <div className="relative min-w-[700px] grow">
+    <div className="relative min-w-[780px] grow">
       <BorderSVG />
       <div className="p-10">
         <div className="mb-5">

@@ -28,7 +28,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
   return (
     <div
       key={tutorial.title}
-      className="p-10 mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark min-w-[700px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack"
+      className="p-10 mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark min-w-[780px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack"
     >
       <div className="flex items-center mb-10">
         <p>Guide by</p>

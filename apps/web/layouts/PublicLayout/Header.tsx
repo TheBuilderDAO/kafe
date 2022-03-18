@@ -5,7 +5,7 @@ import HelpButton from '../../components/Button/HelpButton';
 
 const Header = () => {
   return (
-    <div className="absolute right-10 flex items-center top-4 w-96 justify-between">
+    <div className="absolute flex right-0 items-center mr-5">
       <HelpButton />
       <ThemeSwitch />
       <LoginButton />

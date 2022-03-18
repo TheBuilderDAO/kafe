@@ -29,14 +29,14 @@ const LearnIndexPage: NextPage<
       <Head>
         <title>Search Tutorial Proposals</title>
       </Head>
-      <main className="mt-10">
+      <main className="mt-10  min-w-[900px]">
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
           link="https://figment.io"
         />
         <div className="z-30 flex mt-20 mb-20">
-          <section className="z-10 mt-24">
+          <section className="z-10 mt-32 min-w-[780px]">
             <div>
               {allTutorials.map((tutorial, index) => (
                 <TutorialCard

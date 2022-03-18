@@ -40,7 +40,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="z-0 mt-0">
+      <div className="z-0 mt-0 invisible lg:visible">
         <motion.div style={{ width: headingSizePx }}>
           <LogoSVG />
         </motion.div>

@@ -10,6 +10,7 @@ const Wrapper = ({ children }) => {
   mx-auto
   min-w-[1200px]
   max-w-[1500px]
+  relative
     `;
 
   return <StyledDiv>{children}</StyledDiv>;

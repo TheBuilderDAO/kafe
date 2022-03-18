@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         <title>Search Tutorial Proposals</title>
       </Head>
 
-      <main className="mt-10">
+      <main className="mt-10 min-w-[900px]">
         <Banner
           header="Upvote proposals you want to see get written."
           description="Once a proposal gets 100 votes it will be funded by the community."
