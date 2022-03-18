@@ -10,7 +10,7 @@ const getEnvOrFail = <T>(
   } else {
     if (key.startsWith('NEXT_PUBLIC') && !optional) {
       throw new Error(`Missing env ${key}`);
-    } else if (!key.startsWith('NEXT_PUBLIC') && !process.browser) {
+    } else if (!key.startsWith('NEXT_PUBLIC') && !process.browser && !optional) {
       throw new Error(`Missing env ${key}`);
     }
   }
