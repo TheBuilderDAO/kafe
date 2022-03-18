@@ -9,7 +9,6 @@ const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const { allTutorials } = props;
-  console.log(allTutorials);
   return (
     <div>
       <section>
