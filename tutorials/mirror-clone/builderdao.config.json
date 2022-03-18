@@ -1,0 +1,15 @@
+{
+  "title": "Mirror Clone",
+  "description": "Mirror Clone is cool",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "mirror",
+      "slug": "mirror"
+    },
+    {
+      "name": "dapp",
+      "slug": "dapp"
+    }
+  ]
+}

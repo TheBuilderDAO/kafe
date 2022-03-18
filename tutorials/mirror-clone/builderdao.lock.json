@@ -1,0 +1,37 @@
+{
+  "proposalId": 11,
+  "slug": "mirror-clone",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "",
+      "email": "root@thebuilderdao.com",
+      "nickname": ""
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "HeS5zcKVg6SrVreMeLSEznxKKEbPDp6zstVykzoGcCF4",
+      "pubkey": "Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy",
+      "githubName": "silentlight"
+    },
+    "reviewer2": {
+      "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+      "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+      "githubName": "zurgl"
+    }
+  },
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "cf14278986a569e8affac103f94365d63225c7acc09e74847e7213dd5efe32fb"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "20ae8cf2326db96ec06367c9c2d179318dec58d39d848b5ba4366fc86576e55d"
+    }
+  },
+  "href": "/learn/mirror-clone"
+}
