@@ -1,28 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import HighlightSVG from './SVG/Highlight';
-import { motion } from 'framer-motion';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
 const Banner = ({ header, description, link }) => {
-  const [fade, setFade] = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      const yPos = window.scrollY;
-      if (yPos > 0) {
-        setFade(true);
-      } else {
-        setFade(false);
-      }
-    }
-    window.addEventListener('scroll', handleScroll, false);
-    return () => {
-      window.removeEventListener('scroll', handleScroll, false);
-    };
-  }, [fade]);
+  const { scrollYProgress } = useViewportScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.2]);
   return (
     <motion.div
-      animate={{
-        opacity: fade ? 0 : 1,
+      className={'w-3/4 ml-auto pr-10'}
+      style={{
+        opacity,
       }}
     >
       <HighlightSVG />

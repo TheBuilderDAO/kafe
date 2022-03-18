@@ -22,7 +22,7 @@ export const TutorialLayout: React.FC<Props> = ({
   children,
 }) => {
   const { query } = useRouter();
-  const { slug, date, title, description, tag } = frontMatter;
+  const { slug, date, title, description, tags } = frontMatter;
 
   const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
     [],
@@ -45,13 +45,12 @@ export const TutorialLayout: React.FC<Props> = ({
     }, 500);
   }, [slug]);
   const path = `/learn/${query.slug[0]}`;
-  const postUrl = `https://paircode.dev${path}`;
   return (
-    <div className="flex">
+    <div className="flex mt-20">
       <>
         <SectionContainer>
           {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-          <article className="bg-kafewhite dark:bg-kafeblack border-[1px] dark:border-kafewhite border-kafeblack dark:text-kafewhite text-kafeblack px-8 py-4">
+          <article className="bg-kafewhite dark:bg-kafeblack border-[1px] dark:border-kafewhite border-kafeblack dark:text-kafewhite text-kafeblack px-8 py-4 ">
             <div className="p-6">
               <header>
                 <div className="pb-5 space-y-1 text-center">
@@ -66,9 +65,9 @@ export const TutorialLayout: React.FC<Props> = ({
                   <div className="font-larken">
                     <PageTitle>{title}</PageTitle>
                   </div>
-                  <div className="text-left font-thin py-4">{description}</div>
+                  <div className="py-4 font-thin text-left">{description}</div>
                   <div className="text-left">
-                    <Tags tags={tag} />
+                    <Tags tags={tags} />
                   </div>
                 </div>
               </header>
@@ -77,7 +76,7 @@ export const TutorialLayout: React.FC<Props> = ({
                 style={{ gridTemplateRows: 'auto 1fr' }}
               >
                 <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2 ">
-                  <div className="max-w-3xl pt-10 pb-8 mx-auto prose prose-sm dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-3xl text-kafedark dark:text-kafewhite text-base leading-8">
+                  <div className="max-w-3xl pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-3xl text-kafedark dark:text-kafewhite">
                     {children}
                   </div>
                 </div>
