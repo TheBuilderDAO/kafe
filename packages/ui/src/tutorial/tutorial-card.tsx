@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Tags from '@app/components/Tags/Tags';
 export interface TutorialCardProps {
   tutorial: {
     title: string;
@@ -23,6 +24,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
   tutorial,
   defaultAvatar,
 }) => {
+  const { categories } = tutorial;
   return (
     <div
       key={tutorial.title}
@@ -61,12 +63,13 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
           <Link href={tutorial.href} passHref>
             <a className="block">
               <h2 className="mb-2 text-4xl font-larken">{tutorial.title}</h2>
-              <p className="text-l leading-8 max-w-[80%] text-ellipsis">
+              <p className="text-l leading-8 max-w-[80%] text-ellipsis mb-12">
                 {tutorial.description}
               </p>
             </a>
           </Link>
         </div>
+        <Tags tags={categories.map(category => category.name)} />
       </div>
     </div>
   );
