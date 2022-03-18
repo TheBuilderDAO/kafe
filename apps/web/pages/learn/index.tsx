@@ -18,7 +18,7 @@ const LearnIndexPage: NextPage<
   );
 
   return (
-    <div className="flex mt-10 mb-20">
+    <div className="flex mt-10 mb-20 z-30">
       <section>
         <div>
           {allTutorials.map((tutorial, index) => (
