@@ -26,11 +26,11 @@ const LogoSVG = () => {
   }, [lastYPos]);
   return (
     <svg
-      width="271"
-      height="113"
+      width={'100%'}
       viewBox="0 0 271 113"
       className="fill-text-kafeblack dark:fill-kafewhite origin-bottom-left"
       xmlns="http://www.w3.org/2000/svg"
+      style={props.style}
     >
       <motion.g
         style={{ originX: '15%' }}

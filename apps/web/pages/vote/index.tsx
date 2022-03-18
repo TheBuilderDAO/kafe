@@ -11,6 +11,8 @@ import {
   useGetListOfProposals,
 } from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+
+import HighlightSVG from '../../components/SVG/Highlight';
 import FundedTabs from '@app/components/Search/FundedTabs';
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -52,7 +54,19 @@ const Home: NextPage = () => {
         <title>Search Tutorial Proposals</title>
       </Head>
 
-      <main>
+      <main className="mt-10">
+        <div className="flex flex-col justify-center w-3/4 px-10 py-4 mx-auto">
+          <HighlightSVG />
+          <div>
+            <p className="font-black">
+              Upvote proposals you want to see get written.
+            </p>
+            <p>
+              Once a proposal gets 100 votes it will be funded by the community.{' '}
+              <a className="underline">Learn more</a>
+            </p>
+          </div>
+        </div>
         <InstantSearch
           searchClient={searchClient}
           indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
