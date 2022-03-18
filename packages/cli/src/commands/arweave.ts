@@ -36,10 +36,9 @@ export function makeArweaveCommand() {
         },
       ) => {
         const client = new ArweaveApi({
-          wallet: options.wallet,
           appName: options.appName,
         });
-        const txId = await client.publishTutorial(content, options.address);
+        const txId = await client.publishTutorial(content, options.address, options.wallet);
         log({ txId });
       },
     );

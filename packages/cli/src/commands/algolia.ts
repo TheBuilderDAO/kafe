@@ -10,8 +10,9 @@ export function makeAlgoliaCommand() {
     .description('Update index when tutorial is published')
     .argument('<objectId>', 'Object ID')
     .addOption(
-      new commander.Option('--newState <newState>', 'New state of tutorial')
-        .env('NEW_STATE')
+      new commander.Option('--data <data>', 'New data')
+        .argParser(val => JSON.parse(val))
+        .env('DATA')
         .makeOptionMandatory(),
     )
     .addOption(
@@ -33,7 +34,7 @@ export function makeAlgoliaCommand() {
       async (
         objectId: string,
         options: {
-          newState: string,
+          data: any,
           appId: string;
           accessKey: string;
           indexName: string;
@@ -44,9 +45,13 @@ export function makeAlgoliaCommand() {
           accessKey: options.accessKey,
           indexName: options.indexName,
         });
-        await client.publishTutorial(
+
+        await client.updateTutorial(
           objectId,
-          options.newState,
+          {
+            ...options.data,
+            lastUpdatedAt: Date.now(),
+          }
         );
       },
     );

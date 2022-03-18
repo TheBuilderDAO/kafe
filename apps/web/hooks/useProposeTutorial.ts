@@ -80,6 +80,7 @@ export const useProposeTutorial = <AD>(): [
             difficulty: data.difficulty,
             tags: data.tags,
             funded: false,
+            lastUpdatedAt: Date.now(),
           },
         });
       } catch (err) {

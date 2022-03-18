@@ -18,6 +18,8 @@ import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
 import { ArweaveApi } from '@builderdao/apis';
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
+import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm';
 import {
   NEXT_PUBLIC_ARWEAVE_APP_NAME,
   NEXT_PUBLIC_ARWEAVE_HOST,
@@ -25,6 +27,7 @@ import {
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
   NODE_ENV,
 } from '@app/constants';
+import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 
 const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -54,6 +57,7 @@ const TutorialPage: NextPage<
         <title>Tutorial</title>
       </Head>
       <TutorialLayout
+        tutorialId={config.proposalId}
         frontMatter={frontMatter}
         next={frontMatter.next}
         prev={frontMatter.prev}

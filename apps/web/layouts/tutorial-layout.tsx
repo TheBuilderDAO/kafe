@@ -7,8 +7,10 @@ import { useRouter } from 'next/router';
 import { TutorialFrontMatter } from '@builderdao/md-utils';
 import RightSidebar from './PublicLayout/RightSidebar';
 import Tags from '@app/components/Tags/Tags';
+import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 
 interface Props {
+  tutorialId: number;
   frontMatter: TutorialFrontMatter;
   children: ReactNode;
   next?: { slug: string; title: string };
@@ -16,6 +18,7 @@ interface Props {
 }
 
 export const TutorialLayout: React.FC<Props> = ({
+  tutorialId,
   frontMatter,
   next,
   prev,
@@ -113,8 +116,12 @@ export const TutorialLayout: React.FC<Props> = ({
           </div>
         </SectionContainer>
         <RightSidebar>
-          <div className="p-10">Help</div>
-          <TableOfContent ids={ids} />
+          <div className="p-10">
+            <TutorialTips id={tutorialId} />
+            <div className="mt-6">
+              <TableOfContent ids={ids} />
+            </div>
+          </div>
         </RightSidebar>
       </>
     </div>
