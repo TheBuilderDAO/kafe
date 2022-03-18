@@ -60,7 +60,7 @@ const TipTutorialForm = (props: TipTutorialProps) => {
   return (
     <IsLoggedIn Placeholder={Placeholder}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className="dark:text-white py-5">
           Balance: <AccountBalance />
         </div>
         <input

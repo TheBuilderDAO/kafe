@@ -111,16 +111,11 @@ export const TutorialLayout: React.FC<Props> = ({
               </div>
             </div>
           </article>
-          <div>
-            <div className="text-center">TODO: Supporters TODO: Authors</div>
-          </div>
         </SectionContainer>
         <RightSidebar>
           <div className="p-10">
             <TutorialTips id={tutorialId} />
-            <div className="mt-6">
-              <TableOfContent ids={ids} />
-            </div>
+            <div className="mt-6">{/*<TableOfContent ids={ids} />*/}</div>
           </div>
         </RightSidebar>
       </>

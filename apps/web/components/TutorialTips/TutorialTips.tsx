@@ -30,12 +30,15 @@ const TutorialTips = (props: TutorialTipsProps) => {
 
   return (
     <div className="text-black">
-      <h3>
+      <h3 className="dark:text-white">
         Supporters <small>{tippers.length} supporters</small>
       </h3>
       <ul>
         {tippers.map((tipperAccount, index) => (
-          <li className="py-4" key={tipperAccount.account.pubkey.toString()}>
+          <li
+            className="py-4 dark:text-white"
+            key={tipperAccount.account.pubkey.toString()}
+          >
             {index + 1}. {addEllipsis(tipperAccount.account.pubkey.toString())}{' '}
             {tipperAccount.account.amount.toNumber() / LAMPORTS_PER_SOL}
           </li>
@@ -44,7 +47,7 @@ const TutorialTips = (props: TutorialTipsProps) => {
 
       <IsLoggedIn>
         <div className="mt-6">
-          <p>Support Project</p>
+          <p className="dark:text-white">Support Project</p>
           <TipTutorialForm id={id} />
         </div>
       </IsLoggedIn>
