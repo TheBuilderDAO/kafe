@@ -130,4 +130,4 @@ jobs:
           ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
-          builderdao algolia updateIndex $OBJECT_ID --data='{state: "published"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "published"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
