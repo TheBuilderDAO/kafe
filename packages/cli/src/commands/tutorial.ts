@@ -458,12 +458,10 @@ export function makeTutorialCommand() {
       }
 
       if (q.name === 'tutorial_tags') {
-        console.log(q.answer)
-        return;
-        await template.setTags(q.answer);
+        await template.setTags(q.answer.join(','));
         const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug))
         await config.config.read();
-        const tags = q.answer.split(',').map(t => t.trim()).map(t => ({
+        const tags = q.answer.map(t => ({
           name: t,
           slug: t.toLowerCase(),
         }))
