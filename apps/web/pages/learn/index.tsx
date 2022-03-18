@@ -9,14 +9,19 @@ import TutorialFilter from '@app/components/TutorialFilter';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
+import {
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+} from '@app/constants';
 
 const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const { allTutorials } = props;
   const searchClient = algoliasearch(
-    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+    NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
   );
 
   return (
@@ -45,7 +50,7 @@ const LearnIndexPage: NextPage<
           <RightSidebar>
             <InstantSearch
               searchClient={searchClient}
-              indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+              indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
             >
               <Configure hitsPerPage={4} analytics={false} />
               <TutorialFilter />
