@@ -160,13 +160,9 @@ export function makeTutorialCommand() {
         port: options.arweave_port,
         protocol: options.arweave_protocol,
       });
-<<<<<<< HEAD
       const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
       console.log(proposal);
       console.log(ceramicMetadata);
-=======
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
->>>>>>> dev
 
       const deployQueue = async.queue(async (file: {
         path: string,
