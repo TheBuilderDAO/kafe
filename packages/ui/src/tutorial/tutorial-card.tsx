@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Tags from '@app/components/Tags/Tags';
 export interface TutorialCardProps {
   tutorial: {
     title: string;
@@ -23,26 +24,25 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
   tutorial,
   defaultAvatar,
 }) => {
+  const { categories } = tutorial;
   return (
     <div
       key={tutorial.title}
-      className="p-10 my-10 border-2 border-dotted tutorial rounded-3xl bg-kafelight dark:bg-kafedark"
+      className="p-10 mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark min-w-[700px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack"
     >
-      <div className="flex mb-16 row">
-        <div className="flex flex-shrink-0">
-          Proposal by
-          {tutorial.authors.map(author => (
-            <a key={author.nickname} href={author.nickname} className="mx-2">
-              <span className="sr-only">{author.name}</span>
-              <Image
-                src={author.avatarUrl ? author.avatarUrl : defaultAvatar}
-                alt="avatar"
-                width={25}
-                height={25}
-              />
-            </a>
-          ))}
-        </div>
+      <div className="flex items-center mb-10">
+        <p>Guide by</p>
+        {tutorial.authors.map(author => (
+          <a key={author.nickname} href={author.nickname} className="mx-2">
+            <span className="sr-only">{author.name}</span>
+            <Image
+              src={author.avatarUrl ? author.avatarUrl : defaultAvatar}
+              alt="avatar"
+              width={25}
+              height={25}
+            />
+          </a>
+        ))}
         <div>
           <p className="text-sm font-bold">
             {tutorial.authors.map(author => (
@@ -63,12 +63,13 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
           <Link href={tutorial.href} passHref>
             <a className="block">
               <h2 className="mb-2 text-4xl font-larken">{tutorial.title}</h2>
-              <p className="text-l leading-8 max-w-[80%] text-ellipsis">
+              <p className="text-l leading-8 max-w-[80%] text-ellipsis mb-12">
                 {tutorial.description}
               </p>
             </a>
           </Link>
         </div>
+        <Tags tags={categories.map(category => category.name)} />
       </div>
     </div>
   );

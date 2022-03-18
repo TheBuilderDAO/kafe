@@ -24,8 +24,8 @@ const LandingPage: NextPage = () => {
         <title>Builder DAO</title>
       </Head>
       <main className="flex flex-col">
-        <section className="flex flex-row w-full gap-40 place-content-center">
-          <div className="w-80">
+        <section className="flex flex-row justify-between w-full mt-20">
+          <div className="w-44">
             <InstantSearch
               searchClient={searchClient}
               indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
@@ -42,7 +42,7 @@ const LandingPage: NextPage = () => {
               </div>
             </InstantSearch>
           </div>
-          <div>
+          <div className="-mt-20">
             <div className="mb-10">
               Support creators by voting for proposals you want written.
             </div>
