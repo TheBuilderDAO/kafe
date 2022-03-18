@@ -5,7 +5,7 @@ import InputTextArea from './InputTextArea';
 import InputSelect from './InputSelect';
 import InputCheckbox from './InputCheckbox';
 import { useDapp } from '../../hooks/useDapp';
-import UserAvatar from '@app/components/UserAvatar/UserAvatar'
+import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 
 const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
@@ -60,7 +60,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
                 rules={{ required: true }}
                 render={({ field: { name, ref, onChange } }) => (
                   <InputCheckbox
-                    options={['Beginner', 'Advanced']}
+                    options={['Beginner', 'Experienced']}
                     onChange={onChange}
                     inputRef={ref}
                     name={name}

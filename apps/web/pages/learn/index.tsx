@@ -1,51 +1,63 @@
 import React from 'react';
+import Head from 'next/head';
 import { NextPage } from 'next';
-import Head from 'next/head'
-import { ProposalStateE } from '@builderdao-sdk/dao-program'
-import Pagination from '@app/components/Search/Pagination'
-import RightSidebar from '../../layouts/PublicLayout/RightSidebar'
-import TutorialFilter from '@app/components/TutorialFilter'
-import algoliasearch from 'algoliasearch/lite'
+import RightSidebar from 'layouts/PublicLayout/RightSidebar';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
-import GuideStateTabs from '@app/components/Search/GuideStateTabs'
-import GuideHit from '@app/components/Search/GuideHit'
+import algoliasearch from 'algoliasearch/lite';
+import Banner from '@app/components/Banner';
+import {
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+} from '@app/constants';
+import GuideStateTabs from '@app/components/Search/GuideStateTabs';
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import GuideHit from '@app/components/Search/GuideHit';
+import Pagination from '@app/components/Search/Pagination';
+import GuideFilter from '@app/components/Search/GuideFilter';
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+  NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
 );
 
 const LearnIndexPage: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Search Guides</title>
       </Head>
-
-      <main>
-        <InstantSearch
-          searchClient={searchClient}
-          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-        >
-          <Configure
-            hitsPerPage={4}
-            analytics={false}
-          />
-          <div className="flex justify-between items-start">
-            <div className="flex flex-col grow">
-              <div className="my-6">
-                <GuideStateTabs attribute="state" defaultRefinement={[ProposalStateE.published]} />
+      <main className="mt-10">
+        <Banner
+          header="Learn from guides written by our community"
+          description="If you like a guide, you can support the creators by tipping"
+          link="https://figment.io"
+        />
+        <div className="z-30 flex mt-10 mb-20">
+          <InstantSearch
+            searchClient={searchClient}
+            indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          >
+            <Configure hitsPerPage={4} analytics={false} />
+            <div className="flex items-start justify-between mt-8">
+              <div className="flex flex-col grow">
+                <div className="my-6">
+                  <GuideStateTabs
+                    attribute="state"
+                    defaultRefinement={[ProposalStateE.published]}
+                  />
+                </div>
+                <Hits hitComponent={GuideHit} />
+                <Pagination />
               </div>
-              <Hits hitComponent={GuideHit} />
-              <Pagination />
+              <RightSidebar>
+                <GuideFilter />
+              </RightSidebar>
             </div>
-            <RightSidebar>
-              <TutorialFilter />
-            </RightSidebar>
-          </div>
-        </InstantSearch>
+          </InstantSearch>
+        </div>
       </main>
-    </div>
+    </>
   );
 };
 

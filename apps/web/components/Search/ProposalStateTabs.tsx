@@ -1,12 +1,8 @@
-import { connectRefinementList } from 'react-instantsearch-dom'
-import React from 'react'
-import { ProposalStateE } from '@builderdao-sdk/dao-program'
+import { connectRefinementList } from 'react-instantsearch-dom';
+import React from 'react';
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
-const ProposalStateTabs = ({
-  currentRefinement,
-  refine,
-  createURL,
-}) => {
+const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
   return (
     <div>
       <label key="current" htmlFor="current" className="cursor-pointer">
@@ -17,32 +13,27 @@ const ProposalStateTabs = ({
           value="current"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
-            event.preventDefault()
-            refine(ProposalStateE.submitted)
+            event.preventDefault();
+            refine(ProposalStateE.submitted);
           }}
         />
         <span
-          className="
+          className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
-            dark:border-kafewhite
-            border-kafeblack
-            dark:peer-checked:border-kafewhite
-            peer-checked:border-kafeblack
-            dark:peer-checked:text-kafeblack
-            peer-checked:text-kafewhite
-            dark:peer-checked:bg-kafewhite
-            peer-checked:bg-kafeblack
-            dark:bg-kafeblack
-            bg-kafelighter
+            dark:bg-kafedarker bg-kafelighter
+            ${
+              currentRefinement[0] === 'submitted'
+                ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                : null
+            }
             text-[12px]
             mr-4
-            "
+            `}
         >
-            Current
-          </span>
+          Current
+        </span>
       </label>
       <label key="funded" htmlFor="funded" className="cursor-pointer">
         <input
@@ -52,35 +43,30 @@ const ProposalStateTabs = ({
           value="funded"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
-            event.preventDefault()
-            refine(ProposalStateE.funded)
+            event.preventDefault();
+            refine(ProposalStateE.funded);
           }}
         />
         <span
-          className="
+          className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
-            dark:border-kafewhite
-            border-kafeblack
-            dark:peer-checked:border-kafewhite
-            peer-checked:border-kafeblack
-            dark:peer-checked:text-kafeblack
-            peer-checked:text-kafewhite
-            dark:peer-checked:bg-kafewhite
-            peer-checked:bg-kafeblack
-            dark:bg-kafeblack
-            bg-kafelighter
+            dark:bg-kafedarker bg-kafelighter
+                        ${
+                          currentRefinement[0] === 'funded'
+                            ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                            : null
+                        }
             text-[12px]
             mr-4
-            "
+            `}
         >
-            Funded
-          </span>
+          Funded
+        </span>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default connectRefinementList(ProposalStateTabs)
+export default connectRefinementList(ProposalStateTabs);

@@ -9,7 +9,6 @@ import {
   getFileParse,
   getPathForFile,
   getPathForRootFolder,
-  getTutorialContentByPackageName,
   getTutorialContentByPath,
   getTutorialPaths,
   PostType,
@@ -58,26 +57,24 @@ const TutorialPage: NextPage<
         <title>Tutorial</title>
       </Head>
       <TutorialLayout
+        tutorialId={config.proposalId}
         frontMatter={frontMatter}
         next={frontMatter.next}
         prev={frontMatter.prev}
       >
         <MDXRemote components={MDXComponents} {...mdxSource} />
-        <div className="p-2 border border-black divide-y-2 divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite">
-          <div>
+        <div className="p-2 mt-16 border border-black divide-y-[1px] divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite bg-kafegold dark:bg-kafedarker shadow:sm">
+          <div className="p-2">
             <span>Digest</span>:{' '}
             <span className="font-mono text-sm">
               {config?.content[relativePath].digest}
             </span>
           </div>
-          <div>
+          <div className="p-2">
             <span>Arweave Hash</span>:{' '}
             <span className="font-mono text-sm">
               {config?.content[relativePath].arweaveHash}
             </span>
-          </div>
-          <div>
-            <TutorialTips id={config.proposalId} />
           </div>
         </div>
       </TutorialLayout>

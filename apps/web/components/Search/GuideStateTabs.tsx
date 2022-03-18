@@ -1,121 +1,106 @@
-import React from 'react'
-import { connectRefinementList } from 'react-instantsearch-dom'
-import { ProposalStateE } from '@builderdao-sdk/dao-program'
+import React from 'react';
+import { connectRefinementList } from 'react-instantsearch-dom';
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
-const GuideStateTabs = ({
-  currentRefinement,
-  refine,
-  createURL,
-}) => {
+const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
   return (
     <div>
-      <label key="current" htmlFor="published" className="cursor-pointer">
+      <label key="published" htmlFor="published" className="cursor-pointer">
         <input
           type="radio"
           id="published"
-          name="GuideStateTabs"
+          name="ProposalStateTabs"
           value="published"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
-            event.preventDefault()
-            refine(ProposalStateE.published)
+            event.preventDefault();
+            refine(ProposalStateE.published);
           }}
         />
         <span
-          className="
+          className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
-            dark:border-kafewhite
-            border-kafeblack
-            dark:peer-checked:border-kafewhite
-            peer-checked:border-kafeblack
-            dark:peer-checked:text-kafeblack
-            peer-checked:text-kafewhite
-            dark:peer-checked:bg-kafewhite
-            peer-checked:bg-kafeblack
-            dark:bg-kafeblack
-            bg-kafelighter
+            dark:bg-kafedarker bg-kafelighter
+            ${
+              currentRefinement[0] === ProposalStateE.published
+                ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                : null
+            }
             text-[12px]
             mr-4
-            "
+            `}
         >
-            Published
-          </span>
+          Published
+        </span>
       </label>
-      <label key="readyToPublish" htmlFor="readyToPublish" className="cursor-pointer">
+      <label
+        key="readyToPublish"
+        htmlFor="readyToPublish"
+        className="cursor-pointer"
+      >
         <input
           type="radio"
           id="readyToPublish"
-          name="GuideStateTabs"
+          name="ProposalStateTabs"
           value="readyToPublish"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
-            event.preventDefault()
-            refine(ProposalStateE.readyToPublish)
+            event.preventDefault();
+            refine(ProposalStateE.readyToPublish);
           }}
         />
         <span
-          className="
+          className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
-            dark:border-kafewhite
-            border-kafeblack
-            dark:peer-checked:border-kafewhite
-            peer-checked:border-kafeblack
-            dark:peer-checked:text-kafeblack
-            peer-checked:text-kafewhite
-            dark:peer-checked:bg-kafewhite
-            peer-checked:bg-kafeblack
-            dark:bg-kafeblack
-            bg-kafelighter
+            dark:bg-kafedarker bg-kafelighter
+                        ${
+                          currentRefinement[0] === ProposalStateE.readyToPublish
+                            ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                            : null
+                        }
             text-[12px]
             mr-4
-            "
+            `}
         >
-            Ready to publish
-          </span>
+          Ready to Publish
+        </span>
       </label>
       <label key="writing" htmlFor="writing" className="cursor-pointer">
         <input
           type="radio"
           id="writing"
-          name="GuideStateTabs"
+          name="ProposalStateTabs"
           value="writing"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
-            event.preventDefault()
-            refine(ProposalStateE.writing)
+            event.preventDefault();
+            refine(ProposalStateE.writing);
           }}
         />
         <span
-          className="
+          className={`
             p-1
             px-2
-            border-[1px]
             rounded-md
-            dark:border-kafewhite
-            border-kafeblack
-            dark:peer-checked:border-kafewhite
-            peer-checked:border-kafeblack
-            dark:peer-checked:text-kafeblack
-            peer-checked:text-kafewhite
-            dark:peer-checked:bg-kafewhite
-            peer-checked:bg-kafeblack
-            dark:bg-kafeblack
-            bg-kafelighter
+            dark:bg-kafedarker bg-kafelighter
+                        ${
+                          currentRefinement[0] === ProposalStateE.writing
+                            ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                            : null
+                        }
             text-[12px]
             mr-4
-            "
+            `}
         >
-            Writing
-          </span>
+          Writing
+        </span>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default connectRefinementList(GuideStateTabs)
+export default connectRefinementList(GuideStateTabs);

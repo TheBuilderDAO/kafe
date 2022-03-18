@@ -2,21 +2,25 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
-import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
-import TutorialFilter from '@app/components/TutorialFilter';
-import Pagination from '@app/components/Search/Pagination';
 import Link from 'next/link';
+
+import TutorialProposalHit from '@app/components/Search/TutorialProposalHit';
+import Pagination from '@app/components/Search/Pagination';
+import Banner from '@app/components/Banner';
 import {
   ProposalStateE,
   useGetListOfProposals,
 } from '@builderdao-sdk/dao-program';
-import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import ProposalStateTabs from '@app/components/Search/ProposalStateTabs';
+
+import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
+import TutorialProposalFilter from '@app/components/Search/TutorialProposalFilter';
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -52,28 +56,35 @@ const Home: NextPage = () => {
         <title>Search Proposals</title>
       </Head>
 
-      <main>
-        <InstantSearch
-          searchClient={searchClient}
-          indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-        >
-          <Configure hitsPerPage={4} analytics={false} />
-          <div className="flex items-start justify-between">
-            <div className="flex flex-col grow">
-              <div className="my-6">
-                <ProposalStateTabs
-                  attribute="state"
-                  defaultRefinement={[ProposalStateE.submitted]}
-                />
+      <main className="mt-10">
+        <Banner
+          header="Upvote proposals you want to see get written."
+          description="Once a proposal gets 100 votes it will be funded by the community."
+          link="https://figment.io"
+        />
+        <div className="z-30 flex mt-10 mb-20">
+          <InstantSearch
+            searchClient={searchClient}
+            indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          >
+            <Configure hitsPerPage={4} analytics={false} />
+            <div className="flex items-start justify-between mt-8">
+              <div className="flex flex-col grow">
+                <div className="my-6">
+                  <ProposalStateTabs
+                    attribute="state"
+                    defaultRefinement={[ProposalStateE.submitted]}
+                  />
+                </div>
+                <Hits hitComponent={TutorialProposalHit} />
+                <Pagination />
               </div>
-              <Hits hitComponent={TutorialProposalHit} />
-              <Pagination />
+              <RightSidebar>
+                <TutorialProposalFilter />
+              </RightSidebar>
             </div>
-            <RightSidebar>
-              <TutorialFilter />
-            </RightSidebar>
-          </div>
-        </InstantSearch>
+          </InstantSearch>
+        </div>
       </main>
     </div>
   );
