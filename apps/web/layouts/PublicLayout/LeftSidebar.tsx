@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 
 const LeftSidebar = () => {
   return (
-    <div className="sticky top-0 w-full">
+    <div className="sticky w-full top-10">
       <Navigation />
       <a className="fixed bottom-10 left-8" href="#">
         {/* <DAOSVG /> */}

@@ -62,27 +62,29 @@ const Home: NextPage = () => {
           description="Once a proposal gets 100 votes it will be funded by the community."
           link="https://figment.io"
         />
-        <InstantSearch
-          searchClient={searchClient}
-          indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-        >
-          <Configure hitsPerPage={4} analytics={false} />
-          <div className="flex items-start justify-between mt-8">
-            <div className="flex flex-col grow">
-              <div className="my-6">
-                <FundedTabs
-                  attribute="state"
-                  defaultRefinement={[ProposalStateE.submitted]}
-                />
+        <div className="z-30 flex mt-10 mb-20">
+          <InstantSearch
+            searchClient={searchClient}
+            indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          >
+            <Configure hitsPerPage={4} analytics={false} />
+            <div className="flex items-start justify-between mt-8">
+              <div className="flex flex-col grow">
+                <div className="my-6">
+                  <FundedTabs
+                    attribute="state"
+                    defaultRefinement={[ProposalStateE.submitted]}
+                  />
+                </div>
+                <Hits hitComponent={TutorialProposalHit} />
+                <Pagination />
               </div>
-              <Hits hitComponent={TutorialProposalHit} />
-              <Pagination />
+              <RightSidebar>
+                <TutorialFilter />
+              </RightSidebar>
             </div>
-            <RightSidebar>
-              <TutorialFilter />
-            </RightSidebar>
-          </div>
-        </InstantSearch>
+          </InstantSearch>
+        </div>
       </main>
     </div>
   );
