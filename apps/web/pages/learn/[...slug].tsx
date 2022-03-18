@@ -28,6 +28,7 @@ import {
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
   NODE_ENV,
 } from '@app/constants';
+import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 
 const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -75,13 +76,10 @@ const TutorialPage: NextPage<
               {config?.content[relativePath].arweaveHash}
             </span>
           </div>
-        </div>
-        <IsLoggedIn>
-          <div className="mt-6">
-            <p>Support Project</p>
-            <TipTutorialForm id={config.id} />
+          <div>
+            <TutorialTips id={config.proposalId} />
           </div>
-        </IsLoggedIn>
+        </div>
       </TutorialLayout>
     </>
   );

@@ -22,6 +22,7 @@ export const useGuideTipping = <AD>(): [
         setError(null);
         setSubmitting(true);
 
+        console.log('GUIDEEE TIPPING', data);
         const txHash = await tutorialProgram?.guideTipping({
           id: data.id,
           tipperPk: data.tipperPk,

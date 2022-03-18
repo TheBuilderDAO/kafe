@@ -1,4 +1,9 @@
-import { Commitment, Connection, GetProgramAccountsFilter, PublicKey } from '@solana/web3.js';
+import {
+  Commitment,
+  Connection,
+  GetProgramAccountsFilter,
+  PublicKey,
+} from '@solana/web3.js';
 import * as anchor from '@project-serum/anchor';
 
 import {
@@ -14,7 +19,10 @@ import {
   reviewerAccountByReviewerAccountPDA,
   reviewerAccountList,
   userVoteAccountById,
-} from './lib/fetchers'
+  tipperAccountList,
+  tipperAccountListByUser,
+  tipperAccountsListById,
+} from './lib/fetchers';
 
 import {
   proposalClose,
@@ -28,25 +36,28 @@ import {
   guideTipping,
 } from './lib/instructions';
 
-import { Tutorial } from './lib/idl/tutorial'
-import { getPda } from './lib/pda'
-import { TutorialProgramConfig } from './config'
-import { ProposalStateE } from './lib/instructions/proposalSetState'
+import { Tutorial } from './lib/idl/tutorial';
+import { getPda } from './lib/pda';
+import { TutorialProgramConfig } from './config';
+import { ProposalStateE } from './lib/instructions/proposalSetState';
 
 const providerOptions: { commitment: Commitment } = {
   commitment: 'processed',
-}
-
+};
 
 export class TutorialProgramClient {
-  public readonly provider: anchor.Provider
-  public readonly tutorialProgram: anchor.Program<Tutorial>
-  public readonly kafeMint: PublicKey
-  public readonly programId: PublicKey
+  public readonly provider: anchor.Provider;
+  public readonly tutorialProgram: anchor.Program<Tutorial>;
+  public readonly kafeMint: PublicKey;
+  public readonly programId: PublicKey;
 
-  private readonly pda
+  private readonly pda;
 
-  constructor(connection: Connection, wallet: typeof anchor.Wallet, kafeMint: PublicKey) {
+  constructor(
+    connection: Connection,
+    wallet: typeof anchor.Wallet,
+    kafeMint: PublicKey,
+  ) {
     this.provider = new anchor.Provider(connection, wallet, providerOptions);
     const { getProgram, PROGRAM_ID } = TutorialProgramConfig.getConfig();
     this.programId = PROGRAM_ID;
@@ -57,11 +68,13 @@ export class TutorialProgramClient {
 
   // Fetchers
   async getDaoAccount() {
-    return daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount)
+    return daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount);
   }
 
-  async getProposals(filter: Buffer | GetProgramAccountsFilter[] | undefined = undefined) {
-    return proposalAccountList(this.tutorialProgram, filter)
+  async getProposals(
+    filter: Buffer | GetProgramAccountsFilter[] | undefined = undefined,
+  ) {
+    return proposalAccountList(this.tutorialProgram, filter);
   }
 
   async getIsAdmin() {
@@ -69,11 +82,11 @@ export class TutorialProgramClient {
       this.tutorialProgram,
       this.pda.pdaDaoAccount,
       this.provider.wallet.publicKey,
-    )
+    );
   }
 
   async getReviewers() {
-    return reviewerAccountList(this.tutorialProgram)
+    return reviewerAccountList(this.tutorialProgram);
   }
 
   async getReviewerByReviewerPk(reviewerPk: PublicKey) {
@@ -81,26 +94,26 @@ export class TutorialProgramClient {
       this.tutorialProgram,
       this.pda.pdaReviewerAccount,
       reviewerPk,
-    )
+    );
   }
 
   async getReviewerByReviewerAccountPDA(reviewerAccountPk: PublicKey) {
     return reviewerAccountByReviewerAccountPDA(
       this.tutorialProgram,
       reviewerAccountPk,
-    )
+    );
   }
 
   async getReviewerByGithubLogin(githubLogin: string) {
-    return reviewerAccountByGithubLogin(this.tutorialProgram, githubLogin)
+    return reviewerAccountByGithubLogin(this.tutorialProgram, githubLogin);
   }
 
   async getDaoVaultAccountBalance() {
-    return daoVaultAccountBalance(this.provider, this.pda.pdaDaoVaultAccount)
+    return daoVaultAccountBalance(this.provider, this.pda.pdaDaoVaultAccount);
   }
 
   async getTutorialBySlug(slug: string) {
-    return proposalAccountBySlug(this.tutorialProgram, slug)
+    return proposalAccountBySlug(this.tutorialProgram, slug);
   }
 
   async getTutorialById(id: number) {
@@ -108,11 +121,11 @@ export class TutorialProgramClient {
       this.tutorialProgram,
       this.pda.pdaTutorialById,
       id,
-    )
+    );
   }
 
   async getListOfVoters(tutorialId: number) {
-    return listOfVoterById(this.tutorialProgram, tutorialId)
+    return listOfVoterById(this.tutorialProgram, tutorialId);
   }
 
   async getVote(tutorialId: number, publicKey: PublicKey) {
@@ -121,7 +134,26 @@ export class TutorialProgramClient {
       this.pda.pdaUserVoteAccountById,
       publicKey,
       tutorialId,
-    )
+    );
+  }
+
+  async getListOfTippers() {
+    return tipperAccountList(this.tutorialProgram);
+  }
+
+  async getListOfTippersByUser(tipperPk: PublicKey) {
+    return tipperAccountListByUser(this.tutorialProgram, tipperPk);
+  }
+
+  async getListOfTippersById(id: number) {
+    return tipperAccountsListById(this.tutorialProgram, id);
+  }
+
+  async getTotalTipsById(id: number) {
+    const tippers = await this.getListOfTippersById(id);
+    const total = new anchor.BN(0);
+    tippers.forEach(tipper => total.add(tipper.account.amount));
+    return total;
   }
 
   // Instructions
@@ -131,7 +163,7 @@ export class TutorialProgramClient {
       mintPk: this.kafeMint,
       tutorialId,
       userPk: this.provider.wallet.publicKey,
-    })
+    });
   }
 
   async cancelVote(tutorialId: number) {
@@ -140,7 +172,7 @@ export class TutorialProgramClient {
       mintPk: this.kafeMint,
       tutorialId,
       userPk: this.provider.wallet.publicKey,
-    })
+    });
   }
 
   async createTutorial(data: {
@@ -156,7 +188,7 @@ export class TutorialProgramClient {
       userPk: data.userPk,
       slug: data.slug,
       streamId: data.streamId,
-    })
+    });
   }
 
   async closeTutorial(data: {
@@ -168,7 +200,7 @@ export class TutorialProgramClient {
       mintPk: this.kafeMint,
       tutorialId: data.id,
       userPk: data.userPk,
-    })
+    });
   }
 
   async createReviewer(data: {
@@ -182,7 +214,7 @@ export class TutorialProgramClient {
       adminPk: data.authorityPk,
       reviewerPk: data.reviewerPk,
       githubName: data.githubName,
-    })
+    });
   }
 
   async deleteReviewer(data: {
@@ -194,7 +226,7 @@ export class TutorialProgramClient {
       mintPk: this.kafeMint,
       reviewerPk: data.reviewerPk,
       adminPk: data.authorityPk,
-    })
+    });
   }
 
   async assignReviewer(data: {
@@ -209,7 +241,7 @@ export class TutorialProgramClient {
       reviewer2Pk: data.reviewerPks[1],
       tutorialId: data.id,
       adminPk: data.authorityPk,
-    })
+    });
   }
 
   async proposalSetState(data: {
@@ -223,13 +255,14 @@ export class TutorialProgramClient {
       tutorialId: data.id,
       adminPk: data.adminPk,
       newState: data.newState,
-    })
+    });
   }
   async guideTipping(data: {
     id: number;
     tipperPk: anchor.web3.PublicKey;
     amount: anchor.BN;
   }): Promise<string> {
+    console.log('HEREEEE', data);
     return guideTipping({
       program: this.tutorialProgram,
       mintPk: this.kafeMint,

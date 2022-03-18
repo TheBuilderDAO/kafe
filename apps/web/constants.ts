@@ -19,11 +19,13 @@ export const NODE_ENV = getEnvOrFail<string>(process.env.NODE_ENV, 'NODE_ENV');
 export const ALGOLIA_SEARCH_ADMIN_KEY = getEnvOrFail<string>(
   process.env.ALGOLIA_SEARCH_ADMIN_KEY,
   'ALGOLIA_SEARCH_ADMIN_KEY',
+  true,
 );
 export const ARWEAVE_REQUIRED_CONFIRMATIONS = 2;
 export const CERAMIC_SEED = getEnvOrFail<string>(
   process.env.CERAMIC_SEED,
   'CERAMIC_SEED',
+  true,
 );
 export const NEXT_PUBLIC_ALGOLIA_APP_ID = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,

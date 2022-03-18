@@ -14,3 +14,6 @@ export * from './useGetListOfReviewers';
 export * from './useReviewerDelete';
 export * from './useIsAdmin';
 export * from './useGuideTipping';
+export * from './useGetListOfTippers';
+export * from './useGetListOfTippersById';
+export * from './useGetListOfTippersByUser';

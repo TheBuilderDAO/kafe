@@ -5,6 +5,7 @@ import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import {
   useGuideTipping,
+  useTutorialProgram,
 } from '@builderdao-sdk/dao-program';
 
 export const useTipTutorial = <AD>(): [
@@ -20,6 +21,7 @@ export const useTipTutorial = <AD>(): [
   const {
     wallet: { publicKey },
   } = useDapp();
+  const tutorialProgram = useTutorialProgram();
   const [tipTutorial] = useGuideTipping();
   const [updateTutorialIndex] = useApiCall<any, any>(
     routes.api.algolia.updateTutorial,
@@ -33,6 +35,7 @@ export const useTipTutorial = <AD>(): [
         setError(null);
         setSubmitting(true);
 
+        console.log('DATAA', data);
         const txHash = await tipTutorial({
           id: data.id,
           tipperPk: publicKey,
@@ -41,10 +44,14 @@ export const useTipTutorial = <AD>(): [
 
         console.log('TX Hash', txHash);
 
+        const currentTotalTips = await tutorialProgram.getTotalTipsById(
+          data.id,
+        );
+
         await updateTutorialIndex({
           data: {
             id: data.id.toString(),
-            totalTips: 0,
+            totalTips: currentTotalTips.toNumber() + data.amount,
           },
         });
       } catch (err) {
@@ -55,7 +62,7 @@ export const useTipTutorial = <AD>(): [
         setSubmitting(false);
       }
     },
-    [publicKey, tipTutorial, updateTutorialIndex],
+    [publicKey, tipTutorial, tutorialProgram, updateTutorialIndex],
   );
 
   return [handleAction, { submitting, error }];
