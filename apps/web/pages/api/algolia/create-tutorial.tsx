@@ -1,8 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { TutorialIndex, TutorialState } from '@app/types/index';
+import { TutorialIndex } from '@app/types/index';
 import { AlgoliaApi } from '@builderdao/apis';
-import { ProposalStateE } from '@builderdao-sdk/dao-program'
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import {
+  ALGOLIA_SEARCH_ADMIN_KEY,
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+} from '@app/constants';
 
 export default async function handler(
   req: NextApiRequest,
@@ -12,9 +17,9 @@ export default async function handler(
 
   try {
     const algoliaApi = new AlgoliaApi({
-      appId: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-      accessKey: process.env.ALGOLIA_SEARCH_ADMIN_KEY as string,
-      indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME as string,
+      appId: NEXT_PUBLIC_ALGOLIA_APP_ID,
+      accessKey: ALGOLIA_SEARCH_ADMIN_KEY,
+      indexName: NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
     });
 
     const record = {

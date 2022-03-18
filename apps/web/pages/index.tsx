@@ -6,10 +6,15 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import Link from 'next/link';
 import routes from 'routes';
+import {
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+} from '@app/constants';
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 );
 
 const LandingPage: NextPage = () => {
@@ -23,7 +28,7 @@ const LandingPage: NextPage = () => {
           <div className="w-80">
             <InstantSearch
               searchClient={searchClient}
-              indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+              indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
             >
               <Configure
                 filters="state:proposed"

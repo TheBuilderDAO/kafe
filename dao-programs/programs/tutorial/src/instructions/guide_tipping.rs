@@ -10,12 +10,25 @@ use crate::state::*;
 use crate::errors::*;
 use crate::constants::{
   REVIEWER_TIP_WEIGHT, 
-  CREATOR_TIP_WEIGHT
+  CREATOR_TIP_WEIGHT,
+  PROGRAM_SEED
 };
 use vipers::unwrap_int;
 
 #[derive(Accounts)]
 pub struct GuideTipping<'info> {
+  #[account(
+    init_if_needed,
+    payer = signer,
+    seeds = [
+      PROGRAM_SEED.as_bytes(), 
+      proposal.id.to_le_bytes().as_ref(),
+      signer.key().as_ref(),
+    ],
+    bump,
+    space = TipperAccount::LEN,
+  )]
+  pub tipper: Account<'info, TipperAccount>,
   pub proposal: Account<'info, ProposalAccount>,
   #[account(mut)]
   /// CHECK: we only add LAMPORT here
@@ -33,7 +46,7 @@ pub struct GuideTipping<'info> {
   pub system_program : AccountInfo<'info>,
 }
 
-pub fn handler(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {
+pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> {
   if ctx.accounts.proposal.state != ProposalState::Published {
     return Err(error!(ErrorDao::InvalidState))
   };
@@ -93,6 +106,11 @@ pub fn handler(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {
       ctx.accounts.system_program.to_account_info(),
     ],
   )?;
+
+  ctx.accounts.tipper.bump = bump;
+  ctx.accounts.tipper.pubkey = ctx.accounts.signer.key();
+  ctx.accounts.tipper.tutorial_id = ctx.accounts.proposal.id;
+  ctx.accounts.tipper.amount += amount;
 
   Ok(())
 }

@@ -55,8 +55,8 @@ pub mod tutorial {
     instructions::proposal_set_state::handler(ctx, state)
   }
 
-  pub fn guide_tipping(ctx: Context<GuideTipping>, amount: u64) -> Result<()> {
-    instructions::guide_tipping::handler(ctx, amount)
+  pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> {
+    instructions::guide_tipping::handler(ctx, bump, amount)
   }
 
   pub fn proposal_close(ctx: Context<ProposalCreatorClose>, bump: u8) -> Result<()> {
