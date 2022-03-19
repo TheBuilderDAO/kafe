@@ -34,7 +34,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
 
       <main>
         <div className="flex flex-row gap-10 mt-20">
-          <div className="z-10 w-full overflow-hidden bg-white shadow sm:rounded-lg">
+          <div className="z-10 w-full overflow-hidden bg-kafered shadow sm:rounded-lg">
             <div className="px-4 py-5 sm:px-6">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 {tutorial.title}
@@ -45,25 +45,25 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
             </div>
             <div className="border-t border-gray-200">
               <dl>
-                <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="px-4 py-5  sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">State</dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     {tutorial.state}
                   </dd>
                 </div>
-                <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">Author</dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     {tutorial.creator}
                   </dd>
                 </div>
-                <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">Tags</dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     <Tags tags={tutorial.tags} />
                   </dd>
                 </div>
-                <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="px-4 py-5  sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Difficulty
                   </dt>
@@ -71,7 +71,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
                     {tutorial.difficulty}
                   </dd>
                 </div>
-                <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="px-4 py-5  sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Created at
                   </dt>
@@ -83,7 +83,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
             </div>
           </div>
           <div className="w-100">
-            <div className="p-6 mb-6 bg-white shadow sm:rounded-lg">
+            <div className="p-6 mb-6 bg-kafered shadow sm:rounded-lg">
               <TutorialProposalVotes
                 id={tutorial.id}
                 state={tutorial.state as ProposalStateE}
