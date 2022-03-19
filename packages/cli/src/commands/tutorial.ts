@@ -153,13 +153,16 @@ export function makeTutorialCommand() {
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
       });
+      ceramic.setSeed(options.seed)
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,
         port: options.arweave_port,
         protocol: options.arweave_protocol,
       });
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
+      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
+      console.log(proposal);
+      console.log(ceramicMetadata);
 
       const deployQueue = async.queue(async (file: {
         path: string,

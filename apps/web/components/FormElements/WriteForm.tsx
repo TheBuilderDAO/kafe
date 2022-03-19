@@ -60,7 +60,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
                 rules={{ required: true }}
                 render={({ field: { name, ref, onChange } }) => (
                   <InputCheckbox
-                    options={['Beginner', 'Advanced']}
+                    options={['Beginner', 'Experienced']}
                     onChange={onChange}
                     inputRef={ref}
                     name={name}

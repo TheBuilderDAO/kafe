@@ -54,6 +54,7 @@ const TutorialPage: NextPage<
         <title>Tutorial</title>
       </Head>
       <TutorialLayout
+        tutorialId={config.proposalId}
         frontMatter={frontMatter}
         next={frontMatter.next}
         prev={frontMatter.prev}

@@ -2,14 +2,14 @@ import { connectRefinementList } from 'react-instantsearch-dom';
 import React from 'react';
 import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
-const FundedTabs = ({ currentRefinement, refine, createURL }) => {
+const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
   return (
     <div>
       <label key="current" htmlFor="current" className="cursor-pointer">
         <input
           type="radio"
           id="current"
-          name="fundedTabs"
+          name="ProposalStateTabs"
           value="current"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
@@ -39,7 +39,7 @@ const FundedTabs = ({ currentRefinement, refine, createURL }) => {
         <input
           type="radio"
           id="funded"
-          name="fundedTabs"
+          name="ProposalStateTabs"
           value="funded"
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
@@ -69,4 +69,4 @@ const FundedTabs = ({ currentRefinement, refine, createURL }) => {
   );
 };
 
-export default connectRefinementList(FundedTabs);
+export default connectRefinementList(ProposalStateTabs);

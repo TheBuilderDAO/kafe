@@ -3,6 +3,7 @@ import * as anchor from '@project-serum/anchor';
 import { getNumberBuffer } from './utils';
 
 const PROGRAM_SEED = 'BuilderDAO';
+const TIPPING_SEED = 'Tipping';
 
 export const getPda = (
   programId: anchor.web3.PublicKey,
@@ -56,7 +57,12 @@ export const getPda = (
     tipper: anchor.web3.PublicKey,
   ) => {
     const [pda, bump] = await anchor.web3.PublicKey.findProgramAddress(
-      [Buffer.from(PROGRAM_SEED), getNumberBuffer(guide_id), tipper.toBuffer()],
+      [
+        Buffer.from(PROGRAM_SEED),
+        Buffer.from(TIPPING_SEED),
+        getNumberBuffer(guide_id),
+        tipper.toBuffer(),
+      ],
       programId,
     );
     return { pda, bump };
