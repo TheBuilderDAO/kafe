@@ -63,7 +63,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
           <Link href={tutorial.href} passHref>
             <a className="block">
               <h2 className="mb-2 text-4xl font-larken">{tutorial.title}</h2>
-              <p className="text-l leading-8 max-w-[80%] text-ellipsis mb-12">
+              <p className="text-l leading-8 max-w-[80%] text-ellipsis mb-12 line-clamp-2">
                 {tutorial.description}
               </p>
             </a>

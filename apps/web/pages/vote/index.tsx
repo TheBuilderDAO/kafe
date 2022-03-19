@@ -13,8 +13,6 @@ import {
   useGetListOfProposals,
 } from '@builderdao-sdk/dao-program';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
-
-import HighlightSVG from '../../components/SVG/Highlight';
 import FundedTabs from '@app/components/Search/FundedTabs';
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -79,11 +77,9 @@ const Home: NextPage = () => {
                 <Hits hitComponent={TutorialProposalHit} />
                 <Pagination />
               </div>
-              <div className="-mt-10">
-                <RightSidebar>
-                  <TutorialFilter />
-                </RightSidebar>
-              </div>
+              <RightSidebar>
+                <TutorialFilter />
+              </RightSidebar>
             </div>
           </InstantSearch>
         </div>
