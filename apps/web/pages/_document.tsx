@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html className="h-full bg-midnight dark:bg-kafeblack bg-kafewhite">
+      <Html className="">
         <Head>
           <meta
             property="og:image"

@@ -13,7 +13,7 @@ import {
 
 const Header = () => {
   const { scrollYProgress } = useViewportScroll();
-  const headingSize = useTransform(scrollYProgress, [0, 0.2], [350, 200]);
+  const headingSize = useTransform(scrollYProgress, [0, 0.04], [350, 200]);
   const headingSizeSpring = useSpring(headingSize, {
     mass: 0.005,
   });

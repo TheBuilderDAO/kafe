@@ -4,10 +4,10 @@ import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
 const Banner = ({ header, description, link }) => {
   const { scrollYProgress } = useViewportScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.2]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
   return (
     <motion.div
-      className={'absolute left-0 right-0 mx-auto w-96 top-20'}
+      className={'fixed left-0 right-0 mx-auto w-96 top-20'}
       style={{
         opacity,
       }}
