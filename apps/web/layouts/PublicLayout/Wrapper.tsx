@@ -8,8 +8,7 @@ const Wrapper = ({ children }) => {
   dark:bg-kafeblack
   bg-kafewhite
   mx-auto
-  min-w-[1200px]
-  max-w-[1500px]
+  min-w-[1000px]
   relative
     `;
 

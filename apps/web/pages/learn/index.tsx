@@ -29,7 +29,7 @@ const LearnIndexPage: NextPage<
       <Head>
         <title>Search Tutorial Proposals</title>
       </Head>
-      <main className="mt-10 min-w-[900px]">
+      <main className="mt-10">
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"

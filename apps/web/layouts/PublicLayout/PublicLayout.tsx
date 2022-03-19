@@ -41,7 +41,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
         <div className="sticky top-10">
           <Header />
         </div>
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-4">
           <div className="z-0 col-span-2">
             <LeftSidebar />
           </div>

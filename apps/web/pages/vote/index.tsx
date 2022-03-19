@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         <title>Search Tutorial Proposals</title>
       </Head>
 
-      <main className="min-w-[900px]">
+      <main className="w-full">
         <Banner
           header="Upvote proposals you want to see get written."
           description="Once a proposal gets 100 votes it will be funded by the community."
@@ -79,9 +79,11 @@ const Home: NextPage = () => {
                 <Hits hitComponent={TutorialProposalHit} />
                 <Pagination />
               </div>
-              <RightSidebar>
-                <TutorialFilter />
-              </RightSidebar>
+              <div className="-mt-10">
+                <RightSidebar>
+                  <TutorialFilter />
+                </RightSidebar>
+              </div>
             </div>
           </InstantSearch>
         </div>

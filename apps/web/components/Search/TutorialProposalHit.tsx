@@ -21,21 +21,24 @@ const TutorialProposalHit = props => {
   } = useGetListOfVoters(props.hit.objectID);
 
   return (
-    <div className="mb-6 text-kafeblack dark:text-kafewhite px-4 py-8 z-10 relative min-w-[780px] w-fit min-h-[300px]">
+    <div className="mb-6 text-kafeblack dark:text-kafewhite py-2 z-10 relative min-h-80">
       <BorderSVG />
       <div className="p-6">
         <div className="flex flex-row justify-between">
-          <div className="flex items-center p-6">
-            <p>Proposal by</p>
+          <div className="flex items-center p-6 flex-nowrap">
+            <p>
+              {' '}
+              <span className="hidden xl:inline-block">Proposal </span>by
+            </p>
             <UserAvatar address={props.hit.author} />
           </div>
 
           {loading || listLoading ? (
             <div>...</div>
           ) : (
-            <div className="flex flex-row items-center gap-2 text-right">
+            <div className="flex flex-row flex-wrap items-center justify-between gap-2 text-right">
               <div className="flex">
-                <div className="mr-2">
+                <div className="mx-2">
                   {voters.length}
                   <span className="text-[#8E8980]">
                     /{daoState.quorum.toString()}{' '}
@@ -55,12 +58,12 @@ const TutorialProposalHit = props => {
         <div className="flex flex-row content-center justify-between px-4 py-5 sm:p-6">
           <div>
             <div className="mb-4">
-              <div className="font-bold font-larken text-5xl tracking-wider">
+              <div className="font-bold font-larken text-3xl xl:text-5xl tracking-wider">
                 <Link href={routes.vote.proposal(props.hit.slug)}>
                   {props.hit.title}
                 </Link>
               </div>
-              <div className="font-thin tracking-wider text-sm leading-8 pt-1 pb-6 line-clamp-2">
+              <div className="font-thin tracking-wider text-sm leading-6 xl:leading-8 pt-1 pb-6 line-clamp-2">
                 <p>{props.hit.description}</p>
               </div>
             </div>
