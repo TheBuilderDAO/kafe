@@ -7,7 +7,7 @@ const InputSelect = ({
   inputRef,
   onChange,
   placeholder,
-  multiselect,
+  multiselect = true,
 }) => {
   const { theme } = useTheme();
   options = options.map(option => ({
