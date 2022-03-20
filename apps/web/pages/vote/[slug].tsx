@@ -28,15 +28,14 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   const { slug } = router.query;
 
   const { data: tutorial } = useGetTutorialBySlugWithMetadata(slug as string);
-  console.log(tutorial);
 
   return (
     <div>
       <Head>
         <title>{tutorial.title}</title>
       </Head>
-      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mb-40 lg:mb-0">
-        <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0">
+      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mb-40">
+        <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0 h-fit min-h-[300px]">
           <BorderSVG />
           <section className="p-8">
             <div className="flex mb-8">
@@ -59,20 +58,20 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
                 id={tutorial.id}
                 state={tutorial.state as ProposalStateE}
               />
-              {/* {tutorial.state !== ProposalStateE.readyToPublish &&
+              {tutorial.state !== ProposalStateE.readyToPublish &&
                 tutorial.state !== ProposalStateE.published && (
-                  <div className="p-6">
+                  <div>
                     {tutorial.reviewer1 !== ZERO_ADDRESS && (
-                      <RenderReviewer pubkey={tutorial.reviewer1} />
+                      <RenderReviewer pubkey={tutorial.reviewer1} number="1" />
                     )}
                     {tutorial.reviewer2 !== ZERO_ADDRESS && (
-                      <RenderReviewer pubkey={tutorial.reviewer2} />
+                      <RenderReviewer pubkey={tutorial.reviewer2} number="2" />
                     )}
                     <IsAdmin>
                       <AssignReviewersForm tutorial={tutorial} />
                     </IsAdmin>
                   </div>
-                )} */}
+                )}
             </div>
           </RightSidebar>
         </div>
@@ -81,18 +80,23 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   );
 };
 
-const RenderReviewer = (props: { pubkey: string }) => {
-  const { pubkey } = props;
+const RenderReviewer = (props: { pubkey: string; number: string }) => {
+  const { pubkey, number } = props;
   const { reviewer, loading, error } = useGetReviewer(new PublicKey(pubkey));
 
   return (
-    <div className="px-4 py-5  sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+    <div className="py-2  sm:grid sm:grid-cols-3 sm:gap-4">
       <dd className="mt-1 text-sm sm:mt-0 sm:col-span-2">
-        {loading
-          ? '...'
-          : `${addEllipsis(reviewer.pubkey.toString())} (${
-              reviewer.githubName
-            })`}
+        {loading ? (
+          '...'
+        ) : (
+          <div>
+            <span className="font-bold">Reviewer {number}: </span>
+            <span className="text-kafepurple">{`${addEllipsis(
+              reviewer.pubkey.toString(),
+            )} (${reviewer.githubName})`}</span>
+          </div>
+        )}
       </dd>
     </div>
   );

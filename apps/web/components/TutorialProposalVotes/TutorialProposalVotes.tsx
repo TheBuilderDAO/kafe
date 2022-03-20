@@ -27,12 +27,10 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
 
   useEffect(() => {
     if (voters && daoState) {
-      setVoteFull(voters.length >= daoState.quorum);
-      setRemainder(daoState.quorum - voters.length);
+      setVoteFull(voters.length >= Number(daoState.quorum));
+      setRemainder(Number(daoState.quorum) - voters.length);
     }
   }, [voters, daoState]);
-
-  console.log(voteFull, remainder);
 
   if (loading || listLoading) {
     return <div>Loading...</div>;
@@ -43,7 +41,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full border-b-2 pb-6">
       <div className="flex justify-between items-center mb-2">
         <p className="text-2xl font-larken">Voters </p>
         <div className="flex-row justify-between">
@@ -72,25 +70,27 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
           <VoteButton id={id} variant="standard" />
         )}
       </IsLoggedIn>
-      <div className="pt-2">
+      <div className="pt-4">
         {!voteFull && (
           <>
             <p className="font-bold">Not funded yet</p>
             <p>
-              {remainder} more {remainder != 1 ? 'votes' : 'vote'} needed
+              {remainder} more {remainder != 1 ? 'votes' : 'vote'} needed&nbsp;
+              <a href="#" className="underline">
+                learn more
+              </a>
             </p>
-            <a href="#" className="underline">
-              learn more
-            </a>
           </>
         )}
         {voteFull && (
           <>
             <p className="font-bold">Fully funded!</p>
-            <p>Voting is now closed</p>
-            <a href="#" className="underline">
-              learn more
-            </a>
+            <p>
+              Voting is now closed&nbsp;{' '}
+              <a href="#" className="underline">
+                learn more
+              </a>
+            </p>
           </>
         )}
       </div>

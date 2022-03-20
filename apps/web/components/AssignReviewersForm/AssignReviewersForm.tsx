@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 import { useCallback } from 'react';
 import { useDapp } from '../../hooks/useDapp';
@@ -9,7 +9,9 @@ import {
 } from '@builderdao-sdk/dao-program';
 import { addEllipsis } from 'utils/strings';
 import { Tutorial } from '@app/types/index';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import InputSelect from '../FormElements/InputSelect';
 
 type AssignReviewersFormProps = {
   tutorial: Tutorial;
@@ -22,18 +24,33 @@ type FormData = {
 
 const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const { tutorial } = props;
+  const [reviewArray, setReviewArray] = useState([]);
 
-  const { reviewers, reviewersMap, loading, error } = useGetListOfReviewers();
-  const { register, handleSubmit, reset, getValues} = useForm<FormData>({
+  const { reviewers, loading, error } = useGetListOfReviewers();
+
+  useEffect(() => {
+    if (reviewers) {
+      const sanitizedReviewArray = reviewers.map(
+        reviewer =>
+          `${addEllipsis(
+            reviewer.account.pubkey.toString(),
+          )} — ${reviewer.account.githubName.toString()}`,
+      );
+
+      setReviewArray(sanitizedReviewArray);
+    }
+  }, [reviewers]);
+  const { handleSubmit, reset, control } = useForm<FormData>({
     defaultValues: {
       reviewer1: tutorial.reviewer1,
-      reviewer2: tutorial.reviewer2
+      reviewer2: tutorial.reviewer2,
     },
   });
   const { wallet } = useDapp();
   const [assignReviewers, { submitting }] = useReviewersAssign();
   const onSubmit = useCallback(
     async (data: FormData) => {
+      console.log('Data', data);
       try {
         const tx = assignReviewers({
           id: tutorial.id,
@@ -45,10 +62,10 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
         });
 
         await toast.promise(tx, {
-          loading: "Assigning Reviewer",
-          success: "Reviewer assigned successfully",
-          error: "Error Assigning reviewer",
-        })
+          loading: 'Assigning Reviewer',
+          success: 'Reviewer assigned successfully',
+          error: 'Error Assigning reviewer',
+        });
 
         reset();
       } catch (err) {
@@ -67,56 +84,54 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   }
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col pt-6" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-5">
         <label
           htmlFor="reviewer1"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-kafeblack dark:text-kafewhite"
         >
-          Reviewer 1
+          <span className="font-bold">Reviewer 1</span>
         </label>
         <div className="mt-1">
-          <select
-            className="w-full mb-4 text-black border-b-2"
-            {...register('reviewer1', { required: true })}
-          >
-            <option value="-1">Select reviewer...</option>
-            {reviewers?.map(reviewer => {
-              const pubKey = reviewer.account.pubkey.toString();
-              const githubName = reviewer.account.githubName.toString();
-              return (
-                <option key={pubKey} value={pubKey}>
-                  {addEllipsis(pubKey)} ({githubName})
-                </option>
-              );
-            })}
-          </select>
+          <Controller
+            name="reviewer1"
+            rules={{ required: true }}
+            control={control}
+            render={({ field: { ref, onChange } }) => (
+              <InputSelect
+                inputRef={ref}
+                onChange={onChange}
+                options={reviewArray}
+                placeholder="select reviewer 1"
+                multiselect={false}
+              />
+            )}
+          />
         </div>
       </div>
 
       <div className="mb-5">
         <label
           htmlFor="reviewer2"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-kafeblack dark:text-kafewhite"
         >
-          Reviewer 2
+          <span className="font-bold">Reviewer 2</span>
         </label>
-        <div className="mt-1">
-          <select
-            className="w-full mb-4 text-black border-b-2"
-            {...register('reviewer2', { required: true })}
-          >
-            <option value="-1">Select reviewer...</option>
-            {reviewers?.map(reviewer => {
-              const pubKey = reviewer.account.pubkey.toString();
-              const githubName = reviewer.account.githubName.toString();
-              return (
-                <option key={pubKey} value={pubKey}>
-                  {addEllipsis(pubKey)} ({githubName})
-                </option>
-              );
-            })}
-          </select>
+        <div>
+          <Controller
+            name="reviewer2"
+            rules={{ required: true }}
+            control={control}
+            render={({ field: { ref, onChange } }) => (
+              <InputSelect
+                inputRef={ref}
+                onChange={onChange}
+                options={reviewArray}
+                placeholder="select reviewer 2"
+                multiselect={false}
+              />
+            )}
+          />
         </div>
       </div>
 
@@ -124,9 +139,9 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
         <button
           type="submit"
           disabled={submitting}
-          className="items-center px-4 py-2 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+          className="items-center font-medium text-kafewhite dark:text-kafeblack bg-kafeblack dark:bg-kafewhite rounded-2xl h-12 shadow-sm hover:bg-kafegold dark:hover:text-kafered sm:text-sm"
         >
-          {submitting ? 'Submitting...' : 'Submit'}
+          {submitting ? 'submitting...' : 'submit'}
         </button>
       )}
     </form>

@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html className="m-0 p-0 box-border">
+      <Html>
         <Head>
           <meta
             property="og:image"
