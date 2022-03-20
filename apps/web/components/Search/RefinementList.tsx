@@ -6,11 +6,9 @@ import { useState } from 'react';
 const RefinementList = ({
   items,
   refine,
-  clear,
   Control,
   DropdownIndicator,
   customStyles,
-  isFromSearch,
 }) => {
   const { theme } = useTheme();
   const innerTheme = theme;

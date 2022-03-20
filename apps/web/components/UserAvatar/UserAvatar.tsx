@@ -16,7 +16,7 @@ const UserAvatar = (props: UserAvatarProps) => {
       <div className="mx-2 rounded-full w-[25px] h-[25px] overflow-hidden">
         <Identicon string={address} size={size} bg={bg} />
       </div>
-      <p>{addEllipsis(address)}</p>
+      <p className="hidden">{addEllipsis(address)}</p>
     </>
   );
 };

@@ -24,8 +24,8 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="flex flex-col flex-1 mt-5">
-        <nav className="flex-1 space-y-1">
+      <div className="flex flex-row lg:flex-col flex-1 mt-5">
+        <nav className="flex flex-1 justify-center lg:block space-y-1 space-x-2">
           <div>
             <Link key="learn" href={routes.learn.index} passHref>
               <StyledNavigate $active={router.pathname === routes.learn.index}>

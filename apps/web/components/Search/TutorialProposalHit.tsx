@@ -21,7 +21,7 @@ const TutorialProposalHit = props => {
   } = useGetListOfVoters(props.hit.objectID);
 
   return (
-    <div className="mb-6 text-kafeblack dark:text-kafewhite py-2 z-10 relative min-h-80 xl:min-w-[800px] w-full">
+    <div className="mb-6 text-kafeblack dark:text-kafewhite py-2 z-10 relative min-h-80 xl:min-w-[800px] xl:w-full w-full">
       <BorderSVG />
       <div className="p-6">
         <div className="flex flex-row justify-between">
@@ -63,7 +63,7 @@ const TutorialProposalHit = props => {
                   {props.hit.title}
                 </Link>
               </div>
-              <div className="font-thin tracking-wider text-sm leading-6 xl:leading-8 pt-1 pb-6 line-clamp-2">
+              <div className="font-thin tracking-wider text-sm leading-6 xl:leading-8 pt-1 pb-6">
                 <p>{props.hit.description}</p>
               </div>
             </div>
