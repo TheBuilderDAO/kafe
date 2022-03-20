@@ -27,8 +27,7 @@ const TutorialProposalHit = props => {
         <div className="flex flex-row justify-between">
           <div className="flex items-center p-6 flex-nowrap">
             <p>
-              {' '}
-              <span className="hidden xl:inline-block">Proposal </span>by
+              <span className="hidden xl:inline-block">Proposal&nbsp;</span>by
             </p>
             <UserAvatar address={props.hit.author} />
           </div>

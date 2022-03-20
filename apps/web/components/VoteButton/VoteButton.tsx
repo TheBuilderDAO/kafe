@@ -6,10 +6,11 @@ import { useDapp } from '../../hooks/useDapp';
 
 type VoteButtonProps = {
   id: number;
+  variant: string;
 };
 
 const VoteButton = (props: VoteButtonProps) => {
-  const { id } = props;
+  const { id, variant } = props;
 
   const { wallet } = useDapp();
   const { vote, loading, error } = useGetVote(id, wallet.publicKey);
@@ -21,9 +22,9 @@ const VoteButton = (props: VoteButtonProps) => {
   return (
     <div>
       {vote && !error ? (
-        <CancelVoteButton key="cast-vote-btn" id={id} />
+        <CancelVoteButton key="cast-vote-btn" id={id} variant={variant} />
       ) : (
-        <CastVoteButton key="cancel-vote-btn" id={id} />
+        <CastVoteButton key="cancel-vote-btn" id={id} variant={variant} />
       )}
     </div>
   );
