@@ -15,7 +15,7 @@ const GuideHit = props => {
   );
 
   return (
-    <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark z-10 relative min-w-[800px] min-h-[300px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack">
+    <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark z-10 relative min-h-[300px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack">
       <div className="flex flex-row justify-between">
         <div className="flex items-center p-6">
           <p>Guide by</p>
@@ -46,9 +46,9 @@ const GuideHit = props => {
                 {props.hit.title}
               </Link>
             </div>
-            {/*<div className='font-thin tracking-wider text-sm leading-6 pt-2 pb-6'>*/}
-            {/*  {props.hit.description}*/}
-            {/*</div>*/}
+            <div className="font-thin tracking-wider text-sm leading-6 pt-2 pb-6">
+              {props.hit.description}
+            </div>
           </div>
           <div className="mb-4">
             <Tags tags={props.hit.tags} />

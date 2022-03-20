@@ -14,7 +14,6 @@ import {
 import ProposalStateTabs from '@app/components/Search/ProposalStateTabs';
 
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
-
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
@@ -56,19 +55,19 @@ const Home: NextPage = () => {
         <title>Search Proposals</title>
       </Head>
 
-      <main className="mt-10">
+      <main className="w-full">
         <Banner
           header="Upvote proposals you want to see get written."
           description="Once a proposal gets 100 votes it will be funded by the community."
           link="https://figment.io"
         />
-        <div className="z-30 flex mt-10 mb-20">
+        <div className="z-30 flex mb-20">
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
             <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex items-start justify-between mt-8">
+            <div className="flex items-start justify-between">
               <div className="flex flex-col grow">
                 <div className="my-6">
                   <ProposalStateTabs

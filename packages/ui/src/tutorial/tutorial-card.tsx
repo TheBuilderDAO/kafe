@@ -28,7 +28,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
   return (
     <div
       key={tutorial.title}
-      className="p-10 mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark min-w-[700px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack"
+      className="p-10 mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack"
     >
       <div className="flex items-center mb-10">
         <p>Guide by</p>
@@ -63,7 +63,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
           <Link href={tutorial.href} passHref>
             <a className="block">
               <h2 className="mb-2 text-4xl font-larken">{tutorial.title}</h2>
-              <p className="text-l leading-8 max-w-[80%] text-ellipsis mb-12">
+              <p className="text-l leading-8 max-w-[80%] text-ellipsis mb-12 line-clamp-2">
                 {tutorial.description}
               </p>
             </a>
