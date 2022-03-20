@@ -15,7 +15,7 @@ const GuideHit = props => {
   );
 
   return (
-    <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark z-10 relative min-h-[300px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack">
+    <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark z-10 relative min-h-[300px] text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack mt-5 lg:mt-0 p-4">
       <div className="flex flex-row justify-between">
         <div className="flex items-center p-6">
           <p>Guide by</p>
