@@ -41,7 +41,7 @@ const GuideHit = props => {
       <div className="flex flex-row content-center justify-between px-4 py-5 sm:p-6">
         <div>
           <div className="mb-4">
-            <div className="font-bold font-larken text-5xl tracking-wider">
+            <div className="font-bold font-larken lg:text-5xl text-3xl tracking-wider">
               <Link href={routes.learn.guide(props.hit.slug)}>
                 {props.hit.title}
               </Link>
