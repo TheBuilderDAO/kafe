@@ -21,7 +21,7 @@ const TutorialProposalHit = props => {
   } = useGetListOfVoters(props.hit.objectID);
 
   return (
-    <div className="mb-6 text-kafeblack dark:text-kafewhite py-2 z-10 relative min-h-80">
+    <div className="mb-6 text-kafeblack dark:text-kafewhite py-2 z-10 relative min-h-80 xl:min-w-[800px] w-full">
       <BorderSVG />
       <div className="p-6">
         <div className="flex flex-row justify-between">

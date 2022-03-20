@@ -27,13 +27,13 @@ const LearnIndexPage: NextPage = () => {
       <Head>
         <title>Search Guides</title>
       </Head>
-      <main className="mt-10">
+      <main>
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
           link="https://figment.io"
         />
-        <div className="z-30 flex mt-10 mb-20">
+        <div className="z-30 flex mb-20">
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
