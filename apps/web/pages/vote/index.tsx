@@ -67,7 +67,7 @@ const Home: NextPage = () => {
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
             <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex flex-col-reverse lg:flex-row items-start justify-center w-screen px-8">
+            <div className="flex flex-col-reverse lg:flex-row items-start justify-center w-full flex-wrap lg:flex-nowrap">
               <div className="flex flex-col lg:grow">
                 <div className="lg:my-6 lg:mt-10 mt-10 mb-4">
                   <ProposalStateTabs
