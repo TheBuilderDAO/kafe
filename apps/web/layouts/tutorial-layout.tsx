@@ -53,7 +53,6 @@ export const TutorialLayout: React.FC<Props> = ({
     }, 500);
   }, [slug]);
   const path = `/learn/${query.slug[0]}`;
-  console.log(config);
   return (
     <div className="flex mt-20">
       <>

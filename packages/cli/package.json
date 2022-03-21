@@ -2,10 +2,13 @@
   "name": "@builderdao/cli",
   "version": "0.0.1",
   "description": "",
-  "types": "./dist/cli.d.ts",
+  "types": "./dist/index.d.ts",
   "source": "./src/cli.ts",
   "type": "module",
-  "exports": "./dist/index.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
   "files": [
     "dist/**"
   ],
@@ -14,7 +17,9 @@
   },
   "scripts": {
     "dev": "yarn build --watch",
-    "build": "tsup src/cli.ts --format esm,cjs --dts",
+    "build": "yarn build:cli && yarn build:types",
+    "build:cli": "tsup src/cli.ts  --format esm,cjs --dts",
+    "build:types": "tsup src/index.ts  --dts",
     "link": "yarn link",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"

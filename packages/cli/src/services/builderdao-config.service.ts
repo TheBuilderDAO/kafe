@@ -3,9 +3,8 @@ import { Low, JSONFile, } from 'lowdb-node'
 import lodash from 'lodash'
 import path from 'path';
 import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
-import fs from 'fs-extra'
 
-type BuilderDaoLockJson = {
+export type BuilderDaoLockJson = {
   proposalId: number;
   slug: string;
   authors: {
@@ -32,7 +31,7 @@ type BuilderDaoLockJson = {
   href: string;
 }
 
-type BuilderDaoConfigJson = {
+export type BuilderDaoConfigJson = {
   title: string;
   description: string;
   imageUrl: string;
