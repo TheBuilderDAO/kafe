@@ -39,7 +39,7 @@ const LearnIndexPage: NextPage = () => {
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
             <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex items-start justify-between mt-8 w-screen">
+            <div className="flex items-start justify-between w-screen mt-8">
               <div className="flex flex-col grow">
                 <div className="my-6">
                   <GuideStateTabs

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import 'dotenv/config'
+
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
 import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
@@ -10,6 +12,7 @@ import { makeArweaveCommand } from './commands/arweave';
 import { makeCeramicCommand } from './commands/ceramic';
 import { makeAlgoliaCommand } from './commands/algolia';
 import { makeTutorialCommand } from './commands/tutorial';
+
 
 const program = new commander.Command();
 program

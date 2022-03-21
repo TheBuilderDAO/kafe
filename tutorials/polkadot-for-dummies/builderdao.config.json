@@ -1,0 +1,20 @@
+{
+  "title": "POlkaaa",
+  "description": "DOOOOOT",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "tag",
+      "slug": "tag"
+    },
+    {
+      "name": "asd",
+      "slug": "asd"
+    },
+    {
+      "name": "asd",
+      "slug": "asd"
+    }
+  ],
+  "href": ""
+}
