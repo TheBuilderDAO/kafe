@@ -42,7 +42,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
   }
 
   return (
-    <div className="w-full border-b-2 pb-6">
+    <div className="w-full">
       <div className="flex justify-between items-center mb-2">
         <p className="text-2xl font-larken">Voters </p>
         <div className="flex-row justify-between">

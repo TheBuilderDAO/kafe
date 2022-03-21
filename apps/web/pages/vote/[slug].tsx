@@ -7,8 +7,6 @@ import Tags from '@app/components/Tags/Tags';
 import { getApplicationFetcher } from '../../hooks/useDapp';
 import { unstable_serialize } from 'swr';
 import routes from '../../routes';
-import AssignReviewersForm from '@app/components/AssignReviewersForm/AssignReviewersForm';
-import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import { useGetTutorialBySlugWithMetadata } from 'services/ApplicationFetcher';
 import TutorialProposalVotes from '@app/components/TutorialProposalVotes/TutorialProposalVotes';
 import { ProposalStateE, useGetReviewer } from '@builderdao-sdk/dao-program';
@@ -19,7 +17,7 @@ import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import BorderSVG from '@app/components/SVG/BorderSVG';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import Loader from '@app/components/Loader/Loader';
-
+import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
 type PageProps = {
   tutorial: any;
 };
@@ -55,29 +53,23 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
             <p className="break-all">{tutorial.description}</p>
           </section>
         </div>
-        <div className="mx-8 lg:mx-0">
-          <RightSidebar>
-            <div className="p-6">
-              <TutorialProposalVotes
-                id={tutorial.id}
-                state={tutorial.state as ProposalStateE}
-              />
-              {tutorial.state !== ProposalStateE.readyToPublish &&
-                tutorial.state !== ProposalStateE.published && (
-                  <div>
-                    {tutorial.reviewer1 !== ZERO_ADDRESS && (
-                      <RenderReviewer pubkey={tutorial.reviewer1} number="1" />
-                    )}
-                    {tutorial.reviewer2 !== ZERO_ADDRESS && (
-                      <RenderReviewer pubkey={tutorial.reviewer2} number="2" />
-                    )}
-                    <IsAdmin>
-                      <AssignReviewersForm tutorial={tutorial} />
-                    </IsAdmin>
-                  </div>
-                )}
-            </div>
-          </RightSidebar>
+        <div className="mx-8 lg:mx-0 sticky">
+          <div>
+            <RightSidebar>
+              <div className="p-6">
+                <TutorialProposalVotes
+                  id={tutorial.id}
+                  state={tutorial.state as ProposalStateE}
+                />
+              </div>
+            </RightSidebar>
+            <WriteOnGitHub
+              tutorial={tutorial}
+              ProposalStateE={ProposalStateE}
+              ZERO_ADDRESS={ZERO_ADDRESS}
+              RenderReviewer={RenderReviewer}
+            />
+          </div>
         </div>
       </main>
     </div>

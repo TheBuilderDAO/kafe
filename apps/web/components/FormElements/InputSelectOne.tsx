@@ -1,23 +1,19 @@
-import { connectSortBy } from 'react-instantsearch-dom';
 import Select from 'react-select';
 import { useTheme } from 'next-themes';
-import DropdownIndicator from './DropdownIndicator';
+import DropdownIndicator from '../Search/DropdownIndicator';
+import getCustomStyles from '../../utils/getCustomStyles';
 
-type Item = {
-  value?: string;
-};
-
-const SortBy = ({ items, refine, Control, customStyles }) => {
+const InputSelectOne = ({ items, instanceId, placeholder = 'select' }) => {
   const { theme } = useTheme();
   const innerTheme = theme;
+  const customStyles = getCustomStyles(theme);
   return (
     <Select
-      instanceId="sort-by"
+      instanceId={instanceId}
       options={items}
-      components={{ Control, DropdownIndicator }}
+      components={{ DropdownIndicator }}
       styles={customStyles}
-      placeholder="select"
-      onChange={(item: Item) => refine(item.value)}
+      placeholder={placeholder}
       theme={theme => ({
         ...theme,
         borderRadius: 0,
@@ -31,4 +27,4 @@ const SortBy = ({ items, refine, Control, customStyles }) => {
   );
 };
 
-export default connectSortBy(SortBy);
+export default InputSelectOne;

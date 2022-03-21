@@ -1,5 +1,5 @@
-import { useForm, Controller } from 'react-hook-form';
-
+import { useForm } from 'react-hook-form';
+import { components, ControlProps } from 'react-select';
 import { useCallback } from 'react';
 import { useDapp } from '../../hooks/useDapp';
 import { PublicKey } from '@solana/web3.js';
@@ -11,7 +11,7 @@ import { addEllipsis } from 'utils/strings';
 import { Tutorial } from '@app/types/index';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import InputSelect from '../FormElements/InputSelect';
+import InputSelectOne from '../FormElements/InputSelectOne';
 import Loader from '../Loader/Loader';
 
 type AssignReviewersFormProps = {
@@ -27,16 +27,22 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const { tutorial } = props;
   const [reviewArray, setReviewArray] = useState([]);
 
+  const Control = ({ children, ...props }: ControlProps) => (
+    <components.Control {...props}> {children}</components.Control>
+  );
+
   const { reviewers, loading, error } = useGetListOfReviewers();
 
   useEffect(() => {
     if (reviewers) {
-      const sanitizedReviewArray = reviewers.map(
-        reviewer =>
-          `${addEllipsis(
+      const sanitizedReviewArray = reviewers.map(reviewer => {
+        return {
+          value: `${addEllipsis(
             reviewer.account.pubkey.toString(),
           )} — ${reviewer.account.githubName.toString()}`,
-      );
+          label: `${reviewer.account.githubName.toString()}`,
+        };
+      });
 
       setReviewArray(sanitizedReviewArray);
     }
@@ -51,7 +57,6 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const [assignReviewers, { submitting }] = useReviewersAssign();
   const onSubmit = useCallback(
     async (data: FormData) => {
-      console.log('Data', data);
       try {
         const tx = assignReviewers({
           id: tutorial.id,
@@ -85,66 +90,27 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   }
 
   return (
-    <form className="flex flex-col pt-6" onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-5">
-        <label
-          htmlFor="reviewer1"
-          className="block text-sm font-medium text-kafeblack dark:text-kafewhite"
-        >
-          <span className="font-bold">Reviewer 1</span>
-        </label>
-        <div className="mt-1">
-          <Controller
-            name="reviewer1"
-            rules={{ required: true }}
-            control={control}
-            render={({ field: { ref, onChange } }) => (
-              <InputSelect
-                inputRef={ref}
-                onChange={onChange}
-                options={reviewArray}
-                placeholder="select reviewer 1"
-                multiselect={false}
-              />
-            )}
-          />
-        </div>
-      </div>
-
-      <div className="mb-5">
-        <label
-          htmlFor="reviewer2"
-          className="block text-sm font-medium text-kafeblack dark:text-kafewhite"
-        >
-          <span className="font-bold">Reviewer 2</span>
-        </label>
-        <div>
-          <Controller
-            name="reviewer2"
-            rules={{ required: true }}
-            control={control}
-            render={({ field: { ref, onChange } }) => (
-              <InputSelect
-                inputRef={ref}
-                onChange={onChange}
-                options={reviewArray}
-                placeholder="select reviewer 2"
-                multiselect={false}
-              />
-            )}
-          />
-        </div>
-      </div>
-
+    <form className="flex flex-col pt-2" onSubmit={handleSubmit(onSubmit)}>
+      <small className="mt-4 mb-2">Reviewers</small>
+      <InputSelectOne items={reviewArray} instanceId="reviewer1" />
+      <InputSelectOne items={reviewArray} instanceId="reviewer2" />
       {wallet && (
         <button
           type="submit"
           disabled={submitting}
-          className="items-center font-medium text-kafewhite dark:text-kafeblack bg-kafeblack dark:bg-kafewhite rounded-2xl h-12 shadow-sm hover:bg-kafegold dark:hover:text-kafered sm:text-sm"
+          className="items-center mt-6 font-medium text-kafewhite dark:text-kafeblack bg-kafeblack dark:bg-kafewhite rounded-2xl h-12 shadow-sm hover:bg-kafegold dark:hover:text-kafered sm:text-sm"
         >
-          {submitting ? 'submitting...' : 'submit'}
+          {submitting ? 'assigning reviewers...' : 'assign reviewers'}
         </button>
       )}
+      <div className="border-t-[0.5px] border-kafeblack dark:border-kafemellow break-all pt-4 pb-4 mt-10">
+        <p>
+          Create guide at:
+          <span className="text-kafemellow">
+            https://github.com/clalancette/98898903ije093heibe23y36
+          </span>
+        </p>
+      </div>
     </form>
   );
 };
