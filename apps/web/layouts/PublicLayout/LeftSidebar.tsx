@@ -20,7 +20,7 @@ const LeftSidebar = () => {
 
   return (
     <div className="w-full sticky top-5">
-      <div className="z-0 mt-0 hidden lg:block">
+      <div className="z-0 mt-0 lg:block">
         <motion.div style={{ width: headingSizePx }}>
           <LogoSVG />
         </motion.div>

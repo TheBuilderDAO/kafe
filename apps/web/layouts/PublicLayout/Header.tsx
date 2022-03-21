@@ -5,7 +5,7 @@ import HelpButton from '../../components/Button/HelpButton';
 
 const Header = () => {
   return (
-    <div className="lg:mt-0 flex lg:justify-end">
+    <div className="mt-0 flex justify-end min-w-[840px]">
       <div className="w-menu flex justify-between">
         <HelpButton />
         <ThemeSwitch />

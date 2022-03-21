@@ -9,7 +9,6 @@ import coffeeFull from '/public/assets/icons/coffee_cup_vote_complete.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import routes from 'routes';
-import MobileNavbar from './MobileNavbar';
 
 type PublicLayoutProps = {
   children: ReactElement;

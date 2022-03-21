@@ -10,7 +10,7 @@ export interface NavigateProps {
 
 const Navigation = () => {
   const router = useRouter();
-  const StyledNavigate: React.FC<NavigateProps> = tw.a`
+  const StyledNavigate: React.FC<NavigateProps> = tw.div`
     ${props =>
       props.$active
         ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack rounded-3xl w-[100px]'
@@ -24,8 +24,8 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="flex flex-row lg:flex-col flex-1 mt-5 h-10 lg:h-full">
-        <nav className="flex flex-1 justify-center items-center lg:block">
+      <div className="flex flex-col flex-1 mt-5 h-10 lg:h-full">
+        <nav>
           <div>
             <Link key="learn" href={routes.learn.index} passHref>
               <StyledNavigate $active={router.pathname === routes.learn.index}>
