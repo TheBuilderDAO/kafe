@@ -9,6 +9,7 @@ const Wrapper = ({ children }) => {
   bg-kafewhite
   dark:bg-kafeblack
   relative
+  flex
     `;
 
   return <StyledDiv>{children}</StyledDiv>;

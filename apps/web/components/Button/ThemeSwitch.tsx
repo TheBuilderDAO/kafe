@@ -6,7 +6,6 @@ import DarkModeSVG from '../SVG/DarkModeSVG';
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const iconSize = 20;
 
   // NOTE: This is a hack that makes sure the component is mounted before we attempt to set the theme.
   // Without this, things will crash.

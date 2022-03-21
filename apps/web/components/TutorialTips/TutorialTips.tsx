@@ -10,6 +10,7 @@ import {
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
+import Loader from '@app/components/Loader/Loader';
 
 type TutorialTipsProps = {
   id: number;
@@ -21,7 +22,7 @@ const TutorialTips = (props: TutorialTipsProps) => {
   const { tippers, loading, error } = useGetListOfTippersById(id);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
