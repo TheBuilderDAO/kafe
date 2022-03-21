@@ -6,7 +6,7 @@ const Wrapper = ({ children }) => {
   lg:px-2
   pt-0
   mx-auto
-  lg:min-w-[1000px]
+  lg:max-w-[1400px]
   w-full
   bg-kafewhite
   dark:bg-kafeblack

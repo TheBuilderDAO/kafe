@@ -40,7 +40,7 @@ const LearnIndexPage: NextPage = () => {
           >
             <Configure hitsPerPage={4} analytics={false} />
             <div className="flex flex-col-reverse lg:flex-row items-start justify-between mt-8 w-screen px-8 lg:px-0">
-              <div className="flex flex-col w-full min-w-[700px]">
+              <div className="flex flex-col w-full max-w-[750px]">
                 <div className="my-6">
                   <GuideStateTabs
                     attribute="state"
