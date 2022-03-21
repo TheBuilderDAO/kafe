@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { components, ControlProps } from 'react-select';
 import { useCallback } from 'react';
 import { useDapp } from '../../hooks/useDapp';
@@ -37,9 +37,7 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
     if (reviewers) {
       const sanitizedReviewArray = reviewers.map(reviewer => {
         return {
-          value: `${addEllipsis(
-            reviewer.account.pubkey.toString(),
-          )} — ${reviewer.account.githubName.toString()}`,
+          value: `${reviewer.account.pubkey.toString()}`,
           label: `${reviewer.account.githubName.toString()}`,
         };
       });
@@ -56,7 +54,11 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const { wallet } = useDapp();
   const [assignReviewers, { submitting }] = useReviewersAssign();
   const onSubmit = useCallback(
-    async (data: FormData) => {
+    async data => {
+      data = {
+        reviewer1: data.reviewer1.value,
+        reviewer2: data.reviewer2.value,
+      };
       try {
         const tx = assignReviewers({
           id: tutorial.id,
@@ -92,8 +94,30 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   return (
     <form className="flex flex-col pt-2" onSubmit={handleSubmit(onSubmit)}>
       <small className="mt-4 mb-2">Reviewers</small>
-      <InputSelectOne items={reviewArray} instanceId="reviewer1" />
-      <InputSelectOne items={reviewArray} instanceId="reviewer2" />
+      <Controller
+        name="reviewer1"
+        rules={{ required: true }}
+        render={({ field: { ref, onChange } }) => (
+          <InputSelectOne
+            items={reviewArray}
+            inputRef={ref}
+            onChange={onChange}
+          />
+        )}
+        control={control}
+      />
+      <Controller
+        name="reviewer2"
+        rules={{ required: true }}
+        render={({ field: { ref, onChange } }) => (
+          <InputSelectOne
+            items={reviewArray}
+            inputRef={ref}
+            onChange={onChange}
+          />
+        )}
+        control={control}
+      />
       {wallet && (
         <button
           type="submit"

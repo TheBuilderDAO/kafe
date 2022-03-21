@@ -3,17 +3,23 @@ import { useTheme } from 'next-themes';
 import DropdownIndicator from '../Search/DropdownIndicator';
 import getCustomStyles from '../../utils/getCustomStyles';
 
-const InputSelectOne = ({ items, instanceId, placeholder = 'select' }) => {
+const InputSelectOne = ({
+  items,
+  placeholder = 'select',
+  inputRef,
+  onChange,
+}) => {
   const { theme } = useTheme();
   const innerTheme = theme;
   const customStyles = getCustomStyles(theme);
   return (
     <Select
-      instanceId={instanceId}
       options={items}
       components={{ DropdownIndicator }}
       styles={customStyles}
       placeholder={placeholder}
+      ref={inputRef}
+      onChange={onChange}
       theme={theme => ({
         ...theme,
         borderRadius: 0,
