@@ -40,21 +40,13 @@ if (searchAddress) {
 
 ![some picture](./assets/4.png)
 
-![](https://miro.medium.com/max/408/0*0HGM4O_J5iF3943S)
-
-![Metamask](https://github.com/figment-networks/learn-tutorials/raw/master/assets/create-an-amm-on-avalanche_metamask.png)
+![](./assets/0*0HGM4O_J5iF3943S.png)
 
 <Label>
   Forget logins, now our users can connect to our app with their wallets!
 </Label>
 
-<!-- {% tabs %}
-{% tab title=".gitignore" %}
-```text
-.env
-```
-{% endtab %}
-{% endtabs %} -->
+![](./assets/3RUST.svg)
 
 <Hint
   style="danger">
@@ -62,6 +54,11 @@ Never share your mnemonic with anyone. Never commit it to a repo. Remember! You 
 </Hint>
 
 Sint dolor qui tempor in. Consectetur velit dolor et duis voluptate id. Sunt nulla consequat fugiat veniam do aliquip voluptate cillum fugiat aute nostrud cillum elit.
+
+<Hint
+  style="working">
+Never share your mnemonic with anyone. Never commit it to a repo. Remember! You can share your account address, but never your mnemonic.
+</Hint>
 
 Fugiat id culpa esse anim exercitation est non. Est consectetur elit laboris sint anim nisi commodo irure excepteur fugiat dolore elit nisi aliqua. Nulla tempor qui laborum adipisicing cillum veniam reprehenderit consequat mollit labore pariatur irure nostrud tempor. Et aute magna ex aliqua elit cupidatat dolor proident labore velit anim fugiat aute. Proident ea culpa quis anim labore culpa exercitation eiusmod sunt.
 

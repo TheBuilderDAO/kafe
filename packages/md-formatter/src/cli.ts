@@ -9,6 +9,7 @@ import chalk from 'chalk';
 import { diffLines } from 'diff'
 
 import { remarkLiquidParser } from './remark-liquid-parser'
+import { remarkCopyLinkedFiles } from './remark-copy-linked'
 import { TemplateService } from '@builderdao/cli'
 
 
@@ -17,7 +18,7 @@ const getFile = async (pathForFile: string) => {
   return source
 }
 
-const example = path.join(process.cwd(), './kitchen/sink.md')
+const example = path.join(process.cwd(), './kitchen/tutorial/sink.md')
 const destinationDir = path.join(process.cwd(), 'faucet')
 
 const data = {
@@ -40,29 +41,34 @@ main(example, data, destinationDir)
 
 async function main(pathForFile: string, data: any, destinationDir: string) {
   const source = await getFile(pathForFile);
+  const targetFolder = path.join(destinationDir, data.name)
+
+  await fs.ensureDir(targetFolder)
+  const template = new TemplateService(targetFolder)
+  await template.copy('empty')
+  await template.setName(data.name)
+  await template.setTitle(data.title)
+  await template.setDescription(data.description)
+  await template.setTags(data.tags)
   const file = await unified()
     .use(remarkParse)
     .use(remarkStringify)
-    .use(remarkLiquidParser)
+    .use(remarkCopyLinkedFiles, { 
+      destination: path.join(targetFolder, 'content'), 
+      sourceFolder: path.dirname(pathForFile) 
+    })
+    .use(remarkLiquidParser as any)
     .process(source)
     .then(async file => {
-      // showDiff(source, String(file));
-      console.log(destinationDir)
-      const targetFolder = path.join(destinationDir, data.name)
-      fs.ensureDir(targetFolder)
-      const template = new TemplateService(targetFolder)
-      await template.copy('empty')
-      await template.setName(data.name)
-      await template.setTitle(data.title)
-      await template.setDescription(data.description)
-      await template.setTags(data.tags)
+      showDiff(source, String(file));
+      // console.log(destinationDir)
       const frontMatter = `---
 title: ${data.title}
 description: ${data.description}
 keywords: [${data.tags.join(', ')}]
 date: ${data.date}
 ---`
-      await template.addContent('index.md',[frontMatter, String(file)].join('\n'))
+      await template.addContent('index.mdx', [frontMatter, String(file)].join('\n'))
     })
 }
 
