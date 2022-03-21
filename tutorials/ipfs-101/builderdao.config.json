@@ -1,0 +1,49 @@
+{
+  "proposalId": 21,
+  "slug": "ipfs-101",
+  "authors": [
+    {
+      "name": "Bartosz Hejman",
+      "avatarUrl": "",
+      "email": "bartoszhejman@gmail.com",
+      "nickname": ""
+    }
+  ],
+  "categories": [
+    {
+      "name": "IPFS",
+      "slug": "ipfs"
+    },
+    {
+      "name": "React",
+      "slug": "react"
+    }
+  ],
+  "reviewers": [
+    {
+      "reviewer1": {
+        "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+        "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+        "githubName": "zurgl"
+      }
+    },
+    {
+      "reviewer2": {
+        "pda": "FdW4ieKucCXZy1i8hMdaJ5ztTwrFBnXVKmFBjVufToRe",
+        "pubkey": "HtdezEbemuLpAh9no1jp7Eezy8drWcbFuk3VPhs17bM4",
+        "githubName": "vunderkind"
+      }
+    }
+  ],
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c1b882e5d145540666be2442b4f20b664a443c48b2ac112bc60435d3136edfd5"
+    }
+  },
+  "description": "This is awesome tutorial about IPFS",
+  "href": "",
+  "imageUrl": "",
+  "title": "git status"
+}
