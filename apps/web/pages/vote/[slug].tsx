@@ -39,9 +39,12 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
         <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0 h-fit min-h-[300px]">
           <BorderSVG />
           <section className="p-8">
-            <div className="flex mb-8">
+            <div className="flex mb-8 items-center">
               <p>Proposal by </p> <UserAvatar address={tutorial.creator} />{' '}
-              <p> {tutorial.createdAt}</p>
+              <p className="text-sm text-kafemellow ml-8">
+                {' '}
+                {new Date(tutorial.createdAt).toLocaleDateString()}
+              </p>
             </div>
 
             <h1 className="lg:text-5xl text-3xl mb-4 font-larken">
