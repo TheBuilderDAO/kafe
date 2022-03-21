@@ -13,7 +13,7 @@ import {
   getTutorialContentByPath,
   getTutorialContentByPackageName,
 } from '@builderdao/md-utils';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
+import { ArweaveApi, CeramicApi, TutorialMetadata } from '@builderdao/apis';
 import { protocols, technologies } from '@builderdao/data';
 import {
   TutorialProgramClient,
@@ -21,8 +21,9 @@ import {
   filterAccountBySlug,
 } from '@builderdao-sdk/dao-program';
 
-import { TutorialMetadata } from '@app/types/index';
 import { log as _log, hashSumDigest } from '../utils';
+import { ArweaveApi, CeramicApi } from '@builderdao/apis';
+import { log as _log, hashSumDigest, sleep } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
@@ -77,7 +78,7 @@ export function makeTutorialCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
   const tutorial = new commander.Command('tutorial').description('Tutorial');
-  let client = getClient({
+  const client = getClient({
     kafePk: tutorial.optsWithGlobals().kafePk,
     network: tutorial.optsWithGlobals().network,
     payer: tutorial.optsWithGlobals().payer,
@@ -194,12 +195,15 @@ export function makeTutorialCommand() {
         nodeUrl: options.nodeUrl,
       });
       const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
+      ceramic.setSeed(options.seed)
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,
         port: options.arweave_port,
         protocol: options.arweave_protocol,
       });
+      console.log(proposal);
+      console.log(ceramicMetadata);
 
       const deployQueue = async.queue(
         async (file: {

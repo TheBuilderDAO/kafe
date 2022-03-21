@@ -4,6 +4,7 @@ export default {
   home: '/',
   learn: {
     index: '/learn',
+    guide: slug => `/learn/${slug}`,
   },
   vote: {
     index: '/vote',
@@ -26,7 +27,7 @@ export default {
     },
     ceramic: {
       storeMetadata: '/api/ceramic/store-metadata',
-    }
+    },
   },
   fetchers: {
     tutorials: {

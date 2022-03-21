@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html className="h-full bg-midnight">
+      <Html className="">
         <Head>
           <meta
             property="og:image"
@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
           />
           <meta property="og:url" content="https://learn.figment.io/" />
         </Head>
-        <body className="h-full">
+        <body className="">
           <Main />
           <NextScript />
         </body>

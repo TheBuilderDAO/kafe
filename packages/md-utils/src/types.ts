@@ -40,6 +40,7 @@ export type TutorialFrontMatter = {
   slug: string;
   title: string;
   keywords?: string[];
+  tags: string[];
   featured?: boolean;
   description: string;
   snippetImage: string;

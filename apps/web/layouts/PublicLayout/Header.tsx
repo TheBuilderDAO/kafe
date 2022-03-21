@@ -2,32 +2,31 @@ import React from 'react';
 import LoginButton from '@app/components/LoginButton/LoginButton';
 import ThemeSwitch from '../../components/Button/ThemeSwitch';
 import HelpButton from '../../components/Button/HelpButton';
-import HighlightSVG from '../../components/SVG/Highlight';
 import LogoSVG from '../../components/SVG/LogoSVG';
-import { useRouter } from 'next/router';
+import {
+  motion,
+  useMotionTemplate,
+  useSpring,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion';
 
 const Header = () => {
-  const router = useRouter();
+  const { scrollYProgress } = useViewportScroll();
+  const headingSize = useTransform(scrollYProgress, [0, 0.04], [350, 200]);
+  const headingSizeSpring = useSpring(headingSize, {
+    mass: 0.005,
+  });
+
+  const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
   return (
-    <div className="flex justify-between w-full text-sm min-w-[1300px]">
-      <div>
-        <LogoSVG />
+    <div className="flex items-start justify-between">
+      <div className="z-0 mt-0">
+        <motion.div style={{ width: headingSizePx }}>
+          <LogoSVG />
+        </motion.div>
       </div>
-      {router.pathname === '/vote' ? (
-        <div className="flex flex-col justify-center w-1/3">
-          <HighlightSVG />
-          <div>
-            <p className="font-black">
-              Upvote proposals you want to see get written.
-            </p>
-            <p>
-              Once a proposal gets 100 votes it will be funded by the community.{' '}
-              <a className="underline">Learn more</a>
-            </p>
-          </div>
-        </div>
-      ) : null}
-      <div className="flex items-center">
+      <div className="flex items-center relative w-80">
         <HelpButton />
         <ThemeSwitch />
         <LoginButton />

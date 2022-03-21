@@ -42,15 +42,6 @@ class AlgoliaApi {
       })
       .wait();
   }
-
-  async publishTutorial(objectID: string, state: any) {
-    await this.index
-      .partialUpdateObject({
-        objectID,
-        state,
-      })
-      .wait();
-  }
 }
 
 export default AlgoliaApi;

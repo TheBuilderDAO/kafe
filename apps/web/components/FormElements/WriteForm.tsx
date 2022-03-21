@@ -5,13 +5,13 @@ import InputTextArea from './InputTextArea';
 import InputSelect from './InputSelect';
 import InputCheckbox from './InputCheckbox';
 import { useDapp } from '../../hooks/useDapp';
-import UserAvatar from '@app/components/UserAvatar/UserAvatar'
+import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 
 const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
 
   return (
-    <div className="relative min-w-[700px] grow">
+    <div className="relative">
       <BorderSVG />
       <div className="p-10">
         <div className="mb-5">
@@ -24,7 +24,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between mb-14">
+        <div className="flex items-center justify-between mb-14 flex-wrap space-y-8">
           <div className="flex-1 mr-20">
             <label
               htmlFor="tags"
@@ -60,7 +60,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
                 rules={{ required: true }}
                 render={({ field: { name, ref, onChange } }) => (
                   <InputCheckbox
-                    options={['Beginner', 'Advanced']}
+                    options={['Beginner', 'Experienced']}
                     onChange={onChange}
                     inputRef={ref}
                     name={name}
