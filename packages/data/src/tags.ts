@@ -1,0 +1,33 @@
+export const protocols: string[] = [
+  'Solana',
+  'Polygon',
+  'Polkadot',
+  'Near',
+  'Celo',
+  'Avalanche',
+  'Arweave',
+  'IPFS',
+  'Ceramic',
+  'The Graph',
+];
+
+export const technologies: string[] = [
+  'React',
+  'React Native',
+  'NodeJS',
+  'Smart Contract',
+  'Truffle',
+  'AssemblyScript',
+  'GraphQL',
+  'Javascript',
+  'Rust',
+  'Metamaps',
+  'CLI',
+  'NextJS',
+  'Solidity',
+  'Remix',
+  'Avash',
+  'Waffle',
+  'Hardhat',
+  'Typescript',
+];

@@ -3,14 +3,6 @@ import Link from 'next/link';
 import routes from '../../routes';
 import tw from 'tailwind-styled-components';
 import { useRouter } from 'next/router';
-import LogoSVG from '../../components/SVG/LogoSVG';
-import {
-  motion,
-  useMotionTemplate,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion';
 
 export interface NavigateProps {
   $active: boolean;
@@ -23,30 +15,18 @@ const Navigation = () => {
       props.$active
         ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack p-2 rounded-3xl w-32'
         : ''}
-    text-3xl
+    lg:text-3xl
+    text-2xl
     font-larken
     leading-10
     block
-    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-white dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite p-2 rounded-3xl w-32 px-5
+    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite p-2 rounded-3xl w-32 px-5
   `;
-
-  const { scrollYProgress } = useViewportScroll();
-  const headingSize = useTransform(scrollYProgress, [0, 0.2], [400, 230]);
-  const headingSizeSpring = useSpring(headingSize, {
-    mass: 0.008,
-  });
-
-  const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
 
   return (
     <>
-      <div className="sticky z-0 pt-4 -mt-10">
-        <motion.div style={{ width: headingSizePx }}>
-          <LogoSVG />
-        </motion.div>
-      </div>
-      <div className="flex flex-col flex-1 mt-5">
-        <nav className="flex-1 px-2 space-y-1">
+      <div className="flex flex-row lg:flex-col flex-1 mt-5 h-10 lg:h-full">
+        <nav className="flex flex-1 justify-center items-center lg:block space-y-1 space-x-2">
           <div>
             <Link key="learn" href={routes.learn.index} passHref>
               <StyledNavigate $active={router.pathname === routes.learn.index}>

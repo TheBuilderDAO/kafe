@@ -8,11 +8,15 @@ import { TutorialFrontMatter } from '@builderdao/md-utils';
 import RightSidebar from './PublicLayout/RightSidebar';
 import Tags from '@app/components/Tags/Tags';
 import TutorialTips from '@app/components/TutorialTips/TutorialTips';
+import { BuilderDaoConfigJson } from '@builderdao/cli';
+import { getEnabledCategories } from 'trace_events';
+import _, { map } from 'lodash';
 
 interface Props {
   tutorialId: number;
   frontMatter: TutorialFrontMatter;
   children: ReactNode;
+  config: BuilderDaoConfigJson;
   next?: { slug: string; title: string };
   prev?: { slug: string; title: string };
 }
@@ -22,11 +26,11 @@ export const TutorialLayout: React.FC<Props> = ({
   frontMatter,
   next,
   prev,
+  config,
   children,
 }) => {
   const { query } = useRouter();
-  const { slug, date, title, description, tags } = frontMatter;
-
+  const { slug, date, title, description, keywords } = frontMatter;
   const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
     [],
   );
@@ -53,7 +57,7 @@ export const TutorialLayout: React.FC<Props> = ({
       <>
         <SectionContainer>
           {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-          <article className="bg-kafewhite dark:bg-kafeblack border-[1px] dark:border-kafewhite border-kafeblack dark:text-kafewhite text-kafeblack px-8 py-4 ">
+          <article className="bg-kafewhite dark:bg-kafeblack border-[1px] dark:border-kafewhite border-kafeblack dark:text-kafewhite text-kafeblack px-8 py-4">
             <div className="p-6">
               <header>
                 <div className="pb-5 space-y-1 text-center">
@@ -70,7 +74,12 @@ export const TutorialLayout: React.FC<Props> = ({
                   </div>
                   <div className="py-4 font-thin text-left">{description}</div>
                   <div className="text-left">
-                    <Tags tags={tags} />
+                    <Tags
+                      tags={_.uniq([
+                        ...config.categories.map(c => c.name),
+                        ...keywords,
+                      ])}
+                    />
                   </div>
                 </div>
               </header>

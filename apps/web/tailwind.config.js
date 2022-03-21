@@ -45,6 +45,9 @@ module.exports = {
         minimum: '1300px',
         maximum: '1500px',
       },
+      screens: {
+        phone: '300px',
+      },
     },
   },
   plugins: [

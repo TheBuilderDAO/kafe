@@ -2,7 +2,13 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import Select from 'react-select';
 
-const InputSelect = ({ options, inputRef, onChange }) => {
+const InputSelect = ({
+  options,
+  inputRef,
+  onChange,
+  placeholder = 'Select tags',
+  multiselect = true,
+}) => {
   const { theme } = useTheme();
   options = options.map(option => ({
     value: option,
@@ -10,7 +16,7 @@ const InputSelect = ({ options, inputRef, onChange }) => {
   }));
   const innerTheme = theme;
 
-  const toggleBg = theme === 'dark' ? '#131213' : '#FCFBF9';
+  const toggleBg = theme === 'dark' ? '#1E1C1E' : '#EAE4D9';
   const toggleText = theme === 'dark' ? '#EAE4D9' : '#1E1C1E';
   const customStyles = {
     control: provided => ({
@@ -59,23 +65,23 @@ const InputSelect = ({ options, inputRef, onChange }) => {
       display: state.isFocused ? 'none' : 'block',
     }),
 
-    input: (provided, state) => ({
+    input: provided => ({
       ...provided,
       color: toggleText,
       '&:focus': {},
     }),
   };
   return (
-    <div className="w-96 dark:bg-kafedarker bg-kafelighter rounded-2xl">
+    <div className="w-60 xl:w-full dark:bg-kafedarker bg-kafelighter rounded-2xl">
       <Select
         options={options}
         onChange={onChange}
-        isMulti
+        isMulti={multiselect}
         ref={inputRef}
         isSearchable
         className="text-kafered"
-        classNamePrefix="text-kafeblack dark:text-white-200 text-kafeblack"
-        placeholder="Select tags"
+        classNamePrefix=""
+        placeholder={placeholder}
         styles={customStyles}
         theme={theme => ({
           ...theme,

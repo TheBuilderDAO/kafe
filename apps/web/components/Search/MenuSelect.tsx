@@ -1,21 +1,21 @@
 import { connectMenu } from 'react-instantsearch-dom';
 
-const MenuSelect = ({ items, currentRefinement, refine, attribute }) => {
+const MenuSelect = ({ currentRefinement, refine, attribute, items }) => {
   return (
     <div className="flex">
       {items.map(item => (
         <label
           key={item.value}
           htmlFor={item.label}
-          className="cursor-pointer pb-10"
+          className="pb-10 cursor-pointer"
         >
           <input
             type="radio"
             id={item.value}
             name={attribute}
-            value={item.isRefined ? currentRefinement : item.value}
-            className="peer absolute opacity-0 cursor-pointer"
-            checked={item.isRefined}
+            value={item.value}
+            className="absolute opacity-0 cursor-pointer peer"
+            checked={currentRefinement === item.value}
             onChange={() => refine(item.value)}
           />
           <span

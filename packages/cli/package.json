@@ -2,10 +2,13 @@
   "name": "@builderdao/cli",
   "version": "0.0.1",
   "description": "",
-  "types": "./dist/cli.d.ts",
+  "types": "./dist/index.d.ts",
   "source": "./src/cli.ts",
   "type": "module",
-  "exports": "./dist/index.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
   "files": [
     "dist/**"
   ],
@@ -14,7 +17,9 @@
   },
   "scripts": {
     "dev": "yarn build --watch",
-    "build": "tsup src/cli.ts --format esm,cjs --dts",
+    "build": "yarn build:cli && yarn build:types",
+    "build:cli": "tsup src/cli.ts  --format esm,cjs --dts",
+    "build:types": "tsup src/index.ts  --dts",
     "link": "yarn link",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
@@ -24,7 +29,9 @@
   "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
+    "@builderdao/data": "*",
     "@builderdao/tsconfig": "*",
+    "@types/async": "^3.2.12",
     "@types/bs58": "^4.0.1",
     "@types/fs-extra": "^9.0.13",
     "@types/prettyjson": "^0.0.30",
@@ -42,6 +49,7 @@
     "async": "^3.2.3",
     "bs58": "^5.0.0",
     "commander": "^9.0.0",
+    "dotenv": "^16.0.0",
     "fs-extra": "^10.0.1",
     "inquirer": "^8.2.1",
     "inquirer-autocomplete-prompt": "^2.0.0",

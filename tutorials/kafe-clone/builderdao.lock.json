@@ -1,0 +1,37 @@
+{
+  "proposalId": 11,
+  "slug": "mirror-clone",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "",
+      "email": "root@thebuilderdao.com",
+      "nickname": ""
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+      "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+      "githubName": "zurgl"
+    },
+    "reviewer2": {
+      "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+      "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+      "githubName": "zurgl"
+    }
+  },
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "4b069594bd95e3db457f2b682efc947ca21245916239fb56abd4a2c85755141b"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "3cdb16b84e7d82089b7178e03ec12ba433c8373c3a9ac0f3813dcb97f4d6ce6f"
+    }
+  },
+  "href": "/learn/mirror-clone"
+}
