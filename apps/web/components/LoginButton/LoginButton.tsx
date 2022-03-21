@@ -8,7 +8,7 @@ const LoginButton = props => {
         className="
         dark:bg-kafedarker
         bg-kafelighter
-        rounded-3xl
+        rounded-2xl
         text-kafeblack
         dark:text-kafelighter
         font-space
