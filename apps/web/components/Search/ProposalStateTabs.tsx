@@ -24,10 +24,12 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
             py-2
             rounded-xl
             font-space
+            dark:bg-kafeblack
+            bg-kafewhite
             bg-none
             ${
               currentRefinement[0] === 'submitted'
-                ? 'dark:bg-kafelighter font-space-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
+                ? 'dark:bg-kafewhite font-space-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
                 : null
             }
             text-[12px]
@@ -56,10 +58,12 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
             rounded-xl
             h-10
             bg-none
+          dark:bg-kafeblack
+            bg-kafewhite
             font-space
                         ${
                           currentRefinement[0] === 'funded'
-                            ? 'dark:bg-kafelighter bg-kafedarker  font-space-italic text-kafewhite dark:text-kafeblack'
+                            ? 'dark:bg-kafewhite bg-kafedarker  font-space-italic text-kafewhite dark:text-kafeblack'
                             : null
                         }
             text-[12px]

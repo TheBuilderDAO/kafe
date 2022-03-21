@@ -70,7 +70,7 @@ const Home: NextPage = () => {
             <Configure hitsPerPage={4} analytics={false} />
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col mt-16 lg:grow lg:min-w-[500px] lg:max-w-[800px] w-screen">
-                <div className="lg:my-6 mt-10 mb-4">
+                <div className="lg:my-6 mt-10 mb-4 z-30 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"
                     defaultRefinement={[ProposalStateE.submitted]}
