@@ -34,7 +34,7 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
   const { mdxSource, frontMatter } = props.post;
-  const { config, relativePath } = props;
+  const { config, lock, relativePath } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(
       (child: any) =>
@@ -56,6 +56,7 @@ const TutorialPage: NextPage<
       <TutorialLayout
         tutorialId={config.proposalId}
         frontMatter={frontMatter}
+        config={config}
         next={frontMatter.next}
         prev={frontMatter.prev}
       >
@@ -64,13 +65,13 @@ const TutorialPage: NextPage<
           <div className="p-2">
             <span>Digest</span>:{' '}
             <span className="font-mono text-sm">
-              {config?.content[relativePath].digest}
+              {lock?.content[relativePath].digest}
             </span>
           </div>
           <div className="p-2">
             <span>Arweave Hash</span>:{' '}
             <span className="font-mono text-sm">
-              {config?.content[relativePath].arweaveHash}
+              {lock?.content[relativePath].arweaveHash}
             </span>
           </div>
         </div>
@@ -90,11 +91,11 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async context => {
   const slug = context.params.slug as string[];
   const rootFolder = getPathForRootFolder(slug[0]);
-  const { config } = await getTutorialContentByPath({ rootFolder });
+  const { config, lock } = await getTutorialContentByPath({ rootFolder });
   const pathForFile = getPathForFile(slug[0], slug[1]);
   const relativePath = path.relative(rootFolder, pathForFile);
   const getPost = async (): Promise<{ content: string; data: any }> => {
-    if (config.content[relativePath].arweaveHash && NODE_ENV === 'production') {
+    if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
       try {
         const arweave = await new ArweaveApi({
           appName: NEXT_PUBLIC_ARWEAVE_APP_NAME,
@@ -125,6 +126,7 @@ export const getStaticProps: GetStaticProps = async context => {
   return {
     props: {
       config,
+      lock,
       relativePath,
       post: { ...post, mdxSource },
       slug,

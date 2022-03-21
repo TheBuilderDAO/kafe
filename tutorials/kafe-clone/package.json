@@ -1,5 +1,5 @@
 {
-  "name": "@builderdao-learn/kafe-clone",
+  "name": "@builderdao-learn/mirror-clone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "builderdao tutorial prepublish"
-  },
-  "devDependencies": {
-    "@builderdao/cli": "*"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,37 @@
+{
+  "proposalId": 14,
+  "slug": "build-a-solana-cli-in-rust",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "",
+      "email": "root@thebuilderdao.com",
+      "nickname": ""
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "9UmKjrRtvFPXgeknAfMsLxWwVGMPEuYzEpta7SQWTptE",
+      "pubkey": "5uKXYaHes21BoBN3EcNDf13EFqUybzirLwSUfSF218As",
+      "githubName": "dgamboa"
+    },
+    "reviewer2": {
+      "pda": "FWp5ZmJU57gpvNqjAjewAGW6WPEGqdqjAPiyzMEXpcqj",
+      "pubkey": "8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU",
+      "githubName": "Necmttn"
+    }
+  },
+  "content": {
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "ca70355232fea80c5c37b66e380ceb5fb0d42933df7c71524081303e323c6ed2"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "1a74161a87a259e6113dae6a31525327348dc511eded58e9d07c55db6b958568"
+    }
+  },
+  "href": "/learn/build-a-solana-cli-in-rust"
+}
