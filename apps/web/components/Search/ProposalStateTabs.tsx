@@ -27,7 +27,7 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
             bg-none
             ${
               currentRefinement[0] === 'submitted'
-                ? 'dark:bg-kafelighter font-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
+                ? 'dark:bg-kafelighter font-space-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
                 : null
             }
             text-[12px]
@@ -59,7 +59,7 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
             font-space
                         ${
                           currentRefinement[0] === 'funded'
-                            ? 'dark:bg-kafelighter bg-kafedarker text-kafewhite dark:text-kafeblack'
+                            ? 'dark:bg-kafelighter bg-kafedarker  font-space-italic text-kafewhite dark:text-kafeblack'
                             : null
                         }
             text-[12px]

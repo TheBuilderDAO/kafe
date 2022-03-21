@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @font-face {
   font-family: 'Larken';
   src: url('/assets/fonts/larken/Larken-Regular.otf');
@@ -17,6 +16,26 @@
 @font-face {
   font-family: 'Larken Extra Bold Italic';
   src: url('/assets/fonts/larken/Larken-ExtraBoldItalic.otf');
+}
+
+@font-face {
+  font-family: 'Space Mono Bold';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono Bold Italic';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono Italic';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-Regular.ttf');
 }
 
 input[type='text']:focus {
