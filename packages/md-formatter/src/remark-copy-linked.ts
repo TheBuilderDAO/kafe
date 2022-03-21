@@ -37,13 +37,10 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
       const fullPath = path.resolve(options.sourceFolder, node.url)
       const filename = path.basename(fullPath)
       const targetPath = path.join(options.destination, 'assets', filename)
-      console.log({ fullPath, targetPath })
       fs.copySync(fullPath, targetPath)
       node.url = `./assets/${filename}`
     } else {
-      console.log(node)
       let filename = node.url.substring(node.url.lastIndexOf('/') + 1).split('?')[0].toLowerCase()
-      console.log(filename)
       if (!path.extname(filename)) {
         filename = `${filename}.png`
       }

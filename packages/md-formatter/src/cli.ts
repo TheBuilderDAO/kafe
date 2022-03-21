@@ -9,7 +9,7 @@ import chalk from 'chalk';
 import { diffLines } from 'diff'
 
 import { remarkLiquidParser } from './remark-liquid-parser'
-import { remarkCopyLinkedFiles } from './remark-copy-linked'
+import { remarkCopyLinkedFiles, sleep } from './remark-copy-linked'
 import { TemplateService } from '@builderdao/cli'
 import async from 'async'
 import _ from 'lodash'
@@ -43,8 +43,9 @@ const processQueue = async.queue(async (guide: FolderMeta) => {
   const data = await tutorialDetailDB.chain.get(guide.slug).value()
 
   await main(guide.files, data, destinationDir)
+  await sleep(2000)
   // await main(file, data, destinationDir)
-}, 2)
+}, 1)
 
 const files: { [path: string]: FolderMeta } = {};
 
@@ -102,6 +103,7 @@ getFiles(tutorials).then(async () => {
     }
   })
   console.log({ matching, total })
+  await processQueue.drain();
 })
 
 
@@ -115,6 +117,12 @@ async function main(pathForFiles: string[], data: TutorialDetailsRow, destinatio
   await template.setTitle(data.title)
   await template.setDescription(data.description)
   await template.setTags(data.tags)
+  await template.setAuthor({
+    name: data.author,
+    email: "", // TODO: add email
+    nickname: data.author_nickname,
+    avatarUrl: data.author_image_url
+  })
 
   for (const pathForFile of pathForFiles) {
     const source = await getFile(pathForFile);
@@ -128,13 +136,13 @@ async function main(pathForFiles: string[], data: TutorialDetailsRow, destinatio
       .use(remarkLiquidParser as any)
       .process(source)
       .then(async file => {
-        showDiff(source, String(file));
+        // showDiff(source, String(file));
         // console.log(destinationDir)
         const frontMatter = `---
 title: ${data.title}
 description: ${data.description}
 keywords: [${data.tags.join(', ')}]
-date: ${data.date}
+date: ${new Date().toISOString()}
 ---`
         await template.addContent('index.mdx', [frontMatter, String(file)].join('\n'))
       })

@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra'
-import { LowWithLodash, BuilderDaoConfig, BuilderDaoConfigJson } from './builderdao-config.service';
+import { LowWithLodash, BuilderDaoConfig, BuilderDaoConfigJson, BuilderDaoLockJson } from './builderdao-config.service';
 import { JSONFile } from 'lowdb-node';
 import { PackageJson } from 'type-fest';
 type TemplateTypes = "simple" | "multipage" | "empty" | undefined;
@@ -14,20 +14,24 @@ export class TemplateService {
 
   public configJson: LowWithLodash<BuilderDaoConfigJson>;
 
+  public lockJson: LowWithLodash<BuilderDaoLockJson>;
+
   public templateName: TemplateTypes
 
   public packageJsonPath: string;
-
+  public lockJsonPath: string;
   public configJsonPath: string;
-  
+
 
   constructor(target: string) {
     this.target = target
 
     this.packageJsonPath = path.join(this.target, 'package.json')
     this.configJsonPath = path.join(this.target, 'builderdao.config.json')
-    this.configJson =  new BuilderDaoConfig(this.target).config;
+    this.lockJsonPath = path.join(this.target, 'builderdao.lock.json')
+    this.configJson = new BuilderDaoConfig(this.target).config;
     this.packageJson = new LowWithLodash(new JSONFile<PackageJson>(this.packageJsonPath))
+    this.lockJson = new BuilderDaoConfig(this.target).lock;
   }
 
 
@@ -41,6 +45,8 @@ export class TemplateService {
 
   async setName(name: string) {
     await this.updateConfig('href', `learn/${name}`)
+    await this.updateLock('href', `learn/${name}`)
+    await this.updateLock('slug', name)
     await this.updatePackageJson('name', `@builderdao-learn/${name}`);
   }
 
@@ -63,16 +69,33 @@ export class TemplateService {
     await fs.writeFile(filePath, content)
   }
 
-  private async updateConfig(key: string, value: any) {
-    const config = this.configJson 
+  async setAuthor({ name, email, nickname, avatarUrl }: { name: string, email: string, nickname: string, avatarUrl: string }) {
+    this.lockJson.chain.set('authors', [{
+      name,
+      avatarUrl,
+      email,
+      nickname
+    }]).value()
+  }
+
+
+  async updateLock(key: string, value: any) {
+    const lock = this.lockJson
+    await lock?.read()
+    lock.chain.set(key, value).value();
+    await lock.write();
+  }
+
+  async updateConfig(key: string, value: any) {
+    const config = this.configJson
     await config?.read()
     config.chain.set(key, value).value();
     await config.write();
   }
 
-  private async updatePackageJson(key: string, value: any) {
+  async updatePackageJson(key: string, value: any) {
     const packageJson = this.packageJson
-    await packageJson?.read(); 
+    await packageJson?.read();
     packageJson.chain.set(key, value).value();
     await packageJson.write();
   }

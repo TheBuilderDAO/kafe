@@ -107,29 +107,35 @@ export function makeTutorialCommand() {
 
   tutorial
     .command('prepublish')
+    .addOption(
+      new commander.Option('--skip-reviewers', 'Skip reviewers').default(false)
+    )
     .argument('[learnPackageName]', 'Tutorial name')
-    .action(async learnPackageName => {
+    .action(async (learnPackageName, options) => {
+      console.log(options, learnPackageName); 
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
 
-      const proposal = await client.getTutorialBySlug(learnPackageName);
-      console.log(rootFolder);
-      const { lock, initial } = new BuilderDaoConfig(rootFolder);
-      const { lock: lockDefault } = await initial({
-        proposalId: proposal.id.toNumber(),
-        slug: proposal.slug as string,
-      });
-      await lock.read();
-      lock.data ||= lockDefault;
-      console.log(lock.data);
-      await lock.write();
-      lock.chain.set('proposalId', proposal.id.toNumber());
-      const reviewer1 = await getReviewer(client, proposal.reviewer1);
-      lock.chain.get('reviewers').set('reviewer1', reviewer1).value();
-      const reviewer2 = await getReviewer(client, proposal.reviewer1);
-      lock.chain.get('reviewers').set('reviewer2', reviewer2).value();
-      await lock.write();
+      if (!options.skipReviewers) {
+        const proposal = await client.getTutorialBySlug(learnPackageName);
+        console.log(rootFolder);
+        const { lock, initial } = new BuilderDaoConfig(rootFolder);
+        const { lock: lockDefault } = await initial({
+          proposalId: proposal.id.toNumber(),
+          slug: proposal.slug as string,
+        });
+        await lock.read();
+        lock.data ||= lockDefault;
+        console.log(lock.data);
+        await lock.write();
+        lock.chain.set('proposalId', proposal.id.toNumber());
+        const reviewer1 = await getReviewer(client, proposal.reviewer1);
+        lock.chain.get('reviewers').set('reviewer1', reviewer1).value();
+        const reviewer2 = await getReviewer(client, proposal.reviewer1);
+        lock.chain.get('reviewers').set('reviewer2', reviewer2).value();
+        await lock.write();
+      }
       await updateHashDigestOfFolder(rootFolder);
     });
 
@@ -266,9 +272,8 @@ export function makeTutorialCommand() {
         });
       } else {
         tutorial.error(`
-        🚧 The tutorial is not ready to publish/update. 🚧 state: ${
-          Object.keys(proposal.state)[0]
-        }
+        🚧 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]
+          }
         `);
       }
       await deployQueue.drain();
