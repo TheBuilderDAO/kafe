@@ -11,9 +11,9 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "HeS5zcKVg6SrVreMeLSEznxKKEbPDp6zstVykzoGcCF4",
-      "pubkey": "Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy",
-      "githubName": "silentlight"
+      "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
+      "pubkey": "B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv",
+      "githubName": "zurgl"
     },
     "reviewer2": {
       "pda": "8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF",
@@ -25,12 +25,12 @@
     "content/fetching.mdx": {
       "name": "fetching.mdx",
       "path": "content/fetching.mdx",
-      "digest": "cf14278986a569e8affac103f94365d63225c7acc09e74847e7213dd5efe32fb"
+      "digest": "4b069594bd95e3db457f2b682efc947ca21245916239fb56abd4a2c85755141b"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "20ae8cf2326db96ec06367c9c2d179318dec58d39d848b5ba4366fc86576e55d"
+      "digest": "3cdb16b84e7d82089b7178e03ec12ba433c8373c3a9ac0f3813dcb97f4d6ce6f"
     }
   },
   "href": "/learn/mirror-clone"
