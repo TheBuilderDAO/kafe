@@ -11,10 +11,13 @@ export class TemplateService {
   public target: string;
 
   public packageJson: LowWithLodash<PackageJson>;
+
   public configJson: LowWithLodash<BuilderDaoConfigJson>;
 
   public templateName: TemplateTypes
+
   public packageJsonPath: string;
+
   public configJsonPath: string;
   
 
@@ -23,7 +26,7 @@ export class TemplateService {
 
     this.packageJsonPath = path.join(this.target, 'package.json')
     this.configJsonPath = path.join(this.target, 'builderdao.config.json')
-    this.configJson =  new BuilderDaoConfig(this.target).db;
+    this.configJson =  new BuilderDaoConfig(this.target).config;
     this.packageJson = new LowWithLodash(new JSONFile<PackageJson>(this.packageJsonPath))
   }
 

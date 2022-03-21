@@ -41,20 +41,23 @@ const data = {
 // eslint-disable-next-line @typescript-eslint/no-use-before-define
 // main(example, data, destinationDir)
 
-const solana = path.join('/Users/necmttn/Projects/crypto/kafe/learn-tutorials/solana',)
+const tutorials = path.join('/Users/necmttn/Projects/crypto/kafe/learn-tutorials',)
 
 const processQueue = async.queue(async (file: string) => {
       console.log("Processing => ", file)
       await main(file, data, destinationDir)
 }, 3)
 
-fs.readdir(solana).then((files: string[]) => {
-  files.splice(4).forEach(file => {
-    if (path.extname(file) === '.md') {
-      processQueue.push(path.resolve(solana, file))
-    }
-  })
+fs.readdir(tutorials).then(files => {
+  console.log(files)
 })
+// fs.readdir(solana).then((files: string[]) => {
+//   files.splice(4).forEach(file => {
+//     if (path.extname(file) === '.md') {
+//       processQueue.push(path.resolve(solana, file))
+//     }
+//   })
+// })
 
 
 
