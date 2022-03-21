@@ -13,7 +13,16 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<TutorialIndex>,
 ) {
-  const { id, title, description, author, slug, tags, difficulty } = req.body;
+  const {
+    id,
+    title,
+    description,
+    author,
+    slug,
+    tags,
+    difficulty,
+    lastUpdatedAt,
+  } = req.body;
 
   try {
     const algoliaApi = new AlgoliaApi({
@@ -32,6 +41,7 @@ export default async function handler(
       tags,
       difficulty,
       numberOfVotes: 0,
+      lastUpdatedAt,
     };
 
     await algoliaApi.createTutorial(record);
