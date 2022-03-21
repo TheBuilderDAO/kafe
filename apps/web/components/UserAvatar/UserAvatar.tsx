@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 type UserAvatarProps = {
   address: string;
   size?: number;
-  ellipsis: boolean;
+  ellipsis?: boolean;
   bg?: string;
 };
 
