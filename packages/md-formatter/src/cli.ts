@@ -49,11 +49,9 @@ const processQueue = async.queue(async (file: string) => {
 }, 3)
 
 fs.readdir(solana).then((files: string[]) => {
-  files.splice(3).forEach(file => {
+  files.splice(4).forEach(file => {
     if (path.extname(file) === '.md') {
-      if (file === 'gaming-on-solana.md') {
-        processQueue.push(path.resolve(solana, file))
-      }
+      processQueue.push(path.resolve(solana, file))
     }
   })
 })
