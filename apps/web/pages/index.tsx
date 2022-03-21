@@ -11,6 +11,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
+import Loader from '@app/components/Loader/Loader';
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -23,27 +24,7 @@ const LandingPage: NextPage = () => {
       <Head>
         <title>Builder DAO</title>
       </Head>
-      <main className="flex flex-col">
-        <section className="flex flex-row justify-between w-full mt-20">
-          <div className="w-44">
-            <InstantSearch
-              searchClient={searchClient}
-              indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-            >
-              <Configure
-                filters="state:proposed"
-                hitsPerPage={1}
-                analytics={false}
-              />
-              <div className="flex flex-row gap-10">
-                <div className="w-full">
-                  <Hits hitComponent={TutorialProposalHit} />
-                </div>
-              </div>
-            </InstantSearch>
-          </div>
-        </section>
-      </main>
+      <Loader message="Work in Progress" />
     </>
   );
 };

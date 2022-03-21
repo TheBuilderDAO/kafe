@@ -12,6 +12,7 @@ import LoginButton from '../LoginButton/LoginButton';
 import { useRouter } from 'next/router';
 import routes from '../../routes';
 import { stringToSlug } from 'utils/strings';
+import Loader from '../Loader/Loader';
 
 type FormData = {
   title: string;
@@ -29,7 +30,7 @@ const ProposeTutorialForm = () => {
 
   const Placeholder = () => {
     return (
-      <div className="w-full flex flex-col items-center min-h-[200px] justify-center font-larken text-3xl -ml-12">
+      <div className="w-full flex flex-col items-center text-center pt-20 justify-center font-larken lg:text-3xl text-2xl">
         <p className="pb-4">Connect your wallet to view this section.</p>
         <LoginButton />
       </div>
@@ -61,7 +62,7 @@ const ProposeTutorialForm = () => {
   );
 
   if (loading) {
-    return 'Loading...';
+    return <Loader />;
   }
 
   if (error) {
