@@ -11,6 +11,7 @@ import { diffLines } from 'diff'
 import { remarkLiquidParser } from './remark-liquid-parser'
 import { remarkCopyLinkedFiles } from './remark-copy-linked'
 import { TemplateService } from '@builderdao/cli'
+import async from 'async'
 
 
 const getFile = async (pathForFile: string) => {
@@ -20,6 +21,9 @@ const getFile = async (pathForFile: string) => {
 
 const example = path.join(process.cwd(), './kitchen/tutorial/sink.md')
 const destinationDir = path.join(process.cwd(), 'faucet')
+
+
+// const destinationDir = path.join(process.cwd(), 'faucet')
 
 const data = {
   name: 'tutorial-sink',
@@ -35,12 +39,28 @@ const data = {
   diffuculty: 'Intermediate'
 }
 // eslint-disable-next-line @typescript-eslint/no-use-before-define
-main(example, data, destinationDir)
+// main(example, data, destinationDir)
+
+const solana = path.join('/Users/necmttn/Projects/crypto/kafe/learn-tutorials/solana',)
+
+const processQueue = async.queue(async (file: string) => {
+      console.log("Processing => ", file)
+      await main(file, data, destinationDir)
+}, 1)
+
+fs.readdir(solana).then((files: string[]) => {
+  files.forEach(file => {
+    if (path.extname(file) === '.md') {
+      processQueue.push(path.resolve(solana, file))
+    }
+  })
+})
 
 
 
 async function main(pathForFile: string, data: any, destinationDir: string) {
   const source = await getFile(pathForFile);
+  data.name = path.basename(pathForFile) // hack
   const targetFolder = path.join(destinationDir, data.name)
 
   await fs.ensureDir(targetFolder)
@@ -53,9 +73,9 @@ async function main(pathForFile: string, data: any, destinationDir: string) {
   const file = await unified()
     .use(remarkParse)
     .use(remarkStringify)
-    .use(remarkCopyLinkedFiles, { 
-      destination: path.join(targetFolder, 'content'), 
-      sourceFolder: path.dirname(pathForFile) 
+    .use(remarkCopyLinkedFiles, {
+      destination: path.join(targetFolder, 'content'),
+      sourceFolder: path.dirname(pathForFile)
     })
     .use(remarkLiquidParser as any)
     .process(source)
@@ -83,7 +103,7 @@ const showDiff = (source: string, target: string) => {
       } else if (part.removed) {
         console.log(chalk.red(part.value))
       } else {
-        console.log(chalk.grey(part.value))
+        // console.log(chalk.grey(part.value))
       }
     });
 }
