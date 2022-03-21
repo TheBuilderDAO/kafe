@@ -17,7 +17,7 @@ const WriteOnGitHub = ({
           {tutorial.state !== ProposalStateE.readyToPublish &&
             tutorial.state !== ProposalStateE.published && (
               <div>
-                <section className="flex justify-between">
+                <section className="flex justify-between mb-6">
                   <h3 className="text-2xl font-larken">Write on Github</h3>
                   <span className="flex items-center">
                     <Image src={Eyecon} width={18} height={18} alt="icon" />
