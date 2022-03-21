@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 type UserAvatarProps = {
   address: string;
   size?: number;
+  ellipsis: boolean;
   bg?: string;
 };
 
@@ -15,6 +16,7 @@ const UserAvatar = (props: UserAvatarProps) => {
     address,
     size = 25,
     bg = theme === 'dark' ? '#EB5F49' : '#EFBB73',
+    ellipsis = true,
   } = props;
 
   return (
@@ -22,7 +24,10 @@ const UserAvatar = (props: UserAvatarProps) => {
       <div className="mx-2 rounded-full w-[25px] h-[25px] overflow-hidden lg:flex">
         <Identicon string={address} size={size} bg={bg} />
       </div>
-      <p className="hidden lg:block text-xs">{addEllipsis(address)}</p>
+      {ellipsis && (
+        <p className="hidden lg:block text-xs">{addEllipsis(address)}</p>
+      )}
+      {!ellipsis && <p className="hidden lg:block text-xs">{address}</p>}
     </div>
   );
 };

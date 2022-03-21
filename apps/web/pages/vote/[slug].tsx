@@ -86,11 +86,11 @@ const RenderReviewer = (props: { pubkey: string; number: string }) => {
         {loading ? (
           <Loader />
         ) : (
-          <div>
-            <span className="font-bold">Reviewer {number}: </span>
-            <span className="text-kafepurple">{`${addEllipsis(
-              reviewer.pubkey.toString(),
-            )} (${reviewer.githubName})`}</span>
+          <div className="-mx-2">
+            <UserAvatar
+              address={reviewer.githubName.toString()}
+              ellipsis={false}
+            />
           </div>
         )}
       </dd>
