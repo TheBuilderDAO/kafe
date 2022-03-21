@@ -26,6 +26,7 @@ const data = {
   title: 'Tutorial Sink',
   description: 'Est culpa enim ex laboris occaecat nisi. Nisi et nostrud amet minim reprehenderit irure tempor veniam.Quis id ullamco culpa non in officia id anim ex non aliquip.',
   protocol: ['Solana'],
+  date: '2020-01-01',
   tags: [
     'React',
     'Javascript'
@@ -55,6 +56,13 @@ async function main(pathForFile: string, data: any, destinationDir: string) {
       await template.setTitle(data.title)
       await template.setDescription(data.description)
       await template.setTags(data.tags)
+      const frontMatter = `---
+title: ${data.title}
+description: ${data.description}
+keywords: [${data.tags.join(', ')}]
+date: ${data.date}
+---`
+      await template.addContent('index.md',[frontMatter, String(file)].join('\n'))
     })
 }
 

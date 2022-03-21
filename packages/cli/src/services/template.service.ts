@@ -55,6 +55,11 @@ export class TemplateService {
     await this.updatePackageJson('keywords', tags);
   }
 
+  async addContent(fileName: string, content: string) {
+    const filePath = path.join(this.target, 'content', fileName)
+    await fs.writeFile(filePath, content)
+  }
+
   private async updateConfig(key: string, value: any) {
     const config = this.configJson 
     await config?.read()
