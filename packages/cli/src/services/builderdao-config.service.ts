@@ -5,7 +5,7 @@ import path from 'path';
 import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
 import fs from 'fs-extra'
 
-type BuilderDaoConfigJson = {
+export type BuilderDaoConfigJson = {
   proposalId: null | number;
   title: string;
   slug: string;
@@ -33,7 +33,7 @@ type BuilderDaoConfigJson = {
   }[];
   href: string;
 }
-class LowWithLodash<T> extends Low<T> {
+export class LowWithLodash<T> extends Low<T> {
   chain: lodash.ExpChain<this['data']> = lodash.chain(this).get('data')
 }
 

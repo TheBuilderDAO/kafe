@@ -12,7 +12,6 @@
   "scripts": {
     "dev": "yarn build --watch",
     "build": "tsup src/cli.ts --format esm,cjs --dts",
-    "link": "yarn link",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -20,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@builderdao/cli": "*",
     "chalk": "^5.0.1",
     "diff": "^5.0.0",
     "fs-extra": "^10.0.1",
@@ -27,6 +27,7 @@
     "remark": "^14.0.2",
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",
+    "type-fest": "^2.12.1",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0"
   },
