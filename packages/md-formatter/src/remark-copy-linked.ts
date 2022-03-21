@@ -26,7 +26,6 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
 
   await fs.ensureDir(path.join(options.destination, 'assets'));
   const downloadQueue = async.queue(async ({ url, path }) => {
-    console.log('downloading', path)
     await download(url, path);
   }, 2)
 

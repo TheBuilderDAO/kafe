@@ -76,6 +76,7 @@ export class TemplateService {
       email,
       nickname
     }]).value()
+    this.lockJson.write();
   }
 
 

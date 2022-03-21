@@ -45,7 +45,7 @@ const processQueue = async.queue(async (guide: FolderMeta) => {
   await main(guide.files, data, destinationDir)
   await sleep(2000)
   // await main(file, data, destinationDir)
-}, 1)
+}, 2)
 
 const files: { [path: string]: FolderMeta } = {};
 
@@ -136,6 +136,7 @@ async function main(pathForFiles: string[], data: TutorialDetailsRow, destinatio
       .use(remarkLiquidParser as any)
       .process(source)
       .then(async file => {
+        console.log("PRocess Ended")
         // showDiff(source, String(file));
         // console.log(destinationDir)
         const frontMatter = `---
