@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Loader = () => {
+const Loader = ({ message = 'Loading...' }) => {
   return (
     <div className="w-full flex justify-center items-center">
-      <p>Loading...</p>
+      <p>{message}</p>
     </div>
   );
 };
