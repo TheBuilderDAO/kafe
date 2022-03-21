@@ -3,7 +3,7 @@ import React from 'react';
 const DAOSVG = () => {
   return (
     <svg
-      width="150"
+      width="90"
       height="30"
       viewBox="0 0 85 19"
       fill="none"

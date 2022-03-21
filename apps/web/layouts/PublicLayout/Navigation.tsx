@@ -13,20 +13,19 @@ const Navigation = () => {
   const StyledNavigate: React.FC<NavigateProps> = tw.a`
     ${props =>
       props.$active
-        ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack p-2 rounded-3xl w-32'
+        ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack rounded-3xl w-28'
         : ''}
-    lg:text-3xl
+    lg:text-2xl
     text-2xl
     font-larken
-    leading-10
     block
-    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite p-2 rounded-3xl w-32 px-5
+    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite py-2 rounded-3xl w-32
   `;
 
   return (
     <>
       <div className="flex flex-row lg:flex-col flex-1 mt-5 h-10 lg:h-full">
-        <nav className="flex flex-1 justify-center items-center lg:block space-y-1 space-x-2">
+        <nav className="flex flex-1 justify-center items-center lg:block">
           <div>
             <Link key="learn" href={routes.learn.index} passHref>
               <StyledNavigate $active={router.pathname === routes.learn.index}>
