@@ -12,15 +12,15 @@ import {
 
 const LeftSidebar = () => {
   const { scrollYProgress } = useViewportScroll();
-  const headingSize = useTransform(scrollYProgress, [0, 0.04], [270, 150]);
+  const headingSize = useTransform(scrollYProgress, [0, 0.4], [270, 150]);
   const headingSizeSpring = useSpring(headingSize, {
     mass: 0.005,
   });
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
 
   return (
-    <div className="w-full sticky top-5">
-      <div className="z-0 mt-0 lg:block">
+    <div className="w-full sticky top-5 hidden lg:block">
+      <div className="z-0 mt-0">
         <motion.div style={{ width: headingSizePx }}>
           <LogoSVG />
         </motion.div>
