@@ -40,13 +40,13 @@ const PublicLayout = (props: PublicLayoutProps) => {
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
-          <div className="z-0 col-span-1 hidden sticky lg:block">
+          <div className="z-0 col-span-1 sticky lg:block">
             <LeftSidebar />
           </div>
           {/* <div className="z-40 col-span-10 absolute lg:hidden shrink">
             <MobileNavbar />
           </div> */}
-          <div className="grid col-span-11 ml-12">
+          <div className="col-span-11 ml-8">
             <div className="lg:sticky top-10">
               <Header />
             </div>

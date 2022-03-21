@@ -27,7 +27,7 @@ const LearnIndexPage: NextPage = () => {
       <Head>
         <title>Search Guides</title>
       </Head>
-      <main>
+      <main className="w-full">
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
@@ -39,9 +39,9 @@ const LearnIndexPage: NextPage = () => {
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
             <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex flex-col-reverse lg:flex-row items-start justify-between mt-8 w-screen px-8 lg:px-0">
-              <div className="flex flex-col w-full max-w-[750px]">
-                <div className="my-6">
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col mt-16 min-w-[800px]">
+                <div className="lg:my-6 lg:mt-10 mt-10 mb-4">
                   <GuideStateTabs
                     attribute="state"
                     defaultRefinement={[ProposalStateE.published]}
