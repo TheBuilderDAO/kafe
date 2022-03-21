@@ -46,10 +46,10 @@ const solana = path.join('/Users/necmttn/Projects/crypto/kafe/learn-tutorials/so
 const processQueue = async.queue(async (file: string) => {
       console.log("Processing => ", file)
       await main(file, data, destinationDir)
-}, 1)
+}, 3)
 
 fs.readdir(solana).then((files: string[]) => {
-  files.forEach(file => {
+  files.splice(3).forEach(file => {
     if (path.extname(file) === '.md') {
       processQueue.push(path.resolve(solana, file))
     }
@@ -60,7 +60,7 @@ fs.readdir(solana).then((files: string[]) => {
 
 async function main(pathForFile: string, data: any, destinationDir: string) {
   const source = await getFile(pathForFile);
-  data.name = path.basename(pathForFile) // hack
+  data.name = path.basename(pathForFile).replace(path.extname(pathForFile),'')// hack
   const targetFolder = path.join(destinationDir, data.name)
 
   await fs.ensureDir(targetFolder)

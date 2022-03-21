@@ -35,9 +35,13 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
       node.url = `./assets/${filename}`
     } else {
       let filename = node.url.substring(node.url.lastIndexOf('/') + 1)
+      if (filename.indexOf('?') > -1) {
+        filename = filename.substring(0, node.url.indexOf('?'))
+      }
       if (!path.extname(filename)) {
         filename = `${filename}.png` 
       }
+
       const targetPath = path.join(options.destination, 'assets', filename)
       downloadQueue.push({
         url: node.url,
