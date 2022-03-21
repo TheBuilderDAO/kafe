@@ -13,7 +13,7 @@ const Navigation = () => {
   const StyledNavigate: React.FC<NavigateProps> = tw.a`
     ${props =>
       props.$active
-        ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack rounded-3xl w-28'
+        ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack rounded-3xl w-[100px]'
         : ''}
     lg:text-2xl
     text-2xl

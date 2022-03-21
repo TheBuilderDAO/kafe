@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         <title>Search Proposals</title>
       </Head>
 
-      <main className="w-full px-4">
+      <main className="w-full">
         <Banner
           header="Upvote proposals you want to see get written."
           description="Once a proposal gets 100 votes it will be funded by the community."
@@ -68,8 +68,8 @@ const Home: NextPage = () => {
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
             <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex flex-col-reverse lg:flex-row items-start justify-center w-full flex-wrap lg:flex-nowrap">
-              <div className="flex flex-col lg:grow">
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col mt-16 lg:grow min-w-[700px]">
                 <div className="lg:my-6 lg:mt-10 mt-10 mb-4">
                   <ProposalStateTabs
                     attribute="state"

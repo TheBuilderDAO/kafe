@@ -10,6 +10,7 @@ const Wrapper = ({ children }) => {
   dark:bg-kafeblack
   relative
   flex
+  max-w-screen-xl
     `;
 
   return <StyledDiv>{children}</StyledDiv>;

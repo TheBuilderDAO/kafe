@@ -30,7 +30,6 @@ module.exports = {
         'larken-extra-bold': ['Larken Extra Bold', 'sans-serif'],
         'larken-extra-bold-italic': ['Larken Extra Bold Italic', 'sans-serif'],
         space: ['Space Mono', 'monospace'],
-        sans: ['Space Mono', 'sans-serif'],
       },
       animation: {
         'slide-up': 'bazinga 0.5s ease forwards',

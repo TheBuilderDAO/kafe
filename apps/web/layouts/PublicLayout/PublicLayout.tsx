@@ -36,21 +36,21 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="flex flex-wrap min-h-screen lg:p-9 relative bg-kafewhite dark:bg-kafeblack">
+    <div className="flex flex-wrap min-h-screen font-space p-9 relative bg-kafewhite dark:bg-kafeblack">
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
-          <div className="z-0 col-span-2 hidden sticky lg:block">
+          <div className="z-0 col-span-1 hidden sticky lg:block">
             <LeftSidebar />
           </div>
           {/* <div className="z-40 col-span-10 absolute lg:hidden shrink">
             <MobileNavbar />
           </div> */}
-          <div className="grid col-span-10">
+          <div className="grid col-span-11 ml-12">
             <div className="lg:sticky top-10">
               <Header />
             </div>
-            <div className="">
+            <div>
               <Content>{children}</Content>
             </div>
           </div>

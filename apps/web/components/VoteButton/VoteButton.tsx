@@ -21,7 +21,7 @@ const VoteButton = (props: VoteButtonProps) => {
   }
 
   return (
-    <div>
+    <div className="py-2">
       {vote && !error ? (
         <CancelVoteButton key="cast-vote-btn" id={id} variant={variant} />
       ) : (

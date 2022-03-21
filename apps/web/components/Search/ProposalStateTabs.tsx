@@ -20,19 +20,21 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
         <span
           className={`
             p-1
-            px-2
-            rounded-md
-            dark:bg-kafedarker bg-kafelighter
+            px-4
+            py-2
+            rounded-xl
+            font-space
+            bg-none
             ${
               currentRefinement[0] === 'submitted'
-                ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                ? 'dark:bg-kafelighter font-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
                 : null
             }
             text-[12px]
-            mr-4
+            mr-6
             `}
         >
-          Current
+          current
         </span>
       </label>
       <label key="funded" htmlFor="funded" className="cursor-pointer">
@@ -49,20 +51,22 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
         />
         <span
           className={`
-            p-1
-            px-2
-            rounded-md
-            dark:bg-kafedarker bg-kafelighter
+            px-4
+            py-2
+            rounded-xl
+            h-10
+            bg-none
+            font-space
                         ${
                           currentRefinement[0] === 'funded'
-                            ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                            ? 'dark:bg-kafelighter bg-kafedarker text-kafewhite dark:text-kafeblack'
                             : null
                         }
             text-[12px]
             mr-4
             `}
         >
-          Funded
+          funded
         </span>
       </label>
     </div>
