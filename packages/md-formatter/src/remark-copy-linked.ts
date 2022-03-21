@@ -5,11 +5,11 @@ import fs from 'fs-extra'
 import axios from "axios";
 import async from 'async';
 
+
 const download = async (url: string, destinationPath: string) => {
   const saveFile = await axios.get(url, {
     responseType: 'stream',
   });
-  const file = url.split('/')[3];
   const download = fs.createWriteStream(destinationPath);
   await new Promise((resolve, reject) => {
     saveFile.data.pipe(download);
@@ -18,12 +18,19 @@ const download = async (url: string, destinationPath: string) => {
   });
 }
 
+
+// eslint-disable-next-line no-promise-executor-return
+export const sleep = async (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
 export const remarkCopyLinkedFiles = (options: { destination: string, sourceFolder: string }) => async (tree, { cwd }: { cwd: string }) => {
+
+  await fs.ensureDir(path.join(options.destination, 'assets'));
   const downloadQueue = async.queue(async ({ url, path }) => {
     console.log('downloading', path)
     await download(url, path);
-  }, 5)
-  await fs.ensureDir(path.join(options.destination, 'assets'));
+  }, 2)
+
+
   visit(tree, "image", node => {
     let isRelative = !isAbsoluteUrl(node.url)
     if (isRelative) {
@@ -34,22 +41,23 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
       fs.copySync(fullPath, targetPath)
       node.url = `./assets/${filename}`
     } else {
-      let filename = node.url.substring(node.url.lastIndexOf('/') + 1)
-      if (filename.indexOf('?') > -1) {
-        filename = filename.substring(0, node.url.indexOf('?'))
-      }
+      console.log(node)
+      let filename = node.url.substring(node.url.lastIndexOf('/') + 1).split('?')[0].toLowerCase()
+      console.log(filename)
       if (!path.extname(filename)) {
-        filename = `${filename}.png` 
+        filename = `${filename}.png`
       }
-
       const targetPath = path.join(options.destination, 'assets', filename)
+
       downloadQueue.push({
         url: node.url,
-        path: targetPath 
+        path: targetPath
       });
+
       node.url = `./assets/${filename}`
     }
   })
+  sleep(1000)
   await downloadQueue.drain();
   return tree;
 };

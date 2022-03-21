@@ -51,7 +51,9 @@ const processQueue = async.queue(async (file: string) => {
 fs.readdir(solana).then((files: string[]) => {
   files.splice(3).forEach(file => {
     if (path.extname(file) === '.md') {
-      processQueue.push(path.resolve(solana, file))
+      if (file === 'gaming-on-solana.md') {
+        processQueue.push(path.resolve(solana, file))
+      }
     }
   })
 })
@@ -80,7 +82,7 @@ async function main(pathForFile: string, data: any, destinationDir: string) {
     .use(remarkLiquidParser as any)
     .process(source)
     .then(async file => {
-      showDiff(source, String(file));
+      // showDiff(source, String(file));
       // console.log(destinationDir)
       const frontMatter = `---
 title: ${data.title}
