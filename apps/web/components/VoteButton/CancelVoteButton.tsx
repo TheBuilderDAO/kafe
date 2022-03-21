@@ -33,10 +33,10 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
   return (
     <div>
       <button
-        disabled={submitting || variant}
+        disabled={submitting || !!variant}
         className={`${
           variant === 'standard'
-            ? 'dark:bg-kafeblack border-[1px] border-kafeblack dark:border-kafewhite bg-kafelighter dark:bg-kafedarker w-full h-14 rounded-2xl dark:text-kafewhite text-kafeblack'
+            ? 'border-[1px] border-kafeblack dark:border-kafewhite bg-kafelighter dark:bg-kafedarker w-full h-14 rounded-2xl dark:text-kafewhite text-kafeblack'
             : 'w-24 h-24 rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group shadow-xl'
         }`}
         onClick={handleClick}

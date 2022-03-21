@@ -12,6 +12,7 @@ import LoginButton from '../LoginButton/LoginButton';
 import { useRouter } from 'next/router';
 import routes from '../../routes';
 import { stringToSlug } from 'utils/strings';
+import Loader from '../Loader/Loader';
 
 type FormData = {
   title: string;
@@ -61,11 +62,7 @@ const ProposeTutorialForm = () => {
   );
 
   if (loading) {
-    return (
-      <div className="w-full flex justify-center items-center">
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {

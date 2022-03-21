@@ -7,6 +7,7 @@ import {
 } from '@builderdao-sdk/dao-program';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import UserAvatar from '../UserAvatar/UserAvatar';
+import Loader from '@app/components/Loader/Loader';
 
 type TutorialProposalVotesProps = {
   id: number;
@@ -33,7 +34,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
   }, [voters, daoState]);
 
   if (loading || listLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error || listError) {

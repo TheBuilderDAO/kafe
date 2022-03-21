@@ -11,12 +11,8 @@ type ImageStackProps = {
 
 const ImageStack = (props: ImageStackProps) => {
   const { theme } = useTheme();
-  const {
-    addresses,
-    size = 40,
-    limit = 5,
-    bg = theme === 'dark' ? '#EB5F49' : '#EFBB73',
-  } = props;
+  const { addresses, size = 40, limit = 5 } = props;
+  const bg = theme === 'dark' ? '#EB5F49' : '#EFBB73';
 
   return (
     <div className="xl:flex flex-row mx-6 hidden">

@@ -12,6 +12,7 @@ import { Tutorial } from '@app/types/index';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import InputSelect from '../FormElements/InputSelect';
+import Loader from '../Loader/Loader';
 
 type AssignReviewersFormProps = {
   tutorial: Tutorial;
@@ -76,7 +77,7 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   );
 
   if (loading) {
-    return 'Loading...';
+    return <Loader />;
   }
 
   if (error) {

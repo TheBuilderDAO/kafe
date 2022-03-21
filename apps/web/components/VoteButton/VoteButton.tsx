@@ -3,10 +3,11 @@ import CancelVoteButton from './CancelVoteButton';
 import CastVoteButton from './CastVoteButton';
 import { useGetVote } from '@builderdao-sdk/dao-program';
 import { useDapp } from '../../hooks/useDapp';
+import Loader from '@app/components/Loader/Loader';
 
 type VoteButtonProps = {
   id: number;
-  variant: string;
+  variant?: string;
 };
 
 const VoteButton = (props: VoteButtonProps) => {
@@ -16,7 +17,7 @@ const VoteButton = (props: VoteButtonProps) => {
   const { vote, loading, error } = useGetVote(id, wallet.publicKey);
 
   if (loading) {
-    return <div>...</div>;
+    return <Loader />;
   }
 
   return (

@@ -20,6 +20,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
 import TutorialProposalFilter from '@app/components/Search/TutorialProposalFilter';
+import Loader from '@app/components/Loader/Loader';
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -33,7 +34,7 @@ const ProposalList = () => {
     return <div>Error: {error.message} </div>;
   }
   if (loading && !error) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
   return (
     <div>

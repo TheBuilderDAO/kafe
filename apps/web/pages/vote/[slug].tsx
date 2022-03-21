@@ -18,6 +18,7 @@ import { ZERO_ADDRESS } from '../../constants';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import BorderSVG from '@app/components/SVG/BorderSVG';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+import Loader from '@app/components/Loader/Loader';
 
 type PageProps = {
   tutorial: any;
@@ -88,7 +89,7 @@ const RenderReviewer = (props: { pubkey: string; number: string }) => {
     <div className="py-2  sm:grid sm:grid-cols-3 sm:gap-4">
       <dd className="mt-1 text-sm sm:mt-0 sm:col-span-2">
         {loading ? (
-          '...'
+          <Loader />
         ) : (
           <div>
             <span className="font-bold">Reviewer {number}: </span>

@@ -1,13 +1,11 @@
 import Tags from '../Tags/Tags';
-import BorderSVG from '../SVG/BorderSVG';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import routes from '../../routes';
 import Link from 'next/link';
 import { useGetListOfTippersById } from '@builderdao-sdk/dao-program';
 import ImageStack from '@app/components/ImageStack';
-import defaultAvatar from '*.svg';
-import { TutorialCard } from '@builderdao/ui';
 import React from 'react';
+import Loader from '@app/components/Loader/Loader';
 
 const GuideHit = props => {
   const { tippers, loading, error } = useGetListOfTippersById(
@@ -23,7 +21,7 @@ const GuideHit = props => {
         </div>
 
         {loading ? (
-          <div>...</div>
+          <Loader />
         ) : (
           <div className="flex flex-row items-center gap-2 text-right">
             <div className="flex">

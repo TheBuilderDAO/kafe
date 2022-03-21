@@ -6,7 +6,7 @@ const InputSelect = ({
   options,
   inputRef,
   onChange,
-  placeholder,
+  placeholder = 'Select tags',
   multiselect = true,
 }) => {
   const { theme } = useTheme();
@@ -81,7 +81,7 @@ const InputSelect = ({
         isSearchable
         className="text-kafered"
         classNamePrefix=""
-        placeholder={placeholder || 'Select tags'}
+        placeholder={placeholder}
         styles={customStyles}
         theme={theme => ({
           ...theme,
