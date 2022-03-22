@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "ln -sf ../../../tutorials ./public/tutorials",
     "dev": "next dev",
-    "prebuild:content": "rimraf ./public/tutorials && yarn predev",
+    "prebuild:content": "rimraf ./public/tutorials && node scripts/content.js && ls -la public/tutorials",
     "prebuild:content_2": "rimraf ./public/tutorials && cp -r ../../tutorials ./public/ && ls -la public/tutorials",
     "build": "next build",
     "start": "next start",

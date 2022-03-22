@@ -22,12 +22,14 @@ interface TutorialsCsvRow {
 const target = path.resolve(__dirname, '../src/tutorials.json')
 
 
+let count = 0
 const writeQueue = async.queue(async (data: TutorialDetailsRow) => {
   await tutorialDetailDB.read()
   tutorialDetailDB.chain
     .set(data.slug, data)
     .value()
   await tutorialDetailDB.write()
+  console.log(count)
 }, 2)
 
 export const capitalizeFirstLetter = (str: string) =>
@@ -70,7 +72,6 @@ const generateMetadata = async () => {
   console.log('#'.repeat(80))
   tutorialDetailDB.data = {}
   await tutorialDetailDB.write()
-  let count = 0
   return new Promise<void>((resolve, reject) => {
     fs.createReadStream(path.resolve(__dirname, '../src/tutorials-dump.csv'))
       .pipe(csv.parse({ headers: true }))
@@ -113,7 +114,7 @@ const generateMetadata = async () => {
         writeQueue.push(extended)
         return next(null, extended)
       })
-      .pipe(process.stdout)
+      // .pipe(process.stdout)
       .on('end', async () => {
         await writeQueue.drain();
         resolve()
