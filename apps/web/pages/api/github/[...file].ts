@@ -1,5 +1,6 @@
 import { getFileFromGithub } from '@app/lib/api/github';
 import { NextApiRequest, NextApiResponse } from 'next';
+import mime from 'mime-types';
 
 /**
  * TO BE REMOVED. this is a temporary fix for the issue repo beign private.
@@ -11,5 +12,9 @@ export default async function handler(
   const { file } = req.query;
   const [slug, ...path] = file as string[];
   const raw = await getFileFromGithub(slug, path.join('/'));
-  res.status(200).send(raw.data);
+
+  res
+    .status(200)
+    .setHeader('Content-Type', mime.lookup(path.join('/')))
+    .send(raw);
 }

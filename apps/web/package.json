@@ -38,6 +38,7 @@
     "key-did-provider-ed25519": "^1.1.0",
     "key-did-resolver": "^1.4.4",
     "lodash": "^4.17.21",
+    "mime-types": "^2.1.35",
     "next": "12.0.8",
     "next-mdx-remote": "^3.0.8",
     "next-themes": "^0.0.15",
