@@ -7,7 +7,7 @@ import HomeCTA from '@app/components/Index/HomeCTA';
 
 const LandingPage: NextPage = () => {
   return (
-    <div className="relative text-kafeblack dark:text-kafewhite min-h-[1200px] w-[900px]">
+    <div className="relative -left-6 -top-16 z-0 text-kafeblack dark:text-kafewhite min-h-[1200px] w-[940px]">
       <Head>
         <title>Builder DAO</title>
       </Head>
