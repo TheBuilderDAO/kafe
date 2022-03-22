@@ -7,6 +7,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as csv from 'fast-csv';
 import { CeramicApi } from '@builderdao/apis';
+import * as _ from 'lodash';
 import {
   ProposalStateE,
   filterAccountByReadyToPublishState,
@@ -48,6 +49,13 @@ interface Entry {
 
 export const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
+
+export const parseSlug = (slug: string, protocol: string) => {
+  if (!slug.startsWith(protocol)) {
+    return `${protocol.toLowerCase()}-${slug}`;
+  }
+  return slug;
+};
 
 export const parseCsvProtocol = (value: string) => {
   switch (value) {
@@ -127,7 +135,7 @@ export function makeMigrationCommand() {
         .pipe(csv.format<CsvEntry, Entry>({ headers: true }))
         .transform((row, next): void => {
           const {
-            slug,
+            slug: slug0,
             title,
             description,
             protocol: protocol0,
@@ -135,11 +143,12 @@ export function makeMigrationCommand() {
             difficulty_level: difficulty0,
           } = row;
           mandatoryOrFail(title, 'title');
-          mandatoryOrFail(slug, 'slug');
+          mandatoryOrFail(slug0, 'slug');
           mandatoryOrFail(description, 'description');
           mandatoryOrFail(protocol0, 'protocol');
+          const slug = parseSlug(slug0, protocol0);
           const protocol = parseCsvProtocol(protocol0);
-          const tags = parseCsvTags(tags0);
+          const tags = _.uniq(parseCsvTags(tags0));
           const difficulty = parseCsvDifficulty(difficulty0);
           const data = {
             slug,
@@ -149,10 +158,10 @@ export function makeMigrationCommand() {
             difficulty,
           };
           if (options.slug) {
-            console.log(JSON.stringify(data, null, 2));
+            console.log(JSON.stringify(data.slug, null, 2));
             console.log(',');
           } else {
-            console.log(JSON.stringify(data.slug, null, 2));
+            console.log(JSON.stringify(data, null, 2));
             console.log(',');
           }
           return next(null);
@@ -188,8 +197,7 @@ export function makeMigrationCommand() {
         network: migration.optsWithGlobals().network,
         payer: options.adminKp,
       });
-      const daoAccount = await client.getDaoAccount();
-      let id = daoAccount.numberOfTutorial.toNumber();
+      let id = 300;
       let streamId;
       let stream;
 
@@ -199,6 +207,7 @@ export function makeMigrationCommand() {
       ceramicApi.setSeed(options.ceramicSeed);
 
       for (const data of Array.from(inputData)) {
+        // for (const data of Object.values(inputData)) {
         try {
           // @ts-ignore
           stream = await ceramicApi.storeMetadata({
@@ -228,14 +237,11 @@ export function makeMigrationCommand() {
             adminPk: options.adminKp.publicKey,
             newState: ProposalStateE.readyToPublish,
           });
+
           const output = {
+            ...data,
             id,
-            slug: data.slug,
             streamId,
-            title: data.title,
-            description: data.description,
-            difficulty: data.difficulty,
-            tags: data.tags,
           };
           console.log(JSON.stringify(output, null, 2));
           console.log(',');
@@ -329,6 +335,43 @@ export function makeMigrationCommand() {
       console.log(signature);
     });
 
+  migration
+    .command('closeAll')
+    .addOption(
+      new commander.Option('--admin <admin>', 'Admin KeyPair (bs58 encoded)')
+        .argParser(val => createKeypairFromSecretKey(val))
+        .makeOptionMandatory(),
+    )
+    .action(async options => {
+      client = getClient({
+        kafePk: migration.optsWithGlobals().kafePk,
+        network: migration.optsWithGlobals().network,
+        payer: options.admin,
+      });
+      const proposalIds = (
+        await client.getProposals([filterAccountByReadyToPublishState])
+      ).map(data => data.account.id.toNumber());
+      for (const id of proposalIds) {
+        try {
+          const signature = await client.closeTutorial({
+            id,
+            userPk: options.admin.publicKey,
+          });
+          console.log({
+            id,
+            signature,
+          });
+        } catch (error) {
+          console.error(`error: ${id}`);
+        }
+      }
+    });
+
+  migration.command('slug').action(async () => {
+    const slugs = inputSlug.sort();
+    console.log(JSON.stringify(slugs, null, 2));
+  });
+
   migration.command('display').action(async () => {
     const compareById = (a: any, b: any) => {
       if (a.id < b.id) {
@@ -368,6 +411,7 @@ export function makeMigrationCommand() {
       }
     }
     console.log(JSON.stringify(records.sort(compareById), null, 2));
+    // console.log(JSON.stringify(records.sort(compareById).length, null, 2));
   });
 
   return migration;
@@ -376,5 +420,6 @@ export function makeMigrationCommand() {
 // 5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2TzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN
 // CERAMIC_NODE_URL=https://ceramic-clay.3boxlabs.com builderdao  migration load --ceramicSeed '38 102 235 59 188 240 198 152 202 66 50 251 35 230 174 244 22 27 57 118 208 150
 //  116 52 179 170 86 165 172 87 205 140' --adminKp 5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2TzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN
+
 // builderdao migration list --id
 // builderdao migration close --id 102 --admin 5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2TzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN
