@@ -1,10 +1,10 @@
 import NextImage, { ImageProps } from 'next/image';
 import path from 'path';
 
-export const Image = ({ ...rest }: ImageProps) => {
-  if (rest.src.startsWith('./assets')) {
+export const Image = ({ ...rest }: ImageProps & { lock: any }) => {
+  if ((rest.src as string).startsWith('./assets')) {
     const contentData =
-      rest.lock.content[`${rest.src.replace('./', 'content/')}`];
+      rest?.lock.content[`${(rest.src as string).replace('./', 'content/')}`];
     const imageRelativePath = path.join(
       '/tutorials/',
       rest.lock.slug,
