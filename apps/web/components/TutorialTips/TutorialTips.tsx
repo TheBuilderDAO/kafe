@@ -11,6 +11,7 @@ import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import Loader from '@app/components/Loader/Loader';
+import UserAvatar from '../UserAvatar/UserAvatar';
 
 type TutorialTipsProps = {
   id: number;
@@ -31,17 +32,22 @@ const TutorialTips = (props: TutorialTipsProps) => {
 
   return (
     <div className="text-kafeblack dark:text-kafewhite w-full">
-      <h3 className="font-larken text-2xl">
-        {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
-      </h3>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-larken text-xl">
+          {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
+        </h3>
+        <small>view all</small>
+      </div>
       <ul>
         {tippers.map((tipperAccount, index) => (
           <li
-            className="py-4 dark:text-white"
+            className="py-4 dark:text-kafewhite text-xs text-kafeblack flex items-center justify-between"
             key={tipperAccount.account.pubkey.toString()}
           >
-            {index + 1}. {addEllipsis(tipperAccount.account.pubkey.toString())}{' '}
-            {tipperAccount.account.amount.toNumber() / LAMPORTS_PER_SOL}
+            <UserAvatar address={tipperAccount.account.pubkey.toString()} />
+            <p className="font-space-italic">
+              {tipperAccount.account.amount.toNumber() / LAMPORTS_PER_SOL} SOL
+            </p>
           </li>
         ))}
       </ul>

@@ -56,7 +56,7 @@ export const TutorialLayout: React.FC<Props> = ({
     <div className="flex justify-between">
       <SectionContainer>
         {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-        <article className="flex mt-24 dark:bg-kafeblack bg-kafewhite z-50 border border-1">
+        <article className="flex mt-24 dark:bg-kafeblack bg-kafewhite z-50 border border-1 border-kafeblack dark:border-kafewhite">
           <div className="px-10 py-4">
             <header>
               <div className="pb-5 space-y-1 text-center">
@@ -120,12 +120,18 @@ export const TutorialLayout: React.FC<Props> = ({
           </div>
         </article>
       </SectionContainer>
-      <RightSidebar>
-        <div className="p-10">
-          <TutorialTips id={tutorialId} />
-          <div className="mt-6">{/*<TableOfContent ids={ids} />*/}</div>
+      <div className="sticky">
+        <div>
+          <RightSidebar>
+            <div className="p-6">
+              <TutorialTips id={tutorialId} />
+            </div>
+          </RightSidebar>
+          <div>
+            <TableOfContent ids={ids} />
+          </div>
         </div>
-      </RightSidebar>
+      </div>
     </div>
   );
 };

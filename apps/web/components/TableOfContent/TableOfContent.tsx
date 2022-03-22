@@ -11,13 +11,11 @@ interface WrapperProps {
 }
 
 const Wrapper = styled('div')<WrapperProps>`
-  @media (max-width: 1100px) {
+  @media (max-width: 1250px) {
     left: 10px;
   }
-  position: fixed;
-  top: 266px;
-  display: flex;
-  right: 210px;
+  margin-top: 8px;
+  width: 280px;
 
   ${p =>
     !p.showTableOfContents
@@ -32,8 +30,7 @@ const Wrapper = styled('div')<WrapperProps>`
     @media (max-width: 1250px) {
       display: none;
     }
-
-    max-width: 300px;
+    width: 280px;
     display: flex;
     flex-direction: column;
 
@@ -138,13 +135,13 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
     <Wrapper showTableOfContents={shouldShowTableOfContent}>
       {/* <ProgressBar progress={readingProgress} /> */}
       {ids.length > 0 ? (
-        <ul>
+        <ul className="w-menu">
           <motion.p
-            initial="hide"
-            variants={variants}
-            animate="show"
-            transition={{ type: 'spring' }}
-            custom={shouldShowTableOfContent}
+            // initial="hide"
+            // variants={variants}
+            // animate="show"
+            // transition={{ type: 'spring' }}
+            // custom={shouldShowTableOfContent}
             className="font-larken text-xl p-2 pb-6"
           >
             Contents
@@ -152,17 +149,17 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
           {ids.map((item, index) => {
             return (
               <motion.li
-                initial="hide"
-                className={
-                  currentActiveIndex === index
-                    ? 'text-kafered dark:text-kafegold font-bold'
-                    : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
-                }
-                variants={variants}
-                animate="show"
-                transition={{ type: 'spring' }}
+                //   initial="hide"
+                //   className={
+                //     currentActiveIndex === index
+                //       ? 'text-kafered dark:text-kafegold font-bold'
+                //       : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
+                //   }
+                //   variants={variants}
+                //   animate="show"
+                //   transition={{ type: 'spring' }}
                 key={item.id}
-                custom={shouldShowTableOfContent}
+                //   custom={shouldShowTableOfContent}
               >
                 <a
                   href={`#${item.id}`}

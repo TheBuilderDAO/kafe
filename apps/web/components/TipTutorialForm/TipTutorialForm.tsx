@@ -59,7 +59,7 @@ const TipTutorialForm = (props: TipTutorialProps) => {
   return (
     <IsLoggedIn Placeholder={Placeholder}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+        {/* <input
           {...register('amount', {
             required: true,
             maxLength: 100,
@@ -67,12 +67,12 @@ const TipTutorialForm = (props: TipTutorialProps) => {
           className="p-0 pt-2 mb-16  focus:ring-0 font-larken text-2xl block w-full dark:bg-kafeblack bg-kafewhite border-none rounded-md text-kafeblack dark:text-kafewhite placeholder:text-[#474443]"
           type="text"
           placeholder="Amount (SOL)"
-        />
+        /> */}
 
         <button
           type="submit"
           disabled={submitting}
-          className="items-center px-6 py-4 w-full font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafegold border border-transparent rounded-3xl shadow-sm hover:bg-kafepurple dark:hover:bg-kafered sm:text-sm"
+          className="items-center px-6 py-4 w-full font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafewhite border border-transparent rounded-2xl shadow-sm hover:bg-kafewhite hover:border-kafeblack dark:hover:bg-kafeblack dark:hover:text-kafewhite sm:text-sm hover:text-kafeblack dark:hover:border-kafewhite"
         >
           {submitting ? 'Submitting...' : 'support'}
         </button>
