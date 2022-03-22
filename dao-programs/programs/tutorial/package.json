@@ -20,7 +20,7 @@
     "dev": "yarn build --watch",
     "lint": "TIMING=1 eslint ts-sdk --fix",
     "clean": "rm -rf node_modules && rm -rf dist",
-    "test:program": "jest --coverage --forceExit --detectOpenHandles --silent"
+    "test:program": "jest --coverage --forceExit --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
