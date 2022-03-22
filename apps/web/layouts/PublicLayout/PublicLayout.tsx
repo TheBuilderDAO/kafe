@@ -39,11 +39,11 @@ const PublicLayout = (props: PublicLayoutProps) => {
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
-          <div className="z-0 col-span-1">
+          <div className="col-span-1 z-10">
             <LeftSidebar />
           </div>
           <div className="col-span-11 lg:ml-8 ml-0 min-w-full">
-            <div className="sticky top-10">
+            <div className="sticky top-10 z-10">
               <Header />
             </div>
             <div className="ml-4">
