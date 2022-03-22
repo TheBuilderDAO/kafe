@@ -15,6 +15,6 @@ export default async function handler(
 
   res
     .status(200)
-    .setHeader('Content-Type', mime.lookup(path.join('/')))
+    .setHeader('Content-Type', mime.contentType(mime.lookup(path.join('/'))))
     .send(raw);
 }
