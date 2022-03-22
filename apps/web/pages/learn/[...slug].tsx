@@ -25,6 +25,15 @@ import {
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
   NODE_ENV,
 } from '@app/constants';
+import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
+
+const getFile = (slug, pathForFile) => {
+  if (NODE_ENV === 'production') {
+    return `/api/github/${slug}/${pathForFile}`;
+  } else {
+    return path.join('/tutorials/', slug, pathForFile);
+  }
+};
 
 const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -61,7 +70,7 @@ const TutorialPage: NextPage<
         prev={frontMatter.prev}
       >
         <MDXRemote
-          components={getMDXComponents({ lock, rootFolder })}
+          components={getMDXComponents({ lock, rootFolder, getFile })}
           {...mdxSource}
           scope={{ config, lock }}
         />
@@ -98,6 +107,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const { config, lock } = await getTutorialContentByPath({ rootFolder });
   const pathForFile = getPathForFile(slug[0], slug[1]);
   const relativePath = path.relative(rootFolder, pathForFile);
+
   const getPost = async (): Promise<{ content: string; data: any }> => {
     if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
       try {
@@ -114,8 +124,12 @@ export const getStaticProps: GetStaticProps = async context => {
           return getFileParse<PostType.TUTORIAL>(response.data);
         }
       } catch (err) {
-        return await getFileByPath<PostType.TUTORIAL>(pathForFile);
+        const file = await getFileFromGithub(slug[0], relativePath);
+        return getFileParse<PostType.TUTORIAL>(file);
       }
+    } else if (NODE_ENV === 'production') {
+      const file = await getFileFromGithub(slug[0], relativePath);
+      return getFileParse<PostType.TUTORIAL>(file);
     } else {
       return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
@@ -141,3 +155,6 @@ export const getStaticProps: GetStaticProps = async context => {
 };
 
 export default TutorialPage;
+
+// https://raw.githubusercontent.com/TheBuilderDAO/kafe/nk/md-formatter/tutorials/avalanche-create-a-local-test-network/content/index.mdx?token=GHSAT0AAAAAABOK2Q2R24VONMIVRUY3B2CEYSCW4AQ
+// https://raw.githubusercontent.com/TheBuilderDAO/kafe/nk/md-formatter/tutorials/avalanche-create-a-local-test-network/content/index.mdx?token=GHSAT0AAAAAABOK2Q2QNKE3ZMG5VVQMGLA2YSCWQWQ

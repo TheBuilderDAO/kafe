@@ -1,19 +1,18 @@
 import NextImage, { ImageProps } from 'next/image';
-import path from 'path';
 
-export const Image = ({ ...rest }: ImageProps & { lock: any }) => {
+// TODO: clean up this file.
+export const Image = ({ ...rest }: any) => {
   if ((rest.src as string).startsWith('./assets')) {
     const contentData =
       rest?.lock.content[`${(rest.src as string).replace('./', 'content/')}`];
-    const imageRelativePath = path.join(
-      '/tutorials/',
+    const src = rest.getFile(
       rest.lock.slug,
       contentData.path.replace('./', ''),
     );
     return (
       <NextImage
         {...rest}
-        src={imageRelativePath}
+        src={src}
         width="100%"
         height="100%"
         layout="responsive"
