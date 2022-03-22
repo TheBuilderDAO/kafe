@@ -7,7 +7,10 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as csv from 'fast-csv';
 import { CeramicApi } from '@builderdao/apis';
-import { ProposalStateE, filterAccountByReadyToPublishState } from '@builderdao-sdk/dao-program';
+import {
+  ProposalStateE,
+  filterAccountByReadyToPublishState,
+} from '@builderdao-sdk/dao-program';
 
 import inputData from '../../data/dump.json';
 import inputSlug from '../../data/slug.json';
@@ -115,9 +118,10 @@ export function makeMigrationCommand() {
     payer: migration.optsWithGlobals().payer,
   });
 
-  migration.command('run')
+  migration
+    .command('run')
     .option('--slug', 'slug of the proposal')
-    .action(async (options) => {
+    .action(async options => {
       fs.createReadStream(path.join(...CSV_PATH))
         .pipe(csv.parse({ headers: true }))
         .pipe(csv.format<CsvEntry, Entry>({ headers: true }))
@@ -146,10 +150,10 @@ export function makeMigrationCommand() {
           };
           if (options.slug) {
             console.log(JSON.stringify(data, null, 2));
-            console.log(",");
+            console.log(',');
           } else {
             console.log(JSON.stringify(data.slug, null, 2));
-            console.log(",");
+            console.log(',');
           }
           return next(null);
         })
@@ -243,47 +247,60 @@ export function makeMigrationCommand() {
       }
     });
 
-  migration.command('list')
-  .option('--id', 'sort by id of the proposal')
-  .action(async (options) => {
-    const parseProposalData = (data: any) => ({
+  migration
+    .command('list')
+    .option('--id', 'sort by id of the proposal')
+    .action(async options => {
+      const parseProposalData = (data: any) => ({
         id: data.account.id.toNumber(),
         slug: data.account.slug,
-      })
-     const compareBySlug = (a: any, b: any) => {
-        if ( a.slug < b.slug ){
+      });
+      const compareBySlug = (a: any, b: any) => {
+        if (a.slug < b.slug) {
           return -1;
         }
-        if ( a.slug > b.slug ){
+        if (a.slug > b.slug) {
           return 1;
         }
         return 0;
-      }
-    const compareById = (a: any, b: any) => {
-      if ( a.id < b.id ){
-        return -1;
-      }
-      if ( a.id > b.id ){
-        return 1;
-      }
-      return 0;
-    }
+      };
+      const compareById = (a: any, b: any) => {
+        if (a.id < b.id) {
+          return -1;
+        }
+        if (a.id > b.id) {
+          return 1;
+        }
+        return 0;
+      };
 
-    const rawProposals = await client.getProposals([
-      filterAccountByReadyToPublishState,
-    ]);
-    if (options.id) {
-      console.log(JSON.stringify(rawProposals.map(parseProposalData).sort(compareById), null, 2))
-    }  else {
-      console.log(JSON.stringify(rawProposals.map(parseProposalData).sort(compareBySlug), null, 2))
-    }
-    // Checking stuff
-    // const refSlug = Array.from(inputData).map(data => data.slug)
-    // const curSlug = rawProposals.map(data => data.account.slug)
-    // const diff = refSlug.filter(x => !curSlug.includes(x) );
-    // console.log(diff)
-    // console.log(rawProposals.length)
-  });
+      const rawProposals = await client.getProposals([
+        filterAccountByReadyToPublishState,
+      ]);
+      if (options.id) {
+        console.log(
+          JSON.stringify(
+            rawProposals.map(parseProposalData).sort(compareById),
+            null,
+            2,
+          ),
+        );
+      } else {
+        console.log(
+          JSON.stringify(
+            rawProposals.map(parseProposalData).sort(compareBySlug),
+            null,
+            2,
+          ),
+        );
+      }
+      // Checking stuff
+      // const refSlug = Array.from(inputData).map(data => data.slug)
+      // const curSlug = rawProposals.map(data => data.account.slug)
+      // const diff = refSlug.filter(x => !curSlug.includes(x) );
+      // console.log(diff)
+      // console.log(rawProposals.length)
+    });
 
   migration
     .command('close')
@@ -291,14 +308,10 @@ export function makeMigrationCommand() {
       new commander.Option(
         '--id <id>',
         'id of the proposal to close',
-      )
-      .makeOptionMandatory(),
+      ).makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option(
-        '--admin <admin>',
-        'Admin KeyPair (bs58 encoded)',
-      )
+      new commander.Option('--admin <admin>', 'Admin KeyPair (bs58 encoded)')
         .argParser(val => createKeypairFromSecretKey(val))
         .makeOptionMandatory(),
     )
@@ -308,51 +321,54 @@ export function makeMigrationCommand() {
         network: migration.optsWithGlobals().network,
         payer: options.admin,
       });
-      console.log(options.admin.publicKey.toString())
+      console.log(options.admin.publicKey.toString());
       const signature = await client.closeTutorial({
         id: options.id,
         userPk: options.admin.publicKey,
       });
-      console.log(signature)
+      console.log(signature);
     });
 
-    migration
-    .command('display')
-    .action(async () => {
-      const compareById = (a: any, b: any) => {
-        if ( a.id < b.id ){
-          return -1;
-        }
-        if ( a.id > b.id ){
-          return 1;
-        }
-        return 0;
+  migration.command('display').action(async () => {
+    const compareById = (a: any, b: any) => {
+      if (a.id < b.id) {
+        return -1;
       }
-      const records = [];
-      const slugs = Array.from(inputSlug)
-      const tutorials = Array.from(inputData)
-      const proposals = (
-          await client.getProposals([filterAccountByReadyToPublishState])
-        ).map((dt: any) => ({ 
-          id: dt.account.id.toNumber(),
-          slug: dt.account.slug, 
-          streamId: dt.account.streamId, 
-        }));
- 
-      for (const slug of slugs) {
-        const proposalHasSlug = proposals.map(x => x.slug).includes(slug) 
-        const tutorialHasSlug = tutorials.map(x => x.slug).includes(slug)
-        if (proposalHasSlug && tutorialHasSlug) {
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    };
+    const records = [];
+    const slugs = Array.from(inputSlug);
+    const tutorials = Array.from(inputData);
+    const proposals = (
+      await client.getProposals([filterAccountByReadyToPublishState])
+    ).map((dt: any) => ({
+      id: dt.account.id.toNumber(),
+      slug: dt.account.slug,
+      streamId: dt.account.streamId,
+      creator: dt.account.creator.toString(),
+      reviewer1: dt.account.reviewer1.toString(),
+      reviewer2: dt.account.reviewer2.toString(),
+      state: Object.keys(dt.account.state)[0],
+      date: dt.account.createdAt.toNumber(),
+    }));
+
+    for (const slug of slugs) {
+      const proposalHasSlug = proposals.map(x => x.slug).includes(slug);
+      const tutorialHasSlug = tutorials.map(x => x.slug).includes(slug);
+      if (proposalHasSlug && tutorialHasSlug) {
         records.push({
           ...tutorials.filter(x => x.slug === slug)[0],
-          ...proposals.filter(x=> x.slug === slug)[0]
-          })
-        } else {
-          console.error(slug)
-        }
+          ...proposals.filter(x => x.slug === slug)[0],
+        });
+      } else {
+        console.error(slug);
       }
-      console.log(JSON.stringify(records.sort(compareById), null, 2))
-    });
+    }
+    console.log(JSON.stringify(records.sort(compareById), null, 2));
+  });
 
   return migration;
 }
