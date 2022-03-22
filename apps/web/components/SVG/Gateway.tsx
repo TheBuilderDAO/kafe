@@ -1,4 +1,7 @@
+import { useTheme } from 'next-themes';
+import React from 'react';
 const Gateway = () => {
+  const { theme } = useTheme();
   return (
     <svg
       width="586"
@@ -77,8 +80,14 @@ const Gateway = () => {
           y2="794"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#1E1C1E" stopOpacity="0" />
-          <stop offset="0.96875" stopColor="#1E1C1E" />
+          <stop
+            stopColor={theme === 'dark' ? '#1E1C1E' : '#EAE4D9'}
+            stopOpacity="0"
+          />
+          <stop
+            offset="0.96875"
+            stopColor={theme === 'dark' ? '#1E1C1E' : '#EAE4D9'}
+          />
         </linearGradient>
         <image
           id="image0_793_1631"
