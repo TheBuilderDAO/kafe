@@ -7,7 +7,7 @@ import async from 'async';
 
 
 const download = async (url: string, destinationPath: string) => {
-  console.log('downlaod', url);
+  console.log('⬇️', url);
   const saveFile = await axios.get(url, {
     responseType: 'stream',
   });
@@ -45,7 +45,7 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
         filename = `${filename}.png`
       }
       const targetPath = path.join(options.destination, 'assets', filename)
-      console.log(node)
+      // TODO: utilize node.alt for meanfull filename
       downloadQueue.push({
         url: node.url,
         path: targetPath

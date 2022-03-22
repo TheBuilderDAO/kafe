@@ -95,11 +95,17 @@ getFiles(tutorials).then(async () => {
   let matching = 0
   let total = 0
   Object.entries(files).forEach(async ([key, value]) => {
-    console.log(key)
+    // console.log(key, value)
     total++
+    if (value.files.length > 1) {
+      console.log(value)
+    }
     if (tutorialDetailDB.chain.has(key).value()) {
       matching++
-      processQueue.push(value);
+      // if (value.files.length > 1) {
+      //   console.log(value.files.length, 'files')
+      //   processQueue.push(value);
+      // }
     }
   })
   console.log({ matching, total })
