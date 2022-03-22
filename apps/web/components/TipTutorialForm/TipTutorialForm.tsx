@@ -7,7 +7,6 @@ import InputTitle from '@app/components/FormElements/InputTitle';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { useDapp } from '../../hooks/useDapp';
 import { useTipTutorial } from '../../hooks/useTipTutorial';
-import AccountBalance from '@app/components/AccountBalance/AccountBalance';
 
 type FormData = {
   amount: number;
@@ -60,9 +59,6 @@ const TipTutorialForm = (props: TipTutorialProps) => {
   return (
     <IsLoggedIn Placeholder={Placeholder}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="dark:text-white py-5">
-          Balance: <AccountBalance />
-        </div>
         <input
           {...register('amount', {
             required: true,

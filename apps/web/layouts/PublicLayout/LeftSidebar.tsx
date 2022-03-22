@@ -2,6 +2,8 @@ import React from 'react';
 import Navigation from './Navigation';
 import DAOSVG from '@app/components/SVG/DAOSVG';
 import LogoSVG from '@app/components/SVG/LogoSVG';
+import Link from 'next/link';
+import routes from '../../routes';
 import {
   motion,
   useMotionTemplate,
@@ -19,16 +21,22 @@ const LeftSidebar = () => {
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
 
   return (
-    <div className="w-full sticky top-5 hidden lg:block">
-      <div className="z-0 mt-0">
-        <motion.div style={{ width: headingSizePx }}>
-          <LogoSVG />
-        </motion.div>
+    <div className="w-full sticky top-5">
+      <div>
+        <Link key="learn" href={routes.learn.index} passHref>
+          <div className="z-0 mt-0 cursor-pointer">
+            <motion.div style={{ width: headingSizePx }}>
+              <LogoSVG />
+            </motion.div>
+          </div>
+        </Link>
+        <Navigation />
       </div>
-      <Navigation />
-      <a className="fixed bottom-4 left-10" href="#">
-        <DAOSVG />
-      </a>
+      <div className="cursor-pointer mt-96">
+        <Link key="learn" href="https://twitter.com/thebuilderdao" passHref>
+          <DAOSVG />
+        </Link>
+      </div>
     </div>
   );
 };

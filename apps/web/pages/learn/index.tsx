@@ -6,7 +6,7 @@ import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
 import {
-  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  // NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
@@ -15,6 +15,8 @@ import { ProposalStateE } from '@builderdao-sdk/dao-program';
 import GuideHit from '@app/components/Search/GuideHit';
 import Pagination from '@app/components/Search/Pagination';
 import GuideFilter from '@app/components/Search/GuideFilter';
+
+const NEXT_PUBLIC_ALGOLIA_APP_ID = 'BUCGOMYP6K';
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID as string,

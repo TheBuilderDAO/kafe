@@ -30,9 +30,9 @@ const TutorialTips = (props: TutorialTipsProps) => {
   }
 
   return (
-    <div className="text-black">
-      <h3 className="dark:text-white">
-        Supporters <small>{tippers.length} supporters</small>
+    <div className="text-kafeblack dark:text-kafewhite w-full">
+      <h3 className="font-larken text-2xl">
+        {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
       </h3>
       <ul>
         {tippers.map((tipperAccount, index) => (
@@ -48,7 +48,6 @@ const TutorialTips = (props: TutorialTipsProps) => {
 
       <IsLoggedIn>
         <div className="mt-6">
-          <p className="dark:text-white">Support Project</p>
           <TipTutorialForm id={id} />
         </div>
       </IsLoggedIn>

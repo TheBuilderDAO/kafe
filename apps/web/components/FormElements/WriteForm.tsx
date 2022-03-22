@@ -11,7 +11,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
 
   return (
-    <div className="mb-6 text-kafeblack dark:text-kafewhite z-10 relative min-h-72 lg:max-w-3xl max-w-screen">
+    <div className="mb-6 mt-10 text-kafeblack dark:text-kafewhite z-10 relative min-h-72 lg:max-w-3xl max-w-screen">
       <BorderSVG />
       <div className="p-10">
         <div className="mb-5">
