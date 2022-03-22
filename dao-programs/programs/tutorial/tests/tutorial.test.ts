@@ -12,8 +12,6 @@ import {
   reviewerAccountByReviewerPK as getReviewerAccount,
   userVoteAccountById as getUserVoteAccountById,
   listOfVoterById as getListOfVoterById,
-  tipperAccountList as getTipperAccountList,
-  tipperAccountListByUser as getTipperAccountListByUser,
   tipperAccountsListById as getTipperAccountsListById,
 } from '../ts-sdk/lib/fetchers';
 
@@ -309,6 +307,28 @@ describe('tutorial-program', () => {
       githubName: githubName1,
       signer: auth1,
     });
+  });
+
+  test('Reviewer: Creator cannot be a reviewer', async () => {
+    await reviewerCreate({
+      program: program,
+      mintPk: mint.publicKey,
+      adminPk: auth1.publicKey,
+      reviewerPk: user1.publicKey,
+      githubName: 'user1',
+      signer: auth1,
+    });
+    await expect(
+      reviewerAssign({
+        program: program,
+        mintPk: mint.publicKey,
+        adminPk: auth1.publicKey,
+        reviewer1Pk: user1.publicKey,
+        reviewer2Pk: reviewer2.publicKey,
+        tutorialId: 0,
+        signer: auth1,
+      }),
+    ).rejects.toThrow();
   });
 
   test('Assign reviewers', async () => {
