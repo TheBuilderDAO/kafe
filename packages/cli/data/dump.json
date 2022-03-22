@@ -1,0 +1,1310 @@
+[
+  {
+    "slug": "create-a-donation-dapp-on-polygon",
+    "title": "Create a donation dApp on Polygon",
+    "description": "Learn how to create a donation dApp on Polygon to award your favorite content creator with MATIC tokens",
+    "tags": ["Polygon", "JS/TS", "Solidity", "Javascript", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-poe-decentralized-app",
+    "title": "Build a PoE Decentralized App",
+    "description": "Learn to create a custom \"Proof of Existence\" dApp using the Substrate blockchain development framework and FRAME runtime libraries",
+    "tags": ["Polkadot", "JS/TS", "Rust", "React", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "explaining-solana-for-beginners",
+    "title": "Solana's Innovations - a jargon-free explanation",
+    "description": "Learn about Solana with easy language aimed at beginners",
+    "tags": ["Solana"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "substrate-kitties-dispatchables-and-events",
+    "title": "Substrate Kitties - Dispatchables & Events",
+    "description": "Learn how to use storage with your Substrate Pallet",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transferring-tokens-with-polygon-pos-bridge",
+    "title": "Transferring tokens with the Polygon PoS bridge",
+    "description": "Learn how to move tokens between Polygon and Ethereum using the Proof of Stake bridge.",
+    "tags": ["Polygon", "JS/TS", "Smart contracts", "Javascript", "Metamask"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "querying-the-terra-blockchain",
+    "title": "Querying the Terra blockchain",
+    "description": "Learn how to pull information from the Terra Blockchain using DataHub",
+    "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-lending-marketplace-dapp-on-polygon",
+    "title": "Create a Lending Marketplace dApp on Polygon",
+    "description": "Make your own lending marketplace on Polygon",
+    "tags": [
+      "Polygon",
+      "JS/TS",
+      "Solidity",
+      "Smart contracts",
+      "Solidity",
+      "Typescript"
+    ],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "celo-ubeswap-tutorial",
+    "title": "How to use Ubeswap DEX on Celo",
+    "description": "This tutorial is a part of DeFi series where people can learn how to participate in DeFi on the Celo Blockchain.",
+    "tags": ["Celo"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "mint-your-own-fungible-token-on-tezos",
+    "title": "Mint your own Fungible Token",
+    "description": "Learn how to create your own fungible tokens on Tezos using SmartPy",
+    "tags": ["Tezos", "Python", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "solana-token-streaming-protocol",
+    "title": "Build a token streaming protocol",
+    "description": "Learn how to make your own token streaming protocol on Solana",
+    "tags": ["Solana", "Rust", "NodeJS", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-an-auction-with-bidding-on-avalanche-using-react",
+    "title": "Create an Auction with Bidding on Avalanche using ReactJS",
+    "description": "Learn how to make an Auction smart contract on Avalanche",
+    "tags": ["Avalanche", "Solidity", "React", "Truffle", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "the-journey-of-a-subgraph-query",
+    "title": "The Journey of a Subgraph Query",
+    "description": "Learn about how subgraph queries are performed and how they travel through the Graph Protocol",
+    "tags": [
+      "The Graph",
+      "GraphQL",
+      "Smart contracts",
+      "GraphQL",
+      "Javascript"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-fullstack-mail-dapp-on-solana",
+    "title": "Create a fullstack mail dApp on Solana",
+    "description": "Learn how to build a decentralized mail app on Solana using Rust and React",
+    "tags": ["Solana", "Rust", "React", "Rust"],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "moola-market",
+    "title": "How to use Moola’s money market",
+    "description": "This tutorial is a part of DeFi series where people can learn how to participate in DeFi on the Celo Blockchain.",
+    "tags": ["Celo"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "sol-mint-token",
+    "title": "Create a token on Solana",
+    "description": "Create a token on the Solana blockchain with no coding needed",
+    "tags": ["Solana", "Rust", "Rust", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "substrate-kitties-interacting-functions",
+    "title": "Substrate Kitties - Interacting with your Kitties",
+    "description": "Learn how to add interactivity to your Substrate Kitties",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "query-ethereum-data-with-the-graph",
+    "title": "Query Ethereum data with The Graph",
+    "description": "Learn how to create a subgraph from a deployed smart contract on Ethereum",
+    "tags": ["The Graph", "GraphQL", "GraphQL"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "chakra-ui-with-solana-dapps",
+    "title": "Making a front-end for your Solana dApp with Chakra UI",
+    "description": "Create beautiful front-ends for Solana dApps using the Chakra UI library",
+    "tags": ["Solana", "JS/TS", "Rust", "Javascript", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "explaining-polygon-and-blockchains",
+    "title": "Explaining Polygon and Blockchains",
+    "description": "Learning about Polygon with Pizza is fun",
+    "tags": ["Polygon"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-nft-smart-contract-with-hardhat",
+    "title": "Create an NFT smart contract with HardHat",
+    "description": "Learn how to create your own NFT smart contract using HardHat",
+    "tags": ["Polygon", "JS/TS", "Solidity", "Solidity", "Hardhat"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-an-nft-marketplace-on-tezos",
+    "title": "Create an NFT marketplace on Tezos",
+    "description": "Learn how to create your own NFT marketplace on Tezos",
+    "tags": ["Tezos", "Python", "Smart contracts", "IPFS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "substrate-kitties-create-kitties",
+    "title": "Substrate Kitties - Create Kitties",
+    "description": "Learn how to add uniqueness to your Substrate Kitties",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-a-subgraph-with-hardhat",
+    "title": "Deploy a subgraph with HardHat",
+    "description": "Learn how to deploy a subgraph for a smart contract using HardHat.",
+    "tags": ["The Graph", "GraphQL", "Solidity", "GraphQL", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-chat-application-using-solidity-and-react",
+    "title": "Create a chat dApp on Avalanche using Solidity and ReactJS",
+    "description": "Learn how to deploy a distributed chat application on Avalanche using Solidity and the React framework",
+    "tags": [
+      "Avalanche",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "NodeJS",
+      "Solidity",
+      "Remix"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-mint-transfer-nft",
+    "title": "Create, Mint and Transfer NFTs with the Avalanche Wallet",
+    "description": "Learn how to create, mint, and transfer NFTs on Avalanche.",
+    "tags": ["Avalanche", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-subgraphs-for-multiple-smart-contracts",
+    "title": "Creating subgraphs for multiple smart contracts",
+    "description": "Learn how to build a subgraph for a complex dApp that uses multiple smart contracts, like Uniswap",
+    "tags": [
+      "The Graph",
+      "AssemblyScript",
+      "GraphQL",
+      "AssemblyScript",
+      "GraphQL"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-pangolin-to-local-testnet",
+    "title": "Deploy Pangolin and a token pair to a local testnet ",
+    "description": "Learn about token pairs and the Pangolin Decentralized Exchange",
+    "tags": [
+      "Avalanche",
+      "Solidity",
+      "Smart contracts",
+      "Javascript",
+      "Solidity"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "using-hardhat-with-the-avalanche-c-chain",
+    "title": "Using Hardhat with the Avalanche C-Chain",
+    "description": "Learn how to use Hardhat with the Avalanche C-Chain",
+    "tags": [
+      "Avalanche",
+      "Go",
+      "JS/TS",
+      "Solidity",
+      "NodeJS",
+      "Smart contracts",
+      "Avash",
+      "Waffle",
+      "Hardhat"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-polymarket-clone-on-polygon",
+    "title": "How to create a Polymarket clone on Polygon",
+    "description": "Learn how to make your own Polymarket clone",
+    "tags": ["Polygon", "JS/TS", "Truffle", "IPFS", "Typescript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "making-evoting-dapp-on-avalanche-c-chain-using-truffle",
+    "title": "Make an e-Voting dApp on Avalanche Fuji testnet",
+    "description": "Learn how to use Truffle with the Avalanche C-Chain",
+    "tags": [
+      "Avalanche",
+      "JS/TS",
+      "Solidity",
+      "NodeJS",
+      "Truffle",
+      "Solidity",
+      "Metamask"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-new-virtual-machine",
+    "title": "Create a New Virtual Machine",
+    "description": "Learn how to create a new virtual machine on Avalanche",
+    "tags": ["Avalanche", "Go", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "implement-social-recovery-on-polkadot",
+    "title": "Implement Social Recovery on Polkadot",
+    "description": "In this tutorial we will cover how to set up and utilize social recovery for a Polkadot proxy account",
+    "tags": ["Polkadot", "JS/TS", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "advanced-evoting-avalanche-reactjs",
+    "title": "Create a Voting dApp on Avalanche using ReactJS",
+    "description": "Learn how to create an Avalanche based dApp with a ReactJS frontend",
+    "tags": [
+      "Avalanche",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "NodeJS",
+      "Truffle",
+      "Solidity"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-vault-smart-contract",
+    "title": "Create Vault Smart Contract",
+    "description": "Learn how to create, deploy, and interact with Vault Smart Contract on the Celo Ecosystem",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "NodeJS",
+      "Smart contracts",
+      "Truffle"
+    ],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
+    "title": "Using the SmartPy IDE to write and deploy smart contracts on Tezos",
+    "description": "Learn how to write, deploy & interact with a smart contract on Tezos, using SmartPy.",
+    "tags": ["Tezos", "Python", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-todo-dapp-with-flutter",
+    "title": "Create a To-Do dApp with Flutter",
+    "description": "Learn how to create a universal To-Do dApp with the Flutter framework and deploy it on Polygon.",
+    "tags": ["Polygon", "JS/TS", "Solidity", "Truffle", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "write-a-pallet-in-its-own-crate",
+    "title": "Write a Pallet in its Own Crate",
+    "description": "Learn how to write a Substrate pallet that lives in its own crate, and include it in a node based on the substrate-node-template",
+    "tags": ["Polkadot", "Rust", "AssemblyScript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-your-first-substrate-chain",
+    "title": "Create Your First Substrate Chain",
+    "description": "Learn how to compile and launch the Substrate Developer Hub Node Template and interact with it using the Substrate Developer Hub Front-End Template.",
+    "tags": ["Polkadot", "JS/TS", "Rust", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "peer-to-peer-payment-on-polygon-part-1",
+    "title": "Create a Peer to Peer payment dApp, Part 1",
+    "description": "Part one of a two-part tutorial that explains how to create a P2P payment dApp on Polygon",
+    "tags": ["Polygon", "JS/TS", "Javascript", "Metamask", "Next.js"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "add-viewing-keys-to-secret-contract",
+    "title": "Adding viewing keys to a secret contract",
+    "description": "Add Viewing Key code to the reminder secret contract that we built in the \"Developing your first secret contract\" tutorial.",
+    "tags": ["Secret", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "distributed-file-manager-using-ipfs-celo-reactjs",
+    "title": "Distributed File Manager (DFM) using Celo, IPFS and ReactJS",
+    "description": "Learn how to make a Distributed File Manager using the IPFS protocol for storing files on the Celo network",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "NodeJS",
+      "Smart contracts",
+      "Truffle",
+      "Solidity",
+      "IPFS"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-social-media-dapp-and-deploy-it-on-polygon",
+    "title": "Build a Social Media dApp & Deploy it on Polygon",
+    "description": "Learn how to build a Social Media dApp like YouTube & how to deploy it on the Polygon mumbai testnet",
+    "tags": [
+      "Polygon",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "Smart contracts",
+      "Solidity",
+      "IPFS"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "peer-to-peer-payment-on-polygon-part-2",
+    "title": "Create a Peer to Peer payment dApp, Part 2",
+    "description": "Part two of a two-part tutorial that explains how to create a P2P payment dApp on Polygon",
+    "tags": ["Polygon", "JS/TS", "Javascript", "Next.js"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "pay-to-play-gaming-on-solana",
+    "title": "Build a pay-to-play gaming platform on Solana",
+    "description": "Discover how to make your own pay-to-play game platform on Solana",
+    "tags": ["Solana", "JS/TS", "Javascript", "IPFS", "Arweave"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-dex-on-tezos",
+    "title": "Create a DEX on Tezos",
+    "description": "Learn how to make your own Decentralized Exchange",
+    "tags": ["Tezos", "Python", "React", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-a-variable-cap-asset",
+    "title": "Creating A Variable-Cap Asset",
+    "description": "Learn how to create a variable-cap asset on Avalanche",
+    "tags": ["Avalanche", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploying-and-debugging-smart-contracts-on-polygon",
+    "title": "Deploying and Debugging Smart Contracts on Polygon",
+    "description": "Learn how to deploy smart contracts to the Polygon Mumbai testnet and how to debug them",
+    "tags": ["Polygon", "Solidity", "Smart contracts", "Truffle", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp",
+    "title": "How to successfully connect to a Celo Wallet with a React Native DApp",
+    "description": "Learn how to successfully set up a Celo Wallet with a React Native DApp using Redux",
+    "tags": ["Celo", "JS/TS", "React Native", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-decentralized-exchange-on-avalanche",
+    "title": "Create a Decentralized Exchange (DEX) on Avalanche",
+    "description": "Learn how to create a decentralized exchange on Avalanche.",
+    "tags": [
+      "Avalanche",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "Smart contracts",
+      "Solidity"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-a-subgraph-for-polygon",
+    "title": "Deploy a subgraph for a Polygon smart contract",
+    "description": "Learn how to deploy a Solidity smart contract to Polygon Mumbai testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio",
+    "tags": [
+      "The Graph",
+      "JS/TS",
+      "Solidity",
+      "Javascript",
+      "Solidity",
+      "Hardhat"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "funding-dao-polygon",
+    "title": "Build a Funding DAO on Polygon",
+    "description": "Create a Funding DAO, where people can use MATIC tokens to become either a Member or Stakeholder in the DAO and fund proposals they vote on.",
+    "tags": [
+      "Polygon",
+      "JS/TS",
+      "Truffle",
+      "Solidity",
+      "Arweave",
+      "Typescript"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-scavenger-game",
+    "title": "Build a scavenger game",
+    "description": "Learn how to build a scavenger game using the Cosmos SDK",
+    "tags": ["Cosmos", "Go", "CLI"],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "mint-nfts-on-tezos",
+    "title": "Mint NFTs on Tezos ",
+    "description": "Learn how to mint NFTs on Tezos using SmartPy & BetterCall.dev",
+    "tags": ["Tezos", "Python", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-hardhat-deploy-and-nft-app",
+    "title": "How to create a ERC1155 NFT in Celo Network with Hardhat",
+    "description": "Learn how to write a smart contract using the Solidity language and a contract from the Openzeppelin library for ERC1155 tokens",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "React",
+      "NodeJS",
+      "Smart contracts",
+      "Javascript",
+      "Hardhat"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-subgraphs",
+    "title": "Create subgraphs for Celo smart contracts",
+    "description": "Learn how to integrate The Graph with CELO",
+    "tags": [
+      "Celo",
+      "GraphQL",
+      "Solidity",
+      "NodeJS",
+      "Smart contracts",
+      "Truffle",
+      "Solidity"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-polkadot-amm-using-ink",
+    "title": "Build an AMM on Polkadot using Ink!",
+    "description": "Learn how to build an Automated Market Maker on Polkadot using the ink! eDSL",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-dao-on-celo",
+    "title": "Build a Decentralized Autonomous Organization (DAO) on Celo",
+    "description": "Build a functioning DAO by writing the Solidity smart contract and building a React Native dApp",
+    "tags": ["Celo", "JS/TS", "Solidity", "React Native", "NodeJS", "Truffle"],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "create-a-simple-blog-dapp-on-solana",
+    "title": "Create a simple blog dApp on Solana",
+    "description": "Learn how to create a simple blog dApp on Solana using Rust and React",
+    "tags": ["Solana", "JS/TS", "Rust", "React", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "introduction-to-dappkit",
+    "title": "Introduction to dApp kit",
+    "description": "In this tutorial we are going to make counter dapp with expo (react native)",
+    "tags": ["Celo", "JS/TS", "React Native", "NodeJS", "Truffle"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "write-and-deploy-a-smart-contract-on-near",
+    "title": "How to write and deploy a smart contract in Rust",
+    "description": "In this tutorial, we are going to write and test a smart contract using Rust",
+    "tags": [
+      "Near",
+      "Rust",
+      "NodeJS",
+      "Smart contracts",
+      "AssemblyScript",
+      "CLI"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "uniswap-latest-pair",
+    "title": "Scan the latest pairs added on UniswapV3 using TheGraph",
+    "description": "Scan the latest pairs added on UniswapV3 using TheGraph in Google Sheets",
+    "tags": ["The Graph", "JS/TS", "GraphQL", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-your-own-secret-nft",
+    "title": "Deploy your own secret NFT",
+    "description": "This is the second part of a series about using snip721 tokens on the Secret network.",
+    "tags": ["Secret", "JS/TS", "Rust", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-account-storage",
+    "title": "Show me the Code: STAKE Account Storage NEP-145 Rust Implementation",
+    "description": "STAKE Account Storage NEP-145 Rust Implementation",
+    "tags": ["Near", "Rust", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "polkadot-blockchain-terms",
+    "title": "Polkadot Blockchain Terms",
+    "description": "Learn the basics of Polkadot blockchain",
+    "tags": ["Polkadot"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "near-cross-contract-calls",
+    "title": "Near cross-contract calls",
+    "description": "Learn how to write smart contracts that talk to each other",
+    "tags": [
+      "Near",
+      "JS/TS",
+      "Rust",
+      "NodeJS",
+      "Smart contracts",
+      "Javascript"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-contract-from-ethereum",
+    "title": "How to customize an Ethereum smart contract for the Celo network",
+    "description": "Learn how to convert & customize an existing Ethereum Smart Contract for Celo network",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "NodeJS",
+      "Smart contracts",
+      "Truffle"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "how-to-run-a-celo-full-node-in-a-virtual-machine",
+    "title": "Run a Celo full node in a Virtual Machine",
+    "description": "Learn how to setup & run a Celo full node in a Virtual Machine",
+    "tags": ["Celo", "JS/TS", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-testing-truffle",
+    "title": "Testing Celo Smart Contracts with Truffle",
+    "description": "We will learn how to use Truffle in order to test smart contracts on Celo",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "NodeJS",
+      "Smart contracts",
+      "Truffle",
+      "Javascript"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-nameservice-app",
+    "title": "Build a nameservice application",
+    "description": "Learn how to build a nameservice application with the Cosmos SDK",
+    "tags": ["Cosmos", "Go", "CLI"],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "local-avalanche-network-using-avash",
+    "title": "Setting up a local Avalanche network using Avash",
+    "description": "Learn how to setup and run a local Avalanche network using Avash",
+    "tags": ["Avalanche", "Go", "JS/TS", "Javascript", "CLI", "Avash"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-for-remix",
+    "title": "Deploy Celo Smart contracts with Remix IDE",
+    "description": "Learn how to use Remix IDE for deploying Celo smart contracts",
+    "tags": [
+      "Celo",
+      "Solidity",
+      "Smart contracts",
+      "Solidity",
+      "Metamask",
+      "Remix"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "redeploy-ethereum-dapps-on-celo",
+    "title": "How to re-deploy your Ethereum DApp to Celo",
+    "description": "Learn how to re-deploy Ethereum Dapps on the Celo network",
+    "tags": ["Celo", "JS/TS", "Truffle", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "parachain-lifecycle",
+    "title": "Parachain Lifecycle",
+    "description": "This guide will focus on the lifecycle of Polkadot's parachains, an integral part of the Polkadot ecosystem.",
+    "tags": ["Polkadot"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-local-test-network",
+    "title": "Create a Local Test Network",
+    "description": "Learn how to create a local test network on Avalanche",
+    "tags": ["Avalanche", "Go", "CLI", "Avash"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-pangolin-to-your-local-testnet-and-create-token-pair",
+    "title": "Deploy Pangolin To Your Local Testnet And Create Token Pair",
+    "description": "We will learn how to deploy Pangolin, a DEX which lives on C-Chain, to your local Avalanche testnet.",
+    "tags": ["Avalanche", "Go", "JS/TS", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transfer-avax-between-the-x-chain-and-c-chain",
+    "title": "Transfer AVAX Between the X-Chain and C-Chain",
+    "description": "Learn how to transfer AVAX between chains",
+    "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-new-blockchain",
+    "title": "Create a New Blockchain",
+    "description": "Learn how to create a new Blockchain on Avalanche",
+    "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-a-fixed-cap-asset",
+    "title": "Creating A Fixed-Cap Asset",
+    "description": "Learn how to create a fixed-cap asset on Avalanche",
+    "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploying-smart-contracts-on-celo-with-truffle",
+    "title": "Deploying smart contracts on Celo with Truffle",
+    "description": "We will learn how to use Truffle and ContractKit to deploy smart contracts to Celo.",
+    "tags": ["Celo", "JS/TS", "NodeJS", "Smart contracts", "Truffle"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "using-truffle-with-the-avalanche-c-chain",
+    "title": "Using Truffle with the Avalanche C-Chain",
+    "description": "Learn how to use Truffle with the C-Chain",
+    "tags": ["Avalanche", "JS/TS", "NodeJS", "Truffle", "Avash"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "query-nft-data-with-subgraphs",
+    "title": "Query NFT Data with OpenZeppelin Subgraphs",
+    "description": "Learn how to create, deploy and use a subgraph for an ERC-721 smart contract on Ethereum mainnet",
+    "tags": ["The Graph", "GraphQL", "Smart contracts", "GraphQL"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-transaction-search-widget",
+    "title": "Create a transaction search widget",
+    "description": "Learn how to create a simple transaction search widget using Figment's Transaction Search API and DataHub",
+    "tags": ["Cosmos", "JS/TS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-your-first-secret-nft",
+    "title": "Create your first secret NFT",
+    "description": "This is the first part of a series about using snip721 tokens on the Secret network.",
+    "tags": ["Secret", "JS/TS", "NodeJS", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
+    "title": "Build unique generative NFTs on Solana with Candy Machine v2 and Hashlips Engine",
+    "description": "Learn how to create a collection of unique NFTs on Solana",
+    "tags": ["Solana", "JS/TS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-erc20-token-on-remix",
+    "title": "How to mint your own fungible token on Celo",
+    "description": "How to create fungible tokens on Celo using the Remix IDE",
+    "tags": ["Celo", "Solidity", "Solidity", "Metamask", "Remix"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "connect-datahub-to-metamask",
+    "title": "Connect DataHub to Metamask",
+    "description": "Learn how to leverage Avalanche DataHub for Metamask transactions",
+    "tags": ["Avalanche"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "make-a-solana-explorer-clone-using-react",
+    "title": "Make a Solana Explorer clone using React",
+    "description": "Learn how to build a clone of the Solana Explorer to display information about blocks and transactions using React",
+    "tags": ["Solana", "JS/TS", "React", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "delegate-and-unbond-tokens",
+    "title": "Delegate to a Validator & Unbond Tokens",
+    "description": "Learn how to delegate and unbond tokens on Secret Network",
+    "tags": ["Secret", "JS/TS", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-blog-dapp-using-anchor",
+    "title": "Build a blog dApp using the Anchor framework",
+    "description": "Learn how to create and deploy a blogging dApp on Solana using the Anchor framework",
+    "tags": ["Solana", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "avalanche-on-chain-nft-game",
+    "title": "How to create an on-chain NFT game",
+    "description": "Discover how to create your own NFT game using Avalanche",
+    "tags": ["Avalanche"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-subnet",
+    "title": "Create a Subnet",
+    "description": "Learn how to create a Subnet on Avalanche",
+    "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transfer-avax-between-the-x-chain-and-p-chain",
+    "title": "Transfer AVAX between the X-Chain and P-Chain",
+    "description": "Learn how to transfer AVAX between chains",
+    "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-an-nft-part-1",
+    "title": "Creating An NFT - Part 1",
+    "description": "Learn how to create an NFT on Avalanche",
+    "tags": ["Avalanche", "Go", "JS/TS", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "how-to-build-custom-pallets-with-substrate",
+    "title": "How to build Custom Pallets with Substrate",
+    "description": "Learn how to build a custom pallet using the Substrate development framework",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "add-a-pallet-to-your-runtime",
+    "title": "Add A Pallet To Your Runtime",
+    "description": "Learn how to add a pallet to your runtime",
+    "tags": ["Polkadot", "Rust", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-nfts-with-the-avalanche-wallet",
+    "title": "Create NFTs with the Avalanche Wallet",
+    "description": "Learn how to create NFTs with the Avalanche Wallet",
+    "tags": ["Avalanche", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-blogging-dapp-on-polygon",
+    "title": "Create a blogging dApp on Polygon",
+    "description": "Learn how to create and deploy a blogging dApp on Polygon",
+    "tags": ["Polygon", "JS/TS", "Solidity", "Javascript", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "hello-contracts",
+    "title": "Deploy and Interact with Contracts (Remotely)",
+    "description": "Learn how to deploy your own smart contracts on the Celo network",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "NodeJS",
+      "Smart contracts",
+      "Truffle"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "integrating-transaction-search-in-your-terra-wallet",
+    "title": "Create a transaction search widget",
+    "description": "Learn how to create a simple transaction search widget using Figment's Transaction Search API and DataHub",
+    "tags": ["Terra", "JS/TS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "launch-a-full-stack-dapp-on-polygon",
+    "title": "Build a decentralized AirBnB on Polygon (Matic)",
+    "description": "Learn to build a full-stack dApp deployed on Polygon (Matic) with Proof of Stake Security.",
+    "tags": [
+      "Polygon",
+      "JS/TS",
+      "Solidity",
+      "NodeJS",
+      "Smart contracts",
+      "Solidity",
+      "Remix"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "hello-mobile-dapp",
+    "title": "Hello Mobile DApp",
+    "description": "Learn how to create a simple mobile DApp using dAppKit and the React Native Expo framework",
+    "tags": ["Celo", "Solidity", "NodeJS", "Smart contracts", "Truffle", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-a-smart-contract-on-avalanche-using-remix-and-metamask",
+    "title": "Deploy a Smart Contract on Avalanche using Remix and MetaMask",
+    "description": "Learn how to deploy and test a smart contract on Avalanche using Remix and MetaMask",
+    "tags": ["Avalanche", "Solidity", "Solidity", "Metamask", "Remix"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "send-celo-and-cusd",
+    "title": "Send CELO & cUSD",
+    "description": "Learn how to connect to the Celo test network and transfer tokens using ContractKit",
+    "tags": ["Celo", "JS/TS", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transfer-erc20-tokens-between-polygon-and-ethereum",
+    "title": "Transfer ERC-20 tokens between Polygon & Ethereum",
+    "description": "Learn how to bridge ERC-20 tokens between networks using the Polygon Proof of Stake bridge and SDK",
+    "tags": ["Polygon", "JS/TS", "NodeJS", "Javascript", "Metamask"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-blog-module",
+    "title": "Create a blog module using Cosmos SDK",
+    "description": "Learn how to create a simple blog app using the Cosmos SDK",
+    "tags": ["Cosmos", "Go", "JS/TS", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "add-the-contracts-pallets-to-a-runtime",
+    "title": "Add the Contracts Pallets to a Runtime",
+    "description": "Learn how to add a contract pallet to a runtime",
+    "tags": ["Polkadot", "Rust", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-polling-app",
+    "title": "Build a polling app",
+    "description": "Learn how to build a polling app using the Cosmos SDK",
+    "tags": ["Cosmos", "Go", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "how-to-experiment-with-election-phragmen-pallet",
+    "title": "How to experiment with Election Phragmen pallet",
+    "description": "Learn how to make use of the Election Phragmen pallet",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-a-secret-contract-from-scratch",
+    "title": "Developing your first secret contract",
+    "description": "Learn the basics of creating a new secret contract from scratch.",
+    "tags": ["Secret", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-fungible-token-testing",
+    "title": "Test Now Or Forever Hold Your Peace",
+    "description": "Complete guide to unit testing your NEAR Rust smart contracts",
+    "tags": ["Near", "Rust", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "oracle-contracts",
+    "title": "Oracle Contracts",
+    "description": "Learn how to get started with Oracle Contracts on Tezos",
+    "tags": ["Tezos", "Python", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-pool-contract",
+    "title": "It's Time to Put a STAKE Pool in the Ground!",
+    "description": "OysterPack SMART STAKE Pool Contract - NEAR Staking Game Changer",
+    "tags": ["Near", "Rust", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "submit-terra-transactions",
+    "title": "Submit your first transactions",
+    "description": "Learn how to write to the Terra blockchain using DataHub",
+    "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "interacting-with-terra-endpoints",
+    "title": "Connecting to a Terra node with DataHub",
+    "description": "Learn how to start using the Terra SDK with DataHub",
+    "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "unit-testing-in-solidity",
+    "title": "Unit Testing in Solidity",
+    "description": "How to write unit tests for Solidity smart contracts using Truffle's Assertions",
+    "tags": ["Avalanche", "Solidity", "Truffle", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "metamask-with-matic-js",
+    "title": "Using Metamask with Matic.js",
+    "description": "Learn how to transfer tokens between Ethereum and Polygon (Matic)",
+    "tags": ["Polygon", "JS/TS", "NodeJS", "Metamask"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-fungible-token",
+    "title": "The New and Improved Fungible Token Standard (NEP-141) Has Arrived",
+    "description": "Complete guide to NEAR's new fungible token standard",
+    "tags": ["Near", "JS/TS", "Rust", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-registry-dapp-on-near",
+    "title": "Build a Registry dApp on NEAR",
+    "description": "Learn how to build a complete registry dApp on NEAR and deploy it easily using Netlify",
+    "tags": ["Near", "AssemblyScript", "AssemblyScript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-token-vision",
+    "title": "It's Time to Put a STAKE in the Ground!",
+    "description": "STAKE Token Vision - NEAR Game Changer",
+    "tags": ["Near", "JS/TS", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-nfts",
+    "title": "Creating NFTs",
+    "description": "Learn how to create and interact a non-fungible token contract on Tezos",
+    "tags": ["Tezos", "JS/TS", "NodeJS", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-fungible-token-nep141",
+    "title": "You Can Have Your STAKE and Trade It Too",
+    "description": "STAKE Fungible Token NEP-141 Rust Implementation",
+    "tags": ["Near", "JS/TS", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-account-storage-nep-145",
+    "title": "Account Storage Standard (NEP-145)",
+    "description": "Complete guide to NEAR's new account storage standard",
+    "tags": ["Near", "JS/TS", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "token-contracts",
+    "title": "Token Contracts",
+    "description": "Learn how to deploy and interact with a digital asset on Tezos",
+    "tags": ["Tezos", "Python", "Smart contracts", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "deploy-a-subgraph-for-an-avalanche-smart-contract",
+    "title": "Deploy a subgraph for an Avalanche smart contract",
+    "description": "Learn how to deploy a Solidity smart contract to the Avalanche Fuji testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio",
+    "tags": ["The Graph", "GraphQL", "JS/TS", "GraphQL", "Hardhat"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "implement-multisig-accounts-on-polkadot",
+    "title": "Implement Multisig Accounts on Polkadot",
+    "description": "In this tutorial we will cover the process of creating a multisig - an account which shares authority for transactions across multiple addresses.",
+    "tags": ["Polkadot", "JS/TS", "NodeJS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-blockchain-skill-verification-system",
+    "title": "Create a blockchain-based Skill Verification system",
+    "description": "Learn how to implement your own skill verification system with a Polygon smart contract",
+    "tags": ["Polygon", "JS/TS", "Solidity", "React", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-pool-for-validators",
+    "title": "OysterPack SMART STAKE Pool API Guide for Validators",
+    "description": "OysterPack SMART STAKE Pool Contract API Guide - For Validators",
+    "tags": ["Near", "Rust", "Rust", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "nft-marketplace-in-assemblyscript",
+    "title": "Create an NFT marketplace",
+    "description": "Create smart contracts for a simple NFT Marketplace",
+    "tags": [
+      "Near",
+      "AssemblyScript",
+      "JS/TS",
+      "Rust",
+      "Smart contracts",
+      "AssemblyScript"
+    ],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "create-nft-with-royalties",
+    "title": "Create an NFT with royalties on Avalanche using Remix IDE",
+    "description": "Learn how to create an NFT with royalties on Avalanche.",
+    "tags": ["Avalanche", "Solidity", "Smart contracts", "Solidity", "Remix"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "write-nft-contracts-in-rust",
+    "title": "Write an NFT contract & mint your NFT",
+    "description": "Learn how to create and interact with NFTs on NEAR",
+    "tags": ["Near", "Rust", "Smart contracts", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-a-solana-nft-marketplace-with-metaplex",
+    "title": "Create a Solana NFT marketplace and mint NFTs using Metaplex",
+    "description": "Learn how to deploy a Metaplex marketplace that allows you to mint and sell your own NFTs on Solana",
+    "tags": ["Solana", "Arweave"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "perform-forkless-upgrade-of-a-substrate-pallet",
+    "title": "Perform a forkless upgrade of a Substrate pallet",
+    "description": "Learn how to upgrade a Substrate pallet without forking the blockchain",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "celo-crowd-funding-project",
+    "title": "Celo Crowd Funding Project Tutorial",
+    "description": "Learn how to create a Smart Contract which facilitates crowdfunding.",
+    "tags": [
+      "Celo",
+      "JS/TS",
+      "Solidity",
+      "Smart contracts",
+      "Truffle",
+      "Solidity"
+    ],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "unit-testing-python-smart-contracts-for-tezos-on-smartpy",
+    "title": "Unit testing Python smart contracts for Tezos using SmartPy",
+    "description": "Learn how to unit test Python smart contracts for Tezos using the SmartPy suite of tools",
+    "tags": ["Tezos", "Python", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-an-nft-marketplace-using-hardhat",
+    "title": "Build an NFT marketplace on Polygon using HardHat",
+    "description": "Learn how to build an NFT marketplace smart contract and deploy it on Polygon using HardHat",
+    "tags": [
+      "Polygon",
+      "JS/TS",
+      "Solidity",
+      "Smart contracts",
+      "Solidity",
+      "Hardhat"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "explore-an-existing-subgraph",
+    "title": "Explore an existing subgraph",
+    "description": "Learn how to explore an existing subgraph and visualize its data using a pie chart",
+    "tags": ["The Graph", "JS/TS", "React", "GraphQL", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "building-a-3d-art-gallery-using-unity3d-and-nethereum",
+    "title": "Building a 3D art gallery using Unity3D and Nethereum",
+    "description": "Learn how to make your own art gallery in Unity3D and interact with Polygon using C#",
+    "tags": ["Polygon", "Smart contracts"],
+    "difficulty": "Experienced"
+  },
+  {
+    "slug": "chainlink-vrf-on-polygon",
+    "title": "Using the Chainlink Oracle for Randomness on Polygon",
+    "description": "Learn how to use the Chainlink Oracle for verifiable randomness in your Polygon (Matic) smart contracts",
+    "tags": ["Polygon", "JS/TS", "Solidity", "Javascript", "Solidity", "Remix"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-crowdfunding-dapp-on-near",
+    "title": "Build a Crowdfunding dApp on NEAR",
+    "description": "Learn how to build a crowdfunding dApp on the NEAR blockchain with Rust and React",
+    "tags": ["Near", "JS/TS", "Rust", "React", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transfer-avax-from-c-chain-to-ethereum",
+    "title": "Transfer AVAX from C-Chain to an Ethereum address",
+    "description": "Learn how to transfer AVAX tokens from C-Chain to an Ethereum address",
+    "tags": ["Avalanche", "JS/TS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-an-avalanche-crowdfunding-app",
+    "title": "Create a decentralized Kickstarter clone on Avalanche",
+    "description": "Learn how to build a complete crowdfunding app using Avalanche",
+    "tags": ["Avalanche", "JS/TS", "React", "Javascript", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-petgram-an-nft-sharing-dapp",
+    "title": "How to build Petgram, an NFT sharing dApp",
+    "description": "Learn how to build Petgram, an NFT sharing dApp similar to Instagram, then deploy it on Polygon",
+    "tags": [
+      "Polygon",
+      "JS/TS",
+      "Solidity",
+      "Smart contracts",
+      "Truffle",
+      "Solidity"
+    ],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transfer-erc20-from-c-chain-to-ethereum",
+    "title": "Transfer ERC-20 tokens from C-Chain to an Ethereum address",
+    "description": "Learn how to transfer ERC-20 tokens from C-Chain to Ethereum",
+    "tags": ["Avalanche", "JS/TS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-quadratic-voting-dapp",
+    "title": "Build a Quadratic Voting dApp",
+    "description": "Learn how to make a quadratic voting app with collaboratively managed ranked lists",
+    "tags": ["Polygon", "Solidity", "Truffle", "Solidity", "IPFS"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "write-your-first-terra-smart-contract",
+    "title": "Write your first Terra smart contract",
+    "description": "Learn how to write a Terra smart contract",
+    "tags": ["Terra", "Rust", "Smart contracts", "AssemblyScript", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
+    "title": "Advanced e-Voting dApp on Avalanche",
+    "description": "Learn to build an advanced e-Voting dApp on Avalanche Fuji testnet using Trufflesuite",
+    "tags": ["Avalanche", "JS/TS", "Solidity", "NodeJS", "Truffle", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "explaining-solanas-innovations-without-technical-jargon",
+    "title": "Explaining Solana and its Innovations without technical jargon",
+    "description": "Discover what makes Solana tick",
+    "tags": ["Solana"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "interacting-with-a-terra-smart-contract",
+    "title": "Interacting with a Terra smart contract",
+    "description": "Learn how to interact with your own Terra smart contracts",
+    "tags": ["Terra", "AssemblyScript", "AssemblyScript", "CLI"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "polygon-smart-contract-unit-testing-with-truffle",
+    "title": "Polygon smart contract unit testing with Truffle",
+    "description": "Learn how to deploy & unit test smart contracts written in Solidity using Truffle",
+    "tags": ["Polygon", "Solidity", "Truffle", "Solidity", "Metamask"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "creating-your-first-terra-account-with-the-terra-sdk",
+    "title": "Creating your first Terra account with the Terra SDK",
+    "description": "Learn how to create an account to start building on Terra",
+    "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "substrate-kitties-overview",
+    "title": "Substrate Kitties Overview",
+    "description": "Learn how to make a dApp on Polkadot",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "unit-testing-subgraphs",
+    "title": "Writing Unit Tests for Subgraphs",
+    "description": "Learn how to write unit tests for subgraphs with matchstick",
+    "tags": ["The Graph", "JS/TS", "GraphQL", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "create-an-amm-on-avalanche",
+    "title": "Create an Automated Market Maker (AMM) on Avalanche",
+    "description": "Learn how to build a basic AMM with Provide, Withdraw and Swap functions",
+    "tags": ["Avalanche", "JS/TS", "Solidity", "React", "Solidity"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "transfer-nfts-using-the-polygon-pos-bridge-and-sdk",
+    "title": "Transfer NFTs (ERC721 & ERC1155) using the Polygon PoS Bridge & SDK ",
+    "description": "Learn how to transfer tokens between Polygon and Ethereum using the Proof of Stake bridge and SDK",
+    "tags": ["Polygon", "JS/TS", "Javascript"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "build-a-crowdfunding-platform-on-solana",
+    "title": "Build a Crowdfunding platform on Solana",
+    "description": "Learn how to create and deploy a Crowdfunding dApp on Solana",
+    "tags": ["Solana", "JS/TS", "Rust", "React", "Javascript", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "substrate-kitties-setup",
+    "title": "Substrate Kitties - Basic Setup",
+    "description": "Learn how to use the Substrate Node template",
+    "tags": ["Polkadot", "Rust", "Rust"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "stake-monetize-near-smart-contracts",
+    "title": "Show Me the Money: Learn How to Monetize NEAR Smart Contracts",
+    "description": "Learn how to design, build, and monetize smart contracts on the NEAR blockchain",
+    "tags": ["Near", "JS/TS", "Rust", "Smart contracts"],
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "explaining-solana-with-the-simpsons",
+    "title": "Explaining Solana with The Simpsons",
+    "description": "Learn about the technical innovations of Solana with pop culture icons The Simpsons",
+    "tags": ["Solana"],
+    "difficulty": "Beginner"
+  }
+]

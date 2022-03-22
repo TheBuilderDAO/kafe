@@ -33,6 +33,13 @@ export const filterAccountByFundedState = {
   },
 };
 
+export const filterAccountByReadyToPublishState = {
+  memcmp: {
+    offset: ProposalAccountOffset.State,
+    bytes: proposalStateEtoBytes(ProposalStateE.readyToPublish),
+  },
+};
+
 export const filterAccountBySlug = (slug: string) => ({
   memcmp: {
     offset: ProposalAccountOffset.Slug,

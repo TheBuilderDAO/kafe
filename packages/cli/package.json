@@ -29,7 +29,6 @@
   "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
-    "@builderdao/data": "*",
     "@builderdao/tsconfig": "*",
     "@types/async": "^3.2.12",
     "@types/bs58": "^4.0.1",
@@ -40,6 +39,7 @@
   },
   "dependencies": {
     "@builderdao-sdk/dao-program": "*",
+    "@builderdao/data": "*",
     "@builderdao/apis": "*",
     "@builderdao/md-utils": "*",
     "@project-serum/anchor": "^0.17.0",
@@ -50,6 +50,7 @@
     "bs58": "^5.0.0",
     "commander": "^9.0.0",
     "dotenv": "^16.0.0",
+    "fast-csv": "^4.3.6",
     "fs-extra": "^10.0.1",
     "inquirer": "^8.2.1",
     "inquirer-autocomplete-prompt": "^2.0.0",

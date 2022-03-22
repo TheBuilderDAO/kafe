@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-console */
 import { PublicKey } from '@solana/web3.js';
 import * as commander from 'commander';
 import path from 'path';
@@ -22,8 +25,6 @@ import {
 } from '@builderdao-sdk/dao-program';
 
 import { log as _log, hashSumDigest } from '../utils';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
-import { log as _log, hashSumDigest, sleep } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
@@ -194,7 +195,7 @@ export function makeTutorialCommand() {
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
       });
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId);
+      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
       ceramic.setSeed(options.seed)
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
@@ -495,7 +496,7 @@ export function makeTutorialCommand() {
           await template.setTags(q.answer.join(','));
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
           await config.config.read();
-          const tags = q.answer.map(t => ({
+          const tags = q.answer.map((t: string) => ({
             name: t,
             slug: t.toLowerCase(),
           }));
