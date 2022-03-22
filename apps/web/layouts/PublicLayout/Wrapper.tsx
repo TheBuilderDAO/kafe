@@ -9,7 +9,6 @@ const Wrapper = ({ children }) => {
   bg-kafewhite
   dark:bg-kafeblack
   relative
-  flex
   max-w-screen-lg
     `;
 
