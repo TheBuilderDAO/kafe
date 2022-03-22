@@ -13,7 +13,7 @@ import {
   getTutorialPaths,
   PostType,
 } from '@builderdao/md-utils';
-import { MDXComponents, MDXWrapper, Navbar, TOCInline } from '@builderdao/ui';
+import { getMDXComponents, MDXComponents } from '@builderdao/ui';
 import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
@@ -34,7 +34,7 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
   const { mdxSource, frontMatter } = props.post;
-  const { config, lock, relativePath } = props;
+  const { config, lock, relativePath, rootFolder } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(
       (child: any) =>
@@ -60,7 +60,11 @@ const TutorialPage: NextPage<
         next={frontMatter.next}
         prev={frontMatter.prev}
       >
-        <MDXRemote components={MDXComponents} {...mdxSource} />
+        <MDXRemote
+          components={getMDXComponents({ lock, rootFolder })}
+          {...mdxSource}
+          scope={{ config, lock }}
+        />
         <div className="p-2 mt-16 border border-black divide-y-[1px] divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite bg-kafegold dark:bg-kafedarker shadow:sm">
           <div className="p-2">
             <span>Digest</span>:{' '}
@@ -127,6 +131,7 @@ export const getStaticProps: GetStaticProps = async context => {
     props: {
       config,
       lock,
+      rootFolder,
       relativePath,
       post: { ...post, mdxSource },
       slug,

@@ -4,7 +4,15 @@ import { CustomLink } from './custom-link';
 import { WhatsNextSection } from './whats-next';
 
 export const MDXComponents = {
-  Image,
+  img: (props: any) => <Image {...props} />,
   a: CustomLink,
   WhatsNextSection,
+};
+
+export const getMDXComponents = (extra: any) => {
+  return {
+    img: (props: any) => <Image {...props} {...extra} />,
+    a: CustomLink,
+    WhatsNextSection,
+  };
 };

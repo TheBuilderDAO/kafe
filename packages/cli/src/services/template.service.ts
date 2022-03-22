@@ -44,7 +44,6 @@ export class TemplateService {
   }
 
   async setName(name: string) {
-    await this.updateConfig('href', `learn/${name}`)
     await this.updateLock('href', `learn/${name}`)
     await this.updateLock('slug', name)
     await this.updatePackageJson('name', `@builderdao-learn/${name}`);

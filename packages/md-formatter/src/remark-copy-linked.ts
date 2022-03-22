@@ -7,6 +7,7 @@ import async from 'async';
 
 
 const download = async (url: string, destinationPath: string) => {
+  console.log('downlaod', url);
   const saveFile = await axios.get(url, {
     responseType: 'stream',
   });
@@ -26,7 +27,7 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
 
   await fs.ensureDir(path.join(options.destination, 'assets'));
   const downloadQueue = async.queue(async ({ url, path }) => {
-    await download(url, path);
+    return await download(url, path);
   }, 2)
 
 
@@ -44,7 +45,7 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
         filename = `${filename}.png`
       }
       const targetPath = path.join(options.destination, 'assets', filename)
-
+      console.log(node)
       downloadQueue.push({
         url: node.url,
         path: targetPath
@@ -53,7 +54,8 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceFold
       node.url = `./assets/${filename}`
     }
   })
-  sleep(1000)
-  await downloadQueue.drain();
+  if (downloadQueue.length() > 0) {
+    await downloadQueue.drain();
+  }
   return tree;
 };

@@ -10,9 +10,9 @@ import { diffLines } from 'diff'
 
 import { remarkLiquidParser } from './remark-liquid-parser'
 import { remarkCopyLinkedFiles, sleep } from './remark-copy-linked'
-import { TemplateService } from '@builderdao/cli'
+import { BuilderDaoConfig, TemplateService } from '@builderdao/cli'
 import async from 'async'
-import _ from 'lodash'
+import _, { sortBy } from 'lodash'
 import { tutorialDetailDB, TutorialDetailsRow } from './data'
 
 
@@ -46,6 +46,7 @@ const processQueue = async.queue(async (guide: FolderMeta) => {
   await sleep(2000)
   // await main(file, data, destinationDir)
 }, 2)
+
 
 const files: { [path: string]: FolderMeta } = {};
 
@@ -99,54 +100,64 @@ getFiles(tutorials).then(async () => {
     if (tutorialDetailDB.chain.has(key).value()) {
       matching++
       processQueue.push(value);
-      return
     }
   })
   console.log({ matching, total })
   await processQueue.drain();
+  // assign an error callback
+  processQueue.error(function (err, task) {
+    console.error('task experienced an error');
+    console.log(err, task)
+  });
 })
 
 
 
 async function main(pathForFiles: string[], data: TutorialDetailsRow, destinationDir: string) {
-  const targetFolder = path.join(destinationDir, data.folderSlug)
-  await fs.ensureDir(targetFolder)
-  const template = new TemplateService(targetFolder)
-  await template.copy('empty')
-  await template.setName(data.slug.toLowerCase())
-  await template.setTitle(data.title)
-  await template.setDescription(data.description)
-  await template.setTags(data.tags)
-  await template.setAuthor({
-    name: data.author,
-    email: "", // TODO: add email
-    nickname: data.author_nickname,
-    avatarUrl: data.author_image_url
-  })
+  try {
+    const targetFolder = path.join(destinationDir, data.folderSlug)
+    await fs.ensureDir(targetFolder)
+    const template = new TemplateService(targetFolder)
+    await template.copy('empty')
+    await template.setName(data.folderSlug.toLowerCase())
+    await template.setTitle(data.title)
+    await template.setDescription(data.description)
+    await template.setTags(data.tags)
+    await template.setAuthor({
+      name: data.author,
+      email: "", // TODO: add email
+      nickname: data.author_nickname,
+      avatarUrl: data.author_image_url
+    })
 
-  for (const pathForFile of pathForFiles) {
-    const source = await getFile(pathForFile);
-    const file = await unified()
-      .use(remarkParse)
-      .use(remarkStringify)
-      .use(remarkCopyLinkedFiles, {
-        destination: path.join(targetFolder, 'content'),
-        sourceFolder: path.dirname(pathForFile)
-      })
-      .use(remarkLiquidParser as any)
-      .process(source)
-      .then(async file => {
-        console.log("PRocess Ended")
-        // showDiff(source, String(file));
-        // console.log(destinationDir)
-        const frontMatter = `---
+    for (const pathForFile of pathForFiles) {
+      const source = await getFile(pathForFile);
+      const file = await unified()
+        .use(remarkParse)
+        .use(remarkStringify)
+        .use(remarkCopyLinkedFiles, {
+          destination: path.join(targetFolder, 'content'),
+          sourceFolder: path.dirname(pathForFile)
+        })
+        .use(remarkLiquidParser as any)
+        .process(source)
+        .then(async file => {
+          console.log("PRocess Ended")
+          // showDiff(source, String(file));
+          // console.log(destinationDir)
+          const frontMatter = `---
 title: ${data.title}
 description: ${data.description}
 keywords: [${data.tags.join(', ')}]
-date: ${new Date().toISOString()}
+date: '${new Date().toISOString()}'
 ---`
-        await template.addContent('index.mdx', [frontMatter, String(file)].join('\n'))
-      })
+          await template.addContent('index.mdx', [frontMatter, String(file)].join('\n'))
+        })
+    }
+    const config = new BuilderDaoConfig(targetFolder)
+    await config.updateHashDigestOfFolder()
+  } catch (err) {
+    console.log('ERROR'.repeat(20), err)
   }
 }
 
