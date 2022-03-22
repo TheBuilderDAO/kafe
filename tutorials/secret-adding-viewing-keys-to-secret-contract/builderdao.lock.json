@@ -1,0 +1,26 @@
+{
+  "proposalId": null,
+  "slug": "secret-adding-viewing-keys-to-secret-contract",
+  "authors": [
+    {
+      "name": "Ben Adams",
+      "avatarUrl": "https://github.com/darwinzer0.png",
+      "email": "",
+      "nickname": "darwinzer0"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/88x31.png": {
+      "name": "88x31.png",
+      "path": "content/assets/88x31.png",
+      "digest": "2d8a628333a76cfe484a2b9c01bca786fccf08d0010d4bffca2b38b29dd4ed0b"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8f355774bd917d7b8f21ed251531099caceb54c6e77a6c768cdb1f58de1ef9ae"
+    }
+  },
+  "href": "learn/secret-adding-viewing-keys-to-secret-contract"
+}

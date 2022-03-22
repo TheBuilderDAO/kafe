@@ -1,0 +1,165 @@
+---
+title: Solana's Innovations - a jargon-free explanation
+description: Learn about Solana with easy language aimed at beginners
+keywords: []
+date: '2022-03-22T06:04:58.866Z'
+---
+
+# Introduction
+
+What is Solana? As a non-developer, this may be difficult to understand when explained by a code-speaking engineer. By definition, Solana is a decentralized blockchain built to enable scalable, user-friendly apps for the world.¹ Famous for being based on 8 core innovations, Solana offers high throughput and low transaction costs, delivering a web-scale product for DeFi, NFTs, Web3, and more.
+
+![Solana](./assets/solanalogo.jpeg)
+
+In this tutorial, we will review and discuss each of these innovations in terms suitable for anyone to grasp. If you're not a developer or fluent in the world of code, you’re in the right place to learn what Solana is, and more importantly — what it brings to the table.
+
+# Prerequisites
+
+- General knowledge and understanding of blockchain and its use-cases
+
+# Solana’s 8 Core Innovations
+
+Boasting the fastest speeds in the industry, Solana can handle over 50,000 transactions per second (tps). The protocol does this while ensuring that costs never exceed $0.01 per transaction for the users and developers. At this performance level, Solana would be over 2500x faster and 559x cheaper than present-day Ethereum!
+
+How is this possible??
+
+## 1. Proof-of-History (PoH)
+
+This is Solana’s secret sauce. If you’re familiar with blockchain in general, you surely have heard of Proof-of-Stake (PoS) and Proof-of-Work (PoW). Solana employs the popular and effective Proof-of-Stake method to secure their blockchain and then adds an upgrade — **Proof-of-History**. This supercharges the blockchain.
+
+To conceptualize PoH, think of blockchains like amusement parks. At these amusement parks, you have to wait in line at one of the many entry gates to provide your ticket and be admitted. Receiving entry to the park is the equivalent of having your transaction processed and included in the next block added to the chain. For the park, it’s a top priority that all entry gates are on the same page in terms of who gets admitted and when.
+
+To do so, popular amusement parks like Ethereum require that gate workers radio each other to discuss and agree upon which people are going to be a part of the next group let into the park — leaving the patrons standing in line staring at their watches. If it’s a busy day at the park, you can only imagine how arduous and time-consuming that process can be. As a result, lines can be long and ticket prices do soar.
+
+To avoid this, Solana went around to their gate operators and gave them all a special printer. This printer records the time a patrons’ ticket was handed in at the gate, converts it to a secure string of characters, and prints it on the ticket. This is often described as a cryptographic timestamp. Each ticket ran through the printer receives a timestamp that references the ticket stamped directly before it — cementing security and improving order certainty. If you found one of these tickets on the ground, you would in essence have a history of every guest that ever entered the park up until that ticket was printed. This is very powerful for the park’s top priority — tracking who was admitted and when.
+
+By doing this bit of upfront due diligence, Solana gate operators can let a group into the park first and agree on order after. When it’s time to discuss the order of events there’s no arguing because there’s nothing to argue. The gate operators quickly order the collected tickets by timestamp, high-five, and get back to work.
+
+PoH is the fuel used to power Solana’s arsenal of cutting-edge innovations. In the following sections, you will learn how this is the key to streamlining the flow of patrons into its’ park with high security and at lightning-fast speeds.
+
+## 2. Tower BFT
+
+This is Solana’s consensus algorithm. It can be best categorized as a unique version of Practical Byzantine Fault Tolerance (pBFT). To grasp this, let’s first briefly describe both.
+
+**Practical Byzantine Fault Tolerance (pBFT)** — a leader is chosen amongst the parties attempting to come to a consensus. When a request comes in, the leader broadcasts it to everyone in the group. When it receives identical responses from more than two-thirds (> 2/3) of the group, it reaches a consensus. For blockchain, parties coming to a consensus are nodes in the network, and among them, a new leader is chosen in each consensus round.
+
+**Tower BFT** — pBFT that leverages Proof-of-History (PoH). A leader broadcasts a request to all parties asking them to vote on what they deem the present state of the blockchain is. Except for this time, parties cannot vote for a particular state of the blockchain unless it includes the state they voted for in a previous consensus round. This is possible because PoH will show their record of voting in future consensus votes. This allows for faster throughput, favoring liveliness over certainty when put to scale; each new vote is subsequently reaffirming prior votes, providing exponential consensus and incentive to vote in alignment with the majority to earn the rewards of validating a block. Tower BFT does not require confirmation on consensus before moving to the next vote, they can handle a continuous stream of voting rounds with this system. Each voting round inherently contributes to the consensus of previous rounds.
+
+## Transaction Flow
+
+If you further expand our amusement park analogy, you get a more accurate depiction of what is actually going on at Solana. The flow of admitting guests to the park goes like this:
+
+- Gate operators choose a fellow gate to be the leader
+- The leader processes everyones’ tickets (transactions), time-stamping each with their printer — this orders them according to time (PoH)
+- In processing everyones’ tickets, the leader generates a copy of what they think the state of the amusement park (blockchain) now looks like and signs it
+- The leader sends copies of the ordered tickets and its signed copy of processed transactions to the rest of the gates (broadcast)
+- The receiving gates process the series of tickets (transactions) and create their own signed copy of what they think the composition of the park now looks like (confirmations)
+- Each published confirmation by the other gates serves as a vote for the consensus algorithm (Tower BFT)
+- A new leader is chosen and the process repeats for the next batch of guests waiting to get in
+
+![Transaction Flow](./assets/solana_txn_flow.png)
+
+Source: [Solana Whitepaper](https://solana.com/solana-whitepaper.pdf)
+
+## Optimizing the Blockchain
+
+Solana innovates every task occurring on the blockchain, leaving no stone unturned. Below you will learn how **Gulfstream** eliminates transaction pools, **Sealevel** allows smart contracts to run in parallel, and **Pipelining** optimizes validation.
+
+## 3. Gulfstream
+
+Pending/unconfirmed transactions waiting to be added to the blockchain typically sit in pools. Think about the amusement park analogy, this is the line to get into the park. Gate operators are talking to each other about who is waiting in line and which group to let in next. The bigger the line, the more demand the park is seeing, and not meeting. When Solana is letting people onto the premises of their park, they know which gates are going to be letting the next group of people in next (which node will be the next leader). This enables Solana workers to direct patrons to the appropriate gates in advance, allowing gate operators to process and order transactions ahead of time so when it is their turn to open the gate, they can do it in a near-instant. Therefore, Solana has no lines at its’ park.
+
+## 4. Sealevel
+
+Historically, the state of a blockchain is altered linearly, one by one processing transactions (smart contracts). Sealevel allows Solana to process thousands of smart contracts in parallel. Back to the amusement park we go.
+
+As the pending transactions arrive at their assigned gate, they are sorted into lines by specific transaction type. This allows the park to prepare for what is incoming. Using an innovative processing system, gate operators can then process all of the different sorted lines concurrently. Additionally, Sealevel takes advantage of CPU and GPU hardware design which allows for a single instruction to be applied to multiple data points simultaneously. This means each proverbial sorted line at the entry gate can be processed all at the same time. Think of an entry location with 5 lines, each specific to how they’re gaining entry, each line side by side, each processed in batches. That’s efficiency — that’s Sealevel.
+
+## 5. Pipelining
+
+Pipelining is a commonly used method of sequential processing (typically in CPU design) where system throughput is increased by organizing the execution of multiple instructions simultaneously. On the Solana network, this is how transaction processing is handled for validation optimization.
+
+Done in four stages, the “Transaction Processing Unit”, or TPU, is comprised of Fetching, Signature Verification, Banking, and Writing. Solana takes advantage of using different hardware to handle different steps in the process like an assembly line would during manufacturing. The idea is to keep the different hardware, and thus the mechanism, busy at all times — optimizing output (validating blocks and distributing block rewards).
+
+The process is such:
+
+1.  **Data Fetching Stage** — querying incoming transactions to collect specific data points in preparation of transaction execution, like a patient survey in a doctor’s office.
+
+    - Hardware used: _Kernel Space_ — the core of a computer operating system, possessing complete system control and facilitates interactions between hardware and software. Think of this like the quarterback of the machine, receiving incoming play calls and distributing the ball accordingly.
+
+![Kernel](./assets/kernel.png)
+
+Source: Wikipedia³
+
+2.  **Signature Verification Stage** — ensuring that incoming transaction requests are all unique and legitimate.
+
+    - Hardware used: _Graphics Processing Unit (GPU)_ - a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display device.³ This definition is fitting because a GPU is typically seen as the hardware used to produce images. However, a GPU’s parallel structure has been massively beneficial in processing large blocks of data in parallel via algorithms — Solana’s bread and butter.
+
+3.  **Banking Stage** — the actual finance portion of the transaction where tokens are distributed, PoH is also leveraged in this stage.
+
+    - Hardware used: _Central Processing Unit (CPU)_ - main processor executing instructions in a computer program
+
+4.  **Writing Stage** — recording the transaction in permanent memory and subsequently broadcasting it to downstream validator nodes.
+    - Hardware used: _Kernel Space_
+
+At the end of the assembly line when the TPU is broadcasting blocks to validators, all of the other stages are hard at work fetching new data, verifying signatures, and crediting tokens. This allows Solana to process incoming transactions like a well-oiled machine.
+
+## Maintaining the Blockchain
+
+After creating a new block, the Leader begins propagating the block data to the rest of the nodes for them to update their records, a process optimized by **Turbine**. Like all systems which create a running list of records, creating a database of accounts is paramount. To do so, Solana chooses a unique approach which is labeled their **Cloudbreak** innovation. Lastly, to maintain the record of the blockchain unbiasedly and for redundancy, Solana has nodes dedicated to archiving the blockchain, called **Archivers**. This of course employs a unique solution built for optimizing the process — a common theme.
+
+## 6. Turbine
+
+A node can only handle so many transmissions per second, so to handle more you add more nodes to the blockchain, right? Unfortunately, in doing so you increase the amount of data and locations to populate the data — a throttling effect on the blockchain. Solana solves this with Turbine.
+
+Traditionally, data from the block created via consensus would be sent from the Leader (discussed above) to the rest of the group for them to incorporate into their copy of the blockchain. Picture the process like this: The leader of the group creates a painting (a block). Everyone in the group needs a copy of the painting, so the leader sends each one a copy individually. Each copy is not small, and therefore this takes a lot of time and effort. With Turbine, the leader instead cuts his painting into a bunch of equal-sized pieces and randomly hands them out. Each member in the group then makes a copy and hands their piece to the person next to them, and vice versa, until everyone has a complete painting for themselves.
+
+To increase security, members are placed in groups, called “neighborhoods”. Those with the most invested in the project are placed in the neighborhood closest to the leader and ordered in a weighted hierarchy thereafter. Neighborhoods are responsible for passing some of their pieces of the painting to the below neighborhoods, and so on. In case everyone is not doing their part in sharing the pieces of the painting, the leader distributes extra copies of each piece — adding robustness to the process.
+
+Turbine implements this methodology for block data, enabling faster, safer, and more efficient data propagation to the blockchain.
+
+## 7. Cloudbreak
+
+Memory is usually used to keep track of accounts in a distributed system. This can lead to performance bottlenecking where the size of the network becomes a limitation in storage capacity and access speed. Solana again turns to hardware for optimization.
+
+Solana chooses to distribute its database horizontally across multiple storage devices — in this case, SSDs. Blocks of data are segmented and distributed in sequential order amongst the SSD cards. Think of a block of data coming into the database for storage as a deck of unshuffled playing cards, and the players at the card table as the SSD cards. The incoming deck of cards (packet of data) is comprised of four suits (accounts) to be stored. The cards are distributed one by one to a table of 13 players, each receiving one card from each suit by the time all of the cards have been handed out. Each card in a suit can then be thought of as a segment of data. At the end of this, the storage structure of the deck (data packet) looks like this:
+
+![Data Storage](./assets/data_deck.png)
+
+The account “Clubs” being stored, is horizontally distributed in a logical and sequential order amongst the players. Since each player, or storage device, can be accessed simultaneously, the systems’ total throughput is increased. This is commonly referred to as data striping. Each additional player added to the table adds not only storage space, but also the number of concurrent access sources available. Sequential organization of data is also optimal for CPU usage, adding another performance boost to boot.
+
+Hardware wins for Solana again. Taken as a whole, Cloudbreak allows for the blockchain to increase concurrent operations, scale with Moore’s law, and leverage hardware-operation synergy. The result? Exceptional performance.
+
+## 8. Archivers
+
+Archivers refers to Solana’s distributed ledger which stores massive amounts of data, maintaining records of the entire state of the blockchain. Archival nodes do not participate in consensus. Rather, they are the keepers of history (hence the name).
+
+At full capacity, the network is projected to generate 1 GB/s of data, which equates to 4 petabytes of data a year. To put that in perspective, 1 PB of data is equal to 1,000,000 GB of data. For example, one would need 368 football fields worth of 1GB flash drives to store a year’s worth of Solana history! It’s an unfathomable amount. Now say every node on the network had to store all of that data? It would either one, not be possible, or two, result in only a small concentration of corporate entities being able to support the network — eliminating decentralization.
+
+Neither is acceptable for the team at Solana. Their solution? Sticking to their fundamental optimization techniques. Similar to the approach for Turbine and Cloudbreak where data is parceled out, Solana divides ledger history into small pieces which are distributed to archival nodes. The number of pieces it divides outgoing history into is determined by a target replication rate (how many copies of the ledger they want) and desired fault tolerance. These metrics are dependent on the number of archivers and the amount of space they signal as available for storage.
+
+Seems a little risky though doesn’t it? Taking the whole history and distributing it in pieces amongst various parties. Solana quells this fear very smartly, ensuring security in its’ quest to efficiently archive the blockchain.
+
+Insert **Proof-of-Replication**. For Solana, it’s Proof-of-replication supercharged by — you guessed it — Proof-of-History. PoH is there to do what it does best — _make this process move fast._ Proof-of-Replication put simply, is the system by which an archival node verifies that it has not only allocated the space to store the blockchain data but that it’s also storing the exact data it promised to keep. The system does this by encrypting the data when storing it. Then at a later time, the Solana network can request the archival node to prove it’s doing what it said it would do — store the blockchain history. The encryption allows the archival node to replicate the data at a fast speed and provide it back to the network, proving the archival node is keeping its promise. If it takes too long, the Solana network will know that the archival node is being dishonest, scrambling to replicate the data and cover its tracks.
+
+Yet again the blockchain moves from a problem threatening decentralization, scalability, and security, to a solution reinforcing their exceptionalism in achieving all three.
+
+_Refer to Section 1. Proof-of-History (PoH) to learn more about the verification speed and certainty advantages PoH provides._
+
+# Conclusion
+
+When you combine all 8 of these innovations, you get a web-scale blockchain. One that is high performance, secure, and apt to open up a world of innovation. PoH can reduce messaging overhead for the Solana machine, enabling sub-second finality times. Solana’s commitment to optimization and forethought to scale with hardware is worth noting as well.
+
+At the end of the day, for the non-developer, blockchains are all an attempt to create a fault-tolerant replicated state machine. Every blockchain in competition comes at this problem with a different approach. Anchored by Proof-of-History, and guided by a team committed to delivering the best Web3 ecosystem possible, Solana is poised to make waves in the industry for years to come.
+
+# About the Author
+
+This tutorial was written by Brandon Goss, an aspiring crypto and blockchain research analyst. You can reach out to Brandon on [twitter](https://twitter.com/brandongoss5) if you have any questions pertaining to this guide or Solana.
+
+# References
+
+\[1] [Solana](https://solana.com/#)
+
+\[2] [Dune Analytics, Gas Prices ⛽️ by @alex_kroger](https://dune.xyz/kroeger0x/gas-prices)
+
+\[3] [Wikipedia, Kernel (Operating System)](https://en.wikipedia.org/wiki/Graphics_processing_unit)

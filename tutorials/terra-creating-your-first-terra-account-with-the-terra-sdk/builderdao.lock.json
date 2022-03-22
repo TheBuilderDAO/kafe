@@ -1,0 +1,41 @@
+{
+  "proposalId": null,
+  "slug": "terra-creating-your-first-terra-account-with-the-terra-sdk",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/terra-2.png": {
+      "name": "terra-2.png",
+      "path": "content/assets/terra-2.png",
+      "digest": "6ab37c73c94220ce343d1852e6fc303a65434189cc596ec3051d9c5ab2f3eda3"
+    },
+    "content/assets/terra-1.png": {
+      "name": "terra-1.png",
+      "path": "content/assets/terra-1.png",
+      "digest": "add0d1a83831fd4487f2cd840f5403e3951fd02184d983cca782fab251e37b48"
+    },
+    "content/assets/terra-3.png": {
+      "name": "terra-3.png",
+      "path": "content/assets/terra-3.png",
+      "digest": "f720899a09085aae836c627e015a8085717817bcef932a045dab8f0509f21fbf"
+    },
+    "content/assets/terra-4.png": {
+      "name": "terra-4.png",
+      "path": "content/assets/terra-4.png",
+      "digest": "0726e35dbf038973d698c5fcf2fc4770dcc3b5c80ba82c5f91355e8776826ee7"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fc847fe04070c0a0f90f27f367d883e6db6dd6b3aa0dbf7a03b92a80dca2cab3"
+    }
+  },
+  "href": "learn/terra-creating-your-first-terra-account-with-the-terra-sdk"
+}

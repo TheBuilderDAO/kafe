@@ -1,0 +1,56 @@
+{
+  "proposalId": null,
+  "slug": "avalanche-create-a-chat-application-using-solidity-and-react",
+  "authors": [
+    {
+      "name": "Nimish Agrawal & Sayan Kar",
+      "avatarUrl": "https://github.com/realnimish.png",
+      "email": "",
+      "nickname": "realnimish"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/chat-dapp-crash.png": {
+      "name": "chat-dapp-crash.png",
+      "path": "content/assets/chat-dapp-crash.png",
+      "digest": "8cd1cf1387ad73fae04c85f07a4191e2ebb76ec891c39a27e23446d310adaf48"
+    },
+    "content/assets/create-an-amm-on-avalanche_metamask.png": {
+      "name": "create-an-amm-on-avalanche_metamask.png",
+      "path": "content/assets/create-an-amm-on-avalanche_metamask.png",
+      "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
+    },
+    "content/assets/create-an-amm-on-avalanche_multiple_accounts.jpeg": {
+      "name": "create-an-amm-on-avalanche_multiple_accounts.jpeg",
+      "path": "content/assets/create-an-amm-on-avalanche_multiple_accounts.jpeg",
+      "digest": "9a520c2a979032ee22628d47d131469da279f4fa8ebbf3f4eba371e42b6bc7bf"
+    },
+    "content/assets/create-an-amm-on-avalanche_remix.png": {
+      "name": "create-an-amm-on-avalanche_remix.png",
+      "path": "content/assets/create-an-amm-on-avalanche_remix.png",
+      "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
+    },
+    "content/assets/create-an-amm-on-avalanche_zero_balance.jpeg": {
+      "name": "create-an-amm-on-avalanche_zero_balance.jpeg",
+      "path": "content/assets/create-an-amm-on-avalanche_zero_balance.jpeg",
+      "digest": "d4e560172f267a2d58023891ab5dd58eb95050045be4045cbee4a28797c01aed"
+    },
+    "content/assets/lfkjlsk.gif": {
+      "name": "lfkjlsk.gif",
+      "path": "content/assets/lfkjlsk.gif",
+      "digest": "4f5d8aec48c916f631469dfc9e2fe84865b0e9579fd8ae3180ea69c9103b089a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d1f0e332c529acecd4988ceae18c57d498471959ca55973aa4478bacfea71023"
+    },
+    "content/assets/pyyxvzs.gif": {
+      "name": "pyyxvzs.gif",
+      "path": "content/assets/pyyxvzs.gif",
+      "digest": "56c2c5d55be5b3645b538bc99f1dddb5bd6b3d4194dd39faa125ac7c3d12e02d"
+    }
+  },
+  "href": "learn/avalanche-create-a-chat-application-using-solidity-and-react"
+}

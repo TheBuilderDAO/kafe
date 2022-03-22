@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/secret-adding-viewing-keys-to-secret-contract",
+  "version": "1.0.0",
+  "description": "Add Viewing Key code to the reminder secret contract that we built in the \"Developing your first secret contract\" tutorial.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Rust",
+    "Smart contracts",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

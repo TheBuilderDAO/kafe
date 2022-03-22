@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/polkadot-create-your-first-substrate-chain",
+  "version": "1.0.0",
+  "description": "Learn how to compile and launch the Substrate Developer Hub Node Template and interact with it using the Substrate Developer Hub Front-End Template.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Rust",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

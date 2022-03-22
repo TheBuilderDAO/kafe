@@ -1,0 +1,31 @@
+{
+  "proposalId": null,
+  "slug": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
+  "authors": [
+    {
+      "name": "Raj Ranjan",
+      "avatarUrl": "https://github.com/rajranjan0608.png",
+      "email": "",
+      "nickname": "rajranjan0608"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/huyzoyb.png": {
+      "name": "huyzoyb.png",
+      "path": "content/assets/huyzoyb.png",
+      "digest": "0505a987e4d7ae397c6884bbbeafbf93c70465b4fba15ad06ff469b62597198f"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6aa20f66c82fee9a40da07626c37f0f201bc057dcb9af9e5f327f65dd83d9ef0"
+    },
+    "content/assets/nfdnbwz.gif": {
+      "name": "nfdnbwz.gif",
+      "path": "content/assets/nfdnbwz.gif",
+      "digest": "e13d468ae9d2896367ee3a7381276f12a3f4e67fa6bbbc1f9775a10e8e3f0229"
+    }
+  },
+  "href": "learn/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle"
+}

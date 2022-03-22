@@ -1,0 +1,41 @@
+{
+  "proposalId": null,
+  "slug": "celo-celo-testing-truffle",
+  "authors": [
+    {
+      "name": "Alex Reyes",
+      "avatarUrl": "https://github.com/alexreyes.png",
+      "email": "",
+      "nickname": "alexreyes"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/tezs3sk.png": {
+      "name": "tezs3sk.png",
+      "path": "content/assets/tezs3sk.png",
+      "digest": "ff1f1eff404825bf0d193fcd544c22e430ef2226b43a42675cad1bb8a6ecf7de"
+    },
+    "content/assets/jhn09wb.png": {
+      "name": "jhn09wb.png",
+      "path": "content/assets/jhn09wb.png",
+      "digest": "f5c3149fa507cf259f4a61bf8b6109a8add22590434854511c430849ad389d7c"
+    },
+    "content/assets/wo2s6wc.png": {
+      "name": "wo2s6wc.png",
+      "path": "content/assets/wo2s6wc.png",
+      "digest": "ad38207e3a61b40269c1c5ffaa08ee6f79afae9560a7bbe2906c546bdffb1984"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "1932f368a935adf87c7b411a8e805dd30cfaded6959e2b0c65461ca00e7aab87"
+    },
+    "content/assets/yiebgsk.png": {
+      "name": "yiebgsk.png",
+      "path": "content/assets/yiebgsk.png",
+      "digest": "a488339193d1254ca240ac51b706f2de02eec14095fac3be0f3072bab707fb37"
+    }
+  },
+  "href": "learn/celo-celo-testing-truffle"
+}

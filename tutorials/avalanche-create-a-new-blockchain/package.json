@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/avalanche-create-a-new-blockchain",
+  "version": "1.0.0",
+  "description": "Learn how to create a new Blockchain on Avalanche",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Javascript",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

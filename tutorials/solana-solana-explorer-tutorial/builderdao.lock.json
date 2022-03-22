@@ -1,0 +1,56 @@
+{
+  "proposalId": null,
+  "slug": "solana-solana-explorer-tutorial",
+  "authors": [
+    {
+      "name": "Giovanni Fu Lin",
+      "avatarUrl": "https://github.com/aeither.png",
+      "email": "",
+      "nickname": "aeither"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/solana-explorer-02.png": {
+      "name": "solana-explorer-02.png",
+      "path": "content/assets/solana-explorer-02.png",
+      "digest": "83b759383609e5047eb9547ddb2f40ff7b0ca2971f7e9231f662d1372abee9e2"
+    },
+    "content/assets/solana-explorer-01.png": {
+      "name": "solana-explorer-01.png",
+      "path": "content/assets/solana-explorer-01.png",
+      "digest": "b9f0573b1269d77b452f7c3c4f9b42aa6462c8766da735d2d05dd0799af5d332"
+    },
+    "content/assets/solana-explorer-03.png": {
+      "name": "solana-explorer-03.png",
+      "path": "content/assets/solana-explorer-03.png",
+      "digest": "247d963feff8cd13bedf90b94617dd57870b186a5422780e0491e53c9b58ac31"
+    },
+    "content/assets/solana-explorer-04.png": {
+      "name": "solana-explorer-04.png",
+      "path": "content/assets/solana-explorer-04.png",
+      "digest": "9498d2e001d69b74ff91f2387284271a17952ddbd84d3e487644063b73c0a86c"
+    },
+    "content/assets/solana-explorer-05.png": {
+      "name": "solana-explorer-05.png",
+      "path": "content/assets/solana-explorer-05.png",
+      "digest": "3fb03180ad72b26fe0feb5aa329eb6e5f2754af561744b7a3e87ca6f0adc1c3b"
+    },
+    "content/assets/solana-explorer-06.png": {
+      "name": "solana-explorer-06.png",
+      "path": "content/assets/solana-explorer-06.png",
+      "digest": "7f52b53c7112d9fd9609e2047b0eaa8ea589fef12cbe667079cda1f8c45d4c01"
+    },
+    "content/assets/solana-explorer-terminal-start.png": {
+      "name": "solana-explorer-terminal-start.png",
+      "path": "content/assets/solana-explorer-terminal-start.png",
+      "digest": "58a8be0010a7d553488a78f5296fd4ccc3cc898bf6a2921cd9200d0795526d32"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "890804eb4839e0b6be6792e3d7d1b323e7b1b0e8819a00e037dd683e0462f081"
+    }
+  },
+  "href": "learn/solana-solana-explorer-tutorial"
+}

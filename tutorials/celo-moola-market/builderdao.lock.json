@@ -1,0 +1,106 @@
+{
+  "proposalId": null,
+  "slug": "celo-moola-market",
+  "authors": [
+    {
+      "name": "Deepanshu Hooda",
+      "avatarUrl": "https://github.com/gitofdeepanshu.png",
+      "email": "",
+      "nickname": "gitofdeepanshu"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/0rayik4.png": {
+      "name": "0rayik4.png",
+      "path": "content/assets/0rayik4.png",
+      "digest": "b9ecb2e848c73abad57dcb1db78d2a009fac6397f9def04a246171ffcdbd8545"
+    },
+    "content/assets/3krowsa.png": {
+      "name": "3krowsa.png",
+      "path": "content/assets/3krowsa.png",
+      "digest": "51c5773e2bb62bd818d11ac81572c7020c252e96b39fb9f2c19e047ba2f532a5"
+    },
+    "content/assets/804sw9e.png": {
+      "name": "804sw9e.png",
+      "path": "content/assets/804sw9e.png",
+      "digest": "cf89212da514e74a0957d22681509e167b0572416f1060262c49851f3c33a1ae"
+    },
+    "content/assets/9wagblu.png": {
+      "name": "9wagblu.png",
+      "path": "content/assets/9wagblu.png",
+      "digest": "b891abfb3e33fe9793ce31aa0486667ba32abd5ca22560cc28f8758091721fc2"
+    },
+    "content/assets/f4albkm.png": {
+      "name": "f4albkm.png",
+      "path": "content/assets/f4albkm.png",
+      "digest": "74e36e044150da316e22634f20642b39d7f2e2cb3fd932372da3ce96ec0895aa"
+    },
+    "content/assets/hxkeulh.png": {
+      "name": "hxkeulh.png",
+      "path": "content/assets/hxkeulh.png",
+      "digest": "4663f72166a31378551634f14f0d0c6245a21697a90c73c8c2661645b6bba1b6"
+    },
+    "content/assets/itsmxwh.png": {
+      "name": "itsmxwh.png",
+      "path": "content/assets/itsmxwh.png",
+      "digest": "20a8b38ce52f7e341d2248f70168bf8524372eac01e7f6edcd8eac7e845479f1"
+    },
+    "content/assets/jgcqwc8.png": {
+      "name": "jgcqwc8.png",
+      "path": "content/assets/jgcqwc8.png",
+      "digest": "0c8cb0283cc75bb052ef298e2d07d5a7962413bf6b2ec43f673d4bd03e7ba597"
+    },
+    "content/assets/kflxp4n.png": {
+      "name": "kflxp4n.png",
+      "path": "content/assets/kflxp4n.png",
+      "digest": "a14e6cb77c06c7f2b120d29eab4ca3e262cc4d3ac828e525ec9829a087e64759"
+    },
+    "content/assets/lfi5mt7.png": {
+      "name": "lfi5mt7.png",
+      "path": "content/assets/lfi5mt7.png",
+      "digest": "cee1dd3ef37dc74c8bace4d21785ac3fde03889aa024964d1ff2bc4c5df11510"
+    },
+    "content/assets/o6yebec.png": {
+      "name": "o6yebec.png",
+      "path": "content/assets/o6yebec.png",
+      "digest": "67e0ad16571aa331a23d7e0cbf58e4b11915fd35728d49a4f1d10fe27bf45b0c"
+    },
+    "content/assets/pfahsnz.png": {
+      "name": "pfahsnz.png",
+      "path": "content/assets/pfahsnz.png",
+      "digest": "42ec1208189d3980c5c663e03536abc9cdc0fb5f8b9fa67520f4eaf97d0068a9"
+    },
+    "content/assets/qmoft81.png": {
+      "name": "qmoft81.png",
+      "path": "content/assets/qmoft81.png",
+      "digest": "d8b50b633388e6a68dc8e1acb65334046f4e2f9e564e29e87e13daf47c875185"
+    },
+    "content/assets/quqlhha.png": {
+      "name": "quqlhha.png",
+      "path": "content/assets/quqlhha.png",
+      "digest": "501cd485aefd604b77372329a4d7a286434c59317a55af54edfe203ff12236d8"
+    },
+    "content/assets/sqc4sw1.png": {
+      "name": "sqc4sw1.png",
+      "path": "content/assets/sqc4sw1.png",
+      "digest": "972ae2bcf097a56b0e9094632d26035c14fcaafeb7c0321ae994ca10f8656dfe"
+    },
+    "content/assets/tliyguc.png": {
+      "name": "tliyguc.png",
+      "path": "content/assets/tliyguc.png",
+      "digest": "db38b0bef1e6204c95958f725879d48d905804fe144139282fc4efe1f9a950c7"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "9bc623879cc21bb18c0c0ef61773df333ec5219f4bd85d2a336d494396fcbaa8"
+    },
+    "content/assets/ylif6r8.png": {
+      "name": "ylif6r8.png",
+      "path": "content/assets/ylif6r8.png",
+      "digest": "0a16f055acf90d8e0ce0434a1416a6c77e4e154acd361f94edec8fa475e3939d"
+    }
+  },
+  "href": "learn/celo-moola-market"
+}

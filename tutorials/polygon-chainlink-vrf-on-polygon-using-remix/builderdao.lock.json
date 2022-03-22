@@ -1,0 +1,76 @@
+{
+  "proposalId": null,
+  "slug": "polygon-chainlink-vrf-on-polygon-using-remix",
+  "authors": [
+    {
+      "name": "You Song Hou",
+      "avatarUrl": "https://github.com/ysongh.png",
+      "email": "",
+      "nickname": "ysongh"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/matic-chainlinkvrf-tutorial-img10.png": {
+      "name": "matic-chainlinkvrf-tutorial-img10.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img10.png",
+      "digest": "879447277dafbb19ef866b283042ae421e27a4882763b95e72ac0a7ef0ddf4ba"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img1.png": {
+      "name": "matic-chainlinkvrf-tutorial-img1.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img1.png",
+      "digest": "1c02fe4bb4cb96603c264fc5726736a6ded315ecf5a1f531edd10929e187c43a"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img2.png": {
+      "name": "matic-chainlinkvrf-tutorial-img2.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img2.png",
+      "digest": "9eae360b16696c6411eb8675fb7839481d5be6218992ec354b9241ef66188327"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img11.png": {
+      "name": "matic-chainlinkvrf-tutorial-img11.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img11.png",
+      "digest": "e57f14e20c0804f15d104d90f11e1ea653878a5cb4ccc0071dbc6a7f83ec75bf"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img3.png": {
+      "name": "matic-chainlinkvrf-tutorial-img3.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img3.png",
+      "digest": "edd9a8804ecf4ad8903381ec5b9b8f76f07838abe198fed87aee4409dfc4fea5"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img4.png": {
+      "name": "matic-chainlinkvrf-tutorial-img4.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img4.png",
+      "digest": "8be0583a078aabf0a7adc40d0291fb3510a2d925790445403075ce5f56186dad"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img5.png": {
+      "name": "matic-chainlinkvrf-tutorial-img5.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img5.png",
+      "digest": "f9511cebedd59404619ab548f9fb2647eea01b232244a95f7d06eededd721e07"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img6.png": {
+      "name": "matic-chainlinkvrf-tutorial-img6.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img6.png",
+      "digest": "988edb3ecb67066a51cd95599c1f78cba99ea3914be1453dc73d77179e915de9"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img7.png": {
+      "name": "matic-chainlinkvrf-tutorial-img7.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img7.png",
+      "digest": "1a2009758a0f3dc6e438af1a0a641558bd1e0c9badca17502c6dac2625db65b4"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img8.png": {
+      "name": "matic-chainlinkvrf-tutorial-img8.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img8.png",
+      "digest": "fcdbabaf321a9b54715475b0f203f6943ed4556c2f13af3ac49901c2ca9cdee0"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8442048ba176b3b57cda76939ff1212d3598f658ac6a2288248ac6b9c8f849ec"
+    },
+    "content/assets/matic-chainlinkvrf-tutorial-img9.png": {
+      "name": "matic-chainlinkvrf-tutorial-img9.png",
+      "path": "content/assets/matic-chainlinkvrf-tutorial-img9.png",
+      "digest": "fc1719ede514d1d6c5e5f620ed60c2fe84a8a61306f65fdfe6aabd6ba85001e9"
+    }
+  },
+  "href": "learn/polygon-chainlink-vrf-on-polygon-using-remix"
+}

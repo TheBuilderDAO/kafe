@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "avalanche-creating-a-variable-cap-asset",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ba87dd9c8a253059f8fcf936c52c60adc662b78f596e033c03a503c81e6a09be"
+    }
+  },
+  "href": "learn/avalanche-creating-a-variable-cap-asset"
+}

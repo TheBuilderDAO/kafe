@@ -1,0 +1,26 @@
+{
+  "proposalId": null,
+  "slug": "avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle",
+  "authors": [
+    {
+      "name": "Raj Ranjan",
+      "avatarUrl": "https://github.com/rajranjan0608.png",
+      "email": "",
+      "nickname": "rajranjan0608"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8339637ccadd87bff75a8b780135e23fa952f11f1c86709ca03fd24fdf1757a2"
+    },
+    "content/assets/a6qrxj.gif": {
+      "name": "a6qrxj.gif",
+      "path": "content/assets/a6qrxj.gif",
+      "digest": "25f752d0a9ac5244482814850533f57a020bd1dcfaebb134f863eb52a411a2d7"
+    }
+  },
+  "href": "learn/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle"
+}

@@ -1,0 +1,36 @@
+{
+  "proposalId": null,
+  "slug": "near-nft-marketplace-in-assemblyscript",
+  "authors": [
+    {
+      "name": "Rahmat Albariqi",
+      "avatarUrl": "https://github.com/hdriqi.png",
+      "email": "",
+      "nickname": "hdriqi"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/105279194-a5a4bd80-5bd9-11eb-991f-ddd6928eb255.png": {
+      "name": "105279194-a5a4bd80-5bd9-11eb-991f-ddd6928eb255.png",
+      "path": "content/assets/105279194-a5a4bd80-5bd9-11eb-991f-ddd6928eb255.png",
+      "digest": "25e63e347e47c6a09792c94f2b5aac887cdbe6a5d883478b43e568be09104b4a"
+    },
+    "content/assets/105279309-dc7ad380-5bd9-11eb-8266-3ce21d043e7e.png": {
+      "name": "105279309-dc7ad380-5bd9-11eb-8266-3ce21d043e7e.png",
+      "path": "content/assets/105279309-dc7ad380-5bd9-11eb-8266-3ce21d043e7e.png",
+      "digest": "bd84ab223aacc3173d7bb3c49d0cdecddd3b180b5937cfec8679613b698590ad"
+    },
+    "content/assets/105279415-11872600-5bda-11eb-8dad-7e219fc2bea5.png": {
+      "name": "105279415-11872600-5bda-11eb-8dad-7e219fc2bea5.png",
+      "path": "content/assets/105279415-11872600-5bda-11eb-8dad-7e219fc2bea5.png",
+      "digest": "c2c059e81e9ea4a4da41b786b832e2eb70d1d035557cbd1da96b204c968362d5"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "057ba5533bcca2c1fc01c446e1d4229c49490a0c05de277b54ad275d98c44c59"
+    }
+  },
+  "href": "learn/near-nft-marketplace-in-assemblyscript"
+}

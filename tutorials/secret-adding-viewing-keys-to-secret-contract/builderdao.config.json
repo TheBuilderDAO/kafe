@@ -1,0 +1,6 @@
+{
+  "title": "Adding viewing keys to a secret contract",
+  "description": "Add Viewing Key code to the reminder secret contract that we built in the \"Developing your first secret contract\" tutorial.",
+  "imageUrl": "",
+  "categories": ["Rust", "Smart contracts", "Rust"]
+}

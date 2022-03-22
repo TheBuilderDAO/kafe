@@ -1,0 +1,31 @@
+{
+  "proposalId": null,
+  "slug": "solana-sol-blog-dapp",
+  "authors": [
+    {
+      "name": "Kiran Bhalerao",
+      "avatarUrl": "https://github.com/kiran-bhalerao.png",
+      "email": "",
+      "nickname": "kiran-bhalerao"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/sblog_delete_post.png": {
+      "name": "sblog_delete_post.png",
+      "path": "content/assets/sblog_delete_post.png",
+      "digest": "e3e558e01649d19bc280070baf61a7cf8437c808ef8e90217e84150247e29903"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "528030c635097b83dbc53e7e5c0df6ef312c0a48e9a229eef63ec35af2b03261"
+    },
+    "content/assets/sblog_final_dapp.gif": {
+      "name": "sblog_final_dapp.gif",
+      "path": "content/assets/sblog_final_dapp.gif",
+      "digest": "26921abcdfd40d81ab9e09755d6e4bf0f558c44a56327301e29d0a29ae954c6c"
+    }
+  },
+  "href": "learn/solana-sol-blog-dapp"
+}

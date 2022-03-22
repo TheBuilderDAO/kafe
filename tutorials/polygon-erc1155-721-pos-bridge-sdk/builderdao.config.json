@@ -1,0 +1,6 @@
+{
+  "title": "Transfer NFTs (ERC721 & ERC1155) using the Polygon PoS Bridge & SDK ",
+  "description": "Learn how to transfer tokens between Polygon and Ethereum using the Proof of Stake bridge and SDK",
+  "imageUrl": "",
+  "categories": ["JS/TS", "Javascript"]
+}

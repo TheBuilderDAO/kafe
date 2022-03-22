@@ -1,0 +1,6 @@
+{
+  "title": "Add the Contracts Pallets to a Runtime",
+  "description": "Learn how to add a contract pallet to a runtime",
+  "imageUrl": "",
+  "categories": ["Rust", "Smart contracts"]
+}

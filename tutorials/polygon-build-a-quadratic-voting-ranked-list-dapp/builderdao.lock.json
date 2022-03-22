@@ -1,0 +1,76 @@
+{
+  "proposalId": null,
+  "slug": "polygon-build-a-quadratic-voting-ranked-list-dapp",
+  "authors": [
+    {
+      "name": "Giraffekey",
+      "avatarUrl": "https://github.com/giraffekey.png",
+      "email": "",
+      "nickname": "giraffekey"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/quadratic-voting-create-item-metamask.png": {
+      "name": "quadratic-voting-create-item-metamask.png",
+      "path": "content/assets/quadratic-voting-create-item-metamask.png",
+      "digest": "7a3f3dc3da276cc9d7b4375d69307ef94d8aa32605035b16d2155bafa8104aa3"
+    },
+    "content/assets/quadratic-voting-complete.png": {
+      "name": "quadratic-voting-complete.png",
+      "path": "content/assets/quadratic-voting-complete.png",
+      "digest": "f236852e4aa27c01b82437d1525ad57c71cb0a371f5f70d2f8b6407b3bb7188c"
+    },
+    "content/assets/quadratic-voting-create-item.png": {
+      "name": "quadratic-voting-create-item.png",
+      "path": "content/assets/quadratic-voting-create-item.png",
+      "digest": "c6710317fcb0fc996af6655b88dfbbc295b336d6a40bf28b9e73e6ad9145e106"
+    },
+    "content/assets/quadratic-voting-folder-structure.png": {
+      "name": "quadratic-voting-folder-structure.png",
+      "path": "content/assets/quadratic-voting-folder-structure.png",
+      "digest": "bbf5e6289cd89f5a53dfa500d6e7d6590c056f887090fa8a03bbad41e4488098"
+    },
+    "content/assets/quadratic-voting-ranked-items-voting.png": {
+      "name": "quadratic-voting-ranked-items-voting.png",
+      "path": "content/assets/quadratic-voting-ranked-items-voting.png",
+      "digest": "91121bd7922ef0af076924f4d10616ff862af1bef5277cebfa3fe343d90e1d35"
+    },
+    "content/assets/quadratic-voting-submit-vote-metamask.png": {
+      "name": "quadratic-voting-submit-vote-metamask.png",
+      "path": "content/assets/quadratic-voting-submit-vote-metamask.png",
+      "digest": "29d8a07216584c925e0eb84d2bf0459f133a01037422295581546c25e86d2b18"
+    },
+    "content/assets/quadratic-voting-submit-vote.png": {
+      "name": "quadratic-voting-submit-vote.png",
+      "path": "content/assets/quadratic-voting-submit-vote.png",
+      "digest": "62d5c2e5cb1401c73eb7cdc05d56c2a91877f8d77ddb83ba34776b16a1e03693"
+    },
+    "content/assets/quadratic-voting-ranked-items-claim.png": {
+      "name": "quadratic-voting-ranked-items-claim.png",
+      "path": "content/assets/quadratic-voting-ranked-items-claim.png",
+      "digest": "6556229fa12c3d55b9ba4b7bd8321c14a9bf764a80e3a8189d799a56e2510dd0"
+    },
+    "content/assets/quadratic-voting-truffle-compile.png": {
+      "name": "quadratic-voting-truffle-compile.png",
+      "path": "content/assets/quadratic-voting-truffle-compile.png",
+      "digest": "15016db6fa31808b6ad603819353947effbda0c5e5dba295198fa3fea464c2dc"
+    },
+    "content/assets/quadratic-voting-truffle-migrate.png": {
+      "name": "quadratic-voting-truffle-migrate.png",
+      "path": "content/assets/quadratic-voting-truffle-migrate.png",
+      "digest": "dab9e8d33b919b01a370378bb649225341e00726fb9f0cb25a4bd584217d185b"
+    },
+    "content/assets/quadratic-voting-truffle-test.png": {
+      "name": "quadratic-voting-truffle-test.png",
+      "path": "content/assets/quadratic-voting-truffle-test.png",
+      "digest": "af89528427ef2049ee9377c813725c82cfb95baf2f589f98883e4cd9975e1939"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6717579f7e22f2775c08cf23412fc63739da8a7d00c9da4db27335c7f1975fca"
+    }
+  },
+  "href": "learn/polygon-build-a-quadratic-voting-ranked-list-dapp"
+}

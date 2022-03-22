@@ -1,0 +1,56 @@
+{
+  "proposalId": null,
+  "slug": "polygon-flutter-starter-for-polygon-dapp",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "email": "",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/flutter-dapp-folder-structure.png": {
+      "name": "flutter-dapp-folder-structure.png",
+      "path": "content/assets/flutter-dapp-folder-structure.png",
+      "digest": "a6f2fceeb56ee9b4cffc8f7c89efe965eb265e3eb967bf5984cda78e967aa388"
+    },
+    "content/assets/flutter-dapp-ganache-privatekey-demo.jpeg": {
+      "name": "flutter-dapp-ganache-privatekey-demo.jpeg",
+      "path": "content/assets/flutter-dapp-ganache-privatekey-demo.jpeg",
+      "digest": "ca78cf8acb6f48b01fd82239234238287f0166ee0d5e84349cbfb3c752342d31"
+    },
+    "content/assets/flutter-dapp-truffle-compile.png": {
+      "name": "flutter-dapp-truffle-compile.png",
+      "path": "content/assets/flutter-dapp-truffle-compile.png",
+      "digest": "ffc91b00f796a23dddcd8427d8d15944ce1a46974c7a1be44bdcf0c061ae7824"
+    },
+    "content/assets/flutter-dapp-truffle-migrate.png": {
+      "name": "flutter-dapp-truffle-migrate.png",
+      "path": "content/assets/flutter-dapp-truffle-migrate.png",
+      "digest": "1a58da9421490969f4190ac1933785f8ea46ab71caa70c4216d9890fb66c9802"
+    },
+    "content/assets/flutter-todolist-bottomsheet.png": {
+      "name": "flutter-todolist-bottomsheet.png",
+      "path": "content/assets/flutter-todolist-bottomsheet.png",
+      "digest": "13b4f2ffd5d2f6b331919cb880c48ec7fad63db00897e40909e0fe85e7a9dad6"
+    },
+    "content/assets/flutter-todolist-home.png": {
+      "name": "flutter-todolist-home.png",
+      "path": "content/assets/flutter-todolist-home.png",
+      "digest": "986590e07b1308b6588155450cccb6b345744735bfbfd347b8df2f710ab0ab4c"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ae61c42f42b5700e252723abf95c996081f38cd2cb29b0912e932baccd20684d"
+    },
+    "content/assets/flutter-todo-dapp-demo.gif": {
+      "name": "flutter-todo-dapp-demo.gif",
+      "path": "content/assets/flutter-todo-dapp-demo.gif",
+      "digest": "a5e446091b60e3018b28222686977f54c157d88e470e8b6ea9c64f8c5ddfd914"
+    }
+  },
+  "href": "learn/polygon-flutter-starter-for-polygon-dapp"
+}

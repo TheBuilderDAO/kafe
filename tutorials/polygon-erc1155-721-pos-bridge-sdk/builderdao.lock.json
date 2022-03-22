@@ -1,0 +1,76 @@
+{
+  "proposalId": null,
+  "slug": "polygon-erc1155-721-pos-bridge-sdk",
+  "authors": [
+    {
+      "name": "Masoud Ghorbanzadeh",
+      "avatarUrl": "https://github.com/mlibre.png",
+      "email": "",
+      "nickname": "mlibre"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/erc1155-pos-mapped.png": {
+      "name": "erc1155-pos-mapped.png",
+      "path": "content/assets/erc1155-pos-mapped.png",
+      "digest": "69376d056be8478bdecda31e63fda2b9daf85fc3c1ab2cc5d387a4b9ced5be01"
+    },
+    "content/assets/erc1155-pos-map.png": {
+      "name": "erc1155-pos-map.png",
+      "path": "content/assets/erc1155-pos-map.png",
+      "digest": "b22a87223043ff21058feb2bed4cd098703f42ee2034e865c3b0ee474484fc31"
+    },
+    "content/assets/erc1155-pos-mumbai.png": {
+      "name": "erc1155-pos-mumbai.png",
+      "path": "content/assets/erc1155-pos-mumbai.png",
+      "digest": "1d53b4c9db836763e9feaa09619893e8c536850df11843371f01bdf502c98a57"
+    },
+    "content/assets/erc721-pos-map.png": {
+      "name": "erc721-pos-map.png",
+      "path": "content/assets/erc721-pos-map.png",
+      "digest": "1177feae1f944169491c5dfc1c478aea858f2c9fffed6462fcb987f716aaf859"
+    },
+    "content/assets/erc721-pos-metamask-eth-goerli.png": {
+      "name": "erc721-pos-metamask-eth-goerli.png",
+      "path": "content/assets/erc721-pos-metamask-eth-goerli.png",
+      "digest": "7687402762f13d6c07e90066b593f480718d7e51b69ae79b6cdc510ab062fdc3"
+    },
+    "content/assets/erc721-pos-ui-deposit.png": {
+      "name": "erc721-pos-ui-deposit.png",
+      "path": "content/assets/erc721-pos-ui-deposit.png",
+      "digest": "b8858d39ff83fe9234655a3d4e4b2fc1cad42431bce00fa5640f996797a9ad62"
+    },
+    "content/assets/erc721-pos-ui-done.png": {
+      "name": "erc721-pos-ui-done.png",
+      "path": "content/assets/erc721-pos-ui-done.png",
+      "digest": "cb44ca85804eca2601c81958fb558b5f1a5c056426dc9fb4ce6ca9b3751766de"
+    },
+    "content/assets/erc721-pos-ui.png": {
+      "name": "erc721-pos-ui.png",
+      "path": "content/assets/erc721-pos-ui.png",
+      "digest": "0c7c48c3f03014b302e72e47a766ef571ff6615937b1601543b349eaa1f36230"
+    },
+    "content/assets/pos-bridge-sdk-balance-metamask.png": {
+      "name": "pos-bridge-sdk-balance-metamask.png",
+      "path": "content/assets/pos-bridge-sdk-balance-metamask.png",
+      "digest": "3d055c4968adb36df28c7b25098e4553db4db4bf537eb71818a947b9f5246cf4"
+    },
+    "content/assets/pos-bridge-sdk-metamask-mumbai-after.png": {
+      "name": "pos-bridge-sdk-metamask-mumbai-after.png",
+      "path": "content/assets/pos-bridge-sdk-metamask-mumbai-after.png",
+      "digest": "3a3d5efa8afc82bb01f478aa195e80a63f8f7e7ef196bc21caabd53c0f743194"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "aa2fd325a1b35a80fe5bf5e823a038d32e55c41cf6dddd24a04ccb86815cea61"
+    },
+    "content/assets/pos-bridge-sdk-metamask-mumbai.png": {
+      "name": "pos-bridge-sdk-metamask-mumbai.png",
+      "path": "content/assets/pos-bridge-sdk-metamask-mumbai.png",
+      "digest": "e6a95fbe19f096a543617f334f5bf96bdf19e8af99681a2789f2c080ffbb00aa"
+    }
+  },
+  "href": "learn/polygon-erc1155-721-pos-bridge-sdk"
+}

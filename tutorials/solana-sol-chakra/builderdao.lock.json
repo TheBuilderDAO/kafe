@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "solana-sol-chakra",
+  "authors": [
+    {
+      "name": "Kanav Gupta",
+      "avatarUrl": "https://github.com/kanav99.png",
+      "email": "",
+      "nickname": "kanav99"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fdee60842a9b9da4189853cff1620b6379613daa92448353802e9de1d9af4a89"
+    }
+  },
+  "href": "learn/solana-sol-chakra"
+}

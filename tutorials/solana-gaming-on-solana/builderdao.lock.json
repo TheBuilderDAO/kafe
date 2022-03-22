@@ -1,0 +1,26 @@
+{
+  "proposalId": null,
+  "slug": "solana-gaming-on-solana",
+  "authors": [
+    {
+      "name": "Sandeep Ghosh",
+      "avatarUrl": "https://github.com/blocksan.png",
+      "email": "",
+      "nickname": "blocksan"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "02f09dc6ebb34dc438e35d9082efbb01d197e124307b64763d9d90948fe53cf7"
+    },
+    "content/assets/solana_games.png": {
+      "name": "solana_games.png",
+      "path": "content/assets/solana_games.png",
+      "digest": "7f8d882c460ff7bc4e0b42ff6d4315bf45cf4920b2638771d40b05185a14127e"
+    }
+  },
+  "href": "learn/solana-gaming-on-solana"
+}

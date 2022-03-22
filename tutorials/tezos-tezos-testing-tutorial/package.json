@@ -1,0 +1,20 @@
+{
+  "name": "@builderdao-learn/tezos-tezos-testing-tutorial",
+  "version": "1.0.0",
+  "description": "Learn how to unit test Python smart contracts for Tezos using the SmartPy suite of tools",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Python",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

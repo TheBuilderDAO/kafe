@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/polygon-launch-a-full-stack-dapp",
+  "version": "1.0.0",
+  "description": "Learn to build a full-stack dApp deployed on Polygon (Matic) with Proof of Stake Security.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Solidity",
+    "NodeJS",
+    "Smart contracts",
+    "Solidity",
+    "Remix"
+  ],
+  "author": "",
+  "license": "ISC"
+}

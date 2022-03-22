@@ -1,0 +1,20 @@
+{
+  "name": "@builderdao-learn/polygon-erc1155-721-pos-bridge-sdk",
+  "version": "1.0.0",
+  "description": "Learn how to transfer tokens between Polygon and Ethereum using the Proof of Stake bridge and SDK",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

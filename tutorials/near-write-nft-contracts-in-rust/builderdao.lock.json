@@ -1,0 +1,26 @@
+{
+  "proposalId": null,
+  "slug": "near-write-nft-contracts-in-rust",
+  "authors": [
+    {
+      "name": "Mykle Hansen",
+      "avatarUrl": "https://github.com/myklemykle.png",
+      "email": "",
+      "nickname": "myklemykle"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b1244aed1020a85a879ceface276b03c4b2df96b899268a93669a2a90b1de1d1"
+    },
+    "content/assets/screen-shot-2021-02-01-at-6.30.27-pm.png": {
+      "name": "screen-shot-2021-02-01-at-6.30.27-pm.png",
+      "path": "content/assets/screen-shot-2021-02-01-at-6.30.27-pm.png",
+      "digest": "2edbb4e738d6cb0c7ef2ae395c647891caf589243107cc4e99cdc8d7acc01686"
+    }
+  },
+  "href": "learn/near-write-nft-contracts-in-rust"
+}

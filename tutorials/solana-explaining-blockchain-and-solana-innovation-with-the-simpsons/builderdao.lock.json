@@ -1,0 +1,86 @@
+{
+  "proposalId": null,
+  "slug": "solana-explaining-blockchain-and-solana-innovation-with-the-simpsons",
+  "authors": [
+    {
+      "name": "Jonathan Ferreira",
+      "avatarUrl": "https://github.com/Jonathansoufer.png",
+      "email": "",
+      "nickname": "Jonathansoufer"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/banksy_simpsons.jpeg": {
+      "name": "banksy_simpsons.jpeg",
+      "path": "content/assets/banksy_simpsons.jpeg",
+      "digest": "999d7465e3640f5da7a057d84d84903a22d285445fe8b85f1e52c184c55df795"
+    },
+    "content/assets/arm.jpeg": {
+      "name": "arm.jpeg",
+      "path": "content/assets/arm.jpeg",
+      "digest": "7435ff5160e2cf0dff0e8830f0075df8a848a19dd4c8e9ac8de87e9286940e36"
+    },
+    "content/assets/generals.png": {
+      "name": "generals.png",
+      "path": "content/assets/generals.png",
+      "digest": "eb32abb9752c92695e63d7fd6f4cf5781581e2d569c64687f2acb435a7f4dce7"
+    },
+    "content/assets/lego-simpsons.jpeg": {
+      "name": "lego-simpsons.jpeg",
+      "path": "content/assets/lego-simpsons.jpeg",
+      "digest": "dc3a41e42372ec8068d2674c10bc1c1e55391cb90f8ee3f2ac95a19f5e47526b"
+    },
+    "content/assets/maxresdefault.jpeg": {
+      "name": "maxresdefault.jpeg",
+      "path": "content/assets/maxresdefault.jpeg",
+      "digest": "1bac20f7f60984fd2304241ff869173766756bd32859068bfbf8d6b9e75750ed"
+    },
+    "content/assets/power-plant.jpeg": {
+      "name": "power-plant.jpeg",
+      "path": "content/assets/power-plant.jpeg",
+      "digest": "b965733daaa2f81734b7f2fa7f51ca519b2cea00724b0257b3e7e8fe4f970e00"
+    },
+    "content/assets/queue_simpson.png": {
+      "name": "queue_simpson.png",
+      "path": "content/assets/queue_simpson.png",
+      "digest": "d3090fcd9af435f35e50b6ac9413f3ffb0cc3c70671f110d8daee41fae957f7b"
+    },
+    "content/assets/store-u-stuff.png": {
+      "name": "store-u-stuff.png",
+      "path": "content/assets/store-u-stuff.png",
+      "digest": "eb3a9207796839725034a6ecdb41576492c5d953fbf7eaf408a6591c6631f333"
+    },
+    "content/assets/the-simpsons-season-33.jpeg": {
+      "name": "the-simpsons-season-33.jpeg",
+      "path": "content/assets/the-simpsons-season-33.jpeg",
+      "digest": "cba6b247a41a9e9a846c4015ac19d165b2ce97f281cf9701667ccecc71293034"
+    },
+    "content/assets/laundry-how-i-spend-my-free-time.gif": {
+      "name": "laundry-how-i-spend-my-free-time.gif",
+      "path": "content/assets/laundry-how-i-spend-my-free-time.gif",
+      "digest": "436bb1d0d3b0f71f346db739079a09ad9b78fe21cd7713a66addfcc7def01cc1"
+    },
+    "content/assets/tickets.png": {
+      "name": "tickets.png",
+      "path": "content/assets/tickets.png",
+      "digest": "aef9cfe992bf5829dd292513113725e8da70ec014282df44136689aa6eef9037"
+    },
+    "content/assets/we-break-thumbs.jpeg": {
+      "name": "we-break-thumbs.jpeg",
+      "path": "content/assets/we-break-thumbs.jpeg",
+      "digest": "1b12fe9814cd999d5752068bbfaf4ac51bdcd9c5fdd9e3d7d5bba7355ebd947b"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "16d445bcfbc1a95764b86af567749c3f619096aaed210aa02a9fe2b673d3c5a8"
+    },
+    "content/assets/the-simpsons.jpeg": {
+      "name": "the-simpsons.jpeg",
+      "path": "content/assets/the-simpsons.jpeg",
+      "digest": "a516b43e3e8dfb805785213c705ca90cd8595bffa1f0356f30fa49c95c3a760f"
+    }
+  },
+  "href": "learn/solana-explaining-blockchain-and-solana-innovation-with-the-simpsons"
+}

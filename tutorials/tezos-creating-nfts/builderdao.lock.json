@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "tezos-creating-nfts",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a47dbb76845daeb63c3c2fb50e0fc48e3a1f6d4fd53b4cd0052c88b01247e945"
+    }
+  },
+  "href": "learn/tezos-creating-nfts"
+}

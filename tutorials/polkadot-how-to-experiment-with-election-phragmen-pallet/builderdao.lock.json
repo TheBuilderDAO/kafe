@@ -1,0 +1,31 @@
+{
+  "proposalId": null,
+  "slug": "polkadot-how-to-experiment-with-election-phragmen-pallet",
+  "authors": [
+    {
+      "name": "Kelvin Welter",
+      "avatarUrl": "https://github.com/kelvinwelter.png",
+      "email": "",
+      "nickname": "kelvinwelter"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/electioncomponentpreview.png": {
+      "name": "electioncomponentpreview.png",
+      "path": "content/assets/electioncomponentpreview.png",
+      "digest": "f7b86a2d585cc502b03ec5895c9b586cbc6b32394c70ee6a2426c350834a5be6"
+    },
+    "content/assets/electionspreview.gif": {
+      "name": "electionspreview.gif",
+      "path": "content/assets/electionspreview.gif",
+      "digest": "36f8eb1c205cc5102fcf3cb940b9b8316e9c7ac8d24725336309287e12e25d43"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "649e5ba03cbaf3c4dc31e20c4bedab28a66af1b9635bcea52826f7c9734d1063"
+    }
+  },
+  "href": "learn/polkadot-how-to-experiment-with-election-phragmen-pallet"
+}

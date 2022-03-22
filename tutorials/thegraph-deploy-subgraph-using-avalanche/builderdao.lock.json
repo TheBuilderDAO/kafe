@@ -1,0 +1,61 @@
+{
+  "proposalId": null,
+  "slug": "thegraph-deploy-subgraph-using-avalanche",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "email": "",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/avalanche_metamask.png": {
+      "name": "avalanche_metamask.png",
+      "path": "content/assets/avalanche_metamask.png",
+      "digest": "9ead9f0b0bbaab1cfef47e5396b474177d7fed60e6eb24c0fd92dda1c1606ea2"
+    },
+    "content/assets/datahub_avalanche.png": {
+      "name": "datahub_avalanche.png",
+      "path": "content/assets/datahub_avalanche.png",
+      "digest": "7af1b1378730c566a40a34dc8647db97ef984759d0698248ffb11a2ca415bbdc"
+    },
+    "content/assets/datahub_signup.png": {
+      "name": "datahub_signup.png",
+      "path": "content/assets/datahub_signup.png",
+      "digest": "5b336c2994767cefc7c5ccd31ebaa6b40c9b817491b40b16372a63eab585bc17"
+    },
+    "content/assets/datahub_avalanche_api.png": {
+      "name": "datahub_avalanche_api.png",
+      "path": "content/assets/datahub_avalanche_api.png",
+      "digest": "e15d2026ca8f986b94151f8695dfda57a205c1e18b470e4b92b48bffc79401f5"
+    },
+    "content/assets/graph_connect.png": {
+      "name": "graph_connect.png",
+      "path": "content/assets/graph_connect.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/assets/graph.png": {
+      "name": "graph.png",
+      "path": "content/assets/graph.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    },
+    "content/assets/graph_create_subgraph.png": {
+      "name": "graph_create_subgraph.png",
+      "path": "content/assets/graph_create_subgraph.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/graph_subgraph_created.png": {
+      "name": "graph_subgraph_created.png",
+      "path": "content/assets/graph_subgraph_created.png",
+      "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "78c2a5196ad3da0c37f6669271109746bf11e996c177292e845abff8cc326338"
+    }
+  },
+  "href": "learn/thegraph-deploy-subgraph-using-avalanche"
+}

@@ -1,0 +1,41 @@
+{
+  "proposalId": null,
+  "slug": "solana-solana-jargon-free",
+  "authors": [
+    {
+      "name": "Brandon Goss",
+      "avatarUrl": "https://github.com/brandongoss.png",
+      "email": "",
+      "nickname": "brandongoss"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/kernel.png": {
+      "name": "kernel.png",
+      "path": "content/assets/kernel.png",
+      "digest": "e6364a7b676c4b21271592985a41d388ccf10f5b2f52eb2f6ed99646df340f68"
+    },
+    "content/assets/data_deck.png": {
+      "name": "data_deck.png",
+      "path": "content/assets/data_deck.png",
+      "digest": "a6b3bebd1242067a6090372fefb7168275da13651dec8b02ef0b5769b4837ae5"
+    },
+    "content/assets/solanalogo.jpeg": {
+      "name": "solanalogo.jpeg",
+      "path": "content/assets/solanalogo.jpeg",
+      "digest": "f5230d86b41540fdd4b8f1ff104a2f54412972184070864c9032b91abccec070"
+    },
+    "content/assets/solana_txn_flow.png": {
+      "name": "solana_txn_flow.png",
+      "path": "content/assets/solana_txn_flow.png",
+      "digest": "136ed953eb5186dd7836b08a007d29a291b5a77b9ab240ef3ebb352719a4a763"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6af6b3ce06981dd2574e4c2ee8c55e86894f7658f6450f427c4a2cc35e5fdd84"
+    }
+  },
+  "href": "learn/solana-solana-jargon-free"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@builderdao-learn/solana-explaining-blockchain-and-solana-innovation-with-the-simpsons",
+  "version": "1.0.0",
+  "description": "Learn about the technical innovations of Solana with pop culture icons The Simpsons",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

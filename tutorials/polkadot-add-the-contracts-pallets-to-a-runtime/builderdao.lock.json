@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "polkadot-add-the-contracts-pallets-to-a-runtime",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "113af8070e62e0076466f07ca6489613dd665f90e52f47fa53a6f484f7537320"
+    }
+  },
+  "href": "learn/polkadot-add-the-contracts-pallets-to-a-runtime"
+}

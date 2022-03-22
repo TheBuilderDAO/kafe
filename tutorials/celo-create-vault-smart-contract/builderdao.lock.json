@@ -1,0 +1,26 @@
+{
+  "proposalId": null,
+  "slug": "celo-create-vault-smart-contract",
+  "authors": [
+    {
+      "name": "Team Celo Helpi",
+      "avatarUrl": "https://github.com/helpicelo.png",
+      "email": "",
+      "nickname": "helpicelo"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "9adfae4800c9c32fa3dc35760efaf611bd8567e69191655cb83f89cee0d0d825"
+    },
+    "content/assets/celo-vault-dapp.gif": {
+      "name": "celo-vault-dapp.gif",
+      "path": "content/assets/celo-vault-dapp.gif",
+      "digest": "d85bd86b36012a14e3c15e9c3018bfd880292f5d80528667fc42484856920ea0"
+    }
+  },
+  "href": "learn/celo-create-vault-smart-contract"
+}

@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "celo-hello-contracts",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "f497d16cc73ad7c7d89c71a7533d519ad25149948805bebabbb4dda30b74081c"
+    }
+  },
+  "href": "learn/celo-hello-contracts"
+}

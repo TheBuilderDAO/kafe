@@ -1,0 +1,51 @@
+{
+  "proposalId": null,
+  "slug": "polygon-build-a-nft-marketplace-using-hardhat",
+  "authors": [
+    {
+      "name": "Bhaskar Dutta",
+      "avatarUrl": "https://github.com/BhaskarDutta2209.png",
+      "email": "",
+      "nickname": "BhaskarDutta2209"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/folderstructure_hh.png": {
+      "name": "folderstructure_hh.png",
+      "path": "content/assets/folderstructure_hh.png",
+      "digest": "c3bbf545c699b2432091e25aef0aa77ce0a5ad719bb4b3824317607dfe759d80"
+    },
+    "content/assets/deployingandverifying.png": {
+      "name": "deployingandverifying.png",
+      "path": "content/assets/deployingandverifying.png",
+      "digest": "c3b6e37b797a5479913cfb4151f6337bd5f192dcc4e5e32ab20939a27665807f"
+    },
+    "content/assets/npx_hardhat_basic.png": {
+      "name": "npx_hardhat_basic.png",
+      "path": "content/assets/npx_hardhat_basic.png",
+      "digest": "e8ff7e122f13d466eb7de508b2b006032b927b3a67f7e918dcabb2502d007a2a"
+    },
+    "content/assets/testingcont1.png": {
+      "name": "testingcont1.png",
+      "path": "content/assets/testingcont1.png",
+      "digest": "502c9326ea98aeb54d7c4b28b7edb742b0a5516512efb077cb70327fe51e72e3"
+    },
+    "content/assets/testingcont2.png": {
+      "name": "testingcont2.png",
+      "path": "content/assets/testingcont2.png",
+      "digest": "4754d8c0c5a4574fc5aca051fa4eeeb1434aabfe89b33021f6e1d02febac6c18"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e1c2ee7f32139c784b452b7a49978a8156065d968f32cdbf5f4882646cc55cf7"
+    },
+    "content/assets/testingcont3.png": {
+      "name": "testingcont3.png",
+      "path": "content/assets/testingcont3.png",
+      "digest": "54cc54e98b51d51169a0aa235624fa62a686bc0a84a46380effcac6e8df6533e"
+    }
+  },
+  "href": "learn/polygon-build-a-nft-marketplace-using-hardhat"
+}

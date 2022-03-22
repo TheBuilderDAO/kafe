@@ -1,0 +1,36 @@
+{
+  "proposalId": null,
+  "slug": "avalanche-connect-datahub-to-metamask",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/1*q0hiwci3okakwyv2glos0a.png": {
+      "name": "1*q0hiwci3okakwyv2glos0a.png",
+      "path": "content/assets/1*q0hiwci3okakwyv2glos0a.png",
+      "digest": "1b8fcce9243513b86f1be3e610fd294767be5faa4955a3b58f0d67ec645ec141"
+    },
+    "content/assets/0*0hgm4o_j5if3943s.png": {
+      "name": "0*0hgm4o_j5if3943s.png",
+      "path": "content/assets/0*0hgm4o_j5if3943s.png",
+      "digest": "36550d24038e21180ee2e6410ddeeb7b2c26777d8d373c01c80232a2c8182eca"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "868e7ca9452feed55fe3e5984766f40f8d0585e207e20e63389eb04ef45e93c1"
+    },
+    "content/assets/1*y7o1bbetwnuqbaqtnwmquq.png": {
+      "name": "1*y7o1bbetwnuqbaqtnwmquq.png",
+      "path": "content/assets/1*y7o1bbetwnuqbaqtnwmquq.png",
+      "digest": "c970c29951cced54630902554cfaaaefc88ee944af9c8ebc619015d4a6cb8931"
+    }
+  },
+  "href": "learn/avalanche-connect-datahub-to-metamask"
+}

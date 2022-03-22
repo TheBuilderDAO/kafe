@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "terra-interacting-with-a-terra-smart-contract",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "78e16dc6e426ad007bd2e204fc1976d516f0a940d924e377a1ddf9aacaa1f39a"
+    }
+  },
+  "href": "learn/terra-interacting-with-a-terra-smart-contract"
+}

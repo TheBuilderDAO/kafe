@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask",
+  "version": "1.0.0",
+  "description": "Learn how to deploy and test a smart contract on Avalanche using Remix and MetaMask",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Solidity",
+    "Solidity",
+    "Metamask",
+    "Remix"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/polygon-nft-tutorial-using-hardhat",
+  "version": "1.0.0",
+  "description": "Learn how to create your own NFT smart contract using HardHat",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Solidity",
+    "Solidity",
+    "Hardhat"
+  ],
+  "author": "",
+  "license": "ISC"
+}

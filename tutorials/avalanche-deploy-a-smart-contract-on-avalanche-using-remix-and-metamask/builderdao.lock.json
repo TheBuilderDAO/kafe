@@ -1,0 +1,76 @@
+{
+  "proposalId": null,
+  "slug": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask",
+  "authors": [
+    {
+      "name": "TheBuilderDAO",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "email": "",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/image%20%2811%29.png": {
+      "name": "image%20%2811%29.png",
+      "path": "content/assets/image%20%2811%29.png",
+      "digest": "31171821178b2745424724ad90f9b33f8ac08f0b91f252ca244682d1be8b8c44"
+    },
+    "content/assets/image%20%2810%29.png": {
+      "name": "image%20%2810%29.png",
+      "path": "content/assets/image%20%2810%29.png",
+      "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
+    },
+    "content/assets/image%20%2813%29.png": {
+      "name": "image%20%2813%29.png",
+      "path": "content/assets/image%20%2813%29.png",
+      "digest": "328bd1f2ce0387f1a974c71061df0149b39d00f2656ae51bdf143ea6b014ecfb"
+    },
+    "content/assets/image%20%2812%29.png": {
+      "name": "image%20%2812%29.png",
+      "path": "content/assets/image%20%2812%29.png",
+      "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
+    },
+    "content/assets/image%20%2814%29.png": {
+      "name": "image%20%2814%29.png",
+      "path": "content/assets/image%20%2814%29.png",
+      "digest": "28a9f034aa297313878f5ca766f082ebaa53e6a9df71815cd0cbeddbe2c6b329"
+    },
+    "content/assets/image%20%2815%29.png": {
+      "name": "image%20%2815%29.png",
+      "path": "content/assets/image%20%2815%29.png",
+      "digest": "9149316a6147f28c1098c7b02fe4fa41b09ee494108b1efb10b7f0ecc96d59eb"
+    },
+    "content/assets/image%20%2816%29.png": {
+      "name": "image%20%2816%29.png",
+      "path": "content/assets/image%20%2816%29.png",
+      "digest": "9e7678ee304877a6e10c60f47214a259afd0dd8b46981d02373c7914701336df"
+    },
+    "content/assets/image%20%284%29.png": {
+      "name": "image%20%284%29.png",
+      "path": "content/assets/image%20%284%29.png",
+      "digest": "2ff85d8077fda1a779079184b27fb6d68fcf58bc4b56e1ea60257f15492b83c0"
+    },
+    "content/assets/image%20%287%29.png": {
+      "name": "image%20%287%29.png",
+      "path": "content/assets/image%20%287%29.png",
+      "digest": "cdce850cb5b60565f4a5b2cb7d30fde8d4389c15c6291a3efd88d83c4a6d44f6"
+    },
+    "content/assets/image%20%285%29.png": {
+      "name": "image%20%285%29.png",
+      "path": "content/assets/image%20%285%29.png",
+      "digest": "040ec5bd9112c87b33f398de2a93fece9108dc89717c50b3748b480866d3d215"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "404b8d1610cc097aceca359645ab6bcc0361a19665ab858bb4e00c8b16769746"
+    },
+    "content/assets/image%20%289%29.png": {
+      "name": "image%20%289%29.png",
+      "path": "content/assets/image%20%289%29.png",
+      "digest": "e13ca860fc483bc6a51f427f2e600ad09b2e9e425ec45d05444bf3858c2d59f5"
+    }
+  },
+  "href": "learn/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask"
+}

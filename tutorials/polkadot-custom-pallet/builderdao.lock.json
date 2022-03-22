@@ -1,0 +1,41 @@
+{
+  "proposalId": null,
+  "slug": "polkadot-custom-pallet",
+  "authors": [
+    {
+      "name": "Prasad Kumar",
+      "avatarUrl": "https://github.com/prasad-kumkar.png",
+      "email": "",
+      "nickname": "prasad-kumkar"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/assets/2.png": {
+      "name": "2.png",
+      "path": "content/assets/2.png",
+      "digest": "1dd4b1625726c1dbbb868ada65d18daa7ac3027b28f9b5021a57ac833c7a6367"
+    },
+    "content/assets/1.png": {
+      "name": "1.png",
+      "path": "content/assets/1.png",
+      "digest": "cabb03440ebe6f82a35dcad1a93e97da0a8378e2f629045d6777a21e3e0e45ea"
+    },
+    "content/assets/4.png": {
+      "name": "4.png",
+      "path": "content/assets/4.png",
+      "digest": "2caf3d04217c1034272d52c10f33c50c51c87a66b6c76b211a285a3310acebb0"
+    },
+    "content/assets/3.png": {
+      "name": "3.png",
+      "path": "content/assets/3.png",
+      "digest": "6cc277f3ed6f08964a4c4522ff01e7e8fd991fc18ca6f76c0b5e60676e5ff45f"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "3f5a7e4ad74e1adbe2dd916f226e8901a59255b73ec18b5cbf4ff5e36b1cc886"
+    }
+  },
+  "href": "learn/polkadot-custom-pallet"
+}

@@ -1,0 +1,21 @@
+{
+  "proposalId": null,
+  "slug": "celo-celo-contract-from-ethereum",
+  "authors": [
+    {
+      "name": "Brittany Deventer",
+      "avatarUrl": "https://github.com/bdev07.png",
+      "email": "",
+      "nickname": "bdev07"
+    }
+  ],
+  "reviewers": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8cff038108fffff295fb61b4e8cc97daf01b2437ee0fa86069436db74ff5b7de"
+    }
+  },
+  "href": "learn/celo-celo-contract-from-ethereum"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/polygon-flutter-starter-for-polygon-dapp",
+  "version": "1.0.0",
+  "description": "Learn how to create a universal To-Do dApp with the Flutter framework and deploy it on Polygon.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Solidity",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

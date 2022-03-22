@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/polygon-build-a-nft-marketplace-using-hardhat",
+  "version": "1.0.0",
+  "description": "Learn how to build an NFT marketplace smart contract and deploy it on Polygon using HardHat",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Solidity",
+    "Smart contracts",
+    "Solidity",
+    "Hardhat"
+  ],
+  "author": "",
+  "license": "ISC"
+}

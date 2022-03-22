@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/avalanche-create-a-local-test-network",
+  "version": "1.0.0",
+  "description": "Learn how to create a local test network on Avalanche",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Go",
+    "CLI",
+    "Avash"
+  ],
+  "author": "",
+  "license": "ISC"
+}

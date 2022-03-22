@@ -1,0 +1,6 @@
+{
+  "title": "Perform a forkless upgrade of a Substrate pallet",
+  "description": "Learn how to upgrade a Substrate pallet without forking the blockchain",
+  "imageUrl": "",
+  "categories": ["Rust", "Rust"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/polygon-chainlink-vrf-on-polygon-using-remix",
+  "version": "1.0.0",
+  "description": "Learn how to use the Chainlink Oracle for verifiable randomness in your Polygon (Matic) smart contracts",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "JS/TS",
+    "Solidity",
+    "Javascript",
+    "Solidity",
+    "Remix"
+  ],
+  "author": "",
+  "license": "ISC"
+}
