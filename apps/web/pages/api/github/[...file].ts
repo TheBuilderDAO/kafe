@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse<any>,
 ) {
   const { file } = req.query;
-  const [slug, ...path] = file;
+  const [slug, ...path] = file as string[];
   const raw = await getFileFromGithub(slug, path.join('/'));
   res.status(200).send(raw);
 }
