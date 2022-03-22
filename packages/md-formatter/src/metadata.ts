@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as fs from 'fs';
+import fs from 'fs-extra';
 import * as path from 'path';
 import * as csv from 'fast-csv';
 import async from 'async'
@@ -29,7 +29,6 @@ const writeQueue = async.queue(async (data: TutorialDetailsRow) => {
     .set(data.slug, data)
     .value()
   await tutorialDetailDB.write()
-  console.log(count)
 }, 2)
 
 export const capitalizeFirstLetter = (str: string) =>
@@ -80,7 +79,6 @@ const generateMetadata = async () => {
       )
       .transform(async (row, next): Promise<void> => {
         count = count + 1;
-        console.log(count);
         if (!row.author_url.startsWith('https://github.com')) {
           row.author_url = `https://github.com/TheBuilderDAO`
           row.author = 'TheBuilderDAO'
@@ -111,19 +109,25 @@ const generateMetadata = async () => {
           author_nickname: row.author_url.replace(/^https:\/\/github.com\//, ''),
           author_image_url: `${row.author_url}.png`,
         }
-        writeQueue.push(extended)
-        return next(null, extended)
+        await writeQueue.pushAsync(extended)
+        next(null, extended)
       })
-      // .pipe(process.stdout)
+      .pipe(process.stdout)
       .on('end', async () => {
-        await writeQueue.drain();
+        if (writeQueue.length() > 0) {
+          await writeQueue.drain();
+        }
         resolve()
-        // process.exit()
       })
   })
 }
 
-generateMetadata().then(() => {
+generateMetadata().then(async () => {
+  const a = await fs.readJson(target)
+  console.log(
+    Object.keys(a).length
+  )
+  // await fs.copy(source, target, { filter: filterFunc })
   console.log('done')
 })
 

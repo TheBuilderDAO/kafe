@@ -11,5 +11,5 @@ export default async function handler(
   const { file } = req.query;
   const [slug, ...path] = file as string[];
   const raw = await getFileFromGithub(slug, path.join('/'));
-  res.status(200).send(raw);
+  res.status(200).send(raw.data);
 }
