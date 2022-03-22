@@ -72,6 +72,8 @@ export const parseTags = (value: string) => {
       return 'GraphQL';
     case 'Smart Contracts':
       return 'Smart Contract';
+    case 'Next.js':
+      return 'NextJS';
     default:
       return capitalizeFirstLetter(value);
   }
