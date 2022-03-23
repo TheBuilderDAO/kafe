@@ -115,7 +115,7 @@ jobs:
 
   update_index:
     name: Update Algolia index
-    needs: [ fetch_proposal, set_state ]
+    needs: [ get_proposal_by_slug, fetch_proposal, set_state ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -125,9 +125,9 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: update_algolia_index
         env:
-          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
           ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
           ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
-          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "published"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+          builderdao algolia publish $SLUG --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
