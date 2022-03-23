@@ -17,6 +17,7 @@ import BorderSVG from '@app/components/SVG/BorderSVG';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import Loader from '@app/components/Loader/Loader';
 import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 type PageProps = {
   tutorial: any;
 };
@@ -62,12 +63,12 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
                 />
               </div>
             </RightSidebar>
-            <WriteOnGitHub
-              tutorial={tutorial}
-              ProposalStateE={ProposalStateE}
-              ZERO_ADDRESS={ZERO_ADDRESS}
-              RenderReviewer={RenderReviewer}
-            />
+            <IsLoggedIn>
+              <WriteOnGitHub
+                tutorial={tutorial}
+                RenderReviewer={RenderReviewer}
+              />
+            </IsLoggedIn>
           </div>
         </div>
       </main>

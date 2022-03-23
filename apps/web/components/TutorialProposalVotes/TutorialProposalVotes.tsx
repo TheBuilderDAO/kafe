@@ -67,7 +67,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
 
       <IsLoggedIn>
         {state.toString() !== ProposalStateE.published && (
-          <VoteButton id={id} variant="standard" />
+          <VoteButton id={id} variant="standard" currentState={state} />
         )}
       </IsLoggedIn>
       <div className="pt-4">
