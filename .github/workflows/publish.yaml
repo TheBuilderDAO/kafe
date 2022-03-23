@@ -115,7 +115,7 @@ jobs:
 
   update_index:
     name: Update Algolia index
-    needs: [ get_proposal_by_slug, fetch_proposal, set_state ]
+    needs: [ get_proposal_slug, fetch_proposal, set_state ]
     runs-on: ubuntu-latest
     defaults:
       run:
