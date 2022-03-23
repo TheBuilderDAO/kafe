@@ -1,10 +1,11 @@
-{
-  "secret-pathway": {
+[
+  {
     "slug": "secret-pathway",
     "is_multi_page": true,
     "title": "Secret 101",
     "description": "Learn to build on Secret with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
     "difficulty": "beginner",
@@ -120,17 +121,15 @@
         "previous_slug": "secret-set-storage",
         "page_number": 11
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "secret-pathway"
+    ]
   },
-  "polkadot-pathway": {
+  {
     "slug": "polkadot-pathway",
     "is_multi_page": true,
     "title": "Polkadot 101",
     "description": "Learn to build on Polkadot with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
     "difficulty": "beginner",
@@ -246,17 +245,15 @@
         "previous_slug": "polkadot-transfer",
         "page_number": 11
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "polkadot-pathway"
+    ]
   },
-  "celo-pathway": {
+  {
     "slug": "celo-pathway",
     "is_multi_page": true,
     "title": "Celo 101",
     "description": "Learn to build on Celo with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "React", "Solidity", "Next.js"],
     "difficulty": "beginner",
@@ -372,17 +369,15 @@
         "previous_slug": "celo-set-storage",
         "page_number": 11
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "celo-pathway"
+    ]
   },
-  "thegraph-the-graph-pathway": {
-    "slug": "thegraph-the-graph-pathway",
+  {
+    "slug": "the-graph-pathway",
     "is_multi_page": true,
     "title": "The Graph 101",
     "description": "Learn to build on The Graph with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "React", "Next.js"],
     "difficulty": "beginner",
@@ -478,17 +473,15 @@
         "previous_slug": "graph-query",
         "page_number": 9
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "the-graph-pathway"
+    ]
   },
-  "polygon-pathway": {
+  {
     "slug": "polygon-pathway",
     "is_multi_page": true,
     "title": "Polygon 101",
     "description": "Learn to build on Polygon with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Truffle", "Solidity", "Next.js"],
     "difficulty": "beginner",
@@ -681,17 +674,15 @@
         "previous_slug": "polygon-restore",
         "page_number": 11
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "polygon-pathway"
+    ]
   },
-  "near-pathway": {
+  {
     "slug": "near-pathway",
     "is_multi_page": true,
     "title": "NEAR 101",
     "description": "Learn to build on NEAR with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "React", "Rust", "Next.js"],
     "difficulty": "beginner",
@@ -817,17 +808,15 @@
         "previous_slug": "near-set-storage",
         "page_number": 12
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "near-pathway"
+    ]
   },
-  "solana-pathway": {
+  {
     "slug": "solana-pathway",
     "is_multi_page": true,
     "title": "Solana 101",
     "description": "Learn to build on Solana with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "React", "Rust", "Next.js"],
     "difficulty": "beginner",
@@ -953,17 +942,14 @@
         "previous_slug": "solana-send-data",
         "page_number": 12
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "solana-pathway"
+    ]
   },
-  "pyth-101": {
+  {
     "slug": "pyth-101",
     "is_multi_page": true,
     "title": "Pyth 101",
     "description": "Learn to build on Pyth with Figment Learn",
-    "author_github_account": "figment-networks/learn-web3-dapp",
+    "author_github_account": "Figment Learn Team",
     "author_url": "https://github.com/figment-networks/learn-web3-dapp",
     "author_wallet": null,
     "tags": ["Pyth", "JS/TS", "Next.js", "Typescript"],
@@ -1040,17 +1026,14 @@
         "previous_slug": "pyth-pathway-liquidation-bot",
         "page_number": 7
       }
-    ],
-    "author_name": "Figment Learn Team",
-    "author_image_url": "https://github.com/figment-networks/learn-web3-dapp.png",
-    "oldSlug": "pyth-101"
+    ]
   },
-  "solana-wallet": {
+  {
     "slug": "solana-wallet",
     "is_multi_page": true,
     "title": "Build a Solana Wallet",
     "description": "Build a crypto wallet for the Solana blockchain by leveraging the @solana/web3.js Javascript library to access accounts, fetch data, and transfer tokens",
-    "author_github_account": "dgamboa",
+    "author_github_account": "Daniel Gamboa",
     "author_url": "https://github.com/dgamboa",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "React", "Javascript", "Next.js"],
@@ -1127,17 +1110,15 @@
         "previous_slug": "solana-wallet-step-6",
         "page_number": 7
       }
-    ],
-    "author_name": "Daniel Gamboa",
-    "author_image_url": "https://github.com/dgamboa.png",
-    "oldSlug": "solana-wallet"
+    ]
   },
-  "ceramic-pathway": {
+  {
     "slug": "ceramic-pathway",
     "is_multi_page": true,
     "title": "Ceramic 101",
     "description": "Learn to build on Ceramic with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Ceramic", "JS/TS", "React", "Next.js"],
     "difficulty": "beginner",
@@ -1153,17 +1134,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "ceramic-pathway"
+    ]
   },
-  "polygon-mirror-clone": {
-    "slug": "polygon-mirror-clone",
+  {
+    "slug": "mirror-clone",
     "is_multi_page": true,
     "title": "Build a Mirror Clone",
     "description": "Build a blog publishing platform that stores content on Arweave and mints a proof-of-ownership NFT that can be transferred by the author",
-    "author_github_account": "https://learn.figment.io",
+    "author_github_account": "Learn Team",
     "author_url": "https://learn.figment.io",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Arweave", "Hardhat", "Typescript"],
@@ -1260,17 +1238,15 @@
         "previous_slug": "mirror-clone-transferring-an-nft",
         "page_number": 9
       }
-    ],
-    "author_name": "Learn Team",
-    "author_image_url": "https://learn.figment.io.png",
-    "oldSlug": "mirror-clone"
+    ]
   },
-  "avalanche-pathway": {
+  {
     "slug": "avalanche-pathway",
     "is_multi_page": true,
     "title": "Avalanche 101",
     "description": "Learn to build on Avalanche with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "React", "Solidity", "Next.js"],
     "difficulty": "beginner",
@@ -1376,17 +1352,15 @@
         "previous_slug": "av-import-tokens",
         "page_number": 10
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "avalanche-pathway"
+    ]
   },
-  "thegraph-the-graph-near-pathway": {
-    "slug": "thegraph-the-graph-near-pathway",
+  {
+    "slug": "the-graph-near-pathway",
     "is_multi_page": true,
     "title": "The Graph + NEAR",
     "description": "Learn how to index data from NEAR using The Graph",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "React", "Next.js"],
     "difficulty": "beginner",
@@ -1482,17 +1456,15 @@
         "previous_slug": "graph-near-query",
         "page_number": 9
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "the-graph-near-pathway"
+    ]
   },
-  "tezos-pathway": {
+  {
     "slug": "tezos-pathway",
     "is_multi_page": true,
     "title": "Tezos 101",
     "description": "Learn to build on Tezos with Figment Learn",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Tezos", "JS/TS", "React", "Next.js"],
     "difficulty": "beginner",
@@ -1608,17 +1580,14 @@
         "previous_slug": "tezos-set-storage",
         "page_number": 11
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "tezos-pathway"
+    ]
   },
-  "polygon-create-a-donation-dapp-on-polygon": {
-    "slug": "polygon-create-a-donation-dapp-on-polygon",
+  {
+    "slug": "create-a-donation-dapp-on-polygon",
     "is_multi_page": false,
     "title": "Create a donation dApp on Polygon",
     "description": "Learn how to create a donation dApp on Polygon to award your favorite content creator with MATIC tokens",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Javascript", "Solidity"],
@@ -1635,17 +1604,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "create-a-donation-dapp-on-polygon"
+    ]
   },
-  "polkadot-build-a-poe-decentralized-app": {
-    "slug": "polkadot-build-a-poe-decentralized-app",
+  {
+    "slug": "build-a-poe-decentralized-app",
     "is_multi_page": false,
     "title": "Build a PoE Decentralized App",
     "description": "Learn to create a custom \"Proof of Existence\" dApp using the Substrate blockchain development framework and FRAME runtime libraries",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "Rust", "React", "NodeJS"],
     "difficulty": "beginner",
@@ -1661,17 +1628,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "build-a-poe-decentralized-app"
+    ]
   },
-  "solana-explaining-solana-for-beginners": {
-    "slug": "solana-explaining-solana-for-beginners",
+  {
+    "slug": "explaining-solana-for-beginners",
     "is_multi_page": false,
     "title": "Solana's Innovations - a jargon-free explanation",
     "description": "Learn about Solana with easy language aimed at beginners",
-    "author_github_account": "brandongoss",
+    "author_github_account": "Brandon Goss",
     "author_url": "https://github.com/brandongoss",
     "author_wallet": null,
     "tags": ["Solana"],
@@ -1688,17 +1652,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Brandon Goss",
-    "author_image_url": "https://github.com/brandongoss.png",
-    "oldSlug": "explaining-solana-for-beginners"
+    ]
   },
-  "polkadot-substrate-kitties-dispatchables-and-events": {
-    "slug": "polkadot-substrate-kitties-dispatchables-and-events",
+  {
+    "slug": "substrate-kitties-dispatchables-and-events",
     "is_multi_page": false,
-    "title": "Substrate Kitties - Dispatchables & Events",
+    "title": "Substrate Kitties - Dispatchables \u0026 Events",
     "description": "Learn how to use storage with your Substrate Pallet",
-    "author_github_account": "SHA888",
+    "author_github_account": "Kresna Sucandra",
     "author_url": "https://github.com/SHA888",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -1706,7 +1667,7 @@
     "published_at": "2021-09-08T12:53:49.675Z",
     "pages": [
       {
-        "title": "Substrate Kitties - Dispatchables & Events",
+        "title": "Substrate Kitties - Dispatchables \u0026 Events",
         "slug": "substrate-kitties-dispatchables-and-events",
         "description": "Learn how to use storage with your Substrate Pallet",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polkadot/substrate-kitties/dispatchables-and-events.md",
@@ -1715,17 +1676,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kresna Sucandra",
-    "author_image_url": "https://github.com/SHA888.png",
-    "oldSlug": "substrate-kitties-dispatchables-and-events"
+    ]
   },
-  "polygon-transferring-tokens-with-polygon-pos-bridge": {
-    "slug": "polygon-transferring-tokens-with-polygon-pos-bridge",
+  {
+    "slug": "transferring-tokens-with-polygon-pos-bridge",
     "is_multi_page": false,
     "title": "Transferring tokens with the Polygon PoS bridge",
     "description": "Learn how to move tokens between Polygon and Ethereum using the Proof of Stake bridge.",
-    "author_github_account": "mlibre",
+    "author_github_account": "Masoud Ghorbanzadeh",
     "author_url": "https://github.com/mlibre",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Smart contracts", "Javascript", "Metamask"],
@@ -1748,17 +1706,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Masoud Ghorbanzadeh",
-    "author_image_url": "https://github.com/mlibre.png",
-    "oldSlug": "transferring-tokens-with-polygon-pos-bridge"
+    ]
   },
-  "terra-querying-the-terra-blockchain": {
-    "slug": "terra-querying-the-terra-blockchain",
+  {
+    "slug": "querying-the-terra-blockchain",
     "is_multi_page": false,
     "title": "Querying the Terra blockchain",
     "description": "Learn how to pull information from the Terra Blockchain using DataHub",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
     "difficulty": "beginner",
@@ -1774,17 +1730,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "querying-the-terra-blockchain"
+    ]
   },
-  "polygon-create-a-lending-marketplace-dapp-on-polygon": {
-    "slug": "polygon-create-a-lending-marketplace-dapp-on-polygon",
+  {
+    "slug": "create-a-lending-marketplace-dapp-on-polygon",
     "is_multi_page": false,
     "title": "Create a Lending Marketplace dApp on Polygon",
     "description": "Make your own lending marketplace on Polygon",
-    "author_github_account": "Devilla",
+    "author_github_account": "Devendra Yadav",
     "author_url": "https://github.com/Devilla",
     "author_wallet": null,
     "tags": [
@@ -1815,17 +1768,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Devendra Yadav",
-    "author_image_url": "https://github.com/Devilla.png",
-    "oldSlug": "create-a-lending-marketplace-dapp-on-polygon"
+    ]
   },
-  "celo-ubeswap-tutorial": {
+  {
     "slug": "celo-ubeswap-tutorial",
     "is_multi_page": false,
     "title": "How to use Ubeswap DEX on Celo",
     "description": "This tutorial is a part of DeFi series where people can learn how to participate in DeFi on the Celo Blockchain.",
-    "author_github_account": "gitofdeepanshu",
+    "author_github_account": "Deepanshu Hooda",
     "author_url": "https://github.com/gitofdeepanshu",
     "author_wallet": null,
     "tags": ["Celo"],
@@ -1842,17 +1792,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Deepanshu Hooda",
-    "author_image_url": "https://github.com/gitofdeepanshu.png",
-    "oldSlug": "celo-ubeswap-tutorial"
+    ]
   },
-  "tezos-mint-your-own-fungible-token-on-tezos": {
-    "slug": "tezos-mint-your-own-fungible-token-on-tezos",
+  {
+    "slug": "mint-your-own-fungible-token-on-tezos",
     "is_multi_page": false,
     "title": "Mint your own Fungible Token",
     "description": "Learn how to create your own fungible tokens on Tezos using SmartPy",
-    "author_github_account": "PriyanshuDangi",
+    "author_github_account": "Priyanshu Dangi",
     "author_url": "https://github.com/PriyanshuDangi",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts"],
@@ -1869,17 +1816,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Priyanshu Dangi",
-    "author_image_url": "https://github.com/PriyanshuDangi.png",
-    "oldSlug": "mint-your-own-fungible-token-on-tezos"
+    ]
   },
-  "solana-token-streaming-protocol": {
+  {
     "slug": "solana-token-streaming-protocol",
     "is_multi_page": false,
     "title": "Build a token streaming protocol",
     "description": "Learn how to make your own token streaming protocol on Solana",
-    "author_github_account": "SushantChandla",
+    "author_github_account": "Sushant Chandla",
     "author_url": "https://github.com/SushantChandla",
     "author_wallet": null,
     "tags": ["Solana", "Rust", "NodeJS", "Rust"],
@@ -1896,17 +1840,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sushant Chandla",
-    "author_image_url": "https://github.com/SushantChandla.png",
-    "oldSlug": "solana-token-streaming-protocol"
+    ]
   },
-  "avalanche-create-an-auction-with-bidding-on-avalanche-using-react": {
-    "slug": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react",
+  {
+    "slug": "create-an-auction-with-bidding-on-avalanche-using-react",
     "is_multi_page": false,
     "title": "Create an Auction with Bidding on Avalanche using ReactJS",
     "description": "Learn how to make an Auction smart contract on Avalanche",
-    "author_github_account": "namannimmo10",
+    "author_github_account": "Naman Gera",
     "author_url": "https://github.com/namannimmo10",
     "author_wallet": null,
     "tags": ["Avalanche", "Solidity", "React", "Truffle", "Solidity"],
@@ -1923,22 +1864,19 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Naman Gera",
-    "author_image_url": "https://github.com/namannimmo10.png",
-    "oldSlug": "create-an-auction-with-bidding-on-avalanche-using-react"
+    ]
   },
-  "thegraph-the-journey-of-a-subgraph-query": {
-    "slug": "thegraph-the-journey-of-a-subgraph-query",
+  {
+    "slug": "the-journey-of-a-subgraph-query",
     "is_multi_page": false,
     "title": "The Journey of a Subgraph Query",
     "description": "Learn about how subgraph queries are performed and how they travel through the Graph Protocol",
-    "author_github_account": "sudeepb02",
+    "author_github_account": "Sudeep Biswas",
     "author_url": "https://github.com/sudeepb02",
     "author_wallet": null,
     "tags": [
       "The Graph",
-      "GraphQL",
+      "Graphql",
       "Smart contracts",
       "GraphQL",
       "Javascript"
@@ -1962,17 +1900,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sudeep Biswas",
-    "author_image_url": "https://github.com/sudeepb02.png",
-    "oldSlug": "the-journey-of-a-subgraph-query"
+    ]
   },
-  "solana-create-a-fullstack-mail-dapp-on-solana": {
-    "slug": "solana-create-a-fullstack-mail-dapp-on-solana",
+  {
+    "slug": "create-a-fullstack-mail-dapp-on-solana",
     "is_multi_page": false,
     "title": "Create a fullstack mail dApp on Solana",
     "description": "Learn how to build a decentralized mail app on Solana using Rust and React",
-    "author_github_account": "Segun-Ogundipe",
+    "author_github_account": "Segun Ogundipe",
     "author_url": "https://github.com/Segun-Ogundipe",
     "author_wallet": null,
     "tags": ["Solana", "Rust", "React", "Rust"],
@@ -1989,17 +1924,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Segun Ogundipe",
-    "author_image_url": "https://github.com/Segun-Ogundipe.png",
-    "oldSlug": "create-a-fullstack-mail-dapp-on-solana"
+    ]
   },
-  "celo-moola-market": {
-    "slug": "celo-moola-market",
+  {
+    "slug": "moola-market",
     "is_multi_page": false,
     "title": "How to use Moola’s money market",
     "description": "This tutorial is a part of DeFi series where people can learn how to participate in DeFi on the Celo Blockchain.",
-    "author_github_account": "gitofdeepanshu",
+    "author_github_account": "Deepanshu Hooda",
     "author_url": "https://github.com/gitofdeepanshu",
     "author_wallet": null,
     "tags": ["Celo"],
@@ -2016,17 +1948,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Deepanshu Hooda",
-    "author_image_url": "https://github.com/gitofdeepanshu.png",
-    "oldSlug": "moola-market"
+    ]
   },
-  "solana-sol-mint-token": {
-    "slug": "solana-sol-mint-token",
+  {
+    "slug": "sol-mint-token",
     "is_multi_page": false,
     "title": "Create a token on Solana",
     "description": "Create a token on the Solana blockchain with no coding needed",
-    "author_github_account": "jacobmakarsky",
+    "author_github_account": "Jacob Makarsky",
     "author_url": "https://github.com/jacobmakarsky",
     "author_wallet": null,
     "tags": ["Solana", "Rust", "Rust", "CLI"],
@@ -2043,17 +1972,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Jacob Makarsky",
-    "author_image_url": "https://github.com/jacobmakarsky.png",
-    "oldSlug": "sol-mint-token"
+    ]
   },
-  "polkadot-substrate-kitties-interacting-functions": {
-    "slug": "polkadot-substrate-kitties-interacting-functions",
+  {
+    "slug": "substrate-kitties-interacting-functions",
     "is_multi_page": false,
     "title": "Substrate Kitties - Interacting with your Kitties",
     "description": "Learn how to add interactivity to your Substrate Kitties",
-    "author_github_account": "SHA888",
+    "author_github_account": "Kresna Sucandra",
     "author_url": "https://github.com/SHA888",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -2070,20 +1996,17 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kresna Sucandra",
-    "author_image_url": "https://github.com/SHA888.png",
-    "oldSlug": "substrate-kitties-interacting-functions"
+    ]
   },
-  "thegraph-query-ethereum-data-with-the-graph": {
-    "slug": "thegraph-query-ethereum-data-with-the-graph",
+  {
+    "slug": "query-ethereum-data-with-the-graph",
     "is_multi_page": false,
     "title": "Query Ethereum data with The Graph",
     "description": "Learn how to create a subgraph from a deployed smart contract on Ethereum",
-    "author_github_account": "robin-thomas",
+    "author_github_account": "Robin Thomas",
     "author_url": "https://github.com/robin-thomas",
     "author_wallet": null,
-    "tags": ["The Graph", "GraphQL", "GraphQL"],
+    "tags": ["The Graph", "Graphql", "GraphQL"],
     "difficulty": "beginner",
     "published_at": "2021-09-16T17:02:58.240Z",
     "pages": [
@@ -2097,17 +2020,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Robin Thomas",
-    "author_image_url": "https://github.com/robin-thomas.png",
-    "oldSlug": "query-ethereum-data-with-the-graph"
+    ]
   },
-  "solana-chakra-ui-with-solana-dapps": {
-    "slug": "solana-chakra-ui-with-solana-dapps",
+  {
+    "slug": "chakra-ui-with-solana-dapps",
     "is_multi_page": false,
     "title": "Making a front-end for your Solana dApp with Chakra UI",
     "description": "Create beautiful front-ends for Solana dApps using the Chakra UI library",
-    "author_github_account": "kanav99",
+    "author_github_account": "Kanav Gupta",
     "author_url": "https://github.com/kanav99",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "Rust", "Javascript", "Rust"],
@@ -2124,17 +2044,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kanav Gupta",
-    "author_image_url": "https://github.com/kanav99.png",
-    "oldSlug": "chakra-ui-with-solana-dapps"
+    ]
   },
-  "polygon-explaining-polygon-and-blockchains": {
-    "slug": "polygon-explaining-polygon-and-blockchains",
+  {
+    "slug": "explaining-polygon-and-blockchains",
     "is_multi_page": false,
     "title": "Explaining Polygon and Blockchains",
     "description": "Learning about Polygon with Pizza is fun",
-    "author_github_account": "rajranjan0608",
+    "author_github_account": "Raj Ranjan",
     "author_url": "https://github.com/rajranjan0608",
     "author_wallet": null,
     "tags": ["Polygon"],
@@ -2151,17 +2068,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Raj Ranjan",
-    "author_image_url": "https://github.com/rajranjan0608.png",
-    "oldSlug": "explaining-polygon-and-blockchains"
+    ]
   },
-  "polygon-create-nft-smart-contract-with-hardhat": {
-    "slug": "polygon-create-nft-smart-contract-with-hardhat",
+  {
+    "slug": "create-nft-smart-contract-with-hardhat",
     "is_multi_page": false,
     "title": "Create an NFT smart contract with HardHat",
     "description": "Learn how to create your own NFT smart contract using HardHat",
-    "author_github_account": "BhaskarDutta2209",
+    "author_github_account": "Bhaskar Dutta",
     "author_url": "https://github.com/BhaskarDutta2209",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Solidity", "Hardhat"],
@@ -2178,17 +2092,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Bhaskar Dutta",
-    "author_image_url": "https://github.com/BhaskarDutta2209.png",
-    "oldSlug": "create-nft-smart-contract-with-hardhat"
+    ]
   },
-  "tezos-create-an-nft-marketplace-on-tezos": {
-    "slug": "tezos-create-an-nft-marketplace-on-tezos",
+  {
+    "slug": "create-an-nft-marketplace-on-tezos",
     "is_multi_page": false,
     "title": "Create an NFT marketplace on Tezos",
     "description": "Learn how to create your own NFT marketplace on Tezos",
-    "author_github_account": "NishantChandla",
+    "author_github_account": "Nishant Chandla",
     "author_url": "https://github.com/NishantChandla",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts", "IPFS"],
@@ -2205,17 +2116,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Nishant Chandla",
-    "author_image_url": "https://github.com/NishantChandla.png",
-    "oldSlug": "create-an-nft-marketplace-on-tezos"
+    ]
   },
-  "polkadot-substrate-kitties-create-kitties": {
-    "slug": "polkadot-substrate-kitties-create-kitties",
+  {
+    "slug": "substrate-kitties-create-kitties",
     "is_multi_page": false,
     "title": "Substrate Kitties - Create Kitties",
     "description": "Learn how to add uniqueness to your Substrate Kitties",
-    "author_github_account": "SHA888",
+    "author_github_account": "Kresna Sucandra",
     "author_url": "https://github.com/SHA888",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -2232,20 +2140,17 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kresna Sucandra",
-    "author_image_url": "https://github.com/SHA888.png",
-    "oldSlug": "substrate-kitties-create-kitties"
+    ]
   },
-  "thegraph-deploy-a-subgraph-with-hardhat": {
-    "slug": "thegraph-deploy-a-subgraph-with-hardhat",
+  {
+    "slug": "deploy-a-subgraph-with-hardhat",
     "is_multi_page": false,
     "title": "Deploy a subgraph with HardHat",
     "description": "Learn how to deploy a subgraph for a smart contract using HardHat.",
-    "author_github_account": "robin-thomas",
+    "author_github_account": "Robin Thomas",
     "author_url": "https://github.com/robin-thomas",
     "author_wallet": null,
-    "tags": ["The Graph", "GraphQL", "Solidity", "GraphQL", "Solidity"],
+    "tags": ["The Graph", "Graphql", "Solidity", "GraphQL", "Solidity"],
     "difficulty": "beginner",
     "published_at": "2021-09-22T19:38:49.996Z",
     "pages": [
@@ -2259,17 +2164,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Robin Thomas",
-    "author_image_url": "https://github.com/robin-thomas.png",
-    "oldSlug": "deploy-a-subgraph-with-hardhat"
+    ]
   },
-  "avalanche-create-a-chat-application-using-solidity-and-react": {
-    "slug": "avalanche-create-a-chat-application-using-solidity-and-react",
+  {
+    "slug": "create-a-chat-application-using-solidity-and-react",
     "is_multi_page": false,
     "title": "Create a chat dApp on Avalanche using Solidity and ReactJS",
     "description": "Learn how to deploy a distributed chat application on Avalanche using Solidity and the React framework",
-    "author_github_account": "realnimish",
+    "author_github_account": "Nimish Agrawal \u0026 Sayan Kar",
     "author_url": "https://github.com/realnimish",
     "author_wallet": null,
     "tags": [
@@ -2302,17 +2204,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Nimish Agrawal & Sayan Kar",
-    "author_image_url": "https://github.com/realnimish.png",
-    "oldSlug": "create-a-chat-application-using-solidity-and-react"
+    ]
   },
-  "avalanche-create-mint-transfer-nft": {
-    "slug": "avalanche-create-mint-transfer-nft",
+  {
+    "slug": "create-mint-transfer-nft",
     "is_multi_page": false,
     "title": "Create, Mint and Transfer NFTs with the Avalanche Wallet",
     "description": "Learn how to create, mint, and transfer NFTs on Avalanche.",
-    "author_github_account": "devilla",
+    "author_github_account": "Devendra Yadav",
     "author_url": "https://github.com/devilla",
     "author_wallet": null,
     "tags": ["Avalanche", "Smart contracts"],
@@ -2329,23 +2228,20 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Devendra Yadav",
-    "author_image_url": "https://github.com/devilla.png",
-    "oldSlug": "create-mint-transfer-nft"
+    ]
   },
-  "thegraph-creating-subgraphs-for-multiple-smart-contracts": {
-    "slug": "thegraph-creating-subgraphs-for-multiple-smart-contracts",
+  {
+    "slug": "creating-subgraphs-for-multiple-smart-contracts",
     "is_multi_page": false,
     "title": "Creating subgraphs for multiple smart contracts",
     "description": "Learn how to build a subgraph for a complex dApp that uses multiple smart contracts, like Uniswap",
-    "author_github_account": "MohitKumar1991",
+    "author_github_account": "Mohit Kumar",
     "author_url": "https://github.com/MohitKumar1991",
     "author_wallet": null,
     "tags": [
       "The Graph",
       "AssemblyScript",
-      "GraphQL",
+      "Graphql",
       "AssemblyScript",
       "GraphQL"
     ],
@@ -2368,17 +2264,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Mohit Kumar",
-    "author_image_url": "https://github.com/MohitKumar1991.png",
-    "oldSlug": "creating-subgraphs-for-multiple-smart-contracts"
+    ]
   },
-  "avalanche-deploy-pangolin-to-local-testnet": {
-    "slug": "avalanche-deploy-pangolin-to-local-testnet",
+  {
+    "slug": "deploy-pangolin-to-local-testnet",
     "is_multi_page": false,
     "title": "Deploy Pangolin and a token pair to a local testnet ",
     "description": "Learn about token pairs and the Pangolin Decentralized Exchange",
-    "author_github_account": "cinquemb",
+    "author_github_account": "Cinque McFarlane-Blake",
     "author_url": "https://github.com/cinquemb",
     "author_wallet": null,
     "tags": [
@@ -2407,17 +2300,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Cinque McFarlane-Blake",
-    "author_image_url": "https://github.com/cinquemb.png",
-    "oldSlug": "deploy-pangolin-to-local-testnet"
+    ]
   },
-  "avalanche-using-hardhat-with-the-avalanche-c-chain": {
-    "slug": "avalanche-using-hardhat-with-the-avalanche-c-chain",
+  {
+    "slug": "using-hardhat-with-the-avalanche-c-chain",
     "is_multi_page": false,
     "title": "Using Hardhat with the Avalanche C-Chain",
     "description": "Learn how to use Hardhat with the Avalanche C-Chain",
-    "author_github_account": "breathebinary",
+    "author_github_account": "Kevin Madhu",
     "author_url": "https://github.com/breathebinary",
     "author_wallet": null,
     "tags": [
@@ -2454,17 +2344,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kevin Madhu",
-    "author_image_url": "https://github.com/breathebinary.png",
-    "oldSlug": "using-hardhat-with-the-avalanche-c-chain"
+    ]
   },
-  "polygon-create-a-polymarket-clone-on-polygon": {
-    "slug": "polygon-create-a-polymarket-clone-on-polygon",
+  {
+    "slug": "create-a-polymarket-clone-on-polygon",
     "is_multi_page": false,
     "title": "How to create a Polymarket clone on Polygon",
     "description": "Learn how to make your own Polymarket clone",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Truffle", "IPFS", "Typescript"],
@@ -2481,17 +2368,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "create-a-polymarket-clone-on-polygon"
+    ]
   },
-  "avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle": {
-    "slug": "avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle",
+  {
+    "slug": "making-evoting-dapp-on-avalanche-c-chain-using-truffle",
     "is_multi_page": false,
     "title": "Make an e-Voting dApp on Avalanche Fuji testnet",
     "description": "Learn how to use Truffle with the Avalanche C-Chain",
-    "author_github_account": "rajranjan0608",
+    "author_github_account": "Raj Ranjan",
     "author_url": "https://github.com/rajranjan0608",
     "author_wallet": null,
     "tags": [
@@ -2524,17 +2408,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Raj Ranjan",
-    "author_image_url": "https://github.com/rajranjan0608.png",
-    "oldSlug": "making-evoting-dapp-on-avalanche-c-chain-using-truffle"
+    ]
   },
-  "avalanche-create-a-new-virtual-machine": {
-    "slug": "avalanche-create-a-new-virtual-machine",
+  {
+    "slug": "create-a-new-virtual-machine",
     "is_multi_page": false,
     "title": "Create a New Virtual Machine",
     "description": "Learn how to create a new virtual machine on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "CLI"],
     "difficulty": "beginner",
@@ -2550,17 +2432,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-a-new-virtual-machine"
+    ]
   },
-  "polkadot-implement-social-recovery-on-polkadot": {
-    "slug": "polkadot-implement-social-recovery-on-polkadot",
+  {
+    "slug": "implement-social-recovery-on-polkadot",
     "is_multi_page": false,
     "title": "Implement Social Recovery on Polkadot",
     "description": "In this tutorial we will cover how to set up and utilize social recovery for a Polkadot proxy account",
-    "author_github_account": "pyr0gan",
+    "author_github_account": "Rogan X",
     "author_url": "https://github.com/pyr0gan",
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "NodeJS"],
@@ -2577,17 +2456,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Rogan X",
-    "author_image_url": "https://github.com/pyr0gan.png",
-    "oldSlug": "implement-social-recovery-on-polkadot"
+    ]
   },
-  "avalanche-advanced-evoting-avalanche-reactjs": {
-    "slug": "avalanche-advanced-evoting-avalanche-reactjs",
+  {
+    "slug": "advanced-evoting-avalanche-reactjs",
     "is_multi_page": false,
     "title": "Create a Voting dApp on Avalanche using ReactJS",
     "description": "Learn how to create an Avalanche based dApp with a ReactJS frontend",
-    "author_github_account": "rajranjan0608",
+    "author_github_account": "Raj Ranjan",
     "author_url": "https://github.com/rajranjan0608",
     "author_wallet": null,
     "tags": [
@@ -2620,17 +2496,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Raj Ranjan",
-    "author_image_url": "https://github.com/rajranjan0608.png",
-    "oldSlug": "advanced-evoting-avalanche-reactjs"
+    ]
   },
-  "celo-create-vault-smart-contract": {
-    "slug": "celo-create-vault-smart-contract",
+  {
+    "slug": "create-vault-smart-contract",
     "is_multi_page": false,
     "title": "Create Vault Smart Contract",
     "description": "Learn how to create, deploy, and interact with Vault Smart Contract on the Celo Ecosystem",
-    "author_github_account": "helpicelo",
+    "author_github_account": "Team Celo Helpi",
     "author_url": "https://github.com/helpicelo",
     "author_wallet": null,
     "tags": [
@@ -2663,17 +2536,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Team Celo Helpi",
-    "author_image_url": "https://github.com/helpicelo.png",
-    "oldSlug": "create-vault-smart-contract"
+    ]
   },
-  "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts": {
-    "slug": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
+  {
+    "slug": "using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
     "is_multi_page": false,
     "title": "Using the SmartPy IDE to write and deploy smart contracts on Tezos",
-    "description": "Learn how to write, deploy & interact with a smart contract on Tezos, using SmartPy.",
-    "author_github_account": "Udit-Kapoor",
+    "description": "Learn how to write, deploy \u0026 interact with a smart contract on Tezos, using SmartPy.",
+    "author_github_account": "Udit Kapoor",
     "author_url": "https://github.com/Udit-Kapoor",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts"],
@@ -2683,24 +2553,21 @@
       {
         "title": "Using the SmartPy IDE to write and deploy smart contracts on Tezos",
         "slug": "using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
-        "description": "Learn how to write, deploy & interact with a smart contract on Tezos, using SmartPy.",
+        "description": "Learn how to write, deploy \u0026 interact with a smart contract on Tezos, using SmartPy.",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/tezos-smartpy-tutorial.md",
         "keywords": ["Tezos", "Python", "Smart contracts"],
         "next_slug": null,
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Udit Kapoor",
-    "author_image_url": "https://github.com/Udit-Kapoor.png",
-    "oldSlug": "using-the-smartpy-ide-to-deploy-tezos-smart-contracts"
+    ]
   },
-  "polygon-create-a-todo-dapp-with-flutter": {
-    "slug": "polygon-create-a-todo-dapp-with-flutter",
+  {
+    "slug": "create-a-todo-dapp-with-flutter",
     "is_multi_page": false,
     "title": "Create a To-Do dApp with Flutter",
     "description": "Learn how to create a universal To-Do dApp with the Flutter framework and deploy it on Polygon.",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Truffle", "Solidity"],
@@ -2717,17 +2584,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "create-a-todo-dapp-with-flutter"
+    ]
   },
-  "polkadot-write-a-pallet-in-its-own-crate": {
-    "slug": "polkadot-write-a-pallet-in-its-own-crate",
+  {
+    "slug": "write-a-pallet-in-its-own-crate",
     "is_multi_page": false,
     "title": "Write a Pallet in its Own Crate",
     "description": "Learn how to write a Substrate pallet that lives in its own crate, and include it in a node based on the substrate-node-template",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "AssemblyScript"],
     "difficulty": "beginner",
@@ -2743,17 +2608,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "write-a-pallet-in-its-own-crate"
+    ]
   },
-  "polkadot-create-your-first-substrate-chain": {
-    "slug": "polkadot-create-your-first-substrate-chain",
+  {
+    "slug": "create-your-first-substrate-chain",
     "is_multi_page": false,
     "title": "Create Your First Substrate Chain",
     "description": "Learn how to compile and launch the Substrate Developer Hub Node Template and interact with it using the Substrate Developer Hub Front-End Template.",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "Rust", "NodeJS"],
     "difficulty": "beginner",
@@ -2769,17 +2632,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-your-first-substrate-chain"
+    ]
   },
-  "polygon-peer-to-peer-payment-on-polygon-part-1": {
-    "slug": "polygon-peer-to-peer-payment-on-polygon-part-1",
+  {
+    "slug": "peer-to-peer-payment-on-polygon-part-1",
     "is_multi_page": false,
     "title": "Create a Peer to Peer payment dApp, Part 1",
     "description": "Part one of a two-part tutorial that explains how to create a P2P payment dApp on Polygon",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Javascript", "Metamask", "Next.js"],
@@ -2796,17 +2656,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "peer-to-peer-payment-on-polygon-part-1"
+    ]
   },
-  "secret-add-viewing-keys-to-secret-contract": {
-    "slug": "secret-add-viewing-keys-to-secret-contract",
+  {
+    "slug": "add-viewing-keys-to-secret-contract",
     "is_multi_page": false,
     "title": "Adding viewing keys to a secret contract",
     "description": "Add Viewing Key code to the reminder secret contract that we built in the \"Developing your first secret contract\" tutorial.",
-    "author_github_account": "darwinzer0",
+    "author_github_account": "Ben Adams",
     "author_url": "https://github.com/darwinzer0",
     "author_wallet": null,
     "tags": ["Secret", "Rust", "Smart contracts", "Rust"],
@@ -2823,17 +2680,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Ben Adams",
-    "author_image_url": "https://github.com/darwinzer0.png",
-    "oldSlug": "add-viewing-keys-to-secret-contract"
+    ]
   },
-  "celo-distributed-file-manager-using-ipfs-celo-reactjs": {
-    "slug": "celo-distributed-file-manager-using-ipfs-celo-reactjs",
+  {
+    "slug": "distributed-file-manager-using-ipfs-celo-reactjs",
     "is_multi_page": false,
     "title": "Distributed File Manager (DFM) using Celo, IPFS and ReactJS",
     "description": "Learn how to make a Distributed File Manager using the IPFS protocol for storing files on the Celo network",
-    "author_github_account": "rajranjan0608",
+    "author_github_account": "Raj Ranjan",
     "author_url": "https://github.com/rajranjan0608",
     "author_wallet": null,
     "tags": [
@@ -2870,17 +2724,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Raj Ranjan",
-    "author_image_url": "https://github.com/rajranjan0608.png",
-    "oldSlug": "distributed-file-manager-using-ipfs-celo-reactjs"
+    ]
   },
-  "polygon-build-a-social-media-dapp-and-deploy-it-on-polygon": {
-    "slug": "polygon-build-a-social-media-dapp-and-deploy-it-on-polygon",
+  {
+    "slug": "build-a-social-media-dapp-and-deploy-it-on-polygon",
     "is_multi_page": false,
-    "title": "Build a Social Media dApp & Deploy it on Polygon",
-    "description": "Learn how to build a Social Media dApp like YouTube & how to deploy it on the Polygon mumbai testnet",
-    "author_github_account": "AkhileshThite",
+    "title": "Build a Social Media dApp \u0026 Deploy it on Polygon",
+    "description": "Learn how to build a Social Media dApp like YouTube \u0026 how to deploy it on the Polygon mumbai testnet",
+    "author_github_account": "Akhilesh Thite",
     "author_url": "https://github.com/AkhileshThite",
     "author_wallet": null,
     "tags": [
@@ -2896,9 +2747,9 @@
     "published_at": "2021-08-25T03:42:59.614Z",
     "pages": [
       {
-        "title": "Build a Social Media dApp & Deploy it on Polygon",
+        "title": "Build a Social Media dApp \u0026 Deploy it on Polygon",
         "slug": "build-a-social-media-dapp-and-deploy-it-on-polygon",
-        "description": "Learn how to build a Social Media dApp like YouTube & how to deploy it on the Polygon mumbai testnet",
+        "description": "Learn how to build a Social Media dApp like YouTube \u0026 how to deploy it on the Polygon mumbai testnet",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polygon/Build-a-Social-Media-DApp-and-Deploy-it-on-Polygon.md",
         "keywords": [
           "Polygon",
@@ -2913,17 +2764,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Akhilesh Thite",
-    "author_image_url": "https://github.com/AkhileshThite.png",
-    "oldSlug": "build-a-social-media-dapp-and-deploy-it-on-polygon"
+    ]
   },
-  "polygon-peer-to-peer-payment-on-polygon-part-2": {
-    "slug": "polygon-peer-to-peer-payment-on-polygon-part-2",
+  {
+    "slug": "peer-to-peer-payment-on-polygon-part-2",
     "is_multi_page": false,
     "title": "Create a Peer to Peer payment dApp, Part 2",
     "description": "Part two of a two-part tutorial that explains how to create a P2P payment dApp on Polygon",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Javascript", "Next.js"],
@@ -2940,17 +2788,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "peer-to-peer-payment-on-polygon-part-2"
+    ]
   },
-  "solana-pay-to-play-gaming-on-solana": {
-    "slug": "solana-pay-to-play-gaming-on-solana",
+  {
+    "slug": "pay-to-play-gaming-on-solana",
     "is_multi_page": false,
     "title": "Build a pay-to-play gaming platform on Solana",
     "description": "Discover how to make your own pay-to-play game platform on Solana",
-    "author_github_account": "blocksan",
+    "author_github_account": "Sandeep Ghosh",
     "author_url": "https://github.com/blocksan",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "Javascript", "IPFS", "Arweave"],
@@ -2967,17 +2812,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sandeep Ghosh",
-    "author_image_url": "https://github.com/blocksan.png",
-    "oldSlug": "pay-to-play-gaming-on-solana"
+    ]
   },
-  "tezos-create-a-dex-on-tezos": {
-    "slug": "tezos-create-a-dex-on-tezos",
+  {
+    "slug": "create-a-dex-on-tezos",
     "is_multi_page": false,
     "title": "Create a DEX on Tezos",
     "description": "Learn how to make your own Decentralized Exchange",
-    "author_github_account": "vivekascoder",
+    "author_github_account": "Vivek Kumar",
     "author_url": "https://github.com/vivekascoder",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "React", "Smart contracts"],
@@ -2994,17 +2836,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Vivek Kumar",
-    "author_image_url": "https://github.com/vivekascoder.png",
-    "oldSlug": "create-a-dex-on-tezos"
+    ]
   },
-  "avalanche-creating-a-variable-cap-asset": {
-    "slug": "avalanche-creating-a-variable-cap-asset",
+  {
+    "slug": "creating-a-variable-cap-asset",
     "is_multi_page": false,
     "title": "Creating A Variable-Cap Asset",
     "description": "Learn how to create a variable-cap asset on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "Javascript", "CLI"],
     "difficulty": "beginner",
@@ -3020,17 +2860,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "creating-a-variable-cap-asset"
+    ]
   },
-  "polygon-deploying-and-debugging-smart-contracts-on-polygon": {
-    "slug": "polygon-deploying-and-debugging-smart-contracts-on-polygon",
+  {
+    "slug": "deploying-and-debugging-smart-contracts-on-polygon",
     "is_multi_page": false,
     "title": "Deploying and Debugging Smart Contracts on Polygon",
     "description": "Learn how to deploy smart contracts to the Polygon Mumbai testnet and how to debug them",
-    "author_github_account": "AkhileshThite",
+    "author_github_account": "Akhilesh Thite",
     "author_url": "https://github.com/AkhileshThite",
     "author_wallet": null,
     "tags": ["Polygon", "Solidity", "Smart contracts", "Truffle", "Solidity"],
@@ -3053,17 +2890,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Akhilesh Thite",
-    "author_image_url": "https://github.com/AkhileshThite.png",
-    "oldSlug": "deploying-and-debugging-smart-contracts-on-polygon"
+    ]
   },
-  "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp": {
-    "slug": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp",
+  {
+    "slug": "how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp",
     "is_multi_page": false,
     "title": "How to successfully connect to a Celo Wallet with a React Native DApp",
     "description": "Learn how to successfully set up a Celo Wallet with a React Native DApp using Redux",
-    "author_github_account": "emmaodia",
+    "author_github_account": "Segun Ogundipe \u0026 Emmanuel Oaikhenan",
     "author_url": "https://github.com/emmaodia",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "React Native", "NodeJS"],
@@ -3080,17 +2914,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Segun Ogundipe & Emmanuel Oaikhenan",
-    "author_image_url": "https://github.com/emmaodia.png",
-    "oldSlug": "how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp"
+    ]
   },
-  "avalanche-create-a-decentralized-exchange-on-avalanche": {
-    "slug": "avalanche-create-a-decentralized-exchange-on-avalanche",
+  {
+    "slug": "create-a-decentralized-exchange-on-avalanche",
     "is_multi_page": false,
     "title": "Create a Decentralized Exchange (DEX) on Avalanche",
     "description": "Learn how to create a decentralized exchange on Avalanche.",
-    "author_github_account": "Devilla",
+    "author_github_account": "Devendra Yadav",
     "author_url": "https://github.com/Devilla",
     "author_wallet": null,
     "tags": [
@@ -3121,17 +2952,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Devendra Yadav",
-    "author_image_url": "https://github.com/Devilla.png",
-    "oldSlug": "create-a-decentralized-exchange-on-avalanche"
+    ]
   },
-  "thegraph-deploy-a-subgraph-for-polygon": {
-    "slug": "thegraph-deploy-a-subgraph-for-polygon",
+  {
+    "slug": "deploy-a-subgraph-for-polygon",
     "is_multi_page": false,
     "title": "Deploy a subgraph for a Polygon smart contract",
     "description": "Learn how to deploy a Solidity smart contract to Polygon Mumbai testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio",
-    "author_github_account": "robin-thomas",
+    "author_github_account": "Robin Thomas",
     "author_url": "https://github.com/robin-thomas",
     "author_wallet": null,
     "tags": [
@@ -3162,17 +2990,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Robin Thomas",
-    "author_image_url": "https://github.com/robin-thomas.png",
-    "oldSlug": "deploy-a-subgraph-for-polygon"
+    ]
   },
-  "polygon-funding-dao-polygon": {
-    "slug": "polygon-funding-dao-polygon",
+  {
+    "slug": "funding-dao-polygon",
     "is_multi_page": false,
     "title": "Build a Funding DAO on Polygon",
     "description": "Create a Funding DAO, where people can use MATIC tokens to become either a Member or Stakeholder in the DAO and fund proposals they vote on.",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": [
@@ -3203,17 +3028,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "funding-dao-polygon"
+    ]
   },
-  "cosmos-build-a-scavenger-game": {
-    "slug": "cosmos-build-a-scavenger-game",
+  {
+    "slug": "build-a-scavenger-game",
     "is_multi_page": false,
     "title": "Build a scavenger game",
     "description": "Learn how to build a scavenger game using the Cosmos SDK",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "CLI"],
     "difficulty": "experienced",
@@ -3229,17 +3052,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "build-a-scavenger-game"
+    ]
   },
-  "tezos-mint-nfts-on-tezos": {
-    "slug": "tezos-mint-nfts-on-tezos",
+  {
+    "slug": "mint-nfts-on-tezos",
     "is_multi_page": false,
     "title": "Mint NFTs on Tezos ",
-    "description": "Learn how to mint NFTs on Tezos using SmartPy & BetterCall.dev",
-    "author_github_account": "PriyanshuDangi",
+    "description": "Learn how to mint NFTs on Tezos using SmartPy \u0026 BetterCall.dev",
+    "author_github_account": "Priyanshu Dangi ",
     "author_url": "https://github.com/PriyanshuDangi",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts"],
@@ -3249,24 +3069,21 @@
       {
         "title": "Mint NFTs on Tezos ",
         "slug": "mint-nfts-on-tezos",
-        "description": "Learn how to mint NFTs on Tezos using SmartPy & BetterCall.dev",
+        "description": "Learn how to mint NFTs on Tezos using SmartPy \u0026 BetterCall.dev",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/tezos-mint-nfts.md",
         "keywords": ["Tezos", "Python", "Smart contracts"],
         "next_slug": null,
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Priyanshu Dangi ",
-    "author_image_url": "https://github.com/PriyanshuDangi.png",
-    "oldSlug": "mint-nfts-on-tezos"
+    ]
   },
-  "celo-hardhat-deploy-and-nft-app": {
+  {
     "slug": "celo-hardhat-deploy-and-nft-app",
     "is_multi_page": false,
     "title": "How to create a ERC1155 NFT in Celo Network with Hardhat",
     "description": "Learn how to write a smart contract using the Solidity language and a contract from the Openzeppelin library for ERC1155 tokens",
-    "author_github_account": "lucasespinosa28",
+    "author_github_account": "Lucas Espinosa",
     "author_url": "https://github.com/lucasespinosa28",
     "author_wallet": null,
     "tags": [
@@ -3301,22 +3118,19 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Lucas Espinosa",
-    "author_image_url": "https://github.com/lucasespinosa28.png",
-    "oldSlug": "celo-hardhat-deploy-and-nft-app"
+    ]
   },
-  "celo-subgraphs": {
+  {
     "slug": "celo-subgraphs",
     "is_multi_page": false,
     "title": "Create subgraphs for Celo smart contracts",
     "description": "Learn how to integrate The Graph with CELO",
-    "author_github_account": "secretshardul",
+    "author_github_account": "Shardul Aeer",
     "author_url": "https://github.com/secretshardul",
     "author_wallet": null,
     "tags": [
       "Celo",
-      "GraphQL",
+      "Graphql",
       "Solidity",
       "NodeJS",
       "Smart contracts",
@@ -3344,17 +3158,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Shardul Aeer",
-    "author_image_url": "https://github.com/secretshardul.png",
-    "oldSlug": "celo-subgraphs"
+    ]
   },
-  "polkadot-build-polkadot-amm-using-ink": {
-    "slug": "polkadot-build-polkadot-amm-using-ink",
+  {
+    "slug": "build-polkadot-amm-using-ink",
     "is_multi_page": false,
     "title": "Build an AMM on Polkadot using Ink!",
     "description": "Learn how to build an Automated Market Maker on Polkadot using the ink! eDSL",
-    "author_github_account": "SayanKar",
+    "author_github_account": "Sayan Kar \u0026 Nimish Agrawal",
     "author_url": "https://github.com/SayanKar",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -3371,17 +3182,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sayan Kar & Nimish Agrawal",
-    "author_image_url": "https://github.com/SayanKar.png",
-    "oldSlug": "build-polkadot-amm-using-ink"
+    ]
   },
-  "celo-build-a-dao-on-celo": {
-    "slug": "celo-build-a-dao-on-celo",
+  {
+    "slug": "build-a-dao-on-celo",
     "is_multi_page": false,
     "title": "Build a Decentralized Autonomous Organization (DAO) on Celo",
     "description": "Build a functioning DAO by writing the Solidity smart contract and building a React Native dApp",
-    "author_github_account": "emmaodia",
+    "author_github_account": "Segun Ogundipe \u0026 Emmanuel Oaikhenan",
     "author_url": "https://github.com/emmaodia",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "Solidity", "React Native", "NodeJS", "Truffle"],
@@ -3405,17 +3213,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Segun Ogundipe & Emmanuel Oaikhenan",
-    "author_image_url": "https://github.com/emmaodia.png",
-    "oldSlug": "build-a-dao-on-celo"
+    ]
   },
-  "solana-create-a-simple-blog-dapp-on-solana": {
-    "slug": "solana-create-a-simple-blog-dapp-on-solana",
+  {
+    "slug": "create-a-simple-blog-dapp-on-solana",
     "is_multi_page": false,
     "title": "Create a simple blog dApp on Solana",
     "description": "Learn how to create a simple blog dApp on Solana using Rust and React",
-    "author_github_account": "kiran-bhalerao",
+    "author_github_account": "Kiran Bhalerao",
     "author_url": "https://github.com/kiran-bhalerao",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "Rust", "React", "Rust"],
@@ -3432,17 +3237,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kiran Bhalerao",
-    "author_image_url": "https://github.com/kiran-bhalerao.png",
-    "oldSlug": "create-a-simple-blog-dapp-on-solana"
+    ]
   },
-  "celo-introduction-to-dappkit": {
-    "slug": "celo-introduction-to-dappkit",
+  {
+    "slug": "introduction-to-dappkit",
     "is_multi_page": false,
     "title": "Introduction to dApp kit",
     "description": "In this tutorial we are going to make counter dapp with expo (react native)",
-    "author_github_account": "nikbhintade",
+    "author_github_account": "Nikhil Bhintade",
     "author_url": "https://github.com/nikbhintade",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "React Native", "NodeJS", "Truffle"],
@@ -3459,17 +3261,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Nikhil Bhintade",
-    "author_image_url": "https://github.com/nikbhintade.png",
-    "oldSlug": "introduction-to-dappkit"
+    ]
   },
-  "near-write-and-deploy-a-smart-contract-on-near": {
-    "slug": "near-write-and-deploy-a-smart-contract-on-near",
+  {
+    "slug": "write-and-deploy-a-smart-contract-on-near",
     "is_multi_page": false,
     "title": "How to write and deploy a smart contract in Rust",
     "description": "In this tutorial, we are going to write and test a smart contract using Rust",
-    "author_github_account": "nikbhintade",
+    "author_github_account": "Nikhil Bhintade",
     "author_url": "https://github.com/nikbhintade",
     "author_wallet": null,
     "tags": [
@@ -3500,17 +3299,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Nikhil Bhintade",
-    "author_image_url": "https://github.com/nikbhintade.png",
-    "oldSlug": "write-and-deploy-a-smart-contract-on-near"
+    ]
   },
-  "thegraph-uniswap-latest-pair": {
-    "slug": "thegraph-uniswap-latest-pair",
+  {
+    "slug": "uniswap-latest-pair",
     "is_multi_page": false,
     "title": "Scan the latest pairs added on UniswapV3 using TheGraph",
     "description": "Scan the latest pairs added on UniswapV3 using TheGraph in Google Sheets",
-    "author_github_account": "https://eloise88.medium.com/",
+    "author_github_account": "Eloise",
     "author_url": "https://eloise88.medium.com/",
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "GraphQL", "Javascript"],
@@ -3527,17 +3323,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Eloise",
-    "author_image_url": "https://eloise88.medium.com/.png",
-    "oldSlug": "uniswap-latest-pair"
+    ]
   },
-  "secret-deploy-your-own-secret-nft": {
-    "slug": "secret-deploy-your-own-secret-nft",
+  {
+    "slug": "deploy-your-own-secret-nft",
     "is_multi_page": false,
     "title": "Deploy your own secret NFT",
     "description": "This is the second part of a series about using snip721 tokens on the Secret network.",
-    "author_github_account": "floAr",
+    "author_github_account": "Florian Uhde",
     "author_url": "https://github.com/floAr",
     "author_wallet": null,
     "tags": ["Secret", "JS/TS", "Rust", "NodeJS"],
@@ -3554,17 +3347,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Florian Uhde",
-    "author_image_url": "https://github.com/floAr.png",
-    "oldSlug": "deploy-your-own-secret-nft"
+    ]
   },
-  "near-stake-account-storage": {
-    "slug": "near-stake-account-storage",
+  {
+    "slug": "stake-account-storage",
     "is_multi_page": false,
     "title": "Show me the Code: STAKE Account Storage NEP-145 Rust Implementation",
     "description": "STAKE Account Storage NEP-145 Rust Implementation",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "Rust", "Smart contracts"],
@@ -3581,17 +3371,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-account-storage"
+    ]
   },
-  "polkadot-blockchain-terms": {
+  {
     "slug": "polkadot-blockchain-terms",
     "is_multi_page": false,
     "title": "Polkadot Blockchain Terms",
     "description": "Learn the basics of Polkadot blockchain",
-    "author_github_account": "DannyS03",
+    "author_github_account": "Danny Salman",
     "author_url": "https://github.com/DannyS03",
     "author_wallet": null,
     "tags": ["Polkadot"],
@@ -3608,17 +3395,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Danny Salman",
-    "author_image_url": "https://github.com/DannyS03.png",
-    "oldSlug": "polkadot-blockchain-terms"
+    ]
   },
-  "near-cross-contract-calls": {
+  {
     "slug": "near-cross-contract-calls",
     "is_multi_page": false,
     "title": "Near cross-contract calls",
     "description": "Learn how to write smart contracts that talk to each other",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": [
       "Near",
@@ -3648,17 +3433,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "near-cross-contract-calls"
+    ]
   },
-  "celo-contract-from-ethereum": {
+  {
     "slug": "celo-contract-from-ethereum",
     "is_multi_page": false,
     "title": "How to customize an Ethereum smart contract for the Celo network",
-    "description": "Learn how to convert & customize an existing Ethereum Smart Contract for Celo network",
-    "author_github_account": "bdev07",
+    "description": "Learn how to convert \u0026 customize an existing Ethereum Smart Contract for Celo network",
+    "author_github_account": "Brittany Deventer",
     "author_url": "https://github.com/bdev07",
     "author_wallet": null,
     "tags": [
@@ -3675,7 +3457,7 @@
       {
         "title": "How to customize an Ethereum smart contract for the Celo network",
         "slug": "celo-contract-from-ethereum",
-        "description": "Learn how to convert & customize an existing Ethereum Smart Contract for Celo network",
+        "description": "Learn how to convert \u0026 customize an existing Ethereum Smart Contract for Celo network",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/datahub-learn/master/celo/celo-contract-from-ethereum.md",
         "keywords": [
           "Celo",
@@ -3689,17 +3471,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Brittany Deventer",
-    "author_image_url": "https://github.com/bdev07.png",
-    "oldSlug": "celo-contract-from-ethereum"
+    ]
   },
-  "celo-how-to-run-a-celo-full-node-in-a-virtual-machine": {
-    "slug": "celo-how-to-run-a-celo-full-node-in-a-virtual-machine",
+  {
+    "slug": "how-to-run-a-celo-full-node-in-a-virtual-machine",
     "is_multi_page": false,
     "title": "Run a Celo full node in a Virtual Machine",
-    "description": "Learn how to setup & run a Celo full node in a Virtual Machine",
-    "author_github_account": "Aidandedecker",
+    "description": "Learn how to setup \u0026 run a Celo full node in a Virtual Machine",
+    "author_github_account": "Aidan Dedecker",
     "author_url": "https://github.com/Aidandedecker",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "NodeJS"],
@@ -3709,24 +3488,21 @@
       {
         "title": "Run a Celo full node in a Virtual Machine",
         "slug": "how-to-run-a-celo-full-node-in-a-virtual-machine",
-        "description": "Learn how to setup & run a Celo full node in a Virtual Machine",
+        "description": "Learn how to setup \u0026 run a Celo full node in a Virtual Machine",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/datahub-learn/master/celo/how-to-run-a-celo-full-node-in-a-virtual-machine.md",
         "keywords": ["Celo", "JS/TS", "NodeJS"],
         "next_slug": null,
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Aidan Dedecker",
-    "author_image_url": "https://github.com/Aidandedecker.png",
-    "oldSlug": "how-to-run-a-celo-full-node-in-a-virtual-machine"
+    ]
   },
-  "celo-testing-truffle": {
+  {
     "slug": "celo-testing-truffle",
     "is_multi_page": false,
     "title": "Testing Celo Smart Contracts with Truffle",
     "description": "We will learn how to use Truffle in order to test smart contracts on Celo",
-    "author_github_account": "alexreyes",
+    "author_github_account": "Alex Reyes",
     "author_url": "https://github.com/alexreyes",
     "author_wallet": null,
     "tags": [
@@ -3759,17 +3535,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Alex Reyes",
-    "author_image_url": "https://github.com/alexreyes.png",
-    "oldSlug": "celo-testing-truffle"
+    ]
   },
-  "cosmos-build-a-nameservice-app": {
-    "slug": "cosmos-build-a-nameservice-app",
+  {
+    "slug": "build-a-nameservice-app",
     "is_multi_page": false,
     "title": "Build a nameservice application",
     "description": "Learn how to build a nameservice application with the Cosmos SDK",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "CLI"],
     "difficulty": "experienced",
@@ -3785,17 +3559,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "build-a-nameservice-app"
+    ]
   },
-  "avalanche-local-avalanche-network-using-avash": {
-    "slug": "avalanche-local-avalanche-network-using-avash",
+  {
+    "slug": "local-avalanche-network-using-avash",
     "is_multi_page": false,
     "title": "Setting up a local Avalanche network using Avash",
     "description": "Learn how to setup and run a local Avalanche network using Avash",
-    "author_github_account": "breathebinary",
+    "author_github_account": "Kevin Madhu",
     "author_url": "https://github.com/breathebinary",
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "JS/TS", "Javascript", "CLI", "Avash"],
@@ -3812,17 +3583,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kevin Madhu",
-    "author_image_url": "https://github.com/breathebinary.png",
-    "oldSlug": "local-avalanche-network-using-avash"
+    ]
   },
-  "celo-for-remix": {
+  {
     "slug": "celo-for-remix",
     "is_multi_page": false,
     "title": "Deploy Celo Smart contracts with Remix IDE",
     "description": "Learn how to use Remix IDE for deploying Celo smart contracts",
-    "author_github_account": "gitofdeepanshu",
+    "author_github_account": "Deepanshu Hooda",
     "author_url": "https://github.com/gitofdeepanshu",
     "author_wallet": null,
     "tags": [
@@ -3853,17 +3621,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Deepanshu Hooda",
-    "author_image_url": "https://github.com/gitofdeepanshu.png",
-    "oldSlug": "celo-for-remix"
+    ]
   },
-  "celo-redeploy-ethereum-dapps-on-celo": {
-    "slug": "celo-redeploy-ethereum-dapps-on-celo",
+  {
+    "slug": "redeploy-ethereum-dapps-on-celo",
     "is_multi_page": false,
     "title": "How to re-deploy your Ethereum DApp to Celo",
     "description": "Learn how to re-deploy Ethereum Dapps on the Celo network",
-    "author_github_account": "gitofdeepanshu",
+    "author_github_account": "Deepanshu Hooda",
     "author_url": "https://github.com/gitofdeepanshu",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "Truffle", "Javascript", "CLI"],
@@ -3880,17 +3645,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Deepanshu Hooda",
-    "author_image_url": "https://github.com/gitofdeepanshu.png",
-    "oldSlug": "redeploy-ethereum-dapps-on-celo"
+    ]
   },
-  "polkadot-parachain-lifecycle": {
-    "slug": "polkadot-parachain-lifecycle",
+  {
+    "slug": "parachain-lifecycle",
     "is_multi_page": false,
     "title": "Parachain Lifecycle",
     "description": "This guide will focus on the lifecycle of Polkadot's parachains, an integral part of the Polkadot ecosystem.",
-    "author_github_account": "DannyS03",
+    "author_github_account": "Danny Salman",
     "author_url": "https://github.com/DannyS03",
     "author_wallet": null,
     "tags": ["Polkadot"],
@@ -3907,17 +3669,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Danny Salman",
-    "author_image_url": "https://github.com/DannyS03.png",
-    "oldSlug": "parachain-lifecycle"
+    ]
   },
-  "avalanche-create-a-local-test-network": {
-    "slug": "avalanche-create-a-local-test-network",
+  {
+    "slug": "create-a-local-test-network",
     "is_multi_page": false,
     "title": "Create a Local Test Network",
     "description": "Learn how to create a local test network on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "CLI", "Avash"],
     "difficulty": "beginner",
@@ -3933,17 +3693,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-a-local-test-network"
+    ]
   },
-  "avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair": {
-    "slug": "avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair",
+  {
+    "slug": "deploy-pangolin-to-your-local-testnet-and-create-token-pair",
     "is_multi_page": false,
     "title": "Deploy Pangolin To Your Local Testnet And Create Token Pair",
     "description": "We will learn how to deploy Pangolin, a DEX which lives on C-Chain, to your local Avalanche testnet.",
-    "author_github_account": "cinquemb",
+    "author_github_account": " Cinque McFarlane-Blake.",
     "author_url": "https://github.com/cinquemb",
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "JS/TS", "NodeJS"],
@@ -3960,17 +3717,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": " Cinque McFarlane-Blake.",
-    "author_image_url": "https://github.com/cinquemb.png",
-    "oldSlug": "deploy-pangolin-to-your-local-testnet-and-create-token-pair"
+    ]
   },
-  "avalanche-transfer-avax-between-the-x-chain-and-c-chain": {
-    "slug": "avalanche-transfer-avax-between-the-x-chain-and-c-chain",
+  {
+    "slug": "transfer-avax-between-the-x-chain-and-c-chain",
     "is_multi_page": false,
     "title": "Transfer AVAX Between the X-Chain and C-Chain",
     "description": "Learn how to transfer AVAX between chains",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
     "difficulty": "beginner",
@@ -3986,17 +3741,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "transfer-avax-between-the-x-chain-and-c-chain"
+    ]
   },
-  "avalanche-create-a-new-blockchain": {
-    "slug": "avalanche-create-a-new-blockchain",
+  {
+    "slug": "create-a-new-blockchain",
     "is_multi_page": false,
     "title": "Create a New Blockchain",
     "description": "Learn how to create a new Blockchain on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
     "difficulty": "beginner",
@@ -4012,17 +3765,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-a-new-blockchain"
+    ]
   },
-  "avalanche-creating-a-fixed-cap-asset": {
-    "slug": "avalanche-creating-a-fixed-cap-asset",
+  {
+    "slug": "creating-a-fixed-cap-asset",
     "is_multi_page": false,
     "title": "Creating A Fixed-Cap Asset",
     "description": "Learn how to create a fixed-cap asset on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
     "difficulty": "beginner",
@@ -4038,17 +3789,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "creating-a-fixed-cap-asset"
+    ]
   },
-  "celo-deploying-smart-contracts-on-celo-with-truffle": {
-    "slug": "celo-deploying-smart-contracts-on-celo-with-truffle",
+  {
+    "slug": "deploying-smart-contracts-on-celo-with-truffle",
     "is_multi_page": false,
     "title": "Deploying smart contracts on Celo with Truffle",
     "description": "We will learn how to use Truffle and ContractKit to deploy smart contracts to Celo.",
-    "author_github_account": "alexreyes",
+    "author_github_account": "Alex Reyes",
     "author_url": "https://github.com/alexreyes",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "NodeJS", "Smart contracts", "Truffle"],
@@ -4065,17 +3813,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Alex Reyes",
-    "author_image_url": "https://github.com/alexreyes.png",
-    "oldSlug": "deploying-smart-contracts-on-celo-with-truffle"
+    ]
   },
-  "avalanche-using-truffle-with-the-avalanche-c-chain": {
-    "slug": "avalanche-using-truffle-with-the-avalanche-c-chain",
+  {
+    "slug": "using-truffle-with-the-avalanche-c-chain",
     "is_multi_page": false,
     "title": "Using Truffle with the Avalanche C-Chain",
     "description": "Learn how to use Truffle with the C-Chain",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "NodeJS", "Truffle", "Avash"],
     "difficulty": "beginner",
@@ -4091,20 +3837,17 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "using-truffle-with-the-avalanche-c-chain"
+    ]
   },
-  "thegraph-query-nft-data-with-subgraphs": {
-    "slug": "thegraph-query-nft-data-with-subgraphs",
+  {
+    "slug": "query-nft-data-with-subgraphs",
     "is_multi_page": false,
     "title": "Query NFT Data with OpenZeppelin Subgraphs",
     "description": "Learn how to create, deploy and use a subgraph for an ERC-721 smart contract on Ethereum mainnet",
-    "author_github_account": "robin-thomas",
+    "author_github_account": "Robin Thomas",
     "author_url": "https://github.com/robin-thomas",
     "author_wallet": null,
-    "tags": ["The Graph", "GraphQL", "Smart contracts", "GraphQL"],
+    "tags": ["The Graph", "Graphql", "Smart contracts", "GraphQL"],
     "difficulty": "beginner",
     "published_at": "2021-09-27T22:27:09.188Z",
     "pages": [
@@ -4118,17 +3861,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Robin Thomas",
-    "author_image_url": "https://github.com/robin-thomas.png",
-    "oldSlug": "query-nft-data-with-subgraphs"
+    ]
   },
-  "cosmos-create-a-transaction-search-widget": {
-    "slug": "cosmos-create-a-transaction-search-widget",
+  {
+    "slug": "create-a-transaction-search-widget",
     "is_multi_page": false,
     "title": "Create a transaction search widget",
     "description": "Learn how to create a simple transaction search widget using Figment's Transaction Search API and DataHub",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Cosmos", "JS/TS", "Javascript"],
     "difficulty": "beginner",
@@ -4144,17 +3885,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-a-transaction-search-widget"
+    ]
   },
-  "secret-create-your-first-secret-nft": {
-    "slug": "secret-create-your-first-secret-nft",
+  {
+    "slug": "create-your-first-secret-nft",
     "is_multi_page": false,
     "title": "Create your first secret NFT",
     "description": "This is the first part of a series about using snip721 tokens on the Secret network.",
-    "author_github_account": "floAr",
+    "author_github_account": "Florian Uhde",
     "author_url": "https://github.com/floAr",
     "author_wallet": null,
     "tags": ["Secret", "JS/TS", "NodeJS", "Smart contracts"],
@@ -4171,17 +3909,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Florian Uhde",
-    "author_image_url": "https://github.com/floAr.png",
-    "oldSlug": "create-your-first-secret-nft"
+    ]
   },
-  "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips": {
-    "slug": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
+  {
+    "slug": "generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
     "is_multi_page": false,
     "title": "Build unique generative NFTs on Solana with Candy Machine v2 and Hashlips Engine",
     "description": "Learn how to create a collection of unique NFTs on Solana",
-    "author_github_account": "mmostafavi",
+    "author_github_account": "Mahdi Mostafavi",
     "author_url": "https://github.com/mmostafavi",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "Javascript"],
@@ -4198,17 +3933,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Mahdi Mostafavi",
-    "author_image_url": "https://github.com/mmostafavi.png",
-    "oldSlug": "generative-nfts-on-solana-with-candy-machine-v2-and-hashlips"
+    ]
   },
-  "celo-erc20-token-on-remix": {
+  {
     "slug": "celo-erc20-token-on-remix",
     "is_multi_page": false,
     "title": "How to mint your own fungible token on Celo",
     "description": "How to create fungible tokens on Celo using the Remix IDE",
-    "author_github_account": "gitofdeepanshu",
+    "author_github_account": "Deepanshu Hooda",
     "author_url": "https://github.com/gitofdeepanshu",
     "author_wallet": null,
     "tags": ["Celo", "Solidity", "Solidity", "Metamask", "Remix"],
@@ -4225,17 +3957,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Deepanshu Hooda",
-    "author_image_url": "https://github.com/gitofdeepanshu.png",
-    "oldSlug": "celo-erc20-token-on-remix"
+    ]
   },
-  "avalanche-connect-datahub-to-metamask": {
-    "slug": "avalanche-connect-datahub-to-metamask",
+  {
+    "slug": "connect-datahub-to-metamask",
     "is_multi_page": false,
     "title": "Connect DataHub to Metamask",
     "description": "Learn how to leverage Avalanche DataHub for Metamask transactions",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche"],
     "difficulty": "beginner",
@@ -4251,17 +3981,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "connect-datahub-to-metamask"
+    ]
   },
-  "solana-make-a-solana-explorer-clone-using-react": {
-    "slug": "solana-make-a-solana-explorer-clone-using-react",
+  {
+    "slug": "make-a-solana-explorer-clone-using-react",
     "is_multi_page": false,
     "title": "Make a Solana Explorer clone using React",
     "description": "Learn how to build a clone of the Solana Explorer to display information about blocks and transactions using React",
-    "author_github_account": "aeither",
+    "author_github_account": "Giovanni Fu Lin",
     "author_url": "https://github.com/aeither",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "React", "Javascript"],
@@ -4278,17 +4005,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Giovanni Fu Lin",
-    "author_image_url": "https://github.com/aeither.png",
-    "oldSlug": "make-a-solana-explorer-clone-using-react"
+    ]
   },
-  "secret-delegate-and-unbond-tokens": {
-    "slug": "secret-delegate-and-unbond-tokens",
+  {
+    "slug": "delegate-and-unbond-tokens",
     "is_multi_page": false,
-    "title": "Delegate to a Validator & Unbond Tokens",
+    "title": "Delegate to a Validator \u0026 Unbond Tokens",
     "description": "Learn how to delegate and unbond tokens on Secret Network",
-    "author_github_account": "minatofund",
+    "author_github_account": "Minato Fund",
     "author_url": "https://github.com/minatofund",
     "author_wallet": null,
     "tags": ["Secret", "JS/TS", "NodeJS"],
@@ -4296,7 +4020,7 @@
     "published_at": "2021-07-21T11:01:00.544Z",
     "pages": [
       {
-        "title": "Delegate to a Validator & Unbond Tokens",
+        "title": "Delegate to a Validator \u0026 Unbond Tokens",
         "slug": "delegate-and-unbond-tokens",
         "description": "Learn how to delegate and unbond tokens on Secret Network",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/secret/delegate-and-unbond-tokens.md",
@@ -4305,17 +4029,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Minato Fund",
-    "author_image_url": "https://github.com/minatofund.png",
-    "oldSlug": "delegate-and-unbond-tokens"
+    ]
   },
-  "solana-build-a-blog-dapp-using-anchor": {
-    "slug": "solana-build-a-blog-dapp-using-anchor",
+  {
+    "slug": "build-a-blog-dapp-using-anchor",
     "is_multi_page": false,
     "title": "Build a blog dApp using the Anchor framework",
     "description": "Learn how to create and deploy a blogging dApp on Solana using the Anchor framework",
-    "author_github_account": "DougAnderson444",
+    "author_github_account": "Doug Anderson",
     "author_url": "https://github.com/DougAnderson444",
     "author_wallet": null,
     "tags": ["Solana", "Rust", "Smart contracts", "Rust"],
@@ -4332,17 +4053,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Doug Anderson",
-    "author_image_url": "https://github.com/DougAnderson444.png",
-    "oldSlug": "build-a-blog-dapp-using-anchor"
+    ]
   },
-  "avalanche-on-chain-nft-game": {
+  {
     "slug": "avalanche-on-chain-nft-game",
     "is_multi_page": false,
     "title": "How to create an on-chain NFT game",
     "description": "Discover how to create your own NFT game using Avalanche",
-    "author_github_account": "viral-sangani",
+    "author_github_account": "Viral Sangani",
     "author_url": "https://github.com/viral-sangani",
     "author_wallet": null,
     "tags": ["Avalanche"],
@@ -4359,17 +4077,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viral Sangani",
-    "author_image_url": "https://github.com/viral-sangani.png",
-    "oldSlug": "avalanche-on-chain-nft-game"
+    ]
   },
-  "avalanche-create-a-subnet": {
-    "slug": "avalanche-create-a-subnet",
+  {
+    "slug": "create-a-subnet",
     "is_multi_page": false,
     "title": "Create a Subnet",
     "description": "Learn how to create a Subnet on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
     "difficulty": "beginner",
@@ -4385,17 +4101,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-a-subnet"
+    ]
   },
-  "avalanche-transfer-avax-between-the-x-chain-and-p-chain": {
-    "slug": "avalanche-transfer-avax-between-the-x-chain-and-p-chain",
+  {
+    "slug": "transfer-avax-between-the-x-chain-and-p-chain",
     "is_multi_page": false,
     "title": "Transfer AVAX between the X-Chain and P-Chain",
     "description": "Learn how to transfer AVAX between chains",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
     "difficulty": "beginner",
@@ -4411,17 +4125,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "transfer-avax-between-the-x-chain-and-p-chain"
+    ]
   },
-  "avalanche-creating-an-nft-part-1": {
-    "slug": "avalanche-creating-an-nft-part-1",
+  {
+    "slug": "creating-an-nft-part-1",
     "is_multi_page": false,
     "title": "Creating An NFT - Part 1",
     "description": "Learn how to create an NFT on Avalanche",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "JS/TS", "CLI"],
     "difficulty": "beginner",
@@ -4437,17 +4149,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "creating-an-nft-part-1"
+    ]
   },
-  "polkadot-how-to-build-custom-pallets-with-substrate": {
-    "slug": "polkadot-how-to-build-custom-pallets-with-substrate",
+  {
+    "slug": "how-to-build-custom-pallets-with-substrate",
     "is_multi_page": false,
     "title": "How to build Custom Pallets with Substrate",
     "description": "Learn how to build a custom pallet using the Substrate development framework",
-    "author_github_account": "prasad-kumkar",
+    "author_github_account": "Prasad Kumar",
     "author_url": "https://github.com/prasad-kumkar",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -4464,17 +4173,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Prasad Kumar",
-    "author_image_url": "https://github.com/prasad-kumkar.png",
-    "oldSlug": "how-to-build-custom-pallets-with-substrate"
+    ]
   },
-  "polkadot-add-a-pallet-to-your-runtime": {
-    "slug": "polkadot-add-a-pallet-to-your-runtime",
+  {
+    "slug": "add-a-pallet-to-your-runtime",
     "is_multi_page": false,
     "title": "Add A Pallet To Your Runtime",
     "description": "Learn how to add a pallet to your runtime",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "CLI"],
     "difficulty": "beginner",
@@ -4490,17 +4197,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "add-a-pallet-to-your-runtime"
+    ]
   },
-  "avalanche-create-nfts-with-the-avalanche-wallet": {
-    "slug": "avalanche-create-nfts-with-the-avalanche-wallet",
+  {
+    "slug": "create-nfts-with-the-avalanche-wallet",
     "is_multi_page": false,
     "title": "Create NFTs with the Avalanche Wallet",
     "description": "Learn how to create NFTs with the Avalanche Wallet",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "Smart contracts"],
     "difficulty": "beginner",
@@ -4516,17 +4221,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-nfts-with-the-avalanche-wallet"
+    ]
   },
-  "polygon-create-a-blogging-dapp-on-polygon": {
-    "slug": "polygon-create-a-blogging-dapp-on-polygon",
+  {
+    "slug": "create-a-blogging-dapp-on-polygon",
     "is_multi_page": false,
     "title": "Create a blogging dApp on Polygon",
     "description": "Learn how to create and deploy a blogging dApp on Polygon",
-    "author_github_account": "aeither",
+    "author_github_account": "Giovanni Fu Lin",
     "author_url": "https://github.com/aeither",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Javascript", "Solidity"],
@@ -4543,17 +4245,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Giovanni Fu Lin",
-    "author_image_url": "https://github.com/aeither.png",
-    "oldSlug": "create-a-blogging-dapp-on-polygon"
+    ]
   },
-  "celo-hello-contracts": {
-    "slug": "celo-hello-contracts",
+  {
+    "slug": "hello-contracts",
     "is_multi_page": false,
     "title": "Deploy and Interact with Contracts (Remotely)",
     "description": "Learn how to deploy your own smart contracts on the Celo network",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": [
       "Celo",
@@ -4583,17 +4283,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "hello-contracts"
+    ]
   },
-  "terra-integrating-transaction-search-in-your-terra-wallet": {
-    "slug": "terra-integrating-transaction-search-in-your-terra-wallet",
+  {
+    "slug": "integrating-transaction-search-in-your-terra-wallet",
     "is_multi_page": false,
     "title": "Create a transaction search widget",
     "description": "Learn how to create a simple transaction search widget using Figment's Transaction Search API and DataHub",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "Javascript"],
     "difficulty": "beginner",
@@ -4609,17 +4307,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "integrating-transaction-search-in-your-terra-wallet"
+    ]
   },
-  "polygon-launch-a-full-stack-dapp-on-polygon": {
-    "slug": "polygon-launch-a-full-stack-dapp-on-polygon",
+  {
+    "slug": "launch-a-full-stack-dapp-on-polygon",
     "is_multi_page": false,
     "title": "Build a decentralized AirBnB on Polygon (Matic)",
     "description": "Learn to build a full-stack dApp deployed on Polygon (Matic) with Proof of Stake Security.",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": [
       "Polygon",
@@ -4651,17 +4347,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "launch-a-full-stack-dapp-on-polygon"
+    ]
   },
-  "celo-hello-mobile-dapp": {
-    "slug": "celo-hello-mobile-dapp",
+  {
+    "slug": "hello-mobile-dapp",
     "is_multi_page": false,
     "title": "Hello Mobile DApp",
     "description": "Learn how to create a simple mobile DApp using dAppKit and the React Native Expo framework",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Celo", "Solidity", "NodeJS", "Smart contracts", "Truffle", "CLI"],
     "difficulty": "beginner",
@@ -4684,17 +4378,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "hello-mobile-dapp"
+    ]
   },
-  "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask": {
-    "slug": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask",
+  {
+    "slug": "deploy-a-smart-contract-on-avalanche-using-remix-and-metamask",
     "is_multi_page": false,
     "title": "Deploy a Smart Contract on Avalanche using Remix and MetaMask",
     "description": "Learn how to deploy and test a smart contract on Avalanche using Remix and MetaMask",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Avalanche", "Solidity", "Solidity", "Metamask", "Remix"],
     "difficulty": "beginner",
@@ -4710,24 +4402,22 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "deploy-a-smart-contract-on-avalanche-using-remix-and-metamask"
+    ]
   },
-  "celo-send-celo-and-cusd": {
-    "slug": "celo-send-celo-and-cusd",
+  {
+    "slug": "send-celo-and-cusd",
     "is_multi_page": false,
-    "title": "Send CELO & cUSD",
+    "title": "Send CELO \u0026 cUSD",
     "description": "Learn how to connect to the Celo test network and transfer tokens using ContractKit",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "NodeJS"],
     "difficulty": "beginner",
     "published_at": "2021-07-22T07:56:19.932Z",
     "pages": [
       {
-        "title": "Send CELO & cUSD",
+        "title": "Send CELO \u0026 cUSD",
         "slug": "send-celo-and-cusd",
         "description": "Learn how to connect to the Celo test network and transfer tokens using ContractKit",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/datahub-learn/master/celo/hello-celo.md",
@@ -4736,17 +4426,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "send-celo-and-cusd"
+    ]
   },
-  "polygon-transfer-erc20-tokens-between-polygon-and-ethereum": {
-    "slug": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum",
+  {
+    "slug": "transfer-erc20-tokens-between-polygon-and-ethereum",
     "is_multi_page": false,
-    "title": "Transfer ERC-20 tokens between Polygon & Ethereum",
+    "title": "Transfer ERC-20 tokens between Polygon \u0026 Ethereum",
     "description": "Learn how to bridge ERC-20 tokens between networks using the Polygon Proof of Stake bridge and SDK",
-    "author_github_account": "mlibre",
+    "author_github_account": "Masoud Ghorbanzadeh",
     "author_url": "https://github.com/mlibre",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "NodeJS", "Javascript", "Metamask"],
@@ -4754,7 +4441,7 @@
     "published_at": "2021-09-30T22:51:27.909Z",
     "pages": [
       {
-        "title": "Transfer ERC-20 tokens between Polygon & Ethereum",
+        "title": "Transfer ERC-20 tokens between Polygon \u0026 Ethereum",
         "slug": "transfer-erc20-tokens-between-polygon-and-ethereum",
         "description": "Learn how to bridge ERC-20 tokens between networks using the Polygon Proof of Stake bridge and SDK",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polygon/erc20-pos-bridge-sdk.md",
@@ -4763,17 +4450,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Masoud Ghorbanzadeh",
-    "author_image_url": "https://github.com/mlibre.png",
-    "oldSlug": "transfer-erc20-tokens-between-polygon-and-ethereum"
+    ]
   },
-  "cosmos-create-a-blog-module": {
-    "slug": "cosmos-create-a-blog-module",
+  {
+    "slug": "create-a-blog-module",
     "is_multi_page": false,
     "title": "Create a blog module using Cosmos SDK",
     "description": "Learn how to create a simple blog app using the Cosmos SDK",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "JS/TS", "CLI"],
     "difficulty": "beginner",
@@ -4789,17 +4474,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "create-a-blog-module"
+    ]
   },
-  "polkadot-add-the-contracts-pallets-to-a-runtime": {
-    "slug": "polkadot-add-the-contracts-pallets-to-a-runtime",
+  {
+    "slug": "add-the-contracts-pallets-to-a-runtime",
     "is_multi_page": false,
     "title": "Add the Contracts Pallets to a Runtime",
     "description": "Learn how to add a contract pallet to a runtime",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Smart contracts"],
     "difficulty": "beginner",
@@ -4815,17 +4498,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "add-the-contracts-pallets-to-a-runtime"
+    ]
   },
-  "cosmos-build-a-polling-app": {
-    "slug": "cosmos-build-a-polling-app",
+  {
+    "slug": "build-a-polling-app",
     "is_multi_page": false,
     "title": "Build a polling app",
     "description": "Learn how to build a polling app using the Cosmos SDK",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "CLI"],
     "difficulty": "beginner",
@@ -4841,17 +4522,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "build-a-polling-app"
+    ]
   },
-  "polkadot-how-to-experiment-with-election-phragmen-pallet": {
-    "slug": "polkadot-how-to-experiment-with-election-phragmen-pallet",
+  {
+    "slug": "how-to-experiment-with-election-phragmen-pallet",
     "is_multi_page": false,
     "title": "How to experiment with Election Phragmen pallet",
     "description": "Learn how to make use of the Election Phragmen pallet",
-    "author_github_account": "kelvinwelter",
+    "author_github_account": "Kelvin Welter",
     "author_url": "https://github.com/kelvinwelter",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -4868,17 +4546,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kelvin Welter",
-    "author_image_url": "https://github.com/kelvinwelter.png",
-    "oldSlug": "how-to-experiment-with-election-phragmen-pallet"
+    ]
   },
-  "secret-creating-a-secret-contract-from-scratch": {
-    "slug": "secret-creating-a-secret-contract-from-scratch",
+  {
+    "slug": "creating-a-secret-contract-from-scratch",
     "is_multi_page": false,
     "title": "Developing your first secret contract",
     "description": "Learn the basics of creating a new secret contract from scratch.",
-    "author_github_account": "darwinzer0",
+    "author_github_account": "Ben Adams",
     "author_url": "https://github.com/darwinzer0",
     "author_wallet": null,
     "tags": ["Secret", "Rust", "Smart contracts", "Rust"],
@@ -4895,17 +4570,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Ben Adams",
-    "author_image_url": "https://github.com/darwinzer0.png",
-    "oldSlug": "creating-a-secret-contract-from-scratch"
+    ]
   },
-  "near-stake-fungible-token-testing": {
-    "slug": "near-stake-fungible-token-testing",
+  {
+    "slug": "stake-fungible-token-testing",
     "is_multi_page": false,
     "title": "Test Now Or Forever Hold Your Peace",
     "description": "Complete guide to unit testing your NEAR Rust smart contracts",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "Rust", "Smart contracts"],
@@ -4922,17 +4594,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-fungible-token-testing"
+    ]
   },
-  "tezos-oracle-contracts": {
-    "slug": "tezos-oracle-contracts",
+  {
+    "slug": "oracle-contracts",
     "is_multi_page": false,
     "title": "Oracle Contracts",
     "description": "Learn how to get started with Oracle Contracts on Tezos",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts"],
     "difficulty": "beginner",
@@ -4948,17 +4618,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "oracle-contracts"
+    ]
   },
-  "near-stake-pool-contract": {
-    "slug": "near-stake-pool-contract",
+  {
+    "slug": "stake-pool-contract",
     "is_multi_page": false,
     "title": "It's Time to Put a STAKE Pool in the Ground!",
     "description": "OysterPack SMART STAKE Pool Contract - NEAR Staking Game Changer",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "Rust", "CLI"],
@@ -4975,17 +4642,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-pool-contract"
+    ]
   },
-  "terra-submit-terra-transactions": {
-    "slug": "terra-submit-terra-transactions",
+  {
+    "slug": "submit-terra-transactions",
     "is_multi_page": false,
     "title": "Submit your first transactions",
     "description": "Learn how to write to the Terra blockchain using DataHub",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
     "difficulty": "beginner",
@@ -5001,17 +4666,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "submit-terra-transactions"
+    ]
   },
-  "terra-interacting-with-terra-endpoints": {
-    "slug": "terra-interacting-with-terra-endpoints",
+  {
+    "slug": "interacting-with-terra-endpoints",
     "is_multi_page": false,
     "title": "Connecting to a Terra node with DataHub",
     "description": "Learn how to start using the Terra SDK with DataHub",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
     "difficulty": "beginner",
@@ -5027,17 +4690,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "interacting-with-terra-endpoints"
+    ]
   },
-  "avalanche-unit-testing-in-solidity": {
-    "slug": "avalanche-unit-testing-in-solidity",
+  {
+    "slug": "unit-testing-in-solidity",
     "is_multi_page": false,
     "title": "Unit Testing in Solidity",
     "description": "How to write unit tests for Solidity smart contracts using Truffle's Assertions",
-    "author_github_account": "Segun-Ogundipe/",
+    "author_github_account": " Segun Ogundipe",
     "author_url": "https://github.com/Segun-Ogundipe/",
     "author_wallet": null,
     "tags": ["Avalanche", "Solidity", "Truffle", "Solidity"],
@@ -5054,17 +4714,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": " Segun Ogundipe",
-    "author_image_url": "https://github.com/Segun-Ogundipe/.png",
-    "oldSlug": "unit-testing-in-solidity"
+    ]
   },
-  "polygon-metamask-with-matic-js": {
-    "slug": "polygon-metamask-with-matic-js",
+  {
+    "slug": "metamask-with-matic-js",
     "is_multi_page": false,
     "title": "Using Metamask with Matic.js",
     "description": "Learn how to transfer tokens between Ethereum and Polygon (Matic)",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "NodeJS", "Metamask"],
     "difficulty": "beginner",
@@ -5080,17 +4738,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "metamask-with-matic-js"
+    ]
   },
-  "near-stake-fungible-token": {
-    "slug": "near-stake-fungible-token",
+  {
+    "slug": "stake-fungible-token",
     "is_multi_page": false,
     "title": "The New and Improved Fungible Token Standard (NEP-141) Has Arrived",
     "description": "Complete guide to NEAR's new fungible token standard",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "Rust", "Smart contracts"],
@@ -5107,17 +4762,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-fungible-token"
+    ]
   },
-  "near-build-a-registry-dapp-on-near": {
-    "slug": "near-build-a-registry-dapp-on-near",
+  {
+    "slug": "build-a-registry-dapp-on-near",
     "is_multi_page": false,
     "title": "Build a Registry dApp on NEAR",
     "description": "Learn how to build a complete registry dApp on NEAR and deploy it easily using Netlify",
-    "author_github_account": "viraja1",
+    "author_github_account": "Viraj Anjan",
     "author_url": "https://github.com/viraja1",
     "author_wallet": null,
     "tags": ["Near", "AssemblyScript", "AssemblyScript"],
@@ -5134,17 +4786,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Viraj Anjan",
-    "author_image_url": "https://github.com/viraja1.png",
-    "oldSlug": "build-a-registry-dapp-on-near"
+    ]
   },
-  "near-stake-token-vision": {
-    "slug": "near-stake-token-vision",
+  {
+    "slug": "stake-token-vision",
     "is_multi_page": false,
     "title": "It's Time to Put a STAKE in the Ground!",
     "description": "STAKE Token Vision - NEAR Game Changer",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "Rust", "Smart contracts", "Rust"],
@@ -5161,17 +4810,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-token-vision"
+    ]
   },
-  "tezos-creating-nfts": {
-    "slug": "tezos-creating-nfts",
+  {
+    "slug": "creating-nfts",
     "is_multi_page": false,
     "title": "Creating NFTs",
     "description": "Learn how to create and interact a non-fungible token contract on Tezos",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Tezos", "JS/TS", "NodeJS", "CLI"],
     "difficulty": "beginner",
@@ -5187,17 +4834,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "creating-nfts"
+    ]
   },
-  "near-stake-fungible-token-nep141": {
-    "slug": "near-stake-fungible-token-nep141",
+  {
+    "slug": "stake-fungible-token-nep141",
     "is_multi_page": false,
     "title": "You Can Have Your STAKE and Trade It Too",
     "description": "STAKE Fungible Token NEP-141 Rust Implementation",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "Rust", "Smart contracts", "Rust"],
@@ -5214,17 +4858,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-fungible-token-nep141"
+    ]
   },
-  "near-stake-account-storage-nep-145": {
-    "slug": "near-stake-account-storage-nep-145",
+  {
+    "slug": "stake-account-storage-nep-145",
     "is_multi_page": false,
     "title": "Account Storage Standard (NEP-145)",
     "description": "Complete guide to NEAR's new account storage standard",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "Rust", "Smart contracts", "Rust"],
@@ -5241,17 +4882,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-account-storage-nep-145"
+    ]
   },
-  "tezos-token-contracts": {
-    "slug": "tezos-token-contracts",
+  {
+    "slug": "token-contracts",
     "is_multi_page": false,
     "title": "Token Contracts",
     "description": "Learn how to deploy and interact with a digital asset on Tezos",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts", "CLI"],
     "difficulty": "beginner",
@@ -5267,20 +4906,17 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "token-contracts"
+    ]
   },
-  "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract": {
-    "slug": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract",
+  {
+    "slug": "deploy-a-subgraph-for-an-avalanche-smart-contract",
     "is_multi_page": false,
     "title": "Deploy a subgraph for an Avalanche smart contract",
     "description": "Learn how to deploy a Solidity smart contract to the Avalanche Fuji testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio",
-    "author_github_account": "robin-thomas",
+    "author_github_account": "Robin Thomas",
     "author_url": "https://github.com/robin-thomas",
     "author_wallet": null,
-    "tags": ["The Graph", "GraphQL", "JS/TS", "GraphQL", "Hardhat"],
+    "tags": ["The Graph", "Graphql", "JS/TS", "GraphQL", "Hardhat"],
     "difficulty": "beginner",
     "published_at": "2021-09-30T23:47:16.048Z",
     "pages": [
@@ -5294,17 +4930,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Robin Thomas",
-    "author_image_url": "https://github.com/robin-thomas.png",
-    "oldSlug": "deploy-a-subgraph-for-an-avalanche-smart-contract"
+    ]
   },
-  "polkadot-implement-multisig-accounts-on-polkadot": {
-    "slug": "polkadot-implement-multisig-accounts-on-polkadot",
+  {
+    "slug": "implement-multisig-accounts-on-polkadot",
     "is_multi_page": false,
     "title": "Implement Multisig Accounts on Polkadot",
     "description": "In this tutorial we will cover the process of creating a multisig - an account which shares authority for transactions across multiple addresses.",
-    "author_github_account": "pyr0gan",
+    "author_github_account": "Rogan X",
     "author_url": "https://github.com/pyr0gan",
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "NodeJS"],
@@ -5321,17 +4954,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Rogan X",
-    "author_image_url": "https://github.com/pyr0gan.png",
-    "oldSlug": "implement-multisig-accounts-on-polkadot"
+    ]
   },
-  "polygon-create-a-blockchain-skill-verification-system": {
-    "slug": "polygon-create-a-blockchain-skill-verification-system",
+  {
+    "slug": "create-a-blockchain-skill-verification-system",
     "is_multi_page": false,
     "title": "Create a blockchain-based Skill Verification system",
     "description": "Learn how to implement your own skill verification system with a Polygon smart contract",
-    "author_github_account": "Hardikag17",
+    "author_github_account": "Hardik Agarwal",
     "author_url": "https://github.com/Hardikag17",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "React", "Javascript"],
@@ -5348,17 +4978,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Hardik Agarwal",
-    "author_image_url": "https://github.com/Hardikag17.png",
-    "oldSlug": "create-a-blockchain-skill-verification-system"
+    ]
   },
-  "near-stake-pool-for-validators": {
-    "slug": "near-stake-pool-for-validators",
+  {
+    "slug": "stake-pool-for-validators",
     "is_multi_page": false,
     "title": "OysterPack SMART STAKE Pool API Guide for Validators",
     "description": "OysterPack SMART STAKE Pool Contract API Guide - For Validators",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "Rust", "Rust", "CLI"],
@@ -5375,17 +5002,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-pool-for-validators"
+    ]
   },
-  "near-nft-marketplace-in-assemblyscript": {
-    "slug": "near-nft-marketplace-in-assemblyscript",
+  {
+    "slug": "nft-marketplace-in-assemblyscript",
     "is_multi_page": false,
     "title": "Create an NFT marketplace",
     "description": "Create smart contracts for a simple NFT Marketplace",
-    "author_github_account": "hdriqi",
+    "author_github_account": "Rahmat Albariqi",
     "author_url": "https://github.com/hdriqi",
     "author_wallet": null,
     "tags": [
@@ -5416,17 +5040,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Rahmat Albariqi",
-    "author_image_url": "https://github.com/hdriqi.png",
-    "oldSlug": "nft-marketplace-in-assemblyscript"
+    ]
   },
-  "avalanche-create-nft-with-royalties": {
-    "slug": "avalanche-create-nft-with-royalties",
+  {
+    "slug": "create-nft-with-royalties",
     "is_multi_page": false,
     "title": "Create an NFT with royalties on Avalanche using Remix IDE",
     "description": "Learn how to create an NFT with royalties on Avalanche.",
-    "author_github_account": "devilla",
+    "author_github_account": "Devendra Yadav",
     "author_url": "https://github.com/devilla",
     "author_wallet": null,
     "tags": ["Avalanche", "Solidity", "Smart contracts", "Solidity", "Remix"],
@@ -5449,17 +5070,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Devendra Yadav",
-    "author_image_url": "https://github.com/devilla.png",
-    "oldSlug": "create-nft-with-royalties"
+    ]
   },
-  "near-write-nft-contracts-in-rust": {
-    "slug": "near-write-nft-contracts-in-rust",
+  {
+    "slug": "write-nft-contracts-in-rust",
     "is_multi_page": false,
-    "title": "Write an NFT contract & mint your NFT",
+    "title": "Write an NFT contract \u0026 mint your NFT",
     "description": "Learn how to create and interact with NFTs on NEAR",
-    "author_github_account": "myklemykle",
+    "author_github_account": "Mykle Hansen",
     "author_url": "https://github.com/myklemykle",
     "author_wallet": null,
     "tags": ["Near", "Rust", "Smart contracts", "Rust"],
@@ -5467,7 +5085,7 @@
     "published_at": "2021-07-21T10:29:38.722Z",
     "pages": [
       {
-        "title": "Write an NFT contract & mint your NFT",
+        "title": "Write an NFT contract \u0026 mint your NFT",
         "slug": "write-nft-contracts-in-rust",
         "description": "Learn how to create and interact with NFTs on NEAR",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/near/write-nft-contracts-in-rust.md",
@@ -5476,17 +5094,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Mykle Hansen",
-    "author_image_url": "https://github.com/myklemykle.png",
-    "oldSlug": "write-nft-contracts-in-rust"
+    ]
   },
-  "solana-create-a-solana-nft-marketplace-with-metaplex": {
-    "slug": "solana-create-a-solana-nft-marketplace-with-metaplex",
+  {
+    "slug": "create-a-solana-nft-marketplace-with-metaplex",
     "is_multi_page": false,
     "title": "Create a Solana NFT marketplace and mint NFTs using Metaplex",
     "description": "Learn how to deploy a Metaplex marketplace that allows you to mint and sell your own NFTs on Solana",
-    "author_github_account": "jacobmakarsky",
+    "author_github_account": "Jacob Makarsky",
     "author_url": "https://github.com/jacobmakarsky",
     "author_wallet": null,
     "tags": ["Solana", "Arweave"],
@@ -5503,17 +5118,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Jacob Makarsky",
-    "author_image_url": "https://github.com/jacobmakarsky.png",
-    "oldSlug": "create-a-solana-nft-marketplace-with-metaplex"
+    ]
   },
-  "polkadot-perform-forkless-upgrade-of-a-substrate-pallet": {
-    "slug": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet",
+  {
+    "slug": "perform-forkless-upgrade-of-a-substrate-pallet",
     "is_multi_page": false,
     "title": "Perform a forkless upgrade of a Substrate pallet",
     "description": "Learn how to upgrade a Substrate pallet without forking the blockchain",
-    "author_github_account": "TomaszWaszczyk",
+    "author_github_account": "Tomasz Waszczyk ",
     "author_url": "https://github.com/TomaszWaszczyk",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -5530,17 +5142,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Tomasz Waszczyk ",
-    "author_image_url": "https://github.com/TomaszWaszczyk.png",
-    "oldSlug": "perform-forkless-upgrade-of-a-substrate-pallet"
+    ]
   },
-  "celo-crowd-funding-project": {
+  {
     "slug": "celo-crowd-funding-project",
     "is_multi_page": false,
     "title": "Celo Crowd Funding Project Tutorial",
     "description": "Learn how to create a Smart Contract which facilitates crowdfunding.",
-    "author_github_account": "alexreyes",
+    "author_github_account": "Alex Reyes \u0026 Neo Cho",
     "author_url": "https://github.com/alexreyes",
     "author_wallet": null,
     "tags": [
@@ -5571,17 +5180,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Alex Reyes & Neo Cho",
-    "author_image_url": "https://github.com/alexreyes.png",
-    "oldSlug": "celo-crowd-funding-project"
+    ]
   },
-  "tezos-unit-testing-python-smart-contracts-for-tezos-on-smartpy": {
-    "slug": "tezos-unit-testing-python-smart-contracts-for-tezos-on-smartpy",
+  {
+    "slug": "unit-testing-python-smart-contracts-for-tezos-on-smartpy",
     "is_multi_page": false,
     "title": "Unit testing Python smart contracts for Tezos using SmartPy",
     "description": "Learn how to unit test Python smart contracts for Tezos using the SmartPy suite of tools",
-    "author_github_account": "Udit-Kapoor",
+    "author_github_account": "Udit Kapoor",
     "author_url": "https://github.com/Udit-Kapoor",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts"],
@@ -5598,17 +5204,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Udit Kapoor",
-    "author_image_url": "https://github.com/Udit-Kapoor.png",
-    "oldSlug": "unit-testing-python-smart-contracts-for-tezos-on-smartpy"
+    ]
   },
-  "polygon-build-an-nft-marketplace-using-hardhat": {
-    "slug": "polygon-build-an-nft-marketplace-using-hardhat",
+  {
+    "slug": "build-an-nft-marketplace-using-hardhat",
     "is_multi_page": false,
     "title": "Build an NFT marketplace on Polygon using HardHat",
     "description": "Learn how to build an NFT marketplace smart contract and deploy it on Polygon using HardHat",
-    "author_github_account": "BhaskarDutta2209",
+    "author_github_account": "Bhaskar Dutta",
     "author_url": "https://github.com/BhaskarDutta2209",
     "author_wallet": null,
     "tags": [
@@ -5639,17 +5242,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Bhaskar Dutta",
-    "author_image_url": "https://github.com/BhaskarDutta2209.png",
-    "oldSlug": "build-an-nft-marketplace-using-hardhat"
+    ]
   },
-  "thegraph-explore-an-existing-subgraph": {
-    "slug": "thegraph-explore-an-existing-subgraph",
+  {
+    "slug": "explore-an-existing-subgraph",
     "is_multi_page": false,
     "title": "Explore an existing subgraph",
     "description": "Learn how to explore an existing subgraph and visualize its data using a pie chart",
-    "author_github_account": "minatofund",
+    "author_github_account": "Minato Fund",
     "author_url": "https://github.com/minatofund",
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "React", "GraphQL", "Javascript"],
@@ -5666,17 +5266,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Minato Fund",
-    "author_image_url": "https://github.com/minatofund.png",
-    "oldSlug": "explore-an-existing-subgraph"
+    ]
   },
-  "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum": {
-    "slug": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum",
+  {
+    "slug": "building-a-3d-art-gallery-using-unity3d-and-nethereum",
     "is_multi_page": false,
     "title": "Building a 3D art gallery using Unity3D and Nethereum",
     "description": "Learn how to make your own art gallery in Unity3D and interact with Polygon using C#",
-    "author_github_account": "BhaskarDutta2209",
+    "author_github_account": "Bhaskar Dutta",
     "author_url": "https://github.com/BhaskarDutta2209",
     "author_wallet": null,
     "tags": ["Polygon", "Smart contracts"],
@@ -5693,17 +5290,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Bhaskar Dutta",
-    "author_image_url": "https://github.com/BhaskarDutta2209.png",
-    "oldSlug": "building-a-3d-art-gallery-using-unity3d-and-nethereum"
+    ]
   },
-  "polygon-chainlink-vrf-on-polygon": {
-    "slug": "polygon-chainlink-vrf-on-polygon",
+  {
+    "slug": "chainlink-vrf-on-polygon",
     "is_multi_page": false,
     "title": "Using the Chainlink Oracle for Randomness on Polygon",
     "description": "Learn how to use the Chainlink Oracle for verifiable randomness in your Polygon (Matic) smart contracts",
-    "author_github_account": "ysongh",
+    "author_github_account": "You Song Hou",
     "author_url": "https://github.com/ysongh",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Javascript", "Solidity", "Remix"],
@@ -5727,17 +5321,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "You Song Hou",
-    "author_image_url": "https://github.com/ysongh.png",
-    "oldSlug": "chainlink-vrf-on-polygon"
+    ]
   },
-  "near-build-a-crowdfunding-dapp-on-near": {
-    "slug": "near-build-a-crowdfunding-dapp-on-near",
+  {
+    "slug": "build-a-crowdfunding-dapp-on-near",
     "is_multi_page": false,
     "title": "Build a Crowdfunding dApp on NEAR",
     "description": "Learn how to build a crowdfunding dApp on the NEAR blockchain with Rust and React",
-    "author_github_account": "uma-victor1",
+    "author_github_account": "Uma Victor",
     "author_url": "https://github.com/uma-victor1",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "Rust", "React", "Rust"],
@@ -5754,17 +5345,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Uma Victor",
-    "author_image_url": "https://github.com/uma-victor1.png",
-    "oldSlug": "build-a-crowdfunding-dapp-on-near"
+    ]
   },
-  "avalanche-transfer-avax-from-c-chain-to-ethereum": {
-    "slug": "avalanche-transfer-avax-from-c-chain-to-ethereum",
+  {
+    "slug": "transfer-avax-from-c-chain-to-ethereum",
     "is_multi_page": false,
     "title": "Transfer AVAX from C-Chain to an Ethereum address",
     "description": "Learn how to transfer AVAX tokens from C-Chain to an Ethereum address",
-    "author_github_account": "blackwidoq",
+    "author_github_account": "Seongwoo Oh",
     "author_url": "https://github.com/blackwidoq",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript"],
@@ -5781,17 +5369,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Seongwoo Oh",
-    "author_image_url": "https://github.com/blackwidoq.png",
-    "oldSlug": "transfer-avax-from-c-chain-to-ethereum"
+    ]
   },
-  "avalanche-create-an-avalanche-crowdfunding-app": {
-    "slug": "avalanche-create-an-avalanche-crowdfunding-app",
+  {
+    "slug": "create-an-avalanche-crowdfunding-app",
     "is_multi_page": false,
     "title": "Create a decentralized Kickstarter clone on Avalanche",
     "description": "Learn how to build a complete crowdfunding app using Avalanche",
-    "author_github_account": "hyp3r5pace",
+    "author_github_account": "Sayan Kar \u0026 Soumyajit Deb",
     "author_url": "https://github.com/hyp3r5pace",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "React", "Javascript", "Solidity"],
@@ -5808,17 +5393,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sayan Kar & Soumyajit Deb",
-    "author_image_url": "https://github.com/hyp3r5pace.png",
-    "oldSlug": "create-an-avalanche-crowdfunding-app"
+    ]
   },
-  "polygon-build-petgram-an-nft-sharing-dapp": {
-    "slug": "polygon-build-petgram-an-nft-sharing-dapp",
+  {
+    "slug": "build-petgram-an-nft-sharing-dapp",
     "is_multi_page": false,
     "title": "How to build Petgram, an NFT sharing dApp",
     "description": "Learn how to build Petgram, an NFT sharing dApp similar to Instagram, then deploy it on Polygon",
-    "author_github_account": "electrone901",
+    "author_github_account": "Luis Carbajal",
     "author_url": "https://github.com/electrone901",
     "author_wallet": null,
     "tags": [
@@ -5849,17 +5431,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Luis Carbajal",
-    "author_image_url": "https://github.com/electrone901.png",
-    "oldSlug": "build-petgram-an-nft-sharing-dapp"
+    ]
   },
-  "avalanche-transfer-erc20-from-c-chain-to-ethereum": {
-    "slug": "avalanche-transfer-erc20-from-c-chain-to-ethereum",
+  {
+    "slug": "transfer-erc20-from-c-chain-to-ethereum",
     "is_multi_page": false,
     "title": "Transfer ERC-20 tokens from C-Chain to an Ethereum address",
     "description": "Learn how to transfer ERC-20 tokens from C-Chain to Ethereum",
-    "author_github_account": "blackwidoq",
+    "author_github_account": "Seongwoo Oh",
     "author_url": "https://github.com/blackwidoq",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript"],
@@ -5876,17 +5455,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Seongwoo Oh",
-    "author_image_url": "https://github.com/blackwidoq.png",
-    "oldSlug": "transfer-erc20-from-c-chain-to-ethereum"
+    ]
   },
-  "polygon-build-a-quadratic-voting-dapp": {
-    "slug": "polygon-build-a-quadratic-voting-dapp",
+  {
+    "slug": "build-a-quadratic-voting-dapp",
     "is_multi_page": false,
     "title": "Build a Quadratic Voting dApp",
     "description": "Learn how to make a quadratic voting app with collaboratively managed ranked lists",
-    "author_github_account": "giraffekey",
+    "author_github_account": "Giraffekey",
     "author_url": "https://github.com/giraffekey",
     "author_wallet": null,
     "tags": ["Polygon", "Solidity", "Truffle", "Solidity", "IPFS"],
@@ -5903,17 +5479,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Giraffekey",
-    "author_image_url": "https://github.com/giraffekey.png",
-    "oldSlug": "build-a-quadratic-voting-dapp"
+    ]
   },
-  "terra-write-your-first-terra-smart-contract": {
-    "slug": "terra-write-your-first-terra-smart-contract",
+  {
+    "slug": "write-your-first-terra-smart-contract",
     "is_multi_page": false,
     "title": "Write your first Terra smart contract",
     "description": "Learn how to write a Terra smart contract",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "Rust", "Smart contracts", "AssemblyScript", "Rust"],
     "difficulty": "beginner",
@@ -5935,17 +5509,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "write-your-first-terra-smart-contract"
+    ]
   },
-  "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle": {
-    "slug": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
+  {
+    "slug": "making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
     "is_multi_page": false,
     "title": "Advanced e-Voting dApp on Avalanche",
     "description": "Learn to build an advanced e-Voting dApp on Avalanche Fuji testnet using Trufflesuite",
-    "author_github_account": "rajranjan0608",
+    "author_github_account": "Raj Ranjan",
     "author_url": "https://github.com/rajranjan0608",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Solidity", "NodeJS", "Truffle", "Solidity"],
@@ -5969,17 +5540,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Raj Ranjan",
-    "author_image_url": "https://github.com/rajranjan0608.png",
-    "oldSlug": "making-advanced-e-voting-dapp-avalanche-fuji-using-trufle"
+    ]
   },
-  "solana-explaining-solanas-innovations-without-technical-jargon": {
-    "slug": "solana-explaining-solanas-innovations-without-technical-jargon",
+  {
+    "slug": "explaining-solanas-innovations-without-technical-jargon",
     "is_multi_page": false,
     "title": "Explaining Solana and its Innovations without technical jargon",
     "description": "Discover what makes Solana tick",
-    "author_github_account": "mmostafavi",
+    "author_github_account": "Mahdi Mostafavi",
     "author_url": "https://github.com/mmostafavi",
     "author_wallet": null,
     "tags": ["Solana"],
@@ -5996,17 +5564,15 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Mahdi Mostafavi",
-    "author_image_url": "https://github.com/mmostafavi.png",
-    "oldSlug": "explaining-solanas-innovations-without-technical-jargon"
+    ]
   },
-  "terra-interacting-with-a-terra-smart-contract": {
-    "slug": "terra-interacting-with-a-terra-smart-contract",
+  {
+    "slug": "interacting-with-a-terra-smart-contract",
     "is_multi_page": false,
     "title": "Interacting with a Terra smart contract",
     "description": "Learn how to interact with your own Terra smart contracts",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "AssemblyScript", "AssemblyScript", "CLI"],
     "difficulty": "beginner",
@@ -6022,17 +5588,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "interacting-with-a-terra-smart-contract"
+    ]
   },
-  "polygon-smart-contract-unit-testing-with-truffle": {
+  {
     "slug": "polygon-smart-contract-unit-testing-with-truffle",
     "is_multi_page": false,
     "title": "Polygon smart contract unit testing with Truffle",
-    "description": "Learn how to deploy & unit test smart contracts written in Solidity using Truffle",
-    "author_github_account": "PowerStream3604",
+    "description": "Learn how to deploy \u0026 unit test smart contracts written in Solidity using Truffle",
+    "author_github_account": "David Kim",
     "author_url": "https://github.com/PowerStream3604",
     "author_wallet": null,
     "tags": ["Polygon", "Solidity", "Truffle", "Solidity", "Metamask"],
@@ -6042,24 +5605,22 @@
       {
         "title": "Polygon smart contract unit testing with Truffle",
         "slug": "polygon-smart-contract-unit-testing-with-truffle",
-        "description": "Learn how to deploy & unit test smart contracts written in Solidity using Truffle",
+        "description": "Learn how to deploy \u0026 unit test smart contracts written in Solidity using Truffle",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polygon/Unit-Testing-on-Polygon.md",
         "keywords": ["Polygon", "Solidity", "Truffle", "Solidity", "Metamask"],
         "next_slug": null,
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "David Kim",
-    "author_image_url": "https://github.com/PowerStream3604.png",
-    "oldSlug": "polygon-smart-contract-unit-testing-with-truffle"
+    ]
   },
-  "terra-creating-your-first-terra-account-with-the-terra-sdk": {
-    "slug": "terra-creating-your-first-terra-account-with-the-terra-sdk",
+  {
+    "slug": "creating-your-first-terra-account-with-the-terra-sdk",
     "is_multi_page": false,
     "title": "Creating your first Terra account with the Terra SDK",
     "description": "Learn how to create an account to start building on Terra",
-    "author_url": "https://github.com/TheBuilderDAO",
+    "author_github_account": null,
+    "author_url": null,
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
     "difficulty": "beginner",
@@ -6075,17 +5636,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": null,
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "creating-your-first-terra-account-with-the-terra-sdk"
+    ]
   },
-  "polkadot-substrate-kitties-overview": {
-    "slug": "polkadot-substrate-kitties-overview",
+  {
+    "slug": "substrate-kitties-overview",
     "is_multi_page": false,
     "title": "Substrate Kitties Overview",
     "description": "Learn how to make a dApp on Polkadot",
-    "author_github_account": "SHA888",
+    "author_github_account": "Kresna Sucandra",
     "author_url": "https://github.com/SHA888",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -6102,17 +5660,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kresna Sucandra",
-    "author_image_url": "https://github.com/SHA888.png",
-    "oldSlug": "substrate-kitties-overview"
+    ]
   },
-  "thegraph-unit-testing-subgraphs": {
-    "slug": "thegraph-unit-testing-subgraphs",
+  {
+    "slug": "unit-testing-subgraphs",
     "is_multi_page": false,
     "title": "Writing Unit Tests for Subgraphs",
     "description": "Learn how to write unit tests for subgraphs with matchstick",
-    "author_github_account": "antonyip",
+    "author_github_account": "Anton Yip",
     "author_url": "https://github.com/antonyip",
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "GraphQL", "Javascript"],
@@ -6129,17 +5684,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Anton Yip",
-    "author_image_url": "https://github.com/antonyip.png",
-    "oldSlug": "unit-testing-subgraphs"
+    ]
   },
-  "avalanche-create-an-amm-on-avalanche": {
-    "slug": "avalanche-create-an-amm-on-avalanche",
+  {
+    "slug": "create-an-amm-on-avalanche",
     "is_multi_page": false,
     "title": "Create an Automated Market Maker (AMM) on Avalanche",
     "description": "Learn how to build a basic AMM with Provide, Withdraw and Swap functions",
-    "author_github_account": "SayanKar",
+    "author_github_account": "Sayan Kar",
     "author_url": "https://github.com/SayanKar",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Solidity", "React", "Solidity"],
@@ -6156,17 +5708,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sayan Kar",
-    "author_image_url": "https://github.com/SayanKar.png",
-    "oldSlug": "create-an-amm-on-avalanche"
+    ]
   },
-  "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk": {
-    "slug": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk",
+  {
+    "slug": "transfer-nfts-using-the-polygon-pos-bridge-and-sdk",
     "is_multi_page": false,
-    "title": "Transfer NFTs (ERC721 & ERC1155) using the Polygon PoS Bridge & SDK ",
+    "title": "Transfer NFTs (ERC721 \u0026 ERC1155) using the Polygon PoS Bridge \u0026 SDK ",
     "description": "Learn how to transfer tokens between Polygon and Ethereum using the Proof of Stake bridge and SDK",
-    "author_github_account": "mlibre",
+    "author_github_account": "Masoud Ghorbanzadeh",
     "author_url": "https://github.com/mlibre",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Javascript"],
@@ -6174,7 +5723,7 @@
     "published_at": "2021-10-27T18:12:48.320Z",
     "pages": [
       {
-        "title": "Transfer NFTs (ERC721 & ERC1155) using the Polygon PoS Bridge & SDK ",
+        "title": "Transfer NFTs (ERC721 \u0026 ERC1155) using the Polygon PoS Bridge \u0026 SDK ",
         "slug": "transfer-nfts-using-the-polygon-pos-bridge-and-sdk",
         "description": "Learn how to transfer tokens between Polygon and Ethereum using the Proof of Stake bridge and SDK",
         "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polygon/erc1155-721-pos-bridge-sdk.md",
@@ -6183,17 +5732,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Masoud Ghorbanzadeh",
-    "author_image_url": "https://github.com/mlibre.png",
-    "oldSlug": "transfer-nfts-using-the-polygon-pos-bridge-and-sdk"
+    ]
   },
-  "solana-build-a-crowdfunding-platform-on-solana": {
-    "slug": "solana-build-a-crowdfunding-platform-on-solana",
+  {
+    "slug": "build-a-crowdfunding-platform-on-solana",
     "is_multi_page": false,
     "title": "Build a Crowdfunding platform on Solana",
     "description": "Learn how to create and deploy a Crowdfunding dApp on Solana",
-    "author_github_account": "SushantChandla",
+    "author_github_account": "Sushant Chandla",
     "author_url": "https://github.com/SushantChandla",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "Rust", "React", "Javascript", "Rust"],
@@ -6210,17 +5756,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Sushant Chandla",
-    "author_image_url": "https://github.com/SushantChandla.png",
-    "oldSlug": "build-a-crowdfunding-platform-on-solana"
+    ]
   },
-  "polkadot-substrate-kitties-setup": {
-    "slug": "polkadot-substrate-kitties-setup",
+  {
+    "slug": "substrate-kitties-setup",
     "is_multi_page": false,
     "title": "Substrate Kitties - Basic Setup",
     "description": "Learn how to use the Substrate Node template",
-    "author_github_account": "SHA888",
+    "author_github_account": "Kresna Sucandra",
     "author_url": "https://github.com/SHA888",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Rust"],
@@ -6237,17 +5780,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Kresna Sucandra",
-    "author_image_url": "https://github.com/SHA888.png",
-    "oldSlug": "substrate-kitties-setup"
+    ]
   },
-  "near-stake-monetize-near-smart-contracts": {
-    "slug": "near-stake-monetize-near-smart-contracts",
+  {
+    "slug": "stake-monetize-near-smart-contracts",
     "is_multi_page": false,
     "title": "Show Me the Money: Learn How to Monetize NEAR Smart Contracts",
     "description": "Learn how to design, build, and monetize smart contracts on the NEAR blockchain",
-    "author_github_account": "oysterpack",
+    "author_github_account": "Oysterpack",
     "author_url": "https://github.com/oysterpack",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "Rust", "Smart contracts"],
@@ -6264,17 +5804,14 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Oysterpack",
-    "author_image_url": "https://github.com/oysterpack.png",
-    "oldSlug": "stake-monetize-near-smart-contracts"
+    ]
   },
-  "solana-explaining-solana-with-the-simpsons": {
-    "slug": "solana-explaining-solana-with-the-simpsons",
+  {
+    "slug": "explaining-solana-with-the-simpsons",
     "is_multi_page": false,
     "title": "Explaining Solana with The Simpsons",
     "description": "Learn about the technical innovations of Solana with pop culture icons The Simpsons",
-    "author_github_account": "Jonathansoufer",
+    "author_github_account": "Jonathan Ferreira",
     "author_url": "https://github.com/Jonathansoufer",
     "author_wallet": null,
     "tags": ["Solana"],
@@ -6291,9 +5828,6 @@
         "previous_slug": null,
         "page_number": 1
       }
-    ],
-    "author_name": "Jonathan Ferreira",
-    "author_image_url": "https://github.com/Jonathansoufer.png",
-    "oldSlug": "explaining-solana-with-the-simpsons"
+    ]
   }
-}
+]

@@ -2339,6 +2339,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/sort-object-keys@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@types/sort-object-keys/-/sort-object-keys-1.1.0.tgz#11e0b6d885c8dd0d1f19f590f456e00fd0a1a672"
+  integrity sha512-lsWA+upBKOEdgl2Sw/yK+t4a8LIsojTpTlD2hTqe0VG99mjGonJouRO/X0wCtpv+8D7WdKbZrXTbeybjcgWtlw==
+
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"

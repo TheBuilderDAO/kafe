@@ -13,7 +13,7 @@ import { remarkCopyLinkedFiles, sleep } from './remark-copy-linked'
 import { BuilderDaoConfig, TemplateService } from '@builderdao/cli'
 import async from 'async'
 import _, { sortBy } from 'lodash'
-import { tutorialDetailDB, TutorialDetailsRow } from './data'
+import { tutorialDumpExtendedDB, TutorialDetailsRow, solanaDB } from './data'
 
 
 const getFile = async (pathForFile: string) => {
@@ -21,7 +21,7 @@ const getFile = async (pathForFile: string) => {
   return source
 }
 
-const example = path.join(process.cwd(), './kitchen/tutorial/sink.md')
+// const example = path.join(process.cwd(), './kitchen/tutorial/sink.md')
 const destinationDir = path.resolve('/Users/necmttn/Projects/crypto/kafe/kafe/tutorials')
 
 
@@ -36,11 +36,11 @@ type FolderMeta = { slug: string, files: string[] }
 const processQueue = async.queue(async (guide: FolderMeta) => {
   console.log("Processing => ", guide.slug)
 
-  await tutorialDetailDB.read()
+  await tutorialDumpExtendedDB.read()
   // // const c = Object.values(tutorialDetailDB.data).filter(x => x.markdown_path === guide.slug)
   // // console.log(c)
   // // const fileRelativePath = path.relative(tutorials, guide.)
-  const data = await tutorialDetailDB.chain.get(guide.slug).value()
+  const data = await tutorialDumpExtendedDB.chain.get(guide.slug).value()
 
   await main(guide.files, data, destinationDir)
   await sleep(2000)
@@ -58,7 +58,11 @@ const getFiles = async (dir: string, level = 0): Promise<any> => {
       if (f.endsWith('.md')) {
         if (level === 1) {
           // console.log('single md >>', f, level)
-          const slug = path.relative(tutorials, f).replace(path.extname(f), '').replace('/', '-').toLowerCase()
+          let slug = path.relative(tutorials, f).replace(path.extname(f), '').replace('/', '-').toLowerCase()
+          const a = slug.split('-')
+          if (a[0] === a[1]) {
+            slug = a.slice(1).join('-');
+          }
           _.set(files, slug, {
             slug,
             files: [f]
@@ -90,18 +94,20 @@ const getFiles = async (dir: string, level = 0): Promise<any> => {
 
 getFiles(tutorials).then(async () => {
   // console.log(JSON.stringify(files, null, 2))
-  await tutorialDetailDB.read()
+  await tutorialDumpExtendedDB.read()
   // console.log(tutorialDetailDB.data);
   let matching = 0
   let total = 0
-  Object.entries(files).forEach(async ([key, value]) => {
-    // console.log(key, value)
-    total++
-    if (tutorialDetailDB.chain.has(key).value()) {
-      matching++
-      processQueue.push(value);
-    }
-  })
+  // Object.entries(files).forEach(async ([key, value]) => {
+  //   // console.log(key, value)
+  //   total++
+  //   if (tutorialDumpExtendedDB.chain.has(key).value()) {
+  //     matching++
+  //     // processQueue.push(value);
+  //   } else { 
+  //     // console.log(key);
+  //   }
+  // })
   console.log({ matching, total })
   await processQueue.drain();
   // assign an error callback
@@ -110,6 +116,30 @@ getFiles(tutorials).then(async () => {
     console.log(err, task)
   });
 })
+
+const process = async () => {
+  await tutorialDumpExtendedDB.read();  
+  await solanaDB.read();
+
+  let matching = 0
+  let total = 0
+  tutorialDumpExtendedDB.chain.entries().forEach(([key, value]) => {
+    const proposal = solanaDB.chain.find({slug: value.slug}).value();
+    total++
+    if (proposal) {
+      matching++
+      // console.log(proposal)
+    } else {
+      console.log("NOPE >> ", value.slug)
+    }
+  }).value()
+
+  console.log({ matching, total })
+}
+
+process();
+
+
 
 
 
