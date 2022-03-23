@@ -14,7 +14,7 @@ const Card = ({ variation }) => {
     <div
       className={`border ${
         variation === 'dotted' ? 'border-dotted border-1 rounded-3xl' : ''
-      } dark:border-kafewhite border-kafeblack w-96 min-h-48 p-4 px-6 bg-kafewhite dark:bg-kafeblack`}
+      } dark:border-kafewhite border-kafeblack w-[450px] min-h-[240px] p-4 px-6 bg-kafewhite dark:bg-kafeblack`}
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center">
@@ -24,13 +24,13 @@ const Card = ({ variation }) => {
         <ImageStack addresses={['1', '2', '3']} />
       </div>
       <div>
-        <h3 className="text-2xl font-larken mt-10">
+        <h3 className="text-2xl font-larken mt-14">
           Run a Celo Node on a Virtual Machine
         </h3>
         <p className="text-xs tracking-wide">
           Little description of a few words goes here, there needs to be...
         </p>
-        <div className="mt-2">
+        <div className="mt-4">
           <Tags tags={['celo', 'node', 'ethereum']} />
         </div>
       </div>
@@ -40,7 +40,7 @@ const Card = ({ variation }) => {
 
 const Wrapper = ({ variation }) => {
   return (
-    <div className="relative right-24">
+    <div className="relative">
       <div className="absolute top-6 left-6">
         <Card variation={variation} />
       </div>
@@ -56,8 +56,8 @@ const Wrapper = ({ variation }) => {
 
 const Carousel = ({ variation }: CarouselProps) => {
   return (
-    <div className="flex">
-      <div className="cursor-pointer dark:hover:bg-kafewhite hover:bg-kafeblack w-16 h-16 rounded-full relative right-28 top-20 dark:bg-kafedarker bg-kafelighter group">
+    <div className="relative h-[200px]">
+      <div className="absolute -left-20 top-1/2 right-0 cursor-pointer dark:hover:bg-kafewhite hover:bg-kafeblack w-16 h-16 rounded-full dark:bg-kafedarker bg-kafelighter group">
         <IconContext.Provider
           value={{
             className:
@@ -68,7 +68,7 @@ const Carousel = ({ variation }: CarouselProps) => {
         </IconContext.Provider>
       </div>
       <Wrapper variation={variation} />
-      <div className="cursor-pointer group dark:hover:bg-kafewhite hover:bg-kafeblack w-16 h-16 rounded-full relative left-[340px] top-20 dark:bg-kafedarker bg-kafelighter">
+      <div className="absolute left-[490px] top-1/2 cursor-pointer group dark:hover:bg-kafewhite hover:bg-kafeblack w-16 h-16 rounded-full dark:bg-kafedarker bg-kafelighter">
         <IconContext.Provider
           value={{
             className:

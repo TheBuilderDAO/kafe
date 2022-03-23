@@ -5,10 +5,11 @@ import Gateway from '@app/components/SVG/Gateway';
 import routes from 'routes';
 import HomeCTA from '@app/components/Index/HomeCTA';
 import Carousel from '@app/components/Index/Carousel';
+import Realtime from '@app/components/Index/Realtime';
 
 const LandingPage: NextPage = () => {
   return (
-    <div className="relative -left-6 z-0 -top-16 text-kafeblack dark:text-kafewhite min-h-[1200px] w-[940px]">
+    <div className="relative left-4 z-0 -top-16 text-kafeblack dark:text-kafewhite min-h-[1200px] w-full mb-40">
       <Head>
         <title>Builder DAO</title>
       </Head>
@@ -21,20 +22,23 @@ const LandingPage: NextPage = () => {
             cta="view all guides"
           />
         </div>
-        <div className="absolute top-80 right-96">
+        <div className="absolute top-28 right-12">
+          <Realtime />
+        </div>
+        <div className="absolute top-[260px] left-[440px]">
           <Carousel />
         </div>
-        <div className="absolute top-[650px] left-48">
+        <div className="absolute top-[680px] left-32">
           <Carousel variation="dotted" />
         </div>
-        <div className="absolute top-[700px] -right-10">
+        <div className="absolute bottom-64 right-32">
           <HomeCTA
             headline="Vote on proposals for guides you want to be written"
             path={routes.vote.index}
             cta="view all proposals"
           />
         </div>
-        <div className="absolute bottom-0 left-20">
+        <div className="absolute -bottom-28 left-20">
           <HomeCTA
             headline="Create your own proposal, and get paid in $KAFE to write"
             path={routes.write.index}
