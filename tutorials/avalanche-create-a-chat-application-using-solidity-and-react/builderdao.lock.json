@@ -32,15 +32,15 @@
       "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-metamask.png",
       "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
     },
-    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend.png": {
-      "name": "avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend.png",
-      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend.png",
-      "digest": "4f5d8aec48c916f631469dfc9e2fe84865b0e9579fd8ae3180ea69c9103b089a"
-    },
     "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-multiple-account-preview.png": {
       "name": "avalanche-create-a-chat-application-using-solidity-and-react-multiple-account-preview.png",
       "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-multiple-account-preview.png",
       "digest": "9a520c2a979032ee22628d47d131469da279f4fa8ebbf3f4eba371e42b6bc7bf"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend.png",
+      "digest": "4f5d8aec48c916f631469dfc9e2fe84865b0e9579fd8ae3180ea69c9103b089a"
     },
     "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-remix-preview.png": {
       "name": "avalanche-create-a-chat-application-using-solidity-and-react-remix-preview.png",
@@ -55,7 +55,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "2a270970eef66cf03c630e3061c29c645a65849b819841e30b5cd6ce232efbfc"
+      "digest": "e8d2a9e3528c09c7abde0f32437e41fbf2ccc75b77f0727424b779971ddd5aed"
     },
     "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend.png": {
       "name": "avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend.png",

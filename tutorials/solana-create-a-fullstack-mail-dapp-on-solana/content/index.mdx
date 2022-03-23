@@ -3,13 +3,6 @@ title: Create a fullstack mail dApp on Solana
 description: Learn how to build a decentralized mail app on Solana using Rust and React
 keywords: [Solana, Rust, React, Rust]
 date: '2021-10-13T23:07:19.770Z'
-next:
-  title: 'Next'
-  slug: '/null'
-
-prev:
-  title: 'Previous'
-  slug: '/null'
 ---
 
 # Introduction
@@ -150,7 +143,7 @@ Using this structure, our program's flow will look like this:
 
 For example, say Alice creates an account on our program. What that means for us is to generate a [Program Derived Address (PDA)](https://docs.solana.com/developing/programming-model/calling-between-programs#program-derived-addresses) from her wallet's public key, a seed phrase, and our program's public key. The PDA will act as Alice's account id which she will use to send and receive mails. The PDA doesn't only act as her account id but also as a store for her data, this is where all the mail she has sent and received will be stored.
 
-<Hint style="info">
+<Hint type="info">
   Accounts in Solana are owned by programs. A program can only manipulate the
   data in an account that it owns, hence the need for generating a PDA account
   owned by our program as our user's account id.
@@ -206,7 +199,7 @@ borsh-derive = "0.9.1"
 ...
 ```
 
-<Hint style="info">
+<Hint type="info">
   Three dots ... on a line by themselves indicate the presence of other code
   which we have trimmed for display purposes.
 </Hint>

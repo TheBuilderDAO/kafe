@@ -25,7 +25,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e5f454e82aa3dc88a2a89b44f54d9c64f49f0699cea8a68211101b55701d3355"
+      "digest": "bcdd71015e85b4c4759983456cf2e68f7a6eb7707d501150ee653b56a827feec"
     }
   },
   "href": "learn/avalanche-unit-testing-in-solidity",

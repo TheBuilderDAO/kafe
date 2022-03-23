@@ -3,13 +3,6 @@ title: Create a chat dApp on Avalanche using Solidity and ReactJS
 description: Learn how to deploy a distributed chat application on Avalanche using Solidity and the React framework
 keywords: [Avalanche, JS/TS, Solidity, React, NodeJS, Solidity, Remix]
 date: '2021-07-21T06:33:33.897Z'
-next:
-  title: 'Next'
-  slug: '/null'
-
-prev:
-  title: 'Previous'
-  slug: '/null'
 ---
 
 # Introduction
@@ -216,7 +209,7 @@ Navigate to Deploy Tab and open the “ENVIRONMENT” drop-down. Select "Injecte
 
 Approve the transaction on Metamask pop-up interface. Once our contract is deployed successfully, Note down the `contract address`.
 
-<Hint style="info">
+<Hint type="info">
   An Application Binary Interface (ABI) is a JSON object which stores the
   metadata about the methods of a contract like data type of input parameters,
   return data type & property of the method like payable, view, pure etc. You
@@ -763,7 +756,7 @@ export function App(props) {
 }
 ```
 
-<Hint style="info">
+<Hint type="info">
   Insert the contract address obtained from the Implementing the smart contract
   section in the variable called CONTRACT_ADDRESS on line 14 of App.jsx.
 </Hint>
@@ -933,7 +926,7 @@ export const abi = [
 ];
 ```
 
-<Hint style="info">
+<Hint type="info">
   An Application Binary Interface (ABI) is a JSON object which stores the
   metadata about the methods of a contract like data type of input parameters,
   return data type & property of the method like payable, view, pure etc. You
@@ -952,7 +945,7 @@ Visit <http://localhost:3000> to interact with the app.
 
 ![User registration and adding a new friend](./assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend.png)
 
-<Hint style="info">
+<Hint type="info">
   Make sure your friend is also registered to the application before adding them
   as a friend.
 </Hint>

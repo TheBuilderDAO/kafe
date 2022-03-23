@@ -22,15 +22,15 @@
     }
   },
   "content": {
-    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-dai.png": {
-      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-dai.png",
-      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-dai.png",
-      "digest": "1333bd4d4252f61bb3e63627def386e4cd668871cb7a4701cb8c0ce41de581b2"
-    },
     "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-map-image.png": {
       "name": "polygon-transferring-tokens-with-polygon-pos-bridge-map-image.png",
       "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-map-image.png",
       "digest": "b66a97ed4882b6ad7d85e802f01645f20dc340c212d9882db3a4da5e1a510ef7"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-dai.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-dai.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-dai.png",
+      "digest": "1333bd4d4252f61bb3e63627def386e4cd668871cb7a4701cb8c0ce41de581b2"
     },
     "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-metamask-after-map.png": {
       "name": "polygon-transferring-tokens-with-polygon-pos-bridge-metamask-after-map.png",
@@ -65,7 +65,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "75c26d294fcff1fe01c546f2a95967b21be48ca724704083a020968ed0ed7946"
+      "digest": "86a42b882948213283ef4a34dceb984eb617f25feff161fa3be3d0680d6eda86"
     },
     "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-transfer.png": {
       "name": "polygon-transferring-tokens-with-polygon-pos-bridge-transfer.png",

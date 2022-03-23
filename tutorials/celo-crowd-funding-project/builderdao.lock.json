@@ -57,40 +57,40 @@
       "path": "content/assets/celo-crowd-funding-project-image-6.png",
       "digest": "cccc1e8e41524f42f8ddba34cd96fdff0bc963ee949a322537bcc43a28bc9eb4"
     },
-    "content/assets/celo-crowd-funding-project-image-8.png": {
-      "name": "celo-crowd-funding-project-image-8.png",
-      "path": "content/assets/celo-crowd-funding-project-image-8.png",
-      "digest": "2421237c16146bff54191fc2005c2f588ae3ccb3d69fcc11a50adbf70f8507f9"
-    },
     "content/assets/celo-crowd-funding-project-image-7.png": {
       "name": "celo-crowd-funding-project-image-7.png",
       "path": "content/assets/celo-crowd-funding-project-image-7.png",
       "digest": "741c8f65d75935e2c09144767495f6e835dbbd6cfd5f2a8e85200e433f12ea7f"
+    },
+    "content/assets/celo-crowd-funding-project-image-8.png": {
+      "name": "celo-crowd-funding-project-image-8.png",
+      "path": "content/assets/celo-crowd-funding-project-image-8.png",
+      "digest": "2421237c16146bff54191fc2005c2f588ae3ccb3d69fcc11a50adbf70f8507f9"
     },
     "content/assets/celo-crowd-funding-project-infrastructure.png": {
       "name": "celo-crowd-funding-project-infrastructure.png",
       "path": "content/assets/celo-crowd-funding-project-infrastructure.png",
       "digest": "c0baba1023a53375376ae805cf056396543349fd06b7f5ce856b6f5f941c3200"
     },
-    "content/assets/celo-crowd-funding-project-output.png": {
-      "name": "celo-crowd-funding-project-output.png",
-      "path": "content/assets/celo-crowd-funding-project-output.png",
-      "digest": "7accebffa62bfd9c94196b315d0ce69da2188e2cc3b1ef06f06c4b2e037945ab"
-    },
     "content/assets/celo-crowd-funding-project-json-rpc-error.png": {
       "name": "celo-crowd-funding-project-json-rpc-error.png",
       "path": "content/assets/celo-crowd-funding-project-json-rpc-error.png",
       "digest": "a2697a6649e6c660d42bec399b90b2b4e4484a445ee2ecbcc8a979966788bb64"
     },
-    "content/assets/celo-crowd-funding-project-truffle-init.png": {
-      "name": "celo-crowd-funding-project-truffle-init.png",
-      "path": "content/assets/celo-crowd-funding-project-truffle-init.png",
-      "digest": "ce046ad49ec39fb1a042556d16c912ca8d281e195fb62bb5a94b368bc2f4f97a"
+    "content/assets/celo-crowd-funding-project-output.png": {
+      "name": "celo-crowd-funding-project-output.png",
+      "path": "content/assets/celo-crowd-funding-project-output.png",
+      "digest": "7accebffa62bfd9c94196b315d0ce69da2188e2cc3b1ef06f06c4b2e037945ab"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5d320a99572373b8e7282cbe76f5926d15461445c02830073acf53709ba0469a"
+      "digest": "71182e447f9031a2e2c716a4f0c62c9b7aa7afc248688417c1ffeac1dc743afe"
+    },
+    "content/assets/celo-crowd-funding-project-truffle-init.png": {
+      "name": "celo-crowd-funding-project-truffle-init.png",
+      "path": "content/assets/celo-crowd-funding-project-truffle-init.png",
+      "digest": "ce046ad49ec39fb1a042556d16c912ca8d281e195fb62bb5a94b368bc2f4f97a"
     }
   },
   "href": "learn/celo-crowd-funding-project",

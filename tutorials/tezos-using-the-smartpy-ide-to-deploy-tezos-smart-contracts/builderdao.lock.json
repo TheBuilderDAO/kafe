@@ -35,22 +35,22 @@
     "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png": {
       "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png",
       "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png",
-      "digest": "2397006aeecbf91ced58e9382fec27b4f7f1ce4c3ac2a4a25ccb1f50985742c7"
+      "digest": "0b7411900e1c9abde0c3da088362e8c292cae451c3ef5f6404583d0102944ce3"
     },
     "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png": {
       "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png",
       "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png",
-      "digest": "65a8162b85068b1a6f2ef94554884a3deaf7f38ccdb53cda5135be19d3f8c4e2"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "e8c5827df6924a2ef1ffcf08d9f43a5815660106672b30bcfdfbe00d5213dba8"
+      "digest": "dfe53f21ccd5359da468a2a3fcbce1edaec507d21f1b3451879b370b3b83d4af"
     },
     "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png": {
       "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png",
       "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png",
       "digest": "da9517daa55daa417ab6d809704919ce9a62884e88e52f231e2f038baa39a988"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "73e619d96b41124ac7a47d81caf9b82d8acd98dd9677f7d62919e321c792036f"
     }
   },
   "href": "learn/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts",

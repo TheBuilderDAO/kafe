@@ -3,13 +3,6 @@ title: Send CELO & cUSD
 description: Learn how to connect to the Celo test network and transfer tokens using ContractKit
 keywords: [Celo, JS/TS, NodeJS]
 date: '2021-07-22T07:56:19.932Z'
-next:
-  title: 'Next'
-  slug: '/null'
-
-prev:
-  title: 'Previous'
-  slug: '/null'
 ---
 
 [**The original tutorial can be found in the Celo documentation here**](https://docs.celo.org/developer-guide/start/hellocelo).
@@ -18,7 +11,7 @@ prev:
 
 In this guide, we are going to write a Node.js script to introduce some of the basic concepts that are important to understand how Celo works. This will get us started with connecting to the Celo network and learning how to develop more advanced applications.
 
-<Hint style="info">
+<Hint type="info">
   We assume you already have Node.js and NPM installed on your computer.
 </Hint>
 
@@ -61,7 +54,7 @@ const web3 = new Web3('https://alfajores-forno.celo-testnet.org');
 const kit = ContractKit.newKitFromWeb3(web3);
 ```
 
-<Hint style="info">
+<Hint type="info">
   At any point in the file you can console.log() variables to print their output
   when you run the script.
 </Hint>
@@ -126,7 +119,7 @@ Because we are accessing the network remotely, we need to generate an account to
 
 There is a short script in `getAccount.js` to either get a Celo account from a mnemonic in the `.secret` file, or create a random account if the file is empty. In the script, we use`web3.js` to create a new private key/account pair. [Web3.js](https://web3js.readthedocs.io/en/v1.2.6/) is a popular javascript library for handling Ethereum related functionality. Celo is a cousin of Ethereum, so this library works well for generating Celo accounts.
 
-<Hint style="danger">
+<Hint type="danger">
   This is not the standard way of managing Celo accounts. In a production
   environment, the Celo Wallet will manage accounts for you. Accessing accounts
   from the Celo Wallet will be discussed in future guides.

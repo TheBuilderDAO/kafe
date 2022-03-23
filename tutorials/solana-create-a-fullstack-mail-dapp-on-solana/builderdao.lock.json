@@ -42,15 +42,15 @@
       "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-4.png",
       "digest": "54bb91d2c303175ea6a2a716ada86841a9d3761f69b79a83fe48ffb36500fe52"
     },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "92b1eafb265b3f24d5a17f0af0a9b3215408a6b2b6bd699b3448576ff1c16126"
-    },
     "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-5.png": {
       "name": "solana-create-a-fullstack-mail-dapp-on-solana-image-5.png",
       "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-5.png",
       "digest": "79ba68c881ac619bb384761826b34e70753db0fd0c19b7cd80a9c3dd86362939"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "37d616508fdc3a71289cc3714bedc27fa9cc3cc107b4fe06efd717b3f6a611d2"
     }
   },
   "href": "learn/solana-create-a-fullstack-mail-dapp-on-solana",

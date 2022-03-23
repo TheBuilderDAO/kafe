@@ -32,15 +32,20 @@
       "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-1.png",
       "digest": "add0d1a83831fd4487f2cd840f5403e3951fd02184d983cca782fab251e37b48"
     },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "5fb02a71f908578bf31eadea662647d84a4bdb0f0e3ad4240b7a99fe0a6dd8ca"
+    "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-3.png": {
+      "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-3.png",
+      "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-3.png",
+      "digest": "f720899a09085aae836c627e015a8085717817bcef932a045dab8f0509f21fbf"
     },
     "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png": {
       "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png",
       "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png",
       "digest": "0726e35dbf038973d698c5fcf2fc4770dcc3b5c80ba82c5f91355e8776826ee7"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "65ec749fce8c01e64966c350de0cb904e19248f9f863b6290e3c723183747e3b"
     }
   },
   "href": "learn/terra-creating-your-first-terra-account-with-the-terra-sdk",

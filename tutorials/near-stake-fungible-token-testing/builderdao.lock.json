@@ -27,10 +27,15 @@
       "path": "content/assets/near-stake-fungible-token-testing-image-2.png",
       "digest": "3b40f0b138062d9ff1a5f3411aa050324096337209ac34cd7e21bcd8e043ed4b"
     },
+    "content/assets/near-stake-fungible-token-testing-image-1.png": {
+      "name": "near-stake-fungible-token-testing-image-1.png",
+      "path": "content/assets/near-stake-fungible-token-testing-image-1.png",
+      "digest": "2e639765de8370ccc4b625c65b587c7267f92fd5a3c063bd049ce500974ce119"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ef3306ab07df16bd185d1d4887a47ed0bf443535829d72661e1c4558a018783c"
+      "digest": "2def1d1ff64cc90ba6930747a7ad0f119530e3ce8c64bedc70c1afed94298b02"
     },
     "content/assets/near-stake-fungible-token-testing-image-3.png": {
       "name": "near-stake-fungible-token-testing-image-3.png",

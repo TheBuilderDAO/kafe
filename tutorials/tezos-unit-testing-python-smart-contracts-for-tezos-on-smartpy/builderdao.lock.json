@@ -25,7 +25,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "4fab2a4b505c23432e4eae635c6bdef4bc07e9dd84fd2aa7ea9e92d84ee6614a"
+      "digest": "b77197adca46e413ee5ffb3cf2a6ebad7404ad18f6a461ad9599813ea57d99b6"
     }
   },
   "href": "learn/tezos-unit-testing-python-smart-contracts-for-tezos-on-smartpy",

@@ -22,15 +22,25 @@
     }
   },
   "content": {
-    "content/assets/near-stake-pool-for-validators-image-11.png": {
-      "name": "near-stake-pool-for-validators-image-11.png",
-      "path": "content/assets/near-stake-pool-for-validators-image-11.png",
-      "digest": "b3de4b5d6f1f487ae867f9db47803b86bca6bcd606a03bb18e4e9589bfdc37bd"
+    "content/assets/near-stake-pool-for-validators-image-10.png": {
+      "name": "near-stake-pool-for-validators-image-10.png",
+      "path": "content/assets/near-stake-pool-for-validators-image-10.png",
+      "digest": "d6e4077075abf3a2b8337a11eb0e803b61fc50cd809d7fb57ac8320889c7acc5"
     },
     "content/assets/near-stake-pool-for-validators-image-1.png": {
       "name": "near-stake-pool-for-validators-image-1.png",
       "path": "content/assets/near-stake-pool-for-validators-image-1.png",
       "digest": "0299a9fa58777518cc1fb077f7f40c8ca1969aca595b26863415af232d7c6dab"
+    },
+    "content/assets/near-stake-pool-for-validators-image-11.png": {
+      "name": "near-stake-pool-for-validators-image-11.png",
+      "path": "content/assets/near-stake-pool-for-validators-image-11.png",
+      "digest": "b3de4b5d6f1f487ae867f9db47803b86bca6bcd606a03bb18e4e9589bfdc37bd"
+    },
+    "content/assets/near-stake-pool-for-validators-image-12.png": {
+      "name": "near-stake-pool-for-validators-image-12.png",
+      "path": "content/assets/near-stake-pool-for-validators-image-12.png",
+      "digest": "7746760bdc8c1131fc6ad8a0af07c95573aef9b5cbe297664ee61a6dbbd72bb7"
     },
     "content/assets/near-stake-pool-for-validators-image-13.png": {
       "name": "near-stake-pool-for-validators-image-13.png",
@@ -62,15 +72,25 @@
       "path": "content/assets/near-stake-pool-for-validators-image-2.png",
       "digest": "33799e110b0f28c4131bc38fd90566f0f3d80e077c66ca3dada5cc09ebe13c04"
     },
-    "content/assets/near-stake-pool-for-validators-image-7.png": {
-      "name": "near-stake-pool-for-validators-image-7.png",
-      "path": "content/assets/near-stake-pool-for-validators-image-7.png",
-      "digest": "1fbf703bb2b1b1a42f240d0b2f0675ab2d3c444a80f0ae9a92b1eb0960fb93bc"
+    "content/assets/near-stake-pool-for-validators-image-4.png": {
+      "name": "near-stake-pool-for-validators-image-4.png",
+      "path": "content/assets/near-stake-pool-for-validators-image-4.png",
+      "digest": "97a9ffaaf2bce38be037469e0d2522fae06915e85faf53178bf875cb06d51e8e"
     },
     "content/assets/near-stake-pool-for-validators-image-5.png": {
       "name": "near-stake-pool-for-validators-image-5.png",
       "path": "content/assets/near-stake-pool-for-validators-image-5.png",
       "digest": "6a40470d112a1fff82a8667c250964c9db06258c3868c2c9c2b879d9384308ef"
+    },
+    "content/assets/near-stake-pool-for-validators-image-6.png": {
+      "name": "near-stake-pool-for-validators-image-6.png",
+      "path": "content/assets/near-stake-pool-for-validators-image-6.png",
+      "digest": "762f684dfdc9afd8bff1125078b72344309a41e6340b4abc7185a43d80e0b8fb"
+    },
+    "content/assets/near-stake-pool-for-validators-image-7.png": {
+      "name": "near-stake-pool-for-validators-image-7.png",
+      "path": "content/assets/near-stake-pool-for-validators-image-7.png",
+      "digest": "1fbf703bb2b1b1a42f240d0b2f0675ab2d3c444a80f0ae9a92b1eb0960fb93bc"
     },
     "content/assets/near-stake-pool-for-validators-image-8.png": {
       "name": "near-stake-pool-for-validators-image-8.png",
@@ -85,7 +105,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9cd0b5f842d680191e8f82bc8be766b82b80ad27595435c656e6394de711d700"
+      "digest": "20227271c97f4cac65005e4a91a38f5d2a8a187ec06c62340cd415d39b9b832e"
     }
   },
   "href": "learn/near-stake-pool-for-validators",

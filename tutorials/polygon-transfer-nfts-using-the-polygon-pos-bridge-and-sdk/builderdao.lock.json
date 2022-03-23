@@ -35,7 +35,7 @@
     "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image.png": {
       "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image.png",
       "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image.png",
-      "digest": "cd066963aa3b30e54b05cc6253c0ec86bed771aba7326bc4a20c86e5ab759e47"
+      "digest": "f4b049e4870d318562c632bc0a339b7c49cd282a4d87b70ac9cae077dee12e97"
     },
     "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-deposit.png": {
       "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-deposit.png",
@@ -75,7 +75,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "08e697f2eb72c492380286f729a9ba91ed2e9b09ca38aa40a8d233d692d70775"
+      "digest": "86947017b521eb1b78d47b0a2fcee2e7262caa526110b1fff8dfa7bf37b55358"
     }
   },
   "href": "learn/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk",

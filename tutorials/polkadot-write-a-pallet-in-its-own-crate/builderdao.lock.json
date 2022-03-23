@@ -25,7 +25,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b0f68ddabb2d31bd11a4b294a8f55e57e47f015ec3b0701155595fe13b3ac933"
+      "digest": "025396d9d7dd83f2427b9c1c4eac48f196d663fc27a288b4f4a435c2aba6ff2c"
     }
   },
   "href": "learn/polkadot-write-a-pallet-in-its-own-crate",

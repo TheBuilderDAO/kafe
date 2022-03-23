@@ -57,15 +57,15 @@
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-16.png",
       "digest": "c77878cb031f3c1081259cf9fb89bb7bce76d767c6ebdf3b7541d889d20c8858"
     },
-    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-17.png": {
-      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-17.png",
-      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-17.png",
-      "digest": "9690897ebf9cc698f9169ef3c5dcec1b0fb69471bbe3d9ebe53aea419b1ef613"
-    },
     "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-14.png": {
       "name": "polygon-build-petgram-an-nft-sharing-dapp-image-14.png",
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-14.png",
       "digest": "57cbc29bbd250fd51111bc3261c69dc1805871ce21acf59f11f3f46077740c2a"
+    },
+    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-17.png": {
+      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-17.png",
+      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-17.png",
+      "digest": "9690897ebf9cc698f9169ef3c5dcec1b0fb69471bbe3d9ebe53aea419b1ef613"
     },
     "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-2.png": {
       "name": "polygon-build-petgram-an-nft-sharing-dapp-image-2.png",
@@ -92,15 +92,20 @@
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-5.png",
       "digest": "55e1a24eee4b038a56f04eadd601cce3c3b53df82e13bd4cabccd73981e0ecd6"
     },
-    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png": {
-      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-7.png",
-      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png",
-      "digest": "68b763d638337fb7a93d3848e7ea782bc5f0d7ebb7cb06af71e03f87d87b5bb4"
-    },
     "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-6.png": {
       "name": "polygon-build-petgram-an-nft-sharing-dapp-image-6.png",
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-6.png",
       "digest": "9bc03807a655df5389b4ed7049804d496012c88413e17e3330d1958e380c833d"
+    },
+    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png": {
+      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-8.png",
+      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png",
+      "digest": "68b763d638337fb7a93d3848e7ea782bc5f0d7ebb7cb06af71e03f87d87b5bb4"
+    },
+    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png": {
+      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-7.png",
+      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png",
+      "digest": "68b763d638337fb7a93d3848e7ea782bc5f0d7ebb7cb06af71e03f87d87b5bb4"
     },
     "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-9.png": {
       "name": "polygon-build-petgram-an-nft-sharing-dapp-image-9.png",
@@ -110,7 +115,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "aa645b4d1710f2076da67c9962ff15482c98b4bc624e39d1cf5bb911ff5f40f5"
+      "digest": "6567d6c0652358c6019a694290cea1c6c174acccb4f31e9ea1d04faee33db49e"
     }
   },
   "href": "learn/polygon-build-petgram-an-nft-sharing-dapp",

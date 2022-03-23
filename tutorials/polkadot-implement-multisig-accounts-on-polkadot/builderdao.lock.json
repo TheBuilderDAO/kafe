@@ -60,7 +60,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "1608b4928d968fdaec600c93a7c51d2a98c6f7db83e1a5830b055cff81d5354a"
+      "digest": "41835de366f3a67404cba5e3b137c809540b3615f552c582ea011291638c27b9"
     }
   },
   "href": "learn/polkadot-implement-multisig-accounts-on-polkadot",

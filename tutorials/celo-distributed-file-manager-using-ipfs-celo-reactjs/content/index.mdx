@@ -14,13 +14,6 @@ keywords:
     IPFS,
   ]
 date: '2021-07-21T10:11:25.784Z'
-next:
-  title: 'Next'
-  slug: '/null'
-
-prev:
-  title: 'Previous'
-  slug: '/null'
 ---
 
 # Introduction
@@ -250,7 +243,7 @@ Before the concept of **wallets** or more specifically **Hierarchical Determinis
 
 In HD wallets, first, a random 128 - 256 bit number is generated, also known as **entropy** or the **root seed** or **private key**. This entropy is then appended with few bits of its checksum, to make the number of bits in entropy, a multiple of 11. Then this sequence of bits is divided into sections of 11 bits each. Each section represents the index of a word in a [list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt) of 2048 words. This sequence of words represents our wallet's **mnemonic**.
 
-<Hint style="info">
+<Hint type="info">
   Checksum is a few bits of the hash of data to detect errors that may have been
   introduced during its transmission or storage. Errors are verified by hashing
   the actual data and comparing it with its appended checksum. If the checksum
@@ -285,7 +278,7 @@ There are various Bitcoin Improvement Proposals (BIP) that proposes the standard
 
 Celo wallets like **celowallet.app** use the path `m/44'/52752'/0'/0/0` for its key derivation, since the coin type of Celo is **52752**. The list of different crypto coins along with their type can be found [here](https://github.com/satoshilabs/slips/blob/master/slip-0044.md). The coin types have nothing to do with the blockchain architecture and is chosen randomly. By default `ethers.Wallet.fromMnemonic()` function uses Ethereum's default path which has a coin type of **60**. That's why we need to manually set the path in this function. Using a different path would give a different address derived from the same mnemonic. So, if we want to use our manual paths, we should remember them, otherwise, we can't derive the address without a path.
 
-<Hint style="info">
+<Hint type="info">
   I would recommend you to read more about these keys, addresses and wallets on
   O'Reilly.
 </Hint>
@@ -307,7 +300,7 @@ DATAHUB_CELO_API=<your_datahub_api>
 MNEMONIC="<celo-wallet-mnemonic>"
 ```
 
-<Hint style="warning">
+<Hint type="warning">
   Never share or commit your .env file. It contains your credentials like
   mnemonics. Therefore, it is advised to add .env to your .gitignore file.
 </Hint>
@@ -426,7 +419,7 @@ Compiling your contracts...
    - solc: 0.8.0+commit.c7dfd78e.Emscripten.clang
 ```
 
-<Hint style="warning">
+<Hint type="warning">
   There might be an error Error: Cannot find module 'pify', if the pify module
   is not installed automatically while installing truffle. So, this issue can be
   resolved by separately installing pify, using the command below
@@ -438,7 +431,7 @@ npm install pify --save
 
 Compiling the smart contracts would create `.json` file in the `src/build/contracts` directory. It stores `ABI` and other necessary metadata.
 
-<Hint style="info">
+<Hint type="info">
   ABI refers to Application Binary Interface, which is a standard for
   interacting with the smart contracts from outside the blockchain as well as
   contract-to-contract interaction. Please refer to the Solidity's documentation
@@ -772,7 +765,7 @@ Since we have used new libraries like `compressorjs`, `ipfs-http-client` and `ri
 npm install --save ipfs-http-client compressorjs rimble-ui --force
 ```
 
-<Hint style="info">
+<Hint type="info">
   Rimble UI library comes with a peer dependency of react@16.9.0 which is not
   the latest version of React that we are using i.e. react@17.0.2. Running the
   npm install command without the --force tag would cause an unable to resolve
@@ -1213,7 +1206,7 @@ In the Metamask extension, add a custom RPC by clicking at the network dropdown 
 | Chain ID        | 44787                                                                 |
 | Currency Symbol | CELO                                                                  |
 
-<Hint style="info">
+<Hint type="info">
   If you find any difficulty in setting up the project, then feel free to clone
   this repository https://github.com/rajranjan0608/dfm, and follow the steps in
   the README.md file of this repo in order to run the application.

@@ -27,20 +27,25 @@
       "path": "content/assets/near-stake-token-vision-image-3.png",
       "digest": "db46359bbcaa5bc2e1100d4bc6ee4e9f5c97dc41106b5b8094c6f41c6efb71ea"
     },
+    "content/assets/near-stake-token-vision-image-1.png": {
+      "name": "near-stake-token-vision-image-1.png",
+      "path": "content/assets/near-stake-token-vision-image-1.png",
+      "digest": "48b23b630f82b37dc60d1c42b798a1894e60367e628660e820ccae217ef86a47"
+    },
     "content/assets/near-stake-token-vision-image-4.png": {
       "name": "near-stake-token-vision-image-4.png",
       "path": "content/assets/near-stake-token-vision-image-4.png",
       "digest": "15cc76982a83a963cfd0ddecb956371758fabad1d89f6f23ca5d47fcbb85c3c7"
     },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "2179f18b0490ac9abf6b811078823fdd83f9c1c117b6a141e2a4603ae5995f12"
-    },
     "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers.png": {
       "name": "near-stake-token-vision-stake-token-is-internet-money-with-super-powers.png",
       "path": "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers.png",
       "digest": "0908e79a2a4238dc732ecb33ec17613ff0e1faee331b53af8fe4cea274020ac4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ce2aaef85a3e7760851668712fd05d22a422b15a99760084be8bfba459e28abe"
     }
   },
   "href": "learn/near-stake-token-vision",

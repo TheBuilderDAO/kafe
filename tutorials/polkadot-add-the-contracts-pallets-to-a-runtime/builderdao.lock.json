@@ -25,7 +25,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "d41febdfdad5af0f42ce39f1fa9d6f5c8312ee317e562bb317173e1e8b6c3f62"
+      "digest": "80fbaa689bba23350b8003a664f60b55c6274b870640e905204b01534d3c7748"
     }
   },
   "href": "learn/polkadot-add-the-contracts-pallets-to-a-runtime",

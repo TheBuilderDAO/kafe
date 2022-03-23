@@ -27,6 +27,16 @@
       "path": "content/assets/avalanche-create-nft-with-royalties-image-1.png",
       "digest": "48a521d65eba9b6bfcfb449916f5b8196d702123583d14323b449905f09d7d82"
     },
+    "content/assets/avalanche-create-nft-with-royalties-image-2.png": {
+      "name": "avalanche-create-nft-with-royalties-image-2.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-2.png",
+      "digest": "4d2e5c4456e52a597a6701c9e2b7ba2809e7947dc3077522607f030f59c22b96"
+    },
+    "content/assets/avalanche-create-nft-with-royalties-image-3.png": {
+      "name": "avalanche-create-nft-with-royalties-image-3.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-3.png",
+      "digest": "94e585a66102ae33988d6318e0c9d61e14335831531f3b71ad1521d559d2b0b8"
+    },
     "content/assets/avalanche-create-nft-with-royalties-image-4.png": {
       "name": "avalanche-create-nft-with-royalties-image-4.png",
       "path": "content/assets/avalanche-create-nft-with-royalties-image-4.png",
@@ -42,15 +52,20 @@
       "path": "content/assets/avalanche-create-nft-with-royalties-image-6.png",
       "digest": "95d996bee556885b301988e68f68fdc2614881950b24d5557651d8305ca02a5d"
     },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "46f9f65ab8e5b30beefdcd5ecdb57dd62fd962cf18f98c9a4edd340a1e685cc5"
+    "content/assets/avalanche-create-nft-with-royalties-image-8.png": {
+      "name": "avalanche-create-nft-with-royalties-image-8.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-8.png",
+      "digest": "8facfaed30fe3c5bdf669578d77875c1f9311823af47bf9507defbc16b0e282f"
     },
     "content/assets/avalanche-create-nft-with-royalties-image-7.png": {
       "name": "avalanche-create-nft-with-royalties-image-7.png",
       "path": "content/assets/avalanche-create-nft-with-royalties-image-7.png",
       "digest": "bab2c6360792e0e8172183140934b54b784f97fb6ab8f3e2d7a3d39c8094e954"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8aac25c5a71e4e971734d22ed268746ad6fdab92b27d54b4ec1425adf02dd4e2"
     }
   },
   "href": "learn/avalanche-create-nft-with-royalties",

@@ -47,15 +47,15 @@
       "path": "content/assets/polkadot-blockchain-terms-image-5.png",
       "digest": "9bef46f69aff49cc089521f0f5aeef7fb1a6e14549b867729ea6eecd38509eb4"
     },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "930dcacb7539102838d4f7d104e6a871985c1d489b3344aefef3b58bc6902c34"
+    },
     "content/assets/polkadot-blockchain-terms-image-6.png": {
       "name": "polkadot-blockchain-terms-image-6.png",
       "path": "content/assets/polkadot-blockchain-terms-image-6.png",
       "digest": "155232b2d160f1d24bc2d71ef25156a9df29f6347621d5e0cb9b581f80bd878f"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "7308a02adaa4073ec289685ca79a0f196da30b214795383ba58cb0edf49ab291"
     }
   },
   "href": "learn/polkadot-blockchain-terms",

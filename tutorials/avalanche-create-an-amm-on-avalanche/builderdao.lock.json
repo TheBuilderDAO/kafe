@@ -45,12 +45,12 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "23fb9770fc0005cbebf239eb997d35e15b518d1d84d263ea469a1272e8a603e6"
+      "digest": "737b03ec12bf8e820a8b38356944019f27fe16dd39d74665e6bae08f0a157f81"
     },
     "content/assets/avalanche-create-an-amm-on-avalanche-preview.png": {
       "name": "avalanche-create-an-amm-on-avalanche-preview.png",
       "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview.png",
-      "digest": "4822443926c3c1b894d83647c90c1fadae59b0c60bd7d879073996fcc4794cba"
+      "digest": "9e5f85d3718dbb6ac155c2c7d61d3fd1d95080d41eac808f9a384af298e05f8d"
     }
   },
   "href": "learn/avalanche-create-an-amm-on-avalanche",

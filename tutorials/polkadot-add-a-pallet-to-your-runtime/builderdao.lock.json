@@ -25,7 +25,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "cbb40bca22ad61bbb1bb801dcef19752e7d06351b155833e640f46e0aa1eed31"
+      "digest": "18c257c3b5dff6dba0bb3e451babf5727af0fc5b5baa7bfb8360c7ff55e7bf63"
     }
   },
   "href": "learn/polkadot-add-a-pallet-to-your-runtime",

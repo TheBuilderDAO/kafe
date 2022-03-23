@@ -25,7 +25,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "402bdb79c2da0babea7f7d4df07d1985d7b5d5581302524868bae45e4369fb4f"
+      "digest": "8b16905467528a93b87c9e48ad52ba1aa33fabfeb940cd7636ca0de014839fdc"
     }
   },
   "href": "learn/polkadot-substrate-kitties-dispatchables-and-events",

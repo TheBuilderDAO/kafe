@@ -3,13 +3,6 @@ title: You Can Have Your STAKE and Trade It Too
 description: STAKE Fungible Token NEP-141 Rust Implementation
 keywords: [Near, JS/TS, Rust, Smart contracts, Rust]
 date: '2021-07-22T13:23:59.281Z'
-next:
-  title: 'Next'
-  slug: '/null'
-
-prev:
-  title: 'Previous'
-  slug: '/null'
 ---
 
 Plain old vanilla staking is a great way to earn more NEAR, but there are some trade-offs to be aware of. One of the main trade-offs is that the staked NEAR is locked because it is effectively put up as collateral to help secure the NEAR network. We can do better than that by unlocking its value. The [STAKE](https://github.com/oysterpack/oysterpack-near-stake-token) contract unlocks the value stored in the staked NEAR by transferring it into a [fungible token](2-fungible-token.md). You can now have your STAKE and trade it too.
@@ -166,7 +159,7 @@ fn ft_transfer(
 - The transfer amount is debited from the sender and then credited to the receiver
 - In order to commit the transfer to the blockchain, we must remember to persist the state change to storage. Both the sender and receiver accounts are saved to storage.
 
-<Hint style="info">null</Hint>
+<Hint type="info">null</Hint>
 
 # Best Practices
 

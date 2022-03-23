@@ -45,7 +45,12 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c88f56306c05f2ab412fed2695bf48963696d9ce82e698de3fb8eba6b44665fb"
+      "digest": "962d9b0ea1d0a090ac27cb84271646adf95a1587ea53b0e4be7c47aa6a7c0ed5"
+    },
+    "content/assets/near-stake-fungible-token-nep141-image-5.png": {
+      "name": "near-stake-fungible-token-nep141-image-5.png",
+      "path": "content/assets/near-stake-fungible-token-nep141-image-5.png",
+      "digest": "2e639765de8370ccc4b625c65b587c7267f92fd5a3c063bd049ce500974ce119"
     }
   },
   "href": "learn/near-stake-fungible-token-nep141",

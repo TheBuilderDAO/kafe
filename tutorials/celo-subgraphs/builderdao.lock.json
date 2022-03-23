@@ -30,7 +30,7 @@
     "content/assets/celo-subgraphs-create-subgraph.png": {
       "name": "celo-subgraphs-create-subgraph.png",
       "path": "content/assets/celo-subgraphs-create-subgraph.png",
-      "digest": "f9a8d42cb3eedff9456e4e63ac6c70ca746cd028127dacc1a5d2b77938aeccbf"
+      "digest": "ea386e1c6b9f882d9aa6b0ef6d88ca61e7a3fca83c48df44d108b34557722f14"
     },
     "content/assets/celo-subgraphs-postman-generated-code-results.png": {
       "name": "celo-subgraphs-postman-generated-code-results.png",
@@ -45,7 +45,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "d5696c71e0acce705e25a931e6f283f1495a226af24f9c5bea8616f9e1df2500"
+      "digest": "127ab10d1a58a3abf99c9be764a76617ed5e0bc14a0cc633c204585bcf4a1eaf"
     }
   },
   "href": "learn/celo-subgraphs",

@@ -22,6 +22,16 @@
     }
   },
   "content": {
+    "content/assets/near-build-a-registry-dapp-on-near-image-1.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-1.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-1.png",
+      "digest": "925505158ef2070364ecbd07cb25cf71a60a6103e7c9472815e2d5bee65eb670"
+    },
+    "content/assets/near-build-a-registry-dapp-on-near-image-2.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-2.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-2.png",
+      "digest": "8906836c0f5b598a16bcdd12fe1d9102339ed57f2dec5b35a70a00b90f4b924d"
+    },
     "content/assets/near-build-a-registry-dapp-on-near-image-3.png": {
       "name": "near-build-a-registry-dapp-on-near-image-3.png",
       "path": "content/assets/near-build-a-registry-dapp-on-near-image-3.png",
@@ -35,7 +45,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c5cdcfcd5d382e9c81912f6d53223a1c4d766a90b033d2bab91cb089f577ff6d"
+      "digest": "f11241af2963aae978b5a5250ce65e9110e0838f369ba688ebf81a7ea5bf7dea"
     }
   },
   "href": "learn/near-build-a-registry-dapp-on-near",

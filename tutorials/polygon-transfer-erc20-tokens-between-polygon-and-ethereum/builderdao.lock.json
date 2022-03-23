@@ -32,15 +32,20 @@
       "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-dai.png",
       "digest": "1333bd4d4252f61bb3e63627def386e4cd668871cb7a4701cb8c0ce41de581b2"
     },
-    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png": {
-      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png",
-      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png",
-      "digest": "c06bbaf9e3e549790be1cff1d4ddac7823002a67d64a456cd833052f0d760064"
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-after-map.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-after-map.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-after-map.png",
+      "digest": "04843c8a3199fa40d5788905fabbe417e6b68b31c6bc280dc7dd59bb301f14ed"
     },
     "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mapped-image.png": {
       "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mapped-image.png",
       "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mapped-image.png",
       "digest": "b03a1d4b65bc38b8b3db5afb2ae1b06fc0c62f1209f7bdeb42428b27c1e797bf"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png",
+      "digest": "c06bbaf9e3e549790be1cff1d4ddac7823002a67d64a456cd833052f0d760064"
     },
     "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mlb-metamask.png": {
       "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mlb-metamask.png",
@@ -57,15 +62,15 @@
       "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-pos-web-ui-login.png",
       "digest": "3d7e80a9e69a6c5e1b745b107dbad251100edf3a9b963b8b611b95a4107c4385"
     },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "538134a0e82fafc133e6f29bbeaa1798278d567ca4e8c659ddafd53de19ce1d0"
+    },
     "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer.png": {
       "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer.png",
       "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer.png",
       "digest": "fab291eb0d58e7fcd5e60156f36695ea2830838a77f2c99414fcfdb61b352a7d"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "b8e3328d1bbe705551982c8c0cc224126e5589798aa4459d47cae58c0de3ab60"
     }
   },
   "href": "learn/polygon-transfer-erc20-tokens-between-polygon-and-ethereum",

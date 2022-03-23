@@ -47,30 +47,30 @@
       "path": "content/assets/polygon-funding-dao-polygon-funding-dao-index.png",
       "digest": "b6231da7967e5af1129c92b8f2f19267e439e1f934c53c2a805f0344e087a77f"
     },
-    "content/assets/polygon-funding-dao-polygon-investments-page.png": {
-      "name": "polygon-funding-dao-polygon-investments-page.png",
-      "path": "content/assets/polygon-funding-dao-polygon-investments-page.png",
-      "digest": "2ffe13370a1294c9db61945f6ef6cc9e1bb84b7032391e3a5f63954437087639"
+    "content/assets/polygon-funding-dao-polygon-demo-gif.png": {
+      "name": "polygon-funding-dao-polygon-demo-gif.png",
+      "path": "content/assets/polygon-funding-dao-polygon-demo-gif.png",
+      "digest": "45a70be0bdf4c79b0240b2d051d879f7bea338434893206931f6d57aee010ddf"
     },
     "content/assets/polygon-funding-dao-polygon-proposal-card.png": {
       "name": "polygon-funding-dao-polygon-proposal-card.png",
       "path": "content/assets/polygon-funding-dao-polygon-proposal-card.png",
       "digest": "fccde889393cd6d64906eae635c0c43d72aff75dd1702f042f692eefa89da8f6"
     },
-    "content/assets/polygon-funding-dao-polygon-voting-modal.png": {
-      "name": "polygon-funding-dao-polygon-voting-modal.png",
-      "path": "content/assets/polygon-funding-dao-polygon-voting-modal.png",
-      "digest": "c4c60384121c9d9ff9e60669347d182ba7a3127729f70ba8cebe101fff06cab5"
+    "content/assets/polygon-funding-dao-polygon-investments-page.png": {
+      "name": "polygon-funding-dao-polygon-investments-page.png",
+      "path": "content/assets/polygon-funding-dao-polygon-investments-page.png",
+      "digest": "2ffe13370a1294c9db61945f6ef6cc9e1bb84b7032391e3a5f63954437087639"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "bb749aa000336e0380026441c179871d8b292ce26a1dec23f3e52342d4b9a57c"
+      "digest": "0b2c46fbc07ea8ac8b589e356dfd3cfad7bd35f81c32b6c9fd3f2cc2f628e233"
     },
-    "content/assets/polygon-funding-dao-polygon-demo-gif.png": {
-      "name": "polygon-funding-dao-polygon-demo-gif.png",
-      "path": "content/assets/polygon-funding-dao-polygon-demo-gif.png",
-      "digest": "45a70be0bdf4c79b0240b2d051d879f7bea338434893206931f6d57aee010ddf"
+    "content/assets/polygon-funding-dao-polygon-voting-modal.png": {
+      "name": "polygon-funding-dao-polygon-voting-modal.png",
+      "path": "content/assets/polygon-funding-dao-polygon-voting-modal.png",
+      "digest": "c4c60384121c9d9ff9e60669347d182ba7a3127729f70ba8cebe101fff06cab5"
     }
   },
   "href": "learn/polygon-funding-dao-polygon",

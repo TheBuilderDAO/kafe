@@ -21,7 +21,13 @@
       "githubName": "LearnTeam"
     }
   },
-  "content": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "3eb49017d2556b93bb57d403db0e1eb337b4290a30f47466e64d3160778a212a"
+    }
+  },
   "href": "learn/avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair",
   "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
 }

@@ -67,30 +67,30 @@
       "path": "content/assets/solana-explaining-solana-with-the-simpsons-laundry-how-i-spend-my-free-time-gif.png",
       "digest": "436bb1d0d3b0f71f346db739079a09ad9b78fe21cd7713a66addfcc7def01cc1"
     },
-    "content/assets/solana-explaining-solana-with-the-simpsons-the-simpsons-season-33-jpeg.png": {
-      "name": "solana-explaining-solana-with-the-simpsons-the-simpsons-season-33-jpeg.png",
-      "path": "content/assets/solana-explaining-solana-with-the-simpsons-the-simpsons-season-33-jpeg.png",
-      "digest": "cba6b247a41a9e9a846c4015ac19d165b2ce97f281cf9701667ccecc71293034"
-    },
     "content/assets/solana-explaining-solana-with-the-simpsons-the-simpsons-jpeg.png": {
       "name": "solana-explaining-solana-with-the-simpsons-the-simpsons-jpeg.png",
       "path": "content/assets/solana-explaining-solana-with-the-simpsons-the-simpsons-jpeg.png",
       "digest": "a516b43e3e8dfb805785213c705ca90cd8595bffa1f0356f30fa49c95c3a760f"
     },
-    "content/assets/solana-explaining-solana-with-the-simpsons-we-break-thumbs-jpeg.png": {
-      "name": "solana-explaining-solana-with-the-simpsons-we-break-thumbs-jpeg.png",
-      "path": "content/assets/solana-explaining-solana-with-the-simpsons-we-break-thumbs-jpeg.png",
-      "digest": "1b12fe9814cd999d5752068bbfaf4ac51bdcd9c5fdd9e3d7d5bba7355ebd947b"
+    "content/assets/solana-explaining-solana-with-the-simpsons-the-simpsons-season-33-jpeg.png": {
+      "name": "solana-explaining-solana-with-the-simpsons-the-simpsons-season-33-jpeg.png",
+      "path": "content/assets/solana-explaining-solana-with-the-simpsons-the-simpsons-season-33-jpeg.png",
+      "digest": "cba6b247a41a9e9a846c4015ac19d165b2ce97f281cf9701667ccecc71293034"
     },
     "content/assets/solana-explaining-solana-with-the-simpsons-tickets-png.png": {
       "name": "solana-explaining-solana-with-the-simpsons-tickets-png.png",
       "path": "content/assets/solana-explaining-solana-with-the-simpsons-tickets-png.png",
       "digest": "aef9cfe992bf5829dd292513113725e8da70ec014282df44136689aa6eef9037"
     },
+    "content/assets/solana-explaining-solana-with-the-simpsons-we-break-thumbs-jpeg.png": {
+      "name": "solana-explaining-solana-with-the-simpsons-we-break-thumbs-jpeg.png",
+      "path": "content/assets/solana-explaining-solana-with-the-simpsons-we-break-thumbs-jpeg.png",
+      "digest": "1b12fe9814cd999d5752068bbfaf4ac51bdcd9c5fdd9e3d7d5bba7355ebd947b"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e9cb315bc84e9a5fe456f028a09e8cdbd497ad39854de818e2b85150110053b7"
+      "digest": "85dad8bc309ef4c8f874d3f17e506d3096eba7148e6dec05d5a7fbc85899e04b"
     }
   },
   "href": "learn/solana-explaining-solana-with-the-simpsons",

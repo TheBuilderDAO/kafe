@@ -30,12 +30,12 @@
     "content/assets/solana-token-streaming-protocol-browser-image.png": {
       "name": "solana-token-streaming-protocol-browser-image.png",
       "path": "content/assets/solana-token-streaming-protocol-browser-image.png",
-      "digest": "666d2ff558dc3b47030530b5f205db87dd777652a91fa97e364d9a2aa812ffb5"
+      "digest": "bf0ab9a76000979a4bcdd0ead2e303cb970202d72ec87d8e4ed8e7eb7e191f20"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c214a6c4ced00314ae18f958c27071e182cf6df783d04e56418a34cd20304aac"
+      "digest": "edd46b990dbdb1d1624d3ae61a285df48df588c8b169edd603c353375621dec0"
     }
   },
   "href": "learn/solana-token-streaming-protocol",

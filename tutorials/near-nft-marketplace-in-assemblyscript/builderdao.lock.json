@@ -22,15 +22,15 @@
     }
   },
   "content": {
-    "content/assets/near-nft-marketplace-in-assemblyscript-image.png": {
-      "name": "near-nft-marketplace-in-assemblyscript-image.png",
-      "path": "content/assets/near-nft-marketplace-in-assemblyscript-image.png",
-      "digest": "c2c059e81e9ea4a4da41b786b832e2eb70d1d035557cbd1da96b204c968362d5"
-    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3e8e3b082238de34241e1f8b9ac993b601febf4a493e17ff0bce18d627557b6f"
+      "digest": "ac6d36cc203c20a004fb62ec849b5377b93924f70eaaa391f79b71409926bc9f"
+    },
+    "content/assets/near-nft-marketplace-in-assemblyscript-image.png": {
+      "name": "near-nft-marketplace-in-assemblyscript-image.png",
+      "path": "content/assets/near-nft-marketplace-in-assemblyscript-image.png",
+      "digest": "4f4d2ea70cc5880aed3bb8a83d6e9c0beff58b2987a36865e01b16586ce11162"
     }
   },
   "href": "learn/near-nft-marketplace-in-assemblyscript",

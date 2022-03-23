@@ -37,30 +37,45 @@
       "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-11.png",
       "digest": "328bd1f2ce0387f1a974c71061df0149b39d00f2656ae51bdf143ea6b014ecfb"
     },
+    "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-2.png": {
+      "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-2.png",
+      "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-2.png",
+      "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
+    },
     "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-3.png": {
       "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-3.png",
       "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-3.png",
       "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
+    },
+    "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-4.png": {
+      "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-4.png",
+      "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-4.png",
+      "digest": "28a9f034aa297313878f5ca766f082ebaa53e6a9df71815cd0cbeddbe2c6b329"
     },
     "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-5.png": {
       "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-5.png",
       "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-5.png",
       "digest": "cdce850cb5b60565f4a5b2cb7d30fde8d4389c15c6291a3efd88d83c4a6d44f6"
     },
-    "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-7.png": {
-      "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-7.png",
-      "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-7.png",
-      "digest": "2ff85d8077fda1a779079184b27fb6d68fcf58bc4b56e1ea60257f15492b83c0"
-    },
     "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-6.png": {
       "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-6.png",
       "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-6.png",
       "digest": "9149316a6147f28c1098c7b02fe4fa41b09ee494108b1efb10b7f0ecc96d59eb"
     },
+    "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-8.png": {
+      "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-8.png",
+      "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-8.png",
+      "digest": "9e7678ee304877a6e10c60f47214a259afd0dd8b46981d02373c7914701336df"
+    },
+    "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-7.png": {
+      "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-7.png",
+      "path": "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-7.png",
+      "digest": "2ff85d8077fda1a779079184b27fb6d68fcf58bc4b56e1ea60257f15492b83c0"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "852509f1ea74deedbacd64088a00602ac5fc84a9e3ca91ab4c9968beb924199c"
+      "digest": "0d28be356fb333a35f9b94dcbee6cd3fff627a2f27794cded9e1666c17ef624a"
     },
     "content/assets/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-9.png": {
       "name": "avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask-image-9.png",

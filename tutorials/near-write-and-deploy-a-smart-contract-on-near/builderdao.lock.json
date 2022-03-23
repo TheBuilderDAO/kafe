@@ -35,7 +35,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3de25e8f3bb3954daf60f30858493cfe5a7e51fc49d1715e192a1df1cd39418c"
+      "digest": "40b992201dc8b0600476a5e1c143c015acf0c9e4c77a787e638cea61db063559"
     }
   },
   "href": "learn/near-write-and-deploy-a-smart-contract-on-near",

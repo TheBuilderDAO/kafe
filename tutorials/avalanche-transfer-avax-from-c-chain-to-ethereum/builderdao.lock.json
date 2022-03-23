@@ -25,12 +25,12 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "bc5a8e94a8e97e59984021b22bc70cfaca020a9c432dcf51068d0bce88c92302"
+      "digest": "7a333c5c9786963440a57f4c124b7ef52302fec747767e1bf0134a171cebe18e"
     },
     "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example.png": {
       "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example.png",
       "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example.png",
-      "digest": "47bdf0f4e476f5449a8de6a3ba4e1e22ca603fc5a8553ce2b08be3a686ad6891"
+      "digest": "531a7805f65f44a96f57e631a603fe5e7b668d4a2a09eac9ba6d12a354032d68"
     }
   },
   "href": "learn/avalanche-transfer-avax-from-c-chain-to-ethereum",

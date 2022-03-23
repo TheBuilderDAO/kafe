@@ -37,15 +37,15 @@
       "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-tokens-modal.png",
       "digest": "204efbe5f93972531720e70d407369bb1db2385606f5024ba705bc7b0fc9857c"
     },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "faa6ceb276eef9e63f254f1de2f522f9d7ecd315e3f560b5963284ef914566a0"
+    },
     "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-app-demo.png": {
       "name": "polygon-peer-to-peer-payment-on-polygon-part-2-app-demo.png",
       "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-app-demo.png",
       "digest": "73e0511be5169a8a21d89bb0d4f44772cd502f0ea3d5d941fa3e4bd7e347169d"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "0fc62704ef8395d074e57cefa105bce254f46264f6added47ff697018a2571c4"
     }
   },
   "href": "learn/polygon-peer-to-peer-payment-on-polygon-part-2",

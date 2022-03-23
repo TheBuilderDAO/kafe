@@ -35,12 +35,12 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b09a31509a172187d33722f7e88ff9a460cd0ca2e86a260aee906fcf957f8cc1"
+      "digest": "b05839aabebbc2b79422d01d03173eb0c9ea2ce2fb5dc45189ca02f988de22cb"
     },
     "content/assets/celo-testing-truffle-result.png": {
       "name": "celo-testing-truffle-result.png",
       "path": "content/assets/celo-testing-truffle-result.png",
-      "digest": "a488339193d1254ca240ac51b706f2de02eec14095fac3be0f3072bab707fb37"
+      "digest": "1e91646032b5d4bfa18eec227524c0684050815b7b54f9abdf73ed8fd7d20781"
     }
   },
   "href": "learn/celo-testing-truffle",

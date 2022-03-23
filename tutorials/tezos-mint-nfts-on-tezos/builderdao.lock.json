@@ -22,25 +22,25 @@
     }
   },
   "content": {
-    "content/assets/tezos-mint-nfts-on-tezos-better-call-dev.png": {
-      "name": "tezos-mint-nfts-on-tezos-better-call-dev.png",
-      "path": "content/assets/tezos-mint-nfts-on-tezos-better-call-dev.png",
-      "digest": "1bb44ae8c16ed0ac6bdef46b21a23baea4dd1f236a32550e57f0fd38d4a3930e"
-    },
     "content/assets/tezos-mint-nfts-on-tezos-ipfs.png": {
       "name": "tezos-mint-nfts-on-tezos-ipfs.png",
       "path": "content/assets/tezos-mint-nfts-on-tezos-ipfs.png",
-      "digest": "a1989f865bf0886badd4bd4d3c5a201a63e9a05d15ccbb1cb4f7fe821cc0e412"
+      "digest": "614c57c9aaff69426961d95538a536255da40bcc4dd8e4b9d485c99976e7c310"
+    },
+    "content/assets/tezos-mint-nfts-on-tezos-better-call-dev.png": {
+      "name": "tezos-mint-nfts-on-tezos-better-call-dev.png",
+      "path": "content/assets/tezos-mint-nfts-on-tezos-better-call-dev.png",
+      "digest": "01731ab7408d2a8fd05580d9109da34b2b1f3abe6c700ebe3597ebc24fac02dc"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9c1f2d1ba14e30a4fe19c8c23e1c0416127013b9491af6d2d53681eef942d9f4"
+      "digest": "aa5a817aa6ec19d72cf5c33728c888b262be2b0d6f45a7fa06791738021f3092"
     },
     "content/assets/tezos-mint-nfts-on-tezos-smart-py.png": {
       "name": "tezos-mint-nfts-on-tezos-smart-py.png",
       "path": "content/assets/tezos-mint-nfts-on-tezos-smart-py.png",
-      "digest": "cf1142587133db3f08ca6f649fad12a499f9920e75f5003bff9dd11c9db11d55"
+      "digest": "355281505506f1e66d530074edebb56b7a52968c1043a619f4bfa879c0cd5958"
     }
   },
   "href": "learn/tezos-mint-nfts-on-tezos",

@@ -4,7 +4,7 @@
   "authors": [
     {
       "name": "Eloise",
-      "avatarUrl": "https://eloise88.medium.com/.png",
+      "avatarUrl": "",
       "url": "https://eloise88.medium.com/",
       "nickname": "https://eloise88.medium.com/"
     }
@@ -75,7 +75,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "dad5318651620ce658723aa9a77009eddd75dd8dbbbabf5f66ed91a5ed7f1d97"
+      "digest": "f1f4a8662a3cd5dfa428466ddc6871f3ba472c5497dff531f70114540b0c5413"
     },
     "content/assets/thegraph-uniswap-latest-pair-uniswapexchange.png": {
       "name": "thegraph-uniswap-latest-pair-uniswapexchange.png",

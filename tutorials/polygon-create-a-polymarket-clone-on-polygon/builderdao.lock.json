@@ -72,15 +72,15 @@
       "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-polymarket-card.png",
       "digest": "2dcd911fe044eb7df0958e2444d9f5db52b774ad4ef80380a340282c989b14be"
     },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "363450390dc77021aca51fbba7d87418afef9a5b97ac6acd1c1b2ae206de57e4"
-    },
     "content/assets/polygon-create-a-polymarket-clone-on-polygon-portfolio-view.png": {
       "name": "polygon-create-a-polymarket-clone-on-polygon-portfolio-view.png",
       "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-portfolio-view.png",
       "digest": "3e586f5969c63b35a99943c61c6e749eb34c6270b7e31d91bef1807444a9b2d6"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "eca7f3ab9d7c27191539836f7697749c4d79dd1c4fa9583699019b5e59ab1e47"
     }
   },
   "href": "learn/polygon-create-a-polymarket-clone-on-polygon",

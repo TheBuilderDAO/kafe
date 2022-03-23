@@ -37,6 +37,11 @@
       "path": "content/assets/near-stake-pool-contract-image-4.png",
       "digest": "33799e110b0f28c4131bc38fd90566f0f3d80e077c66ca3dada5cc09ebe13c04"
     },
+    "content/assets/near-stake-pool-contract-image-3.png": {
+      "name": "near-stake-pool-contract-image-3.png",
+      "path": "content/assets/near-stake-pool-contract-image-3.png",
+      "digest": "f625e987faf1fd200a99f4e53dad21e389a4cfe9effcfda7022fddabe5f30f25"
+    },
     "content/assets/near-stake-pool-contract-image-5.png": {
       "name": "near-stake-pool-contract-image-5.png",
       "path": "content/assets/near-stake-pool-contract-image-5.png",
@@ -50,7 +55,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e8345e181c8f917c6fbb0bfb3a8610b1e67c5d22cd5a19063e3726439ede1f3f"
+      "digest": "f25ce9082b961670265b71a53dae4761ed99e342bcabb9701a287f8a8495bf14"
     }
   },
   "href": "learn/near-stake-pool-contract",
