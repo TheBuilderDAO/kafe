@@ -53,7 +53,7 @@ const WriteOnGitHub = ({ tutorial, RenderReviewer }) => {
                 )}
                 <div className="border-t-[0.5px] border-kafeblack dark:border-kafemellow break-all pt-4 pb-4 mt-10">
                   <p>
-                    Create guide at:
+                    Create guide at:{' '}
                     <span className="text-kafemellow">
                       https://github.com/clalancette/98898903ije093heibe23y36
                     </span>
