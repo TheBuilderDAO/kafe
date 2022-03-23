@@ -72,7 +72,7 @@ const InputSelect = ({
     }),
   };
   return (
-    <div className="w-60 xl:w-full dark:bg-kafedarker bg-kafelighter rounded-2xl">
+    <div className="w-menu dark:bg-kafedarker bg-kafelighter rounded-2xl">
       <Select
         options={options}
         onChange={onChange}

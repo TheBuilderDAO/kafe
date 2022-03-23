@@ -1,7 +1,7 @@
 import React from 'react';
 
 const VotedSVG = ({ voted }) => {
-  const size = '40';
+  const size = '25';
   return (
     <svg
       width={size}

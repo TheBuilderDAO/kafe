@@ -8,7 +8,7 @@ const LoginButton = props => {
         className="
         dark:bg-kafedarker
         bg-kafelighter
-        rounded-3xl
+        rounded-2xl
         text-kafeblack
         dark:text-kafelighter
         font-space
@@ -18,7 +18,6 @@ const LoginButton = props => {
         dark:hover:bg-kafelighter
         hover:text-kafewhite
         hover:bg-kafeblack
-        lg:w-[200px]
         text-center
         "
       />

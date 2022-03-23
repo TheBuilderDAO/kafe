@@ -10,47 +10,38 @@ export interface NavigateProps {
 
 const Navigation = () => {
   const router = useRouter();
-  const StyledNavigate: React.FC<NavigateProps> = tw.a`
+  const StyledNavigate: React.FC<NavigateProps> = tw.div`
     ${props =>
       props.$active
-        ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack p-2 rounded-3xl w-32'
+        ? 'font-larken-italic dark:bg-kafedarker bg-kafelighter dark:text-kafewhite text-kafeblack rounded-3xl w-24'
         : ''}
-    lg:text-3xl
+    lg:text-2xl
     text-2xl
     font-larken
-    leading-10
-    block
-    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite p-2 rounded-3xl w-32 px-5
+    cursor-pointer
+    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite py-1 rounded-2xl w-24 px-4 -ml-4
   `;
 
   return (
-    <>
-      <div className="flex flex-row lg:flex-col flex-1 mt-5 h-10 lg:h-full">
-        <nav className="flex flex-1 justify-center items-center lg:block space-y-1 space-x-2">
-          <div>
-            <Link key="learn" href={routes.learn.index} passHref>
-              <StyledNavigate $active={router.pathname === routes.learn.index}>
-                Learn
-              </StyledNavigate>
-            </Link>
-          </div>
-          <div>
-            <Link key="vote" href={routes.vote.index} passHref>
-              <StyledNavigate $active={router.pathname === routes.vote.index}>
-                Vote
-              </StyledNavigate>
-            </Link>
-          </div>
-          <div>
-            <Link key="write" href={routes.write.index} passHref>
-              <StyledNavigate $active={router.pathname === routes.write.index}>
-                Write
-              </StyledNavigate>
-            </Link>
-          </div>
-        </nav>
-      </div>
-    </>
+    <div className="mt-5">
+      <nav className="space-y-1">
+        <Link key="learn" href={routes.learn.index} passHref>
+          <StyledNavigate $active={router.pathname === routes.learn.index}>
+            <div>Learn</div>
+          </StyledNavigate>
+        </Link>
+        <Link key="vote" href={routes.vote.index} passHref>
+          <StyledNavigate $active={router.pathname === routes.vote.index}>
+            <div>Vote</div>
+          </StyledNavigate>
+        </Link>
+        <Link key="write" href={routes.write.index} passHref>
+          <StyledNavigate $active={router.pathname === routes.write.index}>
+            <div>Write</div>
+          </StyledNavigate>
+        </Link>
+      </nav>
+    </div>
   );
 };
 

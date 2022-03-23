@@ -37,11 +37,11 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
         className={`${
           variant === 'standard'
             ? 'border-[1px] border-kafeblack dark:border-kafewhite bg-kafelighter dark:bg-kafedarker w-full h-14 rounded-2xl dark:text-kafewhite text-kafeblack'
-            : 'w-24 h-24 rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group shadow-xl'
+            : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group'
         }`}
         onClick={handleClick}
       >
-        <div className="flex items-center justify-center p-0 m-0">
+        <div className="flex items-center justify-center">
           {!variant && <VotedSVG voted={false} />}
           {variant && <p>voted</p>}
         </div>

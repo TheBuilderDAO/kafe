@@ -56,7 +56,7 @@ const TutorialPage: NextPage<
         <title>Tutorial</title>
       </Head>
       <TutorialLayout
-        tutorialId={4} //Note to Bartosz/team: temporary patch until we figure out what happened. This is just to pass the build.
+        tutorialId={4}
         frontMatter={frontMatter}
         config={config}
         next={frontMatter.next}
