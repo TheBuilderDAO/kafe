@@ -18,6 +18,26 @@
   src: url('/assets/fonts/larken/Larken-ExtraBoldItalic.otf');
 }
 
+@font-face {
+  font-family: 'Space Mono Bold';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono Bold Italic';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono Italic';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/assets/fonts/SpaceMono/SpaceMono-Regular.ttf');
+}
+
 input[type='text']:focus {
   box-shadow: none;
 }

@@ -1,16 +1,6 @@
 import { connectMenu } from 'react-instantsearch-dom';
 
-const MenuSelect = ({ currentRefinement, refine, attribute }) => {
-  const items = [
-    {
-      value: 'beginner',
-      label: 'beginner',
-    },
-    {
-      value: 'advanced',
-      label: 'advanced',
-    },
-  ];
+const MenuSelect = ({ currentRefinement, refine, attribute, items }) => {
   return (
     <div className="flex">
       {items.map(item => (

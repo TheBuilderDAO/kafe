@@ -20,6 +20,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
 import TutorialProposalFilter from '@app/components/Search/TutorialProposalFilter';
+import Loader from '@app/components/Loader/Loader';
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -33,7 +34,7 @@ const ProposalList = () => {
     return <div>Error: {error.message} </div>;
   }
   if (loading && !error) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
   return (
     <div>
@@ -67,9 +68,9 @@ const Home: NextPage = () => {
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
             <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex items-start justify-between">
-              <div className="flex flex-col grow">
-                <div className="my-6">
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px] w-screen">
+                <div className="lg:my-6 mt-10 mb-4 z-30 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"
                     defaultRefinement={[ProposalStateE.submitted]}

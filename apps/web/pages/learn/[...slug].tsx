@@ -3,12 +3,14 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import { addEllipsis } from 'utils/strings';
 import path from 'path';
 import {
   getFileByPath,
   getFileParse,
   getPathForFile,
   getPathForRootFolder,
+  getTutorialContentByPackageName,
   getTutorialContentByPath,
   getTutorialPaths,
   PostType,
@@ -63,7 +65,7 @@ const TutorialPage: NextPage<
         <title>Tutorial</title>
       </Head>
       <TutorialLayout
-        tutorialId={config.proposalId}
+        tutorialId={4}
         frontMatter={frontMatter}
         config={config}
         next={frontMatter.next}

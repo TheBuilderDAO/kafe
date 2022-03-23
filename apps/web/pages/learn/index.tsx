@@ -10,7 +10,7 @@ import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
 import {
-  NEXT_PUBLIC_ALGOLIA_APP_ID,
+  // NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
@@ -82,7 +82,7 @@ export default LearnIndexPage;
 // import algoliasearch from 'algoliasearch/lite';
 // import Banner from '@app/components/Banner';
 // import {
-//   NEXT_PUBLIC_ALGOLIA_APP_ID,
+//   // NEXT_PUBLIC_ALGOLIA_APP_ID,
 //   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 //   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 // } from '@app/constants';
@@ -91,6 +91,9 @@ export default LearnIndexPage;
 // import GuideHit from '@app/components/Search/GuideHit';
 // import Pagination from '@app/components/Search/Pagination';
 // import GuideFilter from '@app/components/Search/GuideFilter';
+// import IsAdmin from '@app/components/IsAdmin/IsAdmin';
+
+// const NEXT_PUBLIC_ALGOLIA_APP_ID = 'BUCGOMYP6K';
 
 // const searchClient = algoliasearch(
 //   NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -103,7 +106,7 @@ export default LearnIndexPage;
 //       <Head>
 //         <title>Search Guides</title>
 //       </Head>
-//       <main>
+//       <main className="w-full">
 //         <Banner
 //           header="Learn from guides written by our community"
 //           description="If you like a guide, you can support the creators by tipping"
@@ -115,16 +118,20 @@ export default LearnIndexPage;
 //             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
 //           >
 //             <Configure hitsPerPage={4} analytics={false} />
-//             <div className="flex items-start justify-between w-screen mt-8">
-//               <div className="flex flex-col grow">
-//                 <div className="my-6">
-//                   <GuideStateTabs
-//                     attribute="state"
-//                     defaultRefinement={[ProposalStateE.published]}
-//                   />
+//             <div className="flex items-start justify-between w-full">
+//               <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px]">
+//                 <div className="lg:my-6 ">
+//                   <IsAdmin>
+//                     <div className="mb-6">
+//                       <GuideStateTabs
+//                         attribute="state"
+//                         defaultRefinement={[ProposalStateE.published]}
+//                       />
+//                     </div>
+//                   </IsAdmin>
+//                   <Hits hitComponent={GuideHit} />
+//                   <Pagination />
 //                 </div>
-//                 <Hits hitComponent={GuideHit} />
-//                 <Pagination />
 //               </div>
 //               <RightSidebar>
 //                 <GuideFilter />

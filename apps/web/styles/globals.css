@@ -1,5 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 @import url('./fonts.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#nprogress .bar {
+    background: #5534B5;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px #5534B5, 0 0 5px #5534B5;
+}
+
+#nprogress .spinner-icon {
+    border-top-color: #5534B5;
+    border-left-color: #5534B5;
+}

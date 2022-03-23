@@ -3,8 +3,6 @@ import Button from './';
 import QuestionSVG from '../SVG/QuestionSVG';
 
 const HelpButton = () => {
-  const iconSize = 20;
-
   const handleHelp = () => {
     console.log('Help!');
   };

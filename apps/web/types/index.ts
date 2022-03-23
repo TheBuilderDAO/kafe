@@ -5,6 +5,7 @@ export type TutorialMetadata = {
   difficulty: string;
   tags: string[];
   publishedUri?: string;
+  createdAt: number;
 };
 
 export type Tutorial = {
@@ -32,6 +33,8 @@ export type TutorialIndex = {
   tags: string[];
   difficulty: string;
   numberOfVotes: number;
+  lastUpdatedAt: number;
+  totalTips: number;
 };
 
 export enum ArweaveTransactionStatus {

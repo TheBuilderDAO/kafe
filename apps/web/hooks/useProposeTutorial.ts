@@ -55,6 +55,7 @@ export const useProposeTutorial = <AD>(): [
             description: data.description,
             difficulty: data.difficulty,
             tags: data.tags,
+            createdAt: Date.now(),
           },
         });
 
@@ -79,7 +80,6 @@ export const useProposeTutorial = <AD>(): [
             author: publicKey.toString(),
             difficulty: data.difficulty,
             tags: data.tags,
-            funded: false,
             lastUpdatedAt: Date.now(),
           },
         });

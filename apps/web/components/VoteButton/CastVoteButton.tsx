@@ -1,18 +1,16 @@
 import React, { useCallback } from 'react';
-
 import { useCastVote } from '../../hooks/useCastVote';
 import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
-import Image from 'next/image';
-import coffeeIdle from '/public/assets/icons/coffee_cup_idle.svg';
 import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 
 type CastVoteButtonProps = {
   id: number;
+  variant: string;
 };
 
 const CastVoteButton = (props: CastVoteButtonProps) => {
-  const { id } = props;
+  const { id, variant } = props;
 
   const { voters } = useGetListOfVoters(id);
   const [castVote, { submitting }] = useCastVote(voters);
@@ -33,11 +31,16 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
   return (
     <button
       disabled={submitting}
-      className="w-24 h-24 rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group shadow-xl"
+      className={`${
+        variant === 'standard'
+          ? 'dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafered hover:bg-kafegold hover:text-kafeblack'
+          : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group'
+      }`}
       onClick={handleClick}
     >
       <div className="flex items-center justify-center p-0 m-0">
-        <VotedSVG voted={true} />
+        {!variant && <VotedSVG voted={true} />}
+        {variant && <p>vote</p>}
       </div>
     </button>
   );

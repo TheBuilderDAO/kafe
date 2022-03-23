@@ -10,10 +10,8 @@ const Button = props => {
             flex items-center
             rounded-full
             p-4
-            mr-2
-            my-2
-            w-min-content
-            h-min-content
+            w-12
+            h-12
             hover:bg-kafeblack
             dark:hover:bg-kafelighter
             dark:fill-kafewhite
