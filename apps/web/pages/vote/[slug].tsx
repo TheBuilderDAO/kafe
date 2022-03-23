@@ -11,7 +11,6 @@ import { useGetTutorialBySlugWithMetadata } from 'services/ApplicationFetcher';
 import TutorialProposalVotes from '@app/components/TutorialProposalVotes/TutorialProposalVotes';
 import { ProposalStateE, useGetReviewer } from '@builderdao-sdk/dao-program';
 import { PublicKey } from '@solana/web3.js';
-import { addEllipsis } from 'utils/strings';
 import { ZERO_ADDRESS } from '../../constants';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import BorderSVG from '@app/components/SVG/BorderSVG';

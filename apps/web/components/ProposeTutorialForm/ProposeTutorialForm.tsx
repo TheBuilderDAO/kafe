@@ -1,6 +1,6 @@
 import { useForm, Controller } from 'react-hook-form';
 import useTags from '../../hooks/useTags';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useProposeTutorial } from '../../hooks/useProposeTutorial';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import toast from 'react-hot-toast';
@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import routes from '../../routes';
 import { stringToSlug } from 'utils/strings';
 import Loader from '../Loader/Loader';
+import { useDapp } from '../../hooks/useDapp';
 
 type FormData = {
   title: string;
@@ -23,19 +24,18 @@ type FormData = {
 
 const ProposeTutorialForm = () => {
   const router = useRouter();
-  const { register, handleSubmit, reset, watch, control } = useForm<FormData>();
+  const { wallet } = useDapp();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm<FormData>();
   const { loading, error, tags } = useTags();
 
   const [proposeTutorial, { submitting }] = useProposeTutorial();
-
-  const Placeholder = () => {
-    return (
-      <div className="w-full flex flex-col items-center text-center pt-20 justify-center font-larken lg:text-3xl text-2xl">
-        <p className="pb-4">Connect your wallet to view this section.</p>
-        <LoginButton />
-      </div>
-    );
-  };
 
   const onSubmit = useCallback(
     async data => {
@@ -58,7 +58,7 @@ const ProposeTutorialForm = () => {
         toast.error(err.message);
       }
     },
-    [proposeTutorial, reset, router],
+    [proposeTutorial, reset, router, wallet.connected],
   );
 
   if (loading) {
@@ -69,21 +69,25 @@ const ProposeTutorialForm = () => {
     return error.message;
   }
 
+  console.log('HERE');
   return (
-    <IsLoggedIn Placeholder={Placeholder}>
-      <WriteFormWrapper handleSubmit={handleSubmit} onSubmit={onSubmit}>
-        <WriteForm
-          tags={tags}
-          register={register}
-          Controller={Controller}
-          control={control}
-          watch={watch}
-        />
-        <RightSidebar>
-          <WriteSidebar submitting={submitting} />
-        </RightSidebar>
-      </WriteFormWrapper>
-    </IsLoggedIn>
+    <WriteFormWrapper
+      key="proposal-form"
+      handleSubmit={handleSubmit}
+      onSubmit={onSubmit}
+    >
+      <WriteForm
+        tags={tags}
+        register={register}
+        Controller={Controller}
+        control={control}
+        watch={watch}
+      />
+      <input type="text" />
+      <RightSidebar>
+        <WriteSidebar submitting={submitting} />
+      </RightSidebar>
+    </WriteFormWrapper>
   );
 };
 

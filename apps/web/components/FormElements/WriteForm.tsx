@@ -15,10 +15,12 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
       <BorderSVG />
       <div className="p-10">
         <div className="mb-5">
-          <div className="text-sm flex items-center">
-            <p>Proposal by{'  '}</p>
-            <UserAvatar address={wallet.publicKey.toString()} />
-          </div>
+          {wallet.connected && (
+            <div className="text-sm flex items-center">
+              <p>Proposal by{'  '}</p>
+              <UserAvatar address={wallet.publicKey.toString()} />
+            </div>
+          )}
           <div className="mt-1">
             <InputTitle placeholder="Enter a title" register={register} />
           </div>

@@ -5,6 +5,7 @@ export type TutorialMetadata = {
   difficulty: string;
   tags: string[];
   publishedUri?: string;
+  createdAt: number;
 };
 
 export type Tutorial = {

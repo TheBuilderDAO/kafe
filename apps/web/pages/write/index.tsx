@@ -1,14 +1,8 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
-
-const ProposeTutorialForm = dynamic(
-  () => import('../../components/ProposeTutorialForm/ProposeTutorialForm'),
-  {
-    ssr: false,
-  },
-);
+import ProposeTutorialForm from '../../components/ProposeTutorialForm/ProposeTutorialForm';
 
 const WritePage = () => {
+  console.log('WRITE PAGE');
   return (
     <div>
       <Head>

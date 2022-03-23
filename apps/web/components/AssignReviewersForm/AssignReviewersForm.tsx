@@ -7,7 +7,6 @@ import {
   useReviewersAssign,
   useGetListOfReviewers,
 } from '@builderdao-sdk/dao-program';
-import { addEllipsis } from 'utils/strings';
 import { Tutorial } from '@app/types/index';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -35,24 +34,32 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
 
   useEffect(() => {
     if (reviewers) {
-      const sanitizedReviewArray = reviewers.map(reviewer => {
-        return {
-          value: `${reviewer.account.pubkey.toString()}`,
-          label: `${reviewer.account.githubName.toString()}`,
-        };
+      const sanitizedReviewArray = [];
+      reviewers.forEach(reviewer => {
+        if (reviewer.account.pubkey.toString() != tutorial.creator) {
+          sanitizedReviewArray.push({
+            value: `${reviewer.account.pubkey.toString()}`,
+            label: `${reviewer.account.githubName.toString()}`,
+          });
+        }
       });
 
       setReviewArray(sanitizedReviewArray);
     }
   }, [reviewers]);
-  const { handleSubmit, reset, control } = useForm<FormData>({
-    defaultValues: {
-      reviewer1: tutorial.reviewer1,
-      reviewer2: tutorial.reviewer2,
-    },
-  });
+  const {
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm<FormData>();
   const { wallet } = useDapp();
   const [assignReviewers, { submitting }] = useReviewersAssign();
+
+  const onError = () => {
+    toast.error('Please fill out all form fields');
+  };
+
   const onSubmit = useCallback(
     async data => {
       data = {
@@ -92,7 +99,10 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   }
 
   return (
-    <form className="flex flex-col pt-2" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col pt-2"
+      onSubmit={handleSubmit(onSubmit, onError)}
+    >
       <small className="mt-4 mb-2">Reviewers</small>
       <Controller
         name="reviewer1"
