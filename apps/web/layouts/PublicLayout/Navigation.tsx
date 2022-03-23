@@ -22,8 +22,6 @@ const Navigation = () => {
     dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite py-1 rounded-2xl w-24 px-4 -ml-4
   `;
 
-  console.log('HEREEE', router.pathname);
-
   return (
     <div className="mt-5">
       <nav className="space-y-1">
