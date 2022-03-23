@@ -31,7 +31,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   return (
     <div>
       <Head>
-        <title>Guide proposal - {tutorial.title}</title>
+        <title>Kafé by Builder DAO - Proposal for {tutorial.title}</title>
       </Head>
       <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40">
         <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0 h-fit min-h-[300px]">

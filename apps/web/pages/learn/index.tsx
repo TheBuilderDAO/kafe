@@ -6,7 +6,7 @@ import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
 import {
-  // NEXT_PUBLIC_ALGOLIA_APP_ID,
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
@@ -17,7 +17,7 @@ import Pagination from '@app/components/Search/Pagination';
 import GuideFilter from '@app/components/Search/GuideFilter';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 
-const NEXT_PUBLIC_ALGOLIA_APP_ID = 'BUCGOMYP6K';
+const PER_PAGE = 10;
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -28,20 +28,24 @@ const LearnIndexPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Search Guides</title>
+        <title>Kafé by Builder DAO - Search Guides</title>
       </Head>
       <main className="w-full">
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
-          link="https://figment.io"
+          link="https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19"
         />
         <div className="z-30 flex mb-20">
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
-            <Configure hitsPerPage={4} analytics={false} />
+            <Configure
+              hitsPerPage={PER_PAGE}
+              analytics={false}
+              filters="state:published"
+            />
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px]">
                 <div className="lg:my-6 ">

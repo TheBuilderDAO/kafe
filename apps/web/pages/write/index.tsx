@@ -5,7 +5,7 @@ const WritePage = () => {
   return (
     <div>
       <Head>
-        <title>Propose Tutorial</title>
+        <title>Kafé by Builder DAO - Propose a Guide</title>
       </Head>
       <main className="relative z-10 w-full">
         <ProposeTutorialForm />
