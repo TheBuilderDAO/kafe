@@ -1,11 +1,11 @@
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 
-const getChildren = (matches: string[], text: string) : string | null => {
+const getChildren = (matches: string[], text: string): string | null => {
   if (matches.length > 1) {
     const reg = /%}\n(.*)\n{%/g.exec(text)
     return reg?.[1] || null
-  } 
+  }
   return null
 };
 
@@ -27,7 +27,14 @@ const breakLiquidTag = (tag: string) => {
 
   return {
     tagName,
-    tagOptions: tagOptions.join(' '),
+    tagOptions: tagOptions.map((option: string) => {
+      let [key, ...rest] = option.split('=')
+      if (key === 'style') { // breaks the react rendering.
+        key = 'type'
+      }
+      const formatted = [key, ...rest].join('=')
+      return formatted
+    }).join(' '),
   };
 };
 

@@ -133,9 +133,9 @@ const process = async () => {
     total++
     if (proposal) {
       matching++
-      // if (value.slug === 'near-stake-token-vision') {
-      await processQueue.pushAsync({ tutorial: value, proposal });
-      // }
+      if (value.slug === 'avalanche-create-a-chat-application-using-solidity-and-react') {
+        await processQueue.pushAsync({ tutorial: value, proposal });
+      }
       // console.log(proposal)
     } else {
       console.log("NOPE >> ", value.slug)

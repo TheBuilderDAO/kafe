@@ -1,6 +1,7 @@
 export * from './wrapper';
 import { Image } from '../image';
 import { CustomLink } from './custom-link';
+import { Hint } from './hint';
 import { WhatsNextSection } from './whats-next';
 
 export const MDXComponents = {
@@ -14,5 +15,6 @@ export const getMDXComponents = (extra: any) => {
     img: (props: any) => <Image {...props} {...extra} />,
     a: CustomLink,
     WhatsNextSection,
+    Hint,
   };
 };
