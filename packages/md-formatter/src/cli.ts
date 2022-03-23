@@ -202,14 +202,14 @@ title: ${page.title}
 description: ${page.description}
 keywords: [${page.keywords.join(', ')}]
 date: '${task.tutorial.published_at}'
-${page.next_slug ?? `next:
+${page.next_slug ? `next:
   title: '${_.find(task.tutorial.pages, { slug: page.next_slug })?.title || 'Next'}'
   slug: '/${page.next_slug}'
-`}
-${page.previous_slug ?? `prev:
+`: ''}
+${page.previous_slug ? `prev:
   title: '${_.find(task.tutorial.pages, { slug: page.previous_slug })?.title || 'Previous'}'
   slug: '/${page.previous_slug}'
-`}
+`: ''}
 ---`
           await template.addContent(page.page_number === 1 ? 'index.mdx' : page.slug, [frontMatter, String(file)].join('\n'))
         })
