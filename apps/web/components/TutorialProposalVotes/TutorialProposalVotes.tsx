@@ -8,6 +8,9 @@ import {
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import Loader from '@app/components/Loader/Loader';
+import LoginButton from '@app/components/LoginButton/LoginButton';
+import { useDapp } from '../../hooks/useDapp';
+import VotedSVG from '@app/components/SVG/Coffee Icons/VotedSVG';
 
 type TutorialProposalVotesProps = {
   id: number;
@@ -16,6 +19,7 @@ type TutorialProposalVotesProps = {
 
 const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
   const { id, state } = props;
+  const { wallet } = useDapp();
   const [voteFull, setVoteFull] = useState(false);
   const [remainder, setRemainder] = useState(0);
 
@@ -65,11 +69,28 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
         ))}
       </ul>
 
-      <IsLoggedIn>
+      <div>
         {state.toString() !== ProposalStateE.published && (
-          <VoteButton id={id} variant="standard" currentState={state} />
+          <>
+            {wallet.connected ? (
+              <VoteButton id={id} variant="standard" currentState={state} />
+            ) : (
+              <div className="py-2">
+                <LoginButton
+                  className={
+                    'h-auto inline-block dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafered hover:bg-kafegold hover:text-kafeblack'
+                  }
+                >
+                  <div className="flex items-center justify-center p-0 m-0">
+                    vote
+                  </div>
+                </LoginButton>
+              </div>
+            )}
+          </>
         )}
-      </IsLoggedIn>
+      </div>
+
       <div className="pt-4">
         {!voteFull && (
           <>

@@ -33,6 +33,8 @@ export type TutorialIndex = {
   tags: string[];
   difficulty: string;
   numberOfVotes: number;
+  lastUpdatedAt: number;
+  totalTips: number;
 };
 
 export enum ArweaveTransactionStatus {
