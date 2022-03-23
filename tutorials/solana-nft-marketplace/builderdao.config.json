@@ -1,0 +1,23 @@
+{
+  "title": "Solana NFT Marketplace",
+  "description": "Learn how to build NFT marketplace on Solana",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "Solana",
+      "slug": "solana"
+    },
+    {
+      "name": "Rust",
+      "slug": "rust"
+    },
+    {
+      "name": "NextJS",
+      "slug": "nextjs"
+    },
+    {
+      "name": "Typescript",
+      "slug": "typescript"
+    }
+  ]
+}
