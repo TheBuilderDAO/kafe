@@ -2,7 +2,6 @@ import Head from 'next/head';
 import ProposeTutorialForm from '../../components/ProposeTutorialForm/ProposeTutorialForm';
 
 const WritePage = () => {
-  console.log('WRITE PAGE');
   return (
     <div>
       <Head>

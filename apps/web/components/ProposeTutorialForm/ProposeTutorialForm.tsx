@@ -69,7 +69,6 @@ const ProposeTutorialForm = () => {
     return error.message;
   }
 
-  console.log('HERE');
   return (
     <WriteFormWrapper
       key="proposal-form"
@@ -83,7 +82,6 @@ const ProposeTutorialForm = () => {
         control={control}
         watch={watch}
       />
-      <input type="text" />
       <RightSidebar>
         <WriteSidebar submitting={submitting} />
       </RightSidebar>

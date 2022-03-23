@@ -10,7 +10,6 @@ import ImageStack from '../ImageStack';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import routes from '../../routes';
 import Link from 'next/link';
-import Loader from '@app/components/Loader/Loader';
 
 const TutorialProposalHit = props => {
   const { loading, daoState, error } = useGetDaoState();
@@ -32,7 +31,7 @@ const TutorialProposalHit = props => {
           </div>
 
           {loading || listLoading ? (
-            <Loader />
+            <></>
           ) : (
             <div className="flex flex-row flex-wrap items-center justify-between text-right">
               <div className="flex">

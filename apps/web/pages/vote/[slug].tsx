@@ -30,9 +30,9 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   return (
     <div>
       <Head>
-        <title>{tutorial.title}</title>
+        <title>Guide proposal - {tutorial.title}</title>
       </Head>
-      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mb-40">
+      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40">
         <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0 h-fit min-h-[300px]">
           <BorderSVG />
           <section className="p-8">
