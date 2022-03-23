@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/celo-deploying-smart-contracts-on-celo-with-truffle",
+  "version": "1.0.0",
+  "description": "We will learn how to use Truffle and ContractKit to deploy smart contracts to Celo.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,88 @@
+{
+  "proposalId": 340,
+  "slug": "celo-distributed-file-manager-using-ipfs-celo-reactjs",
+  "authors": [
+    {
+      "name": "Raj Ranjan",
+      "avatarUrl": "https://github.com/rajranjan0608.png",
+      "url": "https://github.com/rajranjan0608",
+      "nickname": "rajranjan0608"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-10.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-10.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-10.png",
+      "digest": "a364076fc91b5aba5c79f6ee9fc9f83d2822c5ea651fae42119800ded3b7ace3"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-1.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-1.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-1.png",
+      "digest": "0c259eff1a79e75b8687ec11f2bf6844da568f6b38691cce5e376ca8afd87738"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-2.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-2.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-2.png",
+      "digest": "e1f35a48c66c47b43cb84127dc0930666a21a240400ea5aeb7c25924017e3a6c"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-3.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-3.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-3.png",
+      "digest": "b459cae976589cc06fe4e84830bf412bffb494b25141bc903f510a94c0f549f6"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-4.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-4.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-4.png",
+      "digest": "baece153dc354569435168eb69ff17e0b0a65222514710587313432093c0a812"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-5.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-5.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-5.png",
+      "digest": "acb85a97c88178acc511cf90ce947aac4042158f6a9b350ab5b36c0b54b83703"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-6.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-6.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-6.png",
+      "digest": "147556847357c2da1090def059dd25f1bbe903e73652e5a0fa588ebfee74246e"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-7.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-7.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-7.png",
+      "digest": "8f66daf81791deec39883bcdb9b6a3a10c19a97c9e092fc7aa7dbc7ab52e7b7e"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-8.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-8.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-8.png",
+      "digest": "666410c6ed2267820aa490fb9601aaef22265ba96ac9e4b1bba58abd1258e87c"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-9.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-9.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-9.png",
+      "digest": "a155aa7e7bc46d860565793b834341aba1c0378b5e95ae39e4570a8fa2a62f0c"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "30c6f9af45dc310c9ccfc0cd1bbbd46df8b60951a41e8b8cde79d37063782924"
+    },
+    "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-11.png": {
+      "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-11.png",
+      "path": "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-11.png",
+      "digest": "ccc79a989ede9f168f9ede77b6482ea1b0f9fb8f044e1b55e265927f1e74236b"
+    }
+  },
+  "href": "learn/celo-distributed-file-manager-using-ipfs-celo-reactjs",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

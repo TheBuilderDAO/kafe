@@ -10,11 +10,12 @@ import { hashSumDigest } from '../utils';
 export type BuilderDaoLockJson = {
   proposalId: number;
   slug: string;
+  creator: string;
   authors: {
     name: string;
     nickname: string;
     avatarUrl: string;
-    email: string;
+    url: string;
   }[]
   content: {
     [filename: string]: {
@@ -105,15 +106,16 @@ async updateHashDigestOfFolder() {
 
     const author = {
       name:  'The Builder Dao',
-      avatarUrl: "",
-      email: 'root@thebuilderdao.com',
-      nickname: ''
+      avatarUrl: "https://github.com/TheBuilderDAO.png",
+      url: 'https://builderdao.io',
+      nickname: 'TheBuilderDAO'
     }
 
     return {
       lock: {
         proposalId,
         slug,
+        creator: "",
         authors: [author],
         reviewers: {},
         content: {},

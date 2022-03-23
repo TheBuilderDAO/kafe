@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/celo-build-a-dao-on-celo",
+  "version": "1.0.0",
+  "description": "Build a functioning DAO by writing the Solidity smart contract and building a React Native dApp",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "React Native",
+    "NodeJS",
+    "Truffle"
+  ],
+  "author": "",
+  "license": "ISC"
+}

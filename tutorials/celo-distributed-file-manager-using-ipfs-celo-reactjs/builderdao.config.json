@@ -1,0 +1,16 @@
+{
+  "title": "Distributed File Manager (DFM) using Celo, IPFS and ReactJS",
+  "description": "Learn how to make a Distributed File Manager using the IPFS protocol for storing files on the Celo network",
+  "imageUrl": "",
+  "categories": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle",
+    "Solidity",
+    "IPFS"
+  ]
+}

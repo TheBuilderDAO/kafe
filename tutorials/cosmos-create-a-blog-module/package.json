@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/cosmos-create-a-blog-module",
+  "version": "1.0.0",
+  "description": "Learn how to create a simple blog app using the Cosmos SDK",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Cosmos",
+    "Go",
+    "JS/TS",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

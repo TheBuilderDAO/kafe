@@ -68,14 +68,15 @@ export class TemplateService {
     await fs.writeFile(filePath, content)
   }
 
-  async setAuthor({ name, email, nickname, avatarUrl }: { name: string, email: string, nickname: string, avatarUrl: string }) {
+  async setAuthor({ name, url, nickname, avatarUrl }: { name: string, url: string, nickname: string, avatarUrl: string }) {
+    await this.lockJson.read(); 
     this.lockJson.chain.set('authors', [{
       name,
       avatarUrl,
-      email,
+      url,
       nickname
     }]).value()
-    this.lockJson.write();
+    await this.lockJson.write();
   }
 
 

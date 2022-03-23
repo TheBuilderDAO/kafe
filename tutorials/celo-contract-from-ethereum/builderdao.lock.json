@@ -1,0 +1,33 @@
+{
+  "proposalId": 365,
+  "slug": "celo-contract-from-ethereum",
+  "authors": [
+    {
+      "name": "Brittany Deventer",
+      "avatarUrl": "https://github.com/bdev07.png",
+      "url": "https://github.com/bdev07",
+      "nickname": "bdev07"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b2d6631a5ed783cf13d741709951fedf7f4a9797218f4206f58b4da373514213"
+    }
+  },
+  "href": "learn/celo-contract-from-ethereum",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

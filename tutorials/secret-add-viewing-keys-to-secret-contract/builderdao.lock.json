@@ -1,0 +1,38 @@
+{
+  "proposalId": 339,
+  "slug": "secret-add-viewing-keys-to-secret-contract",
+  "authors": [
+    {
+      "name": "Ben Adams",
+      "avatarUrl": "https://github.com/darwinzer0.png",
+      "url": "https://github.com/darwinzer0",
+      "nickname": "darwinzer0"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/secret-add-viewing-keys-to-secret-contract-cc.png": {
+      "name": "secret-add-viewing-keys-to-secret-contract-cc.png",
+      "path": "content/assets/secret-add-viewing-keys-to-secret-contract-cc.png",
+      "digest": "2d8a628333a76cfe484a2b9c01bca786fccf08d0010d4bffca2b38b29dd4ed0b"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a9aa003e7464fbd5a61d4b44f3e1eb01d409b3132968b6fe18d925dc0b48bde2"
+    }
+  },
+  "href": "learn/secret-add-viewing-keys-to-secret-contract",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,48 @@
+{
+  "proposalId": 344,
+  "slug": "tezos-create-a-dex-on-tezos",
+  "authors": [
+    {
+      "name": "Vivek Kumar",
+      "avatarUrl": "https://github.com/vivekascoder.png",
+      "url": "https://github.com/vivekascoder",
+      "nickname": "vivekascoder"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/tezos-create-a-dex-on-tezos-tez-dex.png": {
+      "name": "tezos-create-a-dex-on-tezos-tez-dex.png",
+      "path": "content/assets/tezos-create-a-dex-on-tezos-tez-dex.png",
+      "digest": "8446d094996dc4bf88504b9eae19e89f1169023a93fade0a08f84a65b0455b21"
+    },
+    "content/assets/tezos-create-a-dex-on-tezos-tez-to-token.png": {
+      "name": "tezos-create-a-dex-on-tezos-tez-to-token.png",
+      "path": "content/assets/tezos-create-a-dex-on-tezos-tez-to-token.png",
+      "digest": "ece777e34a4a30bbf52df362c6b415475a1fa0677bbd0c3b673d523f9766d500"
+    },
+    "content/assets/tezos-create-a-dex-on-tezos-transaction.png": {
+      "name": "tezos-create-a-dex-on-tezos-transaction.png",
+      "path": "content/assets/tezos-create-a-dex-on-tezos-transaction.png",
+      "digest": "b0f62a821e6f847fafcd91818e8336ebdaf07034083892e85b5cea75af154890"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d303fff47cf2dee60f71de4ffb302ef8fc30398cfc3026cb55a665637aa272be"
+    }
+  },
+  "href": "learn/tezos-create-a-dex-on-tezos",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

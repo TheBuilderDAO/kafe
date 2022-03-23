@@ -1,0 +1,13 @@
+{
+  "title": "Near cross-contract calls",
+  "description": "Learn how to write smart contracts that talk to each other",
+  "imageUrl": "",
+  "categories": [
+    "Near",
+    "JS/TS",
+    "Rust",
+    "NodeJS",
+    "Smart contracts",
+    "Javascript"
+  ]
+}

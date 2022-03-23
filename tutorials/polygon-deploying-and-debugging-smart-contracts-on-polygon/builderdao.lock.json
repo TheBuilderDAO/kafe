@@ -1,0 +1,43 @@
+{
+  "proposalId": 346,
+  "slug": "polygon-deploying-and-debugging-smart-contracts-on-polygon",
+  "authors": [
+    {
+      "name": "Akhilesh Thite",
+      "avatarUrl": "https://github.com/AkhileshThite.png",
+      "url": "https://github.com/AkhileshThite",
+      "nickname": "AkhileshThite"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80.png": {
+      "name": "polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80.png",
+      "path": "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80.png",
+      "digest": "9bf366eaab41ac7a6c75bfdd60ad8d124daad688036195749361883194f5d7bf"
+    },
+    "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-image-2.png": {
+      "name": "polygon-deploying-and-debugging-smart-contracts-on-polygon-image-2.png",
+      "path": "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-image-2.png",
+      "digest": "5f798a1bdcde246905f6505fe9aadf5d00d677164311fe465cafae32d8450b88"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "39fc0533c29916b22f73c75a1ebf5154f61830a9b3097b191659321f04bf09e1"
+    }
+  },
+  "href": "learn/polygon-deploying-and-debugging-smart-contracts-on-polygon",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

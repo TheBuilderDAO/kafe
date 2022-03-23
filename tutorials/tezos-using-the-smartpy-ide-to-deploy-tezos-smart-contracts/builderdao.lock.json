@@ -1,0 +1,58 @@
+{
+  "proposalId": 334,
+  "slug": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
+  "authors": [
+    {
+      "name": "Udit Kapoor",
+      "avatarUrl": "https://github.com/Udit-Kapoor.png",
+      "url": "https://github.com/Udit-Kapoor",
+      "nickname": "Udit-Kapoor"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png": {
+      "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png",
+      "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png",
+      "digest": "92c33118ce59c3e375a6cbffabbe8959f2dea508310a72e6edc3af3fcdb71391"
+    },
+    "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-faucet.png": {
+      "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-faucet.png",
+      "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-faucet.png",
+      "digest": "2018bdbad4373c386cbe30ed58981a78f71145609e76a464e7a564475def3cdf"
+    },
+    "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png": {
+      "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png",
+      "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png",
+      "digest": "2397006aeecbf91ced58e9382fec27b4f7f1ce4c3ac2a4a25ccb1f50985742c7"
+    },
+    "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png": {
+      "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png",
+      "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png",
+      "digest": "65a8162b85068b1a6f2ef94554884a3deaf7f38ccdb53cda5135be19d3f8c4e2"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e8c5827df6924a2ef1ffcf08d9f43a5815660106672b30bcfdfbe00d5213dba8"
+    },
+    "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png": {
+      "name": "tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png",
+      "path": "content/assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png",
+      "digest": "da9517daa55daa417ab6d809704919ce9a62884e88e52f231e2f038baa39a988"
+    }
+  },
+  "href": "learn/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

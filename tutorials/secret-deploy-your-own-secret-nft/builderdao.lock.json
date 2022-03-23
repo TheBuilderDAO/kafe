@@ -1,0 +1,33 @@
+{
+  "proposalId": 361,
+  "slug": "secret-deploy-your-own-secret-nft",
+  "authors": [
+    {
+      "name": "Florian Uhde",
+      "avatarUrl": "https://github.com/floAr.png",
+      "url": "https://github.com/floAr",
+      "nickname": "floAr"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "dc274e7a4d5f13743be992c1c7fbfd977bf91fa381d53c14c67bd3d32dac8ec3"
+    }
+  },
+  "href": "learn/secret-deploy-your-own-secret-nft",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

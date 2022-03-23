@@ -1,0 +1,58 @@
+{
+  "proposalId": 452,
+  "slug": "avalanche-create-an-amm-on-avalanche",
+  "authors": [
+    {
+      "name": "Sayan Kar",
+      "avatarUrl": "https://github.com/SayanKar.png",
+      "url": "https://github.com/SayanKar",
+      "nickname": "SayanKar"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-multiple-account-preview.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview.png",
+      "digest": "9a520c2a979032ee22628d47d131469da279f4fa8ebbf3f4eba371e42b6bc7bf"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-metamask.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-metamask.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-metamask.png",
+      "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-remix-preview.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-remix-preview.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-remix-preview.png",
+      "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-zero-balance-preview.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview.png",
+      "digest": "d4e560172f267a2d58023891ab5dd58eb95050045be4045cbee4a28797c01aed"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "23fb9770fc0005cbebf239eb997d35e15b518d1d84d263ea469a1272e8a603e6"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-preview.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-preview.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview.png",
+      "digest": "4822443926c3c1b894d83647c90c1fadae59b0c60bd7d879073996fcc4794cba"
+    }
+  },
+  "href": "learn/avalanche-create-an-amm-on-avalanche",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

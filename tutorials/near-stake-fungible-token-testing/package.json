@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/near-stake-fungible-token-testing",
+  "version": "1.0.0",
+  "description": "Complete guide to unit testing your NEAR Rust smart contracts",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Near",
+    "Rust",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

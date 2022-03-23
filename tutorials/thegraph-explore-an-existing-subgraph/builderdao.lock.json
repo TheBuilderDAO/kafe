@@ -1,0 +1,43 @@
+{
+  "proposalId": 435,
+  "slug": "thegraph-explore-an-existing-subgraph",
+  "authors": [
+    {
+      "name": "Minato Fund",
+      "avatarUrl": "https://github.com/minatofund.png",
+      "url": "https://github.com/minatofund",
+      "nickname": "minatofund"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart.png": {
+      "name": "thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart.png",
+      "path": "content/assets/thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart.png",
+      "digest": "4c87e823bd1da0e9566c35a827bf4e509d43d695e63255fac17ba008b57e0fea"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6160f152a10b5f8613e8ab499cd59fdb18585fe8e27b7c575f95d7d7bdd84519"
+    },
+    "content/assets/thegraph-explore-an-existing-subgraph-hopr-subgraph-playground.png": {
+      "name": "thegraph-explore-an-existing-subgraph-hopr-subgraph-playground.png",
+      "path": "content/assets/thegraph-explore-an-existing-subgraph-hopr-subgraph-playground.png",
+      "digest": "9aacf3ef3b10d1fa5efb3d2f0dfa332ea4e7bb00447a9d5b4e1d45715c213b78"
+    }
+  },
+  "href": "learn/thegraph-explore-an-existing-subgraph",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

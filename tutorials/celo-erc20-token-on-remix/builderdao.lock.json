@@ -1,0 +1,38 @@
+{
+  "proposalId": 384,
+  "slug": "celo-erc20-token-on-remix",
+  "authors": [
+    {
+      "name": "Deepanshu Hooda",
+      "avatarUrl": "https://github.com/gitofdeepanshu.png",
+      "url": "https://github.com/gitofdeepanshu",
+      "nickname": "gitofdeepanshu"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "cecc97ba14a9f8b1f88c9bb4f22684df45253da16311b094aa0f30f76adf2db7"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text.png",
+      "digest": "e6909fc3b8a78098c3cd91260ef4331c03bbaa1ee9383857d9ed537044b1ef6e"
+    }
+  },
+  "href": "learn/celo-erc20-token-on-remix",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

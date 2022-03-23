@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/polkadot-build-polkadot-amm-using-ink",
+  "version": "1.0.0",
+  "description": "Learn how to build an Automated Market Maker on Polkadot using the ink! eDSL",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polkadot",
+    "Rust",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

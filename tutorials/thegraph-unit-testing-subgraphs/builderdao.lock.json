@@ -1,0 +1,33 @@
+{
+  "proposalId": 451,
+  "slug": "thegraph-unit-testing-subgraphs",
+  "authors": [
+    {
+      "name": "Anton Yip",
+      "avatarUrl": "https://github.com/antonyip.png",
+      "url": "https://github.com/antonyip",
+      "nickname": "antonyip"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8618e8cee009f2df89e6ca28f1183461850e41fd7aab50711d989fd226a5c070"
+    }
+  },
+  "href": "learn/thegraph-unit-testing-subgraphs",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

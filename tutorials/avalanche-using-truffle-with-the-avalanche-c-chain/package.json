@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/avalanche-using-truffle-with-the-avalanche-c-chain",
+  "version": "1.0.0",
+  "description": "Learn how to use Truffle with the C-Chain",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "NodeJS",
+    "Truffle",
+    "Avash"
+  ],
+  "author": "",
+  "license": "ISC"
+}

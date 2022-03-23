@@ -1,0 +1,38 @@
+{
+  "proposalId": 320,
+  "slug": "tezos-create-an-nft-marketplace-on-tezos",
+  "authors": [
+    {
+      "name": "Nishant Chandla",
+      "avatarUrl": "https://github.com/NishantChandla.png",
+      "url": "https://github.com/NishantChandla",
+      "nickname": "NishantChandla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "34c9c68c6a4c9f9edfb740095e4568db02df561736b5c05e9989710f2e8ddb26"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image.png",
+      "digest": "75f438bf5eeba8ff8f5dc657f0b5a727abc38cdd7817a6e64bc79aa35d410b31"
+    }
+  },
+  "href": "learn/tezos-create-an-nft-marketplace-on-tezos",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

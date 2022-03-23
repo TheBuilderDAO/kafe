@@ -1,0 +1,33 @@
+{
+  "proposalId": 337,
+  "slug": "polkadot-create-your-first-substrate-chain",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a0d3e5e6cd6bdaef881f188613f4bdbef703cf4ade8cf4b7912a255e62c80b48"
+    }
+  },
+  "href": "learn/polkadot-create-your-first-substrate-chain",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

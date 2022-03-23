@@ -1,0 +1,63 @@
+{
+  "proposalId": 355,
+  "slug": "polkadot-build-polkadot-amm-using-ink",
+  "authors": [
+    {
+      "name": "Sayan Kar & Nimish Agrawal",
+      "avatarUrl": "https://github.com/SayanKar.png",
+      "url": "https://github.com/SayanKar",
+      "nickname": "SayanKar"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-build-polkadot-amm-using-ink-chain-visibility.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-chain-visibility.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-chain-visibility.png",
+      "digest": "21d1295360c59c421a9f1c43c81baa7a79dcf5bf44b535c2d8060f8cbfb5e73e"
+    },
+    "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-deploy-step-1.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1.png",
+      "digest": "8521d33aef9be160fd8a8e9838a83f2d8918e8f6b5e1ab58c837486c954abeac"
+    },
+    "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-deploy-step-2.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2.png",
+      "digest": "980c27dddc60083d01b05c0001bab98c3194aa02c35bcc9ba526b52588b3873e"
+    },
+    "content/assets/polkadot-build-polkadot-amm-using-ink-find-contract-address.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-find-contract-address.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-find-contract-address.png",
+      "digest": "93206d88275699f8eb6a150d527b0a1a78fde2189ff4581393cf30c84059d3f7"
+    },
+    "content/assets/polkadot-build-polkadot-amm-using-ink-switch-network.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-switch-network.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-switch-network.png",
+      "digest": "88aa8fa8525cfc7d2d80f08cec40a50748cd2c643931c12fc31a3a78a76dd222"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "816ad1fda36d35592cd4d8d0d18e3f0910891ce1a089829a0b00e32f7dedf238"
+    },
+    "content/assets/polkadot-build-polkadot-amm-using-ink-demo.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-demo.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-demo.png",
+      "digest": "087ce51f80c3187854148159e042c690bef78347db5060c0a88744abc3c7f088"
+    }
+  },
+  "href": "learn/polkadot-build-polkadot-amm-using-ink",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,68 @@
+{
+  "proposalId": 358,
+  "slug": "celo-introduction-to-dappkit",
+  "authors": [
+    {
+      "name": "Nikhil Bhintade",
+      "avatarUrl": "https://github.com/nikbhintade.png",
+      "url": "https://github.com/nikbhintade",
+      "nickname": "nikbhintade"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/celo-introduction-to-dappkit-expo-terminal.png": {
+      "name": "celo-introduction-to-dappkit-expo-terminal.png",
+      "path": "content/assets/celo-introduction-to-dappkit-expo-terminal.png",
+      "digest": "13b8092f31c2ce4ef18586a97a89b186459604bd01b2a52640a1adb445c92eee"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-2.png": {
+      "name": "celo-introduction-to-dappkit-image-2.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-2.png",
+      "digest": "812b0af58fbe8be91939aa8f6bb2ec82b3f60b38c5329876d4329a1c48eb3ac9"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-4.png": {
+      "name": "celo-introduction-to-dappkit-image-4.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-4.png",
+      "digest": "69e8448e61e343336ccb6847ff9a944fe54d5f1314e41c5cf04ab360d540808b"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-3.png": {
+      "name": "celo-introduction-to-dappkit-image-3.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-3.png",
+      "digest": "64d95148b4cbc001d88fe1c52b7ed052ce38b3d63a46943d01b28abb24614af6"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-6.png": {
+      "name": "celo-introduction-to-dappkit-image-6.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-6.png",
+      "digest": "8e19076ed831d1bf0570716e97c1fec6c0168e8bce970f1463930b77312c7564"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-5.png": {
+      "name": "celo-introduction-to-dappkit-image-5.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-5.png",
+      "digest": "eff70d6b7cd28575c95824b9f53c65110c1530615c772d71837f1b4d222740d6"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "1b4559befed4b4724926713415700fc0357eacc7c5cc3a5ae5e36f9ed17d1567"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-7.png": {
+      "name": "celo-introduction-to-dappkit-image-7.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-7.png",
+      "digest": "bde56e48a88379712bb97079ffe1cc591454c934309a8d61c36e79f482dfcc9a"
+    }
+  },
+  "href": "learn/celo-introduction-to-dappkit",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

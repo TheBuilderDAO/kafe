@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/avalanche-create-a-new-virtual-machine",
+  "version": "1.0.0",
+  "description": "Learn how to create a new virtual machine on Avalanche",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Go",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

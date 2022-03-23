@@ -72,12 +72,29 @@ const extend = async () => {
 
     if (!tutorial?.author_url) {
       extended.author_url = `https://github.com/TheBuilderDAO`
-      extended.author_github_account = 'TheBuilderDAO'
+    }
+
+    if (!tutorial?.author_github_account) {
+      extended.author_name = 'The Builder Dao'
+    } else {
+      extended.author_name = tutorial.author_github_account
+    }
+
+    if (tutorial.slug === 'celo-ubeswap-tutorial') { // fix outdated link.
+      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/celo/celo-ubeswap-tutorial.md'
+    }
+
+    if (tutorial.slug === 'tezos-token-contracts') {
+      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/token-contracts.md'
+    }
+
+
+    if (tutorial.slug === 'avalanche-deploy-pangolin-to-local-testnet') {
+      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-your-local-testnet-and-create-token-pair.md'
     }
 
     extended.slug = getSLug()
-    extended.author_name = tutorial.author_github_account;
-    extended.author_github_account = tutorial?.author_url?.replace(/^https:\/\/github.com\//, ''),
+    extended.author_github_account = extended.author_url?.replace(/^https:\/\/github.com\//, ''),
     extended.author_image_url = `${extended.author_url}.png`;
     extended.oldSlug = tutorial.slug;
     extended.tags = tutorial.tags.map(parseTags)

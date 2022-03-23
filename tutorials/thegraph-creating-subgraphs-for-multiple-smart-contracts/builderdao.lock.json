@@ -1,0 +1,53 @@
+{
+  "proposalId": 325,
+  "slug": "thegraph-creating-subgraphs-for-multiple-smart-contracts",
+  "authors": [
+    {
+      "name": "Mohit Kumar",
+      "avatarUrl": "https://github.com/MohitKumar1991.png",
+      "url": "https://github.com/MohitKumar1991",
+      "nickname": "MohitKumar1991"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-init.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-init.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-init.png",
+      "digest": "b123f4eea0fc9eb6d13782fef3801679f62e83278068e53f5f6b24bdd70da316"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-playground.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-playground.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-playground.png",
+      "digest": "6d8583d9ddd6611f0f017108eeda7fa4b9a58e0e531eb4af1fd3d8e9ca86e59d"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram.png",
+      "digest": "8ca1593f9f67898f4283ed297afcc9744c54aecdc1c89d34ea8160fabec8d5f1"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "7fa699a7108499c5c946c0effebe90f64b5488a5a072d2a79b05a4d412646c5e"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    }
+  },
+  "href": "learn/thegraph-creating-subgraphs-for-multiple-smart-contracts",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

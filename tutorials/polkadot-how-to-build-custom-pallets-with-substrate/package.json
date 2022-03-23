@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/polkadot-how-to-build-custom-pallets-with-substrate",
+  "version": "1.0.0",
+  "description": "Learn how to build a custom pallet using the Substrate development framework",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polkadot",
+    "Rust",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

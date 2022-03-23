@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon",
+  "version": "1.0.0",
+  "description": "Learn how to build a Social Media dApp like YouTube & how to deploy it on the Polygon mumbai testnet",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polygon",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "Smart contracts",
+    "Solidity",
+    "IPFS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

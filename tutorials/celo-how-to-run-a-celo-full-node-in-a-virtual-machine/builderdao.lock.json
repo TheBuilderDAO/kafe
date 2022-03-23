@@ -1,0 +1,43 @@
+{
+  "proposalId": 366,
+  "slug": "celo-how-to-run-a-celo-full-node-in-a-virtual-machine",
+  "authors": [
+    {
+      "name": "Aidan Dedecker",
+      "avatarUrl": "https://github.com/Aidandedecker.png",
+      "url": "https://github.com/Aidandedecker",
+      "nickname": "Aidandedecker"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video.png": {
+      "name": "celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video.png",
+      "path": "content/assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video.png",
+      "digest": "3ddd8d07e1c81a1c85a3f35cd0793195e83d7338a7477f9a0d68b0a61d8349a7"
+    },
+    "content/assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png": {
+      "name": "celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png",
+      "path": "content/assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png",
+      "digest": "67f72f1aa3a9747a246756967e093851223631ca96802a07e8d26337ddb7779e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "26abe9ed9fb98d4f08931aeec6b1422960cfc43963ab8d637f1ea7f11e744d13"
+    }
+  },
+  "href": "learn/celo-how-to-run-a-celo-full-node-in-a-virtual-machine",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

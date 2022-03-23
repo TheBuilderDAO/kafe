@@ -1,0 +1,33 @@
+{
+  "proposalId": 414,
+  "slug": "avalanche-unit-testing-in-solidity",
+  "authors": [
+    {
+      "name": " Segun Ogundipe",
+      "avatarUrl": "https://github.com/Segun-Ogundipe/.png",
+      "url": "https://github.com/Segun-Ogundipe/",
+      "nickname": "Segun-Ogundipe/"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e5f454e82aa3dc88a2a89b44f54d9c64f49f0699cea8a68211101b55701d3355"
+    }
+  },
+  "href": "learn/avalanche-unit-testing-in-solidity",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

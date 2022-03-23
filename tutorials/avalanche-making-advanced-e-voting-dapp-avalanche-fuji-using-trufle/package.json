@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
+  "version": "1.0.0",
+  "description": "Learn to build an advanced e-Voting dApp on Avalanche Fuji testnet using Trufflesuite",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "Solidity",
+    "NodeJS",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

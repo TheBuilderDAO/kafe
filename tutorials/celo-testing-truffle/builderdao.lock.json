@@ -1,0 +1,48 @@
+{
+  "proposalId": 367,
+  "slug": "celo-testing-truffle",
+  "authors": [
+    {
+      "name": "Alex Reyes",
+      "avatarUrl": "https://github.com/alexreyes.png",
+      "url": "https://github.com/alexreyes",
+      "nickname": "alexreyes"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/celo-testing-truffle-pass.png": {
+      "name": "celo-testing-truffle-pass.png",
+      "path": "content/assets/celo-testing-truffle-pass.png",
+      "digest": "ff1f1eff404825bf0d193fcd544c22e430ef2226b43a42675cad1bb8a6ecf7de"
+    },
+    "content/assets/celo-testing-truffle-last-test.png": {
+      "name": "celo-testing-truffle-last-test.png",
+      "path": "content/assets/celo-testing-truffle-last-test.png",
+      "digest": "f5c3149fa507cf259f4a61bf8b6109a8add22590434854511c430849ad389d7c"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b09a31509a172187d33722f7e88ff9a460cd0ca2e86a260aee906fcf957f8cc1"
+    },
+    "content/assets/celo-testing-truffle-result.png": {
+      "name": "celo-testing-truffle-result.png",
+      "path": "content/assets/celo-testing-truffle-result.png",
+      "digest": "a488339193d1254ca240ac51b706f2de02eec14095fac3be0f3072bab707fb37"
+    }
+  },
+  "href": "learn/celo-testing-truffle",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

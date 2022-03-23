@@ -1,0 +1,19 @@
+{
+  "name": "@builderdao-learn/solana-explaining-solana-for-beginners",
+  "version": "1.0.0",
+  "description": "Learn about Solana with easy language aimed at beginners",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Solana"
+  ],
+  "author": "",
+  "license": "ISC"
+}

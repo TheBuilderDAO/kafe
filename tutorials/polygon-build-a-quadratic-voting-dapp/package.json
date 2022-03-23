@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/polygon-build-a-quadratic-voting-dapp",
+  "version": "1.0.0",
+  "description": "Learn how to make a quadratic voting app with collaboratively managed ranked lists",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polygon",
+    "Solidity",
+    "Truffle",
+    "Solidity",
+    "IPFS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

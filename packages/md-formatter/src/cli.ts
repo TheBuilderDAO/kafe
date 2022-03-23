@@ -12,8 +12,9 @@ import { remarkLiquidParser } from './remark-liquid-parser'
 import { remarkCopyLinkedFiles, sleep } from './remark-copy-linked'
 import { BuilderDaoConfig, TemplateService } from '@builderdao/cli'
 import async from 'async'
-import _, { sortBy } from 'lodash'
-import { tutorialDumpExtendedDB, TutorialDetailsRow, solanaDB } from './data'
+import { getFileFromGithub } from './github';
+import _ from 'lodash'
+import { tutorialDumpExtendedDB, solanaDB, TutorialExtended, SolanaDetailsRow } from './data'
 
 
 const getFile = async (pathForFile: string) => {
@@ -33,19 +34,23 @@ const destinationDir = path.resolve('/Users/necmttn/Projects/crypto/kafe/kafe/tu
 const tutorials = path.join('/Users/necmttn/Projects/crypto/kafe/learn-tutorials',)
 
 type FolderMeta = { slug: string, files: string[] }
-const processQueue = async.queue(async (guide: FolderMeta) => {
-  console.log("Processing => ", guide.slug)
+let processCount = 0
+const processQueue = async.queue(async (task: { tutorial: TutorialExtended, proposal: SolanaDetailsRow }) => {
+  // console.log(JSON.stringify({task}, null ,2))
+  console.log("Processing => ", task.tutorial.slug)
 
-  await tutorialDumpExtendedDB.read()
+  // await tutorialDumpExtendedDB.read()
   // // const c = Object.values(tutorialDetailDB.data).filter(x => x.markdown_path === guide.slug)
   // // console.log(c)
   // // const fileRelativePath = path.relative(tutorials, guide.)
-  const data = await tutorialDumpExtendedDB.chain.get(guide.slug).value()
+  // const data = await tutorialDumpExtendedDB.chain.get(guide.slug).value()
 
-  await main(guide.files, data, destinationDir)
+  await main(task, destinationDir)
+  processCount++
+  console.log(`totalProcessed: [${processCount}] inQueue: [${processQueue.length()}]`)
   await sleep(2000)
   // await main(file, data, destinationDir)
-}, 3)
+}, 6)
 
 
 const files: { [path: string]: FolderMeta } = {};
@@ -118,16 +123,19 @@ getFiles(tutorials).then(async () => {
 })
 
 const process = async () => {
-  await tutorialDumpExtendedDB.read();  
+  await tutorialDumpExtendedDB.read();
   await solanaDB.read();
 
   let matching = 0
   let total = 0
-  tutorialDumpExtendedDB.chain.entries().forEach(([key, value]) => {
-    const proposal = solanaDB.chain.find({slug: value.slug}).value();
+  tutorialDumpExtendedDB.chain.entries().forEach(async ([key, value]) => {
+    const proposal = solanaDB.chain.find({ slug: value.slug }).value();
     total++
     if (proposal) {
       matching++
+      // if (value.slug === 'near-stake-token-vision') {
+      await processQueue.pushAsync({ tutorial: value, proposal });
+      // }
       // console.log(proposal)
     } else {
       console.log("NOPE >> ", value.slug)
@@ -137,51 +145,73 @@ const process = async () => {
   console.log({ matching, total })
 }
 
-process();
+process().then(() => {
+  if (processQueue.length() > 0) {
+    processQueue.drain();
+  }
+});
 
 
 
 
 
-async function main(pathForFiles: string[], data: TutorialDetailsRow, destinationDir: string) {
+async function main(task: { tutorial: TutorialExtended, proposal: SolanaDetailsRow }, destinationDir: string) {
   try {
-    const targetFolder = path.join(destinationDir, data.folderSlug)
+    const targetFolder = path.join(destinationDir, task.tutorial.slug)
     await fs.ensureDir(targetFolder)
     const template = new TemplateService(targetFolder)
     await template.copy('empty')
-    await template.setName(data.folderSlug.toLowerCase())
-    await template.setTitle(data.title)
-    await template.setDescription(data.description)
-    await template.setTags(data.tags)
+    await template.setName(task.tutorial.slug.toLowerCase())
+    await template.setTitle(task.tutorial.title)
+    await template.setDescription(task.tutorial.description)
+    await template.setTags(task.tutorial.tags)
     await template.setAuthor({
-      name: data.author,
-      email: "", // TODO: add email
-      nickname: data.author_nickname,
-      avatarUrl: data.author_image_url
+      name: task.tutorial.author_name,
+      url: task.tutorial.author_url,
+      nickname: task.tutorial.author_github_account,
+      avatarUrl: task.tutorial.author_image_url
     })
+    await template.updateLock('proposalId', task.proposal.id)
+    const reviewer = {
+      pda: "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      pubkey: 'daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi',
+      githubName: 'LearnTeam'
+    }
+    await template.updateLock('creator', task.proposal.creator)
+    await template.updateLock('reviewers.reviewer1', reviewer)
+    await template.updateLock('reviewers.reviewer2', reviewer)
 
-    for (const pathForFile of pathForFiles) {
-      const source = await getFile(pathForFile);
+    for (const page of task.tutorial.pages) {
+      const source = await getFileFromGithub(page.markdown_url)
+      // const source = await getFile(pathForFile);
       const file = await unified()
         .use(remarkParse)
         .use(remarkStringify)
         .use(remarkCopyLinkedFiles, {
           destination: path.join(targetFolder, 'content'),
-          sourceFolder: path.dirname(pathForFile)
+          sourceUrl: page.markdown_url,
+          fileNamePrefix: `${task.tutorial.slug}${task.tutorial.is_multi_page ? `-${page.slug}` : ''}-`
         })
         .use(remarkLiquidParser as any)
         .process(source)
         .then(async file => {
-          console.log("PRocess Ended")
           // showDiff(source, String(file));
           // console.log(destinationDir)
           const frontMatter = `---
-title: ${data.title}
-description: ${data.description}
-keywords: [${data.tags.join(', ')}]
-date: '${new Date().toISOString()}'
+title: ${page.title}
+description: ${page.description}
+keywords: [${page.keywords.join(', ')}]
+date: '${task.tutorial.published_at}'
+${page.next_slug ?? `next:
+  title: '${_.find(task.tutorial.pages, { slug: page.next_slug })?.title || 'Next'}'
+  slug: '/${page.next_slug}'
+`}
+${page.previous_slug ?? `prev:
+  title: '${_.find(task.tutorial.pages, { slug: page.previous_slug })?.title || 'Previous'}'
+  slug: '/${page.previous_slug}'
+`}
 ---`
-          await template.addContent('index.mdx', [frontMatter, String(file)].join('\n'))
+          await template.addContent(page.page_number === 1 ? 'index.mdx' : page.slug, [frontMatter, String(file)].join('\n'))
         })
     }
     const config = new BuilderDaoConfig(targetFolder)

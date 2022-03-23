@@ -1,0 +1,43 @@
+{
+  "proposalId": 357,
+  "slug": "solana-create-a-simple-blog-dapp-on-solana",
+  "authors": [
+    {
+      "name": "Kiran Bhalerao",
+      "avatarUrl": "https://github.com/kiran-bhalerao.png",
+      "url": "https://github.com/kiran-bhalerao",
+      "nickname": "kiran-bhalerao"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-2.png": {
+      "name": "solana-create-a-simple-blog-dapp-on-solana-image-2.png",
+      "path": "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-2.png",
+      "digest": "e3e558e01649d19bc280070baf61a7cf8437c808ef8e90217e84150247e29903"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "013c18cef3d7ffc4d81d1b6fe750194654828a563e8b214952b9870d76b8e15d"
+    },
+    "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-1.png": {
+      "name": "solana-create-a-simple-blog-dapp-on-solana-image-1.png",
+      "path": "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-1.png",
+      "digest": "26921abcdfd40d81ab9e09755d6e4bf0f558c44a56327301e29d0a29ae954c6c"
+    }
+  },
+  "href": "learn/solana-create-a-simple-blog-dapp-on-solana",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

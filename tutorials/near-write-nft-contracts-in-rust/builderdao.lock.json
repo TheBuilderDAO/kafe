@@ -1,0 +1,38 @@
+{
+  "proposalId": 429,
+  "slug": "near-write-nft-contracts-in-rust",
+  "authors": [
+    {
+      "name": "Mykle Hansen",
+      "avatarUrl": "https://github.com/myklemykle.png",
+      "url": "https://github.com/myklemykle",
+      "nickname": "myklemykle"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a01a715a81fc541e70afcb56ac1973f33eda818f8381572507399beec75ed9e6"
+    },
+    "content/assets/near-write-nft-contracts-in-rust-image-1.png": {
+      "name": "near-write-nft-contracts-in-rust-image-1.png",
+      "path": "content/assets/near-write-nft-contracts-in-rust-image-1.png",
+      "digest": "2edbb4e738d6cb0c7ef2ae395c647891caf589243107cc4e99cdc8d7acc01686"
+    }
+  },
+  "href": "learn/near-write-nft-contracts-in-rust",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

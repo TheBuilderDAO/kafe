@@ -1,0 +1,27 @@
+{
+  "proposalId": 454,
+  "slug": "solana-build-a-crowdfunding-platform-on-solana",
+  "authors": [
+    {
+      "name": "Sushant Chandla",
+      "avatarUrl": "https://github.com/SushantChandla.png",
+      "url": "https://github.com/SushantChandla",
+      "nickname": "SushantChandla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {},
+  "href": "learn/solana-build-a-crowdfunding-platform-on-solana",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

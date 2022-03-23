@@ -1,0 +1,33 @@
+{
+  "proposalId": 303,
+  "slug": "polkadot-substrate-kitties-dispatchables-and-events",
+  "authors": [
+    {
+      "name": "Kresna Sucandra",
+      "avatarUrl": "https://github.com/SHA888.png",
+      "url": "https://github.com/SHA888",
+      "nickname": "SHA888"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "402bdb79c2da0babea7f7d4df07d1985d7b5d5581302524868bae45e4369fb4f"
+    }
+  },
+  "href": "learn/polkadot-substrate-kitties-dispatchables-and-events",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/thegraph-query-nft-data-with-subgraphs",
+  "version": "1.0.0",
+  "description": "Learn how to create, deploy and use a subgraph for an ERC-721 smart contract on Ethereum mainnet",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "The Graph",
+    "GraphQL",
+    "Smart contracts",
+    "GraphQL"
+  ],
+  "author": "",
+  "license": "ISC"
+}

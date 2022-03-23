@@ -1,0 +1,73 @@
+{
+  "proposalId": 380,
+  "slug": "thegraph-query-nft-data-with-subgraphs",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "url": "https://github.com/robin-thomas",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/thegraph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph-publish.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph-publish.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph-publish.png",
+      "digest": "267d98d36754691928b1ca94c7da2d1e0ce7829950b9d88b33315dbccfd99a30"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-create-your-first-subgraph.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-create-your-first-subgraph.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-create-your-first-subgraph.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph.png",
+      "digest": "ff25cbcaf9bba06d4ea5fd99558af8766f9bfd3e7c121c7ecc83ce609dddd2b1"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-login-to-subgraph-studio.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-login-to-subgraph-studio.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-login-to-subgraph-studio.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-open-sea-galaxy-eggs-7836.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-open-sea-galaxy-eggs-7836.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-open-sea-galaxy-eggs-7836.png",
+      "digest": "a680297648f18abb1cac13616d8ccc56fc0772d475e26368e34c519bab8f63c9"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-open-sea-assets.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-open-sea-assets.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-open-sea-assets.png",
+      "digest": "76dc42ac194de7ab4d853c8d54ddb786f4c1804fbcabd2770b9f5b4bc9f19daf"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-subgraph-studio.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-subgraph-studio.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-subgraph-studio.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d8e516f086a562165f83fd2047dfaf360201fbfcdb54875a7271149b3e8d93a1"
+    },
+    "content/assets/thegraph-query-nft-data-with-subgraphs-open-sea-galaxy-eggs.png": {
+      "name": "thegraph-query-nft-data-with-subgraphs-open-sea-galaxy-eggs.png",
+      "path": "content/assets/thegraph-query-nft-data-with-subgraphs-open-sea-galaxy-eggs.png",
+      "digest": "7940ed5b05e36beee6b9cb35259facc5a2756699daf479eea135d64f0b213464"
+    }
+  },
+  "href": "learn/thegraph-query-nft-data-with-subgraphs",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/solana-sol-mint-token",
+  "version": "1.0.0",
+  "description": "Create a token on the Solana blockchain with no coding needed",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Solana",
+    "Rust",
+    "Rust",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

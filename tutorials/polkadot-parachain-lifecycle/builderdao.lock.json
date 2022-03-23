@@ -1,0 +1,43 @@
+{
+  "proposalId": 372,
+  "slug": "polkadot-parachain-lifecycle",
+  "authors": [
+    {
+      "name": "Danny Salman",
+      "avatarUrl": "https://github.com/DannyS03.png",
+      "url": "https://github.com/DannyS03",
+      "nickname": "DannyS03"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-parachain-lifecycle-image-2.png": {
+      "name": "polkadot-parachain-lifecycle-image-2.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-2.png",
+      "digest": "ac83c77f78ccc61efe27576cb28395087c2f30285c8a710ac63980563b4cd610"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-1.png": {
+      "name": "polkadot-parachain-lifecycle-image-1.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-1.png",
+      "digest": "44a2449738022487220ac48ced83bd922187fa2e5736a9bc274bafa0f7cf289a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c7352e056aa4fb9998ef84df1a0124553340572b40fb338f8f337608e3985fe2"
+    }
+  },
+  "href": "learn/polkadot-parachain-lifecycle",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

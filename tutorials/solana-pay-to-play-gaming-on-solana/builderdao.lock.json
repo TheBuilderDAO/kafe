@@ -1,0 +1,38 @@
+{
+  "proposalId": 343,
+  "slug": "solana-pay-to-play-gaming-on-solana",
+  "authors": [
+    {
+      "name": "Sandeep Ghosh",
+      "avatarUrl": "https://github.com/blocksan.png",
+      "url": "https://github.com/blocksan",
+      "nickname": "blocksan"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c7a47df7ab651eb7e03ba14f77a6dd470daadfc6179d76698f7b69ff837885d2"
+    },
+    "content/assets/solana-pay-to-play-gaming-on-solana-solana-games.png": {
+      "name": "solana-pay-to-play-gaming-on-solana-solana-games.png",
+      "path": "content/assets/solana-pay-to-play-gaming-on-solana-solana-games.png",
+      "digest": "7f8d882c460ff7bc4e0b42ff6d4315bf45cf4920b2638771d40b05185a14127e"
+    }
+  },
+  "href": "learn/solana-pay-to-play-gaming-on-solana",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/avalanche-advanced-evoting-avalanche-reactjs",
+  "version": "1.0.0",
+  "description": "Learn how to create an Avalanche based dApp with a ReactJS frontend",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "NodeJS",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

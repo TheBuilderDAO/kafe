@@ -1,0 +1,12 @@
+{
+  "title": "Creating subgraphs for multiple smart contracts",
+  "description": "Learn how to build a subgraph for a complex dApp that uses multiple smart contracts, like Uniswap",
+  "imageUrl": "",
+  "categories": [
+    "The Graph",
+    "AssemblyScript",
+    "GraphQL",
+    "AssemblyScript",
+    "GraphQL"
+  ]
+}

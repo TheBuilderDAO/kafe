@@ -1,0 +1,33 @@
+{
+  "proposalId": 387,
+  "slug": "secret-delegate-and-unbond-tokens",
+  "authors": [
+    {
+      "name": "Minato Fund",
+      "avatarUrl": "https://github.com/minatofund.png",
+      "url": "https://github.com/minatofund",
+      "nickname": "minatofund"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "91a78635f7e2e511ab383dc26055e10ed2eec9ddda92840d6dd356a1e9671fff"
+    }
+  },
+  "href": "learn/secret-delegate-and-unbond-tokens",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

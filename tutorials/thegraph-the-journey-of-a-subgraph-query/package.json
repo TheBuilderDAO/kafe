@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/thegraph-the-journey-of-a-subgraph-query",
+  "version": "1.0.0",
+  "description": "Learn about how subgraph queries are performed and how they travel through the Graph Protocol",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "The Graph",
+    "GraphQL",
+    "Smart contracts",
+    "GraphQL",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

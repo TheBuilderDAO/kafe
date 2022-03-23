@@ -1,0 +1,15 @@
+{
+  "title": "How to create a ERC1155 NFT in Celo Network with Hardhat",
+  "description": "Learn how to write a smart contract using the Solidity language and a contract from the Openzeppelin library for ERC1155 tokens",
+  "imageUrl": "",
+  "categories": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "NodeJS",
+    "Smart contracts",
+    "Javascript",
+    "Hardhat"
+  ]
+}

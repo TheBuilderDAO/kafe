@@ -1,0 +1,83 @@
+{
+  "proposalId": 311,
+  "slug": "thegraph-the-journey-of-a-subgraph-query",
+  "authors": [
+    {
+      "name": "Sudeep Biswas",
+      "avatarUrl": "https://github.com/sudeepb02.png",
+      "url": "https://github.com/sudeepb02",
+      "nickname": "sudeepb02"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-access-token.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-access-token.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-access-token.png",
+      "digest": "a1154fd9c59385bdaefa509cd57f4ed18f298fcdc658207ec2b7eea91328cffd"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-auth.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-auth.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-auth.png",
+      "digest": "83faabf5b493835c1e74f6a43223794e7ddd1a536f54446e118f9076d48e5339"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy-2.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-deploy-2.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy-2.png",
+      "digest": "8415df8a88c6ed6194f344225c4fb358b3aa76af386cca14550639cbeb7103cc"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-deploy.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy.png",
+      "digest": "46f90e98ca9b16481ac948222f03bc1ccb29ac14ff3de6500fc455e1a842e928"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-init.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-init.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-init.png",
+      "digest": "9ae8bc9d12f2ea5ddef94046dbed0dccee2559eb73eff6d213d352ee62d3531f"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-explorer.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-explorer.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-explorer.png",
+      "digest": "fb66e2771afebd8cccc77561372750652dc5abd6dc38424e13b60ad5b741de36"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-01.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-playground-01.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-01.png",
+      "digest": "3005b49d1c9b8377f130536cbab9453479f34932118b5711d8a3f87257c069d9"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-02.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-playground-02.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-02.png",
+      "digest": "a2b6d8671f6594dea7143567150b0dc130def3fda55f9eb4bdca5f1bf05ff29e"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-03.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-graph-playground-03.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-03.png",
+      "digest": "c8b874e90b168d7fb13ee5dc0262a016d94a06d16ecc43e459d5cbd8822a0716"
+    },
+    "content/assets/thegraph-the-journey-of-a-subgraph-query-subgraph-yaml.png": {
+      "name": "thegraph-the-journey-of-a-subgraph-query-subgraph-yaml.png",
+      "path": "content/assets/thegraph-the-journey-of-a-subgraph-query-subgraph-yaml.png",
+      "digest": "8953379da2bef6f59cd8d5e741dcdb56f0bd10e9b3a739cce12fc93401069b97"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "142df5d681a6092383d9674884af61d61a04bae326da1a7ed470c9032b05f1c0"
+    }
+  },
+  "href": "learn/thegraph-the-journey-of-a-subgraph-query",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

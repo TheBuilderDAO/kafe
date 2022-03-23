@@ -1,0 +1,43 @@
+{
+  "proposalId": 417,
+  "slug": "near-build-a-registry-dapp-on-near",
+  "authors": [
+    {
+      "name": "Viraj Anjan",
+      "avatarUrl": "https://github.com/viraja1.png",
+      "url": "https://github.com/viraja1",
+      "nickname": "viraja1"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/near-build-a-registry-dapp-on-near-image-3.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-3.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-3.png",
+      "digest": "307c3b37cb94a18b96f6196b3b7c8fe46373dd18cfc60ff3cf6367e30b131f9f"
+    },
+    "content/assets/near-build-a-registry-dapp-on-near-image-4.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-4.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-4.png",
+      "digest": "67b3daee69b144ba29022bcf807b0a6469cd3cd979b2ef159ebdb80c84ac0e2e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c5cdcfcd5d382e9c81912f6d53223a1c4d766a90b033d2bab91cb089f577ff6d"
+    }
+  },
+  "href": "learn/near-build-a-registry-dapp-on-near",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

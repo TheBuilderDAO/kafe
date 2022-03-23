@@ -1,0 +1,48 @@
+{
+  "proposalId": 308,
+  "slug": "tezos-mint-your-own-fungible-token-on-tezos",
+  "authors": [
+    {
+      "name": "Priyanshu Dangi",
+      "avatarUrl": "https://github.com/PriyanshuDangi.png",
+      "url": "https://github.com/PriyanshuDangi",
+      "nickname": "PriyanshuDangi"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-ipfs.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs.png",
+      "digest": "381cecf824250bbd8e06a4ed31b7ddb081427a593eecf71a9ec4d6ee624cd9e5"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev.png",
+      "digest": "ae4db314162262e3c99c578ee4c9eca68f76e99a2319729dee2c0c63bec9ea66"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "26f393d3cd94b15d5e0c5b05586f60c9e82f34ff8b9736ded0c99ed0a6058162"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py.png",
+      "digest": "00292fa0dbe79e1b36f3e047484f4274e9c521a561542413f1f9e79d041e75d6"
+    }
+  },
+  "href": "learn/tezos-mint-your-own-fungible-token-on-tezos",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

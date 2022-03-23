@@ -1,0 +1,53 @@
+{
+  "proposalId": 301,
+  "slug": "polkadot-build-a-poe-decentralized-app",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-build-a-poe-decentralized-app-file-hash.png": {
+      "name": "polkadot-build-a-poe-decentralized-app-file-hash.png",
+      "path": "content/assets/polkadot-build-a-poe-decentralized-app-file-hash.png",
+      "digest": "e513e3c46df8a6ac4f309e195bb637b304c3e4df61b9812538cebab552ff9f05"
+    },
+    "content/assets/polkadot-build-a-poe-decentralized-app-claimed-file.png": {
+      "name": "polkadot-build-a-poe-decentralized-app-claimed-file.png",
+      "path": "content/assets/polkadot-build-a-poe-decentralized-app-claimed-file.png",
+      "digest": "f81854b0512628be23513117fffa6b0cf5c1c8c1133096d102a9e3632e467b9b"
+    },
+    "content/assets/polkadot-build-a-poe-decentralized-app-proof-of-existence-component.png": {
+      "name": "polkadot-build-a-poe-decentralized-app-proof-of-existence-component.png",
+      "path": "content/assets/polkadot-build-a-poe-decentralized-app-proof-of-existence-component.png",
+      "digest": "03d2a7447afd4ce4735bc62b6fad4822270ae91ce5e7bf03e45d78487d996d37"
+    },
+    "content/assets/polkadot-build-a-poe-decentralized-app-runtime-composition.png": {
+      "name": "polkadot-build-a-poe-decentralized-app-runtime-composition.png",
+      "path": "content/assets/polkadot-build-a-poe-decentralized-app-runtime-composition.png",
+      "digest": "00b4677de071ec42b795f82f14b4f17d419764a214a47a183adddb385f4788a1"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fcbc7a15230efa626c9179ca675556e0e9062e25c6a9a2277dbf00b947073356"
+    }
+  },
+  "href": "learn/polkadot-build-a-poe-decentralized-app",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

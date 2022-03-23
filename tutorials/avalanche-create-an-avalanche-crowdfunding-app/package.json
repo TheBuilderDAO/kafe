@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/avalanche-create-an-avalanche-crowdfunding-app",
+  "version": "1.0.0",
+  "description": "Learn how to build a complete crowdfunding app using Avalanche",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "React",
+    "Javascript",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

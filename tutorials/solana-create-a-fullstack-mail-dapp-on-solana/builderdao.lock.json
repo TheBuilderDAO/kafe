@@ -1,0 +1,58 @@
+{
+  "proposalId": 312,
+  "slug": "solana-create-a-fullstack-mail-dapp-on-solana",
+  "authors": [
+    {
+      "name": "Segun Ogundipe",
+      "avatarUrl": "https://github.com/Segun-Ogundipe.png",
+      "url": "https://github.com/Segun-Ogundipe",
+      "nickname": "Segun-Ogundipe"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-1.png": {
+      "name": "solana-create-a-fullstack-mail-dapp-on-solana-image-1.png",
+      "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-1.png",
+      "digest": "c42833b69c1e09bb28502e5d46c85f7f178d78049301b499d1e70bac4c06c85c"
+    },
+    "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-2.png": {
+      "name": "solana-create-a-fullstack-mail-dapp-on-solana-image-2.png",
+      "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-2.png",
+      "digest": "8713c21b77db6c159b3d01b41427291414803dca11129ffb3fecaf368fa6c121"
+    },
+    "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-3.png": {
+      "name": "solana-create-a-fullstack-mail-dapp-on-solana-image-3.png",
+      "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-3.png",
+      "digest": "9a85f54d97a1ae8526a4b96997eac631c399a75a5cbe7f57145066186bf8be5a"
+    },
+    "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-4.png": {
+      "name": "solana-create-a-fullstack-mail-dapp-on-solana-image-4.png",
+      "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-4.png",
+      "digest": "54bb91d2c303175ea6a2a716ada86841a9d3761f69b79a83fe48ffb36500fe52"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "92b1eafb265b3f24d5a17f0af0a9b3215408a6b2b6bd699b3448576ff1c16126"
+    },
+    "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-5.png": {
+      "name": "solana-create-a-fullstack-mail-dapp-on-solana-image-5.png",
+      "path": "content/assets/solana-create-a-fullstack-mail-dapp-on-solana-image-5.png",
+      "digest": "79ba68c881ac619bb384761826b34e70753db0fd0c19b7cd80a9c3dd86362939"
+    }
+  },
+  "href": "learn/solana-create-a-fullstack-mail-dapp-on-solana",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/avalanche-create-an-amm-on-avalanche",
+  "version": "1.0.0",
+  "description": "Learn how to build a basic AMM with Provide, Withdraw and Swap functions",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

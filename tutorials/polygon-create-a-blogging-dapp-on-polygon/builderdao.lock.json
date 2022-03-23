@@ -1,0 +1,88 @@
+{
+  "proposalId": 396,
+  "slug": "polygon-create-a-blogging-dapp-on-polygon",
+  "authors": [
+    {
+      "name": "Giovanni Fu Lin",
+      "avatarUrl": "https://github.com/aeither.png",
+      "url": "https://github.com/aeither",
+      "nickname": "aeither"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-1.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-1.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-1.png",
+      "digest": "d5c0fd85a70b64d5ea43fefe3cb65b0436656909000bd42cc0178d5b5e0a9fa1"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-10.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-10.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-10.png",
+      "digest": "dd93c61335fa2099501854a8140ffb14fefd142e80202ebdb0394c6f7c37df21"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-2.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-2.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-2.png",
+      "digest": "92d79ca9d9e2f2e12ce674b1c455fedf92c09e855027c736333e69a397f08a33"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-11.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-11.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-11.png",
+      "digest": "b6350e07485aed9a0ed17dc4455765538c3abe80ba322f4211ba2367d2c6c475"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-3.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-3.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-3.png",
+      "digest": "629f56ea81264684f855833f826e96660535af4fb62d634a2930ebe49dfa1886"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-4.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-4.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-4.png",
+      "digest": "b9ba83561b7c0340a32639c3ec2771ff5e2fb65ae98c5a0b33649875258fa08b"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-5.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-5.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-5.png",
+      "digest": "4365c616d1890dde55fcb25b5e01aaaaa8aaa532659284d8610190f44cf7ea6a"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-6.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-6.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-6.png",
+      "digest": "d1819578bf6c247f2f1504b34786f02ce0cbcd4010a0b391bbcd698b04f5f592"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-8.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-8.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-8.png",
+      "digest": "f72a005eb922ccc4490f29e6bc84b52b6e32f901ef3c1af3455f5b40b3e4efb8"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-7.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-7.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-7.png",
+      "digest": "f8477aa79e345671bbe53bbef6057b7bda60ba88d8cf6de9816342bb29780392"
+    },
+    "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-9.png": {
+      "name": "polygon-create-a-blogging-dapp-on-polygon-image-9.png",
+      "path": "content/assets/polygon-create-a-blogging-dapp-on-polygon-image-9.png",
+      "digest": "bded3e7a110d283e78dc5f3c6d2c2227a81f524477c9b915fdd27da9abfc2676"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e29dc10eb50f0d95f67ea6a13d93a66fd8945314d7310664d26186a6bbe68591"
+    }
+  },
+  "href": "learn/polygon-create-a-blogging-dapp-on-polygon",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

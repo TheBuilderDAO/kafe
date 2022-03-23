@@ -1,0 +1,38 @@
+{
+  "proposalId": 327,
+  "slug": "avalanche-using-hardhat-with-the-avalanche-c-chain",
+  "authors": [
+    {
+      "name": "Kevin Madhu",
+      "avatarUrl": "https://github.com/breathebinary.png",
+      "url": "https://github.com/breathebinary",
+      "nickname": "breathebinary"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "9e1358fde7c09dc3b58b2c875a6b65c63c1ce45c5358ecb4c01f47bce7aa7bc9"
+    },
+    "content/assets/avalanche-using-hardhat-with-the-avalanche-c-chain-image-1.png": {
+      "name": "avalanche-using-hardhat-with-the-avalanche-c-chain-image-1.png",
+      "path": "content/assets/avalanche-using-hardhat-with-the-avalanche-c-chain-image-1.png",
+      "digest": "0bfbbe88362751005134cff268cacb161d2310dd3082c3b56cf011164a97418c"
+    }
+  },
+  "href": "learn/avalanche-using-hardhat-with-the-avalanche-c-chain",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

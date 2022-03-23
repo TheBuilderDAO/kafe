@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/polkadot-write-a-pallet-in-its-own-crate",
+  "version": "1.0.0",
+  "description": "Learn how to write a Substrate pallet that lives in its own crate, and include it in a node based on the substrate-node-template",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polkadot",
+    "Rust",
+    "AssemblyScript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

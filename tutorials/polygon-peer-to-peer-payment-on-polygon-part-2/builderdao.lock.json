@@ -1,0 +1,53 @@
+{
+  "proposalId": 342,
+  "slug": "polygon-peer-to-peer-payment-on-polygon-part-2",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "url": "https://github.com/viral-sangani",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-metamask-import-token-form.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-2-metamask-import-token-form.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-metamask-import-token-form.png",
+      "digest": "06895019f39e7c54e3738c3b203a237a502cb29818e066fcce2bab6b07efee39"
+    },
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-metamask-import-token.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-2-metamask-import-token.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-metamask-import-token.png",
+      "digest": "53dc9b7de1da038c8378019432e76dec481be2e8300de06a985e5d9c8e271686"
+    },
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-tokens-modal.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-2-tokens-modal.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-tokens-modal.png",
+      "digest": "204efbe5f93972531720e70d407369bb1db2385606f5024ba705bc7b0fc9857c"
+    },
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-app-demo.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-2-app-demo.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-2-app-demo.png",
+      "digest": "73e0511be5169a8a21d89bb0d4f44772cd502f0ea3d5d941fa3e4bd7e347169d"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "0fc62704ef8395d074e57cefa105bce254f46264f6added47ff697018a2571c4"
+    }
+  },
+  "href": "learn/polygon-peer-to-peer-payment-on-polygon-part-2",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/polkadot-substrate-kitties-create-kitties",
+  "version": "1.0.0",
+  "description": "Learn how to add uniqueness to your Substrate Kitties",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polkadot",
+    "Rust",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

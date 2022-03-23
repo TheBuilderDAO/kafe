@@ -1,0 +1,12 @@
+{
+  "title": "Deploying and Debugging Smart Contracts on Polygon",
+  "description": "Learn how to deploy smart contracts to the Polygon Mumbai testnet and how to debug them",
+  "imageUrl": "",
+  "categories": [
+    "Polygon",
+    "Solidity",
+    "Smart contracts",
+    "Truffle",
+    "Solidity"
+  ]
+}

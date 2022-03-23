@@ -1,0 +1,78 @@
+{
+  "proposalId": 388,
+  "slug": "solana-build-a-blog-dapp-using-anchor",
+  "authors": [
+    {
+      "name": "Doug Anderson",
+      "avatarUrl": "https://github.com/DougAnderson444.png",
+      "url": "https://github.com/DougAnderson444",
+      "nickname": "DougAnderson444"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-2.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-2.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-2.png",
+      "digest": "12debee4430bdd67fb9c3493b9e2d1a186eb9ebae0644101c19020ed5707d19c"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-3.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-3.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-3.png",
+      "digest": "8a979d0f1d71dbdc9a3ef2ee82d7de6ff7e4280fd5dc5cfefa2f28fd434d2b59"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-4.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-4.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-4.png",
+      "digest": "11dd34a4179a4fd5197a5aff0054ee0f40f99c49e3105c2a2e21c8d707caca25"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-5.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-5.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-5.png",
+      "digest": "196be3dd8d5d1fb91eff79b251d25737c56d71ef330fe756bf2daf439441d632"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-6.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-6.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-6.png",
+      "digest": "23cd2bab13222632ff2950b6645c16de459c3bb7bd68583b1492bda5efaf5e34"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-7.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-7.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-7.png",
+      "digest": "24a2071200775a5771359a4d2e28db0f32450e45f6f2fe92b80588350d042fe8"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-logo.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-logo.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-logo.png",
+      "digest": "c553cc400210e96ce485b30cccf4c76563df720c35a03f4f996f91ccd6be5253"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-run.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-run.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-run.png",
+      "digest": "71bea8ab217ee5feb41c607b22e67711b590bd3fc89be1e8cdc5393aedb16614"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "1f31b8ad370d226049f516e405f8ecc26de6db5347974bb332d771b97a50f9cc"
+    },
+    "content/assets/solana-build-a-blog-dapp-using-anchor-image-9.png": {
+      "name": "solana-build-a-blog-dapp-using-anchor-image-9.png",
+      "path": "content/assets/solana-build-a-blog-dapp-using-anchor-image-9.png",
+      "digest": "c0b3b8bbc15bd7d08f71c680460b3c9e2d2c68c0c60c8d10ac369db0a3d239dd"
+    }
+  },
+  "href": "learn/solana-build-a-blog-dapp-using-anchor",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

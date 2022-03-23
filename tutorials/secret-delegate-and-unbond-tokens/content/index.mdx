@@ -1,0 +1,244 @@
+---
+title: Delegate to a Validator & Unbond Tokens
+description: Learn how to delegate and unbond tokens on Secret Network
+keywords: [Secret, JS/TS, NodeJS]
+date: '2021-07-21T11:01:00.544Z'
+next:
+  title: 'Next'
+  slug: '/null'
+
+prev:
+  title: 'Previous'
+  slug: '/null'
+---
+
+# Introduction
+
+If you are interested in staking SCRT tokens but do not want to run your own node, delegation is a great option. In this tutorial, we will delegate SCRT tokens to a validator, and unbond the delegation using SecretJS and a [DataHub](https://datahub.figment.io/sign_up?service=secret) node.
+
+## What is Delegation?
+
+Delegation involves giving some of your staking power to a specific validator on the Secret Network, who will then give you a share of their fees and rewards. As a delegator, you essentially get the same returns as a node operator minus their commissions. If there is an on-chain governance vote, a delegator's vote will be the same as their validator's, unless the delegator changes their own vote manually. Since there can currently only be 50 active nodes on the network, delegators play a crucial role in decentralization.
+
+# Prerequisites
+
+If you have completed the Secret Pathway, you should have already taken care of these prerequisites. For this tutorial you must:
+
+- Install node.js and npm, and set up your DataHub environment
+- Create an account on the Secret testnet
+- Make sure you have testnet tokens in your account
+
+# Delegate to a Validator
+
+First, you need to decide which validator you would like to delegate to. You can go to this URL <https://explorer.secrettestnet.io/validators/> to check the active validators. Once you have selected one, you can start to build the delegation transaction by creating a new file `delegate.js` and adding the code below:
+
+```javascript
+const {
+  CosmWasmClient,
+  Secp256k1Pen,
+  pubkeyToAddress,
+  encodeSecp256k1Pubkey,
+  makeSignBytes,
+} = require('secretjs');
+
+require('dotenv').config();
+
+const main = async () => {
+  // As in previous tutorial, initialize client from .env
+  const mnemonic = process.env.MNEMONIC;
+  const signingPen = await Secp256k1Pen.fromMnemonic(mnemonic).catch(err => {
+    throw new Error(`Could not get signing pen: ${err}`);
+  });
+  const pubkey = encodeSecp256k1Pubkey(signingPen.pubkey);
+  const accAddress = pubkeyToAddress(pubkey, 'secret');
+  const client = new CosmWasmClient(process.env.SECRET_REST_URL);
+  // Define the validator address to delegate
+  const valAddress = '<VALIDATOR ADDRESS YOU WANT TO DELEGATE>';
+
+  // Optionally, define a memo for the transaction
+  const memo = 'My first secret delegation';
+
+  // 1. Define TX message
+
+  // 2. Define fees
+
+  // 3. Sign transaction
+
+  // 4. Broadcast TX
+
+  // 5. Query TX by hash/ID
+};
+
+main().catch(err => {
+  console.error(err);
+});
+```
+
+# Define TX message
+
+Now, you need to define the TX message that allows you to specify the delegator address, validator address and the amount of tokens you want to delegate. In the `delegate.js` file under the comment `// 1. Define TX message` add the following code snippet:
+
+```javascript
+const sendMsg = {
+  type: 'cosmos-sdk/MsgDelegate',
+  value: {
+    delegator_address: accAddress,
+    validator_address: valAddress,
+    amount: {
+      denom: 'uscrt',
+      amount: '1000000',
+    },
+  },
+};
+```
+
+# Define fees
+
+Then, you have to define the fee and gas for this transaction. Under the comment `// 2. Define fees` add the following code snippet:
+
+```javascript
+const fee = {
+  amount: [
+    {
+      amount: '50000',
+      denom: 'uscrt',
+    },
+  ],
+  gas: '200000',
+};
+```
+
+# Sign transaction
+
+In order to authorize the transaction, and prove it is valid, you need to sign the transaction with the details you defined above. Under the comment `// 3. Sign transaction` add the following code snippet:
+
+```javascript
+const chainId = await client.getChainId().catch(err => {
+  throw new Error(`Could not get chain id: ${err}`);
+});
+const { accountNumber, sequence } = await client
+  .getNonce(accAddress)
+  .catch(err => {
+    throw new Error(`Could not get nonce: ${err}`);
+  });
+const signBytes = makeSignBytes(
+  [sendMsg],
+  fee,
+  chainId,
+  memo,
+  accountNumber,
+  sequence,
+);
+const signature = await signingPen.sign(signBytes).catch(err => {
+  throw new Error(`Could not sign: ${err}`);
+});
+const signedTx = {
+  msg: [sendMsg],
+  fee,
+  memo,
+  signatures: [signature],
+};
+```
+
+# Broadcast transaction
+
+Now, you can broadcast your transaction, let others know and process it as well. Under the comment `// 4. Broadcast transaction` add the following code snippet:
+
+```javascript
+const { transactionHash } = await client.postTx(signedTx).catch(err => {
+  throw new Error(`Could not post tx: ${err}`);
+});
+```
+
+# Query transaction
+
+After your transaction is accepted and processed, you can query the information about your transaction on the Secret Network. Under the comment `// 5. Query transaction` add the following code snippet:
+
+```javascript
+const query = { id: transactionHash };
+const tx = await client.searchTx(query).catch(err => {
+  throw new Error(`Could not search tx: ${err}`);
+});
+console.log('Transaction: ', tx);
+```
+
+Let's run the code:
+
+```text
+node delegate.js
+```
+
+If everything works (you have enough tokens, validator is valid, etc) you should see an output similar to:
+
+    Transaction:  [
+      {
+        height: 1137370,
+        hash: 'B10B6F540E95635B9E7D9F03DB4A423D70553CB7E7391F62D6CC295B4CCD9335',
+        code: 0,
+        rawLog: '[{"msg_index":0,"log":"","events":[{"type":"delegate","attributes":[{"key":"validator","value":"secretvaloper132yjx48nerguvdcpv7huljhyrtlrt86n8f8u72"},{"key":"amount","value":"1000000"}]},{"type":"message","attributes":[{"key":"action","value":"delegate"},{"key":"module","value":"staking"},{"key":"sender","value":"secret14hevdc4hfzdkqjqk38pgmk4kj9988l3ce80lkr"}]}]}]',
+        logs: [ [Object] ],
+        tx: { type: 'cosmos-sdk/StdTx', value: [Object] },
+        timestamp: '2021-01-23T07:58:09Z'
+      }
+    ]
+
+Copy the transaction's `hash` from the output and replace `<TRANSACTION HASH>` in the link below. OPEN LINK BELOW to see the transaction in Secret Explorer!
+
+`https://explorer.secrettestnet.io/transactions/<TRANSACTION HASH>`
+
+# Unbond Tokens
+
+> **WARNING**: There currently is a 21 day unbonding period, during which no rewards are handed out and your tokens are locked.
+
+If for any reason the validator misbehaves, or you just want to unbond a certain amount of tokens, make a copy of `delegate.js` and rename is as `unbond.js`. Then, change the code under the comment `// 1. Define TX message` as following code snippet below:
+
+```javascript
+const sendMsg = {
+  // This time, we use MsgUndelegate type to unbond tokens.
+  type: 'cosmos-sdk/MsgUndelegate',
+  value: {
+    delegator_address: accAddress,
+    validator_address: valAddress,
+    amount: {
+      denom: 'uscrt',
+      amount: '1000000',
+    },
+  },
+};
+```
+
+The other parts can remain the same, and let's run the code:
+
+```text
+node unbond.js
+```
+
+If everything works (you have enough delegation on the validator and etc) you should see an output similar to:
+
+    Transaction:  [
+      {
+        height: 1137693,
+        hash: '06335FCD7E2A1D91101F051763173A7EE8AD6B2D859389D135058FDD1CADD8BB',
+        code: 0,
+        rawLog: '[{"msg_index":0,"log":"","events":[{"type":"message","attributes":[{"key":"action","value":"begin_unbonding"},{"key":"sender","value":"secret1jv65s3grqf6v6jl3dp4t6c9t9rk99cd896s45r"},{"key":"sender","value":"secret1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3h7axyt"},{"key":"module","value":"staking"},{"key":"sender","value":"secret14hevdc4hfzdkqjqk38pgmk4kj9988l3ce80lkr"}]},{"type":"transfer","attributes":[{"key":"recipient","value":"secret14hevdc4hfzdkqjqk38pgmk4kj9988l3ce80lkr"},{"key":"amount","value":"33561525770uscrt"},{"key":"recipient","value":"secret1tygms3xhhs3yv487phx3dw4a95jn7t7lr7phjl"},{"key":"amount","value":"1000000uscrt"}]},{"type":"unbond","attributes":[{"key":"validator","value":"secretvaloper132yjx48nerguvdcpv7huljhyrtlrt86n8f8u72"},{"key":"amount","value":"1000000"},{"key":"completion_time","value":"2021-02-13T08:28:59Z"}]}]}]',
+        logs: [ [Object] ],
+        tx: { type: 'cosmos-sdk/StdTx', value: [Object] },
+        timestamp: '2021-01-23T08:28:59Z'
+      }
+    ]
+
+Copy the transaction's `hash` from the output and replace `<TRANSACTION HASH>` in the link below. OPEN LINK BELOW to see the transaction in Secret Explorer!
+
+`https://explorer.secrettestnet.io/transactions/<TRANSACTION HASH>`
+
+The unbonding will be automatically completed when the unbonding period has passed.
+
+# Conclusion
+
+Congratulations! You now know how to delegate and unbond your tokens by crafting advanced transactions from scratch with SecretJS and DataHub. You will be able to make complex transactions and interactions on the Secret Network. More message types can be found in the [Cosmos SDK](https://docs.cosmos.network/master/modules/).
+
+The complete code can be found on [**Github**](https://github.com/figment-networks/tutorials/blob/main/secret/6_delegations)**.**
+
+# About the Author
+
+This tutorial was created by [Minato Fund](https://github.com/minatofund), an active group helping merge blockchain projects operating as a validator.

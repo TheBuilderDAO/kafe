@@ -1,0 +1,14 @@
+{
+  "title": "Testing Celo Smart Contracts with Truffle",
+  "description": "We will learn how to use Truffle in order to test smart contracts on Celo",
+  "imageUrl": "",
+  "categories": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle",
+    "Javascript"
+  ]
+}

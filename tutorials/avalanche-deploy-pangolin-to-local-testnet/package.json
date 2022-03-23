@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/avalanche-deploy-pangolin-to-local-testnet",
+  "version": "1.0.0",
+  "description": "Learn about token pairs and the Pangolin Decentralized Exchange",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Solidity",
+    "Smart contracts",
+    "Javascript",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

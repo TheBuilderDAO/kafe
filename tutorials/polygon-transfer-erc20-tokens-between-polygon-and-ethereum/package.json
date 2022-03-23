@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/polygon-transfer-erc20-tokens-between-polygon-and-ethereum",
+  "version": "1.0.0",
+  "description": "Learn how to bridge ERC-20 tokens between networks using the Polygon Proof of Stake bridge and SDK",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polygon",
+    "JS/TS",
+    "NodeJS",
+    "Javascript",
+    "Metamask"
+  ],
+  "author": "",
+  "license": "ISC"
+}

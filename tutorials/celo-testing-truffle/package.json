@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/celo-testing-truffle",
+  "version": "1.0.0",
+  "description": "We will learn how to use Truffle in order to test smart contracts on Celo",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

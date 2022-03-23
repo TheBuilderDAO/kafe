@@ -1,0 +1,83 @@
+{
+  "proposalId": 442,
+  "slug": "avalanche-transfer-erc20-from-c-chain-to-ethereum",
+  "authors": [
+    {
+      "name": "Seongwoo Oh",
+      "avatarUrl": "https://github.com/blackwidoq.png",
+      "url": "https://github.com/blackwidoq",
+      "nickname": "blackwidoq"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-added.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-added.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-added.png",
+      "digest": "0347233221fe807055bd879d3a6e3f409b5f537db7f84c7f8e1bd980e74b2224"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-in-metamask.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-in-metamask.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-in-metamask.png",
+      "digest": "09e5570d5e2d93dc450b53ebfe043b77f2446b89c0ccb395180e70ff7f45e4b3"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-contract-address-typed.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-contract-address-typed.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-contract-address-typed.png",
+      "digest": "0620d691aa52734d5d10dafc781d79edfa4ba690021f8339a8898ca7bd8176bd"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub.png",
+      "digest": "696db1583209aa6b6ac2b0b2417966adb84fa43c987f07fcde35725046a395b5"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example-output.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-example-output.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example-output.png",
+      "digest": "71f5286ad9226efc5063fdd703017d339480a57b29f9b8016a0ea8ae149ab967"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-from-pangolin.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-from-pangolin.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-from-pangolin.png",
+      "digest": "e7f5c21841c324891c68615088e4c4b79f0525b894118bed08a343fa4328c8b9"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-example.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example.png",
+      "digest": "6e69a8f4b9aec56e4aff5ecb69bae7fe0952dcddac8c5d815b6d32de3d42745a"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-metamask-balance.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-metamask-balance.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-metamask-balance.png",
+      "digest": "88e7b8bb6db2a1badda0f2a63c7292140a52c1f3bfc50371bcba4bceb9126c9a"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-not-shown.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-not-shown.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-not-shown.png",
+      "digest": "2c73576a5b92dad835c269043a099fc2d25927d8ad6c11c3d261556d8a874b22"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b548a28a91c1386c956cd3a7a9d900ac406f1f0942c45aae5f4512f86db3e20d"
+    },
+    "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-send-to-avax-wallet.png": {
+      "name": "avalanche-transfer-erc20-from-c-chain-to-ethereum-send-to-avax-wallet.png",
+      "path": "content/assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-send-to-avax-wallet.png",
+      "digest": "5bd6e5ce5f7fcb2be606929cab1d09f84ebb4e2e9aaf53c50d9601f530e6b21d"
+    }
+  },
+  "href": "learn/avalanche-transfer-erc20-from-c-chain-to-ethereum",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

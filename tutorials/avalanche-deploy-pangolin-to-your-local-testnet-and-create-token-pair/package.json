@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair",
+  "version": "1.0.0",
+  "description": "We will learn how to deploy Pangolin, a DEX which lives on C-Chain, to your local Avalanche testnet.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Go",
+    "JS/TS",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

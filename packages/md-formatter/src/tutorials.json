@@ -4,6 +4,7 @@
     "is_multi_page": true,
     "title": "Secret 101",
     "description": "Learn to build on Secret with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
@@ -121,7 +122,7 @@
         "page_number": 11
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "secret-pathway"
   },
@@ -130,6 +131,7 @@
     "is_multi_page": true,
     "title": "Polkadot 101",
     "description": "Learn to build on Polkadot with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
@@ -247,7 +249,7 @@
         "page_number": 11
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "polkadot-pathway"
   },
@@ -256,6 +258,7 @@
     "is_multi_page": true,
     "title": "Celo 101",
     "description": "Learn to build on Celo with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "React", "Solidity", "Next.js"],
@@ -373,7 +376,7 @@
         "page_number": 11
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "celo-pathway"
   },
@@ -382,6 +385,7 @@
     "is_multi_page": true,
     "title": "The Graph 101",
     "description": "Learn to build on The Graph with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "React", "Next.js"],
@@ -479,7 +483,7 @@
         "page_number": 9
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "the-graph-pathway"
   },
@@ -488,6 +492,7 @@
     "is_multi_page": true,
     "title": "Polygon 101",
     "description": "Learn to build on Polygon with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "Solidity", "Truffle", "Solidity", "Next.js"],
@@ -682,7 +687,7 @@
         "page_number": 11
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "polygon-pathway"
   },
@@ -691,6 +696,7 @@
     "is_multi_page": true,
     "title": "NEAR 101",
     "description": "Learn to build on NEAR with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Near", "JS/TS", "React", "Rust", "Next.js"],
@@ -818,7 +824,7 @@
         "page_number": 12
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "near-pathway"
   },
@@ -827,6 +833,7 @@
     "is_multi_page": true,
     "title": "Solana 101",
     "description": "Learn to build on Solana with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Solana", "JS/TS", "React", "Rust", "Next.js"],
@@ -954,7 +961,7 @@
         "page_number": 12
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "solana-pathway"
   },
@@ -1137,6 +1144,7 @@
     "is_multi_page": true,
     "title": "Ceramic 101",
     "description": "Learn to build on Ceramic with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Ceramic", "JS/TS", "React", "Next.js"],
@@ -1154,7 +1162,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "ceramic-pathway"
   },
@@ -1270,6 +1278,7 @@
     "is_multi_page": true,
     "title": "Avalanche 101",
     "description": "Learn to build on Avalanche with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "React", "Solidity", "Next.js"],
@@ -1377,7 +1386,7 @@
         "page_number": 10
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "avalanche-pathway"
   },
@@ -1386,6 +1395,7 @@
     "is_multi_page": true,
     "title": "The Graph + NEAR",
     "description": "Learn how to index data from NEAR using The Graph",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["The Graph", "JS/TS", "React", "Next.js"],
@@ -1483,7 +1493,7 @@
         "page_number": 9
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "the-graph-near-pathway"
   },
@@ -1492,6 +1502,7 @@
     "is_multi_page": true,
     "title": "Tezos 101",
     "description": "Learn to build on Tezos with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Tezos", "JS/TS", "React", "Next.js"],
@@ -1609,7 +1620,7 @@
         "page_number": 11
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "tezos-pathway"
   },
@@ -1645,6 +1656,7 @@
     "is_multi_page": false,
     "title": "Build a PoE Decentralized App",
     "description": "Learn to create a custom \"Proof of Existence\" dApp using the Substrate blockchain development framework and FRAME runtime libraries",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "Rust", "React", "NodeJS"],
@@ -1662,7 +1674,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "build-a-poe-decentralized-app"
   },
@@ -1758,6 +1770,7 @@
     "is_multi_page": false,
     "title": "Querying the Terra blockchain",
     "description": "Learn how to pull information from the Terra Blockchain using DataHub",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
@@ -1775,7 +1788,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "querying-the-terra-blockchain"
   },
@@ -1836,7 +1849,7 @@
         "title": "How to use Ubeswap DEX on Celo",
         "slug": "celo-ubeswap-tutorial",
         "description": "This tutorial is a part of DeFi series where people can learn how to participate in DeFi on the Celo Blockchain.",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/datahub-learn/master/network-documentation/celo/tutorial/celo-ubeswap-tutorial.md",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/celo/celo-ubeswap-tutorial.md",
         "keywords": ["Celo"],
         "next_slug": null,
         "previous_slug": null,
@@ -2534,6 +2547,7 @@
     "is_multi_page": false,
     "title": "Create a New Virtual Machine",
     "description": "Learn how to create a new virtual machine on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "CLI"],
@@ -2551,7 +2565,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-a-new-virtual-machine"
   },
@@ -2727,6 +2741,7 @@
     "is_multi_page": false,
     "title": "Write a Pallet in its Own Crate",
     "description": "Learn how to write a Substrate pallet that lives in its own crate, and include it in a node based on the substrate-node-template",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "AssemblyScript"],
@@ -2744,7 +2759,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "write-a-pallet-in-its-own-crate"
   },
@@ -2753,6 +2768,7 @@
     "is_multi_page": false,
     "title": "Create Your First Substrate Chain",
     "description": "Learn how to compile and launch the Substrate Developer Hub Node Template and interact with it using the Substrate Developer Hub Front-End Template.",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polkadot", "JS/TS", "Rust", "NodeJS"],
@@ -2770,7 +2786,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-your-first-substrate-chain"
   },
@@ -3004,6 +3020,7 @@
     "is_multi_page": false,
     "title": "Creating A Variable-Cap Asset",
     "description": "Learn how to create a variable-cap asset on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "Javascript", "CLI"],
@@ -3021,7 +3038,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "creating-a-variable-cap-asset"
   },
@@ -3213,6 +3230,7 @@
     "is_multi_page": false,
     "title": "Build a scavenger game",
     "description": "Learn how to build a scavenger game using the Cosmos SDK",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "CLI"],
@@ -3230,7 +3248,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "build-a-scavenger-game"
   },
@@ -3618,6 +3636,7 @@
     "is_multi_page": false,
     "title": "Near cross-contract calls",
     "description": "Learn how to write smart contracts that talk to each other",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": [
@@ -3649,7 +3668,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "near-cross-contract-calls"
   },
@@ -3769,6 +3788,7 @@
     "is_multi_page": false,
     "title": "Build a nameservice application",
     "description": "Learn how to build a nameservice application with the Cosmos SDK",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "CLI"],
@@ -3786,7 +3806,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "build-a-nameservice-app"
   },
@@ -3917,6 +3937,7 @@
     "is_multi_page": false,
     "title": "Create a Local Test Network",
     "description": "Learn how to create a local test network on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "CLI", "Avash"],
@@ -3934,7 +3955,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-a-local-test-network"
   },
@@ -3970,6 +3991,7 @@
     "is_multi_page": false,
     "title": "Transfer AVAX Between the X-Chain and C-Chain",
     "description": "Learn how to transfer AVAX between chains",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
@@ -3987,7 +4009,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "transfer-avax-between-the-x-chain-and-c-chain"
   },
@@ -3996,6 +4018,7 @@
     "is_multi_page": false,
     "title": "Create a New Blockchain",
     "description": "Learn how to create a new Blockchain on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
@@ -4013,7 +4036,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-a-new-blockchain"
   },
@@ -4022,6 +4045,7 @@
     "is_multi_page": false,
     "title": "Creating A Fixed-Cap Asset",
     "description": "Learn how to create a fixed-cap asset on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
@@ -4039,7 +4063,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "creating-a-fixed-cap-asset"
   },
@@ -4075,6 +4099,7 @@
     "is_multi_page": false,
     "title": "Using Truffle with the Avalanche C-Chain",
     "description": "Learn how to use Truffle with the C-Chain",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "NodeJS", "Truffle", "Avash"],
@@ -4092,7 +4117,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "using-truffle-with-the-avalanche-c-chain"
   },
@@ -4128,6 +4153,7 @@
     "is_multi_page": false,
     "title": "Create a transaction search widget",
     "description": "Learn how to create a simple transaction search widget using Figment's Transaction Search API and DataHub",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Cosmos", "JS/TS", "Javascript"],
@@ -4145,7 +4171,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-a-transaction-search-widget"
   },
@@ -4235,6 +4261,7 @@
     "is_multi_page": false,
     "title": "Connect DataHub to Metamask",
     "description": "Learn how to leverage Avalanche DataHub for Metamask transactions",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche"],
@@ -4252,7 +4279,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "connect-datahub-to-metamask"
   },
@@ -4369,6 +4396,7 @@
     "is_multi_page": false,
     "title": "Create a Subnet",
     "description": "Learn how to create a Subnet on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
@@ -4386,7 +4414,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-a-subnet"
   },
@@ -4395,6 +4423,7 @@
     "is_multi_page": false,
     "title": "Transfer AVAX between the X-Chain and P-Chain",
     "description": "Learn how to transfer AVAX between chains",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "JS/TS", "Javascript", "CLI"],
@@ -4412,7 +4441,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "transfer-avax-between-the-x-chain-and-p-chain"
   },
@@ -4421,6 +4450,7 @@
     "is_multi_page": false,
     "title": "Creating An NFT - Part 1",
     "description": "Learn how to create an NFT on Avalanche",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "Go", "JS/TS", "CLI"],
@@ -4438,7 +4468,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "creating-an-nft-part-1"
   },
@@ -4474,6 +4504,7 @@
     "is_multi_page": false,
     "title": "Add A Pallet To Your Runtime",
     "description": "Learn how to add a pallet to your runtime",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "CLI"],
@@ -4491,7 +4522,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "add-a-pallet-to-your-runtime"
   },
@@ -4500,6 +4531,7 @@
     "is_multi_page": false,
     "title": "Create NFTs with the Avalanche Wallet",
     "description": "Learn how to create NFTs with the Avalanche Wallet",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "Smart contracts"],
@@ -4517,7 +4549,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-nfts-with-the-avalanche-wallet"
   },
@@ -4553,6 +4585,7 @@
     "is_multi_page": false,
     "title": "Deploy and Interact with Contracts (Remotely)",
     "description": "Learn how to deploy your own smart contracts on the Celo network",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": [
@@ -4584,7 +4617,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "hello-contracts"
   },
@@ -4593,6 +4626,7 @@
     "is_multi_page": false,
     "title": "Create a transaction search widget",
     "description": "Learn how to create a simple transaction search widget using Figment's Transaction Search API and DataHub",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "Javascript"],
@@ -4610,7 +4644,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "integrating-transaction-search-in-your-terra-wallet"
   },
@@ -4619,6 +4653,7 @@
     "is_multi_page": false,
     "title": "Build a decentralized AirBnB on Polygon (Matic)",
     "description": "Learn to build a full-stack dApp deployed on Polygon (Matic) with Proof of Stake Security.",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": [
@@ -4652,7 +4687,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "launch-a-full-stack-dapp-on-polygon"
   },
@@ -4661,6 +4696,7 @@
     "is_multi_page": false,
     "title": "Hello Mobile DApp",
     "description": "Learn how to create a simple mobile DApp using dAppKit and the React Native Expo framework",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Celo", "Solidity", "NodeJS", "Smart contracts", "Truffle", "CLI"],
@@ -4685,7 +4721,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "hello-mobile-dapp"
   },
@@ -4694,6 +4730,7 @@
     "is_multi_page": false,
     "title": "Deploy a Smart Contract on Avalanche using Remix and MetaMask",
     "description": "Learn how to deploy and test a smart contract on Avalanche using Remix and MetaMask",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Avalanche", "Solidity", "Solidity", "Metamask", "Remix"],
@@ -4711,7 +4748,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "deploy-a-smart-contract-on-avalanche-using-remix-and-metamask"
   },
@@ -4720,6 +4757,7 @@
     "is_multi_page": false,
     "title": "Send CELO & cUSD",
     "description": "Learn how to connect to the Celo test network and transfer tokens using ContractKit",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Celo", "JS/TS", "NodeJS"],
@@ -4737,7 +4775,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "send-celo-and-cusd"
   },
@@ -4773,6 +4811,7 @@
     "is_multi_page": false,
     "title": "Create a blog module using Cosmos SDK",
     "description": "Learn how to create a simple blog app using the Cosmos SDK",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "JS/TS", "CLI"],
@@ -4790,7 +4829,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "create-a-blog-module"
   },
@@ -4799,6 +4838,7 @@
     "is_multi_page": false,
     "title": "Add the Contracts Pallets to a Runtime",
     "description": "Learn how to add a contract pallet to a runtime",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polkadot", "Rust", "Smart contracts"],
@@ -4816,7 +4856,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "add-the-contracts-pallets-to-a-runtime"
   },
@@ -4825,6 +4865,7 @@
     "is_multi_page": false,
     "title": "Build a polling app",
     "description": "Learn how to build a polling app using the Cosmos SDK",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Cosmos", "Go", "CLI"],
@@ -4842,7 +4883,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "build-a-polling-app"
   },
@@ -4932,6 +4973,7 @@
     "is_multi_page": false,
     "title": "Oracle Contracts",
     "description": "Learn how to get started with Oracle Contracts on Tezos",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts"],
@@ -4949,7 +4991,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "oracle-contracts"
   },
@@ -4985,6 +5027,7 @@
     "is_multi_page": false,
     "title": "Submit your first transactions",
     "description": "Learn how to write to the Terra blockchain using DataHub",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
@@ -5002,7 +5045,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "submit-terra-transactions"
   },
@@ -5011,6 +5054,7 @@
     "is_multi_page": false,
     "title": "Connecting to a Terra node with DataHub",
     "description": "Learn how to start using the Terra SDK with DataHub",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
@@ -5028,7 +5072,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "interacting-with-terra-endpoints"
   },
@@ -5064,6 +5108,7 @@
     "is_multi_page": false,
     "title": "Using Metamask with Matic.js",
     "description": "Learn how to transfer tokens between Ethereum and Polygon (Matic)",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Polygon", "JS/TS", "NodeJS", "Metamask"],
@@ -5081,7 +5126,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "metamask-with-matic-js"
   },
@@ -5171,6 +5216,7 @@
     "is_multi_page": false,
     "title": "Creating NFTs",
     "description": "Learn how to create and interact a non-fungible token contract on Tezos",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Tezos", "JS/TS", "NodeJS", "CLI"],
@@ -5188,7 +5234,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "creating-nfts"
   },
@@ -5251,6 +5297,7 @@
     "is_multi_page": false,
     "title": "Token Contracts",
     "description": "Learn how to deploy and interact with a digital asset on Tezos",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Tezos", "Python", "Smart contracts", "CLI"],
@@ -5268,7 +5315,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "token-contracts"
   },
@@ -5913,6 +5960,7 @@
     "is_multi_page": false,
     "title": "Write your first Terra smart contract",
     "description": "Learn how to write a Terra smart contract",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "Rust", "Smart contracts", "AssemblyScript", "Rust"],
@@ -5936,7 +5984,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "write-your-first-terra-smart-contract"
   },
@@ -6006,6 +6054,7 @@
     "is_multi_page": false,
     "title": "Interacting with a Terra smart contract",
     "description": "Learn how to interact with your own Terra smart contracts",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "AssemblyScript", "AssemblyScript", "CLI"],
@@ -6023,7 +6072,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "interacting-with-a-terra-smart-contract"
   },
@@ -6059,6 +6108,7 @@
     "is_multi_page": false,
     "title": "Creating your first Terra account with the Terra SDK",
     "description": "Learn how to create an account to start building on Terra",
+    "author_github_account": "TheBuilderDAO",
     "author_url": "https://github.com/TheBuilderDAO",
     "author_wallet": null,
     "tags": ["Terra", "JS/TS", "NodeJS", "Javascript"],
@@ -6076,7 +6126,7 @@
         "page_number": 1
       }
     ],
-    "author_name": null,
+    "author_name": "The Builder Dao",
     "author_image_url": "https://github.com/TheBuilderDAO.png",
     "oldSlug": "creating-your-first-terra-account-with-the-terra-sdk"
   },

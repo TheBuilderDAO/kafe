@@ -1,0 +1,38 @@
+{
+  "proposalId": 416,
+  "slug": "near-stake-fungible-token",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "26db351977678ce1ff7ac3f46413e57eec85c7ae763bcc5a23ca15c001959df6"
+    },
+    "content/assets/near-stake-fungible-token-image-1.png": {
+      "name": "near-stake-fungible-token-image-1.png",
+      "path": "content/assets/near-stake-fungible-token-image-1.png",
+      "digest": "a5925f370ec6eda990f902d98a56d7fea826dd41acff3420756064fbaec291a1"
+    }
+  },
+  "href": "learn/near-stake-fungible-token",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

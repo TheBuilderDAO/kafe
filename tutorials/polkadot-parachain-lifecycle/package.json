@@ -1,0 +1,19 @@
+{
+  "name": "@builderdao-learn/polkadot-parachain-lifecycle",
+  "version": "1.0.0",
+  "description": "This guide will focus on the lifecycle of Polkadot's parachains, an integral part of the Polkadot ecosystem.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polkadot"
+  ],
+  "author": "",
+  "license": "ISC"
+}

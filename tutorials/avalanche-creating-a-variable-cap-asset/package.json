@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/avalanche-creating-a-variable-cap-asset",
+  "version": "1.0.0",
+  "description": "Learn how to create a variable-cap asset on Avalanche",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Javascript",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,33 @@
+{
+  "proposalId": 450,
+  "slug": "polkadot-substrate-kitties-overview",
+  "authors": [
+    {
+      "name": "Kresna Sucandra",
+      "avatarUrl": "https://github.com/SHA888.png",
+      "url": "https://github.com/SHA888",
+      "nickname": "SHA888"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a9d94b88a036077cc14b4fcc2eab72f69d8a5946a7c94e8ae2f9aead5b551553"
+    }
+  },
+  "href": "learn/polkadot-substrate-kitties-overview",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

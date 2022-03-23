@@ -1,0 +1,38 @@
+{
+  "proposalId": 326,
+  "slug": "avalanche-deploy-pangolin-to-local-testnet",
+  "authors": [
+    {
+      "name": "Cinque McFarlane-Blake",
+      "avatarUrl": "https://github.com/cinquemb.png",
+      "url": "https://github.com/cinquemb",
+      "nickname": "cinquemb"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e8e56a0c9cbdfe2aed6388c9eaa56eb4ca40ae3de92d548cf6cedcbe2a9de9bc"
+    },
+    "content/assets/avalanche-deploy-pangolin-to-local-testnet-image-1.png": {
+      "name": "avalanche-deploy-pangolin-to-local-testnet-image-1.png",
+      "path": "content/assets/avalanche-deploy-pangolin-to-local-testnet-image-1.png",
+      "digest": "729ef62691ebe1e11ae3ac58c165c49c7e1d8b5fa9ee5b96eda3dfc45325abe3"
+    }
+  },
+  "href": "learn/avalanche-deploy-pangolin-to-local-testnet",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

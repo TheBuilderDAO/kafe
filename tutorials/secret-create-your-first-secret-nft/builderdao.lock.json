@@ -1,0 +1,33 @@
+{
+  "proposalId": 382,
+  "slug": "secret-create-your-first-secret-nft",
+  "authors": [
+    {
+      "name": "Florian Uhde",
+      "avatarUrl": "https://github.com/floAr.png",
+      "url": "https://github.com/floAr",
+      "nickname": "floAr"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "abfe986917cf2a15ac7977fc402649f7463506956f4ca84589d2d87eeca0e0b9"
+    }
+  },
+  "href": "learn/secret-create-your-first-secret-nft",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

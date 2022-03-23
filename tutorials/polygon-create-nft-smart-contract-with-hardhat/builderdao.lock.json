@@ -1,0 +1,78 @@
+{
+  "proposalId": 319,
+  "slug": "polygon-create-nft-smart-contract-with-hardhat",
+  "authors": [
+    {
+      "name": "Bhaskar Dutta",
+      "avatarUrl": "https://github.com/BhaskarDutta2209.png",
+      "url": "https://github.com/BhaskarDutta2209",
+      "nickname": "BhaskarDutta2209"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-creating-env-file.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-creating-env-file.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-creating-env-file.png",
+      "digest": "578810edbe69ab9ff018c7b08a730bfbbcffeca776cb08a9b1428e80ff68092a"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-deploying-contract.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-deploying-contract.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-deploying-contract.png",
+      "digest": "bf3cf28e43023c0642e2d08d0574d1351f6ec4a7f973efad1939e2dd2fcf6f9b"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-contract-deployed-and-verified.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-contract-deployed-and-verified.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-contract-deployed-and-verified.png",
+      "digest": "8decc87b3743eacde9468514d6adfbdade78edca4b66b34b25ede50bd9b39165"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initialized.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-hardhat-initialized.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initialized.png",
+      "digest": "a85e02352039ca8cd5609e4900b6b174b0af82a5354e23a0d2f6f0fc511a3241"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-initial-file-structure.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-initial-file-structure.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-initial-file-structure.png",
+      "digest": "b4f1fd1cf0cd87c9b1e016013f16c95203281e43bcf72b0538a84c2a1cd232fe"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initializing.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-hardhat-initializing.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initializing.png",
+      "digest": "3fd2fee35226446fd07123d4121c414bee8832b375d3eb2e3192e07e2fbcfc21"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-meta-mask-sign-popup.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-meta-mask-sign-popup.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-meta-mask-sign-popup.png",
+      "digest": "908972812370d412bb04a341feaa018917131686f8e8a78d9e491bb71d7a3eec"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-running-tests.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-running-tests.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-running-tests.png",
+      "digest": "3c71e4fa35f8dd7f4d2af77a439ea5141f0d7685bb804f189e779627bccfdc9b"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a0560b38b10dc3c79f847606dd19d95210e11dc68ec433d3c87c5c0178cce172"
+    },
+    "content/assets/polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet.png": {
+      "name": "polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet.png",
+      "path": "content/assets/polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet.png",
+      "digest": "b69f9a462efee3ba2af775c4cc1781397c8279f56665905ae578756fee9a0215"
+    }
+  },
+  "href": "learn/polygon-create-nft-smart-contract-with-hardhat",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

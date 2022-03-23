@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/thegraph-query-ethereum-data-with-the-graph",
+  "version": "1.0.0",
+  "description": "Learn how to create a subgraph from a deployed smart contract on Ethereum",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "The Graph",
+    "GraphQL",
+    "GraphQL"
+  ],
+  "author": "",
+  "license": "ISC"
+}

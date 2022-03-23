@@ -1,0 +1,43 @@
+{
+  "proposalId": 309,
+  "slug": "solana-token-streaming-protocol",
+  "authors": [
+    {
+      "name": "Sushant Chandla",
+      "avatarUrl": "https://github.com/SushantChandla.png",
+      "url": "https://github.com/SushantChandla",
+      "nickname": "SushantChandla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/solana-token-streaming-protocol-backend-files.png": {
+      "name": "solana-token-streaming-protocol-backend-files.png",
+      "path": "content/assets/solana-token-streaming-protocol-backend-files.png",
+      "digest": "1aad1c2ef43c1d7cf0fad7d51f095567ff82c70d58792e362ce0d8769e786b44"
+    },
+    "content/assets/solana-token-streaming-protocol-browser-image.png": {
+      "name": "solana-token-streaming-protocol-browser-image.png",
+      "path": "content/assets/solana-token-streaming-protocol-browser-image.png",
+      "digest": "666d2ff558dc3b47030530b5f205db87dd777652a91fa97e364d9a2aa812ffb5"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c214a6c4ced00314ae18f958c27071e182cf6df783d04e56418a34cd20304aac"
+    }
+  },
+  "href": "learn/solana-token-streaming-protocol",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

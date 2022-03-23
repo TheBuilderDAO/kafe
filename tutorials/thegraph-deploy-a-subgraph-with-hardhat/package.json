@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/thegraph-deploy-a-subgraph-with-hardhat",
+  "version": "1.0.0",
+  "description": "Learn how to deploy a subgraph for a smart contract using HardHat.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "The Graph",
+    "GraphQL",
+    "Solidity",
+    "GraphQL",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

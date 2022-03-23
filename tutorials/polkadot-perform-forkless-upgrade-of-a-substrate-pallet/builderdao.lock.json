@@ -1,0 +1,58 @@
+{
+  "proposalId": 431,
+  "slug": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet",
+  "authors": [
+    {
+      "name": "Tomasz Waszczyk ",
+      "avatarUrl": "https://github.com/TomaszWaszczyk.png",
+      "url": "https://github.com/TomaszWaszczyk",
+      "nickname": "TomaszWaszczyk"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-2.png": {
+      "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-2.png",
+      "path": "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-2.png",
+      "digest": "985c561b42aa150fe6249b3ee0c1faed7829086b3103cfbc687ee47b7b8d31c8"
+    },
+    "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-1.png": {
+      "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-1.png",
+      "path": "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-1.png",
+      "digest": "e165e85cc1e4960afa50319e2a9fb6e13b3fa1a4ab1297a299f088fcbab7fc4f"
+    },
+    "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-3.png": {
+      "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-3.png",
+      "path": "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-3.png",
+      "digest": "e9edbdee7a4b198cb72313a63a5deb67b2ee4221eac4c00feccd7636ec181cbf"
+    },
+    "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-4.png": {
+      "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-4.png",
+      "path": "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-4.png",
+      "digest": "3d5c8ee5414050e724469d358f555d2a39f0a733a48064fec1e0026e6fcd031e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d2fb9659278e8765aee3327b68fe3b3945799c264a81a9a71843f79a96d7e26f"
+    },
+    "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png": {
+      "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png",
+      "path": "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png",
+      "digest": "61ed35c92482344eca71b905b21f5efc22da9e4b550f4caa761ac9cdd98d9f96"
+    }
+  },
+  "href": "learn/polkadot-perform-forkless-upgrade-of-a-substrate-pallet",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,38 @@
+{
+  "proposalId": 305,
+  "slug": "terra-querying-the-terra-blockchain",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/terra-querying-the-terra-blockchain-image-1.png": {
+      "name": "terra-querying-the-terra-blockchain-image-1.png",
+      "path": "content/assets/terra-querying-the-terra-blockchain-image-1.png",
+      "digest": "81cd1be0ca5082344194b6b81e347e9f5fe74a9e12be8c7e665060fb9c1796cf"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "9fdb11dce80a49174e82adedebd6e4ce865d8736f719667c220978f87ae709dc"
+    }
+  },
+  "href": "learn/terra-querying-the-terra-blockchain",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

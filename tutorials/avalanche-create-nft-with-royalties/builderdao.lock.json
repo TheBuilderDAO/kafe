@@ -1,0 +1,58 @@
+{
+  "proposalId": 428,
+  "slug": "avalanche-create-nft-with-royalties",
+  "authors": [
+    {
+      "name": "Devendra Yadav",
+      "avatarUrl": "https://github.com/devilla.png",
+      "url": "https://github.com/devilla",
+      "nickname": "devilla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-nft-with-royalties-image-1.png": {
+      "name": "avalanche-create-nft-with-royalties-image-1.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-1.png",
+      "digest": "48a521d65eba9b6bfcfb449916f5b8196d702123583d14323b449905f09d7d82"
+    },
+    "content/assets/avalanche-create-nft-with-royalties-image-4.png": {
+      "name": "avalanche-create-nft-with-royalties-image-4.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-4.png",
+      "digest": "edd65be795b45fff9023bfe53a7a2e2d586db3a88ec3c88674c677f75679ae0e"
+    },
+    "content/assets/avalanche-create-nft-with-royalties-image-5.png": {
+      "name": "avalanche-create-nft-with-royalties-image-5.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-5.png",
+      "digest": "754520392158d3777f51929e32b1d5a2847dca8508646cb220f6059846417192"
+    },
+    "content/assets/avalanche-create-nft-with-royalties-image-6.png": {
+      "name": "avalanche-create-nft-with-royalties-image-6.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-6.png",
+      "digest": "95d996bee556885b301988e68f68fdc2614881950b24d5557651d8305ca02a5d"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "46f9f65ab8e5b30beefdcd5ecdb57dd62fd962cf18f98c9a4edd340a1e685cc5"
+    },
+    "content/assets/avalanche-create-nft-with-royalties-image-7.png": {
+      "name": "avalanche-create-nft-with-royalties-image-7.png",
+      "path": "content/assets/avalanche-create-nft-with-royalties-image-7.png",
+      "digest": "bab2c6360792e0e8172183140934b54b784f97fb6ab8f3e2d7a3d39c8094e954"
+    }
+  },
+  "href": "learn/avalanche-create-nft-with-royalties",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,58 @@
+{
+  "proposalId": 314,
+  "slug": "solana-sol-mint-token",
+  "authors": [
+    {
+      "name": "Jacob Makarsky",
+      "avatarUrl": "https://github.com/jacobmakarsky.png",
+      "url": "https://github.com/jacobmakarsky",
+      "nickname": "jacobmakarsky"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/solana-sol-mint-token-image-3.png": {
+      "name": "solana-sol-mint-token-image-3.png",
+      "path": "content/assets/solana-sol-mint-token-image-3.png",
+      "digest": "fb907c0dbfd31586c9c813f2091fa12ab9b0c8a9b5818af6d75ebb71170bbc3a"
+    },
+    "content/assets/solana-sol-mint-token-image-2.png": {
+      "name": "solana-sol-mint-token-image-2.png",
+      "path": "content/assets/solana-sol-mint-token-image-2.png",
+      "digest": "c3a8c8fafa81d435cbca01a49242cf7f31bdc1520cec2c4ecea6023739125a65"
+    },
+    "content/assets/solana-sol-mint-token-image-4.png": {
+      "name": "solana-sol-mint-token-image-4.png",
+      "path": "content/assets/solana-sol-mint-token-image-4.png",
+      "digest": "b1b444fcd1827b39898eb981940c1318fc79f5a3319baba2c7ba15e249710918"
+    },
+    "content/assets/solana-sol-mint-token-image-5.png": {
+      "name": "solana-sol-mint-token-image-5.png",
+      "path": "content/assets/solana-sol-mint-token-image-5.png",
+      "digest": "c4ba6d712299423d031a0d5d1e202d2217dcb468333e2a77bf1f1e4ca98fb0bb"
+    },
+    "content/assets/solana-sol-mint-token-send-to-cli-wallet.png": {
+      "name": "solana-sol-mint-token-send-to-cli-wallet.png",
+      "path": "content/assets/solana-sol-mint-token-send-to-cli-wallet.png",
+      "digest": "fe565a0841183a9210e376ecde7e1600701e385eebd0bd0e78648aa6a84e8e76"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "649123e550ffe4670e6dc00808c84292076b32d5d67560b1cafd9d91171b37bc"
+    }
+  },
+  "href": "learn/solana-sol-mint-token",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

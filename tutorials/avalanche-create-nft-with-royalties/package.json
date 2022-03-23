@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/avalanche-create-nft-with-royalties",
+  "version": "1.0.0",
+  "description": "Learn how to create an NFT with royalties on Avalanche.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Solidity",
+    "Smart contracts",
+    "Solidity",
+    "Remix"
+  ],
+  "author": "",
+  "license": "ISC"
+}

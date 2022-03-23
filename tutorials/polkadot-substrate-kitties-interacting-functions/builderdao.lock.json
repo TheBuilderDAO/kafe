@@ -1,0 +1,33 @@
+{
+  "proposalId": 315,
+  "slug": "polkadot-substrate-kitties-interacting-functions",
+  "authors": [
+    {
+      "name": "Kresna Sucandra",
+      "avatarUrl": "https://github.com/SHA888.png",
+      "url": "https://github.com/SHA888",
+      "nickname": "SHA888"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8325e4acfd1a5cf2c0dfa30ce8ea733297f78fde000e0fa7e41a0d068314a556"
+    }
+  },
+  "href": "learn/polkadot-substrate-kitties-interacting-functions",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

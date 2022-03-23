@@ -1,0 +1,68 @@
+{
+  "proposalId": 335,
+  "slug": "polygon-create-a-todo-dapp-with-flutter",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "url": "https://github.com/viral-sangani",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-bottom-sheet-gif.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-bottom-sheet-gif.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-bottom-sheet-gif.png",
+      "digest": "13b4f2ffd5d2f6b331919cb880c48ec7fad63db00897e40909e0fe85e7a9dad6"
+    },
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-contract-migration.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-contract-migration.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-contract-migration.png",
+      "digest": "1a58da9421490969f4190ac1933785f8ea46ab71caa70c4216d9890fb66c9802"
+    },
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-folder-structure.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-folder-structure.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-folder-structure.png",
+      "digest": "a6f2fceeb56ee9b4cffc8f7c89efe965eb265e3eb967bf5984cda78e967aa388"
+    },
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-ganache-private-key.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-ganache-private-key.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-ganache-private-key.png",
+      "digest": "ca78cf8acb6f48b01fd82239234238287f0166ee0d5e84349cbfb3c752342d31"
+    },
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-todo-list.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-todo-list.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-todo-list.png",
+      "digest": "986590e07b1308b6588155450cccb6b345744735bfbfd347b8df2f710ab0ab4c"
+    },
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-truffle-compile.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-truffle-compile.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-truffle-compile.png",
+      "digest": "ffc91b00f796a23dddcd8427d8d15944ce1a46974c7a1be44bdcf0c061ae7824"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fa7aeec2c2f499ca927fb70cd691a6e496439a5ba21538da4f309f50ff678579"
+    },
+    "content/assets/polygon-create-a-todo-dapp-with-flutter-app-demo.png": {
+      "name": "polygon-create-a-todo-dapp-with-flutter-app-demo.png",
+      "path": "content/assets/polygon-create-a-todo-dapp-with-flutter-app-demo.png",
+      "digest": "a5e446091b60e3018b28222686977f54c157d88e470e8b6ea9c64f8c5ddfd914"
+    }
+  },
+  "href": "learn/polygon-create-a-todo-dapp-with-flutter",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

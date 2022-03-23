@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/polkadot-build-a-poe-decentralized-app",
+  "version": "1.0.0",
+  "description": "Learn to create a custom \"Proof of Existence\" dApp using the Substrate blockchain development framework and FRAME runtime libraries",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polkadot",
+    "JS/TS",
+    "Rust",
+    "React",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

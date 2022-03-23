@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/near-build-a-registry-dapp-on-near",
+  "version": "1.0.0",
+  "description": "Learn how to build a complete registry dApp on NEAR and deploy it easily using Netlify",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Near",
+    "AssemblyScript",
+    "AssemblyScript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,27 @@
+{
+  "proposalId": 348,
+  "slug": "avalanche-create-a-decentralized-exchange-on-avalanche",
+  "authors": [
+    {
+      "name": "Devendra Yadav",
+      "avatarUrl": "https://github.com/Devilla.png",
+      "url": "https://github.com/Devilla",
+      "nickname": "Devilla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {},
+  "href": "learn/avalanche-create-a-decentralized-exchange-on-avalanche",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

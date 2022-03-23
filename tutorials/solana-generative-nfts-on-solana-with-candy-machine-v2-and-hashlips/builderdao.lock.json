@@ -1,0 +1,108 @@
+{
+  "proposalId": 383,
+  "slug": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
+  "authors": [
+    {
+      "name": "Mahdi Mostafavi",
+      "avatarUrl": "https://github.com/mmostafavi.png",
+      "url": "https://github.com/mmostafavi",
+      "nickname": "mmostafavi"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-background-1-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-background-1-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-background-1-png.png",
+      "digest": "9ff98e11af12cbe3c4da85448b463011dd2feecd3441b7385c74c1f3f966ef3e"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-background-2-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-background-2-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-background-2-png.png",
+      "digest": "6dd6ba499fc15be4f7d5c35970e49aadb0b3a5b3aa91f5bd307e1b8362c6d207"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-changing-the-network-from-mainnet-to-devnet-screenshot-jpg.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-changing-the-network-from-mainnet-to-devnet-screenshot-jpg.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-changing-the-network-from-mainnet-to-devnet-screenshot-jpg.png",
+      "digest": "08ed24334fd3a7090f6226b357fc648b72cd1760528e476625c324b7da4a14b5"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-1-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-1-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-1-png.png",
+      "digest": "49a788f40999d0836405d72e0958244337618482cc8cc600372b3eecb027e3b5"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-checking-nft-in-wallet-gif-gif.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-checking-nft-in-wallet-gif-gif.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-checking-nft-in-wallet-gif-gif.png",
+      "digest": "220685dfbed4e4192809ea27146a170ddc77cd246e9b6f6505e178fc9972c402"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-2-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-2-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-2-png.png",
+      "digest": "a31c6fc7a2903ac8e365560ae51f1f0977011d7046b45942df0818e295dbc017"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-3-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-3-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-circle-3-png.png",
+      "digest": "b1f96f4257f6ab70cb0b8111b6ed3c5ce31c77c12935620ff381ee5b686b3b7f"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-import-private-key-in-phantom-screen-shot-jpg.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-import-private-key-in-phantom-screen-shot-jpg.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-import-private-key-in-phantom-screen-shot-jpg.png",
+      "digest": "7bea7ba768fe12e2384bebed77675b08c2f139f2925cfd56b0e76cb638b69593"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-initial-state-of-dapp-screenshot-jpg.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-initial-state-of-dapp-screenshot-jpg.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-initial-state-of-dapp-screenshot-jpg.png",
+      "digest": "5b38aeaa7a6b47f0e747ba37c5eb204fb1ecb2649babf6f2093a8fa7b74d798b"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-linking-nf-ts-wallet-in-phantom-screenshot-jpg.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-linking-nf-ts-wallet-in-phantom-screenshot-jpg.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-linking-nf-ts-wallet-in-phantom-screenshot-jpg.png",
+      "digest": "5ac4bb23c087f6c9f53ebf1f5c9773857ec49b816034b1c74ed3e6196e0098e5"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-preview-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-preview-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-preview-png.png",
+      "digest": "1075b27ede4257751e85cf595c651048e789485ad6e2d7bafce85153811f3e4e"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-1-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-1-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-1-png.png",
+      "digest": "8fa708ebfec1ab5fca4129fdfd4bdb084102a9b4ab54e7e9b3d1e7873205f731"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-2-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-2-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-2-png.png",
+      "digest": "a4f8afa7d1e5564a58fc18a29a292eb6f71318c6b6aa55ee5753b29a62b354d0"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-3-png.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-3-png.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-triangle-3-png.png",
+      "digest": "31a2a55fee0ba034015b7231f571518928e978caa14c83372e76bde8c234bb13"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "19c8027d715033a0ffb0ddef261fc27297ac1d4037d1e4c5126613745415c3ef"
+    },
+    "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif.png": {
+      "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif.png",
+      "path": "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif.png",
+      "digest": "7cad19058375f183bd088d0f967e2d7b90175e440e21d29b010d23d869cf6c18"
+    }
+  },
+  "href": "learn/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

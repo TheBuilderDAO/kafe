@@ -1,0 +1,27 @@
+{
+  "proposalId": 374,
+  "slug": "avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair",
+  "authors": [
+    {
+      "name": " Cinque McFarlane-Blake.",
+      "avatarUrl": "https://github.com/cinquemb.png",
+      "url": "https://github.com/cinquemb",
+      "nickname": "cinquemb"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {},
+  "href": "learn/avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

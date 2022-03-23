@@ -1,0 +1,43 @@
+{
+  "proposalId": 425,
+  "slug": "polygon-create-a-blockchain-skill-verification-system",
+  "authors": [
+    {
+      "name": "Hardik Agarwal",
+      "avatarUrl": "https://github.com/Hardikag17.png",
+      "url": "https://github.com/Hardikag17",
+      "nickname": "Hardikag17"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-create-a-blockchain-skill-verification-system-str.png": {
+      "name": "polygon-create-a-blockchain-skill-verification-system-str.png",
+      "path": "content/assets/polygon-create-a-blockchain-skill-verification-system-str.png",
+      "digest": "e16087ccecb7beb02dc887f50cf0ef4cfe806493eecebd3adcf9edf0ff09d3f9"
+    },
+    "content/assets/polygon-create-a-blockchain-skill-verification-system-data-hub.png": {
+      "name": "polygon-create-a-blockchain-skill-verification-system-data-hub.png",
+      "path": "content/assets/polygon-create-a-blockchain-skill-verification-system-data-hub.png",
+      "digest": "a59cbd2218605049f7b43b6bfb3059bf4762fff35f123f3dc39787a319b28f18"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "eb3a401c854a41bd28765c0615047f83bdba0824ad028ca32729254de63c1f62"
+    }
+  },
+  "href": "learn/polygon-create-a-blockchain-skill-verification-system",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

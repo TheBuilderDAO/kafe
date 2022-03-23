@@ -1,0 +1,43 @@
+{
+  "proposalId": 421,
+  "slug": "near-stake-account-storage-nep-145",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/near-stake-account-storage-nep-145-image-1.png": {
+      "name": "near-stake-account-storage-nep-145-image-1.png",
+      "path": "content/assets/near-stake-account-storage-nep-145-image-1.png",
+      "digest": "e57787464053ed484eb14581d543ab06d24ef4eeaaae08291022f9bb03e90690"
+    },
+    "content/assets/near-stake-account-storage-nep-145-image-2.png": {
+      "name": "near-stake-account-storage-nep-145-image-2.png",
+      "path": "content/assets/near-stake-account-storage-nep-145-image-2.png",
+      "digest": "e5f3ae035b1672b328eaa03ae199719b81494b70e136c801151577aee6f97332"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b853eb37cce41b5a66038d09ba65ed8107894f5af5799dc63f44e1ce399b326b"
+    }
+  },
+  "href": "learn/near-stake-account-storage-nep-145",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,0 +1,48 @@
+{
+  "proposalId": 310,
+  "slug": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react",
+  "authors": [
+    {
+      "name": "Naman Gera",
+      "avatarUrl": "https://github.com/namannimmo10.png",
+      "url": "https://github.com/namannimmo10",
+      "nickname": "namannimmo10"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-1.png": {
+      "name": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-1.png",
+      "path": "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-1.png",
+      "digest": "147556847357c2da1090def059dd25f1bbe903e73652e5a0fa588ebfee74246e"
+    },
+    "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-2.png": {
+      "name": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-2.png",
+      "path": "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-2.png",
+      "digest": "0107962e4a433d2334fd65a6e44b2ad6664292cf690643d6fe0183a546cb5e0a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "84b04669815c17745a86319c8a9bcf7e04f670e5f635fc76ebaf04e135f1ffa1"
+    },
+    "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-3.png": {
+      "name": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-3.png",
+      "path": "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-3.png",
+      "digest": "f5c5896748c3675af914fcdb15408d7ccfdaff18843613d4acb4afd1569f709c"
+    }
+  },
+  "href": "learn/avalanche-create-an-auction-with-bidding-on-avalanche-using-react",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

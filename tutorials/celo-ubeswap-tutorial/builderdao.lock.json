@@ -1,0 +1,98 @@
+{
+  "proposalId": 307,
+  "slug": "celo-ubeswap-tutorial",
+  "authors": [
+    {
+      "name": "Deepanshu Hooda",
+      "avatarUrl": "https://github.com/gitofdeepanshu.png",
+      "url": "https://github.com/gitofdeepanshu",
+      "nickname": "gitofdeepanshu"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/celo-ubeswap-tutorial-image-1.png": {
+      "name": "celo-ubeswap-tutorial-image-1.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-1.png",
+      "digest": "a2c03592424ca2fcb1187eedcdbad66071a15c9f5bb63c1e36c3604e3db36eb4"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-10.png": {
+      "name": "celo-ubeswap-tutorial-image-10.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-10.png",
+      "digest": "57de2022497f4148028c6f9a49c9c43887af804dd2cbd19aae378776a84b9555"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-11.png": {
+      "name": "celo-ubeswap-tutorial-image-11.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-11.png",
+      "digest": "2b9bfe55a23573886aae736fb0312a317393d21affcf23c8572743963573012f"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-12.png": {
+      "name": "celo-ubeswap-tutorial-image-12.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-12.png",
+      "digest": "c11c8a69589d1bf4a54236adcfe4ce198645332ee956fb7142789e3691c68392"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-13.png": {
+      "name": "celo-ubeswap-tutorial-image-13.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-13.png",
+      "digest": "39682c07fc825018c6f3f080da8e4f8c275c9a6eb5acc335ef78edb928cbeb58"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-2.png": {
+      "name": "celo-ubeswap-tutorial-image-2.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-2.png",
+      "digest": "e947ceb65a4a9f8d93dc51ef9fe86c1d8b7623ce9ae9afdd570374ee3e7b2b39"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-3.png": {
+      "name": "celo-ubeswap-tutorial-image-3.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-3.png",
+      "digest": "edec6819f911b9455511e9da689cd83b62d65377530379e9472e5975f4593b21"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-4.png": {
+      "name": "celo-ubeswap-tutorial-image-4.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-4.png",
+      "digest": "25200341a7823187028ab7e24aff8455a9d98ac594b107a22deef2fdc953e6af"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-5.png": {
+      "name": "celo-ubeswap-tutorial-image-5.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-5.png",
+      "digest": "5fdf50d630b3584a01874c4a817387af34d2fa9dbef92b7d063be02a9d53faad"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-6.png": {
+      "name": "celo-ubeswap-tutorial-image-6.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-6.png",
+      "digest": "9b9940e12c897df2af037d080c671d33818f8c4c5280b7c58eabb9e3eee024b6"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-8.png": {
+      "name": "celo-ubeswap-tutorial-image-8.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-8.png",
+      "digest": "03c7feefca85a4a56d2d2db17ab3ebf6b42b35b4963e04efaaca70ac453fb710"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-7.png": {
+      "name": "celo-ubeswap-tutorial-image-7.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-7.png",
+      "digest": "6350d99053c79a2163cf8a2acb26884115ea9e81e75a96cd8ce8b20db2174686"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "4f70ae5c8194980cc7c5b01d7fd01f90874f75d9ad005b8f408b2b2955b9beba"
+    },
+    "content/assets/celo-ubeswap-tutorial-image-9.png": {
+      "name": "celo-ubeswap-tutorial-image-9.png",
+      "path": "content/assets/celo-ubeswap-tutorial-image-9.png",
+      "digest": "4986c8680c7ec21b5ad39739e46edad761470b1320830fb2f23dbf8c6d962c0b"
+    }
+  },
+  "href": "learn/celo-ubeswap-tutorial",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

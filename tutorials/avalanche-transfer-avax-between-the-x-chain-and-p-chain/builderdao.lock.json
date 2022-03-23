@@ -1,0 +1,58 @@
+{
+  "proposalId": 391,
+  "slug": "avalanche-transfer-avax-between-the-x-chain-and-p-chain",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-2.png": {
+      "name": "avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-2.png",
+      "path": "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-2.png",
+      "digest": "29f7459b814dc9cf3ea91fd0198cf9b995b6c9873447cd51a415350d81186b46"
+    },
+    "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-1.png": {
+      "name": "avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-1.png",
+      "path": "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-1.png",
+      "digest": "3a1cb9fe04b71151534eebc6973c1a8227b0726f2a0b351236ce9a0f19cdc7ba"
+    },
+    "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-3.png": {
+      "name": "avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-3.png",
+      "path": "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-3.png",
+      "digest": "82897e8077083bc1a41a3dcf0488b1b9251dd23b29d0dae05793e327f84d0393"
+    },
+    "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-4.png": {
+      "name": "avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-4.png",
+      "path": "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-4.png",
+      "digest": "51b3d412021f161eb950ab88cbf2f8847d6a8d1ac82a3e0bf3eb2cea6cbd9ed1"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "02d915414d348425641438e92e003cc4a3daca7cb5d8edabf9e876ecadc164a0"
+    },
+    "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-5.png": {
+      "name": "avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-5.png",
+      "path": "content/assets/avalanche-transfer-avax-between-the-x-chain-and-p-chain-image-5.png",
+      "digest": "b048876fc9e33389465eb4b522d6e15a789f0bd5309232e94641d41ef09b23fe"
+    }
+  },
+  "href": "learn/avalanche-transfer-avax-between-the-x-chain-and-p-chain",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

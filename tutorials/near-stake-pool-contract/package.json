@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/near-stake-pool-contract",
+  "version": "1.0.0",
+  "description": "OysterPack SMART STAKE Pool Contract - NEAR Staking Game Changer",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Near",
+    "Rust",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

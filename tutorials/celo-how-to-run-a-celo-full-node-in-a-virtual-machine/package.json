@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/celo-how-to-run-a-celo-full-node-in-a-virtual-machine",
+  "version": "1.0.0",
+  "description": "Learn how to setup & run a Celo full node in a Virtual Machine",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

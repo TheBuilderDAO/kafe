@@ -1,0 +1,63 @@
+{
+  "proposalId": 423,
+  "slug": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "url": "https://github.com/robin-thomas",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche.png": {
+      "name": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche.png",
+      "digest": "7af1b1378730c566a40a34dc8647db97ef984759d0698248ffb11a2ca415bbdc"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche-api-key.png": {
+      "name": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche-api-key.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche-api-key.png",
+      "digest": "e15d2026ca8f986b94151f8695dfda57a205c1e18b470e4b92b48bffc79401f5"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-metamask-fuji-avalanche.png": {
+      "name": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-metamask-fuji-avalanche.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-metamask-fuji-avalanche.png",
+      "digest": "9ead9f0b0bbaab1cfef47e5396b474177d7fed60e6eb24c0fd92dda1c1606ea2"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-signup.png": {
+      "name": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-signup.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-signup.png",
+      "digest": "5b336c2994767cefc7c5ccd31ebaa6b40c9b817491b40b16372a63eab585bc17"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-subgraph-dashboard.png": {
+      "name": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-subgraph-dashboard.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-subgraph-dashboard.png",
+      "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "64b8596285f099bf3a9f416d6445fba94abc13115b17c3ae80c494f3dab03b17"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-subgraph-studio.png": {
+      "name": "thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-subgraph-studio.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract-subgraph-studio.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    }
+  },
+  "href": "learn/thegraph-deploy-a-subgraph-for-an-avalanche-smart-contract",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

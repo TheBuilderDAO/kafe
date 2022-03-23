@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/avalanche-create-an-auction-with-bidding-on-avalanche-using-react",
+  "version": "1.0.0",
+  "description": "Learn how to make an Auction smart contract on Avalanche",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Solidity",
+    "React",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

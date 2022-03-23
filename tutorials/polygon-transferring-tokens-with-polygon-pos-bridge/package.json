@@ -1,0 +1,23 @@
+{
+  "name": "@builderdao-learn/polygon-transferring-tokens-with-polygon-pos-bridge",
+  "version": "1.0.0",
+  "description": "Learn how to move tokens between Polygon and Ethereum using the Proof of Stake bridge.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Polygon",
+    "JS/TS",
+    "Smart contracts",
+    "Javascript",
+    "Metamask"
+  ],
+  "author": "",
+  "license": "ISC"
+}

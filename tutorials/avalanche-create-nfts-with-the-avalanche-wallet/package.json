@@ -1,0 +1,20 @@
+{
+  "name": "@builderdao-learn/avalanche-create-nfts-with-the-avalanche-wallet",
+  "version": "1.0.0",
+  "description": "Learn how to create NFTs with the Avalanche Wallet",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

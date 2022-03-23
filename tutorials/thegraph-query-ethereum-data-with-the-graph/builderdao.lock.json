@@ -1,0 +1,73 @@
+{
+  "proposalId": 316,
+  "slug": "thegraph-query-ethereum-data-with-the-graph",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "url": "https://github.com/robin-thomas",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-login-to-subgraph-studio.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-login-to-subgraph-studio.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-login-to-subgraph-studio.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-create-your-first-subgraph.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-create-your-first-subgraph.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-create-your-first-subgraph.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase.png",
+      "digest": "74fe9b42a0fea5998867c2fa93fb7f80a73e709c9202533054678ca6bf3497d3"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-metamask.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-metamask.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-metamask.png",
+      "digest": "a013c3c131b728507a78c7cc5b3c71e2362a4a95fcad9214b3686eea4da90c33"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract.png",
+      "digest": "76456b8c5b1ce106d4f3c5f98abd992adc032c550bddd75024b5cb44aeb180f1"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-subgraph-dashboard.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-subgraph-dashboard.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-subgraph-dashboard.png",
+      "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio-playground.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-subgraph-studio-playground.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio-playground.png",
+      "digest": "373f895b7919dd12669d6727f1af5360db44b885ffddd9cf066d6d74080c2854"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c590d28e3149f7d8b7a8042ff224a12666d54587df3cfa3b23335e488a7d54ad"
+    },
+    "content/assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio.png": {
+      "name": "thegraph-query-ethereum-data-with-the-graph-subgraph-studio.png",
+      "path": "content/assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    }
+  },
+  "href": "learn/thegraph-query-ethereum-data-with-the-graph",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

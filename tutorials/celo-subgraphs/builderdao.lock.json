@@ -1,0 +1,53 @@
+{
+  "proposalId": 354,
+  "slug": "celo-subgraphs",
+  "authors": [
+    {
+      "name": "Shardul Aeer",
+      "avatarUrl": "https://github.com/secretshardul.png",
+      "url": "https://github.com/secretshardul",
+      "nickname": "secretshardul"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/celo-subgraphs-postman-generate-code-button.png": {
+      "name": "celo-subgraphs-postman-generate-code-button.png",
+      "path": "content/assets/celo-subgraphs-postman-generate-code-button.png",
+      "digest": "560c5f07975e79b5fe1fdd76c60e011a32396f0fb5e66ecf0ea48d864ac170ea"
+    },
+    "content/assets/celo-subgraphs-create-subgraph.png": {
+      "name": "celo-subgraphs-create-subgraph.png",
+      "path": "content/assets/celo-subgraphs-create-subgraph.png",
+      "digest": "f9a8d42cb3eedff9456e4e63ac6c70ca746cd028127dacc1a5d2b77938aeccbf"
+    },
+    "content/assets/celo-subgraphs-postman-generated-code-results.png": {
+      "name": "celo-subgraphs-postman-generated-code-results.png",
+      "path": "content/assets/celo-subgraphs-postman-generated-code-results.png",
+      "digest": "26c9cee16bffb90bf757c838d10342d5b96c78b31736fe9b7134356be57c6bc9"
+    },
+    "content/assets/celo-subgraphs-query-explorer.png": {
+      "name": "celo-subgraphs-query-explorer.png",
+      "path": "content/assets/celo-subgraphs-query-explorer.png",
+      "digest": "d0b34c64aedc4986932ac0c56ea9a1b01a93de06e7ec0ff1896c5de13828c53e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d5696c71e0acce705e25a931e6f283f1495a226af24f9c5bea8616f9e1df2500"
+    }
+  },
+  "href": "learn/celo-subgraphs",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

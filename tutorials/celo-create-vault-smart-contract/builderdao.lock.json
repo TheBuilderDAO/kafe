@@ -1,0 +1,38 @@
+{
+  "proposalId": 333,
+  "slug": "celo-create-vault-smart-contract",
+  "authors": [
+    {
+      "name": "Team Celo Helpi",
+      "avatarUrl": "https://github.com/helpicelo.png",
+      "url": "https://github.com/helpicelo",
+      "nickname": "helpicelo"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "efade3d492f5bf82bdb5f097b4009a45f3c74196304064d251711807af98d330"
+    },
+    "content/assets/celo-create-vault-smart-contract-image-1.png": {
+      "name": "celo-create-vault-smart-contract-image-1.png",
+      "path": "content/assets/celo-create-vault-smart-contract-image-1.png",
+      "digest": "d85bd86b36012a14e3c15e9c3018bfd880292f5d80528667fc42484856920ea0"
+    }
+  },
+  "href": "learn/celo-create-vault-smart-contract",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

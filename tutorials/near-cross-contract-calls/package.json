@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/near-cross-contract-calls",
+  "version": "1.0.0",
+  "description": "Learn how to write smart contracts that talk to each other",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "builderdao tutorial prepublish"
+  },
+  "keywords": [
+    "Near",
+    "JS/TS",
+    "Rust",
+    "NodeJS",
+    "Smart contracts",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

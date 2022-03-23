@@ -1,0 +1,33 @@
+{
+  "proposalId": 369,
+  "slug": "avalanche-local-avalanche-network-using-avash",
+  "authors": [
+    {
+      "name": "Kevin Madhu",
+      "avatarUrl": "https://github.com/breathebinary.png",
+      "url": "https://github.com/breathebinary",
+      "nickname": "breathebinary"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "7d23e1f4cca0e0a4497cf86e24383a301b64432ce5f9000c4b19e8c24f410bd1"
+    }
+  },
+  "href": "learn/avalanche-local-avalanche-network-using-avash",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

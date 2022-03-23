@@ -1,0 +1,53 @@
+{
+  "proposalId": 364,
+  "slug": "near-cross-contract-calls",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/near-cross-contract-calls-create-fresh-workspace.png": {
+      "name": "near-cross-contract-calls-create-fresh-workspace.png",
+      "path": "content/assets/near-cross-contract-calls-create-fresh-workspace.png",
+      "digest": "6b9fcef59273158a3590f33ef148915f07ab5c18d98df7f7a363fd8cc67de960"
+    },
+    "content/assets/near-cross-contract-calls-cross-contract-call-jest-test.png": {
+      "name": "near-cross-contract-calls-cross-contract-call-jest-test.png",
+      "path": "content/assets/near-cross-contract-calls-cross-contract-call-jest-test.png",
+      "digest": "e5395be9be0a4f254d7ccd86b2fea42676c62e3bc3f165d1666eb5e2b6a934f3"
+    },
+    "content/assets/near-cross-contract-calls-jest-tests-running-for-calculator-contract.png": {
+      "name": "near-cross-contract-calls-jest-tests-running-for-calculator-contract.png",
+      "path": "content/assets/near-cross-contract-calls-jest-tests-running-for-calculator-contract.png",
+      "digest": "1e5cb3da4dc3d825ffb5a0c1de90a6f109a2ec24dd7b69eb78a27e567cc9e83e"
+    },
+    "content/assets/near-cross-contract-calls-default-token-contract-test.png": {
+      "name": "near-cross-contract-calls-default-token-contract-test.png",
+      "path": "content/assets/near-cross-contract-calls-default-token-contract-test.png",
+      "digest": "dc43307db9e8490ea993b1abe6d35de543954161b3e1ac70e13a72b981955a6e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "217e884fa69e98b979417db9e08fa3e8dba5388b4b0dab8bade651406d414937"
+    }
+  },
+  "href": "learn/near-cross-contract-calls",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

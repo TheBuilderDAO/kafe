@@ -1,0 +1,73 @@
+{
+  "proposalId": 403,
+  "slug": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum",
+  "authors": [
+    {
+      "name": "Masoud Ghorbanzadeh",
+      "avatarUrl": "https://github.com/mlibre.png",
+      "url": "https://github.com/mlibre",
+      "nickname": "mlibre"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-map-image.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-map-image.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-map-image.png",
+      "digest": "b66a97ed4882b6ad7d85e802f01645f20dc340c212d9882db3a4da5e1a510ef7"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-dai.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-dai.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-dai.png",
+      "digest": "1333bd4d4252f61bb3e63627def386e4cd668871cb7a4701cb8c0ce41de581b2"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-metamask-ethereum.png",
+      "digest": "c06bbaf9e3e549790be1cff1d4ddac7823002a67d64a456cd833052f0d760064"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mapped-image.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mapped-image.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mapped-image.png",
+      "digest": "b03a1d4b65bc38b8b3db5afb2ae1b06fc0c62f1209f7bdeb42428b27c1e797bf"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mlb-metamask.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mlb-metamask.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mlb-metamask.png",
+      "digest": "4d3ea08ae6a42d5234a19481fc4a1f32e5fe65ce5770e6f32c2a494b94475153"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mumbai.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mumbai.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-mumbai.png",
+      "digest": "1d53b4c9db836763e9feaa09619893e8c536850df11843371f01bdf502c98a57"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-pos-web-ui-login.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-pos-web-ui-login.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-pos-web-ui-login.png",
+      "digest": "3d7e80a9e69a6c5e1b745b107dbad251100edf3a9b963b8b611b95a4107c4385"
+    },
+    "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer.png": {
+      "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer.png",
+      "path": "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer.png",
+      "digest": "fab291eb0d58e7fcd5e60156f36695ea2830838a77f2c99414fcfdb61b352a7d"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b8e3328d1bbe705551982c8c0cc224126e5589798aa4459d47cae58c0de3ab60"
+    }
+  },
+  "href": "learn/polygon-transfer-erc20-tokens-between-polygon-and-ethereum",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}
