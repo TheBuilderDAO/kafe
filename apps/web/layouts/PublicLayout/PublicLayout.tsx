@@ -9,7 +9,6 @@ import coffeeFull from '/public/assets/icons/coffee_cup_vote_complete.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import routes from 'routes';
-import MobileNavbar from './MobileNavbar';
 
 type PublicLayoutProps = {
   children: ReactElement;
@@ -36,21 +35,20 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="flex flex-wrap min-h-screen lg:p-8 relative bg-kafewhite dark:bg-kafeblack">
+    <div className="flex flex-wrap min-h-screen font-space p-9 relative bg-kafewhite dark:bg-kafeblack min-w-[1100px]">
       <Notifications />
       <Wrapper>
-        <div className="lg:sticky top-10 z-50">
-          <Header />
-        </div>
         <div className="grid grid-cols-12">
-          <div className="z-0 col-span-2 hidden lg:block">
+          <div className="col-span-1 z-10">
             <LeftSidebar />
           </div>
-          <div className="z-40 col-span-2 absolute lg:hidden shrink">
-            <MobileNavbar />
-          </div>
-          <div className="lg:col-span-10 col-span-12">
-            <Content>{children}</Content>
+          <div className="col-span-11 lg:ml-8 ml-0 min-w-full">
+            <div className="sticky top-10 z-10">
+              <Header />
+            </div>
+            <div className="ml-4">
+              <Content>{children}</Content>
+            </div>
           </div>
         </div>
       </Wrapper>

@@ -30,7 +30,9 @@ module.exports = {
         'larken-extra-bold': ['Larken Extra Bold', 'sans-serif'],
         'larken-extra-bold-italic': ['Larken Extra Bold Italic', 'sans-serif'],
         space: ['Space Mono', 'monospace'],
-        sans: ['Space Mono', 'sans-serif'],
+        'space-italic': ['Space Mono Italic', 'monospace'],
+        'space-bold': ['Space Mono Bold', 'monospace'],
+        'space-bold-italic': ['Space Mono Bold Italic', 'monospace'],
       },
       animation: {
         'slide-up': 'bazinga 0.5s ease forwards',
@@ -42,8 +44,7 @@ module.exports = {
         },
       },
       width: {
-        minimum: '1300px',
-        maximum: '1500px',
+        menu: '280px',
       },
       screens: {
         phone: '300px',

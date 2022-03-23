@@ -17,7 +17,7 @@ const TutorialProposalFilter = () => {
   return (
     <div className="divide-y-2 dark:divide-kafeblack divide-kafewhite">
       <div className="px-10 pt-5">
-        <p className="text-kafemellow">sort by</p>
+        <p className="text-kafemellow text-xs">sort by</p>
         <SortBy
           defaultRefinement={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_number_of_votes_desc`}
           items={[
