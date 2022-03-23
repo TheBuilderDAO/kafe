@@ -1,6 +1,0 @@
-{
-  "title": "Deploy a subgraph for an Avalanche smart contract",
-  "description": "Learn how to deploy a Solidity smart contract to the Avalanche Fuji testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio",
-  "imageUrl": "",
-  "categories": ["Graphql", "JS/TS", "GraphQL", "Hardhat"]
-}

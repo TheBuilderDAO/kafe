@@ -1,6 +1,0 @@
-{
-  "title": "Using the Chainlink Oracle for Randomness on Polygon",
-  "description": "Learn how to use the Chainlink Oracle for verifiable randomness in your Polygon (Matic) smart contracts",
-  "imageUrl": "",
-  "categories": ["JS/TS", "Solidity", "Javascript", "Solidity", "Remix"]
-}

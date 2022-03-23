@@ -1,6 +1,0 @@
-{
-  "title": "Transfer ERC-20 tokens between Polygon & Ethereum",
-  "description": "Learn how to bridge ERC-20 tokens between networks using the Polygon Proof of Stake bridge and SDK",
-  "imageUrl": "",
-  "categories": ["JS/TS", "NodeJS", "Javascript", "Metamask"]
-}
