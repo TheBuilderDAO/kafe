@@ -121,16 +121,14 @@ export const TutorialLayout: React.FC<Props> = ({
         </article>
       </SectionContainer>
       <div className="sticky">
-        <div>
-          <RightSidebar>
-            <div className="p-6">
-              <TutorialTips id={tutorialId} />
-            </div>
-          </RightSidebar>
-          <div>
-            <TableOfContent ids={ids} />
+        <RightSidebar>
+          <div className="p-6">
+            <TutorialTips id={tutorialId} />
           </div>
-        </div>
+        </RightSidebar>
+        {/* <div>
+            <TableOfContent ids={ids} />
+          </div> */}
       </div>
     </div>
   );

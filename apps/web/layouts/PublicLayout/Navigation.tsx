@@ -19,7 +19,7 @@ const Navigation = () => {
     text-2xl
     font-larken
     cursor-pointer
-    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite py-1 rounded-2xl w-24 text-center -ml-5
+    dark:hover:bg-kafedarker hover:bg-kafelighter dark:hover:text-kafewhite dark:text-kafewhite hover:text-kafeblack hover:text-kafewhite py-1 rounded-2xl w-24 px-4 -ml-4
   `;
 
   return (
@@ -27,17 +27,17 @@ const Navigation = () => {
       <nav className="space-y-1">
         <Link key="learn" href={routes.learn.index} passHref>
           <StyledNavigate $active={router.pathname === routes.learn.index}>
-            Learn
+            <div>Learn</div>
           </StyledNavigate>
         </Link>
         <Link key="vote" href={routes.vote.index} passHref>
           <StyledNavigate $active={router.pathname === routes.vote.index}>
-            Vote
+            <div>Vote</div>
           </StyledNavigate>
         </Link>
         <Link key="write" href={routes.write.index} passHref>
           <StyledNavigate $active={router.pathname === routes.write.index}>
-            Write
+            <div>Write</div>
           </StyledNavigate>
         </Link>
       </nav>
