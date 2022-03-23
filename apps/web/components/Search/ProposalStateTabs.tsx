@@ -14,7 +14,11 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
           className="peer absolute opacity-0 cursor-pointer"
           onChange={event => {
             event.preventDefault();
-            refine(ProposalStateE.submitted);
+            refine([
+              ProposalStateE.submitted,
+              ProposalStateE.writing,
+              ProposalStateE.readyToPublish,
+            ]);
           }}
         />
         <span
@@ -28,7 +32,9 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
             bg-kafewhite
             bg-none
             ${
-              currentRefinement[0] === 'submitted'
+              currentRefinement[0] === ProposalStateE.submitted ||
+              currentRefinement[0] === ProposalStateE.writing ||
+              currentRefinement[0] === ProposalStateE.readyToPublish
                 ? 'dark:bg-kafewhite font-space-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
                 : null
             }
@@ -62,7 +68,7 @@ const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
             bg-kafewhite
             font-space
                         ${
-                          currentRefinement[0] === 'funded'
+                          currentRefinement[0] === ProposalStateE.funded
                             ? 'dark:bg-kafewhite bg-kafedarker  font-space-italic text-kafewhite dark:text-kafeblack'
                             : null
                         }

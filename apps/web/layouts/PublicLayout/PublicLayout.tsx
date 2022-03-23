@@ -9,12 +9,14 @@ import coffeeFull from '/public/assets/icons/coffee_cup_vote_complete.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import routes from 'routes';
+import usePageLoadingProgress from '../../hooks/usePageLoadingProgress';
 
 type PublicLayoutProps = {
   children: ReactElement;
 };
 const PublicLayout = (props: PublicLayoutProps) => {
   const { children } = props;
+  usePageLoadingProgress();
   const { daoState, error } = useGetDaoState();
 
   if (error) {

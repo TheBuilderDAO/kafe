@@ -11,13 +11,13 @@ import { useGetTutorialBySlugWithMetadata } from 'services/ApplicationFetcher';
 import TutorialProposalVotes from '@app/components/TutorialProposalVotes/TutorialProposalVotes';
 import { ProposalStateE, useGetReviewer } from '@builderdao-sdk/dao-program';
 import { PublicKey } from '@solana/web3.js';
-import { addEllipsis } from 'utils/strings';
 import { ZERO_ADDRESS } from '../../constants';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import BorderSVG from '@app/components/SVG/BorderSVG';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import Loader from '@app/components/Loader/Loader';
 import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 type PageProps = {
   tutorial: any;
 };
@@ -31,9 +31,9 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   return (
     <div>
       <Head>
-        <title>{tutorial.title}</title>
+        <title>Guide proposal - {tutorial.title}</title>
       </Head>
-      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mb-40">
+      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40">
         <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0 h-fit min-h-[300px]">
           <BorderSVG />
           <section className="p-8">
@@ -63,12 +63,12 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
                 />
               </div>
             </RightSidebar>
-            <WriteOnGitHub
-              tutorial={tutorial}
-              ProposalStateE={ProposalStateE}
-              ZERO_ADDRESS={ZERO_ADDRESS}
-              RenderReviewer={RenderReviewer}
-            />
+            <IsLoggedIn>
+              <WriteOnGitHub
+                tutorial={tutorial}
+                RenderReviewer={RenderReviewer}
+              />
+            </IsLoggedIn>
           </div>
         </div>
       </main>

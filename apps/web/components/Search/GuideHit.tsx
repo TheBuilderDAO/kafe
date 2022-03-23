@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useGetListOfTippersById } from '@builderdao-sdk/dao-program';
 import ImageStack from '@app/components/ImageStack';
 import React from 'react';
-import Loader from '@app/components/Loader/Loader';
 
 const GuideHit = props => {
   const { tippers, loading, error } = useGetListOfTippersById(
@@ -21,7 +20,7 @@ const GuideHit = props => {
         </div>
 
         {loading ? (
-          <Loader />
+          <></>
         ) : (
           <div className="flex flex-row items-center gap-2 text-right">
             <div className="flex items-center">

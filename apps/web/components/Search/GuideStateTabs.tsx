@@ -20,11 +20,16 @@ const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
         <span
           className={`
             p-1
-            px-2
-            rounded-md
+            px-4
+            py-2
+            rounded-xl
+            font-space
+            dark:bg-kafeblack
+            bg-kafewhite
+            bg-none
             ${
               currentRefinement[0] === ProposalStateE.published
-                ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                ? 'dark:bg-kafewhite font-space-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
                 : null
             }
             text-[12px]
