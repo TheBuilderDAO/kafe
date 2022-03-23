@@ -51,7 +51,10 @@ const TutorialProposalHit = props => {
                 </div>
               </div>
               <IsLoggedIn>
-                <VoteButton id={props.hit.objectID} />
+                <VoteButton
+                  id={props.hit.objectID}
+                  currentState={props.hit.state}
+                />
               </IsLoggedIn>
             </div>
           )}
