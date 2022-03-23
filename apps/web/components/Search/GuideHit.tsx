@@ -13,7 +13,7 @@ const GuideHit = props => {
   );
 
   return (
-    <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite tutorial bg-kafelight dark:bg-kafedark z-10 relative min-h-72 text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack mt-5 lg:mt-0 p-4">
+    <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite bg-kafelight dark:bg-kafedark z-10 relative min-h-72 text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack mt-0 p-4">
       <div className="flex flex-row justify-between">
         <div className="flex items-center p-6 text-xs">
           <p>Guide by</p>
@@ -28,7 +28,10 @@ const GuideHit = props => {
               <ImageStack
                 addresses={tippers.map(tip => tip.account.pubkey.toString())}
               />
-              <p className="ml-6 text-sm">{tippers.length} supporters</p>
+              <p className="ml-6 text-sm">
+                {tippers.length}{' '}
+                {tippers.length !== 1 ? 'supporters' : 'supporter'}
+              </p>
             </div>
           </div>
         )}

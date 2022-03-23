@@ -5,6 +5,10 @@ import Tags from '../Tags/Tags';
 import { VscTriangleLeft, VscTriangleRight } from 'react-icons/vsc';
 import { IconContext } from 'react-icons';
 
+type CarouselProps = {
+  variation?: 'dotted' | 'solid';
+};
+
 const Card = ({ variation }) => {
   return (
     <div
@@ -50,7 +54,7 @@ const Wrapper = ({ variation }) => {
   );
 };
 
-const Carousel = ({ variation }) => {
+const Carousel = ({ variation }: CarouselProps) => {
   return (
     <div className="flex">
       <div className="cursor-pointer dark:hover:bg-kafewhite hover:bg-kafeblack w-16 h-16 rounded-full relative right-28 top-20 dark:bg-kafedarker bg-kafelighter group">
