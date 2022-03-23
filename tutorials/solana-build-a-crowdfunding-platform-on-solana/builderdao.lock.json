@@ -21,7 +21,33 @@
       "githubName": "LearnTeam"
     }
   },
-  "content": {},
+  "content": {
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-file-structure.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure.png",
+      "digest": "ea80999f15dac7fd00a3b8007e9bf63ad534dd9364e7eec126db6f2370cbad96"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-front-end-project.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project.png",
+      "digest": "ed55ba43e593574c5bfbaf5071d5065b6aac6384fe6bd01be970bcc8f721848e"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf.png",
+      "digest": "c90ab0c3022a9cb70020a6e9df1d2ff9fafe06195b8d9eb100dceb42d24a461f"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "27b845aee4c46f1fe79ec5c3b83d7fab74edeed96fc328e61dc211b39c466e73"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-result.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-result.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-result.png",
+      "digest": "bca7bde5aef508bb7adbd6977e3a679efcdf57edc77e0f7edd9bbeb4ec77f684"
+    }
+  },
   "href": "learn/solana-build-a-crowdfunding-platform-on-solana",
   "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
 }
