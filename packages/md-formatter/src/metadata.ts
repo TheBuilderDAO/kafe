@@ -88,14 +88,17 @@ const extend = async () => {
       tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/token-contracts.md'
     }
 
-
     if (tutorial.slug === 'avalanche-deploy-pangolin-to-local-testnet') {
+      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-local-testnet-with-token-pair.md'
+    }
+
+    if (tutorial.slug === 'deploy-pangolin-to-your-local-testnet-and-create-token-pair') {
       tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-your-local-testnet-and-create-token-pair.md'
     }
 
     extended.slug = getSLug()
     extended.author_github_account = extended.author_url?.replace(/^https:\/\/github.com\//, ''),
-    extended.author_image_url = `${extended.author_url}.png`;
+    extended.author_image_url = extended.author_url?.includes('github.com') ? `${extended.author_url}.png`: "";
     extended.oldSlug = tutorial.slug;
     extended.tags = tutorial.tags.map(parseTags)
 

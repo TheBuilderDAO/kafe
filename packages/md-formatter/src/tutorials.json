@@ -1270,7 +1270,7 @@
       }
     ],
     "author_name": "Learn Team",
-    "author_image_url": "https://learn.figment.io.png",
+    "author_image_url": "",
     "oldSlug": "mirror-clone"
   },
   "avalanche-pathway": {
@@ -3547,7 +3547,7 @@
       }
     ],
     "author_name": "Eloise",
-    "author_image_url": "https://eloise88.medium.com/.png",
+    "author_image_url": "",
     "oldSlug": "uniswap-latest-pair"
   },
   "secret-deploy-your-own-secret-nft": {
@@ -3975,7 +3975,7 @@
         "title": "Deploy Pangolin To Your Local Testnet And Create Token Pair",
         "slug": "deploy-pangolin-to-your-local-testnet-and-create-token-pair",
         "description": "We will learn how to deploy Pangolin, a DEX which lives on C-Chain, to your local Avalanche testnet.",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/datahub-learn/master/network-documentation/avalanche/tutorials/deploy-pangolin-to-your-local-testnet-and-create-token-pair.md",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-your-local-testnet-and-create-token-pair.md",
         "keywords": ["Avalanche", "Go", "JS/TS", "NodeJS"],
         "next_slug": null,
         "previous_slug": null,
