@@ -41,6 +41,7 @@ export default async function handler(
       tags,
       difficulty,
       numberOfVotes: 0,
+      totalTips: 0,
       lastUpdatedAt,
     };
 
