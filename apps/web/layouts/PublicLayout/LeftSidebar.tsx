@@ -53,9 +53,13 @@ const LeftSidebar = () => {
         <Navigation />
       </div>
       <div className="cursor-pointer mt-96">
-        <Link key="learn" href="https://twitter.com/thebuilderdao" passHref>
+        <a
+          href="https://builderdao.notion.site"
+          target="_blank"
+          rel="noreferrer"
+        >
           <DAOSVG />
-        </Link>
+        </a>
       </div>
     </div>
   );
