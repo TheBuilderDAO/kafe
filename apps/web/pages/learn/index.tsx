@@ -10,9 +10,9 @@ import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
 import {
-  // NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
+  NEXT_PUBLIC_ALGOLIA_APP_ID,
 } from '@app/constants';
 
 const LearnIndexPage: NextPage<
