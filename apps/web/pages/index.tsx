@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import Gateway from '@app/components/SVG/Gateway';
 import routes from 'routes';
 import HomeCTA from '@app/components/Index/HomeCTA';
+import Carousel from '@app/components/Index/Carousel';
 
 const LandingPage: NextPage = () => {
   return (
@@ -13,14 +14,20 @@ const LandingPage: NextPage = () => {
       </Head>
       <main>
         <Gateway />
-        <div className="absolute top-96 left-20 ">
+        <div className="absolute top-96 left-20">
           <HomeCTA
             headline="Learn from guides written by our community"
             path={routes.learn.index}
             cta="view all guides"
           />
         </div>
-        <div className="absolute top-[650px] right-0">
+        <div className="absolute top-80 right-96">
+          <Carousel />
+        </div>
+        <div className="absolute top-[650px] left-48">
+          <Carousel variation="dotted" />
+        </div>
+        <div className="absolute top-[700px] -right-10">
           <HomeCTA
             headline="Vote on proposals for guides you want to be written"
             path={routes.vote.index}
