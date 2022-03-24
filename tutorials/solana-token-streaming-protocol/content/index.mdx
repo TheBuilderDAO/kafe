@@ -791,7 +791,7 @@ Now let's see what code made this happen. In the first line, we have imported `r
 
 Then inside the function, we will get default cors (cors stands for Cross Object Resource Sharing) in a variable `cors`. This line of code attaches our `cors` and will start a server with a base `"/"` and it will have routes that will be passed in the `routes!` macro. As you can see we have two routes and the functions for them are called `index` and `route_with_pubkey`. I have passed them in the macro. Then we await this call and return `Ok(())` so that it compiles.
 
-Now take a look at the `index` and `route_with_pubkey` functions. We have made use of the `get` macro here. For the `index` function, we will return a String "Hello world". In the case of `route_with_pubkey` we will get the pubkey from the URL and return "Hello <pubkey>".
+Now take a look at the `index` and `route_with_pubkey` functions. We have made use of the `get` macro here. For the `index` function, we will return a String "Hello world". In the case of `route_with_pubkey` we will get the pubkey from the URL and return `Hello <pubkey>`.
 
 > NOTE: You can stop the running server by using `cmd+c` on mac and `control+c` on windows.
 
@@ -1284,7 +1284,7 @@ export const getAllStreams = pubkey => {
 };
 ```
 
-We are requesting the route "/<pubkey>" and then we dispatch the result. We have added the code in the try and catch block to handle network errors.
+We are requesting the route `/<pubkey>` and then we dispatch the result. We have added the code in the try and catch block to handle network errors.
 
 ## Create Stream
 
