@@ -438,7 +438,7 @@ public async Task<BigInteger> GetItemCounter()
 
 We use the `Task` keyword because `async` function calls are made using the concept of multi-threading. The first function we are defining is used to call the `itemCounter` function and it returns a `uint256` value that is defined by `BigInterger` datatype in C#.
 
-We start by creating an instance of `ItemCounterFunctionMessage` class using the `new` keyword and store it in `itemCounterMessage` variable. We then create a query handler using the `GetContractQueryHandler` function and pass the `ItemCounterFunctionMessage` type within the anchor brackets(<>) to define the type of function to be called.
+We start by creating an instance of `ItemCounterFunctionMessage` class using the `new` keyword and store it in `itemCounterMessage` variable. We then create a query handler using the `GetContractQueryHandler` function and pass the `ItemCounterFunctionMessage` type within the anchor brackets(`<>`) to define the type of function to be called.
 
 The call is made using the `QueryAsync` function and we pass type `BigInteger` within anchor brackets to signify the type of data to be returned. We pass the contract address of the Marketplace smart contract stored in the variable `MARKETPLACE_ADDRESS` in `BlockchainConstants` class and the `itemCounterMessage` variable.
 
