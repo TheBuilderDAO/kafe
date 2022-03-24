@@ -198,8 +198,8 @@ async function main(task: { tutorial: TutorialExtended, proposal: SolanaDetailsR
           // showDiff(source, String(file));
           // console.log(destinationDir)
           const frontMatter = `---
-title: ${page.title}
-description: ${page.description}
+title: '${page.title}'
+description: '${page.description}'
 keywords: [${page.keywords.join(', ')}]
 date: '${task.tutorial.published_at}'
 ${page.next_slug ? `next:
