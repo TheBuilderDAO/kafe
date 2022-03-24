@@ -21,7 +21,8 @@
     "test:programs": "turbo run test:program --parallel --scope=@builderdao-sdk*",
     "clean": "turbo run clean --parallel",
     "prepare": "husky install",
-    "content:prepublish": "turbo run content:prepublish",
+    "content:prepublish": "turbo run content: prepublish",
+    "content:index": "dotenv -f ../../.env builderdao algolia publish",
     "content:publish": "turbo run content:publish"
   },
   "devDependencies": {

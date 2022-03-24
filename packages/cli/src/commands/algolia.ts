@@ -64,7 +64,7 @@ export function makeAlgoliaCommand() {
   algolia
     .command('publish')
     .description('Update index when tutorial is published')
-    .argument('<slug>', 'Tutorial slug')
+    .argument('[slug]', 'Tutorial slug')
     .addOption(
       new commander.Option('--appId <appId>', 'Algolia App Id')
         .env('ALGOLIA_APP_ID')

@@ -33,6 +33,7 @@
       "cache": false
     },
     "content:prepublish": {},
-    "content:publish": {}
+    "content:publish": {},
+    "content:index": {}
   }
 }
