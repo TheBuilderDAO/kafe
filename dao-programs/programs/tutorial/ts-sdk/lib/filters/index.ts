@@ -16,11 +16,11 @@ export const proposalStateEtoBytes = (state: ProposalStateE) => {
     case ProposalStateE.funded:
       return bs58.encode(new Uint8Array([1]));
     case ProposalStateE.writing:
-      return bs58.encode(new Uint8Array([3]));
+      return bs58.encode(new Uint8Array([2]));
     case ProposalStateE.readyToPublish:
-      return bs58.encode(new Uint8Array([4]));
+      return bs58.encode(new Uint8Array([3]));
     case ProposalStateE.published:
-      return bs58.encode(new Uint8Array([5]));
+      return bs58.encode(new Uint8Array([4]));
     default:
       throw new Error('Invalid State');
   }

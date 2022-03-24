@@ -693,9 +693,6 @@ export type Tutorial = {
             name: 'Writing';
           },
           {
-            name: 'HasReviewers';
-          },
-          {
             name: 'ReadyToPublish';
           },
           {
@@ -1472,9 +1469,6 @@ export const IDL: Tutorial = {
           },
           {
             name: 'Writing',
-          },
-          {
-            name: 'HasReviewers',
           },
           {
             name: 'ReadyToPublish',
