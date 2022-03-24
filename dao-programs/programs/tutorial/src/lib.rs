@@ -44,11 +44,10 @@ pub mod tutorial {
   pub fn proposal_create(
     ctx: Context<ProposalCreate>,
     bump: u8,
-    id: u64,
     slug: String,
     stream_id: String,
   ) -> Result<()> {
-    instructions::proposal_create::handler(ctx, bump, id, slug, stream_id)
+    instructions::proposal_create::handler(ctx, bump, slug, stream_id)
   }
 
   pub fn proposal_set_state(ctx: Context<ProposalSetState>, state: String) -> Result<()> {

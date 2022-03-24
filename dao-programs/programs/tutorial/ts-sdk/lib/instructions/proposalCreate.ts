@@ -44,7 +44,6 @@ export const proposalCreate = async ({
 
   const signature = await program.rpc.proposalCreate(
     proposalAccount.bump,
-    new anchor.BN(tutorialId),
     slug,
     streamId,
     {

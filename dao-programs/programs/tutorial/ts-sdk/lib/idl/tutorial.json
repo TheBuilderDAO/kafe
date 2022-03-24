@@ -197,10 +197,6 @@
           "type": "u8"
         },
         {
-          "name": "id",
-          "type": "u64"
-        },
-        {
           "name": "slug",
           "type": "string"
         },

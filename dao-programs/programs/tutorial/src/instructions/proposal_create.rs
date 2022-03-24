@@ -49,7 +49,6 @@ impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Trans
 pub fn handler(
   ctx: Context<ProposalCreate>, 
   bump: u8,  
-  id: u64,   
   slug: String,
   stream_id: String,
 ) -> Result<()> {
