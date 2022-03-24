@@ -48,7 +48,8 @@ impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Trans
 
 pub fn handler(
   ctx: Context<ProposalCreate>, 
-  bump: u8,  
+  bump: u8,
+  id: u64,
   slug: String,
   stream_id: String,
 ) -> Result<()> {
@@ -63,19 +64,19 @@ pub fn handler(
     return Err(error!(ErrorDao::StreamIdTooLong));
   }
 
-  ctx.accounts.dao_config.number_of_tutorial += 1;
-  ctx.accounts.dao_config.nonce += 1;
-
   ctx.accounts.proposal.created_at = Clock::get()?.unix_timestamp;
   ctx.accounts.proposal.creator = ctx.accounts.payer.key();
   ctx.accounts.proposal.state = ProposalState::default();
   ctx.accounts.proposal.stream_id = stream_id;
   ctx.accounts.proposal.bump = bump;
   ctx.accounts.proposal.slug = slug;
-  ctx.accounts.proposal.id = ctx.accounts.dao_config.nonce;
+  ctx.accounts.proposal.id = id;
   ctx.accounts.proposal.number_of_voter = 0;
   ctx.accounts.proposal.reviewer1 = Pubkey::default();
   ctx.accounts.proposal.reviewer2 = Pubkey::default();
+
+  ctx.accounts.dao_config.number_of_tutorial += 1;
+  ctx.accounts.dao_config.nonce += 1;
 
   Ok(())
 }
