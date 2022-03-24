@@ -19,7 +19,7 @@ const Banner = ({ header, description, link }) => {
         <p className="font-black">{header}</p>
         <p>
           {description}{' '}
-          <a className="underline" href={link}>
+          <a className="underline" href={link} target="_blank" rel="noreferrer">
             Learn more
           </a>
         </p>

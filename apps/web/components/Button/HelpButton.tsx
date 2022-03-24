@@ -4,8 +4,9 @@ import QuestionSVG from '../SVG/QuestionSVG';
 
 const HelpButton = () => {
   const handleHelp = () => {
-    console.log('Help!');
+    window.open('https://builderdao.notion.site/', '_blank');
   };
+
   return (
     <Button handleClick={handleHelp}>
       <QuestionSVG iconSize={20} />
