@@ -6,7 +6,7 @@ import commander from 'commander';
 import { CeramicApi, AlgoliaApi } from '@builderdao/apis';
 import {
   ProposalStateE,
-  filterAccountByReadyToPublishState,
+  filterAccountByState,
 } from '@builderdao-sdk/dao-program';
 
 import dump from '../../data/dump.json';
@@ -138,7 +138,7 @@ export function makeMigrationCommand() {
       });
 
       const rawProposals = await client.getProposals([
-        filterAccountByReadyToPublishState,
+        filterAccountByState(ProposalStateE.readyToPublish),
       ]);
       if (options.id) {
         console.log(
@@ -193,7 +193,9 @@ export function makeMigrationCommand() {
     const walletPk = solana.optsWithGlobals().solanaAdminKey.publicKey;
 
     const proposalIds = (
-      await client.getProposals([filterAccountByReadyToPublishState])
+      await client.getProposals([
+        filterAccountByState(ProposalStateE.readyToPublish),
+      ])
     ).map(data => data.account.id.toNumber());
 
     for (const id of proposalIds) {
