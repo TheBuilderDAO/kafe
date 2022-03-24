@@ -1,11 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextPage } from 'next';
-import Gateway from '@app/components/SVG/Gateway';
 import routes from 'routes';
 import HomeCTA from '@app/components/Index/HomeCTA';
 import Carousel from '@app/components/Index/Carousel';
 import Realtime from '@app/components/Index/Realtime';
+import Image from 'next/image';
+import Gateway from 'public/assets/images/gateway.png';
 
 const LandingPage: NextPage = () => {
   return (
@@ -14,7 +15,7 @@ const LandingPage: NextPage = () => {
         <title>Builder DAO</title>
       </Head>
       <main>
-        <Gateway />
+        <Image src={Gateway} width={585} height={791} alt="gateway" />
         <div className="absolute top-96 left-20">
           <HomeCTA
             headline="Learn from guides written by our community"
