@@ -11,6 +11,7 @@ import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 import { BuilderDaoConfigJson } from '@builderdao/cli';
 import { getEnabledCategories } from 'trace_events';
 import _, { map } from 'lodash';
+import { niceDate } from '@app/lib/utils/format-date';
 
 interface Props {
   tutorialId: number;
@@ -64,7 +65,7 @@ export const TutorialLayout: React.FC<Props> = ({
                   <div>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6">
-                      <time dateTime={date}>{formatDate(date)}</time>
+                      <time dateTime={date}>{niceDate(date)}</time>
                     </dd>
                   </div>
                 </dl>

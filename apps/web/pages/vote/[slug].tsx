@@ -18,7 +18,7 @@ import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import Loader from '@app/components/Loader/Loader';
 import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
-import { niceDate } from '../../utils/time';
+import { niceDate } from '@app/lib/utils/format-date';
 type PageProps = {
   tutorial: any;
 };

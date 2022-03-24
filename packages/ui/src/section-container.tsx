@@ -4,9 +4,5 @@
  * @returns
  */
 export const SectionContainer: React.FC = ({ children }) => {
-  return (
-    <div className="z-10 min-w-[500px] max-w-[700px] px-4 break-all">
-      {children}
-    </div>
-  );
+  return <div className="z-10 min-w-[500px] px-4 break-all">{children}</div>;
 };
