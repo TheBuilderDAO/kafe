@@ -54,7 +54,7 @@ export function makeMigrationCommand() {
     .action(async options => {
       const algoliaApi = new AlgoliaApi({
         appId: options.algolioAppId,
-        accessKey: options.ALGOLIA_ADMIN_KEY,
+        accessKey: options.algoliaAdmin,
         indexName: options.algolioIndex,
       });
 
