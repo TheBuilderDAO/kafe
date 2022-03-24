@@ -24,6 +24,7 @@ const WriteOnGitHub = ({ tutorial, RenderReviewer }) => {
     return null;
   }
 
+  console.log('SOMEEEE', tutorial.reviewer1, tutorial.reviewer2);
   return (
     <div className="mt-6">
       <RightSidebar>

@@ -17,7 +17,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
         <div className="mb-5">
           {wallet.connected && (
             <div className="text-sm flex items-center">
-              <p>Proposal by{'  '}</p>
+              <p className="mr-2">Proposal by</p>
               <UserAvatar address={wallet.publicKey.toString()} />
             </div>
           )}

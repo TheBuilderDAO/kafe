@@ -7,10 +7,11 @@ import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 type CastVoteButtonProps = {
   id: number;
   variant: string;
+  disabled?: boolean;
 };
 
 const CastVoteButton = (props: CastVoteButtonProps) => {
-  const { id, variant } = props;
+  const { id, variant, disabled = false } = props;
 
   const { voters } = useGetListOfVoters(id);
   const [castVote, { submitting }] = useCastVote(voters);
@@ -30,8 +31,8 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
 
   return (
     <button
-      disabled={submitting}
-      className={`${
+      disabled={submitting || disabled}
+      className={`disabled:opacity-25 ${
         variant === 'standard'
           ? 'dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafered hover:bg-kafegold hover:text-kafeblack'
           : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group'

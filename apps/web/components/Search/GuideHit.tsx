@@ -15,7 +15,7 @@ const GuideHit = props => {
     <div className="mb-5 border-[1px] border-kafeblack dark:border-kafewhite bg-kafelight dark:bg-kafedark z-10 relative min-h-72 text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack mt-0 p-4">
       <div className="flex flex-row justify-between">
         <div className="flex items-center p-6 text-xs">
-          <p>Guide by</p>
+          <p className="mr-2">Guide by</p>
           <UserAvatar address={props.hit.author} />
         </div>
 

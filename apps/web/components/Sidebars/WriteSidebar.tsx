@@ -16,23 +16,13 @@ const WriteSidebar = ({ submitting }) => {
       <div className="flex justify-center py-4">
         <KafePassSVG />
       </div>
-      {wallet.connected ? (
-        <button
-          type="submit"
-          disabled={submitting}
-          className="items-center px-6 py-4 w-full font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafegold border border-transparent rounded-3xl shadow-sm hover:bg-kafepurple dark:hover:bg-kafered sm:text-sm"
-        >
-          {submitting ? 'Submitting...' : 'submit proposal'}
-        </button>
-      ) : (
-        <LoginButton
-          className={
-            'items-center px-6 py-4 w-full justify-center font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafegold border border-transparent rounded-3xl shadow-sm hover:bg-kafepurple dark:hover:bg-kafered sm:text-sm'
-          }
-        >
-          submit proposal
-        </LoginButton>
-      )}
+      <button
+        type="submit"
+        disabled={submitting || !wallet.connected}
+        className="disabled:opacity-25 items-center px-6 py-4 w-full font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafegold border border-transparent rounded-3xl shadow-sm hover:bg-kafepurple dark:hover:bg-kafered sm:text-sm"
+      >
+        {submitting ? 'Submitting...' : 'submit proposal'}
+      </button>
     </div>
   );
 };

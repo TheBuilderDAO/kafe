@@ -81,6 +81,7 @@ const Guides = connectHits(Wrapper);
 const GuidesCarousel = () => {
   const { currentIndex, handlePrev, handleNext } = useCarousel(PER_PAGE);
 
+  console.log('CURRENT INDEX', currentIndex);
   return (
     <div className="relative h-[200px]">
       <ButtonLeft onClick={handlePrev} />

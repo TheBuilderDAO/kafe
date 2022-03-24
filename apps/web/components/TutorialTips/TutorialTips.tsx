@@ -15,6 +15,7 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import Modal from 'react-modal';
 import { useTheme } from 'next-themes';
 import { VscClose } from 'react-icons/vsc';
+import { useDapp } from '../../hooks/useDapp';
 
 type TutorialTipsProps = {
   id: number;
@@ -24,6 +25,7 @@ Modal.setAppElement('#__next'); // This is for screen-readers. By binding the mo
 
 const TutorialTips = (props: TutorialTipsProps) => {
   const { id } = props;
+  const { wallet } = useDapp();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { theme } = useTheme();
   const dark = theme === 'dark';
@@ -127,11 +129,9 @@ const TutorialTips = (props: TutorialTipsProps) => {
         ))}
       </ul>
 
-      <IsLoggedIn>
-        <div className="mt-6">
-          <TipTutorialForm id={id} />
-        </div>
-      </IsLoggedIn>
+      <div className="mt-6">
+        <TipTutorialForm id={id} />
+      </div>
     </div>
   );
 };

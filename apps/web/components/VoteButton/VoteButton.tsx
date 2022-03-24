@@ -22,7 +22,7 @@ const VoteButton = (props: VoteButtonProps) => {
   }
 
   return (
-    <div className="py-2">
+    <>
       {vote && Object.keys(vote).length && !error ? (
         <CancelVoteButton
           key="cast-vote-btn"
@@ -33,7 +33,7 @@ const VoteButton = (props: VoteButtonProps) => {
       ) : (
         <CastVoteButton key="cancel-vote-btn" id={id} variant={variant} />
       )}
-    </div>
+    </>
   );
 };
 
