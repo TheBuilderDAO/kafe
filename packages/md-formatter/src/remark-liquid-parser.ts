@@ -3,7 +3,7 @@ import { toString } from "mdast-util-to-string";
 
 const getChildren = (matches: string[], text: string): string | null => {
   if (matches.length > 1) {
-    const reg = /%}\n(.*|\n)\n*{%/g.exec(text)
+    const reg = /%}((?:.|\n)*){%/g.exec(text)
     return reg?.[1] || null
   }
   return null
