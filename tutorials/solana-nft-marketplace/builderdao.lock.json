@@ -1,0 +1,37 @@
+{
+  "proposalId": 189,
+  "slug": "solana-nft-marketplace",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "",
+      "email": "root@thebuilderdao.com",
+      "nickname": ""
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "FdW4ieKucCXZy1i8hMdaJ5ztTwrFBnXVKmFBjVufToRe",
+      "pubkey": "HtdezEbemuLpAh9no1jp7Eezy8drWcbFuk3VPhs17bM4",
+      "githubName": "vunderkind"
+    },
+    "reviewer2": {
+      "pda": "9UmKjrRtvFPXgeknAfMsLxWwVGMPEuYzEpta7SQWTptE",
+      "pubkey": "5uKXYaHes21BoBN3EcNDf13EFqUybzirLwSUfSF218As",
+      "githubName": "dgamboa"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "1a74161a87a259e6113dae6a31525327348dc511eded58e9d07c55db6b958568"
+    },
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "4ef8af402d0bbc11efd3b4cc6798ca1fe2ec9e9da972e3b67b6f221823fb1574"
+    }
+  },
+  "href": "/learn/solana-nft-marketplace"
+}
