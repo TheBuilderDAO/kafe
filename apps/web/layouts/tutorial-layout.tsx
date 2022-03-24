@@ -78,6 +78,7 @@ export const TutorialLayout: React.FC<Props> = ({
                       ...config.categories.map(c => c.name),
                       ...keywords,
                     ])}
+                    max={20}
                   />
                 </div>
               </div>
