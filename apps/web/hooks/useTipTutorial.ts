@@ -35,7 +35,6 @@ export const useTipTutorial = <AD>(): [
         setError(null);
         setSubmitting(true);
 
-        console.log('DATAA', data);
         const txHash = await tipTutorial({
           id: data.id,
           tipperPk: publicKey,

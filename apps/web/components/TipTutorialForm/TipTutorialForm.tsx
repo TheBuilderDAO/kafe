@@ -23,8 +23,14 @@ type TipTutorialProps = {
 Modal.setAppElement('#__next'); // This is for screen-readers. By binding the modal to the root element, screen-readers can read the content of the modal.
 
 const TipTutorialForm = (props: TipTutorialProps) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { id } = props;
+  const { wallet } = useDapp();
+  const { register, handleSubmit, reset, watch, control } = useForm<FormData>();
   const { theme } = useTheme();
+
+  const [tipTutorial, { submitting }] = useTipTutorial();
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const dark = theme === 'dark';
 
   const modalStyles = {
@@ -54,15 +60,10 @@ const TipTutorialForm = (props: TipTutorialProps) => {
     setModalIsOpen(false);
   };
 
-  const afterOpenModal = () => {
-    console.log('hey');
-  };
-
   const KafeModal = () => {
     return (
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Support modal"
@@ -110,12 +111,6 @@ const TipTutorialForm = (props: TipTutorialProps) => {
       </Modal>
     );
   };
-
-  const { id } = props;
-  const { wallet } = useDapp();
-  const { register, handleSubmit, reset, watch, control } = useForm<FormData>();
-
-  const [tipTutorial, { submitting }] = useTipTutorial();
 
   const Placeholder = () => {
     return (

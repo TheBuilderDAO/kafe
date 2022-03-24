@@ -55,15 +55,10 @@ const TutorialTips = (props: TutorialTipsProps) => {
     setModalIsOpen(false);
   };
 
-  const afterOpenModal = () => {
-    console.log('hey');
-  };
-
   const SupportersModal = () => {
     return (
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Support modal"
