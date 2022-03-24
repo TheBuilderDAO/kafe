@@ -7,9 +7,13 @@ interface Props {
 
 const Tags: React.FC<Props> = ({ tags, max = 4 }) => {
   return (
-    <span className="relative flex flex-row flex-wrap cursor-pointer group">
+    <span
+      className={`relative flex flex-row flex-wrap ${
+        tags.length > max ? 'cursor-pointer' : 'cursor-auto'
+      } group`}
+    >
       {tags.map((tag, index) => (
-        <>
+        <span key={`tag-${index}`}>
           {tags.length > max && index === max ? (
             <span className="my-auto text-xs transition duration-300 ease-in opacity-75 group-hover:opacity-0 group-hover:hidden text-kafeblack dark:text-kafewhite ">
               +{tags.length - max}
@@ -25,7 +29,7 @@ const Tags: React.FC<Props> = ({ tags, max = 4 }) => {
           >
             {tag?.value?.toUpperCase() || tag?.toUpperCase()}
           </span>
-        </>
+        </span>
       ))}
     </span>
   );

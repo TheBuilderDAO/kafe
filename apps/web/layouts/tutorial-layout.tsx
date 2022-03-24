@@ -56,7 +56,7 @@ export const TutorialLayout: React.FC<Props> = ({
     <div className="flex justify-between">
       <SectionContainer>
         {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-        <article className="flex mt-8 dark:bg-kafeblack bg-kafewhite z-50 border border-1 border-kafeblack dark:border-kafewhite">
+        <article className="z-50 flex mt-8 border dark:bg-kafeblack bg-kafewhite border-1 border-kafeblack dark:border-kafewhite">
           <div className="px-10 py-4">
             <header>
               <div className="pb-5 space-y-1 text-center">
@@ -87,7 +87,7 @@ export const TutorialLayout: React.FC<Props> = ({
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
               <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0">
-                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-3xl text-kafedark dark:text-kafewhite">
+                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:bg-kafemellow prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite">
                   {children}
                 </div>
               </div>
