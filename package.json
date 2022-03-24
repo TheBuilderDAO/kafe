@@ -46,6 +46,10 @@
       "eslint --fix",
       "prettier --write"
     ],
+    "packages/migration/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
     "packages/md-utils/**/*.{js,ts,jsx,tsx}": [
       "eslint --fix",
       "prettier --write"
