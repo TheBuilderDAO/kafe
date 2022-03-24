@@ -44,7 +44,7 @@ module.exports = {
         },
       },
       width: {
-        menu: '280px',
+        menu: '350px',
       },
       screens: {
         phone: '300px',
