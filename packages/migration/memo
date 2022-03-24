@@ -1,8 +1,0 @@
-// MEMO
-// 5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2TzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN
-// CERAMIC_NODE_URL=https://ceramic-clay.3boxlabs.com builderdao  migration load
-// --ceramicSeed '38 102 235 59 188 240 198 152 202 66 50 251 35 230 174 244 22 27 57 118 208 150
-//  116 52 179 170 86 165 172 87 205 140'
-// --adminKp  5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2TzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN
-// builderdao migration list --id
-// builderdao migration close --id 102 --admin 5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2TzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN
