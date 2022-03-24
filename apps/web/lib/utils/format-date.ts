@@ -1,4 +1,4 @@
-import distanceInWords from 'date-fns/distance_in_words';
+import { formatDistance } from 'date-fns';
 
 export const formatDate = (date: string) => {
   const options: Intl.DateTimeFormatOptions = {
@@ -11,6 +11,6 @@ export const formatDate = (date: string) => {
   return now;
 };
 
-export const niceDate = (date: string | number) => {
-  return distanceInWords(date, new Date());
+export const niceDate = (date: number | Date) => {
+  return formatDistance(date, new Date());
 };

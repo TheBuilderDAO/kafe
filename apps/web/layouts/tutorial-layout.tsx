@@ -66,7 +66,7 @@ export const TutorialLayout: React.FC<Props> = ({
                   <div>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6">
-                      <time dateTime={date}>{niceDate(date)}</time>
+                      <time dateTime={date}>{niceDate(Number(date))}</time>
                     </dd>
                   </div>
                 </dl>
