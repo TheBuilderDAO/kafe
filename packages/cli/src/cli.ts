@@ -1,5 +1,9 @@
 #!/usr/bin/env node
-import 'dotenv/config'
+/* eslint-disable import/first */
+
+import dotenv from 'dotenv';
+
+dotenv.config({debug: true});
 
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
