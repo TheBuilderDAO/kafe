@@ -94,7 +94,9 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
       <div className="pt-4 text-sm leading-6">
         {!voteFull && (
           <>
-            <p className="font-bold">Not funded yet</p>
+            <p className="font-bold text-black dark:text-white">
+              Not funded yet
+            </p>
             <p>
               {remainder} more {remainder != 1 ? 'votes' : 'vote'} needed&nbsp;
               <a href="#" className="underline">
@@ -105,8 +107,10 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
         )}
         {voteFull && (
           <>
-            <p className="font-bold text-white">This proposal is now funded!</p>
-            <p className="text-kafemellow">
+            <p className="font-bold text-black dark:text-white">
+              This proposal is now funded!
+            </p>
+            <p className="dark:text-kafemellow text-kafeblack">
               But you can still vote to show your support&nbsp;{' '}
               <a href="#" className="underline">
                 learn more
