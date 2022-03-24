@@ -16,7 +16,7 @@
     "builderdao": "./dist/cli.cjs"
   },
   "scripts": {
-    "dev": "yarn build --watch",
+    "dev": "yarn build:cli --watch",
     "build": "yarn build:cli && yarn build:types",
     "build:cli": "tsup src/cli.ts  --format esm,cjs --dts",
     "build:types": "tsup src/index.ts  --dts",

@@ -284,6 +284,7 @@ export function makeTutorialCommand() {
       ),
     )
     .action(async options => {
+      console.log(options)
       let emitter: Rx.Subscriber<DistinctQuestion<Answers>>;
       const observe = new Rx.Observable<DistinctQuestion<Answers>>(obs => {
         emitter = obs;
