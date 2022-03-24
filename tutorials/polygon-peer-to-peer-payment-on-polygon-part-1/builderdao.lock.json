@@ -22,24 +22,24 @@
     }
   },
   "content": {
-    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api.png": {
-      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api.png",
-      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api.png",
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api-2.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api-2.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api-2.png",
       "digest": "2e74d3790480fb1d4cd10ad757e67f0e5c9ae01d9159c3b6c07ad09315859a5a"
     },
-    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui.png": {
-      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui.png",
-      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui.png",
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui-3.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui-3.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui-3.png",
       "digest": "f59de58ef75bdbaf3b2b7f5536012d372464b73955f6374d5546b92d38357435"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "4f3cf27b1b5a1935288c2e09b2f110810a513b545ce8a4b8a8f07bc6425b650a"
+      "digest": "48796dda32aadfbd15142378c83ae3a86c8f571b456d32b2311838a4349279f5"
     },
-    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo.png": {
-      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo.png",
-      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo.png",
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png",
       "digest": "86f9e7b3a64aed908f51f0302cb65ce9f7705c6901bc1eeb2ac018e89822e718"
     }
   },

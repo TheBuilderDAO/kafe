@@ -22,39 +22,39 @@
     }
   },
   "content": {
-    "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key.png": {
-      "name": "thegraph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key.png",
+    "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png": {
+      "name": "thegraph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png",
       "digest": "7054f4a31763f4b82ed8a244465f25a3097fa5e105378b8298ac8147b15740f3"
     },
-    "content/assets/thegraph-deploy-a-subgraph-for-polygon-create-your-first-subgraph.png": {
-      "name": "thegraph-deploy-a-subgraph-for-polygon-create-your-first-subgraph.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-create-your-first-subgraph.png",
+    "content/assets/thegraph-deploy-a-subgraph-for-polygon-create-your-first-subgraph-5.png": {
+      "name": "thegraph-deploy-a-subgraph-for-polygon-create-your-first-subgraph-5.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-create-your-first-subgraph-5.png",
       "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
     },
-    "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-signup.png": {
-      "name": "thegraph-deploy-a-subgraph-for-polygon-datahub-signup.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-signup.png",
+    "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-signup-2.png": {
+      "name": "thegraph-deploy-a-subgraph-for-polygon-datahub-signup-2.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-datahub-signup-2.png",
       "digest": "5b336c2994767cefc7c5ccd31ebaa6b40c9b817491b40b16372a63eab585bc17"
     },
-    "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-dashboard.png": {
-      "name": "thegraph-deploy-a-subgraph-for-polygon-subgraph-dashboard.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-dashboard.png",
+    "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-dashboard-6.png": {
+      "name": "thegraph-deploy-a-subgraph-for-polygon-subgraph-dashboard-6.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-dashboard-6.png",
       "digest": "ea97ea6870626cb218bf28bbf45077bb3ffdab3ae27b07a34daa4db1e23e4556"
     },
-    "content/assets/thegraph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio.png": {
-      "name": "thegraph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio.png",
+    "content/assets/thegraph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio-4.png": {
+      "name": "thegraph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio-4.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio-4.png",
       "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ae40a66bf05b5840d6be90ad93694055d9cde2e677478a62b032d82695aa0372"
+      "digest": "ef7e99dd68b67125f98730928ba23471b0f13d03fafd93bb6e940fe9b76a3b62"
     },
-    "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-studio.png": {
-      "name": "thegraph-deploy-a-subgraph-for-polygon-subgraph-studio.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-studio.png",
+    "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png": {
+      "name": "thegraph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png",
       "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
     }
   },

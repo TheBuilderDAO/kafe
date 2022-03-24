@@ -22,94 +22,99 @@
     }
   },
   "content": {
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-connect-wallet-to-market.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-connect-wallet-to-market.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-connect-wallet-to-market.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-connect-wallet-to-market-14.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-connect-wallet-to-market-14.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-connect-wallet-to-market-14.png",
       "digest": "8e4e2f878bf4e371632a9e9ca34de1deb17c7418884bfb1fdb8d93f08f3e3fb4"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-approve-nft-transaction.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-approve-nft-transaction.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-approve-nft-transaction.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-approve-nft-transaction-17.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-approve-nft-transaction-17.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-approve-nft-transaction-17.png",
       "digest": "d9885a644d2a23b1e01e60b36f53a34e4468bf3516a599fde5036659f1e51c1d"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-create-nft-button.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-create-nft-button.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-create-nft-button.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-create-nft-button-6.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-create-nft-button-6.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-create-nft-button-6.png",
       "digest": "d8a6f8ab1581574abdf7dfcecb270270c3da52f1828a466cffee5f4ff0a7975c"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-list-nft-button.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-list-nft-button.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-list-nft-button.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-list-nft-button-16.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-list-nft-button-16.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-list-nft-button-16.png",
       "digest": "447506500c50981be9112dd2a4a8477a1281aa7b1bc3b7da60f8124dc92f14bd"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-deploy-address-sol.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-deploy-address-sol.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-deploy-address-sol.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-deploy-address-sol-2.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-deploy-address-sol-2.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-deploy-address-sol-2.png",
       "digest": "3007e5301501917590e99a3406a48f2d02b11bbd071b0b2fd08aad7bfeb48c12"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-listed-nf-ts.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-listed-nf-ts.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-listed-nf-ts.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-listed-nf-ts-18.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-listed-nf-ts-18.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-listed-nf-ts-18.png",
       "digest": "33fed9e0f785b83789022d2056d12f8b1c96741de63cb28a0027127a30b9fb10"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-metaplex-repo.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-metaplex-repo.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-metaplex-repo.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-metaplex-repo-1.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-metaplex-repo-1.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-metaplex-repo-1.png",
       "digest": "e75b2251390f46523e6b5024eb90c240af8808b7cbaa4551e2d9505ac1464e13"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page-12.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page-12.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page-12.png",
       "digest": "b5e242005064456ee054fef0023c71b448cc98debd6c063efa964fbad0d8738c"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-info-page.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-info-page.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-info-page.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page-5.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page-5.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-my-items-page-5.png",
+      "digest": "b5e242005064456ee054fef0023c71b448cc98debd6c063efa964fbad0d8738c"
+    },
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-info-page-8.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-info-page-8.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-info-page-8.png",
       "digest": "6915a4c00b75e4c02fee900119328fed61453d61b4fb12824642bffcb506b393"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-launch-page.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-launch-page.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-launch-page.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-launch-page-10.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-launch-page-10.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-launch-page-10.png",
       "digest": "24d3290626e3e856896e85af9701891d52529f7e2fb6feb634ef5ef704273b2d"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-mint-finished.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-mint-finished.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-mint-finished.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-mint-finished-11.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-mint-finished-11.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-mint-finished-11.png",
       "digest": "5460df55c07840f417617c5f5bc8a8e10924348028ad1f0dbd3d40456fdb7a36"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-royalties-page.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-royalties-page.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-royalties-page.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-royalties-page-9.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-nft-royalties-page-9.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-nft-royalties-page-9.png",
       "digest": "eac3869c92d70616e206ba5b04ab4eebdeb7e100fc9bf5871fec450d3d6d60cb"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-phantom-collectibles.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-phantom-collectibles.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-phantom-collectibles.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-phantom-collectibles-13.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-phantom-collectibles-13.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-phantom-collectibles-13.png",
       "digest": "67140823a3e1d4086e911f1697484542d9808ed2b001d08a9d6cee3b96570af9"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-store-wallet-address.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-store-wallet-address.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-store-wallet-address.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-store-wallet-address-3.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-store-wallet-address-3.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-store-wallet-address-3.png",
       "digest": "ac4d2785b8f8831c0324972c7e182030a85fcf95c7709b4b64cc1c1b773736c2"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-upload-nft-images.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-upload-nft-images.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-upload-nft-images.png",
-      "digest": "296e25e7b41a77f84586ddf3a89698654fce4347d4e151f481367fd1a698e264"
-    },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-yarn-build-sol.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-yarn-build-sol.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-yarn-build-sol.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-yarn-build-sol-4.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-yarn-build-sol-4.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-yarn-build-sol-4.png",
       "digest": "9ec28e27737a7d3b791394493cbd42ddf5a0d4acfc95d8e3af94e7949c2a76ec"
+    },
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-upload-nft-images-7.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-upload-nft-images-7.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-upload-nft-images-7.png",
+      "digest": "296e25e7b41a77f84586ddf3a89698654fce4347d4e151f481367fd1a698e264"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "af338f8541bc7938c31ef011c5da65055aef81549efcc320f5508b7a33d2a488"
+      "digest": "b7d19a711155b8230cb7e07647594afd934b92c77b6b38eb00e4c781a8b907fe"
     },
-    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts.png": {
-      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts.png",
-      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts.png",
+    "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png": {
+      "name": "solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png",
+      "path": "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png",
       "digest": "abc29bfb21ca2538bb52bdfd664c5b93af50c82b96fc2e749afab77724fdde61"
     }
   },

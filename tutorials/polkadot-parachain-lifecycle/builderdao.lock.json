@@ -32,10 +32,25 @@
       "path": "content/assets/polkadot-parachain-lifecycle-image-1.png",
       "digest": "44a2449738022487220ac48ced83bd922187fa2e5736a9bc274bafa0f7cf289a"
     },
+    "content/assets/polkadot-parachain-lifecycle-image-3.png": {
+      "name": "polkadot-parachain-lifecycle-image-3.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-4.png": {
+      "name": "polkadot-parachain-lifecycle-image-4.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-4.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-5.png": {
+      "name": "polkadot-parachain-lifecycle-image-5.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-5.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "51bf04dd13bdc8e35b48bd50cd2da9745b8e9e8853a7c6cfda8d0afbde264d77"
+      "digest": "5f4a82f6ec53136e023bc7a260fa8b21826078c1a3379e730adf674d1aa8cdca"
     }
   },
   "href": "learn/polkadot-parachain-lifecycle",

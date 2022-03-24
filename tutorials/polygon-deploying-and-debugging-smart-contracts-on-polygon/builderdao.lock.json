@@ -22,9 +22,9 @@
     }
   },
   "content": {
-    "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80.png": {
-      "name": "polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80.png",
-      "path": "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80.png",
+    "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80-1.png": {
+      "name": "polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80-1.png",
+      "path": "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-img-src-https-github-com-figment-networks-learn-tutorials-raw-master-assets-deploy-debug-on-polygon-1-png-width-80-1.png",
       "digest": "9bf366eaab41ac7a6c75bfdd60ad8d124daad688036195749361883194f5d7bf"
     },
     "content/assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-image-2.png": {
@@ -35,7 +35,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c8c931797da4c17fb423c03b0704eb7b0e87fa4246ae83fce1d4dda16a67dfec"
+      "digest": "6818ed3ecd1e4a814da572cb7c0a0802e9cdbf893d0362f9956a09bcd460cbfb"
     }
   },
   "href": "learn/polygon-deploying-and-debugging-smart-contracts-on-polygon",

@@ -21,7 +21,7 @@ This DAO will have the following features:
 
 This is what the DAO we will be creating looks like:
 
-![Demo GIF](./assets/polygon-funding-dao-polygon-demo-gif.png)
+![Demo GIF](./assets/polygon-funding-dao-polygon-demo-gif-1.png)
 
 # Prerequisites
 
@@ -614,7 +614,7 @@ export default Home;
 
 In our dApp, we will be creating four pages:
 
-![Folder Structure](./assets/polygon-funding-dao-polygon-folder-structure.png)
+![Folder Structure](./assets/polygon-funding-dao-polygon-folder-structure-2.png)
 
 In the Next.js app, we will be separating the business logic and UI with the use of `contexts`. We will create a `DataContext` which will handle all the state and method calls, and our UI will call these methods and variables. This allows us to write a clean UI code with no business logic.
 
@@ -924,7 +924,7 @@ export default function Home() {
 }
 ```
 
-![Funding Dao Index](./assets/polygon-funding-dao-polygon-funding-dao-index.png)
+![Funding Dao Index](./assets/polygon-funding-dao-polygon-funding-dao-index-3.png)
 
 In `index.tsx` we make sure that if we are loading data from the contract then we show loading status, and if the user has not connected MetaMask, we ask the user to connect their wallet. On the index page, if the user is neither a Stakeholder nor a Member, then we show the user a UI from which he/she can transfer MATIC to treasury and become a Member of the DAO. If the user is already a Member, then we show a list of all the current proposals.
 
@@ -1088,7 +1088,7 @@ export const CreateMember = () => {
 };
 ```
 
-![Create member](./assets/polygon-funding-dao-polygon-create-member.png)
+![Create member](./assets/polygon-funding-dao-polygon-create-member-4.png)
 
 We are using the `CreateMember` component on the index page if the user has not joined the DAO. In this component, we are accepting the amount of MATIC token user wants to give to DAO to become a Member/Stakeholder. On the Send button, we are calling the `createStakeholder` method from `dataContext`.
 
@@ -1248,7 +1248,7 @@ export const ProposalCard: React.FC<Props> = ({ proposal, openModal }) => {
 };
 ```
 
-![Proposal Card](./assets/polygon-funding-dao-polygon-proposal-card.png)
+![Proposal Card](./assets/polygon-funding-dao-polygon-proposal-card-5.png)
 
 `ProposalCard` component accepts the proposal data and shows the UI accordingly. We are using `react-timer-hook` to show the timer for the remaining time of the voting period.
 
@@ -1377,7 +1377,7 @@ export default function Home() {
 }
 ```
 
-![Create Proposal](./assets/polygon-funding-dao-polygon-create-proposal.png)
+![Create Proposal](./assets/polygon-funding-dao-polygon-create-proposal-6.png)
 
 On this page, we are rendering a form for the user to create a new proposal. Once all the fields are filled we are calling the `createProposal` method from `dataContext`.
 
@@ -1608,7 +1608,7 @@ export const VoteModal: React.FC<Props> = ({
 };
 ```
 
-![Voting Modal](./assets/polygon-funding-dao-polygon-voting-modal.png)
+![Voting Modal](./assets/polygon-funding-dao-polygon-voting-modal-7.png)
 
 In the `VoteModal` we are accepting a proposal and displaying the relevant data to stakeholders. We are also using the arweave library to fetch the base64 of the image for that proposal and display the image in the modal.
 
@@ -1671,7 +1671,7 @@ export default function Home() {
 }
 ```
 
-![Investments Page](./assets/polygon-funding-dao-polygon-investments-page.png)
+![Investments Page](./assets/polygon-funding-dao-polygon-investments-page-8.png)
 
 On the `investments` page, we are using `allInvestedProposal` which contains all the proposals that the user has voted on in the past. We will show each proposal using the `ProposalInvestmentCard` component.
 
@@ -1935,7 +1935,7 @@ export const AddFundsModal: React.FC<Props> = ({
 };
 ```
 
-![Add Funds](./assets/polygon-funding-dao-polygon-add-funds.png)
+![Add Funds](./assets/polygon-funding-dao-polygon-add-funds-9.png)
 
 In the `AddFundsModal` we are showing basic information about the proposal and a text field from which stakeholders can invest the desired amount in the proposal. Investors can invest multiple times until the required funds are reached.
 

@@ -13,7 +13,7 @@ We will create a full-stack dApp with an admin panel where events/markets are cr
 
 This is what the dApp we will be creating looks like:
 
-![Demo GIF](./assets/polygon-create-a-polymarket-clone-on-polygon-demo-gif.png)
+![Demo GIF](./assets/polygon-create-a-polymarket-clone-on-polygon-demo-gif-1.png)
 
 # Prerequisites
 
@@ -365,27 +365,27 @@ truffle deploy --network matic
 
 In our dApp, we will be creating five pages:
 
-![Pages folder structure](./assets/polygon-create-a-polymarket-clone-on-polygon-pages-folder-structure.png)
+![Pages folder structure](./assets/polygon-create-a-polymarket-clone-on-polygon-pages-folder-structure-2.png)
 
 `index.tsx` contains the main page for users where all the markets are listed.
 
-![Index page](./assets/polygon-create-a-polymarket-clone-on-polygon-index-page.png)
+![Index page](./assets/polygon-create-a-polymarket-clone-on-polygon-index-page-3.png)
 
 `portfolio.tsx` contains all the market bets placed by the logged-in user.
 
-![Portfolio view](./assets/polygon-create-a-polymarket-clone-on-polygon-portfolio-view.png)
+![Portfolio view](./assets/polygon-create-a-polymarket-clone-on-polygon-portfolio-view-4.png)
 
 `admin/index.tsx` used by admin to create new markets.
 
-![Admin form view](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-form-view.png)
+![Admin form view](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-form-view-5.png)
 
 `admin/markets.tsx` can be used by admin to resolve the market and decide the out, which will call the `distributeWinningAmount` method of Polymarket contract.
 
-![Admin market list](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-list.png)
+![Admin market list](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-list-6.png)
 
 `markets/[id].tsx` contains the details of a specific market, including description, Yes/No graph, and a section where users can place predictions on the outcome of that market.
 
-![Market details](./assets/polygon-create-a-polymarket-clone-on-polygon-market-details.png)
+![Market details](./assets/polygon-create-a-polymarket-clone-on-polygon-market-details-7.png)
 
 We will start by creating `context.tsx` which will handle the smart contract instances. Create a file `DataContext.tsx` in `context` directory and paste the following code:
 
@@ -673,7 +673,7 @@ const TabButton = ({
 };
 ```
 
-![Navbar](./assets/polygon-create-a-polymarket-clone-on-polygon-navbar.png)
+![Navbar](./assets/polygon-create-a-polymarket-clone-on-polygon-navbar-8.png)
 
 The navbar has two basic functions, connect our dApp with Metamask, and show the tab bar for the user to toggle between Markets and Portfolio. We only show the tab bar if the user is not on admin pages.
 
@@ -746,7 +746,7 @@ export const MarketCard: React.FC<MarketProps> = ({
 };
 ```
 
-![Polymarket Card](./assets/polygon-create-a-polymarket-clone-on-polygon-polymarket-card.png)
+![Polymarket Card](./assets/polygon-create-a-polymarket-clone-on-polygon-polymarket-card-9.png)
 
 `MarketCard` accepts the `MarketProps` as a parameter and displays the image, title, market total values, YES/NO total values in that market. Clicking each market will redirect the user to the market details page.
 
@@ -884,7 +884,7 @@ const Admin = () => {
 export default Admin;
 ```
 
-![Admin index demo](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-index-demo.png)
+![Admin index demo](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-index-demo-10.png)
 
 On this page, we are creating a form through which the admin can create a new market. While creating a new market, the admin must add a title, description, title image, resolve URL, and the end date for the market. Here resolve URL is the URL that will be referred by the admin to decide the outcome of the market. We have two functions, one to upload the image to IPFS and the other to call the `createMarket` method of the `Polymarket` contract.
 
@@ -1107,7 +1107,7 @@ const Details = () => {
 export default Details;
 ```
 
-![Market details](./assets/polygon-create-a-polymarket-clone-on-polygon-market-details.png)
+![Market details](./assets/polygon-create-a-polymarket-clone-on-polygon-market-details-11.png)
 
 The market details page has four sections:
 
@@ -1603,7 +1603,7 @@ const Markets: React.FC = () => {
 export default Markets;
 ```
 
-![Admin market resolve](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-resolve.png)
+![Admin market resolve](./assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-resolve-12.png)
 
 On this page, we are just fetching all the markets from `Polymarket` and displaying them on a card. For the card, we have to create a new component called `AdminMarketCard`.
 

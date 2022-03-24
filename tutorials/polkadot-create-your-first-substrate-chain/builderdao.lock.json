@@ -22,10 +22,35 @@
     }
   },
   "content": {
+    "content/assets/polkadot-create-your-first-substrate-chain-account-table-2.png": {
+      "name": "polkadot-create-your-first-substrate-chain-account-table-2.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-account-table-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-balance-transfer-3.png": {
+      "name": "polkadot-create-your-first-substrate-chain-balance-transfer-3.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-balance-transfer-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png": {
+      "name": "polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-metadata-json-4.png": {
+      "name": "polkadot-create-your-first-substrate-chain-metadata-json-4.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-metadata-json-4.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png": {
+      "name": "polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "66bf5234849b130af67931d44d9cf4dc1d42e90ed600a261e263e3709bf4ad43"
+      "digest": "e8d8483ed0d814e9dc2cab5ece7eb07dd291108bcf908d0205ce7f27e8137af4"
     }
   },
   "href": "learn/polkadot-create-your-first-substrate-chain",

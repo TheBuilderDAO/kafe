@@ -22,35 +22,50 @@
     }
   },
   "content": {
-    "content/assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview.png": {
-      "name": "avalanche-create-an-amm-on-avalanche-multiple-account-preview.png",
-      "path": "content/assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview.png",
+    "content/assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview-8.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-multiple-account-preview-8.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview-8.png",
       "digest": "9a520c2a979032ee22628d47d131469da279f4fa8ebbf3f4eba371e42b6bc7bf"
     },
-    "content/assets/avalanche-create-an-amm-on-avalanche-metamask.png": {
-      "name": "avalanche-create-an-amm-on-avalanche-metamask.png",
-      "path": "content/assets/avalanche-create-an-amm-on-avalanche-metamask.png",
+    "content/assets/avalanche-create-an-amm-on-avalanche-metamask-1.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-metamask-1.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-metamask-1.png",
       "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
     },
-    "content/assets/avalanche-create-an-amm-on-avalanche-remix-preview.png": {
-      "name": "avalanche-create-an-amm-on-avalanche-remix-preview.png",
-      "path": "content/assets/avalanche-create-an-amm-on-avalanche-remix-preview.png",
+    "content/assets/avalanche-create-an-amm-on-avalanche-preview-3.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-preview-3.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview-3.png",
+      "digest": "4822443926c3c1b894d83647c90c1fadae59b0c60bd7d879073996fcc4794cba"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-preview-4.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-preview-4.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview-4.png",
+      "digest": "a2278090b198b41c5235e58e2485cbc95533d1f01be90f0659608b81849b4c9f"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-preview-5.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-preview-5.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview-5.png",
+      "digest": "adb81c5cab035b1d5fd9aa54d9c92108572c61dce50f027681e1c05372a13814"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-remix-preview-2.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-remix-preview-2.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-remix-preview-2.png",
       "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
     },
-    "content/assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview.png": {
-      "name": "avalanche-create-an-amm-on-avalanche-zero-balance-preview.png",
-      "path": "content/assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview.png",
+    "content/assets/avalanche-create-an-amm-on-avalanche-preview-6.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-preview-6.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview-6.png",
+      "digest": "d68cb828d5292192ee3bf8644ca2aadd26c2a68914bece22d061037cddc4529e"
+    },
+    "content/assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview-7.png": {
+      "name": "avalanche-create-an-amm-on-avalanche-zero-balance-preview-7.png",
+      "path": "content/assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview-7.png",
       "digest": "d4e560172f267a2d58023891ab5dd58eb95050045be4045cbee4a28797c01aed"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "737b03ec12bf8e820a8b38356944019f27fe16dd39d74665e6bae08f0a157f81"
-    },
-    "content/assets/avalanche-create-an-amm-on-avalanche-preview.png": {
-      "name": "avalanche-create-an-amm-on-avalanche-preview.png",
-      "path": "content/assets/avalanche-create-an-amm-on-avalanche-preview.png",
-      "digest": "9e5f85d3718dbb6ac155c2c7d61d3fd1d95080d41eac808f9a384af298e05f8d"
+      "digest": "2ad5f7522cbed61410cd5022c0b746efa83471b5438e19c2c5ddbef939cdc9bf"
     }
   },
   "href": "learn/avalanche-create-an-amm-on-avalanche",

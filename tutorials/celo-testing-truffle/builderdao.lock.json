@@ -22,25 +22,30 @@
     }
   },
   "content": {
-    "content/assets/celo-testing-truffle-pass.png": {
-      "name": "celo-testing-truffle-pass.png",
-      "path": "content/assets/celo-testing-truffle-pass.png",
+    "content/assets/celo-testing-truffle-pass-2.png": {
+      "name": "celo-testing-truffle-pass-2.png",
+      "path": "content/assets/celo-testing-truffle-pass-2.png",
       "digest": "ff1f1eff404825bf0d193fcd544c22e430ef2226b43a42675cad1bb8a6ecf7de"
     },
-    "content/assets/celo-testing-truffle-last-test.png": {
-      "name": "celo-testing-truffle-last-test.png",
-      "path": "content/assets/celo-testing-truffle-last-test.png",
+    "content/assets/celo-testing-truffle-last-test-4.png": {
+      "name": "celo-testing-truffle-last-test-4.png",
+      "path": "content/assets/celo-testing-truffle-last-test-4.png",
       "digest": "f5c3149fa507cf259f4a61bf8b6109a8add22590434854511c430849ad389d7c"
+    },
+    "content/assets/celo-testing-truffle-result-3.png": {
+      "name": "celo-testing-truffle-result-3.png",
+      "path": "content/assets/celo-testing-truffle-result-3.png",
+      "digest": "ad38207e3a61b40269c1c5ffaa08ee6f79afae9560a7bbe2906c546bdffb1984"
+    },
+    "content/assets/celo-testing-truffle-result-1.png": {
+      "name": "celo-testing-truffle-result-1.png",
+      "path": "content/assets/celo-testing-truffle-result-1.png",
+      "digest": "a488339193d1254ca240ac51b706f2de02eec14095fac3be0f3072bab707fb37"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b05839aabebbc2b79422d01d03173eb0c9ea2ce2fb5dc45189ca02f988de22cb"
-    },
-    "content/assets/celo-testing-truffle-result.png": {
-      "name": "celo-testing-truffle-result.png",
-      "path": "content/assets/celo-testing-truffle-result.png",
-      "digest": "1e91646032b5d4bfa18eec227524c0684050815b7b54f9abdf73ed8fd7d20781"
+      "digest": "ec5e70ed4e6404adf166cf5b0572099548be4fb3aac9084822d9d6d9d28d1925"
     }
   },
   "href": "learn/celo-testing-truffle",

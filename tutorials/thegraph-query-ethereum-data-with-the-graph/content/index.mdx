@@ -9,7 +9,7 @@ date: '2021-09-16T17:02:58.240Z'
 
 In this tutorial, you will learn how to create a subgraph from an already deployed smart contract on the Ethereum Rinkeby testnet, deploy it to the Subgraph Studio, and then use the Subgraph Studio Playground to query the subgraph.
 
-![Subgraph Studio](./assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio.png)
+![Subgraph Studio](./assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio-1.png)
 
 # Prerequisites
 
@@ -45,15 +45,15 @@ npm i -g @graphprotocol/graph-cli
 
 First, you will want to head over to the Subgraph Studio at <https://thegraph.com/studio/>.
 
-![Login to Subgraph Studio](./assets/thegraph-query-ethereum-data-with-the-graph-login-to-subgraph-studio.png)
+![Login to Subgraph Studio](./assets/thegraph-query-ethereum-data-with-the-graph-login-to-subgraph-studio-2.png)
 
 Click on the **Connect Wallet** button. Choose a Metamask wallet to login with. Once you are authenticated, you shall see the below screen, where you can create your first subgraph.
 
-![Create your first subgraph](./assets/thegraph-query-ethereum-data-with-the-graph-create-your-first-subgraph.png)
+![Create your first subgraph](./assets/thegraph-query-ethereum-data-with-the-graph-create-your-first-subgraph-3.png)
 
 Next, you need to give your subgraph a name. Give the name as **vending**. Once that's done, you will see this screen:
 
-![Subgraph dashboard](./assets/thegraph-query-ethereum-data-with-the-graph-subgraph-dashboard.png)
+![Subgraph dashboard](./assets/thegraph-query-ethereum-data-with-the-graph-subgraph-dashboard-4.png)
 
 On this screen, you can see details about the subgraph like your deploy key, the subgraph slug and status.
 
@@ -203,7 +203,7 @@ Once the sync is complete, you can access the subgraph on the Playground to run 
 
 Head over to <https://thegraph.com/studio/subgraph/vending/> to start querying data with the Playground.
 
-![Subgraph Studio Playground](./assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio-playground.png)
+![Subgraph Studio Playground](./assets/thegraph-query-ethereum-data-with-the-graph-subgraph-studio-playground-5.png)
 
 This is a basic GraphQL query for the subgraph we have created:
 
@@ -274,19 +274,19 @@ Or filter the results by certain conditions using the `where` clause:
 
 Go to <https://rinkeby.etherscan.io/address/0x4006c82ffb71933160948626db3ff8d8aaad6510#writeContract> to see the Rinkeby smart contract.
 
-![Rinkeby Smart Contract](./assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract.png)
+![Rinkeby Smart Contract](./assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-6.png)
 
 Click on the **Connect to Web3** button. Choose **Metamask** from the wallet options. After authenticatng with Metamask, you shall see **Connected - Web3\[address]** instead of the earlier button. Make sure you are connected to the **Rinkeby** test network.
 
 Click on the **purchase** row. You need to fill in **purchase** and **amount** fields.
 
-![Rinkeby Smart Contract Purchase](./assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase.png)
+![Rinkeby Smart Contract Purchase](./assets/thegraph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase-7.png)
 
 Fill in **purchase** as **0.2** and **amount** as **20**. Click on the **Write** button.
 
 It will open up the Metamask prompt. Make sure you are on the **Rinkeby** test network.
 
-![Metamask](./assets/thegraph-query-ethereum-data-with-the-graph-metamask.png)
+![Metamask](./assets/thegraph-query-ethereum-data-with-the-graph-metamask-8.png)
 
 Once you click on the **Confirm** button, wait for your transaction to be mined.
 

@@ -22,10 +22,20 @@
     }
   },
   "content": {
+    "content/assets/cosmos-build-a-polling-app-application-screenshot-1.png": {
+      "name": "cosmos-build-a-polling-app-application-screenshot-1.png",
+      "path": "content/assets/cosmos-build-a-polling-app-application-screenshot-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/cosmos-build-a-polling-app-application-screenshot-2.png": {
+      "name": "cosmos-build-a-polling-app-application-screenshot-2.png",
+      "path": "content/assets/cosmos-build-a-polling-app-application-screenshot-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "31a830812fa726f5fab5b716670303f093c39794ce503940af01e1e7335efae7"
+      "digest": "7bba4c100e3ab1d690d3f7732f81b171a7cbac04943e3be760d30b81b28b6022"
     }
   },
   "href": "learn/cosmos-build-a-polling-app",

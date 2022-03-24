@@ -51,7 +51,7 @@ The dApp we will build is a Proof of Existence (PoE) service. From [Wikipedia](h
 
 Rather than uploading the entire file to the blockchain to "prove its existence", users submit a [hash of the file](https://en.wikipedia.org/wiki/File_verification), known as a file digest or checksum. These hashes are powerful because huge files can be uniquely represented by a small hash value, which is efficient for storing on the blockchain. Any user with the original file can prove that this file matches the one on the blockchain by simply recomputing the hash of the file and comparing it with the hash stored on chain.
 
-![File Hash](./assets/polkadot-build-a-poe-decentralized-app-file-hash.png)
+![File Hash](./assets/polkadot-build-a-poe-decentralized-app-file-hash-1.png)
 
 To add to this, blockchains also provide a robust identity system. So when a file digest is stored on the blockchain, we can also record which user uploaded that digest. This allows that user to later prove that they were the original person to claim the file.
 
@@ -70,7 +70,7 @@ Sounds simple enough? Great, let's get coding.
 
 The Substrate Developer Hub Node Template, which is used as the starting point for this tutorial, has a FRAME-based [runtime](https://substrate.dev/docs/en/knowledgebase/runtime/). [FRAME](https://substrate.dev/docs/en/knowledgebase/runtime/frame) is a library of code that allows you to build a Substrate runtime by composing modules called "pallets". You can think of these pallets as individual pieces of logic that define what your blockchain can do! Substrate provides you with a number of pre-built pallets for use in FRAME-based runtimes.
 
-![Runtime Composition](./assets/polkadot-build-a-poe-decentralized-app-runtime-composition.png)
+![Runtime Composition](./assets/polkadot-build-a-poe-decentralized-app-runtime-composition-2.png)
 
 For example, FRAME includes a [Balances](https://substrate.dev/rustdocs/v3.0.0/pallet_balances/) pallet that controls the underlying currency of your blockchain by managing the _balance_ of all the accounts in your system.
 
@@ -518,11 +518,11 @@ We won't walk you step by step through the creation of this component, but do lo
 
 Your Front-End Template should reload when you save your changes, and you'll notice our new component. Now we're ready to try out our new dApp. Select any file on your computer, and you will see that you can create a claim with its file digest:
 
-![Proof Of Existence Component](./assets/polkadot-build-a-poe-decentralized-app-proof-of-existence-component.png)
+![Proof Of Existence Component](./assets/polkadot-build-a-poe-decentralized-app-proof-of-existence-component-3.png)
 
 If you press "Create Claim", a transaction will be dispatched to your custom Proof of Existence pallet, where this digest and the selected user account will be stored on chain.
 
-![Claimed File](./assets/polkadot-build-a-poe-decentralized-app-claimed-file.png)
+![Claimed File](./assets/polkadot-build-a-poe-decentralized-app-claimed-file-4.png)
 
 If all went well, you should see a new `ClaimCreated` event appear in the Events component. The front-end automatically recognizes that your file is now claimed, and even gives you the option to revoke the claim if you want.
 

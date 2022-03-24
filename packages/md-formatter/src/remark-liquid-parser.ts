@@ -2,9 +2,8 @@ import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 
 const getChildren = (matches: string[], text: string): string | null => {
-  console.log('###', text)
   if (matches.length > 1) {
-    const reg = /%}\n(.*|\n){%/g.exec(text)
+    const reg = /%}\n(.*|\n)\n*{%/g.exec(text)
     return reg?.[1] || null
   }
   return null
@@ -68,7 +67,6 @@ export const remarkLiquidParser = (options = {}) => (tree) => {
           embed = `<Embed\n  ${tagOptions} />`;
           break;
         case "hint":
-      console.log({text, matches, children, tagDetails, tagName, tagOptions})
           embed = `<Hint\n  ${tagOptions}>\n${children}\n</Hint>`;
           break;
         case "code":

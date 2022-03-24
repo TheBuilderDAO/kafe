@@ -22,40 +22,40 @@
     }
   },
   "content": {
-    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-deploying-and-verifying.png": {
-      "name": "polygon-build-an-nft-marketplace-using-hardhat-deploying-and-verifying.png",
-      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-deploying-and-verifying.png",
+    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-deploying-and-verifying-6.png": {
+      "name": "polygon-build-an-nft-marketplace-using-hardhat-deploying-and-verifying-6.png",
+      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-deploying-and-verifying-6.png",
       "digest": "c3b6e37b797a5479913cfb4151f6337bd5f192dcc4e5e32ab20939a27665807f"
     },
-    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-first-teest.png": {
-      "name": "polygon-build-an-nft-marketplace-using-hardhat-first-teest.png",
-      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-first-teest.png",
+    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-first-teest-3.png": {
+      "name": "polygon-build-an-nft-marketplace-using-hardhat-first-teest-3.png",
+      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-first-teest-3.png",
       "digest": "502c9326ea98aeb54d7c4b28b7edb742b0a5516512efb077cb70327fe51e72e3"
     },
-    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-folder-structure.png": {
-      "name": "polygon-build-an-nft-marketplace-using-hardhat-folder-structure.png",
-      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-folder-structure.png",
+    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-folder-structure-2.png": {
+      "name": "polygon-build-an-nft-marketplace-using-hardhat-folder-structure-2.png",
+      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-folder-structure-2.png",
       "digest": "c3bbf545c699b2432091e25aef0aa77ce0a5ad719bb4b3824317607dfe759d80"
     },
-    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-npx-hardhat-png.png": {
-      "name": "polygon-build-an-nft-marketplace-using-hardhat-npx-hardhat-png.png",
-      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-npx-hardhat-png.png",
+    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-npx-hardhat-png-1.png": {
+      "name": "polygon-build-an-nft-marketplace-using-hardhat-npx-hardhat-png-1.png",
+      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-npx-hardhat-png-1.png",
       "digest": "e8ff7e122f13d466eb7de508b2b006032b927b3a67f7e918dcabb2502d007a2a"
     },
-    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-second-test.png": {
-      "name": "polygon-build-an-nft-marketplace-using-hardhat-second-test.png",
-      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-second-test.png",
+    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-second-test-4.png": {
+      "name": "polygon-build-an-nft-marketplace-using-hardhat-second-test-4.png",
+      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-second-test-4.png",
       "digest": "4754d8c0c5a4574fc5aca051fa4eeeb1434aabfe89b33021f6e1d02febac6c18"
     },
-    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-third-test.png": {
-      "name": "polygon-build-an-nft-marketplace-using-hardhat-third-test.png",
-      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-third-test.png",
+    "content/assets/polygon-build-an-nft-marketplace-using-hardhat-third-test-5.png": {
+      "name": "polygon-build-an-nft-marketplace-using-hardhat-third-test-5.png",
+      "path": "content/assets/polygon-build-an-nft-marketplace-using-hardhat-third-test-5.png",
       "digest": "54cc54e98b51d51169a0aa235624fa62a686bc0a84a46380effcac6e8df6533e"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "572bf8bef6d633aeb8333434ea78969ab83684361c8798de2305b1d5f000b19c"
+      "digest": "4747be0f7854c034383986c34b7cc4d43ae7fa9e1f09c935db3d53d8e5564bf3"
     }
   },
   "href": "learn/polygon-build-an-nft-marketplace-using-hardhat",

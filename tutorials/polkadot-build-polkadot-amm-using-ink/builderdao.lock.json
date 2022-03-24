@@ -22,39 +22,39 @@
     }
   },
   "content": {
-    "content/assets/polkadot-build-polkadot-amm-using-ink-chain-visibility.png": {
-      "name": "polkadot-build-polkadot-amm-using-ink-chain-visibility.png",
-      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-chain-visibility.png",
+    "content/assets/polkadot-build-polkadot-amm-using-ink-chain-visibility-6.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-chain-visibility-6.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-chain-visibility-6.png",
       "digest": "21d1295360c59c421a9f1c43c81baa7a79dcf5bf44b535c2d8060f8cbfb5e73e"
     },
-    "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1.png": {
-      "name": "polkadot-build-polkadot-amm-using-ink-deploy-step-1.png",
-      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1.png",
+    "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1-2.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-deploy-step-1-2.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1-2.png",
       "digest": "8521d33aef9be160fd8a8e9838a83f2d8918e8f6b5e1ab58c837486c954abeac"
     },
-    "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2.png": {
-      "name": "polkadot-build-polkadot-amm-using-ink-deploy-step-2.png",
-      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2.png",
+    "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2-3.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-deploy-step-2-3.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2-3.png",
       "digest": "980c27dddc60083d01b05c0001bab98c3194aa02c35bcc9ba526b52588b3873e"
     },
-    "content/assets/polkadot-build-polkadot-amm-using-ink-find-contract-address.png": {
-      "name": "polkadot-build-polkadot-amm-using-ink-find-contract-address.png",
-      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-find-contract-address.png",
+    "content/assets/polkadot-build-polkadot-amm-using-ink-find-contract-address-4.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-find-contract-address-4.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-find-contract-address-4.png",
       "digest": "93206d88275699f8eb6a150d527b0a1a78fde2189ff4581393cf30c84059d3f7"
     },
-    "content/assets/polkadot-build-polkadot-amm-using-ink-switch-network.png": {
-      "name": "polkadot-build-polkadot-amm-using-ink-switch-network.png",
-      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-switch-network.png",
+    "content/assets/polkadot-build-polkadot-amm-using-ink-switch-network-1.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-switch-network-1.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-switch-network-1.png",
       "digest": "88aa8fa8525cfc7d2d80f08cec40a50748cd2c643931c12fc31a3a78a76dd222"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "73f3f69db2a15efa14cf6227468317ead26e426bc1b7089e2505886bd5c5e589"
+      "digest": "5296b9c88369e118b206cf2b51d4c50ae6491faab9cb172e1c219019130d150f"
     },
-    "content/assets/polkadot-build-polkadot-amm-using-ink-demo.png": {
-      "name": "polkadot-build-polkadot-amm-using-ink-demo.png",
-      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-demo.png",
+    "content/assets/polkadot-build-polkadot-amm-using-ink-demo-5.png": {
+      "name": "polkadot-build-polkadot-amm-using-ink-demo-5.png",
+      "path": "content/assets/polkadot-build-polkadot-amm-using-ink-demo-5.png",
       "digest": "087ce51f80c3187854148159e042c690bef78347db5060c0a88744abc3c7f088"
     }
   },

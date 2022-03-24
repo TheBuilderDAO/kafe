@@ -56,11 +56,11 @@ npx hardhat
 
 On typing the last command, something similar to this should appear on your screen:
 
-![Hardhat Initializing](./assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initializing.png)
+![Hardhat Initializing](./assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initializing-1.png)
 
 We can start with a basic sample project so that it is easier to understand the project layout, so let's just press Enter. After this we will be asked to set our project root - Press Enter to keep the default value. Next it will ask if we want a .gitignore file. Press Enter again to keep the default value of "yes" or type n for "no". It will then ask if we want to install the dependencies for our sample project. Press Enter to accept the default of yes. Now HardHat will create a sample project for us and install the dependencies. Once complete, it will look something like this:
 
-![Hardhat Initialized](./assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initialized.png)
+![Hardhat Initialized](./assets/polygon-create-nft-smart-contract-with-hardhat-hardhat-initialized-2.png)
 
 **Congrats** 🎊🎊🎊 you have created your first HardHat project!
 
@@ -68,7 +68,7 @@ We can start with a basic sample project so that it is easier to understand the 
 
 Now let's open our project and take a look at what it contains. I will be using VSCode as my editor of choice but feel free to use any other code editor you are comfortable with.
 
-![Initial File Structure](./assets/polygon-create-nft-smart-contract-with-hardhat-initial-file-structure.png)
+![Initial File Structure](./assets/polygon-create-nft-smart-contract-with-hardhat-initial-file-structure-3.png)
 
 What we get is a very simple project scaffold. The directory names are quite self explanatory. All our smart contracts, script files and test scripts are going to be kept in their respective directories (folders).
 
@@ -466,7 +466,7 @@ npx hardhat test
 
 This should output:
 
-![Running Tests](./assets/polygon-create-nft-smart-contract-with-hardhat-running-tests.png)
+![Running Tests](./assets/polygon-create-nft-smart-contract-with-hardhat-running-tests-4.png)
 
 # Deploy the smart contract
 
@@ -479,7 +479,7 @@ Before we move ahead and deploy our smart contract, we will need two additional 
 
 ## Setting up environment variable
 
-![Creating ENV File](./assets/polygon-create-nft-smart-contract-with-hardhat-creating-env-file.png)
+![Creating ENV File](./assets/polygon-create-nft-smart-contract-with-hardhat-creating-env-file-5.png)
 
 Create a new file named `.env` in the project root directory
 
@@ -552,7 +552,7 @@ Now we have to wait for a few minutes as the contract is deployed and verified. 
 
 If everything is correct you should get an output similar to this:
 
-![Deploying Contract](./assets/polygon-create-nft-smart-contract-with-hardhat-deploying-contract.png)
+![Deploying Contract](./assets/polygon-create-nft-smart-contract-with-hardhat-deploying-contract-6.png)
 
 You can now view your contract at the link provided in the output. You can check out my example of the deployed contract [here](https://mumbai.polygonscan.com/address/0x12Fc3C44b4092aD55cf0212fa3A84a1210fCED5f).
 
@@ -593,15 +593,15 @@ In this case please make sure you are entering the correct API key.
 
 If we view our smart contract on Polygonscan, you can see that our contract is verified. This is indicated by a green checkmark in the Contracts tab. In the Contracts tab, click on `Write Contract`. Now click on "Connect to Web3" and connect your Metamask account.
 
-![Contract Deployed and Verified](./assets/polygon-create-nft-smart-contract-with-hardhat-contract-deployed-and-verified.png)
+![Contract Deployed and Verified](./assets/polygon-create-nft-smart-contract-with-hardhat-contract-deployed-and-verified-7.png)
 
 Now select the `mint` action and put in your tokenURI. I am using <https://gambakitties-metadata.herokuapp.com/metadata/1> as my tokenURI. If you want, you can create your own tokenURI by hosting it using IPFS. Once you enter your tokenURI, click on the "Write" button. This will show a Metamask popup. Confirm the transaction and wait for it to be confirmed.
 
-![MetaMask Sign Popup](./assets/polygon-create-nft-smart-contract-with-hardhat-meta-mask-sign-popup.png)
+![MetaMask Sign Popup](./assets/polygon-create-nft-smart-contract-with-hardhat-meta-mask-sign-popup-8.png)
 
 Congratulations🥳🥳🥳, Your NFT is successfully minted. You can visit the [Opensea Testnet](https://testnets.opensea.io/) page and in the "My Profile" section you can now view your NFT. Checkout the example [here](https://testnets.opensea.io/assets/mumbai/0x12fc3c44b4092ad55cf0212fa3a84a1210fced5f/0).
 
-![NFT in Opensea Testnet](./assets/polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet.png)
+![NFT in Opensea Testnet](./assets/polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet-9.png)
 
 # Conclusion
 

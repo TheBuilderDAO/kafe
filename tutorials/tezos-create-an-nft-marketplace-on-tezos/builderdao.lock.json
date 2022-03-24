@@ -22,15 +22,60 @@
     }
   },
   "content": {
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-1.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-1.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-1.png",
+      "digest": "4b7b3329af5f20e65f974b05dfbec7108cf21eda0d4744a9db032e4e787f5384"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-2.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-2.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-2.png",
+      "digest": "6aa29de34c39f68586dfe8d692b5421aa93fa28688e8b5bfee2abfc9cbca9cdd"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-10.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-10.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-10.png",
+      "digest": "75f438bf5eeba8ff8f5dc657f0b5a727abc38cdd7817a6e64bc79aa35d410b31"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-3.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-3.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-3.png",
+      "digest": "a8cbff7ed250a72c20c68ad18d2e5b7e993ef1a226df58673c9b8d40bb040b95"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-4.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-4.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-4.png",
+      "digest": "d1546e2797ef278dc6e1038fee961d67723d5330d73d3b9a6bcf6c99165a75f1"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-6.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-6.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-6.png",
+      "digest": "5c772337432a3d7d29c22f70568a3b97c3590333324cff1315ceab5f1287d507"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-5.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-5.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-5.png",
+      "digest": "b60317f7d70113ca09505e978bd512c837cbde581aa89bb0a6b288a039eb558d"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-7.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-7.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-7.png",
+      "digest": "e74309f8b50aedc01b47ca123d7fa6f7337cdc3306a75331e0f5217fe50abd98"
+    },
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-8.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-8.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-8.png",
+      "digest": "72b9968e270e31b9f08390b63e4a6f9554c42cac264710c4ee63f750ce8a4d91"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3daf16507a76aa931790ef2b199cc0031899ecd5748102d423e8eed68a305d9e"
+      "digest": "491f5a5462039addd8820e6c33cd9e68c31d5d704da2cdabce83436cc5e13461"
     },
-    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image.png": {
-      "name": "tezos-create-an-nft-marketplace-on-tezos-image.png",
-      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image.png",
-      "digest": "75f438bf5eeba8ff8f5dc657f0b5a727abc38cdd7817a6e64bc79aa35d410b31"
+    "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-9.png": {
+      "name": "tezos-create-an-nft-marketplace-on-tezos-image-9.png",
+      "path": "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-9.png",
+      "digest": "8cd52be769e0ccd99f101f75a8a3b2d469ed149713f9935f9913a6945b31c690"
     }
   },
   "href": "learn/tezos-create-an-nft-marketplace-on-tezos",

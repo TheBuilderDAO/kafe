@@ -22,9 +22,9 @@
     }
   },
   "content": {
-    "content/assets/celo-introduction-to-dappkit-expo-terminal.png": {
-      "name": "celo-introduction-to-dappkit-expo-terminal.png",
-      "path": "content/assets/celo-introduction-to-dappkit-expo-terminal.png",
+    "content/assets/celo-introduction-to-dappkit-expo-terminal-1.png": {
+      "name": "celo-introduction-to-dappkit-expo-terminal-1.png",
+      "path": "content/assets/celo-introduction-to-dappkit-expo-terminal-1.png",
       "digest": "13b8092f31c2ce4ef18586a97a89b186459604bd01b2a52640a1adb445c92eee"
     },
     "content/assets/celo-introduction-to-dappkit-image-2.png": {
@@ -32,15 +32,15 @@
       "path": "content/assets/celo-introduction-to-dappkit-image-2.png",
       "digest": "812b0af58fbe8be91939aa8f6bb2ec82b3f60b38c5329876d4329a1c48eb3ac9"
     },
-    "content/assets/celo-introduction-to-dappkit-image-4.png": {
-      "name": "celo-introduction-to-dappkit-image-4.png",
-      "path": "content/assets/celo-introduction-to-dappkit-image-4.png",
-      "digest": "69e8448e61e343336ccb6847ff9a944fe54d5f1314e41c5cf04ab360d540808b"
-    },
     "content/assets/celo-introduction-to-dappkit-image-3.png": {
       "name": "celo-introduction-to-dappkit-image-3.png",
       "path": "content/assets/celo-introduction-to-dappkit-image-3.png",
       "digest": "64d95148b4cbc001d88fe1c52b7ed052ce38b3d63a46943d01b28abb24614af6"
+    },
+    "content/assets/celo-introduction-to-dappkit-image-4.png": {
+      "name": "celo-introduction-to-dappkit-image-4.png",
+      "path": "content/assets/celo-introduction-to-dappkit-image-4.png",
+      "digest": "69e8448e61e343336ccb6847ff9a944fe54d5f1314e41c5cf04ab360d540808b"
     },
     "content/assets/celo-introduction-to-dappkit-image-6.png": {
       "name": "celo-introduction-to-dappkit-image-6.png",
@@ -55,7 +55,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "43e7226dc17ab1fd1c430b47ae737f106c1ea38447e9bf60d70315c2903b0dbc"
+      "digest": "c76325e93233dbe071637a1382610fc748f705a6729451930712fc054a061eef"
     },
     "content/assets/celo-introduction-to-dappkit-image-7.png": {
       "name": "celo-introduction-to-dappkit-image-7.png",

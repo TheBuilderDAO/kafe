@@ -10,7 +10,7 @@ date: '2021-07-21T09:00:40.821Z'
 
 In this tutorial we'll write a smart contract using the Solidity language and a contract from the Openzeppelin library for ERC1155 tokens. Using nodejs along with [Hardhat]() we will compile the smart contract code and also test the contract before deploying it. After deploying the contract we will create a custom task within Hardhat to create a Celo account and deploy the contract to the Celo network using [DataHub](https://datahub.figment.io). Lastly, we are going to use a React application that will connect to the Celo wallet account and interact with the deployed smart contract.
 
-![Captura de Tela (39)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-39.png)
+![Captura de Tela (39)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-39-1.png)
 
 # Prerequisites
 
@@ -310,7 +310,7 @@ When run `npx hardhat celo-account`, The new account is created and the privateK
 
 # Deploy
 
-If your code is already compiled and tested, It's time to deploy your smart contract. You will need to connect to the Celo blockchain. To do this you will need a server running the Celo network. To connect with Celo network and many other blockchain networks, one of the easiest ways is using Figment's DataHub service: Go to [datahub.figment.io](https://datahub.figment.io/) and chose Celo from the list of available protocols. ![Captura de Tela (43)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-43.png).
+If your code is already compiled and tested, It's time to deploy your smart contract. You will need to connect to the Celo blockchain. To do this you will need a server running the Celo network. To connect with Celo network and many other blockchain networks, one of the easiest ways is using Figment's DataHub service: Go to [datahub.figment.io](https://datahub.figment.io/) and chose Celo from the list of available protocols. ![Captura de Tela (43)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-43-2.png).
 
 # Create the deploy task
 
@@ -403,7 +403,7 @@ async function getBalance() {
 }
 ```
 
-This code work accessing the smart contract using `kit.web3.eth.Contract...`,The code has 2 arrays one with user address and the other with list NFTs id , when call the function **_balance Of Batch_** in contract will return an array with each NFT that the user has,Depends on the balance the code will show a specific image for each array combination,example: if balanceOfBatch returns **_\[1,0,0,0,0]_** the code will show this image ![village](./assets/celo-hardhat-deploy-and-nft-app-village.png)
+This code work accessing the smart contract using `kit.web3.eth.Contract...`,The code has 2 arrays one with user address and the other with list NFTs id , when call the function **_balance Of Batch_** in contract will return an array with each NFT that the user has,Depends on the balance the code will show a specific image for each array combination,example: if balanceOfBatch returns **_\[1,0,0,0,0]_** the code will show this image ![village](./assets/celo-hardhat-deploy-and-nft-app-village-3.png)
 
 # Create a button to mint the NFT
 
@@ -460,7 +460,7 @@ If the code has any errors, remember to test the app.
 npm start
 ```
 
-![Captura de Tela (49)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-49.png) ![Captura de Tela (50)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-50.png) After you connect to a account go to [Celo faucets ](https://celo.org/developers/faucets) and send test coin to address to buying the NFT,First, you need to buy a village and next, you will need to buy a farm and mine to pass to the next level. ![Captura de Tela (54)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-54.png) ![Captura de Tela (55)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-55.png)
+![Captura de Tela (49)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-49-4.png) ![Captura de Tela (50)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-50-5.png) After you connect to a account go to [Celo faucets ](https://celo.org/developers/faucets) and send test coin to address to buying the NFT,First, you need to buy a village and next, you will need to buy a farm and mine to pass to the next level. ![Captura de Tela (54)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-54-6.png) ![Captura de Tela (55)](./assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-55-7.png)
 
 # Conclusion
 

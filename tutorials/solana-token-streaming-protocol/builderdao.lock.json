@@ -22,20 +22,25 @@
     }
   },
   "content": {
-    "content/assets/solana-token-streaming-protocol-backend-files.png": {
-      "name": "solana-token-streaming-protocol-backend-files.png",
-      "path": "content/assets/solana-token-streaming-protocol-backend-files.png",
-      "digest": "1aad1c2ef43c1d7cf0fad7d51f095567ff82c70d58792e362ce0d8769e786b44"
+    "content/assets/solana-token-streaming-protocol-browser-image-1.png": {
+      "name": "solana-token-streaming-protocol-browser-image-1.png",
+      "path": "content/assets/solana-token-streaming-protocol-browser-image-1.png",
+      "digest": "7eb2b3129e8bc3d5a60a8e4c61a2333e6348e24a1e983db5a57087ad2e40528d"
     },
-    "content/assets/solana-token-streaming-protocol-browser-image.png": {
-      "name": "solana-token-streaming-protocol-browser-image.png",
-      "path": "content/assets/solana-token-streaming-protocol-browser-image.png",
-      "digest": "bf0ab9a76000979a4bcdd0ead2e303cb970202d72ec87d8e4ed8e7eb7e191f20"
+    "content/assets/solana-token-streaming-protocol-backend-files-3.png": {
+      "name": "solana-token-streaming-protocol-backend-files-3.png",
+      "path": "content/assets/solana-token-streaming-protocol-backend-files-3.png",
+      "digest": "1aad1c2ef43c1d7cf0fad7d51f095567ff82c70d58792e362ce0d8769e786b44"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "edd46b990dbdb1d1624d3ae61a285df48df588c8b169edd603c353375621dec0"
+      "digest": "71f3979c544427721dbce7f8d9ca448df95e440d884d271311489f345fcb9cf7"
+    },
+    "content/assets/solana-token-streaming-protocol-browser-image-2.png": {
+      "name": "solana-token-streaming-protocol-browser-image-2.png",
+      "path": "content/assets/solana-token-streaming-protocol-browser-image-2.png",
+      "digest": "666d2ff558dc3b47030530b5f205db87dd777652a91fa97e364d9a2aa812ffb5"
     }
   },
   "href": "learn/solana-token-streaming-protocol",

@@ -133,9 +133,9 @@ const process = async () => {
     total++
     if (proposal) {
       matching++
-      if (value.slug === 'avalanche-create-an-amm-on-avalanche') {
+      // if (value.slug === 'avalanche-create-an-amm-on-avalanche') {
         await processQueue.pushAsync({ tutorial: value, proposal });
-      }
+      // }
       // console.log(proposal)
     } else {
       console.log("NOPE >> ", value.slug)

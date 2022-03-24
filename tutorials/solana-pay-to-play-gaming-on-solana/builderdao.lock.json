@@ -25,11 +25,11 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "cac84964a083a40c962f9c9a2e694c85cdc28c87f4c07dbb994e50cb90e99923"
+      "digest": "f9dcca76b3f0568a3afc94b24f38df1243547c233a62e1e866335f20e32b9e65"
     },
-    "content/assets/solana-pay-to-play-gaming-on-solana-solana-games.png": {
-      "name": "solana-pay-to-play-gaming-on-solana-solana-games.png",
-      "path": "content/assets/solana-pay-to-play-gaming-on-solana-solana-games.png",
+    "content/assets/solana-pay-to-play-gaming-on-solana-solana-games-1.png": {
+      "name": "solana-pay-to-play-gaming-on-solana-solana-games-1.png",
+      "path": "content/assets/solana-pay-to-play-gaming-on-solana-solana-games-1.png",
       "digest": "7f8d882c460ff7bc4e0b42ff6d4315bf45cf4920b2638771d40b05185a14127e"
     }
   },

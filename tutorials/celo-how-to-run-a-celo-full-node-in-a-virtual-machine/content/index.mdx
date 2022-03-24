@@ -26,7 +26,7 @@ Please watch the videos linked below and follow along with the written tutorial!
 
 **Click the image to access the video :**
 
-[![SC2 Video](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video.png)](http://www.youtube.com/watch?v=Cdqwzf-zfug)
+[![SC2 Video](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video-1.png)](http://www.youtube.com/watch?v=Cdqwzf-zfug)
 
 - Click on "Create New" in VirtualBox
 - Select a dynamically allocated virtual hard disk
@@ -40,7 +40,7 @@ The installation of Debian is complete and the VM is now ready.
 
 **Video 2, Building the full node**
 
-[![SC2 Video](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video.png)](http://www.youtube.com/watch?v=l8qAISLJZq8)
+[![SC2 Video](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video-2.png)](http://www.youtube.com/watch?v=l8qAISLJZq8)
 
 ### Gain sudo on the VM
 
@@ -62,7 +62,7 @@ The following commands are entered into the VM terminal:
 
 - Find (sudo) in the group list:
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-3.png)
 
 ## Install Docker & utilities
 
@@ -86,7 +86,7 @@ Run an external program called VBoxLinuxAdditions, which enables copy/paste betw
 
 Cursor over devices in the top left corner, and select: Insert Guest Additions CD Image
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-4.png)
 
 `cd /media/cdrom`
 
@@ -161,7 +161,7 @@ This file runs the light client, and contains information about the node in the 
 curl -o start_celo.sh https://gist.githubusercontent.com/alchemydc/e28945f5059acd70969b39a50fd0f80a/raw/0d15cceb89ea86ca46df94441c06ecd88a4e6635/start_celo.sh
 ```
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-5.png)
 
 Move these files into a new directory named `celo-data-dir` by running these commands in the terminal:
 
@@ -186,11 +186,11 @@ The docker container should now be running.
 
 Copy the public address that is provided with your new node account :
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-6.png)
 
 Next, run `vim celo.env`
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-7.png)
 
 - In vim press "i" for insert mode.
 - Remove YOUR_ACCOUNT_ADDRESS with with the backspace or delete key.
@@ -220,7 +220,7 @@ Next, run `vim celo.env`
 
 `docker stop geth`
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-8.png)
 
 ## Sending Celo to and from the node
 
@@ -244,7 +244,7 @@ Next, run `vim celo.env`
 
 Understanding this unit of measurement: 1e16 = 0.01 CUSD, 1e15 = 0.1 CUSD, 1e14 = 1.0 CUSD.
 
-![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image.png)
+![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-9.png)
 
 # Conclusion
 

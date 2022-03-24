@@ -92,25 +92,25 @@
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-5.png",
       "digest": "55e1a24eee4b038a56f04eadd601cce3c3b53df82e13bd4cabccd73981e0ecd6"
     },
-    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-6.png": {
-      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-6.png",
-      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-6.png",
-      "digest": "9bc03807a655df5389b4ed7049804d496012c88413e17e3330d1958e380c833d"
-    },
-    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png": {
-      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-8.png",
-      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png",
-      "digest": "68b763d638337fb7a93d3848e7ea782bc5f0d7ebb7cb06af71e03f87d87b5bb4"
-    },
     "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png": {
       "name": "polygon-build-petgram-an-nft-sharing-dapp-image-7.png",
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png",
       "digest": "68b763d638337fb7a93d3848e7ea782bc5f0d7ebb7cb06af71e03f87d87b5bb4"
     },
+    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-6.png": {
+      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-6.png",
+      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-6.png",
+      "digest": "9bc03807a655df5389b4ed7049804d496012c88413e17e3330d1958e380c833d"
+    },
     "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-9.png": {
       "name": "polygon-build-petgram-an-nft-sharing-dapp-image-9.png",
       "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-9.png",
       "digest": "ae67c5fccf5d5b97a1ad97471866bf75ac7ad494be0bfc1dea3538c79bf2f63c"
+    },
+    "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png": {
+      "name": "polygon-build-petgram-an-nft-sharing-dapp-image-8.png",
+      "path": "content/assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png",
+      "digest": "68b763d638337fb7a93d3848e7ea782bc5f0d7ebb7cb06af71e03f87d87b5bb4"
     },
     "content/index.mdx": {
       "name": "index.mdx",

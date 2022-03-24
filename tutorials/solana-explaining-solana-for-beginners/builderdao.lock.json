@@ -22,29 +22,29 @@
     }
   },
   "content": {
-    "content/assets/solana-explaining-solana-for-beginners-kernel.png": {
-      "name": "solana-explaining-solana-for-beginners-kernel.png",
-      "path": "content/assets/solana-explaining-solana-for-beginners-kernel.png",
+    "content/assets/solana-explaining-solana-for-beginners-kernel-3.png": {
+      "name": "solana-explaining-solana-for-beginners-kernel-3.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-kernel-3.png",
       "digest": "e6364a7b676c4b21271592985a41d388ccf10f5b2f52eb2f6ed99646df340f68"
     },
-    "content/assets/solana-explaining-solana-for-beginners-data-storage.png": {
-      "name": "solana-explaining-solana-for-beginners-data-storage.png",
-      "path": "content/assets/solana-explaining-solana-for-beginners-data-storage.png",
-      "digest": "a6b3bebd1242067a6090372fefb7168275da13651dec8b02ef0b5769b4837ae5"
-    },
-    "content/assets/solana-explaining-solana-for-beginners-solana.png": {
-      "name": "solana-explaining-solana-for-beginners-solana.png",
-      "path": "content/assets/solana-explaining-solana-for-beginners-solana.png",
+    "content/assets/solana-explaining-solana-for-beginners-solana-1.png": {
+      "name": "solana-explaining-solana-for-beginners-solana-1.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-solana-1.png",
       "digest": "f5230d86b41540fdd4b8f1ff104a2f54412972184070864c9032b91abccec070"
+    },
+    "content/assets/solana-explaining-solana-for-beginners-data-storage-4.png": {
+      "name": "solana-explaining-solana-for-beginners-data-storage-4.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-data-storage-4.png",
+      "digest": "a6b3bebd1242067a6090372fefb7168275da13651dec8b02ef0b5769b4837ae5"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "7b21d9463ac1dc754959a375d5978c4415d3088f6a489c6761a4c5c7d003f4e3"
+      "digest": "e6fc9d38cb846a4bdfe7f1ca0168ffa35fea470528753102fe8238bffa88cd7d"
     },
-    "content/assets/solana-explaining-solana-for-beginners-transaction-flow.png": {
-      "name": "solana-explaining-solana-for-beginners-transaction-flow.png",
-      "path": "content/assets/solana-explaining-solana-for-beginners-transaction-flow.png",
+    "content/assets/solana-explaining-solana-for-beginners-transaction-flow-2.png": {
+      "name": "solana-explaining-solana-for-beginners-transaction-flow-2.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-transaction-flow-2.png",
       "digest": "136ed953eb5186dd7836b08a007d29a291b5a77b9ab240ef3ebb352719a4a763"
     }
   },

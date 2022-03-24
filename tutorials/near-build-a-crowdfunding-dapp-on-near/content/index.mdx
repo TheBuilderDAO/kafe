@@ -18,7 +18,7 @@ The dApp will have the following functionalities:
 
 After we have implemented all the features in our smart contract, we will connect the smart contract to our react frontend which looks like this
 
-![project image](./assets/near-build-a-crowdfunding-dapp-on-near-project-image.png)
+![project image](./assets/near-build-a-crowdfunding-dapp-on-near-project-image-1.png)
 
 # Prerequisites📋
 
@@ -51,17 +51,17 @@ We set up our project with [create-near-app](https://github.com/near/create-near
 
 with the `--frontend=react` and `--contract=rust` options, we create our project to have a react frontend and a rust contract. After waiting a while for the command to install everything, we see this in our terminal:
 
-![create crowdfund](./assets/near-build-a-crowdfunding-dapp-on-near-create-crowdfund.png)
+![create crowdfund](./assets/near-build-a-crowdfunding-dapp-on-near-create-crowdfund-2.png)
 
 Now everything is successfully installed, and everything is ready to go, let’s look at what our file structure looks like.
 
 ## File structure
 
-![file structure](./assets/near-build-a-crowdfunding-dapp-on-near-file-structure.png)
+![file structure](./assets/near-build-a-crowdfunding-dapp-on-near-file-structure-3.png)
 
 In our file structure, we have the `contract` folder, where we will be writing our contract specifically in the `src` directory. Then there is our `near-dev` folder that contains the configuration for deploying our contract in development mode and our `src` folder for our frontend. Looking closer into our contract folder:
 
-![project image](./assets/near-build-a-crowdfunding-dapp-on-near-project-image.png)
+![project image](./assets/near-build-a-crowdfunding-dapp-on-near-project-image-4.png)
 
 In the contract folder we have the `src` folder where we’ll be creating a `model.rs`, `lib.rs`, and `utils.rs` file. We already have the `lib.rs` file, so no need to create another one. The `cargo.toml` file contains information about our contract, including all the dependencies we need.
 
@@ -484,7 +484,7 @@ To deploy our crowdfunding contract, we need to create an account for it. Since 
   near create-account crowdfunddapp.umavictor.testnet --masterAccount umavictor.testnet
 ```
 
-![sub account](./assets/near-build-a-crowdfunding-dapp-on-near-sub-account.png)
+![sub account](./assets/near-build-a-crowdfunding-dapp-on-near-sub-account-5.png)
 
 > In your case, the `umavictor` will be replaced by your own NEAR testnet account name you created
 
@@ -498,7 +498,7 @@ we can finally deploy our contract. Since we use [create-near-app](https://githu
 
     near deploy
 
-![deploy contract](./assets/near-build-a-crowdfunding-dapp-on-near-deploy-contract.png)
+![deploy contract](./assets/near-build-a-crowdfunding-dapp-on-near-deploy-contract-6.png)
 
 we can see that after running the command, our contract was deployed successfully. yay!.
 
@@ -519,7 +519,7 @@ Call `add_crowdfund` with the `near-cli`:
 What the command above does is to call the contract deployed on `crowdfunddapp.umavictor.testnet`. On the contract, there is a method called `add_crowdfund` with three arguments provided and is signed by `umavictor.testnet`.
 In your terminal, you will see an output like this:
 
-![add crowdfund](./assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund.png)
+![add crowdfund](./assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund-7.png)
 
 ## Vote on a Crowdfund Project
 
@@ -531,7 +531,7 @@ Call `add_vote` with the `near-cli`:
 
 this command increments the vote of the first crowdfunding project by one.
 
-![addvote](./assets/near-build-a-crowdfunding-dapp-on-near-addvote.png)
+![addvote](./assets/near-build-a-crowdfunding-dapp-on-near-addvote-8.png)
 
 # Donate to a crowdfunding project
 
@@ -553,7 +553,7 @@ Call the `list_crowdfunds` method.
 
 This command lists all the crowdfunding projects to the terminal.
 
-![list crowdfunds](./assets/near-build-a-crowdfunding-dapp-on-near-list-crowdfunds.png)
+![list crowdfunds](./assets/near-build-a-crowdfunding-dapp-on-near-list-crowdfunds-9.png)
 
 You can see the two crowdfund projects from the image and all the information we set.
 We have invoked the methods to see how they are working, let’s now build the react frontend
@@ -651,7 +651,7 @@ In the `App.js` file above, we import the configurations, utils, and components 
 
 Next, we check if a user is signed in, and if no user is signed in, we prompt them to.
 
-![Login](./assets/near-build-a-crowdfunding-dapp-on-near-login.png)
+![Login](./assets/near-build-a-crowdfunding-dapp-on-near-login-10.png)
 
 Once signed in, we will see available projects we can donate to.
 

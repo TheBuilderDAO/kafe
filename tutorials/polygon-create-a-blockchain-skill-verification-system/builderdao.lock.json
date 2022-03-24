@@ -22,20 +22,20 @@
     }
   },
   "content": {
-    "content/assets/polygon-create-a-blockchain-skill-verification-system-str.png": {
-      "name": "polygon-create-a-blockchain-skill-verification-system-str.png",
-      "path": "content/assets/polygon-create-a-blockchain-skill-verification-system-str.png",
+    "content/assets/polygon-create-a-blockchain-skill-verification-system-str-1.png": {
+      "name": "polygon-create-a-blockchain-skill-verification-system-str-1.png",
+      "path": "content/assets/polygon-create-a-blockchain-skill-verification-system-str-1.png",
       "digest": "e16087ccecb7beb02dc887f50cf0ef4cfe806493eecebd3adcf9edf0ff09d3f9"
     },
-    "content/assets/polygon-create-a-blockchain-skill-verification-system-data-hub.png": {
-      "name": "polygon-create-a-blockchain-skill-verification-system-data-hub.png",
-      "path": "content/assets/polygon-create-a-blockchain-skill-verification-system-data-hub.png",
+    "content/assets/polygon-create-a-blockchain-skill-verification-system-data-hub-2.png": {
+      "name": "polygon-create-a-blockchain-skill-verification-system-data-hub-2.png",
+      "path": "content/assets/polygon-create-a-blockchain-skill-verification-system-data-hub-2.png",
       "digest": "a59cbd2218605049f7b43b6bfb3059bf4762fff35f123f3dc39787a319b28f18"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "91a48779f0b1a5617bb4d595cc0fbba66d7ba504221a7e039ddf4634939fe4a8"
+      "digest": "3df0b0a5449fed5162a922d78f0f7392709d06917a779649951f2b8ed3251651"
     }
   },
   "href": "learn/polygon-create-a-blockchain-skill-verification-system",

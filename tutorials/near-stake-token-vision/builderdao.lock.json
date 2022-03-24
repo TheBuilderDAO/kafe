@@ -37,15 +37,15 @@
       "path": "content/assets/near-stake-token-vision-image-4.png",
       "digest": "15cc76982a83a963cfd0ddecb956371758fabad1d89f6f23ca5d47fcbb85c3c7"
     },
-    "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers.png": {
-      "name": "near-stake-token-vision-stake-token-is-internet-money-with-super-powers.png",
-      "path": "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers.png",
+    "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers-2.png": {
+      "name": "near-stake-token-vision-stake-token-is-internet-money-with-super-powers-2.png",
+      "path": "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers-2.png",
       "digest": "0908e79a2a4238dc732ecb33ec17613ff0e1faee331b53af8fe4cea274020ac4"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ce2aaef85a3e7760851668712fd05d22a422b15a99760084be8bfba459e28abe"
+      "digest": "8f56a98b8e9dce639c079226d837eb890cffe228b053a916a258af10005bbdc2"
     }
   },
   "href": "learn/near-stake-token-vision",

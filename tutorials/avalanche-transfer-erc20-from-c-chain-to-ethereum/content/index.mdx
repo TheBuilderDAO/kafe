@@ -32,35 +32,35 @@ We will go on Pangolin and swap AVAX for some AVAXDATAHUB tokens. The token cont
 
 Go on [Pangolin](https://app.pangolin.exchange/#/swap) and swap AVAX on your Metamask for some AVAXDATAHUB, as outlined in the image below.
 
-![AVAXDATAHUB](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub.png)
+![AVAXDATAHUB](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-1.png)
 
 After the swap, go back to Metamask, click on "Add Token" and type in the contract address as shown in the image below. Without manually adding the AVAXDATAHUB token, it will not show up on your Metamask.
 
-![AVAXDATAHUB_IN_METAMASK](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-in-metamask.png)
+![AVAXDATAHUB_IN_METAMASK](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-in-metamask-2.png)
 
 The AVAXDATAHUB tokens you got from Pangolin should now show up on your Metamask wallet, as shown below (8.979 AVAXDATAHUB tokens).
 
-![FROM_PANGOLIN](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-from-pangolin.png)
+![FROM_PANGOLIN](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-from-pangolin-3.png)
 
 For the sake of the tutorial, let's send some of those AVAXDATAHUB tokens from Metamask to your Avalanche private wallet. Refer to the image below if you are confused about how to do this.
 
-![send_to_avax_wallet](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-send-to-avax-wallet.png)
+![send_to_avax_wallet](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-send-to-avax-wallet-4.png)
 
 In the image above, it is shown that 4 AVAXDATAHUB tokens have been sent to the C-Chain of the Avalanche wallet.
 
 However, when logging into your Avalanche wallet, you will not be able to see the tokens yet.
 
-![not_shown](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-not-shown.png)
+![not_shown](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-not-shown-5.png)
 
 In order to view those tokens, you have to add the token contract address.
 
 Click on "Add Token" below the coin list of the wallet and type in the AVAXDATAHUB contract address, then the rest of the information should automatically be loaded, as shown in the image below.
 
-![contract_address_typed](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-contract-address-typed.png)
+![contract_address_typed](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-contract-address-typed-6.png)
 
 Then, you should be able to see the tokens show up on your list, as shown in the image below.
 
-![avaxdatahub_added](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-added.png)
+![avaxdatahub_added](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-avaxdatahub-added-7.png)
 
 What we have done up to this point has taught you that any ERC-20 token can be stored on the C-Chain of your Avalanche wallet.
 
@@ -271,13 +271,13 @@ To run the script `ERC20_fromC_to_ETH_address.js`, type `node ERC20_fromC_to_ETH
 
 The output of the script in the terminal should look similar to what is shown below.
 
-![example_output](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example-output.png)
+![example_output](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example-output-8.png)
 
 You can confirm the result by looking at the change of the balance on Metamask as well.
 
 As you can see in the image below, the balance did change from 4.97 to 5.97.
 
-![metamask_balance](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-metamask-balance.png)
+![metamask_balance](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-metamask-balance-9.png)
 
 # Troubleshooting
 
@@ -285,7 +285,7 @@ As you can see in the image below, the balance did change from 4.97 to 5.97.
 
 If you have enough AVAX on the C-Chain but not enough AVAXDATAHUB token (or any ERC20 token that you intend to transfer), you may end up getting an error in the terminal. Such an error message would be as shown below.
 
-![example](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example.png)
+![example](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-example-10.png)
 
 Although the error message says something along the lines of gas cost estimate issues, the issue is not having sufficient balance of AVAXDATAHUB. Make sure that you have enough ERC20 token balance on the C-Chain of your AVAX wallet.
 

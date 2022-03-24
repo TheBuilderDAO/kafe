@@ -27,7 +27,7 @@ SmartPy is a high-level smart contracts library and comes with related tools in 
 
 So head over to [SmartPy.io](https://smartpy.io/) and let us begin writing our first smart contract in Python!
 
-![SmartPy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png)
+![SmartPy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py-1.png)
 
 For our purposes, the important links on this page are:
 
@@ -38,7 +38,7 @@ The Online Editor will help us write , execute and test our code before it is de
 
 Click the Online Editor button to go to the IDE page:
 
-![SmartPy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py.png)
+![SmartPy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-smart-py-2.png)
 
 Here SmartPy has provided us with various templates and sample contracts including games, token contracts and some basic utility contracts.
 We will be coding our own version of a Calculator contract that is present as one of the examples.
@@ -223,17 +223,17 @@ Now that the code has been tested and works properly, we will need to get some T
 Before we can deploy anything, let's first get some Testnet ꜩ from the [Tezos Faucet](https://faucet.tzalpha.net/).
 
 On the Faucet page, complete the CAPTCHA Verification and you will be given a faucet key, which looks like this:
-![Faucet](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-faucet.png)
+![Faucet](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-faucet-3.png)
 
 Download and keep this JSON file in a secure location as it contains the secret key and mnemonic which will be used for deployment of the smart contract we have created.
 
 Now Open your Temple Wallet and click **Settings** > **Import account**:
 
-![Temple](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png)
+![Temple](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple-4.png)
 
 Now select Faucet File as the source and upload the JSON file you got from the faucet:
 
-![Temple](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple.png)
+![Temple](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-temple-5.png)
 
 Now that we have a funded wallet on the Tezos testnet, we can move on to deploying the code.
 
@@ -289,15 +289,15 @@ class Calculator(sp.Contract):
 
 Go ahead and run this code in the SmartPy IDE (click on the "Play" button at the top left) and in the Output panel on the right side, you will see the option to **Deploy Michelson Contract**:
 
-![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png)
+![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy-6.png)
 
 You will be be redirected to the Origination page of the contract. On this page we have to select on which Node we wish to deploy our contract. Check your Temple Wallet and the JSON you got from the faucet in the previous section and select the appropriate Node. Then Click on the Temple Wallet option and connect your wallet to SmartPy.io:
 
-![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png)
+![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy-7.png)
 
 Scroll Down and click **Estimate Cost From RPC** and then click on **Deploy Contract**:
 
-![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png)
+![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy-8.png)
 
 Then in the pop-up that appears click on **ACCEPT** and then Temple Wallet will open up and you will need to click on the **SIGN** button.
 
@@ -305,7 +305,7 @@ Once the transaction is confirmed, your contract will be deployed on the Granada
 
 Copy the contract address as seen on the screen and wait for at least 3 block confirmations.
 
-![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy.png)
+![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy-9.png)
 
 # Interacting with the contract
 
@@ -313,15 +313,15 @@ Now we are at the final step of this tutorial. We are going to learn how to expl
 
 Copy your contract address and head over to [Better Call Dev](https://better-call.dev/). Paste the contract address in the search box and press Enter.
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-10.png)
 
 You will now be able to see your contract details. If they do not appear, wait for a couple of minutes and then refresh the page as it takes some time for the block confirmations to arrive after you have deployed the contract.
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-11.png)
 
 On the **Interact** tab, you will be able to see all your available entrypoints there with the input parameters that we specified.
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-12.png)
 
 Now we will call our `add` EntryPoint!
 
@@ -329,11 +329,11 @@ Now we will call our `add` EntryPoint!
 2.  Put integer values in **x** and **y** fields.
 3.  Add your wallet address as the **source** and leave the **amount** field blank.
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-13.png)
 
 One of the best features of Better Call Dev is that we can simulate any transaction without having to spend any XTZ. So click on **EXECUTE** and choose **Simulate**. BetterCallDev will simulate the transaction and tell us if it is valid or will it fail and also what changes it will make to the contract's storage.
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-14.png)
 
 Now it is time to complete our first on-chain interaction!
 
@@ -341,11 +341,11 @@ This time, click on **EXECUTE** and Select **Temple - Tezos Wallet** instead of 
 
 It will pop up your Temple Wallet and ask you to sign the transaction. It will also tell you the gas fee you are paying to complete the transaction:
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-15.png)
 
 Finally, go to the **Operations** tab on BetterCallDev and you will be able to see your transaction and all of its details:
 
-![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact.png)
+![Interact](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-interact-16.png)
 
 As we can see our transaction changed the **value** in storage to the sum of the parameters we supplied to the `add` entrypoint (i.e. 5 + 11 = 16).
 

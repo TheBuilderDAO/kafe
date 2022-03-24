@@ -22,9 +22,9 @@
     }
   },
   "content": {
-    "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-home-screen.png": {
-      "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-home-screen.png",
-      "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-home-screen.png",
+    "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-home-screen-5.png": {
+      "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-home-screen-5.png",
+      "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-home-screen-5.png",
       "digest": "69b365db07bc3452c5056a06621c4909dbc4e7877210893612a3f19b3ad2df7f"
     },
     "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-image-1.png": {
@@ -37,19 +37,19 @@
       "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-image-3.png",
       "digest": "3be3c493a3fe88afa98ec8f4fdd7e7f9e9540946374f628657ffa9b2be98d85d"
     },
-    "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-login-screen.png": {
-      "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-login-screen.png",
-      "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-login-screen.png",
+    "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-login-screen-2.png": {
+      "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-login-screen-2.png",
+      "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-login-screen-2.png",
       "digest": "fb95f995a9c5ec564358276257ef4ec60fe6a8feeed84160d9f2bf872c8f5124"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "1176d8c4faddd0b1d08a11c5f6f1dccd671ab89cfea9b93b25d1c6eea65d6a4f"
+      "digest": "8939d40923d23a939375966e0cae1f7d0f11f4532fe31a85c0b7c9f6f50b375d"
     },
-    "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen.png": {
-      "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen.png",
-      "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen.png",
+    "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png": {
+      "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png",
+      "path": "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png",
       "digest": "47adfaab7f7f5520a348fab16ddd1c516bde7d59c6c0c0b6dbe70440ed2c9df8"
     }
   },

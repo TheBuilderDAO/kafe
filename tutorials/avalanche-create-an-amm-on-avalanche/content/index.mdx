@@ -131,9 +131,11 @@ function provide(uint256 _amountToken1, uint256 _amountToken2) external validAmo
 }
 ```
 
-<Hint
-  type="danger" %}Carefully notice the order of balance update we are performing in the above function. We are first deducting the tokens from the users' account and in the very last step, we are updating her share balance. This is done to prevent a reentrancy attack.{% endhint>
-null
+<Hint type="danger">
+  Carefully notice the order of balance update we are performing in the above
+  function. We are first deducting the tokens from the users' account and in the
+  very last step, we are updating her share balance. This is done to prevent a
+  reentrancy attack.
 </Hint>
 
 The given functions help the user get an estimate of the amount of the second token that they need to lock for the given token amount. Here again, we use the proportion **\_amountToken1 : totalToken1 :: \_amountToken2 : totalToken2** to determine the amount of token1 required if we wish to lock given amount of token2 and vice-versa.
@@ -262,7 +264,7 @@ This completes the smart contract implementation part. Now we will deploy it on 
 
 Log in to MetaMask -> Click the Network drop-down -> Select Custom RPC
 
-![Metamask](./assets/avalanche-create-an-amm-on-avalanche-metamask.png)
+![Metamask](./assets/avalanche-create-an-amm-on-avalanche-metamask-1.png)
 
 **FUJI Testnet Settings:**
 
@@ -278,7 +280,7 @@ Fund your address from the given [faucet](https://faucet.avax-test.network/).
 
 Open [Remix](https://remix.ethereum.org/) -> Select Solidity
 
-![remix-preview](./assets/avalanche-create-an-amm-on-avalanche-remix-preview.png)
+![remix-preview](./assets/avalanche-create-an-amm-on-avalanche-remix-preview-2.png)
 
 Create an `AMM.sol` file in the Remix file explorer, and paste the following code:
 
@@ -456,9 +458,11 @@ Navigate to Deploy Tab and open the “ENVIRONMENT” drop-down. Select "Injecte
 
 Approve the transaction on Metamask pop-up interface. Once our contract is deployed successfully, make note of the `contract address`.
 
-<Hint
-  type="info" %}An Application Binary Interface (ABI) is a JSON object which stores the metadata about the methods of a contract like data type of input parameters, return data type & property of the method like payable, view, pure, etc. You can learn more about the ABI from the solidity documentation{% endhint>
-null
+<Hint type="info">
+  An Application Binary Interface (ABI) is a JSON object which stores the
+  metadata about the methods of a contract like data type of input parameters,
+  return data type & property of the method like payable, view, pure, etc. You
+  can learn more about the ABI from the solidity documentation
 </Hint>
 
 # Creating a frontend in React
@@ -511,19 +515,19 @@ npm start
 
 - Getting funds from the faucet to interact with the AMM
 
-![preview](./assets/avalanche-create-an-amm-on-avalanche-preview.png)
+![preview](./assets/avalanche-create-an-amm-on-avalanche-preview-3.png)
 
 - Adding liquidity in the pool
 
-![preview](./assets/avalanche-create-an-amm-on-avalanche-preview.png)
+![preview](./assets/avalanche-create-an-amm-on-avalanche-preview-4.png)
 
 - Swapping tokens
 
-![preview](./assets/avalanche-create-an-amm-on-avalanche-preview.png)
+![preview](./assets/avalanche-create-an-amm-on-avalanche-preview-5.png)
 
 - Withdrawing liquidity from the pool
 
-![preview](./assets/avalanche-create-an-amm-on-avalanche-preview.png)
+![preview](./assets/avalanche-create-an-amm-on-avalanche-preview-6.png)
 
 # Conclusion
 
@@ -535,11 +539,11 @@ Congratulations! We have successfully developed a working AMM model where users 
 
 - Check if your account has sufficient balance at [fuji block-explorer](https://cchain.explorer.avax-test.network/). You can fund your address from the given [faucet](https://faucet.avax-test.network/)
 
-![Zero balance preview](./assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview.png)
+![Zero balance preview](./assets/avalanche-create-an-amm-on-avalanche-zero-balance-preview-7.png)
 
 - Make sure that you have selected the correct account on Metamask if you have more than one account connected to the site.
 
-![Multiple account preview](./assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview.png)
+![Multiple account preview](./assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview-8.png)
 
 # About the Author(s)
 

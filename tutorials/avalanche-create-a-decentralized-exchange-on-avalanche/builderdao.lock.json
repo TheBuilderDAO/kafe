@@ -21,7 +21,28 @@
       "githubName": "LearnTeam"
     }
   },
-  "content": {},
+  "content": {
+    "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-1.png": {
+      "name": "avalanche-create-a-decentralized-exchange-on-avalanche-image-1.png",
+      "path": "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-2.png": {
+      "name": "avalanche-create-a-decentralized-exchange-on-avalanche-image-2.png",
+      "path": "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png": {
+      "name": "avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png",
+      "path": "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "953e4b6d23edd3fa98dcd6125cb43a66d81fd5124dcb0298356bc07d04ec2eca"
+    }
+  },
   "href": "learn/avalanche-create-a-decentralized-exchange-on-avalanche",
   "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
 }

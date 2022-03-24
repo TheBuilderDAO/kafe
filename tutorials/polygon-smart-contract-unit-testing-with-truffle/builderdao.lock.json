@@ -22,20 +22,20 @@
     }
   },
   "content": {
-    "content/assets/polygon-smart-contract-unit-testing-with-truffle-project-overview.png": {
-      "name": "polygon-smart-contract-unit-testing-with-truffle-project-overview.png",
-      "path": "content/assets/polygon-smart-contract-unit-testing-with-truffle-project-overview.png",
+    "content/assets/polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png": {
+      "name": "polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png",
+      "path": "content/assets/polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png",
       "digest": "a84789c5bb9d4104eced3525a3e14eb8437a0d1992a1e1c65800555e681efa9a"
     },
-    "content/assets/polygon-smart-contract-unit-testing-with-truffle-test-result.png": {
-      "name": "polygon-smart-contract-unit-testing-with-truffle-test-result.png",
-      "path": "content/assets/polygon-smart-contract-unit-testing-with-truffle-test-result.png",
+    "content/assets/polygon-smart-contract-unit-testing-with-truffle-test-result-2.png": {
+      "name": "polygon-smart-contract-unit-testing-with-truffle-test-result-2.png",
+      "path": "content/assets/polygon-smart-contract-unit-testing-with-truffle-test-result-2.png",
       "digest": "ae7985f5a58458e1ef4da4e93d0983b6f571606d677b68c203b90312111c6949"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e104737c199d98d24a92922879fd3fd2a51e4adaaf197c95dfce346943765c1f"
+      "digest": "9013fa813beac443ae2654b4d40f5a7df5272dd20e82c0d8686c8612207aff8d"
     }
   },
   "href": "learn/polygon-smart-contract-unit-testing-with-truffle",

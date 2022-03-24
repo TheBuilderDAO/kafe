@@ -22,30 +22,35 @@
     }
   },
   "content": {
-    "content/assets/celo-subgraphs-postman-generate-code-button.png": {
-      "name": "celo-subgraphs-postman-generate-code-button.png",
-      "path": "content/assets/celo-subgraphs-postman-generate-code-button.png",
-      "digest": "560c5f07975e79b5fe1fdd76c60e011a32396f0fb5e66ecf0ea48d864ac170ea"
+    "content/assets/celo-subgraphs-create-subgraph-2.png": {
+      "name": "celo-subgraphs-create-subgraph-2.png",
+      "path": "content/assets/celo-subgraphs-create-subgraph-2.png",
+      "digest": "f6653c7cf31106cafff9eeb3bef6a287b663844770c9f656174f09f0629d8b3a"
     },
-    "content/assets/celo-subgraphs-create-subgraph.png": {
-      "name": "celo-subgraphs-create-subgraph.png",
-      "path": "content/assets/celo-subgraphs-create-subgraph.png",
+    "content/assets/celo-subgraphs-create-subgraph-1.png": {
+      "name": "celo-subgraphs-create-subgraph-1.png",
+      "path": "content/assets/celo-subgraphs-create-subgraph-1.png",
       "digest": "ea386e1c6b9f882d9aa6b0ef6d88ca61e7a3fca83c48df44d108b34557722f14"
     },
-    "content/assets/celo-subgraphs-postman-generated-code-results.png": {
-      "name": "celo-subgraphs-postman-generated-code-results.png",
-      "path": "content/assets/celo-subgraphs-postman-generated-code-results.png",
-      "digest": "26c9cee16bffb90bf757c838d10342d5b96c78b31736fe9b7134356be57c6bc9"
+    "content/assets/celo-subgraphs-postman-generate-code-button-4.png": {
+      "name": "celo-subgraphs-postman-generate-code-button-4.png",
+      "path": "content/assets/celo-subgraphs-postman-generate-code-button-4.png",
+      "digest": "560c5f07975e79b5fe1fdd76c60e011a32396f0fb5e66ecf0ea48d864ac170ea"
     },
-    "content/assets/celo-subgraphs-query-explorer.png": {
-      "name": "celo-subgraphs-query-explorer.png",
-      "path": "content/assets/celo-subgraphs-query-explorer.png",
-      "digest": "d0b34c64aedc4986932ac0c56ea9a1b01a93de06e7ec0ff1896c5de13828c53e"
+    "content/assets/celo-subgraphs-postman-generated-code-results-5.png": {
+      "name": "celo-subgraphs-postman-generated-code-results-5.png",
+      "path": "content/assets/celo-subgraphs-postman-generated-code-results-5.png",
+      "digest": "26c9cee16bffb90bf757c838d10342d5b96c78b31736fe9b7134356be57c6bc9"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "127ab10d1a58a3abf99c9be764a76617ed5e0bc14a0cc633c204585bcf4a1eaf"
+      "digest": "c3f10d9c34af14354b91b63859c33fbeb82e1b3fa9970257d47388cfe451622d"
+    },
+    "content/assets/celo-subgraphs-query-explorer-3.png": {
+      "name": "celo-subgraphs-query-explorer-3.png",
+      "path": "content/assets/celo-subgraphs-query-explorer-3.png",
+      "digest": "d0b34c64aedc4986932ac0c56ea9a1b01a93de06e7ec0ff1896c5de13828c53e"
     }
   },
   "href": "learn/celo-subgraphs",

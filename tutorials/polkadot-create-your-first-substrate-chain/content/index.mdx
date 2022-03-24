@@ -191,15 +191,15 @@ Copy
 
 Once the Front-End Template is running and loaded in your browser at <http://localhost:8000/>, take a moment to explore its components. At the top, you will find lots of helpful information about the chain to which you're connected as well as an account selector that will let you control the account you use to perform on-chain operations.
 
-![Chain Data & Account Selector](./assets/polkadot-create-your-first-substrate-chain-chain-data-account-selector.png)
+![Chain Data & Account Selector](./assets/polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png)
 
 There is also a table that lists [the well-known test accounts](https://substrate.dev/docs/en/knowledgebase/integrate/subkey#well-known-keys) that you have access to. Some, like Alice and Bob, already have funds!
 
-![Account Table](./assets/polkadot-create-your-first-substrate-chain-account-table.png)
+![Account Table](./assets/polkadot-create-your-first-substrate-chain-account-table-2.png)
 
 Beneath the account table there is a Transfer component that you can use to transfer funds from one account to another. Take note of the info box that describes the precision used by the Front-End Template; you should transfer at least `1000000000000` to make it easy for you to observe the changes you're making. Here we give the `dave` development account these funds:
 
-![Balance Transfer](./assets/polkadot-create-your-first-substrate-chain-balance-transfer.png)
+![Balance Transfer](./assets/polkadot-create-your-first-substrate-chain-balance-transfer-3.png)
 
 Notice that the table of accounts is dynamic and that the account balances are updated as soon as the transfer is processed.
 
@@ -207,13 +207,13 @@ Notice that the table of accounts is dynamic and that the account balances are u
 
 The Front-End Template exposes many helpful features and you should explore all of them while you're connected to a local development node. One good way to get started is by clicking the "Show Metadata" button at the top of the template page and reviewing [the metadata that your runtime exposes](https://substrate.dev/docs/en/knowledgebase/runtime/metadata).
 
-![Metadata JSON](./assets/polkadot-create-your-first-substrate-chain-metadata-json.png)
+![Metadata JSON](./assets/polkadot-create-your-first-substrate-chain-metadata-json-4.png)
 
 #### Pallet Interactor & Events
 
 You can use the runtime metadata to discover a runtime's capabilities. The Front-End Template provides a helpful Pallet Interactor component that provides several mechanisms for interacting with a Substrate runtime.
 
-![Pallet Interactor & Events](./assets/polkadot-create-your-first-substrate-chain-pallet-interactor-events.png)
+![Pallet Interactor & Events](./assets/polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png)
 
 [Extrinsics](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics) are the runtime's callable functions; if you are already familiar with blockchain concepts, you can think of them as transactions for now. The Pallet Interactor allows you to submit [unsigned](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics#unsigned-transactions) or [signed](https://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics#signed-transactions) extrinsics and also provides a button that makes it easy to invoke an extrinsic by way of [the `sudo` function from the Sudo pallet](https://substrate.dev/rustdocs/v3.0.0/pallet_sudo/enum.Call.html#variant.sudo). You can learn more about using the "SUDO" button to invoke privileged extrinsics in the [Add a Pallet](https://substrate.dev/docs/en/tutorials/add-a-pallet) tutorial.
 

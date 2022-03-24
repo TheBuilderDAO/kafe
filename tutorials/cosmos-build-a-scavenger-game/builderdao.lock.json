@@ -22,6 +22,21 @@
     }
   },
   "content": {
+    "content/assets/cosmos-build-a-scavenger-game-image-1.png": {
+      "name": "cosmos-build-a-scavenger-game-image-1.png",
+      "path": "content/assets/cosmos-build-a-scavenger-game-image-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/cosmos-build-a-scavenger-game-image-2.png": {
+      "name": "cosmos-build-a-scavenger-game-image-2.png",
+      "path": "content/assets/cosmos-build-a-scavenger-game-image-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/cosmos-build-a-scavenger-game-image-3.png": {
+      "name": "cosmos-build-a-scavenger-game-image-3.png",
+      "path": "content/assets/cosmos-build-a-scavenger-game-image-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",

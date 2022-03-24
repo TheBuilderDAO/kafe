@@ -22,10 +22,35 @@
     }
   },
   "content": {
+    "content/assets/polkadot-add-a-pallet-to-your-runtime-nicks-pallet-error-5.png": {
+      "name": "polkadot-add-a-pallet-to-your-runtime-nicks-pallet-error-5.png",
+      "path": "content/assets/polkadot-add-a-pallet-to-your-runtime-nicks-pallet-error-5.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-add-a-pallet-to-your-runtime-bad-origin-error-4.png": {
+      "name": "polkadot-add-a-pallet-to-your-runtime-bad-origin-error-4.png",
+      "path": "content/assets/polkadot-add-a-pallet-to-your-runtime-bad-origin-error-4.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-add-a-pallet-to-your-runtime-read-a-name-2.png": {
+      "name": "polkadot-add-a-pallet-to-your-runtime-read-a-name-2.png",
+      "path": "content/assets/polkadot-add-a-pallet-to-your-runtime-read-a-name-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-add-a-pallet-to-your-runtime-read-an-empty-name-3.png": {
+      "name": "polkadot-add-a-pallet-to-your-runtime-read-an-empty-name-3.png",
+      "path": "content/assets/polkadot-add-a-pallet-to-your-runtime-read-an-empty-name-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-add-a-pallet-to-your-runtime-set-a-name-1.png": {
+      "name": "polkadot-add-a-pallet-to-your-runtime-set-a-name-1.png",
+      "path": "content/assets/polkadot-add-a-pallet-to-your-runtime-set-a-name-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "18c257c3b5dff6dba0bb3e451babf5727af0fc5b5baa7bfb8360c7ff55e7bf63"
+      "digest": "f2dd0391e92ed3efa47cb69e4884b1fdfce210bf3f95c9c63ebd663b09ba9c51"
     }
   },
   "href": "learn/polkadot-add-a-pallet-to-your-runtime",

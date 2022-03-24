@@ -22,30 +22,35 @@
     }
   },
   "content": {
-    "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure.png": {
-      "name": "solana-build-a-crowdfunding-platform-on-solana-file-structure.png",
-      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure.png",
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure-1.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-file-structure-1.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure-1.png",
       "digest": "ea80999f15dac7fd00a3b8007e9bf63ad534dd9364e7eec126db6f2370cbad96"
     },
-    "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project.png": {
-      "name": "solana-build-a-crowdfunding-platform-on-solana-front-end-project.png",
-      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project.png",
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project-3.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-front-end-project-3.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project-3.png",
       "digest": "ed55ba43e593574c5bfbaf5071d5065b6aac6384fe6bd01be970bcc8f721848e"
     },
-    "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf.png": {
-      "name": "solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf.png",
-      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf.png",
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf-2.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf-2.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf-2.png",
       "digest": "c90ab0c3022a9cb70020a6e9df1d2ff9fafe06195b8d9eb100dceb42d24a461f"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-4.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-result-4.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-4.png",
+      "digest": "07f31308786d9ae26b3bc3601cc442e2bf4876d51002c84dc59e41427cc2a915"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-5.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-result-5.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-5.png",
+      "digest": "b667c5cd8e91002f6989ac307032bc2a576bab95063368eb8040fceebf8a4ae4"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "27b845aee4c46f1fe79ec5c3b83d7fab74edeed96fc328e61dc211b39c466e73"
-    },
-    "content/assets/solana-build-a-crowdfunding-platform-on-solana-result.png": {
-      "name": "solana-build-a-crowdfunding-platform-on-solana-result.png",
-      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-result.png",
-      "digest": "bca7bde5aef508bb7adbd6977e3a679efcdf57edc77e0f7edd9bbeb4ec77f684"
+      "digest": "1b74ebb47f65d537eb6e1849163915bbafd9c7b2fed5dfda22f67905ce0ccf6b"
     }
   },
   "href": "learn/solana-build-a-crowdfunding-platform-on-solana",

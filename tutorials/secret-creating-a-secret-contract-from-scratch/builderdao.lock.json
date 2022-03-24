@@ -22,15 +22,15 @@
     }
   },
   "content": {
-    "content/assets/secret-creating-a-secret-contract-from-scratch-creative-commons-license.png": {
-      "name": "secret-creating-a-secret-contract-from-scratch-creative-commons-license.png",
-      "path": "content/assets/secret-creating-a-secret-contract-from-scratch-creative-commons-license.png",
+    "content/assets/secret-creating-a-secret-contract-from-scratch-creative-commons-license-1.png": {
+      "name": "secret-creating-a-secret-contract-from-scratch-creative-commons-license-1.png",
+      "path": "content/assets/secret-creating-a-secret-contract-from-scratch-creative-commons-license-1.png",
       "digest": "2d8a628333a76cfe484a2b9c01bca786fccf08d0010d4bffca2b38b29dd4ed0b"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "87b341cfd02f8a674e428cc297c852b1afcfa2d92c39dc176dc330f6c3d93675"
+      "digest": "a8152f3863de2a234a54e4cbb15c80653a18f62ac9573b36d26592d15908780e"
     }
   },
   "href": "learn/secret-creating-a-secret-contract-from-scratch",

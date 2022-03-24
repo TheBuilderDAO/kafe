@@ -22,55 +22,60 @@
     }
   },
   "content": {
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer.png",
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer-7.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer-7.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer-7.png",
       "digest": "9c2858abccdff936c96dcacb1eacfc0626f59a9bbba97b76de0c3856acad9936"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-compile-output.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-compile-output.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-compile-output.png",
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-compile-output-5.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-compile-output-5.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-compile-output-5.png",
       "digest": "d5e7aa507b2072612af26470d61d54d2a2c0e45082a7b9f715d101e462e9775a"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-empty-account.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-empty-account.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-empty-account.png",
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-empty-account-10.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-empty-account-10.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-empty-account-10.png",
       "digest": "bf09d61c0048bebe64fabdf6d661f2ace9b4a2c55cb8640ad477a3b92f0c8939"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-didn't-deploy.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-didn't-deploy.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-didn't-deploy.png",
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-didn't-deploy-9.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-didn't-deploy-9.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-didn't-deploy-9.png",
       "digest": "c04c579923b2732cf80027909cfa91576ab4bf475c7e0c6579d9a34233bf0f7a"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-funding.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-funding.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-funding.png",
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-funding-4.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-funding-4.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-funding-4.png",
       "digest": "d5117c7dfa5f518114af2c0b9c65f45672c1de45ae72be024158de0845181c52"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-output.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-output.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-output.png",
-      "digest": "3facf26b796757aef6d34f08c02d3dee7ae87d853b0fc4998e921ebfc28236d4"
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-output-3.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-output-3.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-output-3.png",
+      "digest": "51f8e93c7d56ef12067e41abb780400f9bc18ae8a021bf2aedd1e504a11b1ffb"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-json-rpc-error.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-json-rpc-error.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-json-rpc-error.png",
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-json-rpc-error-8.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-json-rpc-error-8.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-json-rpc-error-8.png",
       "digest": "a2697a6649e6c660d42bec399b90b2b4e4484a445ee2ecbcc8a979966788bb64"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-project-structure.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-project-structure.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-project-structure.png",
-      "digest": "1e1e5474cdc112c0a70a1c27e348ab7a689647f20d85ec9bc83b64340e2e1e30"
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-output-6.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-output-6.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-output-6.png",
+      "digest": "42fd2b77602d12e23b57bde7b58db86cdaf7f909cb01e9922648a17d09062e21"
     },
-    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init.png": {
-      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init.png",
-      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init.png",
-      "digest": "ce046ad49ec39fb1a042556d16c912ca8d281e195fb62bb5a94b368bc2f4f97a"
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-project-structure-2.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-project-structure-2.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-project-structure-2.png",
+      "digest": "1e1e5474cdc112c0a70a1c27e348ab7a689647f20d85ec9bc83b64340e2e1e30"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "4445bbcdb021b315fcf01797ca7414ce73cfb98ab62402612a9b550406b2b991"
+      "digest": "e32c8887f8ad65bf44f1c3e4678a85ebc2a6711d8f70dd9330a6f6e926d53798"
+    },
+    "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init-1.png": {
+      "name": "celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init-1.png",
+      "path": "content/assets/celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init-1.png",
+      "digest": "ce046ad49ec39fb1a042556d16c912ca8d281e195fb62bb5a94b368bc2f4f97a"
     }
   },
   "href": "learn/celo-deploying-smart-contracts-on-celo-with-truffle",

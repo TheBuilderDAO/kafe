@@ -22,15 +22,15 @@
     }
   },
   "content": {
-    "content/assets/secret-add-viewing-keys-to-secret-contract-cc.png": {
-      "name": "secret-add-viewing-keys-to-secret-contract-cc.png",
-      "path": "content/assets/secret-add-viewing-keys-to-secret-contract-cc.png",
+    "content/assets/secret-add-viewing-keys-to-secret-contract-cc-1.png": {
+      "name": "secret-add-viewing-keys-to-secret-contract-cc-1.png",
+      "path": "content/assets/secret-add-viewing-keys-to-secret-contract-cc-1.png",
       "digest": "2d8a628333a76cfe484a2b9c01bca786fccf08d0010d4bffca2b38b29dd4ed0b"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "433bfc484a400c85513e0a9450f80f35dc1a2289a521dc27465416a6fe9e33b0"
+      "digest": "902f611e7380302c87e092788506e8da184a0cad48f61b4bb70ca033acf8730a"
     }
   },
   "href": "learn/secret-add-viewing-keys-to-secret-contract",

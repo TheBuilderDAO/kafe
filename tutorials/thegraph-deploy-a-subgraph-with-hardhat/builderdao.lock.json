@@ -22,29 +22,29 @@
     }
   },
   "content": {
-    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio.png": {
-      "name": "thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio.png",
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png",
       "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
     },
-    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph.png": {
-      "name": "thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph.png",
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png",
       "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
     },
-    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard.png": {
-      "name": "thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard.png",
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png",
       "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5da723b431ef3454442578f0ab7f9d90e1196acf88a82c1f4b92ec48b5dafb0b"
+      "digest": "b5d07864435cc81c6e92fe00144cb44acb8b4c758f24def4e651cc42f4f1c40e"
     },
-    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio.png": {
-      "name": "thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio.png",
-      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio.png",
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png",
       "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
     }
   },

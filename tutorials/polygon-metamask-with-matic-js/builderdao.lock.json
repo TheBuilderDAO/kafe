@@ -22,20 +22,20 @@
     }
   },
   "content": {
-    "content/assets/polygon-metamask-with-matic-js-image-1.png": {
-      "name": "polygon-metamask-with-matic-js-image-1.png",
-      "path": "content/assets/polygon-metamask-with-matic-js-image-1.png",
-      "digest": "47893792d2fcb2e4ecb69eeedc43671f32c19830cac26706e362e957b5628e1a"
-    },
     "content/assets/polygon-metamask-with-matic-js-image-2.png": {
       "name": "polygon-metamask-with-matic-js-image-2.png",
       "path": "content/assets/polygon-metamask-with-matic-js-image-2.png",
-      "digest": "073865387dbbbf561c1f887bdc5f22329efcbde2c4bf93ecb138fcf11d779eaa"
+      "digest": "6ac1954adf5a56eb06e682158429b37df854b118a50f778cd05cce3b8a5b79d6"
+    },
+    "content/assets/polygon-metamask-with-matic-js-image-1.png": {
+      "name": "polygon-metamask-with-matic-js-image-1.png",
+      "path": "content/assets/polygon-metamask-with-matic-js-image-1.png",
+      "digest": "b283b4f78556d65bcdb8d5d49c58b5be81f0425638bf9a3c95524cb0b47c079e"
     },
     "content/assets/polygon-metamask-with-matic-js-image-3.png": {
       "name": "polygon-metamask-with-matic-js-image-3.png",
       "path": "content/assets/polygon-metamask-with-matic-js-image-3.png",
-      "digest": "8b3fda887b847f21eac2422fae2b52fcec411ab86b9755a6fa280946c09ebbfe"
+      "digest": "23c1cfdc99522353ac6195881edd9acb56da6639b23baad3c8481ace190d9d6a"
     },
     "content/index.mdx": {
       "name": "index.mdx",

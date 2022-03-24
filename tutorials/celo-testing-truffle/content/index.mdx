@@ -104,7 +104,7 @@ After all that, we can run `truffle migrate` in our terminal to deploy our contr
 
 The results should look like this:
 
-![result](./assets/celo-testing-truffle-result.png)
+![result](./assets/celo-testing-truffle-result-1.png)
 
 # Testing
 
@@ -158,7 +158,7 @@ Let's run this! In a terminal window (with ganache running), type:
 
 This will run all our tests. Our test passes!
 
-![pass](./assets/celo-testing-truffle-pass.png)
+![pass](./assets/celo-testing-truffle-pass-2.png)
 
 Now that we have our first test which tests the `getName()` function, let's write a test to check `setName()`:
 
@@ -181,7 +181,7 @@ Unlike `getName()`, we don't use `.call()`. Whenever we're calling functions tha
 
 Let's run `truffle test` again:
 
-![result](./assets/celo-testing-truffle-result.png)
+![result](./assets/celo-testing-truffle-result-3.png)
 
 Great! This works. The test does take a while longer than the first one because it calls two functions and waits for each of them to finish.
 
@@ -198,7 +198,7 @@ it("Should work with special characters ", async () =>  {
 
 And finally, let's run this last test:
 
-![last test](./assets/celo-testing-truffle-last-test.png)
+![last test](./assets/celo-testing-truffle-last-test-4.png)
 
 Woohoo! All our tests pass.
 

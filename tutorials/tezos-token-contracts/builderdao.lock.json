@@ -21,7 +21,13 @@
       "githubName": "LearnTeam"
     }
   },
-  "content": {},
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "97a5ee44f32546c3215604a07a9984ffe710b7854bcbe9f4d984713ec552b946"
+    }
+  },
   "href": "learn/tezos-token-contracts",
   "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
 }

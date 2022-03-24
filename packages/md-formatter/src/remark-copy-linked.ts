@@ -11,7 +11,6 @@ const download = async (url: string, destinationPath: string) => {
   console.log('⬇️', url);
 
   const tmp = path.resolve('/tmp', path.basename(destinationPath));
-  console.log(tmp)
   if (fs.existsSync(tmp)) {
     await fs.copyFile(tmp, destinationPath);
     return

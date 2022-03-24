@@ -22,20 +22,20 @@
     }
   },
   "content": {
-    "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation.png": {
-      "name": "near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation.png",
-      "path": "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation.png",
-      "digest": "a61dcdb37a3115c8351424cab1468458aceeb341f8ba5bf1a4f85f597302e0fd"
-    },
-    "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login.png": {
-      "name": "near-write-and-deploy-a-smart-contract-on-near-near-login.png",
-      "path": "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login.png",
+    "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-1.png": {
+      "name": "near-write-and-deploy-a-smart-contract-on-near-near-login-1.png",
+      "path": "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-1.png",
       "digest": "8796a0e0a1e65d45e0d7b6c308726593d2eb576c5424af077bbdfc19c5176ac8"
+    },
+    "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation-2.png": {
+      "name": "near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation-2.png",
+      "path": "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation-2.png",
+      "digest": "a61dcdb37a3115c8351424cab1468458aceeb341f8ba5bf1a4f85f597302e0fd"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "40b992201dc8b0600476a5e1c143c015acf0c9e4c77a787e638cea61db063559"
+      "digest": "e453620169550382d269098b6dedead89886084308def4670853bb043595e781"
     }
   },
   "href": "learn/near-write-and-deploy-a-smart-contract-on-near",

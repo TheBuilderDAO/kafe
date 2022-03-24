@@ -19,7 +19,7 @@ Our contract will be able to create fundraisers, let people donate to them, and 
 
 The usual way of doing this might involve Plaid (banking), Stripe (payments), a database (for storing data), and AWS (for hosting):
 
-![infrastructure](./assets/celo-crowd-funding-project-infrastructure.png)
+![infrastructure](./assets/celo-crowd-funding-project-infrastructure-1.png)
 
 Solidity and Celo make building the backend for this easy! Not to mention, 🌎 from day one.
 
@@ -73,7 +73,7 @@ After all the `npm` packages have installed, run `truffle init` in the terminal 
 
 Here's what a successful run of `truffle init` will look like:
 
-![truffle init](./assets/celo-crowd-funding-project-truffle-init.png)
+![truffle init](./assets/celo-crowd-funding-project-truffle-init-2.png)
 
 ## Writing the Contract
 
@@ -336,7 +336,7 @@ That's it for the `Project` contract!
 
 ## Back to the crowdfund contract
 
-![Celo crowdfund contract back to the future image](./assets/celo-crowd-funding-project-celo-crowdfund-contract-back-to-the-future-image.png)
+![Celo crowdfund contract back to the future image](./assets/celo-crowd-funding-project-celo-crowdfund-contract-back-to-the-future-image-3.png)
 
 It's time to get back to the `CeloCrowdfund` contract now that we've finished the `Project` contract. Scroll back up to the top of the file where your `CeloCrowdfund` contract is.
 
@@ -537,7 +537,7 @@ Next, run the script in the terminal with the command `node getAccount.js`.
 
 The output should print out the address and private key for you new Celo account. It will look like this:
 
-​[​![output](./assets/celo-crowd-funding-project-output.png)​](https://camo.githubusercontent.com/85e62204e4c406103e375245afef4c7ee1fb83998bf2b08e168044c4863fd42b/68747470733a2f2f692e696d6775722e636f6d2f7571314c5854662e706e67)​
+​[​![output](./assets/celo-crowd-funding-project-output-4.png)​](https://camo.githubusercontent.com/85e62204e4c406103e375245afef4c7ee1fb83998bf2b08e168044c4863fd42b/68747470733a2f2f692e696d6775722e636f6d2f7571314c5854662e706e67)​
 
 **Note:** It is important to keep your private key secure! Whoever has it can access all your funds on Celo.
 
@@ -545,7 +545,7 @@ Copy the privateKey into the `.env` file by adding a line with `PRIVATE_KEY=YOUR
 
 Now that you have a Celo account, take the address and paste it into the [Celo developer faucet](https://celo.org/developers/faucet). This will give you testnet funds you can use to deploy the smart contract. Fill out the form and wait a couple of seconds, and your account should be loaded up and ready to go.
 
-​[​![funding](./assets/celo-crowd-funding-project-funding.png)​](https://camo.githubusercontent.com/0c74bcb5251da3397bae2c6901c25218a6ff73befb825a53c546181e95e0db06/68747470733a2f2f692e696d6775722e636f6d2f7a5074575748572e706e67)​
+​[​![funding](./assets/celo-crowd-funding-project-funding-5.png)​](https://camo.githubusercontent.com/0c74bcb5251da3397bae2c6901c25218a6ff73befb825a53c546181e95e0db06/68747470733a2f2f692e696d6775722e636f6d2f7a5074575748572e706e67)​
 
 ## Truffle config
 
@@ -657,7 +657,7 @@ If you get the following error:
 
 `Error: Invalid JSON RPC response: {"message":"no Route matched with those values"}`
 
-​[​![json rpc error](./assets/celo-crowd-funding-project-json-rpc-error.png)​](https://camo.githubusercontent.com/b10c13fb11358a60891ccd1e3191e40ffe54d19ffef9b3f0b127e3e567eed1b6/68747470733a2f2f692e696d6775722e636f6d2f42384c657272552e706e67)​
+​[​![json rpc error](./assets/celo-crowd-funding-project-json-rpc-error-9.png)​](https://camo.githubusercontent.com/b10c13fb11358a60891ccd1e3191e40ffe54d19ffef9b3f0b127e3e567eed1b6/68747470733a2f2f692e696d6775722e636f6d2f42384c657272552e706e67)​
 
 Then it's a problem with the **REST_URL** in the **.env** file.
 
@@ -667,7 +667,7 @@ Make sure the URL has a trailing **/** at the end! It should look like this:
 
 If the contract didn't deploy to the test network, the output might look like this:
 
-​[​![didn't deploy](./assets/celo-crowd-funding-project-didn't-deploy.png)​](https://camo.githubusercontent.com/a59c20e99081c85f182da44f68a167aec86a58da7c690367b4dbe35f57673943/68747470733a2f2f692e696d6775722e636f6d2f703637645a444d2e706e67)​
+​[​![didn't deploy](./assets/celo-crowd-funding-project-didn't-deploy-10.png)​](https://camo.githubusercontent.com/a59c20e99081c85f182da44f68a167aec86a58da7c690367b4dbe35f57673943/68747470733a2f2f692e696d6775722e636f6d2f703637645a444d2e706e67)​
 
 Where the contracts were compiled but it didn't give you an address for where it was deployed to.
 
@@ -677,7 +677,7 @@ If you want to double-check that your account received the funds, go to the [Alf
 
 Make sure your account isn't empty like this one!
 
-​[​![empty account](./assets/celo-crowd-funding-project-empty-account.png)](https://camo.githubusercontent.com/60a2da1b381d2d9f9c21ade38e54f3793ead7bf2162d4eb7ccb8297733494cbc/68747470733a2f2f692e696d6775722e636f6d2f795055594353442e706e67)
+​[​![empty account](./assets/celo-crowd-funding-project-empty-account-11.png)](https://camo.githubusercontent.com/60a2da1b381d2d9f9c21ade38e54f3793ead7bf2162d4eb7ccb8297733494cbc/68747470733a2f2f692e696d6775722e636f6d2f795055594353442e706e67)
 
 # Interacting with the Crowdfunding Smart Contracts
 
@@ -704,7 +704,7 @@ We will use the packages we installed via NPM in the first tutorial here. We wil
 
 In the terminal, run `npm install bignumber.js`. That's it for the setup of this step!
 
-![first step](./assets/celo-crowd-funding-project-first-step.png)
+![first step](./assets/celo-crowd-funding-project-first-step-12.png)
 
 ## Importing our modules
 
@@ -766,7 +766,7 @@ interact();
 
 Let's run this. In the terminal, type: `node interact.js`. The result should be something like the following:
 
-![code](./assets/celo-crowd-funding-project-code.png)
+![code](./assets/celo-crowd-funding-project-code-13.png)
 
 If all goes well, the output should show the account address, and the contract that we created. The contract output looks different than regular solidity code because it is a [contract ABI](https://docs.soliditylang.org/en/v0.5.3/abi-spec.html).
 
@@ -973,7 +973,7 @@ Now let's run the code! In your terminal, type: `node interact.js`
 
 The output should look something like this:
 
-![output](./assets/celo-crowd-funding-project-output.png)
+![output](./assets/celo-crowd-funding-project-output-14.png)
 
 Awesome! As we can see from the terminal output, our script creates a new project, contributes 2 cUSD to it, waits 5 seconds, and then pays out from the project. We can see the flow of the 2 cUSD going from the Celo wallet --> the contract --> back to the wallet.
 

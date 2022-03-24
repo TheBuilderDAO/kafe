@@ -22,25 +22,25 @@
     }
   },
   "content": {
-    "content/assets/tezos-create-a-dex-on-tezos-tez-dex.png": {
-      "name": "tezos-create-a-dex-on-tezos-tez-dex.png",
-      "path": "content/assets/tezos-create-a-dex-on-tezos-tez-dex.png",
+    "content/assets/tezos-create-a-dex-on-tezos-tez-dex-1.png": {
+      "name": "tezos-create-a-dex-on-tezos-tez-dex-1.png",
+      "path": "content/assets/tezos-create-a-dex-on-tezos-tez-dex-1.png",
       "digest": "8446d094996dc4bf88504b9eae19e89f1169023a93fade0a08f84a65b0455b21"
     },
-    "content/assets/tezos-create-a-dex-on-tezos-tez-to-token.png": {
-      "name": "tezos-create-a-dex-on-tezos-tez-to-token.png",
-      "path": "content/assets/tezos-create-a-dex-on-tezos-tez-to-token.png",
+    "content/assets/tezos-create-a-dex-on-tezos-tez-to-token-2.png": {
+      "name": "tezos-create-a-dex-on-tezos-tez-to-token-2.png",
+      "path": "content/assets/tezos-create-a-dex-on-tezos-tez-to-token-2.png",
       "digest": "ece777e34a4a30bbf52df362c6b415475a1fa0677bbd0c3b673d523f9766d500"
     },
-    "content/assets/tezos-create-a-dex-on-tezos-transaction.png": {
-      "name": "tezos-create-a-dex-on-tezos-transaction.png",
-      "path": "content/assets/tezos-create-a-dex-on-tezos-transaction.png",
+    "content/assets/tezos-create-a-dex-on-tezos-transaction-3.png": {
+      "name": "tezos-create-a-dex-on-tezos-transaction-3.png",
+      "path": "content/assets/tezos-create-a-dex-on-tezos-transaction-3.png",
       "digest": "b0f62a821e6f847fafcd91818e8336ebdaf07034083892e85b5cea75af154890"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "0792e83b083a85ed59be17f022dc3a7459575b2c8d44b9696191ecf9e147af3a"
+      "digest": "484e37b735c888d1c1d3ef4270811576603162ffd7362489b12ed0ced55f64e5"
     }
   },
   "href": "learn/tezos-create-a-dex-on-tezos",

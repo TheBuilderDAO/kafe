@@ -75,13 +75,13 @@ Initialize the subgraph using the command below and enter all the details for th
 graph init grt-token
 ```
 
-![graph init](./assets/thegraph-the-journey-of-a-subgraph-query-graph-init.png)
+![graph init](./assets/thegraph-the-journey-of-a-subgraph-query-graph-init-1.png)
 
 This will create a new subgraph for us with some auto-generated code that will help us bootstrap our subgraph.
 
 Open the Subgraph dashboard and copy the access token.
 
-![Access token](./assets/thegraph-the-journey-of-a-subgraph-query-access-token.png)
+![Access token](./assets/thegraph-the-journey-of-a-subgraph-query-access-token-2.png)
 
 We will use this access token to authenticate ourselves with The Graph. The command to authenticate is `graph auth` and we need to select the hosted-service option when prompted.
 
@@ -89,7 +89,7 @@ We will use this access token to authenticate ourselves with The Graph. The comm
 graph auth
 ```
 
-![graph-auth](./assets/thegraph-the-journey-of-a-subgraph-query-graph-auth.png)
+![graph-auth](./assets/thegraph-the-journey-of-a-subgraph-query-graph-auth-3.png)
 
 Now we need to change to the project directory `grt-token` (which was generated using the `graph init` command) and deploy our subgraph to the explorer using the `yarn deploy` command.
 
@@ -98,7 +98,7 @@ cd grt-token
 yarn deploy
 ```
 
-![graph-deploy](./assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy.png)
+![graph-deploy](./assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy-4.png)
 
 After the deployment is complete, you should be able to see the subgraph on your dashboard. The subgraph will be in Pending state until all the blocks are processed. You can see the current syncing status.
 
@@ -122,7 +122,7 @@ Here, we have 3 main files that define our Subgraph - `subgraph.yaml`, `schema.g
 
 We check the `subgraph.yaml` file first which defines all the details about the subgraph such as the source contracts and events.
 
-![subgraph.yaml](./assets/thegraph-the-journey-of-a-subgraph-query-subgraph-yaml.png)
+![subgraph.yaml](./assets/thegraph-the-journey-of-a-subgraph-query-subgraph-yaml-5.png)
 
 Each contract source defined under dataSources will be watched for various events that are emitted by the contract. Under eventHandlers, we can see the different types of events that are emitted by our ERC20 GRT token contract and the corresponding handler for that event.
 
@@ -280,7 +280,7 @@ yarn codegen && yarn deploy
 
 After the deployment is complete, you should see the latest version under Pending on The Graph Explorer and its status as Syncing.
 
-![graph-deploy2](./assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy-2.png)
+![graph-deploy2](./assets/thegraph-the-journey-of-a-subgraph-query-graph-deploy-2-6.png)
 
 We just verified that there are no issues with the code and the deployment is also successful. Now let’s start with the main logic of our Subgraph - extracting data from the transfer events and storing it using our `User` entity.
 
@@ -364,13 +364,13 @@ After the deployment is complete, you should see that the latest version is sync
 
 After the sync is complete, we can test our subgraph using the Graph Explorer Playground without having to use the API endpoints manually. This really helps for an easy test-build cycle. If you would like to integrate this subgraph to a front-end, you can use the Subgraph API endpoint which is visible at the top right next to our Subgraph details. For this tutorial, we will use the Graph explorer and Playground for testing.
 
-![graph-explorer](./assets/thegraph-the-journey-of-a-subgraph-query-graph-explorer.png)
+![graph-explorer](./assets/thegraph-the-journey-of-a-subgraph-query-graph-explorer-7.png)
 
 We are finally at the last stage of our tutorial, where our subgraph receives a query request and returns the requested data. To view all the data that is available to query, we can check the Subgraph schema which is available to the right hand side of the Subgraph Playground. We can see our User entity under schema. Clicking on the entity will show us the attributes that are available.
 
 If you didn't deploy the subgraph yourself, you can still test using the subgraph which I have deployed here: [Graph Token](https://thegraph.com/legacy-explorer/subgraph/sudeepb02/grt-token)
 
-![graph-playground01](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-01.png)
+![graph-playground01](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-01-8.png)
 
 If you notice above, we already have an existing query for our subgraph in the Playground. To start with testing, let’s fire this simple query.
 
@@ -386,7 +386,7 @@ If you notice above, we already have an existing query for our subgraph in the P
 
 This query returns the first 5 users and their attributes. Click on the **Play** button and you can see the results
 
-![graph-playground02](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-02.png)
+![graph-playground02](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-02-9.png)
 
 Next, we will get the total number of transfers and amounts for any arbitrary account. We will use the Binance8 address [0xf977814e90da44bfa03b6295a0616a897441acec](https://etherscan.io/address/0xf977814e90da44bfa03b6295a0616a897441acec) which holds around 1.99% of the total GRT token supply at the time of writing this tutorial. Feel free to replace this with your own address or any other address. The query for getting this data looks something like this:
 
@@ -416,7 +416,7 @@ Here is the response received for the above query
 }
 ```
 
-![graph-playground03](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-03.png)
+![graph-playground03](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-03-10.png)
 
 Wait, doesn't this seems weird? How come the Binance address has only 6 transfer in all? Let's verify if our subgraph is indexing and returning the correct data. We will use Etherscan address filter for this purpose.
 
@@ -424,7 +424,7 @@ Head over to [Etherscan](https://etherscan.io/token/0xc944e90c64b2c07662a292be62
 
 On right hand side of the Transfers, Holders, Info... tab, enter the Binance8 address in the Filters search box.
 
-![graph-playground03](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-03.png)
+![graph-playground03](./assets/thegraph-the-journey-of-a-subgraph-query-graph-playground-03-11.png)
 
 Here you can confirm that the data returned is indeed true as there are only 8 transfers(out of total 15) with Binance8 as the `from` address. Now this is just a simple example to verify this manually which might not be relevant or even possible for other subgraphs/addresses.
 

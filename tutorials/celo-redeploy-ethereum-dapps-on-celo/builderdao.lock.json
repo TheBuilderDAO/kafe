@@ -32,15 +32,15 @@
       "path": "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-2.png",
       "digest": "eb3aa08c36b57d6cd67cd2f344d87610bd143e75f8061cd3b7de04e041010408"
     },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "c0dc7f78429bd4a2a33c13b412ce558a5ff17b8909f471292bcdb6cbe340c6aa"
-    },
     "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-3.png": {
       "name": "celo-redeploy-ethereum-dapps-on-celo-image-3.png",
       "path": "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-3.png",
       "digest": "4d56b8690420bf4f95321258c032e5454c5fc9aab1fa4c79804833f6f682c66d"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c0dc7f78429bd4a2a33c13b412ce558a5ff17b8909f471292bcdb6cbe340c6aa"
     }
   },
   "href": "learn/celo-redeploy-ethereum-dapps-on-celo",

@@ -22,15 +22,25 @@
     }
   },
   "content": {
+    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png": {
+      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png",
+      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png",
+      "digest": "7639155d4733010e99facf8696b3b13c6b18dc04f69cdbf47500d398bbc60db5"
+    },
+    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-1.png": {
+      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-1.png",
+      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-1.png",
+      "digest": "cc195f3b28fe824b43f7c1714fb9823ea3306cf452484d9403befa4e92325e8a"
+    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "7a333c5c9786963440a57f4c124b7ef52302fec747767e1bf0134a171cebe18e"
+      "digest": "582c84043b696ee3fbbdf1a1c8f6170384eaa976191970d290ae671d71f6c6e4"
     },
-    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example.png": {
-      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example.png",
-      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example.png",
-      "digest": "531a7805f65f44a96f57e631a603fe5e7b668d4a2a09eac9ba6d12a354032d68"
+    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png": {
+      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png",
+      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png",
+      "digest": "67982ff44859260581b76e8e57114e756154ce97ed2ac1f3790f48fe4806a97b"
     }
   },
   "href": "learn/avalanche-transfer-avax-from-c-chain-to-ethereum",

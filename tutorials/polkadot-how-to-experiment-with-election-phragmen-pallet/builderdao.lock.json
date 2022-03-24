@@ -22,20 +22,20 @@
     }
   },
   "content": {
-    "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview.png": {
-      "name": "polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview.png",
-      "path": "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview.png",
+    "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview-1.png": {
+      "name": "polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview-1.png",
+      "path": "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview-1.png",
       "digest": "f7b86a2d585cc502b03ec5895c9b586cbc6b32394c70ee6a2426c350834a5be6"
     },
-    "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview.png": {
-      "name": "polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview.png",
-      "path": "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview.png",
+    "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png": {
+      "name": "polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png",
+      "path": "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png",
       "digest": "36f8eb1c205cc5102fcf3cb940b9b8316e9c7ac8d24725336309287e12e25d43"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9270301118bf227fa6dbd97ced209d6ef8e61ea9f301b96a6e2abe4a19329016"
+      "digest": "588aae1dfcaf2ec4e4a335291f70bd3569e1136aa20e75a266daedc7da00edc6"
     }
   },
   "href": "learn/polkadot-how-to-experiment-with-election-phragmen-pallet",

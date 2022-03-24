@@ -558,26 +558,28 @@ Next, we need to fund our address to interact with the network. Go to the [fauce
 
 Now visit <https://polkadot.js.org/apps> and switch to the Jupiter testnet. You can do this by clicking on the chain logo available on the top-left of the navbar where you will see a list of available networks. Move to the _"TEST NETWORKS"_ section and search for a network called **Jupiter**. Select it and scroll back to the top and click on _Switch_.
 
-![Switch Network](./assets/polkadot-build-polkadot-amm-using-ink-switch-network.png)
+![Switch Network](./assets/polkadot-build-polkadot-amm-using-ink-switch-network-1.png)
 
 After switching the network, Click on the _Contracts_ option under the _Developer_ tab from the navbar. There click on _Upload & Deploy Code_ and select the account through which you wish to deploy and in the field - _"json for either ABI or .contract bundle"_ upload the `metadata.json` file. Next a new field - _"compiled contract WASM"_ will emerge where you need to upload your wasm file i.e. `amm.wasm` in our case. It will look something like this -
 
-![Deploy step 1](./assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1.png)
+![Deploy step 1](./assets/polkadot-build-polkadot-amm-using-ink-deploy-step-1-2.png)
 
 Now click on _Next_. As we have just one constructor in our contract, It will be chosen by default otherwise a dropdown option would have been present to select from multiple constructors. As our constructor `new()` accepts one parameter called `fees`. We need to set the _fees_ field with a positive number.
 
-<Hint
-  type="info" %}Note down that the default unit is set to DOT which multiplies the input by a factor of 10^4. So if we wish to pass a value say 10 (which corresponds to 1% trading fee, 10/1000 fraction, in our contract) then we need to write 0.0001 DOT.{% endhint>
-null
+<Hint type="info">
+  Note down that the default unit is set to DOT which multiplies the input by a
+  factor of 10^4. So if we wish to pass a value say 10 (which corresponds to 1%
+  trading fee, 10/1000 fraction, in our contract) then we need to write 0.0001
+  DOT.
 </Hint>
 
 Set _endowment_ to 1 DOT which transfers 1 DOT to the contract for storage rent. Finally set _max gas allowed (M)_ to 200000. It will look something like this -
 
-![Deploy step 2](./assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2.png)
+![Deploy step 2](./assets/polkadot-build-polkadot-amm-using-ink-deploy-step-2-3.png)
 
 Click on _Deploy_ followed by _Sign and Submit_. Wait for the Tx to be mined and after a few seconds, you can see the updated contract page with the list of your deployed contracts. Click on the name of your contract to see the contract address and note it down as it will be needed when integrating with the frontend.
 
-![Find contract address](./assets/polkadot-build-polkadot-amm-using-ink-find-contract-address.png)
+![Find contract address](./assets/polkadot-build-polkadot-amm-using-ink-find-contract-address-4.png)
 
 # How to interact with polkadot.{js}
 
@@ -647,7 +649,9 @@ const faucet = async (amountKAR, amountKOTHI) => {
 
 In the above javascript code, we have demonstrated how to make a query and transaction to our AMM smart contract. Now let's understand each line of the above code.
 
-<Hint type="info">null</Hint>
+<Hint type="info">
+  The above code is just a reference on how to interact with the smart contract.
+</Hint>
 
 ```javascript
 // Creates a provider
@@ -761,7 +765,9 @@ The `App.js` renders the `ContainerComponent` and connects the application to `p
 
 The `constants.js` file stores the contract **ABI** and **CONTRACT_ADDRESS**. Don't forget to store your contract address and ABI in the respective variables.
 
-<Hint type="info">null</Hint>
+<Hint type="info">
+  ABI can be obtained from your ink! project folder at /target/ink/metadata.json
+</Hint>
 
 Now it's time to run our React app. Use the following command to start the React app.
 
@@ -771,7 +777,7 @@ npm start
 
 # Walkthrough
 
-![demo](./assets/polkadot-build-polkadot-amm-using-ink-demo.png)
+![demo](./assets/polkadot-build-polkadot-amm-using-ink-demo-5.png)
 
 # Conclusion
 
@@ -783,7 +789,7 @@ Congratulations! We have successfully developed a working AMM model where users 
 
 Make sure that you have added the account on the polkadot{.js} extension and the account visibility is set to either "Allow use on any chain" or "Jupiter A1". You can find this by opening the polkadot{.js} extension and clicking on the hamburger menu of the corresponding account.
 
-![chain visibility](./assets/polkadot-build-polkadot-amm-using-ink-chain-visibility.png)
+![chain visibility](./assets/polkadot-build-polkadot-amm-using-ink-chain-visibility-6.png)
 
 **Ink! project is not building**
 

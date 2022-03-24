@@ -298,40 +298,40 @@ Now, we are going to deploy both contracts.
 
 In the SmartPy output, click on `Deploy Michelson Project`
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-1.png)
 
 Then will open a new page. Select the network where you want to deploy the smart contract.
 Then select the account which will be used to deploy the smart contract.
 
 Now Click on the `Estimated Cost From Rpc` to estimate the fee in Tezos to deploy the contract. Make sure the account you are using has that much XTZ available.
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-2.png)
 
 Before deploying we will change the admin for this contract. Update the address string to your public address.
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-3.png)
 
 Now click the `Deploy contract` button. This will generate the address for the deployed contract; save that.
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-4.png)
 
 And we have deployed the `Token` contract successfully. Now let us deploy the `MarketPlace` Contract.
 
 Now again, In the Smartpy output, click the deploy contract button for the `MarketPlace` Contract.
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-5.png)
 
 We will repeat the same steps for this one also. First, we will select the account, then we will estimate the cost.
 
 Once these 2 steps are done, we will update the initial storage. Change the contract address here to the contract address we got after deploying the `Token` contract.
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-6.png)
 
 And now we can deploy this contract as well by clicking the `Deploy contract` button, then save the address of this contract.
 
 Now we have deployed both the contracts. Now we can update the `admin` by calling the `setAdminstator` entry point.
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-7.png)
 
 > Note: you can update the IPFS hash, which can be done in the tests.
 
@@ -900,7 +900,7 @@ export default Create;
 
 ```
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-8.png)
 
 ## Displaying NFTs in the Home component
 
@@ -1019,7 +1019,7 @@ const Home = ({ Tezos }) => {
 export default Home;
 ```
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-9.png)
 
 ## Displaying the detailed view
 
@@ -1164,7 +1164,7 @@ We have also imported collectNFT, We can give an option in the detailed view as 
 </div>
 ```
 
-![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image.png)
+![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-10.png)
 
 Hurray! We are all done. We have completed the UI of our NFT marketplace.
 Check out the complete code on [Github](https://github.com/NishantChandla/nft-marketplace-tutorial)

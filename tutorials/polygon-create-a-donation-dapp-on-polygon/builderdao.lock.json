@@ -22,34 +22,39 @@
     }
   },
   "content": {
-    "content/assets/polygon-create-a-donation-dapp-on-polygon-dapp-demo.png": {
-      "name": "polygon-create-a-donation-dapp-on-polygon-dapp-demo.png",
-      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-dapp-demo.png",
+    "content/assets/polygon-create-a-donation-dapp-on-polygon-dapp-demo-1.png": {
+      "name": "polygon-create-a-donation-dapp-on-polygon-dapp-demo-1.png",
+      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-dapp-demo-1.png",
       "digest": "1dae72c602913a0fcf74bc3504b47dba69a0627aa6027e56b4ac0f2e6f309b0b"
     },
-    "content/assets/polygon-create-a-donation-dapp-on-polygon-folder-structure.png": {
-      "name": "polygon-create-a-donation-dapp-on-polygon-folder-structure.png",
-      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-folder-structure.png",
+    "content/assets/polygon-create-a-donation-dapp-on-polygon-folder-structure-2.png": {
+      "name": "polygon-create-a-donation-dapp-on-polygon-folder-structure-2.png",
+      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-folder-structure-2.png",
       "digest": "f7fb428b96753ff4212aca899c8ea19bbb445ac9caac340039b5a9d645e91e7b"
     },
-    "content/assets/polygon-create-a-donation-dapp-on-polygon-output-image.png": {
-      "name": "polygon-create-a-donation-dapp-on-polygon-output-image.png",
-      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-output-image.png",
-      "digest": "cdbf202d25d7b414b2bca4bcc1ccb23cf5e0545da425f279f3bfc31acf9aadf4"
+    "content/assets/polygon-create-a-donation-dapp-on-polygon-output-image-4.png": {
+      "name": "polygon-create-a-donation-dapp-on-polygon-output-image-4.png",
+      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-output-image-4.png",
+      "digest": "fc161809b0f9c68593514e198b1ab5d7a295ece28a5036fc96e47906e4e3bc23"
     },
-    "content/assets/polygon-create-a-donation-dapp-on-polygon-truffle-compile.png": {
-      "name": "polygon-create-a-donation-dapp-on-polygon-truffle-compile.png",
-      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-truffle-compile.png",
+    "content/assets/polygon-create-a-donation-dapp-on-polygon-output-image-5.png": {
+      "name": "polygon-create-a-donation-dapp-on-polygon-output-image-5.png",
+      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-output-image-5.png",
+      "digest": "1d56501515de4dbe254a6bb3ecb8e73acecaf08c6aa4514e84cbd6c581afa5ba"
+    },
+    "content/assets/polygon-create-a-donation-dapp-on-polygon-truffle-compile-3.png": {
+      "name": "polygon-create-a-donation-dapp-on-polygon-truffle-compile-3.png",
+      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-truffle-compile-3.png",
       "digest": "860918ba4dd23e65ffa982f5b4e44e3ae464a13696d707dfa6420550a3ad3496"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "efec9437d456589f8cd2f853add13c5fd49ba7830cf74fcc53f9f300bcc19109"
+      "digest": "5f157d95e2d1ceb45970c22955f4fa7043db99ee29320d86475f6eef31301b92"
     },
-    "content/assets/polygon-create-a-donation-dapp-on-polygon-demo-gif.png": {
-      "name": "polygon-create-a-donation-dapp-on-polygon-demo-gif.png",
-      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-demo-gif.png",
+    "content/assets/polygon-create-a-donation-dapp-on-polygon-demo-gif-6.png": {
+      "name": "polygon-create-a-donation-dapp-on-polygon-demo-gif-6.png",
+      "path": "content/assets/polygon-create-a-donation-dapp-on-polygon-demo-gif-6.png",
       "digest": "f2d0a6be8194a12b08de9f7adae78ea273eb91500884a088f9ac6ee35ab0acdd"
     }
   },

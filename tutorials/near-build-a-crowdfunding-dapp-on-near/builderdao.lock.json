@@ -22,55 +22,60 @@
     }
   },
   "content": {
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-addvote.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-addvote.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-addvote.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-addvote-8.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-addvote-8.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-addvote-8.png",
       "digest": "2232d902d5a912b3e7ea08add1b668e478262da6295452f82768419007cd58e9"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-add-crowdfund.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund-7.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-add-crowdfund-7.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund-7.png",
       "digest": "39bcbf077d69094892ed70b6355b3ef5466917699e8b2e7fc6ab8d4e60c50a8c"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-create-crowdfund.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-create-crowdfund.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-create-crowdfund.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-create-crowdfund-2.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-create-crowdfund-2.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-create-crowdfund-2.png",
       "digest": "10b43378189db78c933ed0d20a7e9752fea10d2b13459b02ba888c3665bb97d8"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-deploy-contract.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-deploy-contract.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-deploy-contract.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-deploy-contract-6.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-deploy-contract-6.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-deploy-contract-6.png",
       "digest": "28b0ecfffeea2c68e8b82727b7b388c97c4136bda8710abf5a3303cedb979bae"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-file-structure.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-file-structure.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-file-structure.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-file-structure-3.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-file-structure-3.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-file-structure-3.png",
       "digest": "b17f7d7cbce8d2a6b2ecd333f633555e38c48c66e397d4db4582f0fe99dcce37"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-list-crowdfunds.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-list-crowdfunds.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-list-crowdfunds.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-list-crowdfunds-9.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-list-crowdfunds-9.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-list-crowdfunds-9.png",
       "digest": "f8c0db46b83f3c84467ec758ceb6542bacd3c7beb8fbc53acff39b25cfa1b109"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-login.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-login.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-login.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-login-10.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-login-10.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-login-10.png",
       "digest": "5239fdcc2ee55eaccca801b0c683691918b620216e734e01d612c5fd2b1e7852"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-project-image.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-project-image.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-project-image.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-project-image-1.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-project-image-1.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-project-image-1.png",
       "digest": "d977d871526bc838f8dedfefdf7541a0a8d2764582b8c7a357b4a94a29892942"
     },
-    "content/assets/near-build-a-crowdfunding-dapp-on-near-sub-account.png": {
-      "name": "near-build-a-crowdfunding-dapp-on-near-sub-account.png",
-      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-sub-account.png",
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-project-image-4.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-project-image-4.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-project-image-4.png",
+      "digest": "e948cedccd18ba79410f0d22c3dfa51ea812661892c1ac24e85313366edab278"
+    },
+    "content/assets/near-build-a-crowdfunding-dapp-on-near-sub-account-5.png": {
+      "name": "near-build-a-crowdfunding-dapp-on-near-sub-account-5.png",
+      "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-sub-account-5.png",
       "digest": "b3b2a6ffafe95f15857344cd72579054f33f586a2ec1e0dfdfcb483826b6a3be"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "00c3106d9c83b050926f8f965c07811212ea4c5d4380e1b213c1bf4c77d00ade"
+      "digest": "fbff6cf4816ee45bdf60aacb91a9680bba793dd2805097edf95da35aa68056db"
     }
   },
   "href": "learn/near-build-a-crowdfunding-dapp-on-near",

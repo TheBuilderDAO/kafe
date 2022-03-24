@@ -22,19 +22,19 @@
     }
   },
   "content": {
-    "content/assets/thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart.png": {
-      "name": "thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart.png",
-      "path": "content/assets/thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart.png",
+    "content/assets/thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart-2.png": {
+      "name": "thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart-2.png",
+      "path": "content/assets/thegraph-explore-an-existing-subgraph-graph-react-app-pie-chart-2.png",
       "digest": "4c87e823bd1da0e9566c35a827bf4e509d43d695e63255fac17ba008b57e0fea"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "221e762e3f6a0fb78bb28faf7aa46784a910af70df54bd53b46a625f26f39b7e"
+      "digest": "9bba9e5f8c0dd82e22aa9de06239f132462c80c76902e6508526338d0413dc0c"
     },
-    "content/assets/thegraph-explore-an-existing-subgraph-hopr-subgraph-playground.png": {
-      "name": "thegraph-explore-an-existing-subgraph-hopr-subgraph-playground.png",
-      "path": "content/assets/thegraph-explore-an-existing-subgraph-hopr-subgraph-playground.png",
+    "content/assets/thegraph-explore-an-existing-subgraph-hopr-subgraph-playground-1.png": {
+      "name": "thegraph-explore-an-existing-subgraph-hopr-subgraph-playground-1.png",
+      "path": "content/assets/thegraph-explore-an-existing-subgraph-hopr-subgraph-playground-1.png",
       "digest": "9aacf3ef3b10d1fa5efb3d2f0dfa332ea4e7bb00447a9d5b4e1d45715c213b78"
     }
   },
