@@ -23,7 +23,7 @@ const SortBy = ({ items, refine, Control, customStyles }) => {
         borderRadius: 0,
         colors: {
           ...theme.colors,
-          primary25: innerTheme === 'dark' ? '#EB5F49' : '#9462F7',
+          primary25: innerTheme === 'dark' ? '#EAE4D9' : '#1E1C1E',
           primary: 'none',
         },
       })}

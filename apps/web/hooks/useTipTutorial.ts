@@ -56,7 +56,7 @@ export const useTipTutorial = <AD>(): [
       } catch (err) {
         console.log('ERR:', err);
         setError(err);
-        throw new err();
+        throw err;
       } finally {
         setSubmitting(false);
       }

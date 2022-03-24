@@ -14,20 +14,18 @@ const UserAvatar = (props: UserAvatarProps) => {
   const { theme } = useTheme();
   const {
     address,
-    size = 25,
+    size = 30,
     bg = theme === 'dark' ? '#EB5F49' : '#EFBB73',
     ellipsis = true,
   } = props;
 
   return (
     <div className="flex items-center">
-      <div className="mx-2 rounded-full w-[25px] h-[25px] overflow-hidden lg:flex">
+      <div className="mr-2 rounded-full w-[30px] h-[30px] overflow-hidden lg:flex">
         <Identicon string={address} size={size} bg={bg} />
       </div>
-      {ellipsis && (
-        <p className="hidden lg:block text-xs">{addEllipsis(address)}</p>
-      )}
-      {!ellipsis && <p className="hidden lg:block text-xs">{address}</p>}
+      {ellipsis && <p className="text-xs font-black">{addEllipsis(address)}</p>}
+      {!ellipsis && <p className="text-xs font-black">{address}</p>}
     </div>
   );
 };
