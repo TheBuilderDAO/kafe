@@ -41,7 +41,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
             <div className="flex mb-8 items-center">
               <p className="mr-2">Proposal by </p>{' '}
               <UserAvatar address={tutorial.creator} />{' '}
-              <p className="text-sm text-kafemellow ml-8">
+              <p className="text-sm dark:text-kafemellow text-kafeblack ml-8">
                 {' '}
                 {niceDate(tutorial.createdAt)}
               </p>
