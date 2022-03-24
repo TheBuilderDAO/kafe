@@ -20,7 +20,8 @@ import { ArweaveApi, CeramicApi, TutorialMetadata } from '@builderdao/apis';
 import { protocols, technologies } from '@builderdao/data';
 import {
   TutorialProgramClient,
-  filterAccountByFundedState,
+  ProposalStateE,
+  filterAccountByState,
   filterAccountBySlug,
 } from '@builderdao-sdk/dao-program';
 
@@ -195,8 +196,10 @@ export function makeTutorialCommand() {
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
       });
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
-      ceramic.setSeed(options.seed)
+      const ceramicMetadata = await ceramic.getMetadata(
+        proposal.streamId as string,
+      );
+      ceramic.setSeed(options.seed);
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,
@@ -297,7 +300,7 @@ export function makeTutorialCommand() {
           source: async () =>
             (
               await client.getProposals([
-                filterAccountByFundedState,
+                filterAccountByState(ProposalStateE.funded),
                 ...(options.slug ? [filterAccountBySlug(options.slug)] : []),
               ])
             ).map(data => `${data.account.slug}`),

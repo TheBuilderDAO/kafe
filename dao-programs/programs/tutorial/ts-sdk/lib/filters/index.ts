@@ -26,19 +26,12 @@ export const proposalStateEtoBytes = (state: ProposalStateE) => {
   }
 };
 
-export const filterAccountByFundedState = {
+export const filterAccountByState = (state: ProposalStateE) => ({
   memcmp: {
     offset: ProposalAccountOffset.State,
-    bytes: proposalStateEtoBytes(ProposalStateE.funded),
+    bytes: proposalStateEtoBytes(state),
   },
-};
-
-export const filterAccountByReadyToPublishState = {
-  memcmp: {
-    offset: ProposalAccountOffset.State,
-    bytes: proposalStateEtoBytes(ProposalStateE.readyToPublish),
-  },
-};
+});
 
 export const filterAccountBySlug = (slug: string) => ({
   memcmp: {
