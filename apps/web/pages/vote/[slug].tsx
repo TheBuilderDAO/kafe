@@ -18,6 +18,7 @@ import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import Loader from '@app/components/Loader/Loader';
 import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
+import { niceDate } from '../../utils/time';
 type PageProps = {
   tutorial: any;
 };
@@ -33,27 +34,30 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
       <Head>
         <title>Kafé by Builder DAO - Proposal for {tutorial.title}</title>
       </Head>
-      <main className="flex lg:flex-row flex-col-reverse lg:mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40">
-        <div className="xl:max-w-3xl xl:min-w-3xl grow relative z-10 mx-8 lg:mx-0 h-fit min-h-[300px]">
+      <main className="flex flex-row mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40 text-xs justify-between">
+        <div className="max-w-3xl min-w-3xl grow relative z-10 mx-0 h-fit min-h-[300px] mt-12">
           <BorderSVG />
           <section className="p-8">
             <div className="flex mb-8 items-center">
-              <p>Proposal by </p> <UserAvatar address={tutorial.creator} />{' '}
+              <p className="mr-2">Proposal by </p>{' '}
+              <UserAvatar address={tutorial.creator} />{' '}
               <p className="text-sm text-kafemellow ml-8">
                 {' '}
-                {new Date(tutorial.createdAt).toLocaleDateString()}
+                {niceDate(tutorial.createdAt)}
               </p>
             </div>
 
-            <h1 className="lg:text-5xl text-3xl mb-4 font-larken">
+            <h1 className="text-5xl mb-4 font-larken tracking-wider leading-relaxed">
               {tutorial.title}
             </h1>
 
             <Tags tags={tutorial.tags} />
-            <p className="break-all">{tutorial.description}</p>
+            <p className="break-all mt-4 line-clamp-4 leading-6">
+              {tutorial.description}
+            </p>
           </section>
         </div>
-        <div className="mx-8 lg:mx-0 sticky">
+        <div className="mx-0 sticky">
           <div>
             <RightSidebar>
               <div className="p-6">

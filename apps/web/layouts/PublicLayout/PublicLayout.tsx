@@ -21,7 +21,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
 
   if (error) {
     return (
-      <div className="flex items-center justify-center w-screen h-screen text-2xl tracking-wide bg-kafewhite text-kafeblack dark:bg-kafeblack dark:text-kafewhite font-larken">
+      <div className="flex items-center justify-center w-screen h-screen text-xs tracking-wide bg-kafewhite text-kafeblack dark:bg-kafeblack dark:text-kafewhite font-larken">
         <div>
           <Image src={coffeeFull} width={60} height={60} alt="err" />
           <p>Aw, nuts. Something&rsquo;s up. </p>
@@ -37,7 +37,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="flex flex-wrap min-h-screen font-space p-9 relative bg-kafewhite dark:bg-kafeblack min-w-[1100px]">
+    <div className="flex flex-wrap min-h-screen font-space p-9 relative bg-kafewhite dark:bg-kafeblack min-w-[1100px] tracking-wider leading-relaxed">
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
