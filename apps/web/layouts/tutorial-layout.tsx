@@ -2,7 +2,6 @@ import { Link, MDXWrapper, PageTitle, SectionContainer } from '@builderdao/ui';
 // import { BlogSEO } from '@/components/SEO' // TODO: Add json:schema for this
 import React, { ReactNode } from 'react';
 import TableOfContent from '@app/components/TableOfContent';
-import { formatDate } from '@app/lib/utils/format-date';
 import { useRouter } from 'next/router';
 import { TutorialFrontMatter } from '@builderdao/md-utils';
 import RightSidebar from './PublicLayout/RightSidebar';
@@ -11,7 +10,7 @@ import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 import { BuilderDaoConfigJson } from '@builderdao/cli';
 import { getEnabledCategories } from 'trace_events';
 import _, { map } from 'lodash';
-import { niceDate } from '@app/lib/utils/format-date';
+import { formatDate } from '@app/lib/utils/format-date';
 
 interface Props {
   tutorialId: number;
@@ -32,7 +31,6 @@ export const TutorialLayout: React.FC<Props> = ({
 }) => {
   const { query } = useRouter();
   const { slug, date, title, description, keywords } = frontMatter;
-  console.log(frontMatter);
   const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
     [],
   );
@@ -66,7 +64,7 @@ export const TutorialLayout: React.FC<Props> = ({
                   <div>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6">
-                      <time dateTime={date}>{niceDate(Number(date))}</time>
+                      <time dateTime={date}>{formatDate(date)}</time>
                     </dd>
                   </div>
                 </dl>

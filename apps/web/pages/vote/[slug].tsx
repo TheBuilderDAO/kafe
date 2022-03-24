@@ -18,7 +18,7 @@ import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
 import Loader from '@app/components/Loader/Loader';
 import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
-import { niceDate } from '@app/lib/utils/format-date';
+import { formatUnix } from '@app/lib/utils/format-date';
 type PageProps = {
   tutorial: any;
 };
@@ -43,7 +43,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
               <UserAvatar address={tutorial.creator} />{' '}
               <p className="text-sm dark:text-kafemellow text-kafeblack ml-8">
                 {' '}
-                {niceDate(tutorial.createdAt)}
+                {formatUnix(tutorial.createdAt)}
               </p>
             </div>
 

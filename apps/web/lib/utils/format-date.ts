@@ -1,4 +1,4 @@
-import { formatDistance } from 'date-fns';
+import { formatDistance, fromUnixTime } from 'date-fns';
 
 export const formatDate = (date: string) => {
   const options: Intl.DateTimeFormatOptions = {
@@ -11,6 +11,7 @@ export const formatDate = (date: string) => {
   return now;
 };
 
-export const niceDate = (date: number | Date) => {
-  return formatDistance(date, new Date());
+export const formatUnix = date => {
+  const time = fromUnixTime(date);
+  return formatDistance(time, new Date(), { addSuffix: true });
 };
