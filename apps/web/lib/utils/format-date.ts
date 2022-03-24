@@ -1,4 +1,4 @@
-import moment from 'moment';
+import distanceInWords from 'date-fns/distance_in_words';
 
 export const formatDate = (date: string) => {
   const options: Intl.DateTimeFormatOptions = {
@@ -12,5 +12,5 @@ export const formatDate = (date: string) => {
 };
 
 export const niceDate = (date: string | number) => {
-  return moment(date).startOf('day').fromNow();
+  return distanceInWords(date, new Date());
 };
