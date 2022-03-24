@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import React, { useCallback, useState } from 'react';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import toast from 'react-hot-toast';
+import { Notifications } from '@app/components/Notifications/Notifications';
 import LoginButton from '../LoginButton/LoginButton';
 import InputTitle from '@app/components/FormElements/InputTitle';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
@@ -55,7 +56,7 @@ const TipTutorialForm = (props: TipTutorialProps) => {
   };
 
   const afterOpenModal = () => {
-    console.log('hey');
+    return;
   };
 
   const KafeModal = () => {
@@ -162,6 +163,7 @@ const TipTutorialForm = (props: TipTutorialProps) => {
           {submitting ? 'Submitting...' : 'support'}
         </button>
         <KafeModal />
+        <Notifications />
       </form>
     </IsLoggedIn>
   );

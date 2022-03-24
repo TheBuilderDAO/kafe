@@ -8,7 +8,9 @@ const Header = () => {
     <div className="mt-0 flex justify-end w-full">
       <div className="w-menu flex justify-between">
         <HelpButton />
-        <ThemeSwitch />
+        <div className="mx-6">
+          <ThemeSwitch />
+        </div>
         <LoginButton />
       </div>
     </div>
