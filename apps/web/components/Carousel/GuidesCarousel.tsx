@@ -28,7 +28,6 @@ const searchClient = algoliasearch(
 const GuideCard = props => {
   const { hit } = props;
 
-  console.log('GUIDE', hit);
   return (
     <div
       className={
