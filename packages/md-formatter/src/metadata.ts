@@ -84,7 +84,7 @@ const extend = async () => {
       tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/celo/celo-ubeswap-tutorial.md'
     }
 
-    if (tutorial.slug === 'tezos-token-contracts') {
+    if (tutorial.slug === 'token-contracts') {
       tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/token-contracts.md'
     }
 

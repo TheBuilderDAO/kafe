@@ -1,258 +1,4 @@
 {
-  "secret-pathway": {
-    "slug": "secret-pathway",
-    "is_multi_page": true,
-    "title": "Secret 101",
-    "description": "Learn to build on Secret with Figment Learn",
-    "author_github_account": "TheBuilderDAO",
-    "author_url": "https://github.com/TheBuilderDAO",
-    "author_wallet": null,
-    "tags": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-    "difficulty": "beginner",
-    "published_at": "2021-07-20T11:53:48.306Z",
-    "pages": [
-      {
-        "title": "The Secret Pathway has moved to learn-web3-dapp",
-        "slug": "secret-pathway-moved",
-        "description": "You can now access the Secret 101 Pathway on our GitHub repo.",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/secret/secret-pathway.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-101",
-        "previous_slug": null,
-        "page_number": 1
-      },
-      {
-        "title": "What is Secret?",
-        "slug": "secret-101",
-        "description": "Learn more about Secret",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/secret/secret-101.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-setup",
-        "previous_slug": "secret-pathway-moved",
-        "page_number": 2
-      },
-      {
-        "title": "Setup the project",
-        "slug": "secret-setup",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-connect",
-        "previous_slug": "secret-101",
-        "page_number": 3
-      },
-      {
-        "title": "Connect to Secret",
-        "slug": "secret-connect",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-account",
-        "previous_slug": "secret-setup",
-        "page_number": 4
-      },
-      {
-        "title": "Create an account",
-        "slug": "secret-account",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-balance",
-        "previous_slug": "secret-connect",
-        "page_number": 5
-      },
-      {
-        "title": "Get the balance",
-        "slug": "secret-balance",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-transfer",
-        "previous_slug": "secret-account",
-        "page_number": 6
-      },
-      {
-        "title": "Transfer some SCRT",
-        "slug": "secret-transfer",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-deploy",
-        "previous_slug": "secret-balance",
-        "page_number": 7
-      },
-      {
-        "title": "Deploy a smart contract",
-        "slug": "secret-deploy",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-get-storage",
-        "previous_slug": "secret-transfer",
-        "page_number": 8
-      },
-      {
-        "title": "Get the storage of a smart contract",
-        "slug": "secret-get-storage",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-set-storage",
-        "previous_slug": "secret-deploy",
-        "page_number": 9
-      },
-      {
-        "title": "Set the storage of a smart contract",
-        "slug": "secret-set-storage",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": "secret-complete",
-        "previous_slug": "secret-get-storage",
-        "page_number": 10
-      },
-      {
-        "title": "🎓 Pathway complete!",
-        "slug": "secret-complete",
-        "description": "The Secret Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
-        "next_slug": null,
-        "previous_slug": "secret-set-storage",
-        "page_number": 11
-      }
-    ],
-    "author_name": "The Builder Dao",
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "secret-pathway"
-  },
-  "polkadot-pathway": {
-    "slug": "polkadot-pathway",
-    "is_multi_page": true,
-    "title": "Polkadot 101",
-    "description": "Learn to build on Polkadot with Figment Learn",
-    "author_github_account": "TheBuilderDAO",
-    "author_url": "https://github.com/TheBuilderDAO",
-    "author_wallet": null,
-    "tags": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-    "difficulty": "beginner",
-    "published_at": "2021-07-20T12:46:04.014Z",
-    "pages": [
-      {
-        "title": "The Polkadot Pathway has moved to learn-web3-dapp",
-        "slug": "polkadot-pathway-moved",
-        "description": "You can now access the Polkadot 101 Pathway on our GitHub repo.",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polkadot/polkadot-pathway.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-101",
-        "previous_slug": null,
-        "page_number": 1
-      },
-      {
-        "title": "What is Polkadot?",
-        "slug": "polkadot-101",
-        "description": "Learn more about Polkadot",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polkadot/polkadot-101.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-setup",
-        "previous_slug": "polkadot-pathway-moved",
-        "page_number": 2
-      },
-      {
-        "title": "Setup the project",
-        "slug": "polkadot-setup",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-connect",
-        "previous_slug": "polkadot-101",
-        "page_number": 3
-      },
-      {
-        "title": "Connect to Polkadot",
-        "slug": "polkadot-connect",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-account",
-        "previous_slug": "polkadot-setup",
-        "page_number": 4
-      },
-      {
-        "title": "Create an account",
-        "slug": "polkadot-account",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-restore",
-        "previous_slug": "polkadot-connect",
-        "page_number": 5
-      },
-      {
-        "title": "Restore an account",
-        "slug": "polkadot-restore",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-estimate",
-        "previous_slug": "polkadot-account",
-        "page_number": 6
-      },
-      {
-        "title": "Estimate transaction fees",
-        "slug": "polkadot-estimate",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-balance",
-        "previous_slug": "polkadot-restore",
-        "page_number": 7
-      },
-      {
-        "title": "Get the balance",
-        "slug": "polkadot-balance",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-existential-deposit",
-        "previous_slug": "polkadot-estimate",
-        "page_number": 8
-      },
-      {
-        "title": "Existential deposit",
-        "slug": "polkadot-existential-deposit",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-transfer",
-        "previous_slug": "polkadot-balance",
-        "page_number": 9
-      },
-      {
-        "title": "Transfer some tokens",
-        "slug": "polkadot-transfer",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": "polkadot-complete",
-        "previous_slug": "polkadot-existential-deposit",
-        "page_number": 10
-      },
-      {
-        "title": "🎓 Pathway complete!",
-        "slug": "polkadot-complete",
-        "description": "The Polkadot Pathway has moved",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
-        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
-        "next_slug": null,
-        "previous_slug": "polkadot-transfer",
-        "page_number": 11
-      }
-    ],
-    "author_name": "The Builder Dao",
-    "author_image_url": "https://github.com/TheBuilderDAO.png",
-    "oldSlug": "polkadot-pathway"
-  },
   "celo-pathway": {
     "slug": "celo-pathway",
     "is_multi_page": true,
@@ -5308,7 +5054,7 @@
         "title": "Token Contracts",
         "slug": "token-contracts",
         "description": "Learn how to deploy and interact with a digital asset on Tezos",
-        "markdown_url": "https://raw.githubusercontent.com/figment-networks/datahub-learn/master/network-documentation/tezos/tutorials/token-contracts.md",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/token-contracts.md",
         "keywords": ["Tezos", "Python", "Smart contracts", "CLI"],
         "next_slug": null,
         "previous_slug": null,
@@ -6345,5 +6091,259 @@
     "author_name": "Jonathan Ferreira",
     "author_image_url": "https://github.com/Jonathansoufer.png",
     "oldSlug": "explaining-solana-with-the-simpsons"
+  },
+  "secret-pathway": {
+    "slug": "secret-pathway",
+    "is_multi_page": true,
+    "title": "Secret 101",
+    "description": "Learn to build on Secret with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
+    "author_url": "https://github.com/TheBuilderDAO",
+    "author_wallet": null,
+    "tags": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+    "difficulty": "beginner",
+    "published_at": "2021-07-20T11:53:48.306Z",
+    "pages": [
+      {
+        "title": "The Secret Pathway has moved to learn-web3-dapp",
+        "slug": "secret-pathway-moved",
+        "description": "You can now access the Secret 101 Pathway on our GitHub repo.",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/secret/secret-pathway.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-101",
+        "previous_slug": null,
+        "page_number": 1
+      },
+      {
+        "title": "What is Secret?",
+        "slug": "secret-101",
+        "description": "Learn more about Secret",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/secret/secret-101.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-setup",
+        "previous_slug": "secret-pathway-moved",
+        "page_number": 2
+      },
+      {
+        "title": "Setup the project",
+        "slug": "secret-setup",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-connect",
+        "previous_slug": "secret-101",
+        "page_number": 3
+      },
+      {
+        "title": "Connect to Secret",
+        "slug": "secret-connect",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-account",
+        "previous_slug": "secret-setup",
+        "page_number": 4
+      },
+      {
+        "title": "Create an account",
+        "slug": "secret-account",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-balance",
+        "previous_slug": "secret-connect",
+        "page_number": 5
+      },
+      {
+        "title": "Get the balance",
+        "slug": "secret-balance",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-transfer",
+        "previous_slug": "secret-account",
+        "page_number": 6
+      },
+      {
+        "title": "Transfer some SCRT",
+        "slug": "secret-transfer",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-deploy",
+        "previous_slug": "secret-balance",
+        "page_number": 7
+      },
+      {
+        "title": "Deploy a smart contract",
+        "slug": "secret-deploy",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-get-storage",
+        "previous_slug": "secret-transfer",
+        "page_number": 8
+      },
+      {
+        "title": "Get the storage of a smart contract",
+        "slug": "secret-get-storage",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-set-storage",
+        "previous_slug": "secret-deploy",
+        "page_number": 9
+      },
+      {
+        "title": "Set the storage of a smart contract",
+        "slug": "secret-set-storage",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": "secret-complete",
+        "previous_slug": "secret-get-storage",
+        "page_number": 10
+      },
+      {
+        "title": "🎓 Pathway complete!",
+        "slug": "secret-complete",
+        "description": "The Secret Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Secret", "JS/TS", "React", "Rust", "Next.js"],
+        "next_slug": null,
+        "previous_slug": "secret-set-storage",
+        "page_number": 11
+      }
+    ],
+    "author_name": "The Builder Dao",
+    "author_image_url": "https://github.com/TheBuilderDAO.png",
+    "oldSlug": "secret-pathway"
+  },
+  "polkadot-pathway": {
+    "slug": "polkadot-pathway",
+    "is_multi_page": true,
+    "title": "Polkadot 101",
+    "description": "Learn to build on Polkadot with Figment Learn",
+    "author_github_account": "TheBuilderDAO",
+    "author_url": "https://github.com/TheBuilderDAO",
+    "author_wallet": null,
+    "tags": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+    "difficulty": "beginner",
+    "published_at": "2021-07-20T12:46:04.014Z",
+    "pages": [
+      {
+        "title": "The Polkadot Pathway has moved to learn-web3-dapp",
+        "slug": "polkadot-pathway-moved",
+        "description": "You can now access the Polkadot 101 Pathway on our GitHub repo.",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polkadot/polkadot-pathway.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-101",
+        "previous_slug": null,
+        "page_number": 1
+      },
+      {
+        "title": "What is Polkadot?",
+        "slug": "polkadot-101",
+        "description": "Learn more about Polkadot",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/polkadot/polkadot-101.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-setup",
+        "previous_slug": "polkadot-pathway-moved",
+        "page_number": 2
+      },
+      {
+        "title": "Setup the project",
+        "slug": "polkadot-setup",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-connect",
+        "previous_slug": "polkadot-101",
+        "page_number": 3
+      },
+      {
+        "title": "Connect to Polkadot",
+        "slug": "polkadot-connect",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-account",
+        "previous_slug": "polkadot-setup",
+        "page_number": 4
+      },
+      {
+        "title": "Create an account",
+        "slug": "polkadot-account",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-restore",
+        "previous_slug": "polkadot-connect",
+        "page_number": 5
+      },
+      {
+        "title": "Restore an account",
+        "slug": "polkadot-restore",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-estimate",
+        "previous_slug": "polkadot-account",
+        "page_number": 6
+      },
+      {
+        "title": "Estimate transaction fees",
+        "slug": "polkadot-estimate",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-balance",
+        "previous_slug": "polkadot-restore",
+        "page_number": 7
+      },
+      {
+        "title": "Get the balance",
+        "slug": "polkadot-balance",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-existential-deposit",
+        "previous_slug": "polkadot-estimate",
+        "page_number": 8
+      },
+      {
+        "title": "Existential deposit",
+        "slug": "polkadot-existential-deposit",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-transfer",
+        "previous_slug": "polkadot-balance",
+        "page_number": 9
+      },
+      {
+        "title": "Transfer some tokens",
+        "slug": "polkadot-transfer",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": "polkadot-complete",
+        "previous_slug": "polkadot-existential-deposit",
+        "page_number": 10
+      },
+      {
+        "title": "🎓 Pathway complete!",
+        "slug": "polkadot-complete",
+        "description": "The Polkadot Pathway has moved",
+        "markdown_url": "https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/pathways.md",
+        "keywords": ["Polkadot", "JS/TS", "React", "Solidity", "Next.js"],
+        "next_slug": null,
+        "previous_slug": "polkadot-transfer",
+        "page_number": 11
+      }
+    ],
+    "author_name": "The Builder Dao",
+    "author_image_url": "https://github.com/TheBuilderDAO.png",
+    "oldSlug": "polkadot-pathway"
   }
 }

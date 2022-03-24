@@ -9,13 +9,23 @@ import _ from "lodash";
 
 const download = async (url: string, destinationPath: string) => {
   console.log('⬇️', url);
+
+  const tmp = path.resolve('/tmp', path.basename(destinationPath));
+  console.log(tmp)
+  if (fs.existsSync(tmp)) {
+    await fs.copyFile(tmp, destinationPath);
+    return
+  }
   const saveFile = await axios.get(url, {
     responseType: 'stream',
   });
-  const download = fs.createWriteStream(destinationPath);
-  await new Promise((resolve, reject) => {
+  const download = fs.createWriteStream(tmp);
+  await new Promise<void>((resolve, reject) => {
     saveFile.data.pipe(download);
-    download.on("close", resolve);
+    download.on("close", async ()=> {
+      await fs.copyFile(tmp, destinationPath);
+      resolve()
+    });
     download.on("error", console.error);
   });
 }
@@ -40,12 +50,31 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceUrl:
       node.url = node.url.replace('../', '')
     }
     fileCount++;
+
+    let filename = [
+      options.fileNamePrefix,
+      // node.url.substring(node.url.lastIndexOf('/') + 1).split('?')[0].toLowerCase()]
+      node.alt ? _.words(node.alt).join('-').toLowerCase() : `image`,
+      `-${fileCount}`
+    ].join('');
+
+    if (!path.extname(filename)) {
+      filename = `${filename}.png`
+    }
+    const targetPath = path.join(options.destination, 'assets', filename)
     if (isRelative) {
       // TODO: getfile from github
       console.log(node)
-      console.log("RELATIVE", node.url, options.sourceUrl)
-      throw Error("RELATIVE",)
-      const fullPath = path.resolve(options.sourceUrl, node.url)
+      if (node.url.includes('.gitbook')) {
+        downloadQueue.push({
+          url: "https://via.placeholder.com/300x200.png?text=Image+not+found",
+          path: targetPath
+        })
+        node.alt = `TODO:NOT_FOUND ${node.alt}`
+      } else {
+        console.log("RELATIVE", node.url, options.sourceUrl)
+        throw Error("RELATIVE",)
+      }
 
       // const filename = path.basename(fullPath)
 
@@ -57,20 +86,18 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceUrl:
       // fs.copySync(fullPath, targetPath)
       // node.url = `./assets/${filename}`
     } else {
-      let filename = [
-        options.fileNamePrefix, 
-        // node.url.substring(node.url.lastIndexOf('/') + 1).split('?')[0].toLowerCase()]
-        node.alt ? _.words(node.alt).join('-').toLowerCase() : `image-${fileCount}`
-      ].join('');
-
-      if (!path.extname(filename)) {
-        filename = `${filename}.png`
-      }
-      const targetPath = path.join(options.destination, 'assets', filename)
       // TODO: utilize node.alt for meanfull filename
       downloadQueue.push({
         url: node.url,
         path: targetPath
+      }, (err, result) => {
+        if (err) {
+          downloadQueue.push({
+            url: "https://via.placeholder.com/300x200.png?text=Image+not+found",
+            path: targetPath
+          })
+          node.alt = `TODO:NOT_FOUND ${node.alt}`
+        }
       });
 
       node.url = `./assets/${filename}`
