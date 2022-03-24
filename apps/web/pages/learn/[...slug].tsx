@@ -36,6 +36,7 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
   const { mdxSource, frontMatter } = props.post;
+  console.log(props);
   const { config, lock, relativePath } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(

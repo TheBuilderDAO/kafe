@@ -32,6 +32,7 @@ export const TutorialLayout: React.FC<Props> = ({
 }) => {
   const { query } = useRouter();
   const { slug, date, title, description, keywords } = frontMatter;
+  console.log(frontMatter);
   const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
     [],
   );

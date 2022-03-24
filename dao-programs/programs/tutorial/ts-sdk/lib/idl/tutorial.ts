@@ -1542,7 +1542,7 @@ export const IDL: Tutorial = {
     {
       code: 6012,
       name: 'NotEnoughSolError',
-      msg: 'Error: Cannot tips: not enough SOL',
+      msg: 'Error: Cannot tip: not enough SOL',
     },
     {
       code: 6013,
