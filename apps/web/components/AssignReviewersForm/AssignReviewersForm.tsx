@@ -46,7 +46,7 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
 
       setReviewArray(sanitizedReviewArray);
     }
-  }, [reviewers]);
+  }, [reviewers, tutorial.creator]);
   const {
     handleSubmit,
     reset,

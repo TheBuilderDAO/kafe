@@ -62,7 +62,7 @@ const TutorialPage: NextPage<
   return (
     <>
       <Head>
-        <title>Tutorial</title>
+        <title>Kafé by Builder DAO - {config.title}</title>
       </Head>
       <TutorialLayout
         tutorialId={4}

@@ -26,12 +26,16 @@ const Navigation = () => {
     <div className="mt-5">
       <nav className="space-y-1">
         <Link key="learn" href={routes.learn.index} passHref>
-          <StyledNavigate $active={router.pathname === routes.learn.index}>
+          <StyledNavigate
+            $active={router.pathname.indexOf(routes.learn.index) >= 0}
+          >
             <div>Learn</div>
           </StyledNavigate>
         </Link>
         <Link key="vote" href={routes.vote.index} passHref>
-          <StyledNavigate $active={router.pathname === routes.vote.index}>
+          <StyledNavigate
+            $active={router.pathname.indexOf(routes.vote.index) >= 0}
+          >
             <div>Vote</div>
           </StyledNavigate>
         </Link>

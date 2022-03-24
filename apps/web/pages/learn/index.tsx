@@ -14,6 +14,13 @@ import {
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_APP_ID,
 } from '@app/constants';
+import GuideStateTabs from '@app/components/Search/GuideStateTabs';
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import GuideHit from '@app/components/Search/GuideHit';
+import Pagination from '@app/components/Search/Pagination';
+import IsAdmin from '@app/components/IsAdmin/IsAdmin';
+
+const PER_PAGE = 10;
 
 const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -27,35 +34,44 @@ const LearnIndexPage: NextPage<
   return (
     <>
       <Head>
-        <title>Search Tutorial Proposals</title>
+        <title>Kafé by Builder DAO - Search Guides</title>
       </Head>
       <main className="mt-10">
         <Banner
           header="Learm from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
-          link="https://figment.io"
+          link="https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19"
         />
-        <div className="z-30 flex mt-10 mb-20">
-          <section className="z-10">
-            <div>
-              {allTutorials.map((tutorial, index) => (
-                <TutorialCard
-                  key={`tutorial-${tutorial.config.slug}`}
-                  tutorial={{ ...tutorial.config, ...tutorial.lock }}
-                  defaultAvatar={defaultAvatar}
-                />
-              ))}
+        <div className="z-30 flex mb-20">
+          <InstantSearch
+            searchClient={searchClient}
+            indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          >
+            <Configure
+              hitsPerPage={PER_PAGE}
+              analytics={false}
+              filters="state:published"
+            />
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px]">
+                <div className="lg:my-6 ">
+                  <IsAdmin>
+                    <div className="mb-6">
+                      <GuideStateTabs
+                        attribute="state"
+                        defaultRefinement={[ProposalStateE.published]}
+                      />
+                    </div>
+                  </IsAdmin>
+                  <Hits hitComponent={GuideHit} />
+                  <Pagination />
+                </div>
+              </div>
+              <RightSidebar>
+                <GuideFilter />
+              </RightSidebar>
             </div>
-          </section>
-          <RightSidebar>
-            <InstantSearch
-              searchClient={searchClient}
-              indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-            >
-              <Configure hitsPerPage={4} analytics={false} />
-              <GuideFilter />
-            </InstantSearch>
-          </RightSidebar>
+          </InstantSearch>
         </div>
       </main>
     </>

@@ -58,7 +58,7 @@ const ProposeTutorialForm = () => {
         toast.error(err.message);
       }
     },
-    [proposeTutorial, reset, router, wallet.connected],
+    [proposeTutorial, reset, router],
   );
 
   if (loading) {

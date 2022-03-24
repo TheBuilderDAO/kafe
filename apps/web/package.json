@@ -33,6 +33,7 @@
     "ardb": "^1.1.8",
     "arweave": "^1.10.18",
     "axios": "^0.25.0",
+    "date-fns": "^2.28.0",
     "dids": "^2.4.3",
     "framer-motion": "^6.2.3",
     "key-did-provider-ed25519": "^1.1.0",

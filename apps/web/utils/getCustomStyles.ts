@@ -1,7 +1,15 @@
 function getCustomStyles(theme) {
-  const toggleBg = theme === 'dark' ? '#131213' : '#FCFBF9';
-  const toggleText = theme === 'dark' ? '#EAE4D9' : '#1E1C1E';
-  const toggleHover = theme === 'dark' ? '#EB5F49' : '#EFBB73';
+  const dark = theme === 'dark';
+  const kafeblack = '#1E1C1E';
+  const kafewhite = '#EAE4D9';
+  const kafelighter = '#FCFBF9';
+  const kafedarker = '#131213';
+  const kafegold = '#EFBB73';
+  const kafered = '#EB5F49';
+  const kafepurple = '#9462F7';
+  const toggleBg = dark ? kafedarker : kafelighter;
+  const toggleText = dark ? kafelighter : kafedarker;
+  const toggleHover = dark ? kafegold : kafepurple;
 
   return {
     control: provided => ({
@@ -16,12 +24,26 @@ function getCustomStyles(theme) {
       transform: 'scale(1.05)',
     }),
 
+    option: (provided, state) => ({
+      ...provided,
+      color: state.isSelected
+        ? dark
+          ? kafegold
+          : kafepurple
+        : dark
+        ? kafewhite
+        : kafeblack,
+      '&:hover': {
+        color: !state.isSelected && (dark ? kafeblack : kafewhite),
+      },
+    }),
+
     menu: provided => ({
       ...provided,
       backgroundColor: toggleBg,
     }),
 
-    dropdownIndicator: (provided, state) => ({
+    dropdownIndicator: provided => ({
       ...provided,
       color: toggleText,
       fontSize: '1.5em',
