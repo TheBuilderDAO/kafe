@@ -133,9 +133,9 @@ const process = async () => {
     total++
     if (proposal) {
       matching++
-      // if (value.slug === 'near-stake-fungible-token-nep141') {
+      if (value.slug === 'avalanche-create-an-avalanche-crowdfunding-app') {
         await processQueue.pushAsync({ tutorial: value, proposal });
-      // }
+      }
       // console.log(proposal)
     } else {
       console.log("NOPE >> ", value.slug)

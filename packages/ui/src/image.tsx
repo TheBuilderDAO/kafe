@@ -1,14 +1,11 @@
 import NextImage, { ImageProps } from 'next/image';
 
 // TODO: clean up this file.
-export const Image = ({ ...rest }: any) => {
+export const Image = ({ getFile, ...rest }: any) => {
   if ((rest.src as string).startsWith('./assets')) {
     const contentData =
       rest?.lock.content[`${(rest.src as string).replace('./', 'content/')}`];
-    const src = rest.getFile(
-      rest.lock.slug,
-      contentData.path.replace('./', ''),
-    );
+    const src = getFile(rest.lock.slug, contentData.path.replace('./', ''));
     return (
       <NextImage
         {...rest}
