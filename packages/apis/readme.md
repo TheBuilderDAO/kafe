@@ -2,4 +2,10 @@
 
 Set of APIs used by BuilderDAO
 
-## Commands
+## Contents
+
+- Algolia API
+- Arweave API
+- Ceramic API
+- GitHub API
+- Solana API
