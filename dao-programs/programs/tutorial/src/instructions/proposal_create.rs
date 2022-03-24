@@ -73,7 +73,7 @@ pub fn handler(
   ctx.accounts.proposal.stream_id = stream_id;
   ctx.accounts.proposal.bump = bump;
   ctx.accounts.proposal.slug = slug;
-  ctx.accounts.proposal.id = id;
+  ctx.accounts.proposal.id = ctx.accounts.dao_config.nonce;
   ctx.accounts.proposal.number_of_voter = 0;
   ctx.accounts.proposal.reviewer1 = Pubkey::default();
   ctx.accounts.proposal.reviewer2 = Pubkey::default();
