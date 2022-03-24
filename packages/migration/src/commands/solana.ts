@@ -71,6 +71,8 @@ export function makeMigrationCommand() {
       });
       ceramicApi.setSeed(options.ceramicSeed);
 
+      const description = 'Migrated tutorial from LEARN.V2 ';
+
       for (const tutorial of Array.from(dump)) {
         try {
           const id = await client.getNonce();
@@ -78,7 +80,7 @@ export function makeMigrationCommand() {
           const stream = await ceramicApi.storeMetadata({
             title: tutorial.title,
             slug: tutorial.slug,
-            description: tutorial.description,
+            description,
             difficulty: tutorial.difficulty,
             tags: tutorial.tags,
           });
@@ -107,7 +109,7 @@ export function makeMigrationCommand() {
             objectID: id.toString(),
             title: tutorial.title,
             slug: tutorial.slug,
-            description: tutorial.description,
+            description,
             author: walletPk,
             state: ProposalStateE.readyToPublish,
             tags: tutorial.tags,
