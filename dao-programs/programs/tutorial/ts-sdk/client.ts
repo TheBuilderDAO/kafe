@@ -71,6 +71,12 @@ export class TutorialProgramClient {
     return daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount);
   }
 
+  async getNonce() {
+    return (
+      await daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount)
+    ).nonce.toNumber();
+  }
+
   async getProposals(
     filter: Buffer | GetProgramAccountsFilter[] | undefined = undefined,
   ) {

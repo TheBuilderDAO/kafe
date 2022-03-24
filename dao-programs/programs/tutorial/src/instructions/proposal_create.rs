@@ -64,6 +64,9 @@ pub fn handler(
     return Err(error!(ErrorDao::StreamIdTooLong));
   }
 
+  ctx.accounts.dao_config.number_of_tutorial += 1;
+  ctx.accounts.dao_config.nonce += 1;
+
   ctx.accounts.proposal.created_at = Clock::get()?.unix_timestamp;
   ctx.accounts.proposal.creator = ctx.accounts.payer.key();
   ctx.accounts.proposal.state = ProposalState::default();
@@ -75,6 +78,5 @@ pub fn handler(
   ctx.accounts.proposal.reviewer1 = Pubkey::default();
   ctx.accounts.proposal.reviewer2 = Pubkey::default();
 
-  ctx.accounts.dao_config.number_of_tutorial += 1;
   Ok(())
 }

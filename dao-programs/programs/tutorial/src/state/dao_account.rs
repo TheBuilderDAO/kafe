@@ -3,6 +3,7 @@ use anchor_lang::prelude::*;
 #[account]
 pub struct DaoAccount {
   pub bump: u8,
+  pub nonce: u64,
   pub number_of_tutorial: u64,
   pub mint: Pubkey,
   pub quorum: u64,

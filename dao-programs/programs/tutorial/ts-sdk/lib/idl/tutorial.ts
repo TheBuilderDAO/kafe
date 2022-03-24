@@ -526,6 +526,10 @@ export type Tutorial = {
             type: 'u8';
           },
           {
+            name: 'nonce';
+            type: 'u64';
+          },
+          {
             name: 'numberOfTutorial';
             type: 'u64';
           },
@@ -1301,6 +1305,10 @@ export const IDL: Tutorial = {
           {
             name: 'bump',
             type: 'u8',
+          },
+          {
+            name: 'nonce',
+            type: 'u64',
           },
           {
             name: 'numberOfTutorial',

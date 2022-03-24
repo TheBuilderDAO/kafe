@@ -1,0 +1,52 @@
+{
+  "name": "migration",
+  "version": "0.0.1",
+  "description": "",
+  "types": "./dist/index.d.ts",
+  "source": "./src/index.ts",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "bin": {
+    "migration": "./dist/index.cjs"
+  },
+  "scripts": {
+    "dev": "yarn build --watch",
+    "build": "yarn build:cli && yarn build:types",
+    "build:cli": "tsup src/index.ts  --format esm,cjs --dts",
+    "build:types": "tsup src/index.ts  --dts",
+    "link": "yarn link",
+    "lint": "TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "keywords": [],
+  "author": "@builderdao",
+  "license": "ISC",
+  "devDependencies": {
+    "@builderdao/config": "*",
+    "@builderdao/tsconfig": "*",
+    "@types/bs58": "^4.0.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/prettyjson": "^0.0.30",
+    "chokidar": "^3.5.3",
+    "eslint": "^8.9.0"
+  },
+  "dependencies": {
+    "@builderdao-sdk/dao-program": "*",
+    "@builderdao/data": "*",
+    "@builderdao/apis": "*",
+    "@project-serum/anchor": "^0.17.0",
+    "@solana/web3.js": "1.33.0",
+    "@types/bs58": "^4.0.1",
+    "bs58": "^5.0.0",
+    "commander": "^9.0.0",
+    "dotenv": "^16.0.0",
+    "fs-extra": "^10.0.1",
+    "lodash": "^4.17.21"
+  }
+}

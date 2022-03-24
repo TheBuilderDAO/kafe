@@ -5,8 +5,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
-  "editor.rulers": [120],
-  "editor.wordWrapColumn": 115,
+  "editor.rulers": [185],
+  "editor.wordWrapColumn": 180,
   "editor.wordWrap": "wordWrapColumn",
   "files.exclude": {
     "node_modules": true,

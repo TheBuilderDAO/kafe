@@ -1,0 +1,27 @@
+# Solana migration scripts
+
+## Commands
+
+To debug your env variable
+
+```text
+ALGOLIA_APP_ID="BUCGOMYP6K"\
+ALGOLIA_INDEX_NAME="dev_tutorials_reviewers"\
+ALGOLIA_ADMIN_KEY="85b897b10f18f6c506a656ce9b8d0738"\
+CERAMIC_NODE_URL="https://ceramic-clay.3boxlabs.com"\
+CERAMIC_SEED="'38 102 235 59 188 240 198 152 202 56 50 251 35 230 174 244 22 27 57 118 208 150 116 52 179 170 86 165 172 87 205 140'"\
+SOLANA_ADMIN_KP=5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2HzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN\
+migration solana debugEnv
+```
+
+To run the migration script for Solana
+
+```text
+ALGOLIA_APP_ID="BUCGOMYP6K"\
+ALGOLIA_INDEX_NAME="dev_tutorials_reviewers"\
+ALGOLIA_ADMIN_KEY="85b897b10f18f6c506a656ce9b8d0738"\
+CERAMIC_NODE_URL="https://ceramic-clay.3boxlabs.com"\
+CERAMIC_SEED="'38 102 235 59 188 240 198 152 202 56 50 251 35 230 174 244 22 27 57 118 208 150 116 52 179 170 86 165 172 87 205 140'"\
+SOLANA_ADMIN_KP=5cdHARAmbM45GNCzPC1abW3P1P6up5Qeo2HzMMXmiZEFiVK53KsAQVQoRpgc4Y4cdVzsmJaBKqw8Gz5rSwWT9fBN\
+migration solana run
+```

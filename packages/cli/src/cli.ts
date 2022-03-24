@@ -12,7 +12,6 @@ import { makeArweaveCommand } from './commands/arweave';
 import { makeCeramicCommand } from './commands/ceramic';
 import { makeAlgoliaCommand } from './commands/algolia';
 import { makeTutorialCommand } from './commands/tutorial';
-import { makeMigrationCommand } from './commands/migration';
 
 const program = new commander.Command();
 program
@@ -55,6 +54,5 @@ program.addCommand(makeArweaveCommand());
 program.addCommand(makeCeramicCommand());
 program.addCommand(makeAlgoliaCommand());
 program.addCommand(makeTutorialCommand());
-program.addCommand(makeMigrationCommand());
 program.showSuggestionAfterError();
 program.parseAsync(process.argv);
