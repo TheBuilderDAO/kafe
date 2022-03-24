@@ -133,7 +133,7 @@ const process = async () => {
     total++
     if (proposal) {
       matching++
-      if (value.slug === 'avalanche-create-an-avalanche-crowdfunding-app') {
+      if (value.slug === 'avalanche-on-chain-nft-game') {
         await processQueue.pushAsync({ tutorial: value, proposal });
       }
       // console.log(proposal)
