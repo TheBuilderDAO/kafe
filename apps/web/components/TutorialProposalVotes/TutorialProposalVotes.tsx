@@ -78,7 +78,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
               <div className="py-2">
                 <LoginButton
                   className={
-                    'inline-block dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafered hover:bg-kafegold hover:text-kafeblack font-thin'
+                    'inline-block dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafegold hover:bg-kafered hover:text-kafewhite font-thin'
                   }
                 >
                   <div className="flex items-center justify-center p-0 m-0">

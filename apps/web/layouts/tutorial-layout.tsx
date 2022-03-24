@@ -56,7 +56,7 @@ export const TutorialLayout: React.FC<Props> = ({
     <div className="flex justify-between">
       <SectionContainer>
         {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-        <article className="flex mt-24 dark:bg-kafeblack bg-kafewhite z-50 border border-1 border-kafeblack dark:border-kafewhite">
+        <article className="flex mt-8 dark:bg-kafeblack bg-kafewhite z-50 border border-1 border-kafeblack dark:border-kafewhite">
           <div className="px-10 py-4">
             <header>
               <div className="pb-5 space-y-1 text-center">
