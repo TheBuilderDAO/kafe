@@ -38,7 +38,7 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
       }`}
       onClick={handleClick}
     >
-      <div className="flex items-center justify-center p-0 m-0">
+      <div className="flex items-center justify-center p-0 m-0 w-[25px] h-[25px] mx-auto">
         {!variant && <VotedSVG voted={true} />}
         {variant && <p>vote</p>}
       </div>

@@ -26,7 +26,7 @@ const TutorialProposalHit = props => {
       <div className="px-8 py-4">
         <div className="flex flex-row justify-between">
           <div className="flex items-center flex-nowrap">
-            <p className="text-xs">Proposal by</p>
+            <p className="text-xs mr-2">Proposal by</p>
             <UserAvatar address={props.hit.author} />
           </div>
 

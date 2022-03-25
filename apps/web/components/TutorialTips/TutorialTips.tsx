@@ -115,7 +115,10 @@ const TutorialTips = (props: TutorialTipsProps) => {
         <h3 className="font-larken text-xl">
           {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
         </h3>
-        <small className="cursor-pointer" onClick={openModal}>
+        <small
+          className="cursor-pointer hover:text-kafered dark:hover:text-kafegold"
+          onClick={openModal}
+        >
           view all
         </small>
         <SupportersModal />
