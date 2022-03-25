@@ -61,17 +61,17 @@ const Wrapper = ({ hits, currentIndex }) => {
     return <Loader />;
   }
 
-  const first = hits.splice(0, 1, hits[currentIndex])[0];
+  const hit = hits[currentIndex];
 
   return [
-    <div key={first.objectID} className={`absolute top-6 left-6`}>
-      <ProposalCard hit={first} />
+    <div key={hit.objectID} className={`absolute top-6 left-6`}>
+      <ProposalCard hit={hit} />
     </div>,
     <div key="dummy-1" className={`absolute top-4 left-4`}>
-      <ProposalCard hit={first} />
+      <ProposalCard hit={hit} />
     </div>,
     <div key="dummy-2" className={`absolute top-2 left-2`}>
-      <ProposalCard hit={first} />
+      <ProposalCard hit={hit} />
     </div>,
   ];
 };
