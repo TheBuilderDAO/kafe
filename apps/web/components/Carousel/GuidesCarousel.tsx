@@ -62,6 +62,7 @@ const Wrapper = ({ hits, currentIndex }) => {
   }
 
   const first = hits.splice(0, 1, hits[currentIndex])[0];
+  console.log('Wrapper', hits, currentIndex, first);
 
   return [
     <div key={first.objectID} className={`absolute top-6 left-6`}>
