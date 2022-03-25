@@ -112,7 +112,6 @@ export function makeTutorialCommand() {
         : process.cwd();
 
       const proposal = await client.getTutorialBySlug(learnPackageName);
-      console.log(rootFolder);
       const { lock, initial } = new BuilderDaoConfig(rootFolder);
       const { lock: lockDefault } = await initial({
         proposalId: proposal.id.toNumber(),
@@ -284,7 +283,6 @@ export function makeTutorialCommand() {
       ),
     )
     .action(async options => {
-      console.log(options)
       let emitter: Rx.Subscriber<DistinctQuestion<Answers>>;
       const observe = new Rx.Observable<DistinctQuestion<Answers>>(obs => {
         emitter = obs;
