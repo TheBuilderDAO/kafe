@@ -4,7 +4,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({debug: true, path: path.resolve(__dirname, '../.env.local')});
+dotenv.config({ path: path.resolve(__dirname, '../.env.local')});
 
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
