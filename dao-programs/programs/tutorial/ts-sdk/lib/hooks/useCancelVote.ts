@@ -23,12 +23,34 @@ export const useCancelVote = (): [
 
         await tutorialProgram?.cancelVote(tutorialId);
 
-        mutate(routes.listOfVoters(tutorialId));
+        mutate(
+          routes.listOfVoters(tutorialId),
+          async (voters: any) => {
+            return voters.filter(
+              (voter: any) =>
+                voter.account.author.toString() !==
+                tutorialProgram.provider.wallet.publicKey.toString(),
+            );
+          },
+          {
+            revalidate: false,
+            populateCache: true,
+            rollbackOnError: true,
+          },
+        );
         mutate(
           routes.vote(
             tutorialId,
             tutorialProgram?.provider?.wallet?.publicKey!,
           ),
+          async (vote: any) => {
+            return {};
+          },
+          {
+            revalidate: false,
+            populateCache: true,
+            rollbackOnError: true,
+          },
         );
       } catch (err) {
         if (err instanceof Error) {

@@ -1,34 +1,46 @@
-import * as commander from 'commander'
-import * as anchor from '@project-serum/anchor'
-import { ProposalStateE } from '@builderdao-sdk/dao-program'
+import * as commander from 'commander';
+import * as anchor from '@project-serum/anchor';
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
-import { getClient } from '../client'
-import { log as _log, createKeypairFromSecretKey } from '../utils'
+import { getClient } from '../client';
+import { log as _log, createKeypairFromSecretKey } from '../utils';
 
 function myParseInt(value: string) {
   // parseInt takes a string and a radix
-  const parsedValue = parseInt(value, 10)
+  const parsedValue = parseInt(value, 10);
   if (Number.isNaN(parsedValue)) {
-    throw new commander.InvalidArgumentError('Not a number.')
+    throw new commander.InvalidArgumentError('Not a number.');
   }
-  return parsedValue
+  return parsedValue;
 }
 
 export function makeProposalCommand() {
-  const proposal = new commander.Command('proposal').description(
-    'Proposal Account',
-  )
-  const log = (object: any) => _log(object, proposal.optsWithGlobals().key)
+  const proposal = new commander.Command('proposal')
+    .addHelpCommand(false)
+    .description('Display information about Kafé Proposals')
+    .configureHelp({
+      helpWidth: 80,
+      sortSubcommands: true,
+      sortOptions: true,
+    });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const log = (object: any) => _log(object, proposal.optsWithGlobals().key);
+
   let client = getClient({
     kafePk: proposal.optsWithGlobals().kafePk,
     network: proposal.optsWithGlobals().network,
     payer: proposal.optsWithGlobals().payer,
-  })
+  });
 
-  proposal.command('list').action(async () => {
-    const proposals = await client.getProposals()
-    log(proposals)
-  })
+  proposal
+    .command('list')
+    .description('List all authorized Kafé proposals')
+    .helpOption('-h, --help', 'Display help for command')
+    .action(async () => {
+      const proposals = await client.getProposals();
+      log(proposals);
+    });
 
   proposal
     .command('setstate')
@@ -60,43 +72,54 @@ export function makeProposalCommand() {
           kafePk: proposal.optsWithGlobals().kafePk,
           network: proposal.optsWithGlobals().network,
           payer: options.adminKp,
-        })
+        });
         const txId = await client.proposalSetState({
           adminPk: options.adminKp.publicKey,
           id: proposalId,
           newState: options.state,
-        })
-        log({ txId })
+        });
+        log({ txId });
       },
-    )
+    );
 
   proposal
     .command('get')
-    .description('Fetch Proposal')
-    .option('-s, --slug <slug>', 'slug of the proposal')
-    .option('-i, --id <id>', 'id of the proposal')
+    .description('Fetch details of a Kafé Proposal')
+    .helpOption('-h, --help', 'Display help for command')
+    .addHelpText(
+      'after',
+      `
+Example call:
+  $ builderdao proposal get -p DKxxioeChZDFnCb79bcfHj8DVnrpeBfRUSr7sg2vLpo4
+
+Notes:
+  - PublicKeys of proposals are not currently displayed anywhere on the Kafé interface.
+      `,
+    )
+    .option('-s, --slug <slug>', 'Slug of the proposal')
+    .option('-i, --id <id>', 'ID of the proposal')
     .option('-p, --publicKey <publicKey>', 'PublicKey of the proposal')
     .action(async options => {
       if (!Object.values(options).some(v => v)) {
         proposal
-          .showHelpAfterError('(add --help for additional information)')
-          .error(
-            'You need to provide atleast one option for fetching, -i or -s',
+          .showHelpAfterError(
+            '💡 Use `builderdao proposal get --help` for additional information',
           )
+          .error('You must provide at least one option for fetching, -i or -s');
       }
 
       if (options.slug) {
-        log(await client.getTutorialBySlug(options.slug))
+        log(await client.getTutorialBySlug(options.slug));
       } else if (options.id) {
-        log(await client.getTutorialById(options.id))
+        log(await client.getTutorialById(options.id));
       } else if (options.publicKey) {
         log(
           await client.tutorialProgram.account.proposalAccount.fetch(
             options.publicKey,
           ),
-        )
+        );
       }
-    })
+    });
 
-  return proposal
+  return proposal;
 }

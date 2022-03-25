@@ -4,7 +4,10 @@ import QuestionSVG from '../SVG/QuestionSVG';
 
 const HelpButton = () => {
   const handleHelp = () => {
-    window.open('https://builderdao.notion.site/', '_blank');
+    window.open(
+      'https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19',
+      '_blank',
+    );
   };
 
   return (

@@ -35,6 +35,7 @@ const TutorialPage: NextPage<
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
+
   const { mdxSource, frontMatter } = props.post;
   const { config, lock, relativePath } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
@@ -56,7 +57,7 @@ const TutorialPage: NextPage<
         <title>Kafé by Builder DAO - {config.title}</title>
       </Head>
       <TutorialLayout
-        tutorialId={4}
+        tutorialId={lock.proposalId}
         frontMatter={frontMatter}
         config={config}
         next={frontMatter.next}

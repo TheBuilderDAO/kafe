@@ -1,6 +1,6 @@
 import { useForm, Controller } from 'react-hook-form';
 import { components, ControlProps } from 'react-select';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useDapp } from '../../hooks/useDapp';
 import { PublicKey } from '@solana/web3.js';
 import {
@@ -24,13 +24,18 @@ type FormData = {
 
 const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const { tutorial } = props;
-  const [reviewArray, setReviewArray] = useState([]);
-
-  const Control = ({ children, ...props }: ControlProps) => (
-    <components.Control {...props}> {children}</components.Control>
-  );
-
+  const { wallet } = useDapp();
   const { reviewers, loading, error } = useGetListOfReviewers();
+  const [assignReviewers, { submitting }] = useReviewersAssign();
+
+  const {
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+    setValue,
+  } = useForm<FormData>();
+  const [reviewArray, setReviewArray] = useState([]);
 
   useEffect(() => {
     if (reviewers) {
@@ -47,14 +52,26 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
       setReviewArray(sanitizedReviewArray);
     }
   }, [reviewers, tutorial.creator]);
-  const {
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm<FormData>();
-  const { wallet } = useDapp();
-  const [assignReviewers, { submitting }] = useReviewersAssign();
+
+  useEffect(() => {
+    if (reviewArray.length) {
+      const reviewer1Value = reviewArray.find(
+        review => review.value === tutorial.reviewer1.toString(),
+      );
+      if (reviewer1Value) {
+        setValue('reviewer1', reviewer1Value);
+      }
+    }
+
+    if (reviewArray.length) {
+      const reviewer2Value = reviewArray.find(
+        review => review.value === tutorial.reviewer2.toString(),
+      );
+      if (reviewer2Value) {
+        setValue('reviewer2', reviewer2Value);
+      }
+    }
+  }, [tutorial, reviewArray, setValue]);
 
   const onError = () => {
     toast.error('Please fill out all form fields');
@@ -103,12 +120,12 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
       className="flex flex-col pt-2"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <small className="mt-4 mb-2">Reviewers</small>
       <Controller
         name="reviewer1"
         rules={{ required: true }}
-        render={({ field: { ref, onChange } }) => (
+        render={({ field: { ref, value, onChange } }) => (
           <InputSelectOne
+            value={value}
             items={reviewArray}
             inputRef={ref}
             onChange={onChange}
@@ -119,8 +136,9 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
       <Controller
         name="reviewer2"
         rules={{ required: true }}
-        render={({ field: { ref, onChange } }) => (
+        render={({ field: { ref, value, onChange } }) => (
           <InputSelectOne
+            value={value}
             items={reviewArray}
             inputRef={ref}
             onChange={onChange}

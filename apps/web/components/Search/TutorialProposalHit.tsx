@@ -26,7 +26,7 @@ const TutorialProposalHit = props => {
       <div className="px-8 py-4">
         <div className="flex flex-row justify-between">
           <div className="flex items-center flex-nowrap">
-            <p className="text-xs">Proposal by</p>
+            <p className="text-xs mr-2">Proposal by</p>
             <UserAvatar address={props.hit.author} />
           </div>
 
@@ -67,7 +67,7 @@ const TutorialProposalHit = props => {
                   {props.hit.title}
                 </Link>
               </div>
-              <div className="font-thin tracking-wider text-xs leading-6 xl:leading-8 pt-1 pb-6 break-all line-clamp-2 w-10/12">
+              <div className="font-thin tracking-wider text-xs leading-6 xl:leading-8 pt-1 pb-6 line-clamp-2 w-10/12">
                 <p>{props.hit.description}</p>
               </div>
             </div>

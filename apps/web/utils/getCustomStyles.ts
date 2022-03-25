@@ -33,9 +33,6 @@ function getCustomStyles(theme) {
         : dark
         ? kafewhite
         : kafeblack,
-      '&:hover': {
-        color: !state.isSelected && (dark ? kafeblack : kafewhite),
-      },
     }),
 
     menu: provided => ({
