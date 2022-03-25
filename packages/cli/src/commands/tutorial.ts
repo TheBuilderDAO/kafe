@@ -379,7 +379,7 @@ Notes:
 
       const git = simpleGit().clean(CleanOptions.FORCE);
       const ceramic = new CeramicApi({
-        nodeUrl: options.nodeUrl,
+        nodeUrl: options.nodeURL,
       });
       const ui = new inquirer.ui.BottomBar();
       inquirer.prompt(observe).ui.process.subscribe(async q => {
