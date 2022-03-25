@@ -11,7 +11,7 @@ const Control = ({ children, ...props }: ControlProps) => (
   <components.Control {...props}> {children}</components.Control>
 );
 
-const TutorialProposalFilter = () => {
+const HitFilter = () => {
   const { theme } = useTheme();
   const customStyles = getCustomStyles(theme);
   return (
@@ -59,4 +59,4 @@ const TutorialProposalFilter = () => {
   );
 };
 
-export default TutorialProposalFilter;
+export default HitFilter;

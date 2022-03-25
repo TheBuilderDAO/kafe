@@ -2,7 +2,8 @@ import React, { useCallback } from 'react';
 import { useCancelVote } from '../../hooks/useCancelVote';
 import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
-import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
+import Image from 'next/image';
+import votedIcon from 'public/assets/icons/voted.png';
 
 type CancelVoteButtonProps = {
   id: number;
@@ -38,12 +39,14 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
         className={`${
           variant === 'standard'
             ? 'border-[1px] border-kafeblack dark:border-kafewhite bg-kafelighter dark:bg-kafedarker w-full h-14 rounded-2xl dark:text-kafewhite text-kafeblack'
-            : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group'
+            : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group cursor-pointer'
         }`}
         onClick={handleClick}
       >
         <div className="flex items-center justify-center">
-          {!variant && <VotedSVG voted={false} />}
+          {!variant && (
+            <Image src={votedIcon} width={25} height={25} alt="voted" />
+          )}
           {variant && <p>voted</p>}
         </div>
       </button>

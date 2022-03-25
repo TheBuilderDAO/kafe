@@ -19,7 +19,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
-import TutorialProposalFilter from '@app/components/Search/TutorialProposalFilter';
+import HitFilter from '@app/components/Search/HitFilter';
 import Loader from '@app/components/Loader/Loader';
 
 const PER_PAGE = 10;
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                 <Pagination />
               </div>
               <RightSidebar>
-                <TutorialProposalFilter />
+                <HitFilter />
               </RightSidebar>
             </div>
           </InstantSearch>
