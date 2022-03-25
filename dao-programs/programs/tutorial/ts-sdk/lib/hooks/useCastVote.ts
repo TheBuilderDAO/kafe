@@ -29,6 +29,7 @@ export const useCastVote = (): [
           tutorialId: new BN(tutorialId),
         };
 
+        mutate(routes.tutorialById(tutorialId));
         mutate(
           routes.listOfVoters(tutorialId),
           async (voters: any) => {

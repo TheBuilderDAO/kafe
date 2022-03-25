@@ -24,7 +24,6 @@ const WriteOnGitHub = ({ tutorial, RenderReviewer }) => {
     return null;
   }
 
-  console.log('SOMEEEE', tutorial.reviewer1, tutorial.reviewer2);
   return (
     <div className="mt-6">
       <RightSidebar>
@@ -39,19 +38,33 @@ const WriteOnGitHub = ({ tutorial, RenderReviewer }) => {
                     <small className="pl-2">{userType}</small>
                   </span>
                 </section>
-                {tutorial.reviewer1 !== ZERO_ADDRESS && (
-                  <RenderReviewer pubkey={tutorial.reviewer1} number="1" />
-                )}
-                {tutorial.reviewer2 !== ZERO_ADDRESS && (
-                  <RenderReviewer pubkey={tutorial.reviewer2} number="2" />
-                )}
-                {tutorial.reviewer1 === ZERO_ADDRESS &&
-                  tutorial.reviewer2 === ZERO_ADDRESS && (
-                    <p>No reviewers assigned yet</p>
+                <div>
+                  <div className="mt-4 mb-3">
+                    <small>Reviewers</small>
+                  </div>
+                  {userType === 'admin' ? (
+                    <AssignReviewersForm tutorial={tutorial} />
+                  ) : (
+                    <>
+                      {tutorial.reviewer1 !== ZERO_ADDRESS && (
+                        <RenderReviewer
+                          pubkey={tutorial.reviewer1}
+                          number="1"
+                        />
+                      )}
+                      {tutorial.reviewer2 !== ZERO_ADDRESS && (
+                        <RenderReviewer
+                          pubkey={tutorial.reviewer2}
+                          number="2"
+                        />
+                      )}
+                      {tutorial.reviewer1 === ZERO_ADDRESS &&
+                        tutorial.reviewer2 === ZERO_ADDRESS && (
+                          <p className="py-3">No reviewers assigned yet</p>
+                        )}
+                    </>
                   )}
-                {userType === 'admin' && (
-                  <AssignReviewersForm tutorial={tutorial} />
-                )}
+                </div>
                 <div className="border-t-[0.5px] border-kafeblack dark:border-kafemellow break-all pt-4 pb-4 mt-10">
                   <p>
                     Create guide at:{' '}

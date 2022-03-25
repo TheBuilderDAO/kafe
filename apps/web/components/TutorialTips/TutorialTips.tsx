@@ -25,7 +25,8 @@ Modal.setAppElement('#__next'); // This is for screen-readers. By binding the mo
 
 const TutorialTips = (props: TutorialTipsProps) => {
   const { id } = props;
-  const { wallet } = useDapp();
+  const { tippers, loading, error } = useGetListOfTippersById(id);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { theme } = useTheme();
   const dark = theme === 'dark';
@@ -94,8 +95,6 @@ const TutorialTips = (props: TutorialTipsProps) => {
     );
   };
 
-  const { tippers, loading, error } = useGetListOfTippersById(id);
-
   if (loading) {
     return <Loader />;
   }
@@ -110,9 +109,11 @@ const TutorialTips = (props: TutorialTipsProps) => {
         <h3 className="font-larken text-xl">
           {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
         </h3>
-        <small className="cursor-pointer" onClick={openModal}>
-          view all
-        </small>
+        {tippers.length > 5 && (
+          <small className="cursor-pointer" onClick={openModal}>
+            view all
+          </small>
+        )}
         <SupportersModal />
       </div>
       <ul>

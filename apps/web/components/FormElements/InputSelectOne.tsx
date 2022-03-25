@@ -4,6 +4,7 @@ import DropdownIndicator from '../Search/DropdownIndicator';
 import getCustomStyles from '../../utils/getCustomStyles';
 
 const InputSelectOne = ({
+  value,
   items,
   placeholder = 'select',
   inputRef,
@@ -14,6 +15,7 @@ const InputSelectOne = ({
   const customStyles = getCustomStyles(theme);
   return (
     <Select
+      value={value}
       options={items}
       components={{ DropdownIndicator }}
       styles={customStyles}

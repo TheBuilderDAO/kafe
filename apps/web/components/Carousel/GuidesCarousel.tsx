@@ -36,7 +36,7 @@ const GuideCard = props => {
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center">
-          <small className="text-xs">Guide by</small>{' '}
+          <small className="text-xs mr-2">Guide by</small>{' '}
           <UserAvatar ellipsis={true} address={hit.author} />
         </div>
         <ImageStack addresses={['1', '2', '3']} />
