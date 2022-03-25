@@ -51,7 +51,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
               {tutorial.title}
             </h1>
 
-            <Tags tags={tutorial.tags} />
+            <Tags tags={tutorial.tags} overrideLengthCheck={true} />
             <p className="mt-4 line-clamp-4 leading-6 text-md">
               {tutorial.description}
             </p>

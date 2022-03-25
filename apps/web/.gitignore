@@ -1,5 +1,2 @@
-.env.local
-.env.production
-
 public/tutorials
 .vercel

@@ -16,7 +16,6 @@
   "scripts": {
     "dev": "yarn build --watch",
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "link": "yarn link",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },

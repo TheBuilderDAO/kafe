@@ -1,11 +1,16 @@
 #!/usr/bin/env node
-import 'dotenv/config';
+/* eslint-disable import/first */
+
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.resolve(__dirname, '../.env.local')});
 
 import chalk from 'chalk';
-import { version } from '../package.json';
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
 import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import { version } from '../package.json';
 
 import { makeProposalCommand } from './commands/proposal';
 import { makeReviewerCommand } from './commands/reviewer';

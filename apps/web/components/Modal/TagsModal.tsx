@@ -28,13 +28,9 @@ const TagsModal = ({ tags, modalIsOpen, closeModal }) => {
     },
   };
 
-  const afterOpenModal = () => {
-    console.log('hey');
-  };
   return (
     <Modal
       isOpen={modalIsOpen}
-      onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
       style={modalStyles}
       contentLabel="Support modal"

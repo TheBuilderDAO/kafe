@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import TagsModal from '@app/components/Modal/TagsModal';
 
-const Tags = props => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+interface TagsProps {
+  tags: string[] | { value: string }[];
+  overrideLengthCheck?: boolean;
+}
+
+const Tags: React.FC<TagsProps> = props => {
   let { tags, overrideLengthCheck = false } = props;
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   let shortenedTags;
   let leftOverCount = 0;
 
   const openModal = () => {
     setModalIsOpen(true);
-    console.log('not with me');
   };
 
   const closeModal = () => {

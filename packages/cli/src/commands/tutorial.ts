@@ -164,7 +164,6 @@ Notes:
         : process.cwd();
 
       const proposal = await client.getTutorialBySlug(learnPackageName);
-      console.log(rootFolder);
       const { lock, initial } = new BuilderDaoConfig(rootFolder);
       const { lock: lockDefault } = await initial({
         proposalId: proposal.id.toNumber(),
