@@ -4,7 +4,16 @@ import { ArweaveApi } from '@builderdao/apis';
 import { log as _log } from '../utils';
 
 export function makeArweaveCommand() {
-  const arweave = new commander.Command('arweave').description('Arweave');
+  const arweave = new commander.Command('arweave')
+    .addHelpCommand(false)
+    .description('Store Kafé tutorial content on Arweave')
+    .configureHelp({
+      helpWidth: 80,
+      sortSubcommands: true,
+      sortOptions: true,
+    });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const log = (object: any) => _log(object, arweave.optsWithGlobals().key);
 
   arweave
@@ -38,7 +47,11 @@ export function makeArweaveCommand() {
         const client = new ArweaveApi({
           appName: options.appName,
         });
-        const txId = await client.publishTutorial(content, options.address, options.wallet);
+        const txId = await client.publishTutorial(
+          content,
+          options.address,
+          options.wallet,
+        );
         log({ txId });
       },
     );

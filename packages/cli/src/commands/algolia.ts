@@ -1,19 +1,32 @@
 import * as commander from 'commander';
 
 import { AlgoliaApi } from '@builderdao/apis';
-import { ProposalStateE } from '@builderdao-sdk/dao-program'
-import path from 'path'
-import { BuilderDaoConfig } from '../services'
+import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import path from 'path';
+import { BuilderDaoConfig } from '../services';
 
 export function makeAlgoliaCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
-  const algolia = new commander.Command('algolia').description('Algolia');
+  const algolia = new commander.Command('algolia')
+    .addHelpCommand(false)
+    .description('Update the Algolia index for Kafé')
+    .configureHelp({
+      helpWidth: 80,
+      sortSubcommands: true,
+      sortOptions: true,
+    });
+
+  algolia.configureHelp({
+    sortSubcommands: true,
+    sortOptions: false,
+  });
 
   algolia
     .command('updateIndex')
     .description('Update index with random data')
     .argument('<objectId>', 'Object ID')
+    .helpOption()
     .addOption(
       new commander.Option('--data <data>', 'New data')
         .argParser(val => JSON.parse(val))
@@ -39,7 +52,8 @@ export function makeAlgoliaCommand() {
       async (
         objectId: string,
         options: {
-          data: any,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          data: any;
           appId: string;
           accessKey: string;
           indexName: string;
@@ -51,13 +65,10 @@ export function makeAlgoliaCommand() {
           indexName: options.indexName,
         });
 
-        await client.updateTutorial(
-          objectId,
-          {
-            ...options.data,
-            lastUpdatedAt: Date.now(),
-          }
-        );
+        await client.updateTutorial(objectId, {
+          ...options.data,
+          lastUpdatedAt: Date.now(),
+        });
       },
     );
 
@@ -65,6 +76,8 @@ export function makeAlgoliaCommand() {
     .command('publish')
     .description('Update index when tutorial is published')
     .argument('<slug>', 'Tutorial slug')
+    .helpOption('-h, --help', 'Display help for command')
+    .addHelpCommand(false)
     .addOption(
       new commander.Option('--appId <appId>', 'Algolia App Id')
         .env('ALGOLIA_APP_ID')
@@ -108,16 +121,13 @@ export function makeAlgoliaCommand() {
 
         const tags = categories.map(category => category.name);
 
-        await client.updateTutorial(
-          proposalId,
-          {
-            title,
-            description,
-            tags,
-            state: ProposalStateE.published,
-            lastUpdatedAt: Date.now(),
-          }
-        );
+        await client.updateTutorial(proposalId, {
+          title,
+          description,
+          tags,
+          state: ProposalStateE.published,
+          lastUpdatedAt: Date.now(),
+        });
       },
     );
 

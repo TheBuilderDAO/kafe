@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { PublicKey } from '@solana/web3.js';
 import * as commander from 'commander';
 import path from 'path';
@@ -52,7 +53,7 @@ async function updateHashDigestOfFolder(rootFolder: string) {
     2,
   );
   tutorialMetadata.content.forEach(file => {
-    hashQueue.push(file);
+    hashQueue.push(file as TutorialMetadata);
   });
   await hashQueue.drain();
 }
@@ -61,6 +62,7 @@ async function getReviewer(
   client: TutorialProgramClient,
   reviewerPK: PublicKey,
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const formatReviewer = (data: any) => ({
     pda: data.pda,
     pubkey: data.pubkey,
@@ -75,26 +77,60 @@ async function getReviewer(
 export function makeTutorialCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
-  const tutorial = new commander.Command('tutorial').description('Tutorial');
+  const tutorial = new commander.Command('tutorial')
+    .addHelpCommand(false)
+    .description('Initialize & publish Kafé tutorials')
+    .configureHelp({
+      helpWidth: 80,
+      sortSubcommands: true,
+      sortOptions: true,
+    });
+
   const client = getClient({
     kafePk: tutorial.optsWithGlobals().kafePk,
     network: tutorial.optsWithGlobals().network,
     payer: tutorial.optsWithGlobals().payer,
   });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const log = (object: any) => _log(object, tutorial.optsWithGlobals().key);
-  tutorial.command('list').action(async () => {
-    const { allTutorials } = await getTutorialPaths(rootTutorialFolderPath);
-    log(
-      allTutorials.reduce((prev: any, curr) => {
-        prev[curr.slug] = curr;
-        return prev;
-      }, {}),
-    );
-  });
+
+  tutorial
+    .command('list')
+    .description('List all tutorials and metadata')
+    .helpOption('-h, --help', 'Display help for command')
+    .addHelpText(
+      'after',
+      `
+Example call:
+  $ builderdao tutorial list`,
+    )
+    .action(async () => {
+      const { allTutorials } = await getTutorialPaths(rootTutorialFolderPath);
+      log(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        allTutorials.reduce((prev: any, curr) => {
+          // eslint-disable-next-line no-param-reassign
+          prev[curr.slug] = curr;
+          return prev;
+        }, {}),
+      );
+    });
 
   tutorial
     .command('get')
-    .argument('<learnPackageName>', 'Tutorial name')
+    .description('Display metadata for a single tutorial')
+    .helpOption('-h, --help', 'Display help for command')
+    .addHelpText(
+      'after',
+      `
+Example call:
+  $ builderdao tutorial get near-101`,
+    )
+    .argument(
+      '<learnPackageName>',
+      'Tutorial slug for complete tutorial package',
+    )
     .action(async learnPackageName => {
       const tutorialMetadata = await getTutorialContentByPackageName({
         rootFolderPath: rootTutorialFolderPath,
@@ -105,7 +141,23 @@ export function makeTutorialCommand() {
 
   tutorial
     .command('prepublish')
-    .argument('[learnPackageName]', 'Tutorial name')
+    .description('Perform pre-publishing tasks')
+    .helpOption('-h, --help', 'Display help for command')
+    .addHelpText(
+      'after',
+      `
+Example call:
+  $ builderdao tutorial prepublish near-101
+
+Notes:
+  - The prepublish workflow deals with the builderdao-config.service to generate the 
+  builderdao config and lock files, also updating the hash digest of the tutorial folder.
+`,
+    )
+    .argument(
+      '[learnPackageName]',
+      'Tutorial slug for complete tutorial package',
+    )
     .action(async learnPackageName => {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
@@ -133,7 +185,22 @@ export function makeTutorialCommand() {
 
   tutorial
     .command('publish')
-    .argument('[learnPackageName]', 'Tutorial slug')
+    .description('Publish tutorial to Arweave & Ceramic')
+    .helpOption('-h, --help', 'Display help for command')
+    .addHelpText(
+      'after',
+      `
+Example call:
+  $ builderdao tutorial publish near-101
+
+Notes:
+  - The publish workflow adds the tutorial to Arweave and Ceramic.
+  `,
+    )
+    .argument(
+      '[learnPackageName]',
+      'Tutorial slug for complete tutorial package',
+    )
     .addOption(
       new commander.Option('--nodeUrl <nodeUrl>', 'Ceramic Node Url')
         .env('CERAMIC_NODE_URL')
@@ -165,7 +232,6 @@ export function makeTutorialCommand() {
         .env('ARWEAVE_HOST')
         .makeOptionMandatory(),
     )
-
     .addOption(
       new commander.Option('--arweave_port <arweave_port>', 'Arweave Port')
         .env('ARWEAVE_PORT')
@@ -192,8 +258,10 @@ export function makeTutorialCommand() {
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
       });
-      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
-      ceramic.setSeed(options.seed)
+      const ceramicMetadata = await ceramic.getMetadata(
+        proposal.streamId as string,
+      );
+      ceramic.setSeed(options.seed);
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,
@@ -218,7 +286,7 @@ export function makeTutorialCommand() {
             options.arweave_wallet,
           );
           console.log(
-            `Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
+            `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
           );
           const digest = await hashSumDigest(file.fullPath);
           lock.chain.set(`content["${file.path}"].digest`, digest).value();
@@ -226,12 +294,12 @@ export function makeTutorialCommand() {
             .set(`content["${file.path}"].arweaveHash`, arweaveHash)
             .value();
           await lock.write();
-          console.log('Updated builderdao.lock.json');
+          console.log('🔒 Updated builderdao.lock.json!');
         },
         2,
       );
 
-      // Upload the files to arweave ad arweave hash to builderdao.config.json and also update ceramicMetadata.
+      // Upload the files to Arweave, add Arweave hash to builderdao.config.json and also update ceramicMetadata.
       // Kicking initial process.
       const isReadyToPublish = Object.keys(proposal.state).some(
         (k: string) => k === 'readyToPublish',
@@ -248,8 +316,8 @@ export function makeTutorialCommand() {
             fullPath: filePath,
           });
         });
-        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata and update the proposal if needed
-        // find the files chagged and redopley them to arweave.
+        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
+        // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
       } else if (isPublished) {
         console.log('Kicking update process.');
         Object.values(content).forEach(async file => {
@@ -264,22 +332,23 @@ export function makeTutorialCommand() {
         });
       } else {
         tutorial.error(`
-        🚧 The tutorial is not ready to publish/update. 🚧 state: ${
+        🛑 The tutorial is not ready to publish/update. 🚧 state: ${
           Object.keys(proposal.state)[0]
         }
         `);
       }
       await deployQueue.drain();
-      console.log('all items have been processed');
-
-      // End of the ceramic & arweave process.
+      // End of the Ceramic & Arweave process.
+      console.log('✅ All items have been processed!');
     });
 
   tutorial
     .command('init')
-    .option('--slug <slug>', 'slug of the tutorial')
+    .description('Initialize a tutorial package from a proposal')
+    .helpOption('-h, --help', 'Display help for command')
+    .option('--slug <slug>', 'Slug of the tutorial')
     .addOption(
-      new commander.Option('--nodeUrl <nodeUrl>', 'Ceramic Node Url').env(
+      new commander.Option('--nodeURL <nodeURL>', 'Ceramic node URL').env(
         'CERAMIC_NODE_URL',
       ),
     )
@@ -304,12 +373,13 @@ export function makeTutorialCommand() {
       let proposalSlug: string;
       const getTutorialFolder = (slug: string) =>
         path.join(path.join(__dirname, '../../../tutorials'), slug);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let proposal: any;
       let ceramicMetadata: TutorialMetadata;
 
       const git = simpleGit().clean(CleanOptions.FORCE);
       const ceramic = new CeramicApi({
-        nodeUrl: options.nodeUrl,
+        nodeUrl: options.nodeURL,
       });
       const ui = new inquirer.ui.BottomBar();
       inquirer.prompt(observe).ui.process.subscribe(async q => {
@@ -324,7 +394,7 @@ export function makeTutorialCommand() {
           emitter.next({
             type: 'confirm',
             name: 'proposal_confirm',
-            message: `Are you sure you want to create a tutorial for ${q.answer}?`,
+            message: `🤔 Are you sure you want to create a tutorial for ${q.answer}?`,
           });
           return;
         }
@@ -336,16 +406,16 @@ export function makeTutorialCommand() {
                 type: 'confirm',
                 name: 'proposal_git_confirm',
                 message:
-                  'You have uncommitted changes. Are you sure you want to continue?',
+                  '⚠️ You have uncommitted changes. Are you sure you want to continue?',
                 default: false,
               });
             } else {
-              ui.log.write('Git status is clean. Continuing...');
+              ui.log.write('🧼 Git status is clean. Continuing...');
             }
             emitter.next({
               type: 'confirm',
               name: 'proposal_git_checkout_confirm',
-              message: `Are you confirm to checkout the branch "tutorials/${proposalSlug}" ?`,
+              message: `🤔 Are you sure you want to checkout the branch "tutorials/${proposalSlug}" ?`,
             });
           } else {
             ui.log.write('Okay 🤷, exiting...');
@@ -358,10 +428,10 @@ export function makeTutorialCommand() {
             if ((await git.branchLocal()).current !== targetBranchName) {
               await git.checkoutLocalBranch(`tutorials/${proposalSlug}`);
             } else {
-              ui.log.write('Branch name correct.');
+              ui.log.write('✅ Branch name correct.');
             }
           } else {
-            ui.log.write('Skipping checkout branch');
+            ui.log.write('⏩ Skipping checkout of branch.');
           }
 
           const tutorialExist = await fs
@@ -370,7 +440,7 @@ export function makeTutorialCommand() {
             .catch(() => false);
 
           if (tutorialExist) {
-            ui.log.write('Tutorial folder already exists');
+            ui.log.write('⚠️ Tutorial folder already exists!');
             emitter.complete();
           } else {
             emitter.next({
@@ -381,11 +451,11 @@ export function makeTutorialCommand() {
               )}" ?`,
               choices: [
                 {
-                  name: 'Single page Tutorial',
+                  name: '📄 Single page Tutorial',
                   value: 'simple',
                 },
                 {
-                  name: 'Multi page Tutorial',
+                  name: '📖 Multi page Tutorial',
                   value: 'multipage',
                 },
               ],
@@ -395,11 +465,11 @@ export function makeTutorialCommand() {
 
         const template = new TemplateService(getTutorialFolder(proposalSlug));
         if (q.name === 'tutorial_file_creation_confirm') {
-          ui.log.write('🚧 Creating tutorial folder...');
+          ui.log.write('🏗 Creating tutorial folder...');
           await template.copy(q.answer);
           ui.log.write('🧱 Copying template folder...');
           await template.setName(proposalSlug);
-          ui.log.write('🖌  Updating Slugs folder...');
+          ui.log.write('🚧  Updating slugs folder...');
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
           const defaults = await config.initial({
@@ -432,11 +502,11 @@ export function makeTutorialCommand() {
             ui.log.write('No Reviewer2 found yet.');
           }
           await updateHashDigestOfFolder(getTutorialFolder(proposalSlug));
-          ui.log.write(`⛓ updating content folders`);
+          ui.log.write(`⛓ Updating content folders`);
           emitter.next({
             type: 'input',
             name: 'tutorial_title',
-            message: 'Tutorial title',
+            message: 'Tutorial Title',
             default: ceramicMetadata.title,
           });
         }
@@ -466,7 +536,7 @@ export function makeTutorialCommand() {
             type: 'checkbox',
             name: 'tutorial_tags',
             message:
-              'Please select the keywords you would like to use with a maximum of 5.',
+              'Please select the keywords you would like to use (maximum of 5).',
             choices: [
               new inquirer.Separator(' = Protocols = '),
               ...protocols.map(protocol => ({
@@ -483,7 +553,6 @@ export function makeTutorialCommand() {
               if (answer.length < 1) {
                 return 'You must choose at least one tag.';
               }
-
               return true;
             },
           });
@@ -508,11 +577,11 @@ export function makeTutorialCommand() {
 
         if (q.name === 'stage_changes') {
           if (q.answer) {
-            ui.log.write('Staging changes');
+            ui.log.write('🧬 Staging changes');
             await git.add('./*');
             log(await (await git.status()).staged);
             ui.log.write('Adding Commit');
-            await git.commit(`🚀 ${proposalSlug} Tutorial Initial`);
+            await git.commit(`🚀 ${proposalSlug} Tutorial Initialized`);
             emitter.next({
               type: 'confirm',
               name: 'push_changes',
