@@ -1,5 +1,7 @@
 use anchor_lang::prelude::*;
 
+use crate::constants::*;
+
 #[account]
 pub struct DaoAccount {
   pub bump: u8,
@@ -12,5 +14,12 @@ pub struct DaoAccount {
 }
 
 impl DaoAccount {
-  pub const LEN: usize = 8 + 1 + 8 + 32 + 32 + 8 + 8 + 4 + 8 * 32;
+  pub const LEN: usize = LEN_DISCRIMINATOR
+    + LEN_U8
+    + LEN_U64
+    + LEN_PUBKEY
+    + LEN_PUBKEY
+    + LEN_U64
+    + LEN_U64
+    + LEN_VEC_ALLOCATOR + MAX_ADMIN_NUMBER * LEN_PUBKEY;
 }

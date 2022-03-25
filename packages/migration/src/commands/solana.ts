@@ -6,7 +6,7 @@ import commander from 'commander';
 import { CeramicApi, AlgoliaApi } from '@builderdao/apis';
 import {
   ProposalStateE,
-  filterAccountByState,
+  filterProposalByState,
 } from '@builderdao-sdk/dao-program';
 
 import dump from '../../data/dump.json';
@@ -97,6 +97,7 @@ export function makeMigrationCommand() {
             id,
             reviewerPks: [walletPk, walletPk],
             authorityPk: walletPk,
+            force: true,
           });
 
           await client.proposalSetState({
@@ -140,7 +141,7 @@ export function makeMigrationCommand() {
       });
 
       const rawProposals = await client.getProposals([
-        filterAccountByState(ProposalStateE.readyToPublish),
+        filterProposalByState(ProposalStateE.readyToPublish),
       ]);
       if (options.id) {
         console.log(
@@ -196,7 +197,7 @@ export function makeMigrationCommand() {
 
     const proposalIds = (
       await client.getProposals([
-        filterAccountByState(ProposalStateE.readyToPublish),
+        filterProposalByState(ProposalStateE.readyToPublish),
       ])
     ).map(data => data.account.id.toNumber());
 

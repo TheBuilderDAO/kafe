@@ -84,8 +84,8 @@ pub mod tutorial {
     instructions::reviewer_delete::handler(ctx)
   }
 
-  pub fn reviewer_assign(ctx: Context<ReviewerAssign>) -> Result<()> {
-    instructions::reviewer_assign::handler(ctx)
+  pub fn reviewer_assign(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
+    instructions::reviewer_assign::handler(ctx, force)
   }
 }
 

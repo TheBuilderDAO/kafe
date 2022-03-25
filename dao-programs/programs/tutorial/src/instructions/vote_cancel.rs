@@ -23,7 +23,7 @@ pub struct VoteCancel<'info> {
 pub fn handler(ctx: Context<VoteCancel>) -> Result<()> {
   let quorum = ctx.accounts.dao_config.quorum;
   if ctx.accounts.tutorial.number_of_voter >= quorum {
-    return Err(error!(ErrorDao::CannotCancelVotelAnymore));
+    return Err(error!(ErrorDao::CannotCancelVoteAnymore));
   }
   ctx.accounts.tutorial.number_of_voter -= 1;
 

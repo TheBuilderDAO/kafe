@@ -4,6 +4,7 @@ import {
   TOKEN_PROGRAM_ID,
   ASSOCIATED_TOKEN_PROGRAM_ID,
 } from '@solana/spl-token';
+import bs58 from 'bs58';
 
 export const getNumberBuffer = (n: number, alloc = 8) => {
   const buffer = Buffer.alloc(alloc);
@@ -37,3 +38,9 @@ export const airdrops = async (
     await airdrop(provider, user);
   }
 };
+
+export const stringToBytes = (str: string) => bs58.encode(Buffer.from(str));
+
+export const numberToBytes = (id: number) => bs58.encode(getNumberBuffer(id));
+
+export const publicKeyToBytes = (pk: PublicKey) => bs58.encode(pk.toBuffer());

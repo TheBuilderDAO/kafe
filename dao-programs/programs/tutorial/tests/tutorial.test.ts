@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-commented-out-tests */
 /* eslint-disable jest/expect-expect */
 import { logDebug } from './utils/index';
 import * as anchor from '@project-serum/anchor';
@@ -9,11 +10,11 @@ import {
   daoAccount as getDaoAccount,
   daoVaultAccountBalance as getDaoVaultAccountBalance,
   proposalAccountBySlug as getProposalAccountBySlug,
+  proposalAccountById as getProposalAccountById,
+  proposalAccountByStreamId as getProposalAccountByStreamId,
   reviewerAccountByReviewerPK as getReviewerAccount,
   userVoteAccountById as getUserVoteAccountById,
   listOfVoterById as getListOfVoterById,
-  tipperAccountList as getTipperAccountList,
-  tipperAccountListByUser as getTipperAccountListByUser,
   tipperAccountsListById as getTipperAccountsListById,
 } from '../ts-sdk/lib/fetchers';
 
@@ -35,7 +36,7 @@ import {
   guideTipping,
 } from '../ts-sdk/lib/instructions';
 
-import { ProposalStateE } from '../ts-sdk';
+import { filterProposalByState, ProposalStateE } from '../ts-sdk';
 
 import { airdrops, getAta } from '../ts-sdk/lib/utils';
 import { getPda } from '../ts-sdk/lib/pda';
@@ -60,6 +61,14 @@ describe('tutorial-program', () => {
   let user2 = anchor.web3.Keypair.generate();
   let user2Ata: anchor.web3.PublicKey;
   let mintAuth = anchor.web3.Keypair.generate();
+
+  const slug1 = 'delpoy-a-polkadot-smart-contract';
+  const streamId1 =
+    'kjzl6cwe1jw145i2z2cd6aedcwzcs3p3buecsoel5mzmitc6g8z0ccj9sbcmdmw';
+
+  const slug2 = 'near-101';
+  const streamId2 =
+    'kjzl6cwe1jw149hl95f35wz2z861uw6yxm4iyc29bhpyx726wy59t8hpbqow26h';
 
   let mint: Token;
   const decimals = 6;
@@ -86,22 +95,17 @@ describe('tutorial-program', () => {
       TOKEN_PROGRAM_ID,
     );
     expect(mint).toBeTruthy();
-    logDebug('mint created');
   });
 
   test('create userATAs', async () => {
     // create  associated token account
     user1Ata = await mint.createAssociatedTokenAccount(user1.publicKey);
-    logDebug('user1Ata created');
 
     user2Ata = await mint.createAssociatedTokenAccount(user2.publicKey);
-    logDebug('user2Ata created');
 
     // Mint tokens to token account
     await mint.mintTo(user1Ata, mintAuth.publicKey, [mintAuth], 2_500_000);
-    logDebug('minted to user1');
     await mint.mintTo(user2Ata, mintAuth.publicKey, [mintAuth], 1_500_000);
-    logDebug('minted to user2');
 
     const userAta = await getAta(user1.publicKey, mint.publicKey);
     expect(user1Ata.toString()).toBe(userAta.toString());
@@ -129,6 +133,8 @@ describe('tutorial-program', () => {
     expect(daoAccount.mint.toString()).toBe(mint.publicKey.toString());
     expect(daoAccount.quorum.toNumber()).toBe(quorum.toNumber());
     expect(daoAccount.admins.length).toBe(2);
+    expect(daoAccount.nonce.toNumber()).toBe(0);
+    expect(daoAccount.numberOfTutorial.toNumber()).toBe(0);
     expect(daoAccount.minAmountToCreateProposal.toNumber()).toBe(
       new anchor.BN(1_000_000).toNumber(),
     );
@@ -190,65 +196,86 @@ describe('tutorial-program', () => {
   });
 
   test('User1 Create a tutorial', async () => {
-    const slug = 'delpoy-a-polkadot-smart-contract';
-    const streamId =
-      'k3y52l7mkcvtg023bt9txegccxe1bah8os3naw5asinf3l3t54atn0cuy98yws';
-    const response = await proposalCreate({
+    let proposalAccount: any;
+    await proposalCreate({
       program,
       mintPk: mint.publicKey,
       tutorialId: 0,
       userPk: user1.publicKey,
-      slug,
-      streamId,
+      slug: slug1,
+      streamId: streamId1,
       signer: user1,
     });
-    logDebug(response);
-    const proposalAccount = await getProposalAccountBySlug(program, slug);
-    logDebug(proposalAccount);
+    const { pdaTutorialById } = getPda(program.programId, mint.publicKey);
+    proposalAccount = await getProposalAccountById(program, pdaTutorialById, 0);
     expect(proposalAccount.id.toNumber()).toBe(0);
+
+    proposalAccount = await getProposalAccountByStreamId(program, streamId1);
+    expect(proposalAccount.id.toNumber()).toBe(0);
+
+    proposalAccount = await getProposalAccountBySlug(program, slug1);
     expect(proposalAccount.creator.toString()).toBe(user1.publicKey.toString());
     expect(proposalAccount.numberOfVoter.toNumber()).toBe(0);
-    expect(proposalAccount.slug).toBe(slug);
-    expect(proposalAccount.streamId).toBe(streamId);
+    expect(proposalAccount.slug).toBe(slug1);
+    expect(proposalAccount.streamId).toBe(streamId1);
     expect(Object.keys(proposalAccount.state)[0]).toBe('submitted');
   });
 
+  test('User2 Create tutorial 1 using nonce', async () => {
+    const { pdaDaoAccount } = getPda(program.programId, mint.publicKey);
+    const daoAccount = await getDaoAccount(program, pdaDaoAccount);
+    const nonce = daoAccount.nonce.toNumber();
+
+    let proposalAccount: any;
+    await proposalCreate({
+      program,
+      mintPk: mint.publicKey,
+      tutorialId: nonce,
+      userPk: user2.publicKey,
+      slug: slug2,
+      streamId: streamId2,
+      signer: user2,
+    });
+    proposalAccount = await getProposalAccountBySlug(program, slug2);
+    expect(proposalAccount.creator.toString()).toBe(user2.publicKey.toString());
+    expect(proposalAccount.id.toNumber()).toBe(nonce);
+    expect(proposalAccount.slug).toBe(slug2);
+    expect(proposalAccount.streamId).toBe(streamId2);
+  });
+
   test('User1 Cast a Vote on Tutorial0', async () => {
-    const response = await voteCast({
+    await voteCast({
       program,
       mintPk: mint.publicKey,
       tutorialId: 0,
       userPk: user1.publicKey,
       signer: user1,
     });
-    logDebug(response);
     const { pdaUserVoteAccountById } = getPda(
       program.programId,
       mint.publicKey,
     );
-    let voteAccount = await getUserVoteAccountById(
+    const voteAccount = await getUserVoteAccountById(
       program,
       pdaUserVoteAccountById,
       user1.publicKey,
       0,
     );
-    logDebug(voteAccount);
     expect(voteAccount.tutorialId.toNumber()).toBe(0);
     expect(voteAccount.author.toString()).toBe(user1.publicKey.toString());
-    let listOfVoter = await getListOfVoterById(program, 0);
+    const listOfVoter = await getListOfVoterById(program, 0);
     expect(listOfVoter).toHaveLength(1);
   });
 
   it('User1 Cancel a Vote on Tutorial0', async () => {
-    const response = await voteCancel({
+    await voteCancel({
       program,
       mintPk: mint.publicKey,
       tutorialId: 0,
       userPk: user1.publicKey,
       signer: user1,
     });
-    logDebug(response);
-    let listOfVoter = await getListOfVoterById(program, 0);
+    const listOfVoter = await getListOfVoterById(program, 0);
     expect(listOfVoter).toHaveLength(0);
   });
 
@@ -263,7 +290,7 @@ describe('tutorial-program', () => {
       githubName: githubName1,
       signer: auth1,
     });
-    const response = await reviewerCreate({
+    await reviewerCreate({
       program: program,
       mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
@@ -271,7 +298,6 @@ describe('tutorial-program', () => {
       githubName: githubName2,
       signer: auth1,
     });
-    logDebug(response);
 
     const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
     const reviewerAccount: any = await getReviewerAccount(
@@ -279,7 +305,6 @@ describe('tutorial-program', () => {
       pdaReviewerAccount,
       reviewer1.publicKey,
     );
-    logDebug(reviewerAccount);
     expect(reviewerAccount.pubkey.toString()).toBe(
       reviewer1.publicKey.toString(),
     );
@@ -288,14 +313,13 @@ describe('tutorial-program', () => {
   });
 
   test('Delete a reviewer', async () => {
-    const response = await reviewerDelete({
+    await reviewerDelete({
       program,
       mintPk: mint.publicKey,
       reviewerPk: reviewer1.publicKey,
       adminPk: auth1.publicKey,
       signer: auth1,
     });
-    logDebug(response);
     const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
     await expect(
       getReviewerAccount(program, pdaReviewerAccount, reviewer1.publicKey),
@@ -309,6 +333,65 @@ describe('tutorial-program', () => {
       githubName: githubName1,
       signer: auth1,
     });
+  });
+
+  test('Reviewer: Creator cannot be a reviewer', async () => {
+    await reviewerCreate({
+      program: program,
+      mintPk: mint.publicKey,
+      adminPk: auth1.publicKey,
+      reviewerPk: user1.publicKey,
+      githubName: 'user1',
+      signer: auth1,
+    });
+    await expect(
+      reviewerAssign({
+        program: program,
+        mintPk: mint.publicKey,
+        adminPk: auth1.publicKey,
+        reviewer1Pk: user1.publicKey,
+        reviewer2Pk: reviewer2.publicKey,
+        tutorialId: 0,
+        signer: auth1,
+      }),
+    ).rejects.toThrow();
+  });
+
+  test('Reviewer: Force assignment for user2 on tutorial 1', async () => {
+    await reviewerCreate({
+      program: program,
+      mintPk: mint.publicKey,
+      adminPk: auth1.publicKey,
+      reviewerPk: user2.publicKey,
+      githubName: 'user2',
+      signer: auth1,
+    });
+    await reviewerAssign({
+      program: program,
+      mintPk: mint.publicKey,
+      adminPk: auth1.publicKey,
+      reviewer1Pk: user2.publicKey,
+      reviewer2Pk: user2.publicKey,
+      tutorialId: 1,
+      force: true,
+      signer: auth1,
+    });
+
+    const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
+    const reviewerAccount: any = await getReviewerAccount(
+      program,
+      pdaReviewerAccount,
+      user2.publicKey,
+    );
+    expect(reviewerAccount.numberOfAssignment).toBe(1);
+
+    const proposalAccount = await getProposalAccountBySlug(program, slug2);
+    expect(proposalAccount.reviewer1.toString()).toBe(
+      user2.publicKey.toString(),
+    );
+    expect(proposalAccount.reviewer2.toString()).toBe(
+      user2.publicKey.toString(),
+    );
   });
 
   test('Assign reviewers', async () => {
@@ -395,9 +478,12 @@ describe('tutorial-program', () => {
         signer: auth1,
       });
       proposalAccount = await getProposalAccountBySlug(program, slug);
-      logDebug(proposalAccount);
       expect(Object.keys(proposalAccount.state)[0]).toBe(state);
     }
+    proposalAccount = await program.account.proposalAccount.all([
+      filterProposalByState(ProposalStateE.published),
+    ]);
+    expect(proposalAccount.length).toBe(1);
   });
 
   test('Proposal set State: test an invalid state', async () => {
@@ -518,6 +604,34 @@ describe('tutorial-program', () => {
         signer: user2,
       }),
     ).rejects.toThrow();
+  });
+
+  test('User2 Close Tutorial1 and recreate a new one using nonce', async () => {
+    await expect(
+      proposalClose({
+        program,
+        mintPk: mint.publicKey,
+        tutorialId: 1,
+        userPk: user2.publicKey,
+        signer: user2,
+      }),
+    ).resolves.toBeTruthy();
+    const { pdaDaoAccount } = getPda(program.programId, mint.publicKey);
+    const daoAccount = await getDaoAccount(program, pdaDaoAccount);
+    const nonce = daoAccount.nonce.toNumber();
+
+    let proposalAccount: any;
+    await proposalCreate({
+      program,
+      mintPk: mint.publicKey,
+      tutorialId: nonce,
+      userPk: user2.publicKey,
+      slug: slug2,
+      streamId: streamId2,
+      signer: user2,
+    });
+    proposalAccount = await getProposalAccountBySlug(program, slug2);
+    expect(proposalAccount.id.toNumber()).toBe(2);
   });
 
   test('User1 Close Tutorial0', async () => {

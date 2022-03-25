@@ -21,8 +21,8 @@ import { protocols, technologies } from '@builderdao/data';
 import {
   TutorialProgramClient,
   ProposalStateE,
-  filterAccountByState,
-  filterAccountBySlug,
+  filterProposalByState,
+  filterProposalBySlug,
 } from '@builderdao-sdk/dao-program';
 
 import { log as _log, hashSumDigest } from '../utils';
@@ -300,8 +300,8 @@ export function makeTutorialCommand() {
           source: async () =>
             (
               await client.getProposals([
-                filterAccountByState(ProposalStateE.funded),
-                ...(options.slug ? [filterAccountBySlug(options.slug)] : []),
+                filterProposalByState(ProposalStateE.funded),
+                ...(options.slug ? filterProposalBySlug(options.slug) : []),
               ])
             ).map(data => `${data.account.slug}`),
         });

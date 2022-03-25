@@ -22,12 +22,19 @@ pub struct ReviewerAssign<'info> {
   pub authority: Signer<'info>,
 }
 
-pub fn handler(ctx: Context<ReviewerAssign>) -> Result<()> {
-  ctx.accounts.reviewer1.number_of_assignment += 1;
-  ctx.accounts.reviewer2.number_of_assignment += 1;
+pub fn handler(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
+  if force {
+    ctx.accounts.tutorial.reviewer1 = ctx.accounts.reviewer1.pubkey;
+    ctx.accounts.tutorial.reviewer2 = ctx.accounts.reviewer2.pubkey;
+  
+    ctx.accounts.reviewer1.number_of_assignment += 1;
+    ctx.accounts.reviewer2.number_of_assignment += 1;
+  
+    return Ok(()); 
+  }
 
-  if ctx.accounts.reviewer1.key() == ctx.accounts.tutorial.creator 
-    || ctx.accounts.reviewer2.key() == ctx.accounts.tutorial.creator {
+  if ctx.accounts.reviewer1.pubkey == ctx.accounts.tutorial.creator 
+    || ctx.accounts.reviewer2.pubkey == ctx.accounts.tutorial.creator {
     return Err(error!(ErrorDao::CreatorCannotBeAReviewer));
   }
 
@@ -37,6 +44,9 @@ pub fn handler(ctx: Context<ReviewerAssign>) -> Result<()> {
 
   ctx.accounts.tutorial.reviewer1 = ctx.accounts.reviewer1.pubkey;
   ctx.accounts.tutorial.reviewer2 = ctx.accounts.reviewer2.pubkey;
+
+  ctx.accounts.reviewer1.number_of_assignment += 1;
+  ctx.accounts.reviewer2.number_of_assignment += 1;
 
   return Ok(());
 }

@@ -1,16 +1,16 @@
 import { Program } from '@project-serum/anchor';
 
 import { Tutorial } from '../idl/tutorial';
-import { filterProposalBySlug } from '../filters';
+import { filterProposalByStreamId } from '../filters';
 
-const proposalAccountBySlug = async (
+const proposalAccountByStreamId = async (
   program: Program<Tutorial>,
-  slug: string,
+  streamId: string,
 ) => {
   const proposalAccount = await program.account.proposalAccount.all([
-    ...filterProposalBySlug(slug),
+    filterProposalByStreamId(streamId),
   ]);
   return proposalAccount[0].account;
 };
 
-export default proposalAccountBySlug;
+export default proposalAccountByStreamId;

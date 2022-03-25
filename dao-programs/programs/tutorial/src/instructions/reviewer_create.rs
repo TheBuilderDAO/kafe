@@ -27,7 +27,7 @@ pub struct ReviewerCreate<'info> {
 
 pub fn handler(ctx: Context<ReviewerCreate>, bump: u8, reviewer: Pubkey, github_name: String) -> Result<()> {
   if !ctx.accounts.dao_config.admins.contains(&ctx.accounts.authority.key()) {
-    return Err(error!(ErrorDao::UnauthorizeAccess));
+    return Err(error!(ErrorDao::UnauthorizedAccess));
   }
 
   ctx.accounts.reviewer_account.bump = bump;

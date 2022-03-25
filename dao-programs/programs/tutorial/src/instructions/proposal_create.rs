@@ -6,7 +6,7 @@ use crate::constants::*;
 use crate::state::*;
 
 #[derive(Accounts)]
-#[instruction(bump:u8, id: u64)]
+#[instruction(bump: u8, id: u64, slug: String)]
 pub struct ProposalCreate<'info> {
   #[account(
     init,
@@ -16,7 +16,7 @@ pub struct ProposalCreate<'info> {
       id.to_le_bytes().as_ref(),
     ],
     bump,
-    space = ProposalAccount::LEN
+    space=ProposalAccount::space(&slug),
   )]
   pub proposal: Account<'info, ProposalAccount>,
   #[account(mut)]
@@ -56,12 +56,12 @@ pub fn handler(
   let min_amount_to_create_proposal = ctx.accounts.dao_config.min_amount_to_create_proposal;
   token::transfer((&*ctx.accounts).into(), min_amount_to_create_proposal)?;
 
-  if slug.chars().count() > 200 {
+  if slug.chars().count() > LEN_SLUG {
     return Err(error!(ErrorDao::SlugTooLong));
   }
 
-  if stream_id.chars().count() > 200 {
-    return Err(error!(ErrorDao::StreamIdTooLong));
+  if stream_id.chars().count() != LEN_STREAM_ID {
+    return Err(error!(ErrorDao::StreamIdSizeMissmatch));
   }
 
   ctx.accounts.proposal.created_at = Clock::get()?.unix_timestamp;

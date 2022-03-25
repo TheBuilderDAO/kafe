@@ -21,6 +21,7 @@ export const reviewerAssign = async ({
   reviewer2Pk,
   tutorialId,
   adminPk,
+  force,
   signer,
 }: {
   program: Program<Tutorial>;
@@ -29,6 +30,7 @@ export const reviewerAssign = async ({
   reviewer2Pk: anchor.web3.PublicKey;
   tutorialId: number;
   adminPk: anchor.web3.PublicKey;
+  force?: boolean;
   signer?: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount, pdaReviewerAccount, pdaTutorialById } = getPda(
@@ -40,7 +42,7 @@ export const reviewerAssign = async ({
   const reviewerAccount1 = await pdaReviewerAccount(reviewer1Pk);
   const reviewerAccount2 = await pdaReviewerAccount(reviewer2Pk);
 
-  const signature = await program.rpc.reviewerAssign({
+  const signature = await program.rpc.reviewerAssign(!!force, {
     accounts: {
       reviewer1: reviewerAccount1.pda,
       reviewer2: reviewerAccount2.pda,

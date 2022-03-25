@@ -512,7 +512,12 @@
           "isSigner": true
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "force",
+          "type": "bool"
+        }
+      ]
     }
   ],
   "accounts": [
@@ -594,11 +599,11 @@
             }
           },
           {
-            "name": "slug",
+            "name": "streamId",
             "type": "string"
           },
           {
-            "name": "streamId",
+            "name": "slug",
             "type": "string"
           }
         ]
@@ -715,8 +720,8 @@
     },
     {
       "code": 6002,
-      "name": "StreamIdTooLong",
-      "msg": "Error: Given streamId is too long"
+      "name": "StreamIdSizeMissmatch",
+      "msg": "Error: Given streamId doesn't fit the expected size"
     },
     {
       "code": 6003,
@@ -730,7 +735,7 @@
     },
     {
       "code": 6005,
-      "name": "CannotCancelVotelAnymore",
+      "name": "CannotCancelVoteAnymore",
       "msg": "Error: You cannot cancel a vote anymore"
     },
     {
@@ -750,7 +755,7 @@
     },
     {
       "code": 6009,
-      "name": "UnauthorizeAccess",
+      "name": "UnauthorizedAccess",
       "msg": "Error: Not authorize to call the instruction"
     },
     {

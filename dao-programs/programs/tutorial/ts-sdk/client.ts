@@ -239,6 +239,7 @@ export class TutorialProgramClient {
     authorityPk: anchor.web3.PublicKey;
     reviewerPks: anchor.web3.PublicKey[];
     id: number;
+    force?: boolean;
   }): Promise<string> {
     return reviewerAssign({
       program: this.tutorialProgram,
@@ -247,6 +248,7 @@ export class TutorialProgramClient {
       reviewer2Pk: data.reviewerPks[1],
       tutorialId: data.id,
       adminPk: data.authorityPk,
+      force: data.force,
     });
   }
 

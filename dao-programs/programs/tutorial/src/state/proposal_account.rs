@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 use std::str::FromStr;
 
 use crate::errors::*;
+use crate::constants::*;
 
 #[account]
 pub struct ProposalAccount {
@@ -13,8 +14,8 @@ pub struct ProposalAccount {
   pub number_of_voter: u64,
   pub created_at: i64,
   pub state: ProposalState,
-  pub slug: String,
   pub stream_id: String,
+  pub slug: String,
 }
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq, Debug)]
@@ -48,10 +49,10 @@ impl FromStr for ProposalState {
   }
 }
 
+
 impl Default for ProposalAccount {
   fn default() -> Self {
-    let stream_id = String::with_capacity(100);
-    let slug = String::with_capacity(100);
+    let stream_id = String::with_capacity(LEN_STREAM_ID);
     Self {
       id: u64::default(),
       bump: u8::default(),
@@ -61,13 +62,24 @@ impl Default for ProposalAccount {
       number_of_voter: u64::default(),
       created_at: i64::default(),
       state: ProposalState::default(),
-      slug,
+      slug: String::default(),
       stream_id,
     }
   }
 }
 
 impl ProposalAccount {
-  // 8 + 8 + 1 + 1 + 32 + 32 + 32 + 8 + 8 + 4 + 4 * 100 + 4 + 4 * 100
-  pub const LEN: usize = 938;
+  pub fn space(slug: &str) -> usize {
+    LEN_DISCRIMINATOR 
+    + LEN_U64 
+    + LEN_U8 
+    + LEN_PUBKEY 
+    + LEN_PUBKEY 
+    + LEN_PUBKEY 
+    + LEN_U64 
+    + LEN_I64 
+    + LEN_ENUM 
+    + LEN_STRING_ALLOCATOR + LEN_STREAM_ID
+    + LEN_STRING_ALLOCATOR + slug.len()
+  }
 }

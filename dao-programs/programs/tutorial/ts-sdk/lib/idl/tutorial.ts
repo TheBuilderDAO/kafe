@@ -512,7 +512,12 @@ export type Tutorial = {
           isSigner: true;
         },
       ];
-      args: [];
+      args: [
+        {
+          name: 'force';
+          type: 'bool';
+        },
+      ];
     },
   ];
   accounts: [
@@ -594,11 +599,11 @@ export type Tutorial = {
             };
           },
           {
-            name: 'slug';
+            name: 'streamId';
             type: 'string';
           },
           {
-            name: 'streamId';
+            name: 'slug';
             type: 'string';
           },
         ];
@@ -715,8 +720,8 @@ export type Tutorial = {
     },
     {
       code: 6002;
-      name: 'StreamIdTooLong';
-      msg: 'Error: Given streamId is too long';
+      name: 'StreamIdSizeMissmatch';
+      msg: "Error: Given streamId doesn't fit the expected size";
     },
     {
       code: 6003;
@@ -730,7 +735,7 @@ export type Tutorial = {
     },
     {
       code: 6005;
-      name: 'CannotCancelVotelAnymore';
+      name: 'CannotCancelVoteAnymore';
       msg: 'Error: You cannot cancel a vote anymore';
     },
     {
@@ -750,7 +755,7 @@ export type Tutorial = {
     },
     {
       code: 6009;
-      name: 'UnauthorizeAccess';
+      name: 'UnauthorizedAccess';
       msg: 'Error: Not authorize to call the instruction';
     },
     {
@@ -1290,7 +1295,12 @@ export const IDL: Tutorial = {
           isSigner: true,
         },
       ],
-      args: [],
+      args: [
+        {
+          name: 'force',
+          type: 'bool',
+        },
+      ],
     },
   ],
   accounts: [
@@ -1372,11 +1382,11 @@ export const IDL: Tutorial = {
             },
           },
           {
-            name: 'slug',
+            name: 'streamId',
             type: 'string',
           },
           {
-            name: 'streamId',
+            name: 'slug',
             type: 'string',
           },
         ],
@@ -1493,8 +1503,8 @@ export const IDL: Tutorial = {
     },
     {
       code: 6002,
-      name: 'StreamIdTooLong',
-      msg: 'Error: Given streamId is too long',
+      name: 'StreamIdSizeMissmatch',
+      msg: "Error: Given streamId doesn't fit the expected size",
     },
     {
       code: 6003,
@@ -1508,7 +1518,7 @@ export const IDL: Tutorial = {
     },
     {
       code: 6005,
-      name: 'CannotCancelVotelAnymore',
+      name: 'CannotCancelVoteAnymore',
       msg: 'Error: You cannot cancel a vote anymore',
     },
     {
@@ -1528,7 +1538,7 @@ export const IDL: Tutorial = {
     },
     {
       code: 6009,
-      name: 'UnauthorizeAccess',
+      name: 'UnauthorizedAccess',
       msg: 'Error: Not authorize to call the instruction',
     },
     {
