@@ -194,7 +194,7 @@ Example call:
   $ builderdao tutorial publish near-101
 
 Notes:
-  - The publish workflow 
+  - The publish workflow adds the tutorial to Arweave and Ceramic.
   `,
     )
     .argument(
