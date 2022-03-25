@@ -15,6 +15,7 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import Modal from 'react-modal';
 import { useTheme } from 'next-themes';
 import { VscClose } from 'react-icons/vsc';
+import { useDapp } from '../../hooks/useDapp';
 
 type TutorialTipsProps = {
   id: number;
@@ -24,6 +25,8 @@ Modal.setAppElement('#__next'); // This is for screen-readers. By binding the mo
 
 const TutorialTips = (props: TutorialTipsProps) => {
   const { id } = props;
+  const { tippers, loading, error } = useGetListOfTippersById(id);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { theme } = useTheme();
   const dark = theme === 'dark';
@@ -55,15 +58,10 @@ const TutorialTips = (props: TutorialTipsProps) => {
     setModalIsOpen(false);
   };
 
-  const afterOpenModal = () => {
-    console.log('hey');
-  };
-
   const SupportersModal = () => {
     return (
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Support modal"
@@ -99,8 +97,6 @@ const TutorialTips = (props: TutorialTipsProps) => {
     );
   };
 
-  const { tippers, loading, error } = useGetListOfTippersById(id);
-
   if (loading) {
     return <Loader />;
   }
@@ -115,12 +111,14 @@ const TutorialTips = (props: TutorialTipsProps) => {
         <h3 className="font-larken text-xl">
           {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
         </h3>
-        <small
-          className="cursor-pointer hover:text-kafered dark:hover:text-kafegold"
-          onClick={openModal}
-        >
-          view all
-        </small>
+        {tippers.length > 5 && (
+          <small
+            className="cursor-pointer hover:text-kafered dark:hover:text-kafegold"
+            onClick={openModal}
+          >
+            view all
+          </small>
+        )}
         <SupportersModal />
       </div>
       <ul>
@@ -137,11 +135,9 @@ const TutorialTips = (props: TutorialTipsProps) => {
         ))}
       </ul>
 
-      <IsLoggedIn>
-        <div className="mt-6">
-          <TipTutorialForm id={id} />
-        </div>
-      </IsLoggedIn>
+      <div className="mt-6">
+        <TipTutorialForm id={id} />
+      </div>
     </div>
   );
 };

@@ -11,6 +11,7 @@ import Loader from '@app/components/Loader/Loader';
 import LoginButton from '@app/components/LoginButton/LoginButton';
 import { useDapp } from '../../hooks/useDapp';
 import VotedSVG from '@app/components/SVG/Coffee Icons/VotedSVG';
+import CastVoteButton from '@app/components/VoteButton/CastVoteButton';
 
 type TutorialProposalVotesProps = {
   id: number;
@@ -71,23 +72,13 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
 
       <div>
         {state.toString() !== ProposalStateE.published && (
-          <>
+          <div className="py-2">
             {wallet.connected ? (
               <VoteButton id={id} variant="standard" currentState={state} />
             ) : (
-              <div className="py-2">
-                <LoginButton
-                  className={
-                    'inline-block dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafegold hover:bg-kafered hover:text-kafewhite font-thin'
-                  }
-                >
-                  <div className="flex items-center justify-center p-0 m-0">
-                    up vote
-                  </div>
-                </LoginButton>
-              </div>
+              <CastVoteButton id={id} variant="standard" disabled={true} />
             )}
-          </>
+          </div>
         )}
       </div>
 

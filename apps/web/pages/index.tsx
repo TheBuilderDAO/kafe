@@ -4,7 +4,8 @@ import { NextPage } from 'next';
 import Gateway from 'public/assets/images/gateway.png';
 import routes from 'routes';
 import HomeCTA from '@app/components/Index/HomeCTA';
-import Carousel from '@app/components/Index/Carousel';
+import GuidesCarousel from '@app/components/Carousel/GuidesCarousel';
+import ProposalsCarousel from '@app/components/Carousel/ProposalsCarousel';
 import Realtime from '@app/components/Index/Realtime';
 import Image from 'next/image';
 
@@ -23,14 +24,14 @@ const LandingPage: NextPage = () => {
             cta="view all guides"
           />
         </div>
-        <div className="absolute top-28 right-12">
-          <Realtime />
-        </div>
+        {/*<div className="absolute top-28 right-12">*/}
+        {/*  <Realtime />*/}
+        {/*</div>*/}
         <div className="absolute top-[260px] left-[440px]">
-          <Carousel />
+          <GuidesCarousel />
         </div>
         <div className="absolute top-[680px] left-32">
-          <Carousel variation="dotted" />
+          <ProposalsCarousel />
         </div>
         <div className="absolute bottom-64 right-32">
           <HomeCTA
