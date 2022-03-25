@@ -194,31 +194,3 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
 
   Ok(())
 }
-
-
-/*
-
-
-  console.log
-    {
-      user1: 'AkTC1n1zWZFQeGGWThBGbqi9M3Wek5RTG3B72cVBDwaD',
-      reviewer1: '5iD87rqpEgtX18hmsmMxPQfhvHdPAqJXRXm9iccwmXXZ',
-      reviewer2: '5vbLLH4hgSysEf26BNRUBCP5AiBDCzMfk62PXgaJx1Yi',
-      reviewer1Ata: 'AKkhqqu5BSb3csGbdgbwSjw6bSYounv9WHcwT23dY34Y',
-      reviewer2Ata: 'DsuqcaBEEM7jMhzEQd6JaiGcFtqWbWLhgzRQeHRRf4pr'
-    }
-
- console.log
-   {
-     creator: 'AkTC1n1zWZFQeGGWThBGbqi9M3Wek5RTG3B72cVBDwaD',
-     reviewer1: '5iD87rqpEgtX18hmsmMxPQfhvHdPAqJXRXm9iccwmXXZ',
-     reviewer2: '5vbLLH4hgSysEf26BNRUBCP5AiBDCzMfk62PXgaJx1Yi'
-   }
- console.log
-   {
-     creator: 'EDupA9dpfSL4JmgJMZYrnbRE64a4yp2vSUzDJ2daRQpZ',
-     reviewer1: '5REzaKdqJTdGEAT1PFJ4QHKgBYrc3L5gM3fXT85YWj12',
-     reviewer2: '3bneBt4KWpwyoaxJAkvxTf1kus5goJQZjDhPkRmHHtuB'
-   }
-
-*/
