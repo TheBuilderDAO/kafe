@@ -19,6 +19,9 @@ pub use proposal_create::*;
 pub mod proposal_close;
 pub use proposal_close::*;
 
+pub mod proposal_publish;
+pub use proposal_publish::*;
+
 pub mod guide_tipping;
 pub use guide_tipping::*;
 

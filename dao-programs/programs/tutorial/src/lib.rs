@@ -55,6 +55,10 @@ pub mod tutorial {
     instructions::proposal_set_state::handler(ctx, state)
   }
 
+  pub fn proposal_publish(ctx: Context<ProposalPublish>, bump: u8) -> Result<()> {
+    instructions::proposal_publish::handler(ctx, bump)
+  }
+
   pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> {
     instructions::guide_tipping::handler(ctx, bump, amount)
   }

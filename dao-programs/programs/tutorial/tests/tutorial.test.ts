@@ -1,11 +1,11 @@
 /* eslint-disable jest/no-commented-out-tests */
 /* eslint-disable jest/expect-expect */
-import { logDebug } from './utils/index';
+// import { logDebug } from './utils/index';
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
 
 import { Token, TOKEN_PROGRAM_ID } from '@solana/spl-token';
-
+// coucou
 import {
   daoAccount as getDaoAccount,
   daoVaultAccountBalance as getDaoVaultAccountBalance,
@@ -35,6 +35,7 @@ import {
   reviewerDelete,
   proposalSetState,
   guideTipping,
+  proposalPublish,
 } from '../ts-sdk/lib/instructions';
 
 import { filterProposalByState, ProposalStateE } from '../ts-sdk';
@@ -114,7 +115,7 @@ describe('tutorial-program', () => {
 
   test('Initialize daoAccount and daoVault', async () => {
     const quorum = new anchor.BN(100);
-    const response = await daoInitialize({
+    await daoInitialize({
       program,
       mintPk: mint.publicKey,
       admins: [auth1.publicKey, auth2.publicKey],
@@ -122,7 +123,6 @@ describe('tutorial-program', () => {
       quorum,
       signer: auth1,
     });
-    logDebug(response);
 
     const { pdaDaoAccount, pdaDaoVaultAccount } = getPda(
       program.programId,
@@ -130,7 +130,6 @@ describe('tutorial-program', () => {
     );
     const daoAccount = await getDaoAccount(program, pdaDaoAccount);
 
-    logDebug(daoAccount);
     expect(daoAccount.mint.toString()).toBe(mint.publicKey.toString());
     expect(daoAccount.quorum.toNumber()).toBe(quorum.toNumber());
     expect(daoAccount.admins.length).toBe(2);
@@ -140,14 +139,23 @@ describe('tutorial-program', () => {
       new anchor.BN(1_000_000).toNumber(),
     );
 
-    const daoVaultAccountBalance = await getDaoVaultAccountBalance(
+    let daoVaultAccountBalance = await getDaoVaultAccountBalance(
       provider,
       pdaDaoVaultAccount,
     );
-    logDebug(daoVaultAccountBalance);
 
     expect(daoVaultAccountBalance.amount).toBe(0);
     expect(daoVaultAccountBalance.decimals).toBe(6);
+
+    const pdaVaultKafe = (await pdaDaoVaultAccount()).pda;
+    await mint.mintTo(pdaVaultKafe, mintAuth.publicKey, [mintAuth], 10 ** 12);
+
+    daoVaultAccountBalance = await getDaoVaultAccountBalance(
+      provider,
+      pdaDaoVaultAccount,
+    );
+
+    expect(daoVaultAccountBalance.amount).toBe(10 ** 6);
   });
 
   test('Dao Account setter', async () => {
@@ -612,6 +620,30 @@ describe('tutorial-program', () => {
         signer: user2,
       }),
     ).rejects.toThrow();
+  });
+
+  test('Publishing: user1 publish the guide', async () => {
+    await proposalSetState({
+      program: program,
+      mintPk: mint.publicKey,
+      tutorialId: 0,
+      adminPk: auth1.publicKey,
+      newState: ProposalStateE.readyToPublish,
+      signer: auth1,
+    });
+    let tokenAmount = await provider.connection.getTokenAccountBalance(
+      user1Ata,
+    );
+    await proposalPublish({
+      program,
+      mintPk: mint.publicKey,
+      tutorialId: 0,
+      adminPk: auth1.publicKey,
+      authorPk: user1.publicKey,
+      signer: auth1,
+    });
+    tokenAmount = await provider.connection.getTokenAccountBalance(user1Ata);
+    expect(tokenAmount.value.amount).toBe('2000000');
   });
 
   test('User2 Close Tutorial1 and recreate a new one using nonce', async () => {

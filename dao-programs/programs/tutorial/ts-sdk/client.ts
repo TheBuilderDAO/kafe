@@ -34,6 +34,7 @@ import {
   voteCast,
   proposalSetState,
   guideTipping,
+  proposalPublish,
 } from './lib/instructions';
 
 import { Tutorial } from './lib/idl/tutorial';
@@ -265,6 +266,7 @@ export class TutorialProgramClient {
       newState: data.newState,
     });
   }
+
   async guideTipping(data: {
     id: number;
     tipperPk: anchor.web3.PublicKey;
@@ -276,6 +278,21 @@ export class TutorialProgramClient {
       proposalId: data.id,
       tipperPk: data.tipperPk,
       amount: data.amount,
+    });
+  }
+
+  async proposalPublish(data: {
+    newState: ProposalStateE;
+    authorPk: anchor.web3.PublicKey;
+    adminPk: anchor.web3.PublicKey;
+    id: number;
+  }): Promise<string> {
+    return proposalPublish({
+      program: this.tutorialProgram,
+      mintPk: this.kafeMint,
+      tutorialId: data.id,
+      adminPk: data.adminPk,
+      authorPk: data.authorPk,
     });
   }
 }

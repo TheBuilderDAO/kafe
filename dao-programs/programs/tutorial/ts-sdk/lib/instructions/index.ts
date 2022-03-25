@@ -6,6 +6,7 @@ export { default as daoRemoveAdmin } from './daoRemoveAdmin';
 export { default as proposalCreate } from './proposalCreate';
 export { default as proposalClose } from './proposalClose';
 export { default as proposalSetState } from './proposalSetState';
+export { default as proposalPublish } from './proposalPublish';
 export { default as guideTipping } from './guideTipping';
 export { default as voteCast } from './voteCast';
 export { default as voteCancel } from './voteCancel';

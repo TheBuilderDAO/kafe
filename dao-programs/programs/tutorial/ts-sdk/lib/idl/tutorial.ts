@@ -237,6 +237,52 @@ export type Tutorial = {
       ];
     },
     {
+      name: 'proposalPublish';
+      accounts: [
+        {
+          name: 'proposal';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoConfig';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'signer';
+          isMut: true;
+          isSigner: true;
+        },
+        {
+          name: 'userTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+      ];
+    },
+    {
       name: 'guideTipping';
       accounts: [
         {
@@ -1020,6 +1066,52 @@ export const IDL: Tutorial = {
         {
           name: 'state',
           type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'proposalPublish',
+      accounts: [
+        {
+          name: 'proposal',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoConfig',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'signer',
+          isMut: true,
+          isSigner: true,
+        },
+        {
+          name: 'userTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
         },
       ],
     },
