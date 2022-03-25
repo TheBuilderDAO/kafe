@@ -56,6 +56,9 @@ describe('tutorial-program', () => {
   let reviewer1 = anchor.web3.Keypair.generate();
   let reviewer2 = anchor.web3.Keypair.generate();
   let reviewer3 = anchor.web3.Keypair.generate();
+  let reviewer1Ata: anchor.web3.PublicKey;
+  let reviewer2Ata: anchor.web3.PublicKey;
+  let reviewer3Ata: anchor.web3.PublicKey;
 
   let user1 = anchor.web3.Keypair.generate();
   let user1Ata: anchor.web3.PublicKey;
@@ -102,12 +105,17 @@ describe('tutorial-program', () => {
   test('create userATAs', async () => {
     // create  associated token account
     user1Ata = await mint.createAssociatedTokenAccount(user1.publicKey);
-
     user2Ata = await mint.createAssociatedTokenAccount(user2.publicKey);
+    reviewer1Ata = await mint.createAssociatedTokenAccount(reviewer1.publicKey);
+    reviewer2Ata = await mint.createAssociatedTokenAccount(reviewer2.publicKey);
+    reviewer3Ata = await mint.createAssociatedTokenAccount(reviewer3.publicKey);
 
     // Mint tokens to token account
     await mint.mintTo(user1Ata, mintAuth.publicKey, [mintAuth], 2_500_000);
     await mint.mintTo(user2Ata, mintAuth.publicKey, [mintAuth], 1_500_000);
+    await mint.mintTo(reviewer1Ata, mintAuth.publicKey, [mintAuth], 1_000_000);
+    await mint.mintTo(reviewer2Ata, mintAuth.publicKey, [mintAuth], 1_000_000);
+    await mint.mintTo(reviewer3Ata, mintAuth.publicKey, [mintAuth], 1_000_000);
 
     const userAta = await getAta(user1.publicKey, mint.publicKey);
     expect(user1Ata.toString()).toBe(userAta.toString());

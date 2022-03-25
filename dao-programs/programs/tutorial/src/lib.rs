@@ -59,8 +59,8 @@ pub mod tutorial {
     instructions::proposal_publish::handler(ctx, bump)
   }
 
-  pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> {
-    instructions::guide_tipping::handler(ctx, bump, amount)
+  pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8) -> Result<()> {
+    instructions::guide_tipping::handler(ctx, bump, amount, bump_vault)
   }
 
   pub fn proposal_close(ctx: Context<ProposalCreatorClose>, bump: u8) -> Result<()> {

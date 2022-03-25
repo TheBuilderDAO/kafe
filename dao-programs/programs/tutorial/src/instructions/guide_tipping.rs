@@ -1,5 +1,6 @@
 use num_traits::ToPrimitive;
 use anchor_lang::prelude::*;
+use anchor_spl::token::{self, Mint, Token, TokenAccount, Transfer};
 use anchor_lang::solana_program::{
   system_instruction, 
   system_program, 
@@ -12,7 +13,9 @@ use crate::constants::{
   REVIEWER_TIP_WEIGHT, 
   CREATOR_TIP_WEIGHT,
   PROGRAM_SEED,
-  TIPPING_SEED
+  TIPPING_SEED,
+  CREATOR_TIP_REWARD,
+  REVIEWER_TIP_REWARD,
 };
 use vipers::unwrap_int;
 
@@ -47,9 +50,19 @@ pub struct GuideTipping<'info> {
   /// CHECK: we do not perform any mutation here
   pub system_program : AccountInfo<'info>,
   pub rent: Sysvar<'info, Rent>,
+  #[account(mut)]
+  pub dao_vault_kafe: Box<Account<'info, TokenAccount>>,
+  pub mint_kafe: Account<'info, Mint>,
+  #[account(mut)]
+  pub creator_token_account: Box<Account<'info, TokenAccount>>,
+  #[account(mut)]
+  pub reviewer1_token_account: Box<Account<'info, TokenAccount>>,
+  #[account(mut)]
+  pub reviewer2_token_account: Box<Account<'info, TokenAccount>>,
+  pub token_program: Program<'info, Token>,
 }
 
-pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> {
+pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8) -> Result<()> {
   if ctx.accounts.proposal.state != ProposalState::Published {
     return Err(error!(ErrorDao::InvalidState))
   };
@@ -116,6 +129,96 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> 
   ctx.accounts.tipper.amount += amount;
   
   ctx.accounts.proposal.tipped_amount += amount;
+  ctx.accounts.proposal.tipper_count += 1;
+
+  if ctx.accounts.proposal.tipper_count.rem_euclid(10) == 0 {
+    let cpi_program = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts = Transfer {
+      from: ctx.accounts.dao_vault_kafe.to_account_info(),
+      to: ctx.accounts.creator_token_account.to_account_info(),
+      authority: ctx.accounts.dao_vault_kafe.to_account_info(),
+    };
+  
+    token::transfer(
+      CpiContext::new_with_signer(
+        cpi_program,
+        cpi_accounts,
+        &[&[
+          PROGRAM_SEED.as_bytes(),
+          ctx.accounts.mint_kafe.key().as_ref(),
+          &[bump_vault],
+        ]],
+      ),
+      CREATOR_TIP_REWARD,
+    )?;
+
+    let cpi_program = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts = Transfer {
+      from: ctx.accounts.dao_vault_kafe.to_account_info(),
+      to: ctx.accounts.reviewer1_token_account.to_account_info(),
+      authority: ctx.accounts.dao_vault_kafe.to_account_info(),
+    }; 
+    token::transfer(
+      CpiContext::new_with_signer(
+        cpi_program,
+        cpi_accounts,
+        &[&[
+          PROGRAM_SEED.as_bytes(),
+          ctx.accounts.mint_kafe.key().as_ref(),
+          &[bump_vault],
+        ]],
+      ),
+      REVIEWER_TIP_REWARD,
+    )?;
+
+    let cpi_program = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts = Transfer {
+      from: ctx.accounts.dao_vault_kafe.to_account_info(),
+      to: ctx.accounts.reviewer2_token_account.to_account_info(),
+      authority: ctx.accounts.dao_vault_kafe.to_account_info(),
+    };
+  
+    token::transfer(
+      CpiContext::new_with_signer(
+        cpi_program,
+        cpi_accounts,
+        &[&[
+          PROGRAM_SEED.as_bytes(),
+          ctx.accounts.mint_kafe.key().as_ref(),
+          &[bump_vault],
+        ]],
+      ),
+      REVIEWER_TIP_REWARD,
+    )?;
+  }
 
   Ok(())
 }
+
+
+/*
+
+
+  console.log
+    {
+      user1: 'AkTC1n1zWZFQeGGWThBGbqi9M3Wek5RTG3B72cVBDwaD',
+      reviewer1: '5iD87rqpEgtX18hmsmMxPQfhvHdPAqJXRXm9iccwmXXZ',
+      reviewer2: '5vbLLH4hgSysEf26BNRUBCP5AiBDCzMfk62PXgaJx1Yi',
+      reviewer1Ata: 'AKkhqqu5BSb3csGbdgbwSjw6bSYounv9WHcwT23dY34Y',
+      reviewer2Ata: 'DsuqcaBEEM7jMhzEQd6JaiGcFtqWbWLhgzRQeHRRf4pr'
+    }
+
+ console.log
+   {
+     creator: 'AkTC1n1zWZFQeGGWThBGbqi9M3Wek5RTG3B72cVBDwaD',
+     reviewer1: '5iD87rqpEgtX18hmsmMxPQfhvHdPAqJXRXm9iccwmXXZ',
+     reviewer2: '5vbLLH4hgSysEf26BNRUBCP5AiBDCzMfk62PXgaJx1Yi'
+   }
+ console.log
+   {
+     creator: 'EDupA9dpfSL4JmgJMZYrnbRE64a4yp2vSUzDJ2daRQpZ',
+     reviewer1: '5REzaKdqJTdGEAT1PFJ4QHKgBYrc3L5gM3fXT85YWj12',
+     reviewer2: '3bneBt4KWpwyoaxJAkvxTf1kus5goJQZjDhPkRmHHtuB'
+   }
+
+*/

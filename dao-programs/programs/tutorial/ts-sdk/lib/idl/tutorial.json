@@ -324,6 +324,36 @@
           "name": "rent",
           "isMut": false,
           "isSigner": false
+        },
+        {
+          "name": "daoVaultKafe",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintKafe",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "creatorTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "reviewer1TokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "reviewer2TokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
         }
       ],
       "args": [
@@ -334,6 +364,10 @@
         {
           "name": "amount",
           "type": "u64"
+        },
+        {
+          "name": "bumpVault",
+          "type": "u8"
         }
       ]
     },
@@ -640,6 +674,10 @@
           },
           {
             "name": "tippedAmount",
+            "type": "u64"
+          },
+          {
+            "name": "tipperCount",
             "type": "u64"
           },
           {

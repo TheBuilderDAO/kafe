@@ -73,6 +73,7 @@ pub fn handler(
   ctx.accounts.proposal.id = id;
   ctx.accounts.proposal.number_of_voter = 0;
   ctx.accounts.proposal.tipped_amount = 0;
+  ctx.accounts.proposal.tipper_count = 0;
   ctx.accounts.proposal.reviewer1 = Pubkey::default();
   ctx.accounts.proposal.reviewer2 = Pubkey::default();
 

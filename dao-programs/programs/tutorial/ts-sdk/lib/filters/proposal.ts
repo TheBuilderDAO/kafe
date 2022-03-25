@@ -5,9 +5,9 @@ import { numberToBytes, stringToBytes } from '../utils';
 
 enum ProposalOffset {
   Id = 8,
-  State = 137,
-  StreamId = 142,
-  Slug = 209,
+  State = 145,
+  StreamId = 150,
+  Slug = 217,
 }
 
 const proposalStateEtoBytes = (state: ProposalStateE) => {

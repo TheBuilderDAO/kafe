@@ -5,8 +5,8 @@ pub const CREATOR_TIP_WEIGHT: u64 = 70;
 pub const REVIEWER_TIP_WEIGHT: u64 = 15;
 
 pub const CREATOR_REWARD: u64 = 1_000_000;
-// pub const CREATOR_TIP_REWARD: u64 = 1_000_000;
-// pub const REVIEWER_TIP_REWARD: u64 = 1_000_000;
+pub const CREATOR_TIP_REWARD: u64 = 1_000_000;
+pub const REVIEWER_TIP_REWARD: u64 = 1_000_000;
 
 pub const LEN_DISCRIMINATOR: usize = 8;
 pub const LEN_U64: usize = 8;

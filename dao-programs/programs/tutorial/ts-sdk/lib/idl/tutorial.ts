@@ -325,6 +325,36 @@ export type Tutorial = {
           isMut: false;
           isSigner: false;
         },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'creatorTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer1TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer2TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
       ];
       args: [
         {
@@ -334,6 +364,10 @@ export type Tutorial = {
         {
           name: 'amount';
           type: 'u64';
+        },
+        {
+          name: 'bumpVault';
+          type: 'u8';
         },
       ];
     },
@@ -640,6 +674,10 @@ export type Tutorial = {
           },
           {
             name: 'tippedAmount';
+            type: 'u64';
+          },
+          {
+            name: 'tipperCount';
             type: 'u64';
           },
           {
@@ -1158,6 +1196,36 @@ export const IDL: Tutorial = {
           isMut: false,
           isSigner: false,
         },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'creatorTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer1TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer2TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
       ],
       args: [
         {
@@ -1167,6 +1235,10 @@ export const IDL: Tutorial = {
         {
           name: 'amount',
           type: 'u64',
+        },
+        {
+          name: 'bumpVault',
+          type: 'u8',
         },
       ],
     },
@@ -1473,6 +1545,10 @@ export const IDL: Tutorial = {
           },
           {
             name: 'tippedAmount',
+            type: 'u64',
+          },
+          {
+            name: 'tipperCount',
             type: 'u64',
           },
           {
