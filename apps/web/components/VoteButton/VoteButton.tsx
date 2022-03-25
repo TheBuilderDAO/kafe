@@ -18,7 +18,7 @@ const VoteButton = (props: VoteButtonProps) => {
   const { vote, loading, error } = useGetVote(id, wallet.publicKey);
 
   if (loading) {
-    return <Loader />;
+    return null;
   }
 
   return (

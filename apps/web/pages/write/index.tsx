@@ -7,7 +7,7 @@ const WritePage = () => {
       <Head>
         <title>Kafé by Builder DAO - Propose a Guide</title>
       </Head>
-      <main className="relative z-10 w-full">
+      <main className="relative w-full">
         <ProposeTutorialForm />
       </main>
     </div>
