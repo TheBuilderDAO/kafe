@@ -15,6 +15,7 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import Modal from 'react-modal';
 import { useTheme } from 'next-themes';
 import { VscClose } from 'react-icons/vsc';
+import { useDapp } from '../../hooks/useDapp';
 
 type TutorialTipsProps = {
   id: number;
@@ -24,6 +25,8 @@ Modal.setAppElement('#__next'); // This is for screen-readers. By binding the mo
 
 const TutorialTips = (props: TutorialTipsProps) => {
   const { id } = props;
+  const { tippers, loading, error } = useGetListOfTippersById(id);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { theme } = useTheme();
   const dark = theme === 'dark';
@@ -55,34 +58,31 @@ const TutorialTips = (props: TutorialTipsProps) => {
     setModalIsOpen(false);
   };
 
-  const afterOpenModal = () => {
-    console.log('hey');
-  };
-
   const SupportersModal = () => {
     return (
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Support modal"
       >
-        <h3 className="font-larken text-2xl text-center border-b-[0.5px] border-kafemellow mb-4 pt-5 pb-8">
-          Supporters
-        </h3>
-        <button
-          className="absolute right-8 top-10 text-3xl "
-          onClick={closeModal}
-        >
-          <VscClose />
-        </button>
+        <div className="sticky top-0 dark:bg-kafeblack bg-kafewhite">
+          <h3 className="font-larken text-2xl text-center border-b-[0.5px] border-kafemellow mb-4 pt-5 pb-8">
+            Supporters
+          </h3>
+          <button
+            className="absolute right-8 top-6 text-3xl "
+            onClick={closeModal}
+          >
+            <VscClose />
+          </button>
+        </div>
         <div className="overflow-auto">
           <ul className="px-8">
             {tippers.map((tipperAccount, index) => (
               <li
                 className="py-4 dark:text-kafewhite text-xs text-kafeblack flex items-center justify-between"
-                key={tipperAccount.account.pubkey.toString()}
+                key={index}
               >
                 <UserAvatar address={tipperAccount.account.pubkey.toString()} />
                 <p className="font-space-italic">
@@ -96,8 +96,6 @@ const TutorialTips = (props: TutorialTipsProps) => {
       </Modal>
     );
   };
-
-  const { tippers, loading, error } = useGetListOfTippersById(id);
 
   if (loading) {
     return <Loader />;
@@ -113,9 +111,14 @@ const TutorialTips = (props: TutorialTipsProps) => {
         <h3 className="font-larken text-xl">
           {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
         </h3>
-        <small className="cursor-pointer" onClick={openModal}>
-          view all
-        </small>
+        {tippers.length > 5 && (
+          <small
+            className="cursor-pointer hover:text-kafered dark:hover:text-kafegold"
+            onClick={openModal}
+          >
+            view all
+          </small>
+        )}
         <SupportersModal />
       </div>
       <ul>
@@ -132,11 +135,9 @@ const TutorialTips = (props: TutorialTipsProps) => {
         ))}
       </ul>
 
-      <IsLoggedIn>
-        <div className="mt-6">
-          <TipTutorialForm id={id} />
-        </div>
-      </IsLoggedIn>
+      <div className="mt-6">
+        <TipTutorialForm id={id} />
+      </div>
     </div>
   );
 };

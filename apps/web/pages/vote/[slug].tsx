@@ -47,12 +47,12 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
               </p>
             </div>
 
-            <h1 className="text-5xl mb-4 font-larken tracking-wider leading-relaxed">
+            <h1 className="text-5xl mb-4 font-larken tracking-wider leading-2">
               {tutorial.title}
             </h1>
 
             <Tags tags={tutorial.tags} />
-            <p className="break-all mt-4 line-clamp-4 leading-6">
+            <p className="mt-4 line-clamp-4 leading-6 text-md">
               {tutorial.description}
             </p>
           </section>

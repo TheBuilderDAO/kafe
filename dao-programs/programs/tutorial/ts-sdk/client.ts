@@ -262,7 +262,6 @@ export class TutorialProgramClient {
     tipperPk: anchor.web3.PublicKey;
     amount: anchor.BN;
   }): Promise<string> {
-    console.log('HEREEEE', data);
     return guideTipping({
       program: this.tutorialProgram,
       mintPk: this.kafeMint,

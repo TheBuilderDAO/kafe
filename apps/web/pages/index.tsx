@@ -1,12 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextPage } from 'next';
+import Gateway from 'public/assets/images/gateway.png';
 import routes from 'routes';
 import HomeCTA from '@app/components/Index/HomeCTA';
-import Carousel from '@app/components/Index/Carousel';
+import GuidesCarousel from '@app/components/Carousel/GuidesCarousel';
+import ProposalsCarousel from '@app/components/Carousel/ProposalsCarousel';
 import Realtime from '@app/components/Index/Realtime';
 import Image from 'next/image';
-import Gateway from 'public/assets/images/gateway.png';
 
 const LandingPage: NextPage = () => {
   return (
@@ -15,7 +16,7 @@ const LandingPage: NextPage = () => {
         <title>Builder DAO</title>
       </Head>
       <main>
-        <Image src={Gateway} width={585} height={791} alt="gateway" />
+        <Image src={Gateway} width={586} height={792} alt="gateway" />
         <div className="absolute top-96 left-20">
           <HomeCTA
             headline="Learn from guides written by our community"
@@ -23,14 +24,14 @@ const LandingPage: NextPage = () => {
             cta="view all guides"
           />
         </div>
-        <div className="absolute top-28 right-12">
-          <Realtime />
-        </div>
+        {/*<div className="absolute top-28 right-12">*/}
+        {/*  <Realtime />*/}
+        {/*</div>*/}
         <div className="absolute top-[260px] left-[440px]">
-          <Carousel />
+          <GuidesCarousel />
         </div>
         <div className="absolute top-[680px] left-32">
-          <Carousel variation="dotted" />
+          <ProposalsCarousel />
         </div>
         <div className="absolute bottom-64 right-32">
           <HomeCTA

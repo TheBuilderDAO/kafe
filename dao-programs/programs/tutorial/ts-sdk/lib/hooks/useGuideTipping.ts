@@ -22,15 +22,57 @@ export const useGuideTipping = <AD>(): [
         setError(null);
         setSubmitting(true);
 
+        const amount = new anchor.BN(data.amount);
+
         const txHash = await tutorialProgram?.guideTipping({
           id: data.id,
           tipperPk: data.tipperPk,
-          amount: new anchor.BN(data.amount),
+          amount,
         });
 
         console.log('TX Hash', txHash);
 
+        const newTip = {
+          tutorialId: data.id,
+          pubkey: tutorialProgram.provider.wallet.publicKey,
+          amount,
+        };
+
         mutate(routes.daoState);
+        mutate(
+          routes.listOfTippersById(data.id),
+          async (tippers: any) => {
+            const existingTipper = tippers.find(
+              (tipper: any) =>
+                tipper.account.pubkey.toString() ===
+                tutorialProgram.provider.wallet.publicKey.toString(),
+            );
+
+            if (existingTipper) {
+              const existingIndex = tippers.findIndex(
+                (tipper: any) =>
+                  tipper.account.pubkey.toString() ===
+                  tutorialProgram.provider.wallet.publicKey.toString(),
+              );
+              const newTipper = tippers[existingIndex];
+              newTipper.account.amount = newTipper.account.amount.add(amount);
+
+              return [newTipper];
+            } else {
+              return [
+                ...tippers,
+                {
+                  account: newTip,
+                },
+              ];
+            }
+          },
+          {
+            revalidate: false,
+            populateCache: true,
+            rollbackOnError: true,
+          },
+        );
 
         return txHash;
       } catch (err) {
