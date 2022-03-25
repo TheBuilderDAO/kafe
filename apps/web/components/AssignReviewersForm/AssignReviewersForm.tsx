@@ -1,5 +1,5 @@
-import { useForm } from 'react-hook-form';
-
+import { useForm, Controller } from 'react-hook-form';
+import { components, ControlProps } from 'react-select';
 import { useCallback } from 'react';
 import { useDapp } from '../../hooks/useDapp';
 import { PublicKey } from '@solana/web3.js';
@@ -7,9 +7,11 @@ import {
   useReviewersAssign,
   useGetListOfReviewers,
 } from '@builderdao-sdk/dao-program';
-import { addEllipsis } from 'utils/strings';
 import { Tutorial } from '@app/types/index';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import InputSelectOne from '../FormElements/InputSelectOne';
+import Loader from '../Loader/Loader';
 
 type AssignReviewersFormProps = {
   tutorial: Tutorial;
@@ -22,18 +24,48 @@ type FormData = {
 
 const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   const { tutorial } = props;
+  const [reviewArray, setReviewArray] = useState([]);
 
-  const { reviewers, reviewersMap, loading, error } = useGetListOfReviewers();
-  const { register, handleSubmit, reset, getValues} = useForm<FormData>({
-    defaultValues: {
-      reviewer1: tutorial.reviewer1,
-      reviewer2: tutorial.reviewer2
-    },
-  });
+  const Control = ({ children, ...props }: ControlProps) => (
+    <components.Control {...props}> {children}</components.Control>
+  );
+
+  const { reviewers, loading, error } = useGetListOfReviewers();
+
+  useEffect(() => {
+    if (reviewers) {
+      const sanitizedReviewArray = [];
+      reviewers.forEach(reviewer => {
+        if (reviewer.account.pubkey.toString() != tutorial.creator) {
+          sanitizedReviewArray.push({
+            value: `${reviewer.account.pubkey.toString()}`,
+            label: `${reviewer.account.githubName.toString()}`,
+          });
+        }
+      });
+
+      setReviewArray(sanitizedReviewArray);
+    }
+  }, [reviewers, tutorial.creator]);
+  const {
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm<FormData>();
   const { wallet } = useDapp();
   const [assignReviewers, { submitting }] = useReviewersAssign();
+
+  const onError = () => {
+    toast.error('Please fill out all form fields');
+  };
+
   const onSubmit = useCallback(
-    async (data: FormData) => {
+    async data => {
+      data = {
+        reviewer1: data.reviewer1.value,
+        reviewer2: data.reviewer2.value,
+      };
       try {
         const tx = assignReviewers({
           id: tutorial.id,
@@ -45,10 +77,10 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
         });
 
         await toast.promise(tx, {
-          loading: "Assigning Reviewer",
-          success: "Reviewer assigned successfully",
-          error: "Error Assigning reviewer",
-        })
+          loading: 'Assigning Reviewer',
+          success: 'Reviewer assigned successfully',
+          error: 'Error Assigning reviewer',
+        });
 
         reset();
       } catch (err) {
@@ -59,7 +91,7 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   );
 
   if (loading) {
-    return 'Loading...';
+    return <Loader />;
   }
 
   if (error) {
@@ -67,66 +99,42 @@ const AssignReviewersForm = (props: AssignReviewersFormProps) => {
   }
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-5">
-        <label
-          htmlFor="reviewer1"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Reviewer 1
-        </label>
-        <div className="mt-1">
-          <select
-            className="w-full mb-4 text-black border-b-2"
-            {...register('reviewer1', { required: true })}
-          >
-            <option value="-1">Select reviewer...</option>
-            {reviewers?.map(reviewer => {
-              const pubKey = reviewer.account.pubkey.toString();
-              const githubName = reviewer.account.githubName.toString();
-              return (
-                <option key={pubKey} value={pubKey}>
-                  {addEllipsis(pubKey)} ({githubName})
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      </div>
-
-      <div className="mb-5">
-        <label
-          htmlFor="reviewer2"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Reviewer 2
-        </label>
-        <div className="mt-1">
-          <select
-            className="w-full mb-4 text-black border-b-2"
-            {...register('reviewer2', { required: true })}
-          >
-            <option value="-1">Select reviewer...</option>
-            {reviewers?.map(reviewer => {
-              const pubKey = reviewer.account.pubkey.toString();
-              const githubName = reviewer.account.githubName.toString();
-              return (
-                <option key={pubKey} value={pubKey}>
-                  {addEllipsis(pubKey)} ({githubName})
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      </div>
-
+    <form
+      className="flex flex-col pt-2"
+      onSubmit={handleSubmit(onSubmit, onError)}
+    >
+      <small className="mt-4 mb-2">Reviewers</small>
+      <Controller
+        name="reviewer1"
+        rules={{ required: true }}
+        render={({ field: { ref, onChange } }) => (
+          <InputSelectOne
+            items={reviewArray}
+            inputRef={ref}
+            onChange={onChange}
+          />
+        )}
+        control={control}
+      />
+      <Controller
+        name="reviewer2"
+        rules={{ required: true }}
+        render={({ field: { ref, onChange } }) => (
+          <InputSelectOne
+            items={reviewArray}
+            inputRef={ref}
+            onChange={onChange}
+          />
+        )}
+        control={control}
+      />
       {wallet && (
         <button
           type="submit"
           disabled={submitting}
-          className="items-center px-4 py-2 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+          className="items-center mt-6 font-medium text-kafewhite dark:text-kafeblack bg-kafeblack dark:bg-kafewhite rounded-2xl h-12 shadow-sm hover:bg-kafegold dark:hover:text-kafered sm:text-sm"
         >
-          {submitting ? 'Submitting...' : 'Submit'}
+          {submitting ? 'assigning reviewers...' : 'assign reviewers'}
         </button>
       )}
     </form>

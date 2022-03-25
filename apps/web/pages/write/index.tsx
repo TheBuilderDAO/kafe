@@ -1,18 +1,11 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
-
-const ProposeTutorialForm = dynamic(
-  () => import('../../components/ProposeTutorialForm/ProposeTutorialForm'),
-  {
-    ssr: false,
-  },
-);
+import ProposeTutorialForm from '../../components/ProposeTutorialForm/ProposeTutorialForm';
 
 const WritePage = () => {
   return (
     <div>
       <Head>
-        <title>Propose Tutorial</title>
+        <title>Kafé by Builder DAO - Propose a Guide</title>
       </Head>
       <main className="relative z-10 w-full">
         <ProposeTutorialForm />

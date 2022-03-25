@@ -10,7 +10,8 @@ export type TutorialIndex = {
   tags: string[];
   difficulty: string;
   numberOfVotes: number;
-  funded: boolean;
+  lastUpdatedAt: number;
+  totalTips: number;
 };
 
 export type ApiConfig = {

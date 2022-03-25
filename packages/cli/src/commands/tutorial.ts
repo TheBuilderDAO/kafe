@@ -137,7 +137,7 @@ export function makeTutorialCommand() {
 
   tutorial
     .command('publish')
-    .argument('[learnPackageName]', 'Tutorial name')
+    .argument('[learnPackageName]', 'Tutorial slug')
     .addOption(
       new commander.Option('--nodeUrl <nodeUrl>', 'Ceramic Node Url')
         .env('CERAMIC_NODE_URL')
@@ -196,10 +196,8 @@ export function makeTutorialCommand() {
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeUrl,
       });
-      const ceramicMetadata = await ceramic.getMetadata(
-        proposal.streamId as string,
-      );
-      ceramic.setSeed(options.seed);
+      const ceramicMetadata = await ceramic.getMetadata(proposal.streamId as string);
+      ceramic.setSeed(options.seed)
       const arweave = new ArweaveApi({
         appName: options.arweave_appName,
         host: options.arweave_host,

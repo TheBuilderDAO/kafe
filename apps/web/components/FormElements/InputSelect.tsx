@@ -2,7 +2,13 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import Select from 'react-select';
 
-const InputSelect = ({ options, inputRef, onChange }) => {
+const InputSelect = ({
+  options,
+  inputRef,
+  onChange,
+  placeholder = 'Select tags',
+  multiselect = true,
+}) => {
   const { theme } = useTheme();
   options = options.map(option => ({
     value: option,
@@ -66,16 +72,16 @@ const InputSelect = ({ options, inputRef, onChange }) => {
     }),
   };
   return (
-    <div className="w-60 xl:w-96 dark:bg-kafedarker bg-kafelighter rounded-2xl">
+    <div className="w-menu dark:bg-kafedarker bg-kafelighter rounded-2xl">
       <Select
         options={options}
         onChange={onChange}
-        isMulti
+        isMulti={multiselect}
         ref={inputRef}
         isSearchable
         className="text-kafered"
-        classNamePrefix="text-kafeblack dark:text-white-200 text-kafeblack"
-        placeholder="Select tags"
+        classNamePrefix=""
+        placeholder={placeholder}
         styles={customStyles}
         theme={theme => ({
           ...theme,

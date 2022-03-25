@@ -29,6 +29,7 @@ import {
   NEXT_PUBLIC_SOLANA_NODE_URL,
 } from '@app/constants';
 
+require('nprogress/nprogress.css');
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 

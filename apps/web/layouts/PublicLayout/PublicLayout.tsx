@@ -9,17 +9,19 @@ import coffeeFull from '/public/assets/icons/coffee_cup_vote_complete.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import routes from 'routes';
+import usePageLoadingProgress from '../../hooks/usePageLoadingProgress';
 
 type PublicLayoutProps = {
   children: ReactElement;
 };
 const PublicLayout = (props: PublicLayoutProps) => {
   const { children } = props;
+  usePageLoadingProgress();
   const { daoState, error } = useGetDaoState();
 
   if (error) {
     return (
-      <div className="flex items-center justify-center w-screen h-screen text-2xl tracking-wide bg-kafewhite text-kafeblack dark:bg-kafeblack dark:text-kafewhite font-larken">
+      <div className="flex items-center justify-center w-screen h-screen text-xs tracking-wide bg-kafewhite text-kafeblack dark:bg-kafeblack dark:text-kafewhite font-larken">
         <div>
           <Image src={coffeeFull} width={60} height={60} alt="err" />
           <p>Aw, nuts. Something&rsquo;s up. </p>
@@ -35,18 +37,20 @@ const PublicLayout = (props: PublicLayoutProps) => {
   }
 
   return (
-    <div className="flex min-h-screen p-8 relative w-screen bg-kafewhite dark:bg-kafeblack">
+    <div className="flex flex-wrap min-h-screen font-space p-9 relative bg-kafewhite dark:bg-kafeblack min-w-[1100px] tracking-wider mx-auto leading-relaxed">
       <Notifications />
       <Wrapper>
-        <div className="sticky top-10">
-          <Header />
-        </div>
-        <div className="grid grid-cols-12 gap-4">
-          <div className="z-0 col-span-2">
+        <div className="grid grid-cols-12">
+          <div className="col-span-1 z-10">
             <LeftSidebar />
           </div>
-          <div className="col-span-10">
-            <Content>{children}</Content>
+          <div className="col-span-11 lg:ml-8 ml-0 min-w-full">
+            <div className="sticky top-10 z-10">
+              <Header />
+            </div>
+            <div className="ml-4">
+              <Content>{children}</Content>
+            </div>
           </div>
         </div>
       </Wrapper>

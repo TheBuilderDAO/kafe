@@ -15,6 +15,9 @@ import { ProposalStateE } from '@builderdao-sdk/dao-program';
 import GuideHit from '@app/components/Search/GuideHit';
 import Pagination from '@app/components/Search/Pagination';
 import GuideFilter from '@app/components/Search/GuideFilter';
+import IsAdmin from '@app/components/IsAdmin/IsAdmin';
+
+const PER_PAGE = 10;
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -25,30 +28,38 @@ const LearnIndexPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Search Guides</title>
+        <title>Kafé by Builder DAO - Search Guides</title>
       </Head>
-      <main>
+      <main className="w-full">
         <Banner
           header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
-          link="https://figment.io"
+          link="https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19"
         />
         <div className="z-30 flex mb-20">
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
-            <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex items-start justify-between w-screen mt-8">
-              <div className="flex flex-col grow">
-                <div className="my-6">
-                  <GuideStateTabs
-                    attribute="state"
-                    defaultRefinement={[ProposalStateE.published]}
-                  />
+            <Configure
+              hitsPerPage={PER_PAGE}
+              analytics={false}
+              filters="state:published"
+            />
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px]">
+                <div className="lg:my-6 ">
+                  <IsAdmin>
+                    <div className="mb-6">
+                      <GuideStateTabs
+                        attribute="state"
+                        defaultRefinement={[ProposalStateE.published]}
+                      />
+                    </div>
+                  </IsAdmin>
+                  <Hits hitComponent={GuideHit} />
+                  <Pagination />
                 </div>
-                <Hits hitComponent={GuideHit} />
-                <Pagination />
               </div>
               <RightSidebar>
                 <GuideFilter />

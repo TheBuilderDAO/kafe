@@ -20,6 +20,9 @@ import {
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
 import TutorialProposalFilter from '@app/components/Search/TutorialProposalFilter';
+import Loader from '@app/components/Loader/Loader';
+
+const PER_PAGE = 10;
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -33,7 +36,7 @@ const ProposalList = () => {
     return <div>Error: {error.message} </div>;
   }
   if (loading && !error) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
   return (
     <div>
@@ -52,24 +55,24 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Search Proposals</title>
+        <title>Kafé by Builder DAO - Search Proposals</title>
       </Head>
 
       <main className="w-full">
         <Banner
           header="Upvote proposals you want to see get written."
           description="Once a proposal gets 100 votes it will be funded by the community."
-          link="https://figment.io"
+          link="https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19"
         />
         <div className="z-30 flex mb-20">
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
           >
-            <Configure hitsPerPage={4} analytics={false} />
-            <div className="flex items-start justify-between">
-              <div className="flex flex-col grow">
-                <div className="my-6">
+            <Configure hitsPerPage={PER_PAGE} analytics={false} />
+            <div className="flex items-start justify-between w-full">
+              <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px] w-screen">
+                <div className="lg:my-6 mt-10 mb-4 z-30 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"
                     defaultRefinement={[ProposalStateE.submitted]}

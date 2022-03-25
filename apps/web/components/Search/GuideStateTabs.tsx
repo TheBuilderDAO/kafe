@@ -20,19 +20,23 @@ const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
         <span
           className={`
             p-1
-            px-2
-            rounded-md
-            dark:bg-kafedarker bg-kafelighter
+            px-4
+            py-2
+            rounded-xl
+            font-space
+            dark:bg-kafeblack
+            bg-kafewhite
+            bg-none
             ${
               currentRefinement[0] === ProposalStateE.published
-                ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
+                ? 'dark:bg-kafewhite font-space-italic bg-kafedarker text-kafewhite dark:text-kafeblack'
                 : null
             }
             text-[12px]
             mr-4
             `}
         >
-          Published
+          published
         </span>
       </label>
       <label
@@ -56,7 +60,6 @@ const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
             p-1
             px-2
             rounded-md
-            dark:bg-kafedarker bg-kafelighter
                         ${
                           currentRefinement[0] === ProposalStateE.readyToPublish
                             ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
@@ -66,7 +69,7 @@ const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
             mr-4
             `}
         >
-          Ready to Publish
+          ready to publish
         </span>
       </label>
       <label key="writing" htmlFor="writing" className="cursor-pointer">
@@ -86,7 +89,6 @@ const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
             p-1
             px-2
             rounded-md
-            dark:bg-kafedarker bg-kafelighter
                         ${
                           currentRefinement[0] === ProposalStateE.writing
                             ? 'dark:bg-kafewhite bg-kafeblack text-kafewhite dark:text-kafeblack'
@@ -96,7 +98,7 @@ const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
             mr-4
             `}
         >
-          Writing
+          writing
         </span>
       </label>
     </div>

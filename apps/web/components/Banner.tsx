@@ -7,17 +7,19 @@ const Banner = ({ header, description, link }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
   return (
     <motion.div
-      className={'fixed left-0 right-0 mx-auto w-96 top-20 hidden xl:block'}
+      className={
+        'absolute left-0 right-0 top-12 text-xs leading-2 mx-auto w-[360px] lg:block'
+      }
       style={{
         opacity,
       }}
     >
       <HighlightSVG />
-      <div className="text-sm">
+      <div>
         <p className="font-black">{header}</p>
         <p>
           {description}{' '}
-          <a className="underline" href={link}>
+          <a className="underline" href={link} target="_blank" rel="noreferrer">
             Learn more
           </a>
         </p>
