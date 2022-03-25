@@ -53,7 +53,7 @@ const ProposeTutorialForm = () => {
 
         router.push(routes.vote.proposal(data.slug));
       } catch (err) {
-        toast.error(err.message);
+        // Do nothing toast.promise already prints error
       }
     },
     [proposeTutorial, reset, router],
