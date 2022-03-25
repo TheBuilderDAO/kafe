@@ -39,7 +39,7 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
         className={`${
           variant === 'standard'
             ? 'border-[1px] border-kafeblack dark:border-kafewhite bg-kafelighter dark:bg-kafedarker w-full h-14 rounded-2xl dark:text-kafewhite text-kafeblack'
-            : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group'
+            : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group cursor-pointer'
         }`}
         onClick={handleClick}
       >
