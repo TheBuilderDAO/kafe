@@ -25,6 +25,7 @@ module.exports = async function (provider) {
     '8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU',
     'HtdezEbemuLpAh9no1jp7Eezy8drWcbFuk3VPhs17bM4',
     'githDLGadJhMkAGPGoAiNMLA8HWdV9BTrNvpmU3Jz6n',
+    'daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi',
   ].map(pk => new anchor.web3.PublicKey(pk));
 
   let [daoConfig, bump] = await anchor.web3.PublicKey.findProgramAddress(
@@ -134,6 +135,6 @@ module.exports = async function (provider) {
     console.log('Creation of reviewer:', reviewer.name);
   }
 
-  const proposals = await program.account.proposalAccount.all();
-  console.log(proposals);
+  // const proposals = await program.account.proposalAccount.all();
+  // console.log(proposals);
 };

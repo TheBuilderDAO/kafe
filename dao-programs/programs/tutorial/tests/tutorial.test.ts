@@ -1,6 +1,5 @@
 /* eslint-disable jest/no-commented-out-tests */
 /* eslint-disable jest/expect-expect */
-// import { logDebug } from './utils/index';
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
 

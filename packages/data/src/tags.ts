@@ -25,7 +25,7 @@ export const technologies: string[] = [
   'Javascript',
   'JS/TS',
   'Metamask',
-  'NextJS',
+  'Next.js',
   'NodeJS',
   'Python',
   'React',

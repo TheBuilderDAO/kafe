@@ -8,10 +8,18 @@ import {
   ProposalStateE,
   filterProposalByState,
 } from '@builderdao-sdk/dao-program';
+import { uniq } from 'lodash';
 
 import dump from '../../data/dump.json';
 import { getClient } from '../client';
-import { compareById, compareBySlug } from '../utils';
+import {
+  compareById,
+  compareBySlug,
+  parseDifficulty,
+  parseProtocol,
+  parseSlug,
+  parseTags,
+} from '../utils';
 
 export function makeMigrationCommand() {
   const solana = new commander.Command('solana').description(
@@ -71,24 +79,51 @@ export function makeMigrationCommand() {
       });
       ceramicApi.setSeed(options.ceramicSeed);
 
+      let record: any;
+      const records: any = [];
       const description = 'Migrated tutorial from LEARN.V2 ';
 
-      for (const tutorial of Array.from(dump)) {
+      for (const tutorial of Array.from(dump).filter(dt => !dt.is_multi_page)) {
         try {
+          const {
+            slug: slug0,
+            tags: tags0,
+            title,
+            difficulty: difficulty0,
+          } = tutorial;
+
+          const protocol = parseProtocol(tags0);
+          const slug = parseSlug(slug0, protocol);
+          const difficulty = parseDifficulty(difficulty0);
+          const tags = [protocol, ...uniq(tags0.slice(1).map(parseTags))];
           const id = await client.getNonce();
+
+          record = {
+            objectID: id.toString(),
+            title,
+            slug,
+            description,
+            author: walletPk,
+            state: ProposalStateE.readyToPublish,
+            tags,
+            difficulty,
+            numberOfVotes: 0,
+          };
+          records.push(record);
+
           // @ts-ignore
           const stream = await ceramicApi.storeMetadata({
-            title: tutorial.title,
-            slug: tutorial.slug,
+            title,
+            slug,
             description,
-            difficulty: tutorial.difficulty,
-            tags: tutorial.tags,
+            difficulty,
+            tags,
           });
           const streamId = stream.id.toString();
 
           await client.createTutorial({
             id,
-            slug: tutorial.slug,
+            slug,
             userPk: walletPk,
             streamId,
           });
@@ -105,23 +140,14 @@ export function makeMigrationCommand() {
             adminPk: walletPk,
             newState: ProposalStateE.readyToPublish,
           });
-
-          const record = {
-            objectID: id.toString(),
-            title: tutorial.title,
-            slug: tutorial.slug,
-            description,
-            author: walletPk,
-            state: ProposalStateE.readyToPublish,
-            tags: tutorial.tags,
-            difficulty: tutorial.difficulty,
-            numberOfVotes: 0,
-          };
-
-          await algoliaApi.createTutorial(record);
         } catch (error) {
-          console.error(JSON.stringify(tutorial, null, 2));
+          console.error(JSON.stringify(record, null, 2));
+          process.exit(1);
         }
+      }
+
+      for (const data of records) {
+        await algoliaApi.createTutorial(data);
       }
     });
 
