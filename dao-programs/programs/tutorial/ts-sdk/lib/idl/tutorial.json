@@ -593,6 +593,10 @@
             "type": "i64"
           },
           {
+            "name": "tippedAmount",
+            "type": "u64"
+          },
+          {
             "name": "state",
             "type": {
               "defined": "ProposalState"

@@ -13,6 +13,7 @@ import {
   proposalAccountById as getProposalAccountById,
   proposalAccountByStreamId as getProposalAccountByStreamId,
   reviewerAccountByReviewerPK as getReviewerAccount,
+  reviewerAccountByGithubLogin as getReviewerAccountByGithubLogin,
   userVoteAccountById as getUserVoteAccountById,
   listOfVoterById as getListOfVoterById,
   tipperAccountsListById as getTipperAccountsListById,
@@ -282,6 +283,7 @@ describe('tutorial-program', () => {
   test('Create a reviewer', async () => {
     const githubName1 = 'zurgl';
     const githubName2 = 'Neco';
+    let reviewerAccount: any;
     await reviewerCreate({
       program: program,
       mintPk: mint.publicKey,
@@ -300,7 +302,7 @@ describe('tutorial-program', () => {
     });
 
     const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
-    const reviewerAccount: any = await getReviewerAccount(
+    reviewerAccount = await getReviewerAccount(
       program,
       pdaReviewerAccount,
       reviewer1.publicKey,
@@ -309,6 +311,12 @@ describe('tutorial-program', () => {
       reviewer1.publicKey.toString(),
     );
     expect(reviewerAccount.numberOfAssignment).toBe(0);
+    expect(reviewerAccount.github_name).not.toBe(githubName1);
+
+    reviewerAccount = await getReviewerAccountByGithubLogin(
+      program,
+      githubName1,
+    );
     expect(reviewerAccount.github_name).not.toBe(githubName1);
   });
 

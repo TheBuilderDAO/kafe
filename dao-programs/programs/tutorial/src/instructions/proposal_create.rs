@@ -56,7 +56,7 @@ pub fn handler(
   let min_amount_to_create_proposal = ctx.accounts.dao_config.min_amount_to_create_proposal;
   token::transfer((&*ctx.accounts).into(), min_amount_to_create_proposal)?;
 
-  if slug.chars().count() > LEN_SLUG {
+  if slug.chars().count() > MAX_SLUG_LEN {
     return Err(error!(ErrorDao::SlugTooLong));
   }
 
@@ -72,6 +72,7 @@ pub fn handler(
   ctx.accounts.proposal.slug = slug;
   ctx.accounts.proposal.id = id;
   ctx.accounts.proposal.number_of_voter = 0;
+  ctx.accounts.proposal.tipped_amount = 0;
   ctx.accounts.proposal.reviewer1 = Pubkey::default();
   ctx.accounts.proposal.reviewer2 = Pubkey::default();
 

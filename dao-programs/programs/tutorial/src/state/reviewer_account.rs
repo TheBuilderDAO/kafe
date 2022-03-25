@@ -12,8 +12,11 @@ pub struct ReviewerAccount {
 }
 
 impl ReviewerAccount {
-  pub const LEN: usize = LEN_DISCRIMINATOR
+  pub fn space(github_name: &str) -> usize {
+    LEN_DISCRIMINATOR
+    + LEN_U8
     + LEN_PUBKEY
     + LEN_U8
-    + LEN_STRING_ALLOCATOR + LEN_GITHUB_NAME;
+    + LEN_STRING_ALLOCATOR + github_name.len()
+  }
 }

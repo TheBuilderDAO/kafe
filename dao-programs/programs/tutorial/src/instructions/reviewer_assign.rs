@@ -8,11 +8,13 @@ pub struct ReviewerAssign<'info> {
   #[account(
     mut,
     constraint =  dao_config.admins.contains(&authority.key())
+    @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer1: Account<'info, ReviewerAccount>,
   #[account(
     mut,
     constraint = dao_config.admins.contains(&authority.key())
+    @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer2: Account<'info, ReviewerAccount>,
   pub dao_config: Account<'info, DaoAccount>,

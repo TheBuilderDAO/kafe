@@ -114,6 +114,8 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64) -> Result<()> 
   ctx.accounts.tipper.pubkey = ctx.accounts.signer.key();
   ctx.accounts.tipper.tutorial_id = ctx.accounts.proposal.id;
   ctx.accounts.tipper.amount += amount;
+  
+  ctx.accounts.proposal.tipped_amount += amount;
 
   Ok(())
 }

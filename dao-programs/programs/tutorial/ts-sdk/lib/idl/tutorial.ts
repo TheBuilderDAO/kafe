@@ -593,6 +593,10 @@ export type Tutorial = {
             type: 'i64';
           },
           {
+            name: 'tippedAmount';
+            type: 'u64';
+          },
+          {
             name: 'state';
             type: {
               defined: 'ProposalState';
@@ -1374,6 +1378,10 @@ export const IDL: Tutorial = {
           {
             name: 'createdAt',
             type: 'i64',
+          },
+          {
+            name: 'tippedAmount',
+            type: 'u64',
           },
           {
             name: 'state',

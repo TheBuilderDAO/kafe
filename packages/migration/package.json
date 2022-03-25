@@ -31,9 +31,6 @@
     "@builderdao/config": "*",
     "@builderdao/tsconfig": "*",
     "@types/bs58": "^4.0.1",
-    "@types/fs-extra": "^9.0.13",
-    "@types/prettyjson": "^0.0.30",
-    "chokidar": "^3.5.3",
     "eslint": "^8.9.0"
   },
   "dependencies": {
@@ -46,7 +43,6 @@
     "bs58": "^5.0.0",
     "commander": "^9.0.0",
     "dotenv": "^16.0.0",
-    "fs-extra": "^10.0.1",
     "lodash": "^4.17.21"
   }
 }

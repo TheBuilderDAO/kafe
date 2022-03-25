@@ -13,6 +13,21 @@ pub struct DaoAccount {
   pub admins: Vec<Pubkey>,
 }
 
+impl Default for DaoAccount {
+  fn default() -> Self {
+    let admins = Vec::<Pubkey>::with_capacity(MAX_ADMIN_NUMBER);
+    Self {
+      bump: u8::default(),
+      nonce: u64::default(),
+      number_of_tutorial: u64::default(),
+      mint: Pubkey::default(),
+      quorum: u64::default(),
+      min_amount_to_create_proposal: u64::default(),
+      admins
+    }
+  }
+}
+
 impl DaoAccount {
   pub const LEN: usize = LEN_DISCRIMINATOR
     + LEN_U8

@@ -2,12 +2,14 @@ use anchor_lang::prelude::*;
 use std::str::FromStr;
 
 use crate::state::*;
+use crate::errors::*;
 
 #[derive(Accounts)]
 pub struct ProposalSetState<'info> {
   #[account(
     mut,
     constraint = dao_config.admins.contains(&signer.key()) 
+    @ ErrorDao::UnauthorizedAccess 
   )]
   pub proposal: Account<'info, ProposalAccount>,
   pub dao_config: Account<'info, DaoAccount>,

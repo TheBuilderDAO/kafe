@@ -55,7 +55,7 @@ export class TutorialProgramClient {
 
   constructor(
     connection: Connection,
-    wallet: typeof anchor.Wallet,
+    wallet: anchor.Wallet,
     kafeMint: PublicKey,
   ) {
     this.provider = new anchor.Provider(connection, wallet, providerOptions);

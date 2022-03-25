@@ -5,7 +5,7 @@ use crate::state::*;
 use crate::errors::*;
 
 #[derive(Accounts)]
-#[instruction(bump: u8, reviewer: Pubkey)]
+#[instruction(bump: u8, reviewer: Pubkey, github_name: String)]
 pub struct ReviewerCreate<'info> {
   #[account(
     init,
@@ -15,7 +15,9 @@ pub struct ReviewerCreate<'info> {
       reviewer.as_ref(),
     ],
     bump,
-    space = ReviewerAccount::LEN,
+    space = ReviewerAccount::space(&github_name),
+    constraint = dao_config.admins.contains(&authority.key()) 
+    @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer_account: Account<'info, ReviewerAccount>,
   pub dao_config : Account<'info, DaoAccount>,
@@ -26,8 +28,8 @@ pub struct ReviewerCreate<'info> {
 }
 
 pub fn handler(ctx: Context<ReviewerCreate>, bump: u8, reviewer: Pubkey, github_name: String) -> Result<()> {
-  if !ctx.accounts.dao_config.admins.contains(&ctx.accounts.authority.key()) {
-    return Err(error!(ErrorDao::UnauthorizedAccess));
+  if github_name.chars().count() > MAX_GITHUB_LOGIN_LEN {
+    return Err(error!(ErrorDao::SlugTooLong));
   }
 
   ctx.accounts.reviewer_account.bump = bump;

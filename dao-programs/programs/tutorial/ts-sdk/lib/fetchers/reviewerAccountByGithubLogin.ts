@@ -8,7 +8,7 @@ const reviewerAccountByGithubLogin = async (
   githubLogin: string,
 ) => {
   const reviewerAccounts = await program.account.reviewerAccount.all([
-    filterReviewerByGithubLogin(githubLogin),
+    ...filterReviewerByGithubLogin(githubLogin),
   ]);
 
   return reviewerAccounts[0].account;

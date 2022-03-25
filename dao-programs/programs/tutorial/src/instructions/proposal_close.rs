@@ -12,7 +12,9 @@ pub struct ProposalCreatorClose<'info> {
     mut,
     constraint =  
       dao_config.admins.contains(&creator.key()) 
-      || creator.key() == proposal.creator,
+      || creator.key() == proposal.creator
+      @ ErrorDao::UnauthorizedAccess 
+    ,
     close = creator
   )]
   pub proposal: Account<'info, ProposalAccount>,
