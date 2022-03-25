@@ -20,7 +20,7 @@
     "build": "yarn build:cli && yarn build:types",
     "build:cli": "tsup src/cli.ts  --format esm,cjs --dts",
     "build:types": "tsup src/index.ts  --dts",
-    "link": "yarn link",
+    "link": "rm  -f ~/.config/yarn/link/@builderdao/cli && yarn link",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
