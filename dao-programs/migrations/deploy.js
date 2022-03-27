@@ -3,7 +3,7 @@ const { TOKEN_PROGRAM_ID } = require('@solana/spl-token');
 
 // anchor deploy --provider.cluster testnet
 // anchor migrate --provider.cluster testnet
-// DkDLANn2cCG7q557VA5ieicUQQYDnZsexgDrRZgcXRQX
+// prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp
 module.exports = async function (provider) {
   console.log('Deploying anchor...', provider);
   anchor.setProvider(provider);

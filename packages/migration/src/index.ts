@@ -4,6 +4,7 @@ import * as anchor from '@project-serum/anchor';
 import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
 
 import { makeMigrationCommand } from './commands/solana';
+import { makeUtilsCommand } from './commands/utils';
 import { createKeypairFromSecretKey } from './utils';
 
 const program = new commander.Command();
@@ -26,8 +27,7 @@ program.addOption(
     'Solana Admin KeyPair (bs58 encoded)',
   )
     .argParser(val => createKeypairFromSecretKey(val))
-    .env('SOLANA_ADMIN_KP')
-    .makeOptionMandatory(),
+    .env('SOLANA_ADMIN_KP'),
 );
 
 program.addOption(
@@ -37,6 +37,8 @@ program.addOption(
 );
 
 program.addCommand(makeMigrationCommand());
+
+program.addCommand(makeUtilsCommand());
 
 program.showSuggestionAfterError();
 

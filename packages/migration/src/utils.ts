@@ -1,5 +1,6 @@
 import * as bs58 from 'bs58';
 import * as anchor from '@project-serum/anchor';
+import fs from 'mz/fs';
 import { Keypair } from '@solana/web3.js';
 
 export const createKeypairFromSecretKey = (secretKey: string) => {
@@ -32,6 +33,17 @@ export const compareById = (a: any, b: any) => {
 
 export const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
+
+export const loadKeypairJson = (path: string) =>
+  Keypair.fromSecretKey(
+    Uint8Array.from(
+      JSON.parse(
+        fs.readFileSync(path, {
+          encoding: 'utf8',
+        }),
+      ),
+    ),
+  );
 
 export const parseDifficulty = (value: string) => {
   switch (value) {
