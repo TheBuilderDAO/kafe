@@ -13,25 +13,27 @@ declare_id!("prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp");
 pub mod tutorial {
   use super::*;
 
-  pub fn dao_initialize(
-    ctx: Context<DaoInitialize>,
-    bump: u8,
-    quorum: u64,
-    authorities: Vec<Pubkey>,
-  ) -> Result<()> {
-    instructions::dao_initialize::handler(ctx, bump, quorum, authorities)
-  }
-
-  pub fn dao_set_quorum(ctx: Context<DaoSetQuorum>, quorum: u64) -> Result<()> {
-    instructions::dao_set_quorum::handler(ctx, quorum)
-  }
-
   pub fn dao_add_admin(ctx: Context<DaoAddAdmin>, admin: Pubkey) -> Result<()> {
     instructions::dao_add_admin::handler(ctx, admin)
   }
 
   pub fn dao_remove_admin(ctx: Context<DaoRemoveAdmin>, admin: Pubkey) -> Result<()> {
     instructions::dao_remove_admin::handler(ctx, admin)
+  }
+
+  pub fn dao_close(ctx: Context<DaoClose>) -> Result<()> {
+    instructions::dao_close::handler(ctx)
+  }
+
+  pub fn dao_initialize(
+    ctx: Context<DaoInitialize>,
+    bump: u8,
+    quorum: u64,
+    min_amount_to_create_proposal: u64,
+    super_admin: Pubkey,
+    authorities: Vec<Pubkey>,
+  ) -> Result<()> {
+    instructions::dao_initialize::handler(ctx, bump, quorum, min_amount_to_create_proposal, super_admin, authorities)
   }
 
   pub fn dao_set_amount_to_create_proposal(
@@ -41,38 +43,45 @@ pub mod tutorial {
     instructions::dao_set_amount_to_create_proposal::handler(ctx, quorum)
   }
 
-  pub fn proposal_create(
-    ctx: Context<ProposalCreate>,
-    bump: u8,
-    id: u64,
-    slug: String,
-    stream_id: String,
-  ) -> Result<()> {
-    instructions::proposal_create::handler(ctx, bump, id, slug, stream_id)
+  pub fn dao_set_quorum(ctx: Context<DaoSetQuorum>, quorum: u64) -> Result<()> {
+    instructions::dao_set_quorum::handler(ctx, quorum)
   }
 
-  pub fn proposal_set_state(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
-    instructions::proposal_set_state::handler(ctx, state)
+  pub fn dao_vault_close(ctx: Context<DaoVaultClose>, bump: u8, amount: u64) -> Result<()> {
+    instructions::dao_vault_close::handler(ctx, bump, amount)
   }
 
-  pub fn proposal_publish(ctx: Context<ProposalPublish>, bump: u8) -> Result<()> {
-    instructions::proposal_publish::handler(ctx, bump)
+  pub fn dao_vault_inialize(ctx: Context<DaoVaultInitialize>) -> Result<()> {
+    instructions::dao_vault_initialize::handler(ctx)
   }
 
-  pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8) -> Result<()> {
-    instructions::guide_tipping::handler(ctx, bump, amount, bump_vault)
+  pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8, bump_bdr: u8) -> Result<()> {
+    instructions::guide_tipping::handler(ctx, bump, amount, bump_vault, bump_bdr)
   }
 
   pub fn proposal_close(ctx: Context<ProposalCreatorClose>, bump: u8) -> Result<()> {
     instructions::proposal_close::handler(ctx, bump)
   }
 
-  pub fn vote_cast(ctx: Context<VoteCast>, bump: u8, tutorial_id: u64) -> Result<()> {
-    instructions::vote_cast::handler(ctx, bump, tutorial_id)
+  pub fn proposal_create(
+    ctx: Context<ProposalCreate>,
+    bump: u8,
+    slug: String,
+    stream_id: String,
+  ) -> Result<()> {
+    instructions::proposal_create::handler(ctx, bump, slug, stream_id)
   }
 
-  pub fn vote_cancel(ctx: Context<VoteCancel>) -> Result<()> {
-    instructions::vote_cancel::handler(ctx)
+  pub fn proposal_publish(ctx: Context<ProposalPublish>, bump: u8) -> Result<()> {
+    instructions::proposal_publish::handler(ctx, bump)
+  }
+
+  pub fn proposal_set_state(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
+    instructions::proposal_set_state::handler(ctx, state)
+  }
+
+  pub fn reviewer_assign(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
+    instructions::reviewer_assign::handler(ctx, force)
   }
 
   pub fn reviewer_create(
@@ -84,19 +93,19 @@ pub mod tutorial {
     instructions::reviewer_create::handler(ctx, bump, reviewer, github_name)
   }
 
-  pub fn reviewer_delete(ctx: Context<ReviewerDelete>) -> Result<()> {
-    instructions::reviewer_delete::handler(ctx)
+  pub fn reviewer_delete(ctx: Context<ReviewerDelete>, force: bool) -> Result<()> {
+    instructions::reviewer_delete::handler(ctx, force)
   }
 
-  pub fn reviewer_assign(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
-    instructions::reviewer_assign::handler(ctx, force)
+  pub fn tipper_close(ctx: Context<TipperClose>) -> Result<()> {
+    instructions::tipper_close::handler(ctx)
   }
-}
 
-#[cfg(test)]
-mod tests {
-  #[test]
-  fn hello_test() {
-    println!("hello test");
+  pub fn vote_cancel(ctx: Context<VoteCancel>) -> Result<()> {
+    instructions::vote_cancel::handler(ctx)
+  }
+
+  pub fn vote_cast(ctx: Context<VoteCast>, bump: u8, tutorial_id: u64) -> Result<()> {
+    instructions::vote_cast::handler(ctx, bump, tutorial_id)
   }
 }

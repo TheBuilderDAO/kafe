@@ -7,29 +7,28 @@ import { getPda } from '../pda';
 /**
  * @param program Dao program.
  * @param mintPk  token mint pk.
- * @param userPk user publicKey to remove to Kafe admin list.
- * @param adminPk admin publicKey to authorize the transaction.
+ * @param admins list pk of admins.
+ * @param payerPk payer pk of the transaction.
+ * @param quorum number of voter to validate the transaction.
  * @param signer (optinal, default to provider.wallet.publicKey) signer of the transaction.
  * @returns signature of the transaction
  */
-export const daoRemoveAdmin = async ({
+export const daoClose = async ({
   program,
-  userPk,
-  adminPk,
+  super_adminPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  userPk: anchor.web3.PublicKey;
-  adminPk: anchor.web3.PublicKey;
+  super_adminPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
 
-  const signature = await program.rpc.daoRemoveAdmin(userPk, {
+  const signature = await program.rpc.daoClose({
     accounts: {
       daoAccount: daoAccount.pda,
-      authority: adminPk,
+      superAdmin: super_adminPk,
     },
     ...(signer && { signers: [signer] }),
   });
@@ -37,4 +36,4 @@ export const daoRemoveAdmin = async ({
   return signature;
 };
 
-export default daoRemoveAdmin;
+export default daoClose;

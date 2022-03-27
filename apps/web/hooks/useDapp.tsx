@@ -12,6 +12,7 @@ import {
   CERAMIC_SEED,
   NEXT_PUBLIC_CERAMIC_NODE_URL,
   NEXT_PUBLIC_KAFE_MINT,
+  NEXT_PUBLIC_BDR_MINT,
   NEXT_PUBLIC_SOLANA_NETWORK,
   NEXT_PUBLIC_SOLANA_NODE_URL,
 } from '@app/constants';
@@ -38,6 +39,7 @@ export const getApplicationFetcher = () => {
     network,
     wallet: null,
     kafeMint: new PublicKey(NEXT_PUBLIC_KAFE_MINT),
+    bdrMint: new PublicKey(NEXT_PUBLIC_BDR_MINT),
   });
   const ceramicApi = new CeramicApi({
     nodeUrl: NEXT_PUBLIC_CERAMIC_NODE_URL,
@@ -67,6 +69,7 @@ export const DappProvider = (props: DappProviderProps) => {
     connection,
     network,
     kafeMint: new PublicKey(NEXT_PUBLIC_KAFE_MINT),
+    bdrMint: new PublicKey(NEXT_PUBLIC_BDR_MINT),
   });
   const ceramicApi = new CeramicApi({
     nodeUrl: config?.ceramicApiUrl || NEXT_PUBLIC_CERAMIC_NODE_URL,
@@ -79,6 +82,7 @@ export const DappProvider = (props: DappProviderProps) => {
       connection,
       wallet as any,
       new PublicKey(NEXT_PUBLIC_KAFE_MINT),
+      new PublicKey(NEXT_PUBLIC_BDR_MINT),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [connection, wallet, wallet.connected]);

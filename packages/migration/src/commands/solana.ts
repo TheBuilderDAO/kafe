@@ -207,6 +207,7 @@ export function makeMigrationCommand() {
 
       const signature = await client.closeTutorial({
         id: options.id,
+        authorPk: walletPk,
         userPk: walletPk,
       });
       console.log(signature);
@@ -231,6 +232,7 @@ export function makeMigrationCommand() {
       try {
         const signature = await client.closeTutorial({
           id,
+          authorPk: walletPk,
           userPk: walletPk,
         });
         console.log({

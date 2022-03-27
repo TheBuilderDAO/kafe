@@ -4,7 +4,7 @@ use crate::errors::*;
 use crate::state::*;
 
 #[derive(Accounts)]
-pub struct ReviewerDelete<'info> {
+pub struct TipperClose<'info> {
   #[account(
     mut,
     constraint =  
@@ -12,25 +12,17 @@ pub struct ReviewerDelete<'info> {
       || authority.key() == dao_account.super_admin
       @ ErrorDao::UnauthorizedAccess
     ,
-    close = reviewer
+    close = tipper
   )]
-  pub reviewer_account: Account<'info, ReviewerAccount>,
+  pub tipper_account: Account<'info, TipperAccount>,
   pub dao_account: Account<'info, DaoAccount>,
   #[account(mut)]
   /// CHECK: we only add LAMPORT here
-  pub reviewer: UncheckedAccount<'info>,  
+  pub tipper: UncheckedAccount<'info>,
   #[account(mut)]
   pub authority: Signer<'info>,
 }
 
-pub fn handler(ctx: Context<ReviewerDelete>, force: bool) -> Result<()> {
-  if force { 
-    return Ok(()); 
-  }
-
-  if ctx.accounts.reviewer_account.number_of_assignment != 0 {
-    return Err(error!(ErrorDao::CannotDeleteAnAssignedReviewer));
-  }
-
+pub fn handler(_ctx: Context<TipperClose>) -> Result<()> {
   Ok(())
 }

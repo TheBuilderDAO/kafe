@@ -16,7 +16,6 @@ import { getPda } from '../pda';
  */
 export const reviewerAssign = async ({
   program,
-  mintPk,
   reviewer1Pk,
   reviewer2Pk,
   tutorialId,
@@ -25,7 +24,6 @@ export const reviewerAssign = async ({
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   reviewer1Pk: anchor.web3.PublicKey;
   reviewer2Pk: anchor.web3.PublicKey;
   tutorialId: number;
@@ -33,12 +31,11 @@ export const reviewerAssign = async ({
   force?: boolean;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaReviewerAccount, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaReviewerAccount, pdaProposalById } = getPda(
     program.programId,
-    mintPk,
   );
   const daoAccount = await pdaDaoAccount();
-  const tutorialAccount = await pdaTutorialById(tutorialId);
+  const tutorialAccount = await pdaProposalById(tutorialId);
   const reviewerAccount1 = await pdaReviewerAccount(reviewer1Pk);
   const reviewerAccount2 = await pdaReviewerAccount(reviewer2Pk);
 
@@ -46,8 +43,8 @@ export const reviewerAssign = async ({
     accounts: {
       reviewer1: reviewerAccount1.pda,
       reviewer2: reviewerAccount2.pda,
-      daoConfig: daoAccount.pda,
-      tutorial: tutorialAccount.pda,
+      daoAccount: daoAccount.pda,
+      proposalAccount: tutorialAccount.pda,
       authority: adminPk,
     },
     ...(signer && { signers: [signer] }),

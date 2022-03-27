@@ -4,10 +4,10 @@ import { Tutorial } from '../idl/tutorial';
 
 const proposalAccountById = async (
   program: Program<Tutorial>,
-  pdaTutorialById: any,
+  pdaProposalById: any,
   id: number,
 ) => {
-  const proposal = await pdaTutorialById(id);
+  const proposal = await pdaProposalById(id);
   return await program.account.proposalAccount.fetch(proposal.pda);
 };
 

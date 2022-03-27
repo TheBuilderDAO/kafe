@@ -3,92 +3,15 @@ export type Tutorial = {
   name: 'tutorial';
   instructions: [
     {
-      name: 'daoInitialize';
+      name: 'daoAddAdmin';
       accounts: [
         {
-          name: 'daoConfig';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'daoVault';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'mint';
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: 'systemProgram';
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: 'tokenProgram';
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: 'rent';
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: 'payer';
-          isMut: true;
-          isSigner: true;
-        },
-      ];
-      args: [
-        {
-          name: 'bump';
-          type: 'u8';
-        },
-        {
-          name: 'quorum';
-          type: 'u64';
-        },
-        {
-          name: 'authorities';
-          type: {
-            vec: 'publicKey';
-          };
-        },
-      ];
-    },
-    {
-      name: 'daoSetQuorum';
-      accounts: [
-        {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
         {
           name: 'authority';
-          isMut: false;
-          isSigner: true;
-        },
-      ];
-      args: [
-        {
-          name: 'quorum';
-          type: 'u64';
-        },
-      ];
-    },
-    {
-      name: 'daoAddAdmin';
-      accounts: [
-        {
-          name: 'daoConfig';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'signer';
           isMut: false;
           isSigner: true;
         },
@@ -104,12 +27,12 @@ export type Tutorial = {
       name: 'daoRemoveAdmin';
       accounts: [
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'signer';
+          name: 'authority';
           isMut: false;
           isSigner: true;
         },
@@ -122,47 +45,27 @@ export type Tutorial = {
       ];
     },
     {
-      name: 'daoSetAmountToCreateProposal';
+      name: 'daoClose';
       accounts: [
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'authority';
-          isMut: false;
+          name: 'superAdmin';
+          isMut: true;
           isSigner: true;
         },
       ];
-      args: [
-        {
-          name: 'quorum';
-          type: 'u64';
-        },
-      ];
+      args: [];
     },
     {
-      name: 'proposalCreate';
+      name: 'daoInitialize';
       accounts: [
         {
-          name: 'proposal';
+          name: 'daoAccount';
           isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'daoConfig';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'daoVault';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'mint';
-          isMut: false;
           isSigner: false;
         },
         {
@@ -180,16 +83,6 @@ export type Tutorial = {
           isMut: true;
           isSigner: true;
         },
-        {
-          name: 'userTokenAccount';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'tokenProgram';
-          isMut: false;
-          isSigner: false;
-        },
       ];
       args: [
         {
@@ -197,76 +90,93 @@ export type Tutorial = {
           type: 'u8';
         },
         {
-          name: 'id';
+          name: 'quorum';
           type: 'u64';
         },
         {
-          name: 'slug';
-          type: 'string';
+          name: 'minAmountToCreateProposal';
+          type: 'u64';
         },
         {
-          name: 'streamId';
-          type: 'string';
+          name: 'superAdmin';
+          type: 'publicKey';
+        },
+        {
+          name: 'authorities';
+          type: {
+            vec: 'publicKey';
+          };
         },
       ];
     },
     {
-      name: 'proposalSetState';
+      name: 'daoSetAmountToCreateProposal';
       accounts: [
         {
-          name: 'proposal';
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'authority';
           isMut: false;
-          isSigner: false;
-        },
-        {
-          name: 'signer';
-          isMut: true;
           isSigner: true;
         },
       ];
       args: [
         {
-          name: 'state';
-          type: 'string';
+          name: 'quorum';
+          type: 'u64';
         },
       ];
     },
     {
-      name: 'proposalPublish';
+      name: 'daoSetQuorum';
       accounts: [
         {
-          name: 'proposal';
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'authority';
           isMut: false;
-          isSigner: false;
+          isSigner: true;
         },
+      ];
+      args: [
         {
-          name: 'daoVaultKafe';
+          name: 'quorum';
+          type: 'u64';
+        },
+      ];
+    },
+    {
+      name: 'daoVaultClose';
+      accounts: [
+        {
+          name: 'daoVault';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'mintKafe';
+          name: 'daoAccount';
           isMut: false;
           isSigner: false;
         },
         {
-          name: 'signer';
+          name: 'mint';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'superAdmin';
           isMut: true;
           isSigner: true;
         },
         {
-          name: 'userTokenAccount';
-          isMut: true;
+          name: 'superAdminTokenAccount';
+          isMut: false;
           isSigner: false;
         },
         {
@@ -280,13 +190,53 @@ export type Tutorial = {
           name: 'bump';
           type: 'u8';
         },
+        {
+          name: 'amount';
+          type: 'u64';
+        },
       ];
+    },
+    {
+      name: 'daoVaultInialize';
+      accounts: [
+        {
+          name: 'daoVault';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mint';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'payer';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [];
     },
     {
       name: 'guideTipping';
       accounts: [
         {
-          name: 'tipper';
+          name: 'tipperAccount';
           isMut: true;
           isSigner: false;
         },
@@ -336,6 +286,16 @@ export type Tutorial = {
           isSigner: false;
         },
         {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
           name: 'creatorTokenAccount';
           isMut: true;
           isSigner: false;
@@ -347,6 +307,11 @@ export type Tutorial = {
         },
         {
           name: 'reviewer2TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tipperTokenAccount';
           isMut: true;
           isSigner: false;
         },
@@ -369,18 +334,27 @@ export type Tutorial = {
           name: 'bumpVault';
           type: 'u8';
         },
+        {
+          name: 'bumpBdr';
+          type: 'u8';
+        },
       ];
     },
     {
       name: 'proposalClose';
       accounts: [
         {
-          name: 'proposal';
+          name: 'proposalAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'creator';
           isMut: true;
           isSigner: false;
         },
@@ -395,7 +369,7 @@ export type Tutorial = {
           isSigner: false;
         },
         {
-          name: 'creator';
+          name: 'authority';
           isMut: true;
           isSigner: true;
         },
@@ -418,30 +392,30 @@ export type Tutorial = {
       ];
     },
     {
-      name: 'voteCast';
+      name: 'proposalCreate';
       accounts: [
         {
-          name: 'vote';
+          name: 'proposalAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'tutorial';
+          name: 'daoVault';
           isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'systemProgram';
-          isMut: false;
           isSigner: false;
         },
         {
           name: 'mint';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
           isMut: false;
           isSigner: false;
         },
@@ -451,9 +425,19 @@ export type Tutorial = {
           isSigner: false;
         },
         {
-          name: 'author';
+          name: 'payer';
           isMut: true;
           isSigner: true;
+        },
+        {
+          name: 'userTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
         },
       ];
       args: [
@@ -462,41 +446,122 @@ export type Tutorial = {
           type: 'u8';
         },
         {
-          name: 'tutorialId';
-          type: 'u64';
+          name: 'slug';
+          type: 'string';
+        },
+        {
+          name: 'streamId';
+          type: 'string';
         },
       ];
     },
     {
-      name: 'voteCancel';
+      name: 'proposalPublish';
       accounts: [
         {
-          name: 'vote';
+          name: 'proposalAccount';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: false;
           isSigner: false;
         },
         {
-          name: 'tutorial';
+          name: 'daoVaultKafe';
           isMut: true;
           isSigner: false;
         },
         {
-          name: 'mint';
+          name: 'mintKafe';
           isMut: false;
           isSigner: false;
         },
         {
-          name: 'author';
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+        {
+          name: 'userTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+      ];
+    },
+    {
+      name: 'proposalSetState';
+      accounts: [
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
           isMut: true;
           isSigner: true;
         },
       ];
-      args: [];
+      args: [
+        {
+          name: 'state';
+          type: 'string';
+        },
+      ];
+    },
+    {
+      name: 'reviewerAssign';
+      accounts: [
+        {
+          name: 'reviewer1';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer2';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'force';
+          type: 'bool';
+        },
+      ];
     },
     {
       name: 'reviewerCreate';
@@ -507,7 +572,7 @@ export type Tutorial = {
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: false;
           isSigner: false;
         },
@@ -551,38 +616,12 @@ export type Tutorial = {
           isSigner: false;
         },
         {
-          name: 'daoConfig';
+          name: 'daoAccount';
           isMut: false;
           isSigner: false;
         },
         {
-          name: 'authority';
-          isMut: true;
-          isSigner: true;
-        },
-      ];
-      args: [];
-    },
-    {
-      name: 'reviewerAssign';
-      accounts: [
-        {
-          name: 'reviewer1';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'reviewer2';
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: 'daoConfig';
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: 'tutorial';
+          name: 'reviewer';
           isMut: true;
           isSigner: false;
         },
@@ -596,6 +635,108 @@ export type Tutorial = {
         {
           name: 'force';
           type: 'bool';
+        },
+      ];
+    },
+    {
+      name: 'tipperClose';
+      accounts: [
+        {
+          name: 'tipperAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'tipper';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [];
+    },
+    {
+      name: 'voteCancel';
+      accounts: [
+        {
+          name: 'voteAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'author';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [];
+    },
+    {
+      name: 'voteCast';
+      accounts: [
+        {
+          name: 'voteAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'author';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'tutorialId';
+          type: 'u64';
         },
       ];
     },
@@ -615,12 +756,8 @@ export type Tutorial = {
             type: 'u64';
           },
           {
-            name: 'numberOfTutorial';
+            name: 'numberOfProposal';
             type: 'u64';
-          },
-          {
-            name: 'mint';
-            type: 'publicKey';
           },
           {
             name: 'quorum';
@@ -629,6 +766,10 @@ export type Tutorial = {
           {
             name: 'minAmountToCreateProposal';
             type: 'u64';
+          },
+          {
+            name: 'superAdmin';
+            type: 'publicKey';
           },
           {
             name: 'admins';
@@ -645,12 +786,12 @@ export type Tutorial = {
         kind: 'struct';
         fields: [
           {
-            name: 'id';
-            type: 'u64';
-          },
-          {
             name: 'bump';
             type: 'u8';
+          },
+          {
+            name: 'id';
+            type: 'u64';
           },
           {
             name: 'creator';
@@ -727,12 +868,12 @@ export type Tutorial = {
         kind: 'struct';
         fields: [
           {
-            name: 'tutorialId';
-            type: 'u64';
-          },
-          {
             name: 'bump';
             type: 'u8';
+          },
+          {
+            name: 'tutorialId';
+            type: 'u64';
           },
           {
             name: 'pubkey';
@@ -755,7 +896,7 @@ export type Tutorial = {
             type: 'u8';
           },
           {
-            name: 'tutorialId';
+            name: 'id';
             type: 'u64';
           },
           {
@@ -874,92 +1015,15 @@ export const IDL: Tutorial = {
   name: 'tutorial',
   instructions: [
     {
-      name: 'daoInitialize',
+      name: 'daoAddAdmin',
       accounts: [
         {
-          name: 'daoConfig',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'daoVault',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'mint',
-          isMut: false,
-          isSigner: false,
-        },
-        {
-          name: 'systemProgram',
-          isMut: false,
-          isSigner: false,
-        },
-        {
-          name: 'tokenProgram',
-          isMut: false,
-          isSigner: false,
-        },
-        {
-          name: 'rent',
-          isMut: false,
-          isSigner: false,
-        },
-        {
-          name: 'payer',
-          isMut: true,
-          isSigner: true,
-        },
-      ],
-      args: [
-        {
-          name: 'bump',
-          type: 'u8',
-        },
-        {
-          name: 'quorum',
-          type: 'u64',
-        },
-        {
-          name: 'authorities',
-          type: {
-            vec: 'publicKey',
-          },
-        },
-      ],
-    },
-    {
-      name: 'daoSetQuorum',
-      accounts: [
-        {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
         {
           name: 'authority',
-          isMut: false,
-          isSigner: true,
-        },
-      ],
-      args: [
-        {
-          name: 'quorum',
-          type: 'u64',
-        },
-      ],
-    },
-    {
-      name: 'daoAddAdmin',
-      accounts: [
-        {
-          name: 'daoConfig',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'signer',
           isMut: false,
           isSigner: true,
         },
@@ -975,12 +1039,12 @@ export const IDL: Tutorial = {
       name: 'daoRemoveAdmin',
       accounts: [
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'signer',
+          name: 'authority',
           isMut: false,
           isSigner: true,
         },
@@ -993,47 +1057,27 @@ export const IDL: Tutorial = {
       ],
     },
     {
-      name: 'daoSetAmountToCreateProposal',
+      name: 'daoClose',
       accounts: [
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'authority',
-          isMut: false,
+          name: 'superAdmin',
+          isMut: true,
           isSigner: true,
         },
       ],
-      args: [
-        {
-          name: 'quorum',
-          type: 'u64',
-        },
-      ],
+      args: [],
     },
     {
-      name: 'proposalCreate',
+      name: 'daoInitialize',
       accounts: [
         {
-          name: 'proposal',
+          name: 'daoAccount',
           isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'daoConfig',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'daoVault',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'mint',
-          isMut: false,
           isSigner: false,
         },
         {
@@ -1051,16 +1095,6 @@ export const IDL: Tutorial = {
           isMut: true,
           isSigner: true,
         },
-        {
-          name: 'userTokenAccount',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'tokenProgram',
-          isMut: false,
-          isSigner: false,
-        },
       ],
       args: [
         {
@@ -1068,76 +1102,93 @@ export const IDL: Tutorial = {
           type: 'u8',
         },
         {
-          name: 'id',
+          name: 'quorum',
           type: 'u64',
         },
         {
-          name: 'slug',
-          type: 'string',
+          name: 'minAmountToCreateProposal',
+          type: 'u64',
         },
         {
-          name: 'streamId',
-          type: 'string',
+          name: 'superAdmin',
+          type: 'publicKey',
+        },
+        {
+          name: 'authorities',
+          type: {
+            vec: 'publicKey',
+          },
         },
       ],
     },
     {
-      name: 'proposalSetState',
+      name: 'daoSetAmountToCreateProposal',
       accounts: [
         {
-          name: 'proposal',
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'authority',
           isMut: false,
-          isSigner: false,
-        },
-        {
-          name: 'signer',
-          isMut: true,
           isSigner: true,
         },
       ],
       args: [
         {
-          name: 'state',
-          type: 'string',
+          name: 'quorum',
+          type: 'u64',
         },
       ],
     },
     {
-      name: 'proposalPublish',
+      name: 'daoSetQuorum',
       accounts: [
         {
-          name: 'proposal',
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'authority',
           isMut: false,
-          isSigner: false,
+          isSigner: true,
         },
+      ],
+      args: [
         {
-          name: 'daoVaultKafe',
+          name: 'quorum',
+          type: 'u64',
+        },
+      ],
+    },
+    {
+      name: 'daoVaultClose',
+      accounts: [
+        {
+          name: 'daoVault',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'mintKafe',
+          name: 'daoAccount',
           isMut: false,
           isSigner: false,
         },
         {
-          name: 'signer',
+          name: 'mint',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'superAdmin',
           isMut: true,
           isSigner: true,
         },
         {
-          name: 'userTokenAccount',
-          isMut: true,
+          name: 'superAdminTokenAccount',
+          isMut: false,
           isSigner: false,
         },
         {
@@ -1151,13 +1202,53 @@ export const IDL: Tutorial = {
           name: 'bump',
           type: 'u8',
         },
+        {
+          name: 'amount',
+          type: 'u64',
+        },
       ],
+    },
+    {
+      name: 'daoVaultInialize',
+      accounts: [
+        {
+          name: 'daoVault',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mint',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'payer',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [],
     },
     {
       name: 'guideTipping',
       accounts: [
         {
-          name: 'tipper',
+          name: 'tipperAccount',
           isMut: true,
           isSigner: false,
         },
@@ -1207,6 +1298,16 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
           name: 'creatorTokenAccount',
           isMut: true,
           isSigner: false,
@@ -1218,6 +1319,11 @@ export const IDL: Tutorial = {
         },
         {
           name: 'reviewer2TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tipperTokenAccount',
           isMut: true,
           isSigner: false,
         },
@@ -1240,18 +1346,27 @@ export const IDL: Tutorial = {
           name: 'bumpVault',
           type: 'u8',
         },
+        {
+          name: 'bumpBdr',
+          type: 'u8',
+        },
       ],
     },
     {
       name: 'proposalClose',
       accounts: [
         {
-          name: 'proposal',
+          name: 'proposalAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'creator',
           isMut: true,
           isSigner: false,
         },
@@ -1266,7 +1381,7 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
-          name: 'creator',
+          name: 'authority',
           isMut: true,
           isSigner: true,
         },
@@ -1289,30 +1404,30 @@ export const IDL: Tutorial = {
       ],
     },
     {
-      name: 'voteCast',
+      name: 'proposalCreate',
       accounts: [
         {
-          name: 'vote',
+          name: 'proposalAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'tutorial',
+          name: 'daoVault',
           isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'systemProgram',
-          isMut: false,
           isSigner: false,
         },
         {
           name: 'mint',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
           isMut: false,
           isSigner: false,
         },
@@ -1322,9 +1437,19 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
-          name: 'author',
+          name: 'payer',
           isMut: true,
           isSigner: true,
+        },
+        {
+          name: 'userTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
         },
       ],
       args: [
@@ -1333,41 +1458,122 @@ export const IDL: Tutorial = {
           type: 'u8',
         },
         {
-          name: 'tutorialId',
-          type: 'u64',
+          name: 'slug',
+          type: 'string',
+        },
+        {
+          name: 'streamId',
+          type: 'string',
         },
       ],
     },
     {
-      name: 'voteCancel',
+      name: 'proposalPublish',
       accounts: [
         {
-          name: 'vote',
+          name: 'proposalAccount',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: false,
           isSigner: false,
         },
         {
-          name: 'tutorial',
+          name: 'daoVaultKafe',
           isMut: true,
           isSigner: false,
         },
         {
-          name: 'mint',
+          name: 'mintKafe',
           isMut: false,
           isSigner: false,
         },
         {
-          name: 'author',
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+        {
+          name: 'userTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+      ],
+    },
+    {
+      name: 'proposalSetState',
+      accounts: [
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
           isMut: true,
           isSigner: true,
         },
       ],
-      args: [],
+      args: [
+        {
+          name: 'state',
+          type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'reviewerAssign',
+      accounts: [
+        {
+          name: 'reviewer1',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer2',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'force',
+          type: 'bool',
+        },
+      ],
     },
     {
       name: 'reviewerCreate',
@@ -1378,7 +1584,7 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: false,
           isSigner: false,
         },
@@ -1422,38 +1628,12 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
-          name: 'daoConfig',
+          name: 'daoAccount',
           isMut: false,
           isSigner: false,
         },
         {
-          name: 'authority',
-          isMut: true,
-          isSigner: true,
-        },
-      ],
-      args: [],
-    },
-    {
-      name: 'reviewerAssign',
-      accounts: [
-        {
-          name: 'reviewer1',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'reviewer2',
-          isMut: true,
-          isSigner: false,
-        },
-        {
-          name: 'daoConfig',
-          isMut: false,
-          isSigner: false,
-        },
-        {
-          name: 'tutorial',
+          name: 'reviewer',
           isMut: true,
           isSigner: false,
         },
@@ -1467,6 +1647,108 @@ export const IDL: Tutorial = {
         {
           name: 'force',
           type: 'bool',
+        },
+      ],
+    },
+    {
+      name: 'tipperClose',
+      accounts: [
+        {
+          name: 'tipperAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'tipper',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [],
+    },
+    {
+      name: 'voteCancel',
+      accounts: [
+        {
+          name: 'voteAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'author',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [],
+    },
+    {
+      name: 'voteCast',
+      accounts: [
+        {
+          name: 'voteAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'author',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'tutorialId',
+          type: 'u64',
         },
       ],
     },
@@ -1486,12 +1768,8 @@ export const IDL: Tutorial = {
             type: 'u64',
           },
           {
-            name: 'numberOfTutorial',
+            name: 'numberOfProposal',
             type: 'u64',
-          },
-          {
-            name: 'mint',
-            type: 'publicKey',
           },
           {
             name: 'quorum',
@@ -1500,6 +1778,10 @@ export const IDL: Tutorial = {
           {
             name: 'minAmountToCreateProposal',
             type: 'u64',
+          },
+          {
+            name: 'superAdmin',
+            type: 'publicKey',
           },
           {
             name: 'admins',
@@ -1516,12 +1798,12 @@ export const IDL: Tutorial = {
         kind: 'struct',
         fields: [
           {
-            name: 'id',
-            type: 'u64',
-          },
-          {
             name: 'bump',
             type: 'u8',
+          },
+          {
+            name: 'id',
+            type: 'u64',
           },
           {
             name: 'creator',
@@ -1598,12 +1880,12 @@ export const IDL: Tutorial = {
         kind: 'struct',
         fields: [
           {
-            name: 'tutorialId',
-            type: 'u64',
-          },
-          {
             name: 'bump',
             type: 'u8',
+          },
+          {
+            name: 'tutorialId',
+            type: 'u64',
           },
           {
             name: 'pubkey',
@@ -1626,7 +1908,7 @@ export const IDL: Tutorial = {
             type: 'u8',
           },
           {
-            name: 'tutorialId',
+            name: 'id',
             type: 'u64',
           },
           {

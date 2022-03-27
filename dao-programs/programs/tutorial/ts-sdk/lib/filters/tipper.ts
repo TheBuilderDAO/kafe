@@ -4,7 +4,7 @@ import { PublicKey } from '@solana/web3.js';
 import { publicKeyToBytes, numberToBytes } from '../utils';
 
 enum TipperOffset {
-  Id = 8,
+  Id = 9,
   Publickey = 17,
 }
 

@@ -6,7 +6,7 @@ use crate::constants::*;
 #[derive(Default)]
 pub struct VoteAccount {
   pub bump: u8,
-  pub tutorial_id: u64,
+  pub id: u64,
   pub author: Pubkey,
   pub voted_at: i64,
 }

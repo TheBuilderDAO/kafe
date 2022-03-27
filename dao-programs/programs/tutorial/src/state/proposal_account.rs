@@ -6,8 +6,8 @@ use crate::constants::*;
 
 #[account]
 pub struct ProposalAccount {
-  pub id: u64,
   pub bump: u8,
+  pub id: u64,
   pub creator: Pubkey,
   pub reviewer1: Pubkey,
   pub reviewer2: Pubkey,

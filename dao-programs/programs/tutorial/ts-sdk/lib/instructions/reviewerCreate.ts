@@ -15,23 +15,18 @@ import { getPda } from '../pda';
  */
 export const reviewerCreate = async ({
   program,
-  mintPk,
   adminPk,
   reviewerPk,
   githubName,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   adminPk: anchor.web3.PublicKey;
   reviewerPk: anchor.web3.PublicKey;
   githubName: string;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaReviewerAccount } = getPda(
-    program.programId,
-    mintPk,
-  );
+  const { pdaDaoAccount, pdaReviewerAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
   const reviewerAccount = await pdaReviewerAccount(reviewerPk);
 
@@ -42,7 +37,7 @@ export const reviewerCreate = async ({
     {
       accounts: {
         reviewerAccount: reviewerAccount.pda,
-        daoConfig: daoAccount.pda,
+        daoAccount: daoAccount.pda,
         systemProgram: anchor.web3.SystemProgram.programId,
         rent: anchor.web3.SYSVAR_RENT_PUBKEY,
         authority: adminPk,

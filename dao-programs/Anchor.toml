@@ -7,6 +7,60 @@ tutorial = "prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp"
 [programs.testnet]
 tutorial = "prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp"
 
+[test.validator]
+url = "https://api.testnet.solana.com"
+
+[[test.validator.clone]]
+address = "KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW"
+[[test.validator.clone]]
+address = "BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2" 
+[[test.validator.clone]]
+address = "kaf4vazd5QTkKkKs5ov6dBpbV59MqZXdmwQHrqbCRU9"
+[[test.validator.clone]]
+address = "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA" 
+[[test.validator.clone]]
+address = "7mQ88Wv4WSxD3z5mmbMifN6EEhvYSSuqn7NnsJKs2eh5" 
+[[test.validator.clone]]
+address = "adm4QdxU7JB11iyWQcUW3mRJG3eWGTW8k7EtG9Nto5U"
+[[test.validator.clone]]
+address = "G6TwN9FN2FUVGJLBYBBH71E3XyCsWkBcgakWa1VAasvi"
+[[test.validator.clone]]
+address = "2HftvC7fH48EKnFWF3T4WfpeKVeRKSVhgLCAh6eSAqFT"
+[[test.validator.clone]]
+address = "admkR5v1uVpJiuYfqEiuQttEspTDsU7EZeXorewbieo"
+[[test.validator.clone]]
+address = "CDmCTZrsgyh9eTsFEJ9FazPDQbHGiySQSPojbN6ZBVud"
+[[test.validator.clone]]
+address = "votmob8aSGR9m2fy8U2P9ucj5BmiHoaFDMXKU3gnZGx"
+[[test.validator.clone]]
+address = "6PgFX9gFsZ38uReRYqzTHnqaimv22hBsrnQsHHgMS84K"
+[[test.validator.clone]]
+address = "vot9Ch8mYgrxQPpT9wNnkXz1UzzdCyecaurBuVet2w3"
+[[test.validator.clone]]
+address = "D4cCCU97FGTw4z6CELkXJREykjyPmbhmy9vxhAPhTEy5"
+[[test.validator.clone]]
+address = "revWpUzLrnvDpspvhe7jrZRio96R3NGd2xm954y9kmG"
+[[test.validator.clone]]
+address = "FKf7zJXYqj3LkyGQpQXpbZqDgbWxHDFc2h95xqQwZswE"
+[[test.validator.clone]]
+address = "revqvm9WnN3KNH94jr8j74AL8FG4oZPN4eh1ov5aPg7"
+[[test.validator.clone]]
+address = "7mQ88Wv4WSxD3z5mmbMifN6EEhvYSSuqn7NnsJKs2eh5"
+[[test.validator.clone]]
+address = "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+[[test.validator.clone]]
+address = "CBDLikPTuEksvMPZEXuuLgz3b6mU8cLAMrrDyHrKYG8a"
+[[test.validator.clone]]
+address = "EX9nCPQ7492cddMgzFLUV2EJXpAxNomuxM33KgP8iW4Q"
+[[test.validator.clone]]
+address = "RJYpK66smwpPhSevWzuxzS4dtwkhuQnXSy2M5USSpkU"
+[[test.validator.clone]]
+address = "2ZF26cPAjZdcBN6XMffk5mgy8oskm6Fp1EB5HVS6Gr9q"
+[[test.validator.clone]]
+address = "Cz8BSDNqBjg14YBPGqmN2ChdHJzPxeY4yKeshAcB39dc"
+[[test.validator.clone]]
+address = "3kjA4LJ8EmSmW21FSvwpv7uaHgd1GfKgGnUt1AmTU5Ju"
+
 [registry]
 url = "https://anchor.projectserum.com"
 

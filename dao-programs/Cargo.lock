@@ -1307,6 +1307,7 @@ dependencies = [
  "anchor-lang 0.23.0",
  "anchor-spl 0.23.0",
  "num-traits",
+ "spl-token",
  "vipers",
 ]
 

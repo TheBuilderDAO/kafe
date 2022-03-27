@@ -1,8 +1,10 @@
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 
 import { Tutorial } from '../idl/tutorial';
 import { getPda } from '../pda';
+import { getAta } from '../utils';
 
 /**
  * @param program Dao program.
@@ -13,38 +15,35 @@ import { getPda } from '../pda';
  * @param signer (optinal, default to provider.wallet.publicKey) signer of the transaction.
  * @returns signature of the transaction
  */
-export const daoInitialize = async ({
+export const daoVaultClose = async ({
   program,
-  minAmountToCreateProposal,
-  admins,
-  superAdmin,
-  payerPk,
-  quorum,
+  mintPk,
+  amount,
+  superAdminPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  minAmountToCreateProposal: anchor.BN;
-  superAdmin: anchor.web3.PublicKey;
-  admins: anchor.web3.PublicKey[];
-  payerPk: anchor.web3.PublicKey;
-  quorum: anchor.BN;
+  mintPk: anchor.web3.PublicKey;
+  amount: anchor.BN;
+  superAdminPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount } = getPda(program.programId);
+  const { pdaDaoAccount, pdaDaoVaultAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
+  const daoVaultAccount = await pdaDaoVaultAccount(mintPk);
+  const superAdminTokenAccount = await getAta(superAdminPk, mintPk);
 
-  const signature = await program.rpc.daoInitialize(
-    daoAccount.bump,
-    quorum,
-    minAmountToCreateProposal,
-    superAdmin,
-    admins,
+  const signature = await program.rpc.daoVaultClose(
+    daoVaultAccount.bump,
+    amount,
     {
       accounts: {
+        daoVault: daoVaultAccount.pda,
         daoAccount: daoAccount.pda,
-        systemProgram: anchor.web3.SystemProgram.programId,
-        rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-        payer: payerPk,
+        mint: mintPk,
+        superAdmin: superAdminPk,
+        superAdminTokenAccount,
+        tokenProgram: TOKEN_PROGRAM_ID,
       },
       ...(signer && { signers: [signer] }),
     },
@@ -53,4 +52,4 @@ export const daoInitialize = async ({
   return signature;
 };
 
-export default daoInitialize;
+export default daoVaultClose;

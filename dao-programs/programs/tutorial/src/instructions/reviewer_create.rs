@@ -16,11 +16,12 @@ pub struct ReviewerCreate<'info> {
     ],
     bump,
     space = ReviewerAccount::space(&github_name),
-    constraint = dao_config.admins.contains(&authority.key()) 
+    constraint = dao_account.admins.contains(&authority.key()) 
+    || authority.key() == dao_account.super_admin
     @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer_account: Account<'info, ReviewerAccount>,
-  pub dao_config : Account<'info, DaoAccount>,
+  pub dao_account: Account<'info, DaoAccount>,
   pub system_program: Program<'info, System>,
   pub rent: Sysvar<'info, Rent>,
   #[account(mut)]

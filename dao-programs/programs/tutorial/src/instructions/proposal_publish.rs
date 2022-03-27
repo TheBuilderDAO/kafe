@@ -9,24 +9,25 @@ use crate::constants::*;
 pub struct ProposalPublish<'info> {
   #[account(
     mut,
-    constraint = dao_config.admins.contains(&signer.key()) 
-    || signer.key() == proposal.creator
+    constraint = dao_account.admins.contains(&authority.key()) 
+    || authority.key() == dao_account.super_admin
+    || authority.key() == proposal_account.creator
     @ ErrorDao::UnauthorizedAccess 
   )]
-  pub proposal: Account<'info, ProposalAccount>,
-  pub dao_config: Account<'info, DaoAccount>,
+  pub proposal_account: Account<'info, ProposalAccount>,
+  pub dao_account: Account<'info, DaoAccount>,
   #[account(mut)]
   pub dao_vault_kafe: Account<'info, TokenAccount>,
   pub mint_kafe: Account<'info, Mint>,
   #[account(mut)]
-  pub signer: Signer<'info>,
+  pub authority: Signer<'info>,
   #[account(mut)]
   pub user_token_account: Account<'info, TokenAccount>,
   pub token_program: Program<'info, Token>,
 }
 
 pub fn handler(ctx: Context<ProposalPublish>, bump: u8) -> Result<()> {
-  let current_state = &mut ctx.accounts.proposal.state;
+  let current_state = &mut ctx.accounts.proposal_account.state;
 
   if *current_state != ProposalState::ReadyToPublish {
     return Err(error!(ErrorDao::InvalidState));

@@ -45,7 +45,7 @@ export const useProposeTutorial = <AD>(): [
         setError(null);
         setSubmitting(true);
 
-        const id = daoState.numberOfTutorial.toNumber();
+        const id = daoState.nonce.toNumber();
 
         // Store Metadata to Ceramic. Get CID
         const { streamId } = await storeMetadata({

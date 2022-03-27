@@ -4,7 +4,7 @@ import { ProposalStateE } from '../instructions/proposalSetState';
 import { numberToBytes, stringToBytes } from '../utils';
 
 enum ProposalOffset {
-  Id = 8,
+  Id = 9,
   State = 145,
   StreamId = 150,
   Slug = 217,
