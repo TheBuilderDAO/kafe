@@ -213,24 +213,26 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
     .checked_add(50000000)
     .and_then(|v| v.to_u64()));
 
-  let cpi_program5 = ctx.accounts.token_program.to_account_info();
-  let cpi_accounts5 = ThawAccount {
-    account: ctx.accounts.tipper_token_account.to_account_info(),
-    mint: ctx.accounts.mint_bdr.to_account_info(),
-    authority: ctx.accounts.dao_vault_bdr.to_account_info(),
-  };
+  if ctx.accounts.tipper_token_account.is_frozen() { 
+    let cpi_program5 = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts5 = ThawAccount {
+      account: ctx.accounts.tipper_token_account.to_account_info(),
+      mint: ctx.accounts.mint_bdr.to_account_info(),
+      authority: ctx.accounts.dao_vault_bdr.to_account_info(),
+    };
 
-  token::thaw_account(
-    CpiContext::new_with_signer(
-      cpi_program5,
-      cpi_accounts5,
-      &[&[
-        PROGRAM_SEED.as_bytes(),
-        ctx.accounts.mint_bdr.key().as_ref(),
-        &[bump_bdr],
-      ]],
-    ),
-  )?;
+    token::thaw_account(
+      CpiContext::new_with_signer(
+        cpi_program5,
+        cpi_accounts5,
+        &[&[
+          PROGRAM_SEED.as_bytes(),
+          ctx.accounts.mint_bdr.key().as_ref(),
+          &[bump_bdr],
+        ]],
+      ),
+    )?;
+  }
 
   let cpi_program = ctx.accounts.token_program.to_account_info();
   let cpi_accounts4 = Transfer {
