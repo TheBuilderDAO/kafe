@@ -1,7 +1,6 @@
 import useProgress from '@app/lib/hooks/useProgress';
 import useScrollSpy from '@app/lib/hooks/useScrollSpy';
-import { useReducedMotion, motion, useViewportScroll } from 'framer-motion';
-import { type } from 'os';
+import { motion } from 'framer-motion';
 import React from 'react';
 import ProgressBar from './ProgressBar';
 
@@ -16,29 +15,7 @@ interface TableOfContentProps {
 const OFFSET = 150;
 
 const TableOfContent = ({ toc }: TableOfContentProps) => {
-  const shouldReduceMotion = useReducedMotion();
   const readingProgress = useProgress();
-
-  /**
-   * Only show the table of content between 7% and 95%
-   * of the page scrolled.
-   */
-  const shouldShowTableOfContent =
-    readingProgress > 0.07 && readingProgress < 0.95;
-
-  /**
-   * Variants handling hidding/showing the table of content
-   * based on the amount scrolled by the reader
-   */
-  const variants = {
-    hide: {
-      opacity: shouldReduceMotion ? 1 : 0,
-    },
-    show: (shouldShowTableOfContent: boolean) => ({
-      opacity: shouldReduceMotion || shouldShowTableOfContent ? 1 : 0,
-    }),
-  };
-
   /**
    * Handles clicks on links of the table of content and smooth
    * scrolls to the corresponding section.
@@ -47,10 +24,7 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
    */
   const handleLinkClick = (event: React.MouseEvent, id: string) => {
     event.preventDefault();
-    console.log(toc);
-    console.log(id);
     const element = document.getElementById(id)!;
-    console.log(element);
     const bodyRect = document.body.getBoundingClientRect().top;
     const elementRect = element.getBoundingClientRect().top;
     const elementPosition = elementRect - bodyRect;
@@ -70,18 +44,14 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
    * to have its corresponding title highlighted in the
    * table of content
    */
-
-  console.log(toc);
   const [currentActiveIndex] = useScrollSpy(
     typeof document !== 'undefined'
       ? toc.map(item => document.querySelector(`section[id="${item.id}"]`))
       : [],
     { offset: OFFSET },
   );
-  const { scrollYProgress } = useViewportScroll();
-
   return (
-    <div className="flex flex-row">
+    <div className={`flex flex-row py-4`}>
       <ProgressBar progress={readingProgress} />
       {toc.length > 0 ? (
         <ul className="ml-2">
@@ -90,18 +60,24 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
             return (
               <motion.li
                 className={`
+                  ${
+                    currentActiveIndex < index + 2 - item.depth &&
+                    item.depth > 2
+                      ? 'hidden'
+                      : 'block'
+                  }
                   px-4
                   py-1
                   ${
                     currentActiveIndex === index
                       ? 'text-kafered dark:text-kafegold font-bold'
-                      : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
+                      : 'text-kafeblack dark:text-kafewhite'
                   }`}
                 key={item.id}
               >
                 <a
                   href={`${item.href}`}
-                  className="break-all"
+                  className="font-mono break-all text-md"
                   onClick={event => handleLinkClick(event, `${item.id}`)}
                 >
                   {'∘'.repeat(item.depth - 1)} {item.title}
