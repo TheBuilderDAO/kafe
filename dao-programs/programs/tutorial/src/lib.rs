@@ -33,7 +33,14 @@ pub mod tutorial {
     super_admin: Pubkey,
     authorities: Vec<Pubkey>,
   ) -> Result<()> {
-    instructions::dao_initialize::handler(ctx, bump, quorum, min_amount_to_create_proposal, super_admin, authorities)
+    instructions::dao_initialize::handler(
+      ctx,
+      bump,
+      quorum,
+      min_amount_to_create_proposal,
+      super_admin,
+      authorities,
+    )
   }
 
   pub fn dao_set_amount_to_create_proposal(
@@ -47,15 +54,26 @@ pub mod tutorial {
     instructions::dao_set_quorum::handler(ctx, quorum)
   }
 
-  pub fn dao_vault_close(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool) -> Result<()> {
+  pub fn dao_vault_close(
+    ctx: Context<DaoVaultClose>,
+    bump: u8,
+    amount: u64,
+    freeze: bool,
+  ) -> Result<()> {
     instructions::dao_vault_close::handler(ctx, bump, amount, freeze)
   }
 
-  pub fn dao_vault_inialize(ctx: Context<DaoVaultInitialize>) -> Result<()> {
+  pub fn dao_vault_initialize(ctx: Context<DaoVaultInitialize>) -> Result<()> {
     instructions::dao_vault_initialize::handler(ctx)
   }
 
-  pub fn guide_tipping(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8, bump_bdr: u8) -> Result<()> {
+  pub fn guide_tipping(
+    ctx: Context<GuideTipping>,
+    bump: u8,
+    amount: u64,
+    bump_vault: u8,
+    bump_bdr: u8,
+  ) -> Result<()> {
     instructions::guide_tipping::handler(ctx, bump, amount, bump_vault, bump_bdr)
   }
 

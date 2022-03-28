@@ -201,7 +201,7 @@ export type Tutorial = {
       ];
     },
     {
-      name: 'daoVaultInialize';
+      name: 'daoVaultInitialize';
       accounts: [
         {
           name: 'daoVault';
@@ -542,6 +542,16 @@ export type Tutorial = {
         {
           name: 'reviewer2';
           isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'prevReviewer1';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'prevReviewer2';
+          isMut: false;
           isSigner: false;
         },
         {
@@ -1217,7 +1227,7 @@ export const IDL: Tutorial = {
       ],
     },
     {
-      name: 'daoVaultInialize',
+      name: 'daoVaultInitialize',
       accounts: [
         {
           name: 'daoVault',
@@ -1558,6 +1568,16 @@ export const IDL: Tutorial = {
         {
           name: 'reviewer2',
           isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'prevReviewer1',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'prevReviewer2',
+          isMut: false,
           isSigner: false,
         },
         {

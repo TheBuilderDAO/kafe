@@ -22,6 +22,14 @@ program.addOption(
 );
 
 program.addOption(
+  new commander.Option('--bdrPk <bdrPk>', 'BDR Token PublicKey').default(
+    new anchor.web3.PublicKey(
+      'BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2',
+    ).toString(),
+  ),
+);
+
+program.addOption(
   new commander.Option(
     '--solanaAdminKey <solanaAdminKey>',
     'Solana Admin KeyPair (bs58 encoded)',

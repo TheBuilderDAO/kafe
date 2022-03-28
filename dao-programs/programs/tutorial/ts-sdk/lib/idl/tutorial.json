@@ -201,7 +201,7 @@
       ]
     },
     {
-      "name": "daoVaultInialize",
+      "name": "daoVaultInitialize",
       "accounts": [
         {
           "name": "daoVault",
@@ -542,6 +542,16 @@
         {
           "name": "reviewer2",
           "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "prevReviewer1",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "prevReviewer2",
+          "isMut": false,
           "isSigner": false
         },
         {

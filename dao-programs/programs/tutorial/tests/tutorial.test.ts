@@ -420,6 +420,14 @@ describe('tutorial-program', () => {
     expect(daoAccount.minAmountToCreateProposal.toNumber()).toBe(
       new anchor.BN(1_000_000).toNumber(),
     );
+
+    await reviewerCreate({
+      program: program,
+      adminPk: superAdmin.publicKey,
+      reviewerPk: superAdmin.publicKey,
+      githubName: 'sudo',
+      signer: superAdmin,
+    });
   });
 
   test('Dao Account setter', async () => {
@@ -694,7 +702,7 @@ describe('tutorial-program', () => {
         adminPk: auth1.publicKey,
         reviewer1Pk: user1.publicKey,
         reviewer2Pk: reviewer2.publicKey,
-        tutorialId: 0,
+        proposalId: 0,
         signer: auth1,
       }),
     ).rejects.toThrow();
@@ -713,7 +721,7 @@ describe('tutorial-program', () => {
       adminPk: auth1.publicKey,
       reviewer1Pk: user2.publicKey,
       reviewer2Pk: user2.publicKey,
-      tutorialId: 1,
+      proposalId: 1,
       force: true,
       signer: auth1,
     });
@@ -741,7 +749,7 @@ describe('tutorial-program', () => {
       adminPk: auth1.publicKey,
       reviewer1Pk: reviewer1.publicKey,
       reviewer2Pk: reviewer2.publicKey,
-      tutorialId: 0,
+      proposalId: 0,
       signer: auth1,
     });
 

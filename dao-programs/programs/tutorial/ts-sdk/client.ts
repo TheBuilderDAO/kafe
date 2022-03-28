@@ -254,7 +254,7 @@ export class TutorialProgramClient {
       program: this.tutorialProgram,
       reviewer1Pk: data.reviewerPks[0],
       reviewer2Pk: data.reviewerPks[1],
-      tutorialId: data.id,
+      proposalId: data.id,
       adminPk: data.authorityPk,
       force: data.force,
     });
@@ -289,7 +289,6 @@ export class TutorialProgramClient {
   }
 
   async proposalPublish(data: {
-    newState: ProposalStateE;
     authorPk: anchor.web3.PublicKey;
     adminPk: anchor.web3.PublicKey;
     id: number;

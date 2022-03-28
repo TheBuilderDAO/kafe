@@ -69,8 +69,12 @@ export const parseTags = (value: string) => {
   }
 };
 
-export const parseSlug = (slug: string, protocol: string) => {
-  if (!slug.startsWith(protocol)) {
+export const parseSlug = (slug: string, protocol0: string) => {
+  let protocol = protocol0;
+  if (protocol0 === 'The Graph') {
+    protocol = 'the-graph';
+  }
+  if (!slug.startsWith(protocol.toLowerCase())) {
     return `${protocol.toLowerCase()}-${slug}`;
   }
   return slug;

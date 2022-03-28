@@ -19,6 +19,8 @@ pub struct ReviewerAssign<'info> {
     @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer2: Account<'info, ReviewerAccount>,
+  pub prev_reviewer1: Account<'info, ReviewerAccount>,
+  pub prev_reviewer2: Account<'info, ReviewerAccount>,
   pub dao_account: Account<'info, DaoAccount>,
   #[account(mut)]
   pub proposal_account: Account<'info, ProposalAccount>,
@@ -33,6 +35,8 @@ pub fn handler(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
   
     ctx.accounts.reviewer1.number_of_assignment += 1;
     ctx.accounts.reviewer2.number_of_assignment += 1;
+    ctx.accounts.prev_reviewer1.number_of_assignment -= 1;
+    ctx.accounts.prev_reviewer2.number_of_assignment -= 1;
   
     return Ok(()); 
   }
@@ -51,6 +55,8 @@ pub fn handler(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
 
   ctx.accounts.reviewer1.number_of_assignment += 1;
   ctx.accounts.reviewer2.number_of_assignment += 1;
+  ctx.accounts.prev_reviewer1.number_of_assignment -= 1;
+  ctx.accounts.prev_reviewer2.number_of_assignment -= 1;
 
   return Ok(());
 }

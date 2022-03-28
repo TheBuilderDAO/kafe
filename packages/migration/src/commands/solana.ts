@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
@@ -60,6 +61,7 @@ export function makeMigrationCommand() {
         .makeOptionMandatory(),
     )
     .action(async options => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const algoliaApi = new AlgoliaApi({
         appId: options.algolioAppId,
         accessKey: options.algoliaAdmin,
@@ -67,7 +69,6 @@ export function makeMigrationCommand() {
       });
 
       const client = getClient({
-        kafePk: solana.optsWithGlobals().kafePk,
         network: solana.optsWithGlobals().network,
         payer: solana.optsWithGlobals().solanaAdminKey,
       });
@@ -79,9 +80,10 @@ export function makeMigrationCommand() {
       });
       ceramicApi.setSeed(options.ceramicSeed);
 
-      let record: any;
-      const records: any = [];
+      const algoliaRecords: any = [];
       const description = 'Migrated tutorial from LEARN.V2 ';
+      const mockFile: any = [];
+      let id = 0;
 
       for (const tutorial of Array.from(dump).filter(dt => !dt.is_multi_page)) {
         try {
@@ -90,26 +92,29 @@ export function makeMigrationCommand() {
             tags: tags0,
             title,
             difficulty: difficulty0,
+            description: tutorialDescription,
           } = tutorial;
 
           const protocol = parseProtocol(tags0);
-          const slug = parseSlug(slug0, protocol);
+          const slug = parseSlug(slug0, tags0[0]);
           const difficulty = parseDifficulty(difficulty0);
-          const tags = [protocol, ...uniq(tags0.slice(1).map(parseTags))];
-          const id = await client.getNonce();
+          const tags: string[] = [
+            protocol,
+            ...uniq<string>(tags0.slice(1).map(parseTags)),
+          ];
+          id = await client.getNonce();
 
-          record = {
+          algoliaRecords.push({
             objectID: id.toString(),
             title,
             slug,
             description,
-            author: walletPk,
+            author: walletPk.toString(),
             state: ProposalStateE.readyToPublish,
             tags,
             difficulty,
             numberOfVotes: 0,
-          };
-          records.push(record);
+          });
 
           // @ts-ignore
           const stream = await ceramicApi.storeMetadata({
@@ -128,26 +133,37 @@ export function makeMigrationCommand() {
             streamId,
           });
 
-          await client.assignReviewer({
-            id,
-            reviewerPks: [walletPk, walletPk],
-            authorityPk: walletPk,
-            force: true,
-          });
-
           await client.proposalSetState({
             id,
             adminPk: walletPk,
             newState: ProposalStateE.readyToPublish,
           });
+
+          const entry = {
+            id,
+            slug,
+            title,
+            description: tutorialDescription,
+            difficulty,
+            tags,
+            streamId,
+            author: walletPk.toString(),
+            reviewer1: walletPk.toString(),
+            reviewer2: walletPk.toString(),
+            state: ProposalStateE.readyToPublish,
+            date: Date.now(),
+          };
+          console.error(entry);
+          mockFile.push(entry);
         } catch (error) {
-          console.error(JSON.stringify(record, null, 2));
+          console.error(`(error as Error).message on entry: ${id}`);
           process.exit(1);
         }
       }
+      console.log(JSON.stringify(mockFile, null, 2));
 
-      for (const data of records) {
-        await algoliaApi.createTutorial(data);
+      for (const record of algoliaRecords) {
+        await algoliaApi.createTutorial(record);
       }
     });
 
@@ -156,7 +172,6 @@ export function makeMigrationCommand() {
     .option('--id', 'sort by id of the proposal')
     .action(async options => {
       const client = getClient({
-        kafePk: solana.optsWithGlobals().kafePk,
         network: solana.optsWithGlobals().network,
         payer: solana.optsWithGlobals().solanaAdminKey,
       });
@@ -198,7 +213,6 @@ export function makeMigrationCommand() {
     )
     .action(async options => {
       const client = getClient({
-        kafePk: solana.optsWithGlobals().kafePk,
         network: solana.optsWithGlobals().network,
         payer: solana.optsWithGlobals().solanaAdminKey,
       });
@@ -215,7 +229,6 @@ export function makeMigrationCommand() {
 
   solana.command('closeAll').action(async () => {
     const client = getClient({
-      kafePk: solana.optsWithGlobals().kafePk,
       network: solana.optsWithGlobals().network,
       payer: solana.optsWithGlobals().solanaAdminKey,
     });
@@ -280,9 +293,12 @@ export function makeMigrationCommand() {
     )
     .action(async options => {
       console.log({
-        solanaMint: solana.optsWithGlobals().kafePk,
+        kafePk: solana.optsWithGlobals().kafePk,
+        bdrPk: solana.optsWithGlobals().bdrPk,
         solanaNetwork: solana.optsWithGlobals().network,
-        solanaAdminKey: solana.optsWithGlobals().solanaAdminKey,
+        solanaAdminKey: solana
+          .optsWithGlobals()
+          .solanaAdminKey.publicKey.toString(),
         ceramicUrl: options.ceramicUrl,
         ceramicSeed: options.ceramicSeed,
         algolioAppId: options.algoliaAppId,

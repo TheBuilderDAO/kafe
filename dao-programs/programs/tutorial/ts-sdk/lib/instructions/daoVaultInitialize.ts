@@ -30,7 +30,7 @@ export const daoVaultInitialize = async ({
   const { pdaDaoVaultAccount } = getPda(program.programId);
   const daoVaultAccount = await pdaDaoVaultAccount(mintPk);
 
-  const signature = await program.rpc.daoVaultInialize({
+  const signature = await program.rpc.daoVaultInitialize({
     accounts: {
       daoVault: daoVaultAccount.pda,
       mint: mintPk,

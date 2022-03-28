@@ -63,6 +63,7 @@ pub fn handler(
     return Err(error!(ErrorDao::StreamIdSizeMissmatch));
   }
   let id = ctx.accounts.dao_account.nonce;
+  let default_reviewer = ctx.accounts.dao_account.super_admin;
   ctx.accounts.proposal_account.created_at = Clock::get()?.unix_timestamp;
   ctx.accounts.proposal_account.creator = ctx.accounts.payer.key();
   ctx.accounts.proposal_account.state = ProposalState::default();
@@ -73,8 +74,8 @@ pub fn handler(
   ctx.accounts.proposal_account.number_of_voter = 0;
   ctx.accounts.proposal_account.tipped_amount = 0;
   ctx.accounts.proposal_account.tipper_count = 0;
-  ctx.accounts.proposal_account.reviewer1 = Pubkey::default();
-  ctx.accounts.proposal_account.reviewer2 = Pubkey::default();
+  ctx.accounts.proposal_account.reviewer1 = default_reviewer;
+  ctx.accounts.proposal_account.reviewer2 = default_reviewer;
 
   ctx.accounts.dao_account.number_of_proposal += 1;
   ctx.accounts.dao_account.nonce += 1;
