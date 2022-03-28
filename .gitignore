@@ -26,7 +26,7 @@ yarn-error.log*
 # local env files
 # https://nextjs.org/docs/basic-features/environment-variables  .env loads last in env ENV of next.js app 
 **/.env
-# .env.local // default
+**/.env.local
 **/.env.development.local
 **/.env.test.local
 **/.env.production.local
