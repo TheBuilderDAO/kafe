@@ -1,3 +1,4 @@
+/* eslint-disable no-promise-executor-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-await-in-loop */
@@ -12,6 +13,8 @@ import {
 import { uniq } from 'lodash';
 
 import dump from '../../data/dump.json';
+import input from '../../data/output.json';
+
 import { getClient } from '../client';
 import {
   compareById,
@@ -63,9 +66,9 @@ export function makeMigrationCommand() {
     .action(async options => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const algoliaApi = new AlgoliaApi({
-        appId: options.algolioAppId,
+        appId: options.algoliaAppId,
         accessKey: options.algoliaAdmin,
-        indexName: options.algolioIndex,
+        indexName: options.algoliaIndex,
       });
 
       const client = getClient({
@@ -155,6 +158,7 @@ export function makeMigrationCommand() {
           };
           console.error(entry);
           mockFile.push(entry);
+          await new Promise(resolve => setTimeout(resolve, 5000));
         } catch (error) {
           console.error(`(error as Error).message on entry: ${id}`);
           process.exit(1);
@@ -225,6 +229,54 @@ export function makeMigrationCommand() {
         userPk: walletPk,
       });
       console.log(signature);
+    });
+
+  solana
+    .command('feedAlgolia')
+    .addOption(
+      new commander.Option('--algoliaAppId <algoliaAppId>', 'Algolia App Id')
+        .env('ALGOLIA_APP_ID')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option(
+        '--algoliaAdmin <algoliaAdmin>',
+        'Algolia Access Key',
+      )
+        .env('ALGOLIA_ADMIN_KEY')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option(
+        '--algoliaIndex <algoliaIndex>',
+        'Algolia Index Name',
+      )
+        .env('ALGOLIA_INDEX_NAME')
+        .makeOptionMandatory(),
+    )
+    .action(async options => {
+      const algoliaApi = new AlgoliaApi({
+        appId: options.algoliaAppId,
+        accessKey: options.algoliaAdmin,
+        indexName: options.algoliaIndex,
+      });
+
+      const description = 'Migrated tutorial from LEARN.V2 ';
+      for (const record of Array.from(input)) {
+        const data = {
+          objectID: record.id.toString(),
+          title: record.title,
+          slug: record.slug,
+          description,
+          author: record.author,
+          state: ProposalStateE.readyToPublish,
+          tags: record.tags,
+          difficulty: record.difficulty,
+          numberOfVotes: 0,
+        };
+        await algoliaApi.createTutorial(data);
+        console.log(data);
+      }
     });
 
   solana.command('closeAll').action(async () => {
@@ -301,9 +353,9 @@ export function makeMigrationCommand() {
           .solanaAdminKey.publicKey.toString(),
         ceramicUrl: options.ceramicUrl,
         ceramicSeed: options.ceramicSeed,
-        algolioAppId: options.algoliaAppId,
+        algoliaAppId: options.algoliaAppId,
         algoliaAdmin: options.algoliaAdmin,
-        algolioIndex: options.algoliaIndex,
+        algoliaIndex: options.algoliaIndex,
       });
     });
 
