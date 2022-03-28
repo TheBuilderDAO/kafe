@@ -1,0 +1,22 @@
+# Add 'repo' label to any root file changes
+repo:
+- '*'
+
+# Add dao-programs 
+dao-programs:
+- dao-programs/*
+- dao-programs/**/*
+
+# Add 'test' label to any change to *.spec.js files within the source dir
+test:
+- /**/*.test.ts
+
+# Add 'source' label to any change to src files within the source dir EXCEPT for the docs sub-folder
+source:
+- any: ['src/**/*', '!src/docs/*']
+
+frontend:
+- any: ['apps/web/**/*']
+
+tutorial:
+- any: ['tutorials/**/*']
