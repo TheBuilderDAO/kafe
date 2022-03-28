@@ -141,10 +141,13 @@ Example call:
 
   tutorial
     .command('prepublish')
+    .argument(
+      '[learnPackageName]',
+      'Tutorial slug for complete tutorial package',
+    )
     .addOption(
       new commander.Option('--skip-reviewers', 'Skip reviewers').default(false)
     )
-    .argument('[learnPackageName]', 'Tutorial name')
     .description('Perform pre-publishing tasks')
     .helpOption('-h, --help', 'Display help for command')
     .addHelpText(
@@ -158,19 +161,15 @@ Notes:
   builderdao config and lock files, also updating the hash digest of the tutorial folder.
 `,
     )
-    .argument(
-      '[learnPackageName]',
-      'Tutorial slug for complete tutorial package',
-    )
     .action(async (learnPackageName, options) => {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
 
       if (!options.skipReviewers) {
-        const proposal = await client.getTutorialBySlug(learnPackageName);
-        console.log(rootFolder);
         const { lock  } = new BuilderDaoConfig(rootFolder);
+        await lock.read()
+        const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
         const { lock: lockDefault } = await BuilderDaoConfig.initial({
           proposalId: proposal.id.toNumber(),
           slug: proposal.slug as string,
