@@ -2,7 +2,6 @@ import { visit } from 'unist-util-visit';
 export const remarkTOC =
   ({ data, anchors, toc = [] }) =>
   tree => {
-    const anchors = [];
     visit(tree, 'section', section => {
       let text = [];
       section.children.forEach(child => {
