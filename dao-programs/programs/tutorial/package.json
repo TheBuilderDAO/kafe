@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@builderdao/config": "*",
-    "@builderdao/dao-utils": "*",
     "@builderdao/tsconfig": "*",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react-hooks": "^7.0.2",
