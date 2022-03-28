@@ -1,66 +1,12 @@
-import styled from '@emotion/styled';
 import useProgress from '@app/lib/hooks/useProgress';
 import useScrollSpy from '@app/lib/hooks/useScrollSpy';
 import { useReducedMotion, motion, useViewportScroll } from 'framer-motion';
+import { type } from 'os';
 import React from 'react';
 import ProgressBar from './ProgressBar';
-import tw from 'twin.macro';
-
-interface WrapperProps {
-  showTableOfContents: boolean;
-}
-
-const Wrapper = styled('div')<WrapperProps>`
-  @media (max-width: 1250px) {
-    left: 10px;
-  }
-  margin-top: 8px;
-  width: 280px;
-
-  ${p =>
-    !p.showTableOfContents
-      ? `
-   ul {
-     display: none;
-   }
-  `
-      : ''}
-
-  ul {
-    @media (max-width: 1250px) {
-      display: none;
-    }
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-
-    li {
-      list-style: none;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.5;
-      margin-bottom: 22px;
-      ${tw`ml-2`}
-      a {
-        ${p =>
-          !p.showTableOfContents ? `cursor: none;  pointer-events: none;` : ''}
-        text-decoration: none;
-      }
-
-      &:focus:not(:focus-visible) {
-        outline: 0;
-      }
-
-      &:focus-visible {
-        outline: 2px solid var(--maximeheckel-colors-brand);
-        opacity: 1 !important;
-      }
-    }
-  }
-`;
 
 interface TableOfContentProps {
-  ids: Array<{ id: string; title: string }>;
+  toc: Array<{ id: string; title: string; href: string; depth: number }>;
 }
 
 /**
@@ -69,7 +15,7 @@ interface TableOfContentProps {
  */
 const OFFSET = 150;
 
-const TableOfContent = ({ ids }: TableOfContentProps) => {
+const TableOfContent = ({ toc }: TableOfContentProps) => {
   const shouldReduceMotion = useReducedMotion();
   const readingProgress = useProgress();
 
@@ -101,15 +47,16 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
    */
   const handleLinkClick = (event: React.MouseEvent, id: string) => {
     event.preventDefault();
-
+    console.log(toc);
+    console.log(id);
     const element = document.getElementById(id)!;
+    console.log(element);
     const bodyRect = document.body.getBoundingClientRect().top;
     const elementRect = element.getBoundingClientRect().top;
     const elementPosition = elementRect - bodyRect;
     const offsetPosition = elementPosition - 50;
 
     /**
-     * Note @MaximeHeckel: This doesn't work on Safari :(
      * TODO: find an alternative for Safari
      */
     window.scrollTo({
@@ -123,58 +70,48 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
    * to have its corresponding title highlighted in the
    * table of content
    */
+
+  console.log(toc);
   const [currentActiveIndex] = useScrollSpy(
-    ids.map(
-      item => document.querySelector(`section[id="${item.id}-section"]`)!,
-    ),
+    typeof document !== 'undefined'
+      ? toc.map(item => document.querySelector(`section[id="${item.id}"]`))
+      : [],
     { offset: OFFSET },
   );
   const { scrollYProgress } = useViewportScroll();
 
   return (
-    <Wrapper showTableOfContents={shouldShowTableOfContent}>
-      {/* <ProgressBar progress={readingProgress} /> */}
-      {ids.length > 0 ? (
-        <ul className="w-menu">
-          <motion.p
-            // initial="hide"
-            // variants={variants}
-            // animate="show"
-            // transition={{ type: 'spring' }}
-            // custom={shouldShowTableOfContent}
-            className="font-larken text-xl p-2 pb-6"
-          >
-            Contents
-          </motion.p>
-          {ids.map((item, index) => {
+    <div className="flex flex-row">
+      <ProgressBar progress={readingProgress} />
+      {toc.length > 0 ? (
+        <ul className="ml-2">
+          <motion.p className="p-2 pb-6 text-xl font-larken">Contents</motion.p>
+          {toc.map((item, index) => {
             return (
               <motion.li
-                //   initial="hide"
-                //   className={
-                //     currentActiveIndex === index
-                //       ? 'text-kafered dark:text-kafegold font-bold'
-                //       : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
-                //   }
-                //   variants={variants}
-                //   animate="show"
-                //   transition={{ type: 'spring' }}
+                className={`
+                  px-4
+                  py-1
+                  ${
+                    currentActiveIndex === index
+                      ? 'text-kafered dark:text-kafegold font-bold'
+                      : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
+                  }`}
                 key={item.id}
-                //   custom={shouldShowTableOfContent}
               >
                 <a
-                  href={`#${item.id}`}
-                  onClick={event =>
-                    handleLinkClick(event, `${item.id}-section`)
-                  }
+                  href={`${item.href}`}
+                  className="break-all"
+                  onClick={event => handleLinkClick(event, `${item.id}`)}
                 >
-                  {item.title}
+                  {'∘'.repeat(item.depth - 1)} {item.title}
                 </a>
               </motion.li>
             );
           })}
         </ul>
       ) : null}
-    </Wrapper>
+    </div>
   );
 };
 
