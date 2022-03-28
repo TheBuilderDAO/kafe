@@ -11,42 +11,30 @@ import Image from 'next/image';
 
 const LandingPage: NextPage = () => {
   return (
-    <div className="relative left-4 z-0 -top-16 text-kafeblack dark:text-kafewhite min-h-[1200px] w-full mb-40">
+    <div className="max-w-[400px]">
       <Head>
         <title>Builder DAO</title>
       </Head>
-      <main>
-        <Image src={Gateway} width={586} height={792} alt="gateway" />
-        <div className="absolute top-96 left-20">
+      <main className="mt-64">
+        <div className="flex justify-between">
           <HomeCTA
             headline="Learn from guides written by our community"
             path={routes.learn.index}
             cta="view all guides"
           />
-        </div>
-        {/*<div className="absolute top-28 right-12">*/}
-        {/*  <Realtime />*/}
-        {/*</div>*/}
-        <div className="absolute top-[260px] left-[440px]">
           <GuidesCarousel />
         </div>
-        <div className="absolute top-[680px] left-32">
-          <ProposalsCarousel />
-        </div>
-        <div className="absolute bottom-64 right-32">
-          <HomeCTA
-            headline="Vote on proposals for guides you want to be written"
-            path={routes.vote.index}
-            cta="view all proposals"
-          />
-        </div>
-        <div className="absolute -bottom-28 left-20">
-          <HomeCTA
-            headline="Create your own proposal, and get paid in $KAFE to write"
-            path={routes.write.index}
-            cta="create a proposal"
-          />
-        </div>
+        <ProposalsCarousel />
+        <HomeCTA
+          headline="Vote on proposals for guides you want to be written"
+          path={routes.vote.index}
+          cta="view all proposals"
+        />
+        <HomeCTA
+          headline="Create your own proposal, and get paid in $KAFE to write"
+          path={routes.write.index}
+          cta="create a proposal"
+        />
       </main>
     </div>
   );
