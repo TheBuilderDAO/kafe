@@ -1,6 +1,5 @@
 const withTM = require('next-transpile-modules')([
   '@builderdao/ui',
-  '@builderdao/dao-utils',
   '@builderdao-sdk/dao-program',
   '@builderdao/md-utils',
 ]);

@@ -1,15 +1,25 @@
+/* eslint-disable jest/no-commented-out-tests */
 /* eslint-disable jest/expect-expect */
-import { logDebug } from './utils/index';
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
-
-import { Token, TOKEN_PROGRAM_ID } from '@solana/spl-token';
-
+import {
+  getMint,
+  createMint,
+  getOrCreateAssociatedTokenAccount,
+  Account,
+  mintTo,
+  freezeAccount,
+  setAuthority,
+  AuthorityType,
+} from '@solana/spl-token';
 import {
   daoAccount as getDaoAccount,
   daoVaultAccountBalance as getDaoVaultAccountBalance,
   proposalAccountBySlug as getProposalAccountBySlug,
+  proposalAccountById as getProposalAccountById,
+  proposalAccountByStreamId as getProposalAccountByStreamId,
   reviewerAccountByReviewerPK as getReviewerAccount,
+  reviewerAccountByGithubLogin as getReviewerAccountByGithubLogin,
   userVoteAccountById as getUserVoteAccountById,
   listOfVoterById as getListOfVoterById,
   tipperAccountsListById as getTipperAccountsListById,
@@ -18,6 +28,7 @@ import {
 import { Tutorial } from '../ts-sdk/lib/idl/tutorial';
 import {
   daoInitialize,
+  daoVaultInitialize,
   daoAddAdmin,
   daoRemoveAdmin,
   daoSetAmountToCreateProposal,
@@ -31,11 +42,15 @@ import {
   reviewerDelete,
   proposalSetState,
   guideTipping,
+  proposalPublish,
+  tipperClose,
+  daoVaultClose,
+  daoClose,
 } from '../ts-sdk/lib/instructions';
 
-import { ProposalStateE } from '../ts-sdk';
+import { filterProposalByState, ProposalStateE } from '../ts-sdk';
 
-import { airdrops, getAta } from '../ts-sdk/lib/utils';
+import { airdrops } from '../ts-sdk/lib/utils';
 import { getPda } from '../ts-sdk/lib/pda';
 
 describe('tutorial-program', () => {
@@ -47,25 +62,57 @@ describe('tutorial-program', () => {
   // Declare our Mint & authority & user
   let auth1 = anchor.web3.Keypair.generate();
   let auth2 = anchor.web3.Keypair.generate();
-
   let reviewer1 = anchor.web3.Keypair.generate();
   let reviewer2 = anchor.web3.Keypair.generate();
   let reviewer3 = anchor.web3.Keypair.generate();
-
   let user1 = anchor.web3.Keypair.generate();
-  let user1Ata: anchor.web3.PublicKey;
-
   let user2 = anchor.web3.Keypair.generate();
-  let user2Ata: anchor.web3.PublicKey;
   let mintAuth = anchor.web3.Keypair.generate();
+  let superAdmin = anchor.web3.Keypair.generate();
 
-  let mint: Token;
+  let user1Ata: Account;
+  let user2Ata: Account;
+  let reviewer1Ata: Account;
+  let reviewer2Ata: Account;
+  let reviewer3Ata: Account;
+  let superAdminAta: Account;
+
+  let user1AtaBDR: Account;
+  let user2AtaBDR: Account;
+  let reviewer1AtaBDR: Account;
+  let reviewer2AtaBDR: Account;
+  let reviewer3AtaBDR: Account;
+  let superAdminAtaBDR: Account;
+
+  const githubLogin1 = 'Bob';
+  const githubLogin2 = 'Alice';
+
+  const slug1 = 'delpoy-a-polkadot-smart-contract';
+  const streamId1 =
+    'kjzl6cwe1jw145i2z2cd6aedcwzcs3p3buecsoel5mzmitc6g8z0ccj9sbcmdmw';
+
+  const slug2 = 'near-101';
+  const streamId2 =
+    'kjzl6cwe1jw149hl95f35wz2z861uw6yxm4iyc29bhpyx726wy59t8hpbqow26h';
+
+  let mintKafe: anchor.web3.PublicKey;
+  let mintBDR: anchor.web3.PublicKey;
   const decimals = 6;
+
+  const {
+    pdaDaoAccount,
+    pdaDaoVaultAccount,
+    pdaProposalById,
+    pdaReviewerAccount,
+    pdaTipperAccount,
+    pdaUserVoteAccountById,
+  } = getPda(program.programId);
 
   test('Setup env', async () => {
     await airdrops(provider, [
       auth1,
       auth2,
+      superAdmin,
       user1,
       user2,
       mintAuth,
@@ -75,79 +122,320 @@ describe('tutorial-program', () => {
     ]);
 
     // Create mint
-    mint = await Token.createMint(
+    mintKafe = await createMint(
       provider.connection,
       mintAuth,
       mintAuth.publicKey,
       null,
       decimals,
-      TOKEN_PROGRAM_ID,
     );
-    expect(mint).toBeTruthy();
-    logDebug('mint created');
+    mintBDR = await createMint(
+      provider.connection,
+      mintAuth,
+      mintAuth.publicKey,
+      mintAuth.publicKey,
+      decimals,
+    );
+
+    expect(mintKafe).toBeTruthy();
+    expect(mintBDR).toBeTruthy();
+
+    let mintAccount = await getMint(provider.connection, mintKafe);
+    console.log(mintAccount);
   });
 
-  test('create userATAs', async () => {
+  test('create userATAs Kafe', async () => {
     // create  associated token account
-    user1Ata = await mint.createAssociatedTokenAccount(user1.publicKey);
-    logDebug('user1Ata created');
-
-    user2Ata = await mint.createAssociatedTokenAccount(user2.publicKey);
-    logDebug('user2Ata created');
+    user1Ata = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      user1,
+      mintKafe,
+      user1.publicKey,
+    );
+    user2Ata = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      user2,
+      mintKafe,
+      user2.publicKey,
+    );
+    reviewer1Ata = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      reviewer1,
+      mintKafe,
+      reviewer1.publicKey,
+    );
+    reviewer2Ata = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      reviewer2,
+      mintKafe,
+      reviewer2.publicKey,
+    );
+    reviewer3Ata = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      reviewer3,
+      mintKafe,
+      reviewer3.publicKey,
+    );
+    superAdminAta = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      superAdmin,
+      mintKafe,
+      superAdmin.publicKey,
+    );
 
     // Mint tokens to token account
-    await mint.mintTo(user1Ata, mintAuth.publicKey, [mintAuth], 2_500_000);
-    logDebug('minted to user1');
-    await mint.mintTo(user2Ata, mintAuth.publicKey, [mintAuth], 1_500_000);
-    logDebug('minted to user2');
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      user1Ata.address,
+      mintAuth.publicKey,
+      2_500_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      user2Ata.address,
+      mintAuth.publicKey,
+      1_500_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      reviewer1Ata.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      reviewer2Ata.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      reviewer3Ata.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      superAdminAta.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
 
-    const userAta = await getAta(user1.publicKey, mint.publicKey);
-    expect(user1Ata.toString()).toBe(userAta.toString());
+    const user1tokenAmount = await provider.connection.getTokenAccountBalance(
+      user1Ata.address,
+    );
+    const user2tokenAmount = await provider.connection.getTokenAccountBalance(
+      user2Ata.address,
+    );
+    const reviewer1tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer1Ata.address);
+    const reviewer2tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer2Ata.address);
+    const reviewer3tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer3Ata.address);
+
+    expect(user1tokenAmount.value.amount).toBe('2500000');
+    expect(user2tokenAmount.value.amount).toBe('1500000');
+    expect(reviewer1tokenAmount.value.amount).toBe('1000000');
+    expect(reviewer2tokenAmount.value.amount).toBe('1000000');
+    expect(reviewer3tokenAmount.value.amount).toBe('1000000');
   });
 
-  test('Initialize daoAccount and daoVault', async () => {
+  test('create userATAs BDR', async () => {
+    // create  associated token account
+    user1AtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      user1,
+      mintBDR,
+      user1.publicKey,
+    );
+    user2AtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      user2,
+      mintBDR,
+      user2.publicKey,
+    );
+    reviewer1AtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      reviewer1,
+      mintBDR,
+      reviewer1.publicKey,
+    );
+    reviewer2AtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      reviewer2,
+      mintBDR,
+      reviewer2.publicKey,
+    );
+    reviewer3AtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      reviewer3,
+      mintBDR,
+      reviewer3.publicKey,
+    );
+    superAdminAtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      superAdmin,
+      mintBDR,
+      superAdmin.publicKey,
+    );
+
+    // Mint tokens to token account
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      user1AtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      user2AtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      reviewer1AtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      reviewer2AtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      reviewer3AtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      superAdminAtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+
+    await freezeAccount(
+      provider.connection,
+      mintAuth,
+      user1AtaBDR.address,
+      mintBDR,
+      mintAuth.publicKey,
+    );
+    await freezeAccount(
+      provider.connection,
+      mintAuth,
+      user2AtaBDR.address,
+      mintBDR,
+      mintAuth.publicKey,
+    );
+    await freezeAccount(
+      provider.connection,
+      mintAuth,
+      reviewer1AtaBDR.address,
+      mintBDR,
+      mintAuth.publicKey,
+    );
+    await freezeAccount(
+      provider.connection,
+      mintAuth,
+      reviewer2AtaBDR.address,
+      mintBDR,
+      mintAuth.publicKey,
+    );
+    await freezeAccount(
+      provider.connection,
+      mintAuth,
+      reviewer3AtaBDR.address,
+      mintBDR,
+      mintAuth.publicKey,
+    );
+
+    const user1tokenAmount = await provider.connection.getTokenAccountBalance(
+      user1AtaBDR.address,
+    );
+    const user2tokenAmount = await provider.connection.getTokenAccountBalance(
+      user2AtaBDR.address,
+    );
+    const reviewer1tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer1AtaBDR.address);
+    const reviewer2tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer2AtaBDR.address);
+    const reviewer3tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer3AtaBDR.address);
+
+    expect(user1tokenAmount.value.amount).toBe('1000000');
+    expect(user2tokenAmount.value.amount).toBe('1000000');
+    expect(reviewer1tokenAmount.value.amount).toBe('1000000');
+    expect(reviewer2tokenAmount.value.amount).toBe('1000000');
+    expect(reviewer3tokenAmount.value.amount).toBe('1000000');
+  });
+
+  test('Initialize daoAccount', async () => {
     const quorum = new anchor.BN(100);
-    const response = await daoInitialize({
+    const minAmountToCreateProposal = new anchor.BN(1_000_000);
+    await daoInitialize({
       program,
-      mintPk: mint.publicKey,
+      minAmountToCreateProposal,
       admins: [auth1.publicKey, auth2.publicKey],
       payerPk: auth1.publicKey,
+      superAdmin: superAdmin.publicKey,
       quorum,
       signer: auth1,
     });
-    logDebug(response);
 
-    const { pdaDaoAccount, pdaDaoVaultAccount } = getPda(
-      program.programId,
-      mint.publicKey,
-    );
     const daoAccount = await getDaoAccount(program, pdaDaoAccount);
 
-    logDebug(daoAccount);
-    expect(daoAccount.mint.toString()).toBe(mint.publicKey.toString());
     expect(daoAccount.quorum.toNumber()).toBe(quorum.toNumber());
     expect(daoAccount.admins.length).toBe(2);
+    expect(daoAccount.nonce.toNumber()).toBe(0);
+    expect(daoAccount.numberOfProposal.toNumber()).toBe(0);
     expect(daoAccount.minAmountToCreateProposal.toNumber()).toBe(
       new anchor.BN(1_000_000).toNumber(),
     );
 
-    const daoVaultAccountBalance = await getDaoVaultAccountBalance(
-      provider,
-      pdaDaoVaultAccount,
-    );
-    logDebug(daoVaultAccountBalance);
-
-    expect(daoVaultAccountBalance.amount).toBe(0);
-    expect(daoVaultAccountBalance.decimals).toBe(6);
+    await reviewerCreate({
+      program: program,
+      adminPk: superAdmin.publicKey,
+      reviewerPk: superAdmin.publicKey,
+      githubName: 'sudo',
+      signer: superAdmin,
+    });
   });
 
   test('Dao Account setter', async () => {
     let daoAccount;
-    const { pdaDaoAccount } = getPda(program.programId, mint.publicKey);
+    const { pdaDaoAccount } = getPda(program.programId);
 
     await daoAddAdmin({
       program,
-      mintPk: mint.publicKey,
       userPk: user1.publicKey,
       adminPk: auth1.publicKey,
       signer: auth1,
@@ -157,7 +445,6 @@ describe('tutorial-program', () => {
 
     await daoRemoveAdmin({
       program,
-      mintPk: mint.publicKey,
       userPk: user1.publicKey,
       adminPk: auth1.publicKey,
       signer: auth1,
@@ -167,17 +454,15 @@ describe('tutorial-program', () => {
 
     await daoSetQuorum({
       program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
-      quorum: new anchor.BN(10),
+      quorum: new anchor.BN(2),
       signer: auth1,
     });
     daoAccount = await getDaoAccount(program, pdaDaoAccount);
-    expect(daoAccount.quorum.toNumber()).toBe(10);
+    expect(daoAccount.quorum.toNumber()).toBe(2);
 
     await daoSetAmountToCreateProposal({
       program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       amount: new anchor.BN(1_500_000),
       signer: auth1,
@@ -187,124 +472,218 @@ describe('tutorial-program', () => {
     expect(daoAccount.minAmountToCreateProposal.toNumber()).toBe(1_500_000);
   });
 
-  test('User1 Create a tutorial', async () => {
-    const slug = 'delpoy-a-polkadot-smart-contract';
-    const streamId =
-      'k3y52l7mkcvtg023bt9txegccxe1bah8os3naw5asinf3l3t54atn0cuy98yws';
-    const response = await proposalCreate({
+  test('Initialize dao Kafe Vault', async () => {
+    await daoVaultInitialize({
       program,
-      mintPk: mint.publicKey,
-      tutorialId: 0,
+      mintPk: mintKafe,
+      superAdmin: superAdmin.publicKey,
+      payerPk: auth1.publicKey,
+      signer: auth1,
+    });
+
+    let daoVaultAccountBalance = await getDaoVaultAccountBalance(
+      provider,
+      mintKafe,
+      pdaDaoVaultAccount,
+    );
+
+    expect(daoVaultAccountBalance.amount).toBe(0);
+    expect(daoVaultAccountBalance.decimals).toBe(6);
+
+    const pdaVaultKafe = await pdaDaoVaultAccount(mintKafe);
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      pdaVaultKafe.pda,
+      mintAuth.publicKey,
+      10 ** 12,
+    );
+
+    daoVaultAccountBalance = await getDaoVaultAccountBalance(
+      provider,
+      mintKafe,
+      pdaDaoVaultAccount,
+    );
+
+    expect(daoVaultAccountBalance.amount).toBe(10 ** 6);
+    expect(daoVaultAccountBalance.decimals).toBe(6);
+  });
+
+  test('Initialize dao BDR Vault', async () => {
+    await daoVaultInitialize({
+      program,
+      mintPk: mintBDR,
+      superAdmin: superAdmin.publicKey,
+      payerPk: auth1.publicKey,
+      signer: auth1,
+    });
+
+    let daoVaultAccountBalance = await getDaoVaultAccountBalance(
+      provider,
+      mintBDR,
+      pdaDaoVaultAccount,
+    );
+
+    expect(daoVaultAccountBalance.amount).toBe(0);
+    expect(daoVaultAccountBalance.decimals).toBe(6);
+
+    const pdaVaultBDR = await pdaDaoVaultAccount(mintBDR);
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      pdaVaultBDR.pda,
+      mintAuth.publicKey,
+      10 ** 12,
+    );
+
+    daoVaultAccountBalance = await getDaoVaultAccountBalance(
+      provider,
+      mintBDR,
+      pdaDaoVaultAccount,
+    );
+
+    expect(daoVaultAccountBalance.amount).toBe(10 ** 6);
+    expect(daoVaultAccountBalance.decimals).toBe(6);
+
+    await setAuthority(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      mintAuth.publicKey,
+      AuthorityType.FreezeAccount,
+      pdaVaultBDR.pda,
+    );
+  });
+
+  test('User1 Create a tutorial', async () => {
+    let proposalAccount: any;
+    await proposalCreate({
+      program,
+      mintPk: mintKafe,
+      proposalId: 0,
       userPk: user1.publicKey,
-      slug,
-      streamId,
+      slug: slug1,
+      streamId: streamId1,
       signer: user1,
     });
-    logDebug(response);
-    const proposalAccount = await getProposalAccountBySlug(program, slug);
-    logDebug(proposalAccount);
+    proposalAccount = await getProposalAccountById(program, pdaProposalById, 0);
     expect(proposalAccount.id.toNumber()).toBe(0);
+
+    proposalAccount = await getProposalAccountByStreamId(program, streamId1);
+    expect(proposalAccount.id.toNumber()).toBe(0);
+
+    proposalAccount = await getProposalAccountBySlug(program, slug1);
     expect(proposalAccount.creator.toString()).toBe(user1.publicKey.toString());
     expect(proposalAccount.numberOfVoter.toNumber()).toBe(0);
-    expect(proposalAccount.slug).toBe(slug);
-    expect(proposalAccount.streamId).toBe(streamId);
+    expect(proposalAccount.slug).toBe(slug1);
+    expect(proposalAccount.streamId).toBe(streamId1);
     expect(Object.keys(proposalAccount.state)[0]).toBe('submitted');
   });
 
-  test('User1 Cast a Vote on Tutorial0', async () => {
-    const response = await voteCast({
+  test('User2 Create tutorial 1 using nonce', async () => {
+    const daoAccount = await getDaoAccount(program, pdaDaoAccount);
+    const nonce = daoAccount.nonce.toNumber();
+
+    let proposalAccount: any;
+    await proposalCreate({
       program,
-      mintPk: mint.publicKey,
-      tutorialId: 0,
-      userPk: user1.publicKey,
+      mintPk: mintKafe,
+      proposalId: nonce,
+      userPk: user2.publicKey,
+      slug: slug2,
+      streamId: streamId2,
+      signer: user2,
+    });
+    proposalAccount = await getProposalAccountBySlug(program, slug2);
+    expect(proposalAccount.creator.toString()).toBe(user2.publicKey.toString());
+    expect(proposalAccount.id.toNumber()).toBe(nonce);
+    expect(proposalAccount.slug).toBe(slug2);
+    expect(proposalAccount.streamId).toBe(streamId2);
+  });
+
+  test('User1 Cast a Vote on Tutorial0', async () => {
+    await voteCast({
+      program,
+      proposalId: 0,
+      voterPk: user1.publicKey,
       signer: user1,
     });
-    logDebug(response);
-    const { pdaUserVoteAccountById } = getPda(
-      program.programId,
-      mint.publicKey,
-    );
-    let voteAccount = await getUserVoteAccountById(
+    const voteAccount = await getUserVoteAccountById(
       program,
       pdaUserVoteAccountById,
       user1.publicKey,
       0,
     );
-    logDebug(voteAccount);
-    expect(voteAccount.tutorialId.toNumber()).toBe(0);
+    expect(voteAccount.id.toNumber()).toBe(0);
     expect(voteAccount.author.toString()).toBe(user1.publicKey.toString());
-    let listOfVoter = await getListOfVoterById(program, 0);
+    const listOfVoter = await getListOfVoterById(program, 0);
     expect(listOfVoter).toHaveLength(1);
   });
 
   it('User1 Cancel a Vote on Tutorial0', async () => {
-    const response = await voteCancel({
+    await voteCancel({
       program,
-      mintPk: mint.publicKey,
-      tutorialId: 0,
-      userPk: user1.publicKey,
+      proposalId: 0,
+      voterPk: user1.publicKey,
+      authorPk: user1.publicKey,
       signer: user1,
     });
-    logDebug(response);
-    let listOfVoter = await getListOfVoterById(program, 0);
+    const listOfVoter = await getListOfVoterById(program, 0);
     expect(listOfVoter).toHaveLength(0);
   });
 
   test('Create a reviewer', async () => {
-    const githubName1 = 'zurgl';
-    const githubName2 = 'Neco';
+    let reviewerAccount: any;
     await reviewerCreate({
       program: program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       reviewerPk: reviewer2.publicKey,
-      githubName: githubName1,
+      githubName: githubLogin1,
       signer: auth1,
     });
-    const response = await reviewerCreate({
+    await reviewerCreate({
       program: program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       reviewerPk: reviewer1.publicKey,
-      githubName: githubName2,
+      githubName: githubLogin2,
       signer: auth1,
     });
-    logDebug(response);
 
-    const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
-    const reviewerAccount: any = await getReviewerAccount(
+    reviewerAccount = await getReviewerAccount(
       program,
       pdaReviewerAccount,
       reviewer1.publicKey,
     );
-    logDebug(reviewerAccount);
     expect(reviewerAccount.pubkey.toString()).toBe(
       reviewer1.publicKey.toString(),
     );
     expect(reviewerAccount.numberOfAssignment).toBe(0);
-    expect(reviewerAccount.github_name).not.toBe(githubName1);
+    expect(reviewerAccount.github_name).not.toBe(githubLogin1);
+
+    reviewerAccount = await getReviewerAccountByGithubLogin(
+      program,
+      githubLogin1,
+    );
+    expect(reviewerAccount.github_name).not.toBe(githubLogin1);
   });
 
   test('Delete a reviewer', async () => {
-    const response = await reviewerDelete({
+    await reviewerDelete({
       program,
-      mintPk: mint.publicKey,
       reviewerPk: reviewer1.publicKey,
       adminPk: auth1.publicKey,
       signer: auth1,
     });
-    logDebug(response);
-    const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
     await expect(
       getReviewerAccount(program, pdaReviewerAccount, reviewer1.publicKey),
     ).rejects.toThrow();
-    const githubName1 = 'zurgl';
     await reviewerCreate({
       program: program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       reviewerPk: reviewer1.publicKey,
-      githubName: githubName1,
+      githubName: githubLogin1,
       signer: auth1,
     });
   });
@@ -312,7 +691,6 @@ describe('tutorial-program', () => {
   test('Reviewer: Creator cannot be a reviewer', async () => {
     await reviewerCreate({
       program: program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       reviewerPk: user1.publicKey,
       githubName: 'user1',
@@ -321,29 +699,60 @@ describe('tutorial-program', () => {
     await expect(
       reviewerAssign({
         program: program,
-        mintPk: mint.publicKey,
         adminPk: auth1.publicKey,
         reviewer1Pk: user1.publicKey,
         reviewer2Pk: reviewer2.publicKey,
-        tutorialId: 0,
+        proposalId: 0,
         signer: auth1,
       }),
     ).rejects.toThrow();
+  });
+
+  test('Reviewer: Force assignment for user2 on tutorial 1', async () => {
+    await reviewerCreate({
+      program: program,
+      adminPk: auth1.publicKey,
+      reviewerPk: user2.publicKey,
+      githubName: 'user2',
+      signer: auth1,
+    });
+    await reviewerAssign({
+      program: program,
+      adminPk: auth1.publicKey,
+      reviewer1Pk: user2.publicKey,
+      reviewer2Pk: user2.publicKey,
+      proposalId: 1,
+      force: true,
+      signer: auth1,
+    });
+
+    const reviewerAccount: any = await getReviewerAccount(
+      program,
+      pdaReviewerAccount,
+      user2.publicKey,
+    );
+    expect(reviewerAccount.numberOfAssignment).toBe(1);
+
+    const proposalAccount = await getProposalAccountBySlug(program, slug2);
+    expect(proposalAccount.reviewer1.toString()).toBe(
+      user2.publicKey.toString(),
+    );
+    expect(proposalAccount.reviewer2.toString()).toBe(
+      user2.publicKey.toString(),
+    );
   });
 
   test('Assign reviewers', async () => {
     const slug = 'delpoy-a-polkadot-smart-contract';
     await reviewerAssign({
       program: program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       reviewer1Pk: reviewer1.publicKey,
       reviewer2Pk: reviewer2.publicKey,
-      tutorialId: 0,
+      proposalId: 0,
       signer: auth1,
     });
 
-    const { pdaReviewerAccount } = getPda(program.programId, mint.publicKey);
     const reviewerAccount1: any = await getReviewerAccount(
       program,
       pdaReviewerAccount,
@@ -377,7 +786,6 @@ describe('tutorial-program', () => {
   test('Cannot create two times the same reviewer', async () => {
     await reviewerCreate({
       program: program,
-      mintPk: mint.publicKey,
       adminPk: auth1.publicKey,
       reviewerPk: reviewer3.publicKey,
       githubName: 'Yash',
@@ -386,7 +794,6 @@ describe('tutorial-program', () => {
     await expect(
       reviewerCreate({
         program: program,
-        mintPk: mint.publicKey,
         adminPk: auth1.publicKey,
         reviewerPk: reviewer3.publicKey,
         githubName: 'Yash',
@@ -408,16 +815,18 @@ describe('tutorial-program', () => {
     for (let state of validState) {
       await proposalSetState({
         program: program,
-        mintPk: mint.publicKey,
-        tutorialId: 0,
+        proposalId: 0,
         adminPk: auth1.publicKey,
         newState: state,
         signer: auth1,
       });
       proposalAccount = await getProposalAccountBySlug(program, slug);
-      logDebug(proposalAccount);
       expect(Object.keys(proposalAccount.state)[0]).toBe(state);
     }
+    proposalAccount = await program.account.proposalAccount.all([
+      filterProposalByState(ProposalStateE.published),
+    ]);
+    expect(proposalAccount.length).toBe(1);
   });
 
   test('Proposal set State: test an invalid state', async () => {
@@ -425,7 +834,6 @@ describe('tutorial-program', () => {
     await expect(
       proposalSetState({
         program: program,
-        mintPk: mint.publicKey,
         tutorialId: 0,
         adminPk: auth1.publicKey,
         // @ts-ignore
@@ -435,9 +843,34 @@ describe('tutorial-program', () => {
     ).rejects.toThrow();
   });
 
+  test('Publishing: user1 publish the guide', async () => {
+    await proposalSetState({
+      program: program,
+      proposalId: 0,
+      adminPk: auth1.publicKey,
+      newState: ProposalStateE.readyToPublish,
+      signer: auth1,
+    });
+    let tokenAmount = await provider.connection.getTokenAccountBalance(
+      user1Ata.address,
+    );
+    await proposalPublish({
+      program,
+      mintPk: mintKafe,
+      proposalId: 0,
+      adminPk: auth1.publicKey,
+      authorPk: user1.publicKey,
+      signer: auth1,
+    });
+    tokenAmount = await provider.connection.getTokenAccountBalance(
+      user1Ata.address,
+    );
+    expect(tokenAmount.value.amount).toBe('2000000');
+  });
+
   test('user2 tip a tutorial', async () => {
     // Amount to tip in LAMPORT
-    const tippedAmount = new anchor.BN(1_000_000);
+    const tippedAmount = new anchor.BN(10_000_000_000);
     const tippingCost = new anchor.BN(1_287_600);
 
     const CREATOR_WEIGHT = 70 / 100;
@@ -457,10 +890,16 @@ describe('tutorial-program', () => {
       reviewer2.publicKey,
     );
 
+    let bdrBalance0 = await provider.connection.getTokenAccountBalance(
+      user2AtaBDR.address,
+    );
+    expect(bdrBalance0.value.amount).toBe('1000000');
+
     // Tipping instruction
     await guideTipping({
       program,
-      mintPk: mint.publicKey,
+      mintKafe,
+      mintBDR,
       proposalId: 0,
       tipperPk: user2.publicKey,
       amount: tippedAmount,
@@ -480,6 +919,10 @@ describe('tutorial-program', () => {
     const finalReviewer2Balance = await provider.connection.getBalance(
       reviewer2.publicKey,
     );
+    let bdrBalance = await provider.connection.getTokenAccountBalance(
+      user2AtaBDR.address,
+    );
+    expect(bdrBalance.value.amount).toBe('151000000');
 
     // Basic check
     expect(initialTipperBalance - finalTipperBalance).toBe(
@@ -500,20 +943,22 @@ describe('tutorial-program', () => {
   test('user2 tip again the same guide', async () => {
     await guideTipping({
       program,
-      mintPk: mint.publicKey,
+      mintKafe,
+      mintBDR,
       proposalId: 0,
       tipperPk: user2.publicKey,
-      amount: new anchor.BN(1_000_000),
+      amount: new anchor.BN(1_000_000_000),
       signer: user2,
     });
     const tipperInfo = await getTipperAccountsListById(program, 0);
-    expect(tipperInfo[0].account.amount.toNumber()).toBe(2_000_000);
+    expect(tipperInfo[0].account.amount.toNumber()).toBe(11_000_000_000);
   });
 
   test('reviewer3 tip the guide', async () => {
     await guideTipping({
       program,
-      mintPk: mint.publicKey,
+      mintKafe,
+      mintBDR,
       proposalId: 0,
       tipperPk: reviewer3.publicKey,
       amount: new anchor.BN(1_000_000),
@@ -523,15 +968,28 @@ describe('tutorial-program', () => {
     expect(tipperInfo.length).toBe(2);
   });
 
+  test('Close tipper for reviewer3.', async () => {
+    await tipperClose({
+      program,
+      guideId: 0,
+      tipperPk: reviewer3.publicKey,
+      adminPk: auth1.publicKey,
+      signer: auth1,
+    });
+    const tipperInfo = await getTipperAccountsListById(program, 0);
+    expect(tipperInfo.length).toBe(1);
+  });
+
   test('user2 tip too  much', async () => {
     // Amount to tip in LAMPORT
-    const tippedAmount = new anchor.BN(1_000_000_000);
+    const tippedAmount = new anchor.BN(100_000_000_000);
 
     // Tipping instruction
     await expect(
       guideTipping({
         program,
-        mintPk: mint.publicKey,
+        mintKafe,
+        mintBDR,
         proposalId: 0,
         tipperPk: user2.publicKey,
         amount: tippedAmount,
@@ -540,14 +998,96 @@ describe('tutorial-program', () => {
     ).rejects.toThrow();
   });
 
+  test('User2 Close Tutorial1 and recreate a new one using nonce', async () => {
+    await expect(
+      proposalClose({
+        program,
+        mintPk: mintKafe,
+        proposalId: 1,
+        authorPk: user2.publicKey,
+        userPk: user2.publicKey,
+        signer: user2,
+      }),
+    ).resolves.toBeTruthy();
+    const daoAccount = await getDaoAccount(program, pdaDaoAccount);
+    const nonce = daoAccount.nonce.toNumber();
+
+    let proposalAccount: any;
+    await proposalCreate({
+      program,
+      mintPk: mintKafe,
+      proposalId: nonce,
+      userPk: user2.publicKey,
+      slug: slug2,
+      streamId: streamId2,
+      signer: user2,
+    });
+    proposalAccount = await getProposalAccountBySlug(program, slug2);
+    expect(proposalAccount.id.toNumber()).toBe(2);
+  });
+
   test('User1 Close Tutorial0', async () => {
     await expect(
       proposalClose({
         program,
-        mintPk: mint.publicKey,
-        tutorialId: 0,
+        mintPk: mintKafe,
+        proposalId: 0,
+        authorPk: user1.publicKey,
         userPk: user1.publicKey,
         signer: user1,
+      }),
+    ).resolves.toBeTruthy();
+  });
+
+  test('Close Kafe Vault.', async () => {
+    const pdaVaultKafe = await pdaDaoVaultAccount(mintKafe);
+    let vaultBalance = await provider.connection.getTokenAccountBalance(
+      pdaVaultKafe.pda,
+    );
+    let vaultAmount = new anchor.BN(parseInt(vaultBalance.value.amount));
+    await daoVaultClose({
+      program,
+      mintPk: mintKafe,
+      amount: vaultAmount,
+      superAdminPk: superAdmin.publicKey,
+      signer: superAdmin,
+    });
+    vaultBalance = await provider.connection.getTokenAccountBalance(
+      superAdminAta.address,
+    );
+    console.log('>>>>', vaultBalance.value.uiAmount);
+    // expect(tipperInfo.length).toBe(1);
+  });
+
+  test('Close BDR Vault.', async () => {
+    const pdaVaultBDR = await pdaDaoVaultAccount(mintBDR);
+    let vaultBalance = await provider.connection.getTokenAccountBalance(
+      pdaVaultBDR.pda,
+    );
+    let vaultAmount = new anchor.BN(parseInt(vaultBalance.value.amount));
+    await daoVaultClose({
+      program,
+      mintPk: mintBDR,
+      amount: vaultAmount,
+      superAdminPk: superAdmin.publicKey,
+      freeze: true,
+      signer: superAdmin,
+    });
+    vaultBalance = await provider.connection.getTokenAccountBalance(
+      superAdminAtaBDR.address,
+    );
+    console.log('>>>>', vaultBalance.value.uiAmount);
+    console.log('>>>>', vaultBalance.value.amount);
+    // expect(tipperInfo.length).toBe(1);
+  });
+
+  test('Close DaoAccount.', async () => {
+    // const daoAccount = await pdaDaoAccount();
+    await expect(
+      daoClose({
+        program,
+        superAdminPk: superAdmin.publicKey,
+        signer: superAdmin,
       }),
     ).resolves.toBeTruthy();
   });

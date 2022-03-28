@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+solana-test-validator -r > /dev/null 2>&1 &
+VALIDATOR_PID=$!
+sleep 2
+anchor build 
+anchor deploy
+cd ./programs/tutorial
+yarn idl:copy
+kill $VALIDATOR_PID

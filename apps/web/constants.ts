@@ -53,6 +53,10 @@ export const NEXT_PUBLIC_KAFE_MINT = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_KAFE_MINT,
   'NEXT_PUBLIC_KAFE_MINT',
 );
+export const NEXT_PUBLIC_BDR_MINT = getEnvOrFail<string>(
+  process.env.NEXT_PUBLIC_BDR_MINT,
+  'NEXT_PUBLIC_BDR_MINT',
+);
 export const NEXT_PUBLIC_SOLANA_NETWORK =
   getEnvOrFail<TutorialProgramConfig.Network>(
     process.env.NEXT_PUBLIC_SOLANA_NETWORK,
@@ -63,6 +67,7 @@ export const NEXT_PUBLIC_SOLANA_NODE_URL = getEnvOrFail<string>(
   'NEXT_PUBLIC_SOLANA_NODE_URL',
   true,
 );
+
 export const ZERO_ADDRESS = '11111111111111111111111111111111';
 
 export const NEXT_PUBLIC_ARWEAVE_APP_NAME = getEnvOrFail<string>(

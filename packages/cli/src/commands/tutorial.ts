@@ -18,8 +18,9 @@ import { ArweaveApi, CeramicApi, TutorialMetadata } from '@builderdao/apis';
 import { protocols, technologies } from '@builderdao/data';
 import {
   TutorialProgramClient,
-  filterAccountByFundedState,
-  filterAccountBySlug,
+  ProposalStateE,
+  filterProposalByState,
+  filterProposalBySlug,
 } from '@builderdao-sdk/dao-program';
 
 import { log as _log, hashSumDigest } from '../utils';
@@ -368,8 +369,8 @@ Notes:
           source: async () =>
             (
               await client.getProposals([
-                filterAccountByFundedState,
-                ...(options.slug ? [filterAccountBySlug(options.slug)] : []),
+                filterProposalByState(ProposalStateE.funded),
+                ...(options.slug ? filterProposalBySlug(options.slug) : []),
               ])
             ).map(data => `${data.account.slug}`),
         });
@@ -567,7 +568,7 @@ Notes:
           await template.setTags(q.answer.join(','));
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
           await config.config.read();
-          const tags = q.answer.map(t => ({
+          const tags = q.answer.map((t: string) => ({
             name: t,
             slug: t.toLowerCase(),
           }));

@@ -1,5 +1,12 @@
-import { Network } from '@builderdao/dao-utils';
+// import { Network } from '@builderdao/dao-utils';
 import { createContext, useContext } from 'react';
+
+export enum Network {
+  MAINNET = 'mainnet-beta',
+  DEVNET = 'devnet',
+  TESTNET = 'testnet',
+  LOCALNET = 'localnet',
+}
 
 export interface NetworkContextState {
   network: Network;

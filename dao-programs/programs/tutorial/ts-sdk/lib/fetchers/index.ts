@@ -4,6 +4,7 @@ export { default as isReviewer } from './isReviewer';
 export { default as daoVaultAccountBalance } from './daoVaultAccountBalance';
 export { default as proposalAccountById } from './proposalAccountById';
 export { default as proposalAccountBySlug } from './proposalAccountBySlug';
+export { default as proposalAccountByStreamId } from './proposalAccountByStreamId';
 export { default as proposalAccountList } from './proposalAccountList';
 export { default as listOfVoterById } from './listOfVoterById';
 export { default as userVoteAccountById } from './userVoteAccountById';

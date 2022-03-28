@@ -54,3 +54,7 @@ arweave-wallet.json
 # .env
 
 packages/apis/dist
+
+test-ledger
+
+dao-programs/migrations/secret.js

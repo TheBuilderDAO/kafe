@@ -15,7 +15,6 @@
     "@builderdao-sdk/dao-program": "*",
     "@builderdao/apis": "*",
     "@builderdao/cli": "*",
-    "@builderdao/dao-utils": "*",
     "@builderdao/data": "*",
     "@builderdao/md-utils": "*",
     "@builderdao/ui": "*",

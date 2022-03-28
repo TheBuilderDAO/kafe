@@ -1,5 +1,7 @@
 use anchor_lang::prelude::*;
 
+use crate::constants::*;
+
 #[account]
 #[derive(Default)]
 pub struct ReviewerAccount {
@@ -10,5 +12,11 @@ pub struct ReviewerAccount {
 }
 
 impl ReviewerAccount {
-  pub const LEN: usize = 8 + 1 + 32 + 1 + 4 + 4 * 50;
+  pub fn space(github_name: &str) -> usize {
+    LEN_DISCRIMINATOR
+    + LEN_U8
+    + LEN_PUBKEY
+    + LEN_U8
+    + LEN_STRING_ALLOCATOR + github_name.len()
+  }
 }
