@@ -1,11 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import { TutorialCard } from '@builderdao/ui';
-import defaultAvatar from '/public/assets/icons/default_avatar.svg';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { getTutorialPaths } from '@builderdao/md-utils';
 import RightSidebar from 'layouts/PublicLayout/RightSidebar';
-import GuideFilter from '@app/components/Search/GuideFilter';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
@@ -20,6 +17,7 @@ import { ProposalStateE } from '@builderdao-sdk/dao-program';
 import GuideHit from '@app/components/Search/GuideHit';
 import Pagination from '@app/components/Search/Pagination';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
+import Link from 'next/link';
 
 const PER_PAGE = 10;
 
@@ -64,7 +62,19 @@ const LearnIndexPage: NextPage<
                       />
                     </div>
                   </IsAdmin>
+                  {process.env.NODE_ENV === 'development' ? (
+                    <div className="space-y-0.5 divide-y-2">
+                      {allTutorials.map(tutorial => (
+                        <div key={tutorial.slug} className="">
+                          <Link href={`/learn/${tutorial.slug}`}>
+                            {tutorial.config.title}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   <Hits hitComponent={GuideHit} />
+
                   <Pagination />
                 </div>
               </div>
@@ -90,75 +100,3 @@ export const getStaticProps: GetStaticProps = async context => {
 };
 
 export default LearnIndexPage;
-
-// import React from 'react';
-// import Head from 'next/head';
-// import { NextPage } from 'next';
-// import RightSidebar from 'layouts/PublicLayout/RightSidebar';
-// import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
-// import algoliasearch from 'algoliasearch/lite';
-// import Banner from '@app/components/Banner';
-// import {
-//   // NEXT_PUBLIC_ALGOLIA_APP_ID,
-//   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
-//   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
-// } from '@app/constants';
-// import GuideStateTabs from '@app/components/Search/GuideStateTabs';
-// import { ProposalStateE } from '@builderdao-sdk/dao-program';
-// import GuideHit from '@app/components/Search/GuideHit';
-// import Pagination from '@app/components/Search/Pagination';
-// import GuideFilter from '@app/components/Search/GuideFilter';
-// import IsAdmin from '@app/components/IsAdmin/IsAdmin';
-
-// const NEXT_PUBLIC_ALGOLIA_APP_ID = 'BUCGOMYP6K';
-
-// const searchClient = algoliasearch(
-//   NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-//   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
-// );
-
-// const LearnIndexPage: NextPage = () => {
-//   return (
-//     <>
-//       <Head>
-//         <title>Search Guides</title>
-//       </Head>
-//       <main className="w-full">
-//         <Banner
-//           header="Learn from guides written by our community"
-//           description="If you like a guide, you can support the creators by tipping"
-//           link="https://figment.io"
-//         />
-//         <div className="z-30 flex mb-20">
-//           <InstantSearch
-//             searchClient={searchClient}
-//             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-//           >
-//             <Configure hitsPerPage={4} analytics={false} />
-//             <div className="flex items-start justify-between w-full">
-//               <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px]">
-//                 <div className="lg:my-6 ">
-//                   <IsAdmin>
-//                     <div className="mb-6">
-//                       <GuideStateTabs
-//                         attribute="state"
-//                         defaultRefinement={[ProposalStateE.published]}
-//                       />
-//                     </div>
-//                   </IsAdmin>
-//                   <Hits hitComponent={GuideHit} />
-//                   <Pagination />
-//                 </div>
-//               </div>
-//               <RightSidebar>
-//                 <GuideFilter />
-//               </RightSidebar>
-//             </div>
-//           </InstantSearch>
-//         </div>
-//       </main>
-//     </>
-//   );
-// };
-
-// export default LearnIndexPage;

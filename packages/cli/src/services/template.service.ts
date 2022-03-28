@@ -19,7 +19,9 @@ export class TemplateService {
   public templateName: TemplateTypes
 
   public packageJsonPath: string;
+
   public lockJsonPath: string;
+
   public configJsonPath: string;
 
 
