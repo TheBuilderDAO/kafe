@@ -2,7 +2,6 @@
 /* eslint-disable jest/expect-expect */
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
-// coucou
 import {
   getMint,
   createMint,
@@ -44,6 +43,9 @@ import {
   proposalSetState,
   guideTipping,
   proposalPublish,
+  tipperClose,
+  daoVaultClose,
+  daoClose,
 } from '../ts-sdk/lib/instructions';
 
 import { filterProposalByState, ProposalStateE } from '../ts-sdk';
@@ -73,12 +75,14 @@ describe('tutorial-program', () => {
   let reviewer1Ata: Account;
   let reviewer2Ata: Account;
   let reviewer3Ata: Account;
+  let superAdminAta: Account;
 
   let user1AtaBDR: Account;
   let user2AtaBDR: Account;
   let reviewer1AtaBDR: Account;
   let reviewer2AtaBDR: Account;
   let reviewer3AtaBDR: Account;
+  let superAdminAtaBDR: Account;
 
   const githubLogin1 = 'Bob';
   const githubLogin2 = 'Alice';
@@ -172,6 +176,12 @@ describe('tutorial-program', () => {
       mintKafe,
       reviewer3.publicKey,
     );
+    superAdminAta = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      superAdmin,
+      mintKafe,
+      superAdmin.publicKey,
+    );
 
     // Mint tokens to token account
     await mintTo(
@@ -211,6 +221,14 @@ describe('tutorial-program', () => {
       mintAuth,
       mintKafe,
       reviewer3Ata.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintKafe,
+      superAdminAta.address,
       mintAuth.publicKey,
       1_000_000,
     );
@@ -267,6 +285,12 @@ describe('tutorial-program', () => {
       mintBDR,
       reviewer3.publicKey,
     );
+    superAdminAtaBDR = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      superAdmin,
+      mintBDR,
+      superAdmin.publicKey,
+    );
 
     // Mint tokens to token account
     await mintTo(
@@ -306,6 +330,14 @@ describe('tutorial-program', () => {
       mintAuth,
       mintBDR,
       reviewer3AtaBDR.address,
+      mintAuth.publicKey,
+      1_000_000,
+    );
+    await mintTo(
+      provider.connection,
+      mintAuth,
+      mintBDR,
+      superAdminAtaBDR.address,
       mintAuth.publicKey,
       1_000_000,
     );
@@ -928,6 +960,18 @@ describe('tutorial-program', () => {
     expect(tipperInfo.length).toBe(2);
   });
 
+  test('Close tipper for reviewer3.', async () => {
+    await tipperClose({
+      program,
+      guideId: 0,
+      tipperPk: reviewer3.publicKey,
+      adminPk: auth1.publicKey,
+      signer: auth1,
+    });
+    const tipperInfo = await getTipperAccountsListById(program, 0);
+    expect(tipperInfo.length).toBe(1);
+  });
+
   test('user2 tip too  much', async () => {
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(100_000_000_000);
@@ -983,6 +1027,59 @@ describe('tutorial-program', () => {
         authorPk: user1.publicKey,
         userPk: user1.publicKey,
         signer: user1,
+      }),
+    ).resolves.toBeTruthy();
+  });
+
+  test('Close Kafe Vault.', async () => {
+    const pdaVaultKafe = await pdaDaoVaultAccount(mintKafe);
+    let vaultBalance = await provider.connection.getTokenAccountBalance(
+      pdaVaultKafe.pda,
+    );
+    let vaultAmount = new anchor.BN(parseInt(vaultBalance.value.amount));
+    await daoVaultClose({
+      program,
+      mintPk: mintKafe,
+      amount: vaultAmount,
+      superAdminPk: superAdmin.publicKey,
+      signer: superAdmin,
+    });
+    vaultBalance = await provider.connection.getTokenAccountBalance(
+      superAdminAta.address,
+    );
+    console.log('>>>>', vaultBalance.value.uiAmount);
+    // expect(tipperInfo.length).toBe(1);
+  });
+
+  test('Close BDR Vault.', async () => {
+    const pdaVaultBDR = await pdaDaoVaultAccount(mintBDR);
+    let vaultBalance = await provider.connection.getTokenAccountBalance(
+      pdaVaultBDR.pda,
+    );
+    let vaultAmount = new anchor.BN(parseInt(vaultBalance.value.amount));
+    await daoVaultClose({
+      program,
+      mintPk: mintBDR,
+      amount: vaultAmount,
+      superAdminPk: superAdmin.publicKey,
+      freeze: true,
+      signer: superAdmin,
+    });
+    vaultBalance = await provider.connection.getTokenAccountBalance(
+      superAdminAtaBDR.address,
+    );
+    console.log('>>>>', vaultBalance.value.uiAmount);
+    console.log('>>>>', vaultBalance.value.amount);
+    // expect(tipperInfo.length).toBe(1);
+  });
+
+  test('Close DaoAccount.', async () => {
+    // const daoAccount = await pdaDaoAccount();
+    await expect(
+      daoClose({
+        program,
+        superAdminPk: superAdmin.publicKey,
+        signer: superAdmin,
       }),
     ).resolves.toBeTruthy();
   });

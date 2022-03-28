@@ -166,7 +166,7 @@
         },
         {
           "name": "mint",
-          "isMut": false,
+          "isMut": true,
           "isSigner": false
         },
         {
@@ -176,7 +176,7 @@
         },
         {
           "name": "superAdminTokenAccount",
-          "isMut": false,
+          "isMut": true,
           "isSigner": false
         },
         {
@@ -193,6 +193,10 @@
         {
           "name": "amount",
           "type": "u64"
+        },
+        {
+          "name": "freeze",
+          "type": "bool"
         }
       ]
     },

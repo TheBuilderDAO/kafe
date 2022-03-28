@@ -20,12 +20,14 @@ export const daoVaultClose = async ({
   mintPk,
   amount,
   superAdminPk,
+  freeze,
   signer,
 }: {
   program: Program<Tutorial>;
   mintPk: anchor.web3.PublicKey;
   amount: anchor.BN;
   superAdminPk: anchor.web3.PublicKey;
+  freeze?: boolean;
   signer?: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount, pdaDaoVaultAccount } = getPda(program.programId);
@@ -36,13 +38,14 @@ export const daoVaultClose = async ({
   const signature = await program.rpc.daoVaultClose(
     daoVaultAccount.bump,
     amount,
+    !!freeze,
     {
       accounts: {
         daoVault: daoVaultAccount.pda,
         daoAccount: daoAccount.pda,
         mint: mintPk,
         superAdmin: superAdminPk,
-        superAdminTokenAccount,
+        superAdminTokenAccount: superAdminTokenAccount,
         tokenProgram: TOKEN_PROGRAM_ID,
       },
       ...(signer && { signers: [signer] }),

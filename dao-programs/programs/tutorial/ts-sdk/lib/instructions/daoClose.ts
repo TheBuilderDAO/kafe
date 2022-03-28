@@ -15,11 +15,11 @@ import { getPda } from '../pda';
  */
 export const daoClose = async ({
   program,
-  super_adminPk,
+  superAdminPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  super_adminPk: anchor.web3.PublicKey;
+  superAdminPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount } = getPda(program.programId);
@@ -28,7 +28,7 @@ export const daoClose = async ({
   const signature = await program.rpc.daoClose({
     accounts: {
       daoAccount: daoAccount.pda,
-      superAdmin: super_adminPk,
+      superAdmin: superAdminPk,
     },
     ...(signer && { signers: [signer] }),
   });

@@ -17,7 +17,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test --parallel",
-    "test:anchor": "cd dao-programs && anchor test",
+    "test:anchor": "cd dao-programs && ./deploy && anchor test",
     "test:programs": "turbo run test:program --parallel --scope=@builderdao-sdk*",
     "clean": "turbo run clean --parallel",
     "prepare": "husky install",

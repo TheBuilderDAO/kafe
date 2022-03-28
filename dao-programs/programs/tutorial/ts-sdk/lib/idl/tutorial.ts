@@ -166,7 +166,7 @@ export type Tutorial = {
         },
         {
           name: 'mint';
-          isMut: false;
+          isMut: true;
           isSigner: false;
         },
         {
@@ -176,7 +176,7 @@ export type Tutorial = {
         },
         {
           name: 'superAdminTokenAccount';
-          isMut: false;
+          isMut: true;
           isSigner: false;
         },
         {
@@ -193,6 +193,10 @@ export type Tutorial = {
         {
           name: 'amount';
           type: 'u64';
+        },
+        {
+          name: 'freeze';
+          type: 'bool';
         },
       ];
     },
@@ -1178,7 +1182,7 @@ export const IDL: Tutorial = {
         },
         {
           name: 'mint',
-          isMut: false,
+          isMut: true,
           isSigner: false,
         },
         {
@@ -1188,7 +1192,7 @@ export const IDL: Tutorial = {
         },
         {
           name: 'superAdminTokenAccount',
-          isMut: false,
+          isMut: true,
           isSigner: false,
         },
         {
@@ -1205,6 +1209,10 @@ export const IDL: Tutorial = {
         {
           name: 'amount',
           type: 'u64',
+        },
+        {
+          name: 'freeze',
+          type: 'bool',
         },
       ],
     },

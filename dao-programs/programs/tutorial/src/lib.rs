@@ -47,8 +47,8 @@ pub mod tutorial {
     instructions::dao_set_quorum::handler(ctx, quorum)
   }
 
-  pub fn dao_vault_close(ctx: Context<DaoVaultClose>, bump: u8, amount: u64) -> Result<()> {
-    instructions::dao_vault_close::handler(ctx, bump, amount)
+  pub fn dao_vault_close(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool) -> Result<()> {
+    instructions::dao_vault_close::handler(ctx, bump, amount, freeze)
   }
 
   pub fn dao_vault_inialize(ctx: Context<DaoVaultInitialize>) -> Result<()> {
