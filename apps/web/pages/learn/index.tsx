@@ -9,6 +9,7 @@ import GuideFilter from '@app/components/Search/GuideFilter';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
+import HitFilter from '@app/components/Search/HitFilter';
 import {
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
@@ -68,7 +69,7 @@ const LearnIndexPage: NextPage<
                 </div>
               </div>
               <RightSidebar>
-                <GuideFilter />
+                <HitFilter />
               </RightSidebar>
             </div>
           </InstantSearch>

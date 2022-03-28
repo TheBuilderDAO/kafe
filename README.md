@@ -46,8 +46,20 @@ yarn run dev
 
 ## How to use?
 
-[] TODO:
-If you are writing new UI component it's need to be added to `ui` package.
+### Quick start for authors.
+
+```bash
+yarn
+yarn build:cli
+builderdao --help
+```
+### How to start a tutorial.
+```
+
+
+```
+
+
 
 
 ## Writing a tutorial

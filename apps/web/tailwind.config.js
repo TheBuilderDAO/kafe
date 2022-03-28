@@ -34,6 +34,14 @@ module.exports = {
         'space-bold': ['Space Mono Bold', 'monospace'],
         'space-bold-italic': ['Space Mono Bold Italic', 'monospace'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': { content: '' },
+            'code::after': { content: '' },
+          },
+        },
+      },
       animation: {
         'slide-up': 'bazinga 0.5s ease forwards',
       },

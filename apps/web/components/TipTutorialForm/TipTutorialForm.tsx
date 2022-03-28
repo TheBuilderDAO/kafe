@@ -24,8 +24,14 @@ type TipTutorialProps = {
 Modal.setAppElement('#__next'); // This is for screen-readers. By binding the modal to the root element, screen-readers can read the content of the modal.
 
 const TipTutorialForm = (props: TipTutorialProps) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { id } = props;
+  const { wallet } = useDapp();
+  const { register, handleSubmit, reset, watch, control } = useForm<FormData>();
   const { theme } = useTheme();
+
+  const [tipTutorial, { submitting }] = useTipTutorial();
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const dark = theme === 'dark';
 
   const modalStyles = {
@@ -55,15 +61,10 @@ const TipTutorialForm = (props: TipTutorialProps) => {
     setModalIsOpen(false);
   };
 
-  const afterOpenModal = () => {
-    return;
-  };
-
   const KafeModal = () => {
     return (
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={modalStyles}
         contentLabel="Support modal"
@@ -112,21 +113,6 @@ const TipTutorialForm = (props: TipTutorialProps) => {
     );
   };
 
-  const { id } = props;
-  const { wallet } = useDapp();
-  const { register, handleSubmit, reset, watch, control } = useForm<FormData>();
-
-  const [tipTutorial, { submitting }] = useTipTutorial();
-
-  const Placeholder = () => {
-    return (
-      <div className="w-full flex flex-col items-center min-h-[200px] justify-center font-larken text-3xl -ml-12">
-        <p className="pb-4">Connect your wallet to view this section.</p>
-        <LoginButton />
-      </div>
-    );
-  };
-
   const onSubmit = useCallback(
     async data => {
       try {
@@ -152,20 +138,18 @@ const TipTutorialForm = (props: TipTutorialProps) => {
   );
 
   return (
-    <IsLoggedIn Placeholder={Placeholder}>
-      <form onSubmit={e => e.preventDefault()}>
-        <button
-          type="submit"
-          onClick={openModal}
-          disabled={submitting}
-          className="items-center px-6 py-4 w-full font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafewhite border border-transparent rounded-2xl shadow-sm hover:bg-kafewhite hover:border-kafeblack dark:hover:bg-kafeblack dark:hover:text-kafewhite sm:text-sm hover:text-kafeblack dark:hover:border-kafewhite"
-        >
-          {submitting ? 'Submitting...' : 'support'}
-        </button>
-        <KafeModal />
-        <Notifications />
-      </form>
-    </IsLoggedIn>
+    <form onSubmit={e => e.preventDefault()}>
+      <button
+        type="submit"
+        onClick={openModal}
+        disabled={submitting || !wallet.connected}
+        className="disabled:opacity-25 items-center px-6 py-4 w-full font-medium dark:text-kafeblack text-kafewhite bg-kafeblack dark:bg-kafewhite border border-transparent rounded-2xl shadow-sm hover:bg-kafewhite hover:border-kafeblack dark:hover:bg-kafeblack dark:hover:text-kafewhite sm:text-sm hover:text-kafeblack dark:hover:border-kafewhite"
+      >
+        {submitting ? 'Submitting...' : 'support'}
+      </button>
+      <KafeModal />
+      <Notifications />
+    </form>
   );
 };
 

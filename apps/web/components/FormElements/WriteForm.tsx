@@ -11,13 +11,13 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
   const { wallet } = useDapp();
 
   return (
-    <div className="mb-6 mt-10 text-kafeblack grow dark:text-kafewhite z-10 relative min-h-72">
+    <div className="mb-6 mt-10 text-kafeblack z-10 grow dark:text-kafewhite relative min-h-72">
       <BorderSVG />
       <div className="p-10">
         <div className="mb-5">
           {wallet.connected && (
             <div className="text-sm flex items-center">
-              <p>Proposal by{'  '}</p>
+              <p className="mr-2">Proposal by</p>
               <UserAvatar address={wallet.publicKey.toString()} />
             </div>
           )}

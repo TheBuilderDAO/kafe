@@ -15,7 +15,7 @@ const MenuSelect = ({ currentRefinement, refine, attribute, items }) => {
             name={attribute}
             value={item.value}
             className="absolute opacity-0 cursor-pointer peer"
-            checked={currentRefinement === item.value}
+            checked={currentRefinement === item.label}
             onChange={() => refine(item.value)}
           />
           <span

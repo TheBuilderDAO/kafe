@@ -24,10 +24,12 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# https://nextjs.org/docs/basic-features/environment-variables  .env loads last in env ENV of next.js app 
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
 
 # turbo
 .turbo
@@ -49,6 +51,6 @@ dao-programs/program-id-testnet.json
 
 arweave-wallet.json
 
-.env
+# .env
 
 packages/apis/dist

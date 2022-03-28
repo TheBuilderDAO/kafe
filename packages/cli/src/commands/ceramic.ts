@@ -4,8 +4,18 @@ import { CeramicApi } from '@builderdao/apis';
 import { log as _log } from '../utils';
 
 export function makeCeramicCommand() {
-  const ceramic = new commander.Command('ceramic').description('Ceramic');
+  const ceramic = new commander.Command('ceramic')
+    .addHelpCommand(false)
+    .description('Store Kafé tutorial metadata on Ceramic')
+    .configureHelp({
+      helpWidth: 80,
+      sortSubcommands: true,
+      sortOptions: true,
+    });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const log = (object: any) => _log(object, ceramic.optsWithGlobals().key);
+
   ceramic
     .command('updateMetadata')
     .description('Update tutorial metadata')

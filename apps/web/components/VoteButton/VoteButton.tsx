@@ -18,12 +18,12 @@ const VoteButton = (props: VoteButtonProps) => {
   const { vote, loading, error } = useGetVote(id, wallet.publicKey);
 
   if (loading) {
-    return <Loader />;
+    return null;
   }
 
   return (
-    <div className="py-2">
-      {vote && !error ? (
+    <>
+      {vote && Object.keys(vote).length && !error ? (
         <CancelVoteButton
           key="cast-vote-btn"
           id={id}
@@ -33,7 +33,7 @@ const VoteButton = (props: VoteButtonProps) => {
       ) : (
         <CastVoteButton key="cancel-vote-btn" id={id} variant={variant} />
       )}
-    </div>
+    </>
   );
 };
 
