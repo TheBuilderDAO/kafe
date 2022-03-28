@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "content:prepublish": "builderdao tutorial  prepublish",
-    "content:index": "dotenv -f ../../.env builderdao algolia publish",
+    "content:index": "builderdao algolia publish",
     "content:publish": "builderdao tutorial publish"
   },
   "keywords": [
