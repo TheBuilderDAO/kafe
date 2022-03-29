@@ -298,7 +298,6 @@ Notes:
           fullPath: string;
         }) => {
           console.log('Uploading', file.name);
-          return;
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
 
           const arweaveHash = await arweave.publishTutorial(
@@ -316,6 +315,12 @@ Notes:
             .value();
           await lock.write();
           console.log('🔒 Updated builderdao.lock.json!');
+          await lock.read();
+          console.log('🔶 Updating ceramic metadata');
+          await ceramic.updateMetadata(proposal.streamId, {
+            content: lock.chain.get('content').value(),
+          })
+          console.log('🔶 Updated ceramic metadata');
         },
         2,
       );
