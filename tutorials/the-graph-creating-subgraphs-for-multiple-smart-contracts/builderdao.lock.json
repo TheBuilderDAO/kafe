@@ -1,5 +1,5 @@
 {
-  "proposalId": 325,
+  "proposalId": 29,
   "slug": "the-graph-creating-subgraphs-for-multiple-smart-contracts",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -40,14 +40,34 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "18ee0e69aff6311874039c2159ccfb34bfe56a0dae2b43954a76169d76b799c3"
+      "digest": "09ca75e453ad1ed3fa48ef164d667783177073e1fcc784cd66bc39683008eac7"
     },
     "content/assets/the-graph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png": {
       "name": "the-graph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png",
       "path": "content/assets/the-graph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png",
       "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-init-2.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-init-2.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-init-2.png",
+      "digest": "b123f4eea0fc9eb6d13782fef3801679f62e83278068e53f5f6b24bdd70da316"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-playground-4.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-playground-4.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-playground-4.png",
+      "digest": "6d8583d9ddd6611f0f017108eeda7fa4b9a58e0e531eb4af1fd3d8e9ca86e59d"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram-3.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram-3.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram-3.png",
+      "digest": "8ca1593f9f67898f4283ed297afcc9744c54aecdc1c89d34ea8160fabec8d5f1"
+    },
+    "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png": {
+      "name": "thegraph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png",
+      "path": "content/assets/thegraph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
     }
   },
   "href": "learn/the-graph-creating-subgraphs-for-multiple-smart-contracts",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

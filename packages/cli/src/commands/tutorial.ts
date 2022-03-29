@@ -261,6 +261,9 @@ Notes:
         .env('ARWEAVE_PROTOCOL')
         .default('https'),
     )
+    .addOption(
+      new commander.Option('--skip-images', 'Skip uploading images').default(false)
+    )
     .action(async (learnPackageName, options) => {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)

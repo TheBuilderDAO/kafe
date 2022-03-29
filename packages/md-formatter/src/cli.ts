@@ -173,9 +173,9 @@ async function main(task: { tutorial: TutorialExtended, proposal: SolanaDetailsR
     })
     await template.updateLock('proposalId', task.proposal.id)
     const reviewer = {
-      pda: "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      pubkey: 'daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi',
-      githubName: 'LearnTeam'
+      pda: "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      pubkey: "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      githubName: "sudo"
     }
     await template.updateLock('creator', task.proposal.creator)
     await template.updateLock('reviewers.reviewer1', reviewer)

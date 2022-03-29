@@ -1,5 +1,5 @@
 {
-  "proposalId": 356,
+  "proposalId": 60,
   "slug": "celo-build-a-dao-on-celo",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -55,7 +55,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3a570bec1a941a5ff213a45a5b2676d17f4a9bcf42247ece9c21d7e192a47df9"
+      "digest": "a22c92941eed4e1620d6e36da8a8efdaf9411c2e2740cbec83fd489fee7535c2"
     },
     "content/assets/celo-build-a-dao-on-celo-image-7.png": {
       "name": "celo-build-a-dao-on-celo-image-7.png",
@@ -64,5 +64,5 @@
     }
   },
   "href": "learn/celo-build-a-dao-on-celo",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }
