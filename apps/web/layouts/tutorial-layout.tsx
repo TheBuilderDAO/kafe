@@ -8,7 +8,6 @@ import RightSidebar from './PublicLayout/RightSidebar';
 import Tags from '@app/components/Tags/Tags';
 import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 import { BuilderDaoConfigJson } from '@builderdao/cli';
-import { getEnabledCategories } from 'trace_events';
 import _, { map } from 'lodash';
 import { formatDate } from '@app/lib/utils/format-date';
 
@@ -74,10 +73,7 @@ export const TutorialLayout: React.FC<Props> = ({
                 <div className="py-4 font-thin text-left">{description}</div>
                 <div className="text-left">
                   <Tags
-                    tags={_.uniq([
-                      ...config.categories.map(c => c.name),
-                      ...keywords,
-                    ])}
+                    tags={_.uniq([...config.categories, ...keywords])}
                     overrideLengthCheck={true}
                   />
                 </div>
