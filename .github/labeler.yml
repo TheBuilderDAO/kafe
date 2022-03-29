@@ -1,0 +1,9 @@
+dao-program:
+- dao-programs/*
+- dao-programs/**/*
+
+frontend:
+- any: ['apps/web/**/*']
+
+tutorial:
+- any: ['tutorials/**/*']

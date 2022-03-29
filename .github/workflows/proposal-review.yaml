@@ -72,6 +72,54 @@ jobs:
         echo "::set-output name=proposalState::$PROPOSAL_STATE"
         echo "::set-output name=reviewer1_githubName::$REVIEWER1_GITHUBNAME"
         echo "::set-output name=reviewer2_githubName::$REVIEWER2_GITHUBNAME"
+  label:
+    needs: [fetch_proposal, get_proposal_slug]
+    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps: 
+      - name: Get VERCEL_GIT_COMMIT_REF
+        id: get_vercel_git_commit_ref
+        run: |
+          ref="${github_ref////-}"
+          echo $ref
+          echo "::set-env name=ref::$ref"
+      - name: Find Status Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Tutorial Details
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            :open_book: Tutorial Details
+            ```
+            ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+            SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+            REVIEWER1: ${{ needs.fetch_proposal.outputs.reviewer1_githubName }}
+            REVIEWER2: ${{ needs.fetch_proposal.outputs.reviewer2_githubName }}
+            ```
+
+            See [:scroll: Proposal](https://kafe-git-${{steps.get_vercel_git_commit_ref.outputs.ref}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
+            See [:open_book: Tutorial](https://kafe-git-${{steps.get_vercel_git_commit_ref.outputs.ref}}-builder-dao.vercel.app/learn/${{ needs.get_proposal_slug.outputs.slug }})
+
+          edit-mode: replace
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['tutorial_proposal']
+            })
 
   set_state:
     name: Set state to writing
@@ -144,6 +192,12 @@ jobs:
         uses: actions/github-script@v3
         with:
           script: |
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['pending_review']
+              })
               core.setFailed('Assigned reviewers are not approved yet')
       - uses: ./.github/actions/build-builderdao-cli/
       - id: set_ready_to_publish
@@ -152,6 +206,21 @@ jobs:
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
             builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
+      - name: label 
+        uses: actions/github-script@v3
+        with:
+          script: |
+              github.rest.issues.deleteLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: ['pending_review'],
+              });
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['ready_to_publish']
+              })
 
   update_index_ready_to_publish:
     name: Update Algolia index (readyToPublish)
