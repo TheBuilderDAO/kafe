@@ -86,9 +86,15 @@ const TutorialPage: NextPage<
           </div>
           <div className="p-2">
             <span>Arweave Hash</span>:{' '}
-            <span className="font-mono text-sm">
-              {lock?.content[relativePath].arweaveHash}
-            </span>
+            <a
+              href={`https://viewblock.io/arweave/tx/${lock?.content[relativePath].arweaveHash}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="font-mono text-sm">
+                {lock?.content[relativePath].arweaveHash}
+              </span>
+            </a>
           </div>
           <div className="p-2">
             <span>Served From</span>:{' '}
