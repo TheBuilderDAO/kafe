@@ -287,8 +287,8 @@ Notes:
         port: options.arweave_port,
         protocol: options.arweave_protocol,
       });
-      console.log(proposal);
-      console.log(ceramicMetadata);
+      log(proposal);
+      log(ceramicMetadata);
 
       const deployQueue = async.queue(
         async (file: {
@@ -298,7 +298,9 @@ Notes:
           fullPath: string;
         }) => {
           console.log('Uploading', file.name);
+          return;
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
+
           const arweaveHash = await arweave.publishTutorial(
             fileContent,
             `${learnPackageName}/${file.path}`,
@@ -326,9 +328,18 @@ Notes:
       const isPublished = Object.keys(proposal.state).some(
         (k: string) => k === 'published',
       );
+
+      const files = Object.values(content).filter(file => {
+        if (options.skipImages) {
+          if (/\.(png|jpg|jpeg|gif)$/.test(file.path)) {
+            return false;
+          }
+        }
+        return true;
+      });
       if (isReadyToPublish) {
         console.log('Kicking initial process.');
-        Object.values(content).forEach(async file => {
+        files.forEach(async file => {
           const filePath = path.join(rootFolder, file.path);
           deployQueue.push({
             ...file,
@@ -339,7 +350,7 @@ Notes:
         // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
       } else if (isPublished) {
         console.log('Kicking update process.');
-        Object.values(content).forEach(async file => {
+        files.forEach(async file => {
           const filePath = path.join(rootFolder, file.path);
           const digest = await hashSumDigest(filePath);
           if (file.digest !== digest) {
