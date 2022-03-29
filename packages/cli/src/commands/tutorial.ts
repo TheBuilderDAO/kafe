@@ -337,11 +337,20 @@ Notes:
           if (!file.options?.skipCeramic) {
             try {
               const updatedFile = lock.chain.get(`content["${file.path}"]`).value();
-              const updatedMetada = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
-              await ceramic.updateMetadata(proposal.streamId, {
-                ...updatedMetada,
-              })
-              console.log('🔶 Updated ceramic metadata');
+              const ceramicMetadataForFile = _.get(ceramicMetadata, `content["${file.path}"]`);
+              const isCeramicDataSync = _.isEqual(updatedFile, ceramicMetadataForFile)
+              if (isCeramicDataSync) {
+                log({
+                  message: "Skiping ceramic update because it's already synced",
+                  ...ceramicMetadataForFile,
+                })
+              } else {
+                const updatedMetadata = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
+                await ceramic.updateMetadata(proposal.streamId, {
+                  ...updatedMetadata,
+                })
+                console.log('🔶 Updated ceramic metadata');
+              }
             } catch (err) {
               console.log('🔶 Failed to update ceramic metadata');
               console.log(err);

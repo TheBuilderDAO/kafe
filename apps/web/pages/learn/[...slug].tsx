@@ -46,7 +46,7 @@ const TutorialPage: NextPage<
   }
 
   const { mdxSource, frontMatter } = props.post;
-  const { config, lock, relativePath, rootFolder } = props;
+  const { config, lock, relativePath, rootFolder, servedFrom } = props;
   const anchors = React.Children.toArray(mdxSource.compiledSource)
     .filter(
       (child: any) =>
@@ -80,7 +80,7 @@ const TutorialPage: NextPage<
         <div className="p-2 mt-16 border border-black divide-y-[1px] divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite bg-kafegold dark:bg-kafedarker shadow:sm">
           <div className="p-2">
             <span>Digest</span>:{' '}
-            <span className="font-mono text-sm">
+            <span className="font-mono text-xs">
               {lock?.content[relativePath].digest}
             </span>
           </div>
@@ -89,6 +89,10 @@ const TutorialPage: NextPage<
             <span className="font-mono text-sm">
               {lock?.content[relativePath].arweaveHash}
             </span>
+          </div>
+          <div className="p-2">
+            <span>Served From</span>:{' '}
+            <span className="font-mono text-sm">{servedFrom}</span>
           </div>
         </div>
       </TutorialLayout>
@@ -110,6 +114,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const { config, lock } = await getTutorialContentByPath({ rootFolder });
   const pathForFile = getPathForFile(slug[0], slug[1]);
   const relativePath = path.relative(rootFolder, pathForFile);
+  let servedFrom: 'local' | 'arweave' | 'github' = 'local';
 
   const getPost = async (): Promise<{ content: string; data: any }> => {
     if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
@@ -124,16 +129,20 @@ export const getStaticProps: GetStaticProps = async context => {
           config.content[relativePath].arweaveHash,
         );
         if (response) {
+          servedFrom = 'arweave';
           return getFileParse<PostType.TUTORIAL>(response.data);
         }
       } catch (err) {
+        servedFrom = 'github';
         const file = await getFileFromGithub(slug[0], relativePath);
         return getFileParse<PostType.TUTORIAL>(file);
       }
     } else if (NODE_ENV === 'production') {
       const file = await getFileFromGithub(slug[0], relativePath);
+      servedFrom = 'github';
       return getFileParse<PostType.TUTORIAL>(file);
     } else {
+      servedFrom = 'local';
       return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
   };
@@ -152,6 +161,7 @@ export const getStaticProps: GetStaticProps = async context => {
       relativePath,
       post: { ...post, mdxSource },
       slug,
+      servedFrom,
     },
     revalidate: 60 * 10, // In seconds
   };
