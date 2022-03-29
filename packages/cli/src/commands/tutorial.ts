@@ -306,38 +306,46 @@ Notes:
           digest: string;
           fullPath: string;
           arweaveHash?: string;
+          options?: {
+            skipArweave?: boolean;
+            skipCeramic?: boolean;
+          }
         }) => {
           console.log('Uploading', file.name);
           // return
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const digest = await hashSumDigest(file.fullPath);
           // return
-          const arweaveHash = await arweave.publishTutorial(
-            fileContent,
-            `${learnPackageName}/${file.path}`,
-            options.arweave_wallet,
-          );
-          console.log(
-            `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
-          );
-          lock.chain.set(`content["${file.path}"].digest`, digest).value();
-          lock.chain
-            .set(`content["${file.path}"].arweaveHash`, arweaveHash)
-            .value();
-          await lock.write();
-          console.log('🔒 Updated builderdao.lock.json!');
+          if (!file.options?.skipArweave) {
+            const arweaveHash = await arweave.publishTutorial(
+              fileContent,
+              `${learnPackageName}/${file.path}`,
+              options.arweave_wallet,
+            );
+            console.log(
+              `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
+            );
+            lock.chain.set(`content["${file.path}"].digest`, digest).value();
+            lock.chain
+              .set(`content["${file.path}"].arweaveHash`, arweaveHash)
+              .value();
+            await lock.write();
+            console.log('🔒 Updated builderdao.lock.json!');
+          }
           await lock.read();
           console.log('🔶 Updating ceramic metadata');
-          try {
-            const updatedFile = lock.chain.get(`content["${file.name}"]`).value();
-            const updatedMetada = _.set(ceramicMetadata, `content.${file.name}`, updatedFile);
-            await ceramic.updateMetadata(proposal.streamId, {
-              ...updatedMetada,
-            })
-            console.log('🔶 Updated ceramic metadata');
-          } catch (err) {
-            console.log('🔶 Failed to update ceramic metadata');
-            console.log(err);
+          if (!file.options?.skipCeramic) {
+            try {
+              const updatedFile = lock.chain.get(`content["${file.path}"]`).value();
+              const updatedMetada = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
+              await ceramic.updateMetadata(proposal.streamId, {
+                ...updatedMetada,
+              })
+              console.log('🔶 Updated ceramic metadata');
+            } catch (err) {
+              console.log('🔶 Failed to update ceramic metadata');
+              console.log(err);
+            }
           }
         },
         2,
@@ -360,11 +368,14 @@ Notes:
         }
         return true;
       });
-      if (isReadyToPublish) {
+      if (isReadyToPublish || isPublished) {
         console.log('Kicking initial process.');
         files.forEach(async file => {
           const filePath = path.join(rootFolder, file.path);
           const digest = await hashSumDigest(filePath);
+
+          // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
+          // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
           if (file.arweaveHash && file.digest === digest) {
             log({
               SKIPPING: {
@@ -372,21 +383,15 @@ Notes:
                 ...file
               }
             })
-          } else {
+
             deployQueue.push({
               ...file,
               fullPath: filePath,
+              options: {
+                skipArweave: true,
+              }
             });
-          }
-        });
-        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
-        // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
-      } else if (isPublished) {
-        console.log('Kicking update process.');
-        files.forEach(async file => {
-          const filePath = path.join(rootFolder, file.path);
-          const digest = await hashSumDigest(filePath);
-          if (file.digest !== digest) {
+          } else {
             deployQueue.push({
               ...file,
               fullPath: filePath,
@@ -401,6 +406,11 @@ Notes:
       }
       await deployQueue.drain();
       // End of the Ceramic & Arweave process.
+      log(await client.getTutorialById(proposalId));
+      console.log('-'.repeat(120))
+      log(await ceramic.getMetadata(
+        proposal.streamId as string,
+      ));
       console.log('✅ All items have been processed!');
     });
 
