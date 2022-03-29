@@ -1,5 +1,5 @@
 {
-  "proposalId": 395,
+  "proposalId": 99,
   "slug": "avalanche-create-nfts-with-the-avalanche-wallet",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -75,7 +75,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e5cec5256c518de700872dfce8c6a8f6af5bb19a9d1b81f6cf2406345e8c9ca1"
+      "digest": "2bef1d4829cc9359c21ac2887c3a4d11e7a057dff49c9e5d3a757843fdebea5c"
     },
     "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-9.png": {
       "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-9.png",
@@ -84,5 +84,5 @@
     }
   },
   "href": "learn/avalanche-create-nfts-with-the-avalanche-wallet",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

@@ -1,5 +1,5 @@
 {
-  "proposalId": 347,
+  "proposalId": 51,
   "slug": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -45,7 +45,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "8939d40923d23a939375966e0cae1f7d0f11f4532fe31a85c0b7c9f6f50b375d"
+      "digest": "50f460427e00a5f19ec7056d292a428814b71474f8479156ed520b921a5f438b"
     },
     "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png": {
       "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png",
@@ -54,5 +54,5 @@
     }
   },
   "href": "learn/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

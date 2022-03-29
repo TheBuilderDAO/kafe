@@ -1,5 +1,5 @@
 {
-  "proposalId": 416,
+  "proposalId": 120,
   "slug": "near-stake-fungible-token",
   "authors": [
     {
@@ -11,21 +11,21 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "2c18c34efc1bd19b4877207e82b8a69f39830b5f8d4174bd6a7ca3c833d499f7"
+      "digest": "6789137608584c93f025395dab2a8c28d651f2018ca6fa9a8cb06b9ad7b27f4a"
     },
     "content/assets/near-stake-fungible-token-image-1.png": {
       "name": "near-stake-fungible-token-image-1.png",
@@ -34,5 +34,5 @@
     }
   },
   "href": "learn/near-stake-fungible-token",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

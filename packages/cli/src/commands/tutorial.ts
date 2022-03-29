@@ -180,7 +180,6 @@ Notes:
         });
         await lock.read();
         lock.data ||= lockDefault;
-        console.log(lock.data);
         await lock.write();
         lock.chain.set('proposalId', proposal.id.toNumber());
         const reviewer1 = await getReviewer(client, proposal.reviewer1);
@@ -193,8 +192,11 @@ Notes:
         const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
         lock.chain.set('proposalId', proposal.id.toNumber()).value();
         lock.chain.set('creator', proposal.creator).value();
+        lock.write();
       }
       await updateHashDigestOfFolder(rootFolder);
+      await lock.read()
+      log(lock.data);
     });
 
   tutorial

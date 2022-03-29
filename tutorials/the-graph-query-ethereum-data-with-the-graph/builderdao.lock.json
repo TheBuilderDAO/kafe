@@ -1,0 +1,73 @@
+{
+  "proposalId": 316,
+  "slug": "the-graph-query-ethereum-data-with-the-graph",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "url": "https://github.com/robin-thomas",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-login-to-subgraph-studio-2.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-login-to-subgraph-studio-2.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-login-to-subgraph-studio-2.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-create-your-first-subgraph-3.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-create-your-first-subgraph-3.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-create-your-first-subgraph-3.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-metamask-8.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-metamask-8.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-metamask-8.png",
+      "digest": "a013c3c131b728507a78c7cc5b3c71e2362a4a95fcad9214b3686eea4da90c33"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-6.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-6.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-6.png",
+      "digest": "76456b8c5b1ce106d4f3c5f98abd992adc032c550bddd75024b5cb44aeb180f1"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase-7.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase-7.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-rinkeby-smart-contract-purchase-7.png",
+      "digest": "74fe9b42a0fea5998867c2fa93fb7f80a73e709c9202533054678ca6bf3497d3"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-subgraph-dashboard-4.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-subgraph-dashboard-4.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-subgraph-dashboard-4.png",
+      "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-subgraph-studio-playground-5.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-subgraph-studio-playground-5.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-subgraph-studio-playground-5.png",
+      "digest": "373f895b7919dd12669d6727f1af5360db44b885ffddd9cf066d6d74080c2854"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d9a9c2849f5ad8bee09b223821b2c2637a581b4489c78f001db53f57c6a0c002"
+    },
+    "content/assets/the-graph-query-ethereum-data-with-the-graph-subgraph-studio-1.png": {
+      "name": "the-graph-query-ethereum-data-with-the-graph-subgraph-studio-1.png",
+      "path": "content/assets/the-graph-query-ethereum-data-with-the-graph-subgraph-studio-1.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    }
+  },
+  "href": "learn/the-graph-query-ethereum-data-with-the-graph",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

@@ -1,5 +1,5 @@
 {
-  "proposalId": 383,
+  "proposalId": 87,
   "slug": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -95,7 +95,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "219d9d7c488ed2f2411481303a909e3612957c31621b05193d498dad81d3663e"
+      "digest": "aacf217e7879397a73d075e47b2111406053f0e314493f7995395b50b650ede6"
     },
     "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif-14.png": {
       "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif-14.png",
@@ -104,5 +104,5 @@
     }
   },
   "href": "learn/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

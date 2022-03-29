@@ -1,5 +1,5 @@
 {
-  "proposalId": 310,
+  "proposalId": 14,
   "slug": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -35,7 +35,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "961a560d8d532767107219a0ea3fe21e5ff781854d0adf318cb0a8e6670ce8fd"
+      "digest": "28d87fd9f4a35abc89af60996171eb47d8c5494bf060baf30b085fe6371cc52d"
     },
     "content/assets/avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-3.png": {
       "name": "avalanche-create-an-auction-with-bidding-on-avalanche-using-react-image-3.png",
@@ -44,5 +44,5 @@
     }
   },
   "href": "learn/avalanche-create-an-auction-with-bidding-on-avalanche-using-react",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

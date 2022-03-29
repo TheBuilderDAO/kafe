@@ -1,5 +1,5 @@
 {
-  "proposalId": 429,
+  "proposalId": 133,
   "slug": "near-write-nft-contracts-in-rust",
   "authors": [
     {
@@ -11,21 +11,21 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "2a3c649c6276f58df2066a8c400b45bb27ae5220a81e02f3791b0f1d14570b4b"
+      "digest": "b01a4b0ed360eea2e66d5af50d443d2c9ff63152aabcbd16a86fef3ddc323f5d"
     },
     "content/assets/near-write-nft-contracts-in-rust-image-1.png": {
       "name": "near-write-nft-contracts-in-rust-image-1.png",
@@ -34,5 +34,5 @@
     }
   },
   "href": "learn/near-write-nft-contracts-in-rust",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

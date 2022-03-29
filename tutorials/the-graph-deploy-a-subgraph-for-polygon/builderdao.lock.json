@@ -1,0 +1,63 @@
+{
+  "proposalId": 349,
+  "slug": "the-graph-deploy-a-subgraph-for-polygon",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "url": "https://github.com/robin-thomas",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    },
+    "reviewer2": {
+      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
+      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
+      "githubName": "LearnTeam"
+    }
+  },
+  "content": {
+    "content/assets/the-graph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png": {
+      "name": "the-graph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png",
+      "digest": "7054f4a31763f4b82ed8a244465f25a3097fa5e105378b8298ac8147b15740f3"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-for-polygon-create-your-first-subgraph-5.png": {
+      "name": "the-graph-deploy-a-subgraph-for-polygon-create-your-first-subgraph-5.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-for-polygon-create-your-first-subgraph-5.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-for-polygon-datahub-signup-2.png": {
+      "name": "the-graph-deploy-a-subgraph-for-polygon-datahub-signup-2.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-for-polygon-datahub-signup-2.png",
+      "digest": "5b336c2994767cefc7c5ccd31ebaa6b40c9b817491b40b16372a63eab585bc17"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-for-polygon-subgraph-dashboard-6.png": {
+      "name": "the-graph-deploy-a-subgraph-for-polygon-subgraph-dashboard-6.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-for-polygon-subgraph-dashboard-6.png",
+      "digest": "ea97ea6870626cb218bf28bbf45077bb3ffdab3ae27b07a34daa4db1e23e4556"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio-4.png": {
+      "name": "the-graph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio-4.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-for-polygon-login-to-subgraph-studio-4.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ef7e99dd68b67125f98730928ba23471b0f13d03fafd93bb6e940fe9b76a3b62"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png": {
+      "name": "the-graph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    }
+  },
+  "href": "learn/the-graph-deploy-a-subgraph-for-polygon",
+  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+}

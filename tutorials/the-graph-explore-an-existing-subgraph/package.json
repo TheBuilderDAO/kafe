@@ -1,0 +1,26 @@
+{
+  "name": "@builderdao-learn/the-graph-explore-an-existing-subgraph",
+  "version": "1.0.0",
+  "description": "Learn how to explore an existing subgraph and visualize its data using a pie chart",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "The Graph",
+    "JS/TS",
+    "React",
+    "GraphQL",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

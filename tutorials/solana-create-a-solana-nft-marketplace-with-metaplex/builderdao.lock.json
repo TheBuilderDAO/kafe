@@ -1,5 +1,5 @@
 {
-  "proposalId": 430,
+  "proposalId": 134,
   "slug": "solana-create-a-solana-nft-marketplace-with-metaplex",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -110,7 +110,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b7d19a711155b8230cb7e07647594afd934b92c77b6b38eb00e4c781a8b907fe"
+      "digest": "e474400ecd393279f965eadbfc049a13fcf69e86a3c9aea66fe7133ac419b23a"
     },
     "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png": {
       "name": "solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png",
@@ -119,5 +119,5 @@
     }
   },
   "href": "learn/solana-create-a-solana-nft-marketplace-with-metaplex",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

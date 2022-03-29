@@ -1,5 +1,5 @@
 {
-  "proposalId": 445,
+  "proposalId": 149,
   "slug": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -30,7 +30,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5414c113c7e91b3ef310f3860ba489828ada887c8530be61cc6f0edd32b44783"
+      "digest": "9d7d39bce532e5624355315ab4d857348c025cafa9b1bd84c51fb54178d5dc71"
     },
     "content/assets/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-image-2.png": {
       "name": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-image-2.png",
@@ -39,5 +39,5 @@
     }
   },
   "href": "learn/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }

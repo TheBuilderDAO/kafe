@@ -1,5 +1,5 @@
 {
-  "proposalId": 431,
+  "proposalId": 135,
   "slug": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet",
   "authors": [
     {
@@ -11,14 +11,14 @@
   ],
   "reviewers": {
     "reviewer1": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     },
     "reviewer2": {
-      "pda": "6nzUwczpPhNJGGaEVEqPXQVff7xFqkBGn3XkmbbzNSug",
-      "pubkey": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi",
-      "githubName": "LearnTeam"
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
     }
   },
   "content": {
@@ -45,7 +45,7 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5e5a6d803cca7bf490c120becbc69ddd2a203559e9bebaa8cd80ee55b94880af"
+      "digest": "35cd24b4cc1c2de446324b17d61774be8ee331027302e9ad836c4832a585074d"
     },
     "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png": {
       "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png",
@@ -54,5 +54,5 @@
     }
   },
   "href": "learn/polkadot-perform-forkless-upgrade-of-a-substrate-pallet",
-  "creator": "daoGuHGpHQxWBTX2SR3viSHrAaD2CJ1E44mmNEHmLfi"
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
 }
