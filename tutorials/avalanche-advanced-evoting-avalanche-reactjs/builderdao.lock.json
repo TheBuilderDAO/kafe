@@ -25,37 +25,44 @@
     "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-1.png": {
       "name": "avalanche-advanced-evoting-avalanche-reactjs-image-1.png",
       "path": "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-1.png",
-      "digest": "147556847357c2da1090def059dd25f1bbe903e73652e5a0fa588ebfee74246e"
+      "digest": "147556847357c2da1090def059dd25f1bbe903e73652e5a0fa588ebfee74246e",
+      "arweaveHash": "nlT3H9y5JYT0kg-DKz7U-J26yySl1bSspecVkrizlm0"
     },
     "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-2.png": {
       "name": "avalanche-advanced-evoting-avalanche-reactjs-image-2.png",
       "path": "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-2.png",
-      "digest": "d72dc0b204f18de96cdbcb219019b65e3e1b2711c5fe258be94550845d6820e8"
+      "digest": "d72dc0b204f18de96cdbcb219019b65e3e1b2711c5fe258be94550845d6820e8",
+      "arweaveHash": "Hgor4QLGa_p9mnI2KRV5Uy_twQ2syFobD7SnjosCxfg"
     },
     "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-4.png": {
       "name": "avalanche-advanced-evoting-avalanche-reactjs-image-4.png",
       "path": "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-4.png",
-      "digest": "0107962e4a433d2334fd65a6e44b2ad6664292cf690643d6fe0183a546cb5e0a"
+      "digest": "0107962e4a433d2334fd65a6e44b2ad6664292cf690643d6fe0183a546cb5e0a",
+      "arweaveHash": "dVwAPdFjX_mzxcH9GZ9E4bwsAOxUDROfvLC4cE177so"
     },
     "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-3.png": {
       "name": "avalanche-advanced-evoting-avalanche-reactjs-image-3.png",
       "path": "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-3.png",
-      "digest": "8876ce30feacd5cc119e79d89772614b54f5cbb394666674d45c48d34475309f"
+      "digest": "8876ce30feacd5cc119e79d89772614b54f5cbb394666674d45c48d34475309f",
+      "arweaveHash": "D6mJAWeDavPyen0fXFLqQPa2FIXAfpu_jy3H_p9H-5A"
     },
     "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-5.png": {
       "name": "avalanche-advanced-evoting-avalanche-reactjs-image-5.png",
       "path": "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-5.png",
-      "digest": "8a3fc8ece2ecd98d1fab03c25cd6b7c263747d2e49650d15f923ac68dc52d348"
+      "digest": "8a3fc8ece2ecd98d1fab03c25cd6b7c263747d2e49650d15f923ac68dc52d348",
+      "arweaveHash": "zQ6cT3HA0FJr1UojmOw4PrA06lb6jlyHmYAbWnp6w98"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "78b02e1a10209652ca3f0cbfb0fc0c78dd2076c82281b16caa112b423a5d7852"
+      "digest": "78b02e1a10209652ca3f0cbfb0fc0c78dd2076c82281b16caa112b423a5d7852",
+      "arweaveHash": "UbB3-4QxIQzP7yTjX-VLBh-WrW-Pbdy_YwiXNuTmNb0"
     },
     "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-6.png": {
       "name": "avalanche-advanced-evoting-avalanche-reactjs-image-6.png",
       "path": "content/assets/avalanche-advanced-evoting-avalanche-reactjs-image-6.png",
-      "digest": "ca4c12087697faa0257cae8d4f5b51c3c04575c9266202031442db0c66cc7382"
+      "digest": "ca4c12087697faa0257cae8d4f5b51c3c04575c9266202031442db0c66cc7382",
+      "arweaveHash": "ToxLk5XO5YnzncvVCOsh-bls8GGrR8qEKkwCCiB1YrA"
     }
   },
   "href": "learn/avalanche-advanced-evoting-avalanche-reactjs",

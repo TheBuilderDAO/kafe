@@ -65,7 +65,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5dfea3d381cdefb30666a2a60da86f522cde0373086e97e45d6ee6e7c2c4b3e9"
+      "digest": "5dfea3d381cdefb30666a2a60da86f522cde0373086e97e45d6ee6e7c2c4b3e9",
+      "arweaveHash": "kM4RXmClNpSIFd1qKusCcTDO88ymdqcGie0ZUNcHYTg"
     }
   },
   "href": "learn/avalanche-create-nft-with-royalties",

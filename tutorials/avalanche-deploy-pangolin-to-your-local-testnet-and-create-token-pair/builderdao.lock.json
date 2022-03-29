@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b51ce0e815f807c184ce12db0d251dffae3ae10128187dd877c783f72682299a"
+      "digest": "b51ce0e815f807c184ce12db0d251dffae3ae10128187dd877c783f72682299a",
+      "arweaveHash": "UY0oOubvjbadq-esxrLAF7x7ik-1v81FM4NDEfTP62g"
     }
   },
   "href": "learn/avalanche-deploy-pangolin-to-your-local-testnet-and-create-token-pair",

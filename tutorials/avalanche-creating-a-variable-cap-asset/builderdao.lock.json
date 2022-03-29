@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "6eb0ead8c9ba5956e9abdb4931cd9bd3184c902f7c352e5bc89c0f591d789661"
+      "digest": "6eb0ead8c9ba5956e9abdb4931cd9bd3184c902f7c352e5bc89c0f591d789661",
+      "arweaveHash": "ckpZwcKovzJhjMyEONDblhiSr591JcAfpltZ5WFtcO8"
     }
   },
   "href": "learn/avalanche-creating-a-variable-cap-asset",

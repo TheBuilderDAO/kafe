@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "6c51881b93c6aa8cca5a898bcebfe3178088ad4a317b1d64be8bac8ea87b89f4"
+      "digest": "6c51881b93c6aa8cca5a898bcebfe3178088ad4a317b1d64be8bac8ea87b89f4",
+      "arweaveHash": "QXoAIFx8iq98ym2aDqojoq-y6rf_UI6X-A-gxGI6szg"
     }
   },
   "href": "learn/avalanche-local-avalanche-network-using-avash",

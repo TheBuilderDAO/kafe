@@ -55,7 +55,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "f3fc1d64fafff84cc2aac0e2c8ada7d1795dc1ce7c6ff12218d7c72b6ef42e87"
+      "digest": "f3fc1d64fafff84cc2aac0e2c8ada7d1795dc1ce7c6ff12218d7c72b6ef42e87",
+      "arweaveHash": "Td3LrY06EFa4CAXM8tad-rVN5kN_uGbVeOArseCKROY"
     }
   },
   "href": "learn/avalanche-transfer-avax-between-the-x-chain-and-p-chain",

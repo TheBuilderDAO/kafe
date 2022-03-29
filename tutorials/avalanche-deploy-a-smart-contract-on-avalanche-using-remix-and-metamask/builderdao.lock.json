@@ -80,7 +80,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "d9c209e7856b5e4867fc1d2e1c2913387a186b00ef4f2e3f355ce0a6b4164002"
+      "digest": "d9c209e7856b5e4867fc1d2e1c2913387a186b00ef4f2e3f355ce0a6b4164002",
+      "arweaveHash": "_JCI-ivm7zl9TxxjRDrrt6cXXKdq2KCUKQsgDLHjNbk"
     }
   },
   "href": "learn/avalanche-deploy-a-smart-contract-on-avalanche-using-remix-and-metamask",

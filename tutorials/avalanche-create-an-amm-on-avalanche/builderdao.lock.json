@@ -65,7 +65,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b92c3247ee257ee61fb25c845233e8a72dadb12538048599b917d4bbe962e8ec"
+      "digest": "b92c3247ee257ee61fb25c845233e8a72dadb12538048599b917d4bbe962e8ec",
+      "arweaveHash": "s2LobJ3XCxinjgFBP4TuCLetopCVAJEe0y0PxLUakUg"
     }
   },
   "href": "learn/avalanche-create-an-amm-on-avalanche",

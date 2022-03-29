@@ -115,7 +115,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "fb249b543eae5649a4fe5123c3116076c538ce7737502ef63e0ba87debeaf95d"
+      "digest": "fb249b543eae5649a4fe5123c3116076c538ce7737502ef63e0ba87debeaf95d",
+      "arweaveHash": "HkMI4ODGrslSWYT8U0_xBflOGMru96D7a7PZq6Uz0Zk"
     },
     "content/assets/avalanche-create-mint-transfer-nft-image-9.png": {
       "name": "avalanche-create-mint-transfer-nft-image-9.png",

@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "6c6c74333ba2678bc5bfb71d0a40a280d7faddec299d5633789db96297fcd038"
+      "digest": "6c6c74333ba2678bc5bfb71d0a40a280d7faddec299d5633789db96297fcd038",
+      "arweaveHash": "tKUs-1oFpUnzBeOEf58rIcm5VZKs0tnaTaIZJKzjgIQ"
     },
     "content/assets/avalanche-deploy-pangolin-to-local-testnet-image-1.png": {
       "name": "avalanche-deploy-pangolin-to-local-testnet-image-1.png",

@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3c0dbe9f72cb32e9db36da5c388194708be5b7feb328f2fffefccfbfb5ecb887"
+      "digest": "3c0dbe9f72cb32e9db36da5c388194708be5b7feb328f2fffefccfbfb5ecb887",
+      "arweaveHash": "0BYF2pibswLJLq7Sdkk6vMH51RdV94zWV3H0v3E8uH0"
     }
   },
   "href": "learn/avalanche-create-a-subnet",

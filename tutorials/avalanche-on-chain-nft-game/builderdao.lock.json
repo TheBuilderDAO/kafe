@@ -60,7 +60,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "d49680e75e429ac191e2150d5922239bdcc6f27ad2a9a8ed28f76ee205a311b9"
+      "digest": "d49680e75e429ac191e2150d5922239bdcc6f27ad2a9a8ed28f76ee205a311b9",
+      "arweaveHash": "XhG_wNjZZm0Wq40D5-jRWtJYoc6FbVPwUn3HN-FcYLI"
     },
     "content/assets/avalanche-on-chain-nft-game-nft-game-demo-1.png": {
       "name": "avalanche-on-chain-nft-game-nft-game-demo-1.png",

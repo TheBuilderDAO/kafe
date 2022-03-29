@@ -55,7 +55,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9d62aa01ef4e1aca086f5f983e8465d8f110d3656e57e2d157d8f54ae0fc80ca"
+      "digest": "9d62aa01ef4e1aca086f5f983e8465d8f110d3656e57e2d157d8f54ae0fc80ca",
+      "arweaveHash": "nRPoF7GkNAjjnMpxy9NnX63zHN-wKBYGdiZRaSu5s64"
     },
     "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png": {
       "name": "avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png",

@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b99a4d169dec79fb901e8dac6471c56f4e35c5cd6c65d934326cfe402ee146b5"
+      "digest": "b99a4d169dec79fb901e8dac6471c56f4e35c5cd6c65d934326cfe402ee146b5",
+      "arweaveHash": "zb_XHlhU3vE8WJzGq2j0gVi_Mr77bKtqksLxZLNHyLQ"
     }
   },
   "href": "learn/avalanche-creating-an-nft-part-1",

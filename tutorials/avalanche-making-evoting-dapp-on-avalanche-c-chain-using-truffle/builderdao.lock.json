@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "53d9578c7021cae4b483e67415fcfd893651939669ab508413892e643c83020b"
+      "digest": "53d9578c7021cae4b483e67415fcfd893651939669ab508413892e643c83020b",
+      "arweaveHash": "yMw3ALUM9veQBXPLnal4sTCJwyYaSvJ0STZPg2NUAL4"
     },
     "content/assets/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle-image-1.png": {
       "name": "avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle-image-1.png",

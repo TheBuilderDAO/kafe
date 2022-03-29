@@ -35,7 +35,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "96ca058dc48da030296248492663961dc9936196444b1c484db13f18ead21807"
+      "digest": "96ca058dc48da030296248492663961dc9936196444b1c484db13f18ead21807",
+      "arweaveHash": "NIzdkqKlcmUe2nviptnUabgLKTr_OtbuhEwVPYJhYCM"
     },
     "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png": {
       "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png",
