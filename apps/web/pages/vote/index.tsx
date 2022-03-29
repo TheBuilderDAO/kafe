@@ -75,7 +75,11 @@ const Home: NextPage = () => {
                 <div className="lg:my-6 mt-10 mb-4 z-30 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"
-                    defaultRefinement={[ProposalStateE.submitted]}
+                    defaultRefinement={[
+                      ProposalStateE.submitted,
+                      ProposalStateE.writing,
+                      ProposalStateE.readyToPublish,
+                    ]}
                   />
                 </div>
                 <Hits hitComponent={TutorialProposalHit} />

@@ -56,34 +56,42 @@ const GuideCard = props => {
   );
 };
 
-const Wrapper = ({ hits, currentIndex }) => {
+const Wrapper = ({ hits }) => {
+  const { currentIndex, handlePrev, handleNext } = useCarousel(
+    PER_PAGE,
+    hits.length,
+  );
+
   if (!hits.length) {
     return <Loader />;
   }
 
   const hit = hits[currentIndex];
 
-  return [
-    <div key={hit.objectID} className={`absolute top-6 left-6`}>
-      <GuideCard hit={hit} />
-    </div>,
-    <div key="dummy-1" className={`absolute top-4 left-4`}>
-      <GuideCard hit={hit} />
-    </div>,
-    <div key="dummy-2" className={`absolute top-2 left-2`}>
-      <GuideCard hit={hit} />
-    </div>,
-  ];
+  return (
+    <>
+      <ButtonLeft onClick={handlePrev} />
+      <div className="relative">
+        <div key={hit.objectID} className={`absolute top-6 left-6`}>
+          <GuideCard hit={hit} />
+        </div>
+        <div key="dummy-1" className={`absolute top-4 left-4`}>
+          <GuideCard hit={hit} />
+        </div>
+        <div key="dummy-2" className={`absolute top-2 left-2`}>
+          <GuideCard hit={hit} />
+        </div>
+      </div>
+      <ButtonRight onClick={handleNext} />
+    </>
+  );
 };
 
 const Guides = connectHits(Wrapper);
 
 const GuidesCarousel = () => {
-  const { currentIndex, handlePrev, handleNext } = useCarousel(PER_PAGE);
-
   return (
     <div className="relative h-[200px]">
-      <ButtonLeft onClick={handlePrev} />
       <InstantSearch
         searchClient={searchClient}
         indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
@@ -93,11 +101,8 @@ const GuidesCarousel = () => {
           analytics={false}
           filters="state:published"
         />
-        <div className="relative">
-          <Guides currentIndex={currentIndex} />
-        </div>
+        <Guides />
       </InstantSearch>
-      <ButtonRight onClick={handleNext} />
     </div>
   );
 };
