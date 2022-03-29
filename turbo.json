@@ -32,6 +32,7 @@
     "clean": {
       "cache": false
     },
+    "builderdao": {},
     "content:prepublish": {},
     "content:publish": {},
     "content:index": {}

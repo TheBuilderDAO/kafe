@@ -27,6 +27,7 @@ import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
+import { rootTutorialFolderPath } from '../constants';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -76,7 +77,6 @@ async function getReviewer(
 }
 
 export function makeTutorialCommand() {
-  const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
   const tutorial = new commander.Command('tutorial')
     .addHelpCommand(false)
@@ -118,6 +118,7 @@ Example call:
       );
     });
 
+
   tutorial
     .command('get')
     .description('Display metadata for a single tutorial')
@@ -149,6 +150,9 @@ Example call:
     .addOption(
       new commander.Option('--skip-reviewers', 'Skip reviewers').default(false)
     )
+    .addOption(
+      new commander.Option('--force', 'Force Rewrite the lock file base on slug').default(false)
+    )
     .description('Perform pre-publishing tasks')
     .helpOption('-h, --help', 'Display help for command')
     .addHelpText(
@@ -166,10 +170,9 @@ Notes:
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-
+      const { lock  } = new BuilderDaoConfig(rootFolder);
+      await lock.read()
       if (!options.skipReviewers) {
-        const { lock  } = new BuilderDaoConfig(rootFolder);
-        await lock.read()
         const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
         const { lock: lockDefault } = await BuilderDaoConfig.initial({
           proposalId: proposal.id.toNumber(),
@@ -185,6 +188,11 @@ Notes:
         const reviewer2 = await getReviewer(client, proposal.reviewer1);
         lock.chain.get('reviewers').set('reviewer2', reviewer2).value();
         await lock.write();
+      }
+      if (options.force) {
+        const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
+        lock.chain.set('proposalId', proposal.id.toNumber()).value();
+        lock.chain.set('creator', proposal.creator).value();
       }
       await updateHashDigestOfFolder(rootFolder);
     });

@@ -1,9 +1,12 @@
+import path from 'path';
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
 import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
 import { getClient } from '../client';
 import { log as _log, createKeypairFromSecretKey } from '../utils';
+import { rootTutorialFolderPath } from '../constants';
+import { BuilderDaoConfig } from '../services';
 
 function myParseInt(value: string) {
   // parseInt takes a string and a radix
@@ -45,7 +48,8 @@ export function makeProposalCommand() {
   proposal
     .command('setstate')
     .description('Set the state of a proposal')
-    .argument('<proposalId>', 'Proposal ID', val => myParseInt(val))
+    .argument('[proposalId]', 'Proposal ID', val => myParseInt(val))
+    .option('-s, --slug [slug>', 'Slug of the proposal')
     .addOption(
       new commander.Option('-s, --state <state>', 'State of the proposal')
         .choices(Object.keys(ProposalStateE))
@@ -73,9 +77,20 @@ export function makeProposalCommand() {
           network: proposal.optsWithGlobals().network,
           payer: options.adminKp,
         });
+        let tutorialId: number;
+        if (!proposalId) {
+          const rootFolder = process.cwd();
+          const { lock  } = new BuilderDaoConfig(rootFolder);
+          await lock.read()
+          tutorialId = lock.chain.get('proposalId').value();
+        }  else {
+          tutorialId = proposalId;
+        }
+
+        const tutorial = await client.getTutorialById(tutorialId);
         const txId = await client.proposalSetState({
           adminPk: options.adminKp.publicKey,
-          id: proposalId,
+          id: tutorial.id.toNumber(),
           newState: options.state,
         });
         log({ txId });
