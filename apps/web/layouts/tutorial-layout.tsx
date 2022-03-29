@@ -8,8 +8,7 @@ import RightSidebar from './PublicLayout/RightSidebar';
 import Tags from '@app/components/Tags/Tags';
 import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 import { BuilderDaoConfigJson } from '@builderdao/cli';
-import { getEnabledCategories } from 'trace_events';
-import _, { map } from 'lodash';
+import _ from 'lodash';
 import { formatDate } from '@app/lib/utils/format-date';
 
 interface Props {
@@ -17,6 +16,12 @@ interface Props {
   frontMatter: TutorialFrontMatter;
   children: ReactNode;
   config: BuilderDaoConfigJson;
+  toc: {
+    id: string;
+    title: string;
+    href: string;
+    depth: number;
+  }[];
   next?: { slug: string; title: string };
   prev?: { slug: string; title: string };
 }
@@ -27,31 +32,33 @@ export const TutorialLayout: React.FC<Props> = ({
   next,
   prev,
   config,
+  toc,
   children,
 }) => {
   const { query } = useRouter();
   const { slug, date, title, description, keywords } = frontMatter;
-  const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
-    [],
-  );
+  // const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
+  //   [],
+  // );
 
-  React.useEffect(() => {
-    /**
-     * Working around some race condition quirks :) (don't judge)
-     * TODO @Necmttn: see if there's a better way through a remark plugin to do this
-     */
-    setTimeout(() => {
-      const titles = document.querySelectorAll('h2');
-      const idArrays = Array.prototype.slice
-        .call(titles)
-        .map(title => ({ id: title.id, title: title.innerText })) as Array<{
-        id: string;
-        title: string;
-      }>;
-      setIds(idArrays);
-    }, 500);
-  }, [slug]);
+  // React.useEffect(() => {
+  //   /**
+  //    * Working around some race condition quirks :) (don't judge)
+  //    * TODO @Necmttn: see if there's a better way through a remark plugin to do this
+  //    */
+  //   setTimeout(() => {
+  //     const titles = document.querySelectorAll('h2');
+  //     const idArrays = Array.prototype.slice
+  //       .call(titles)
+  //       .map(title => ({ id: title.id, title: title.innerText })) as Array<{
+  //       id: string;
+  //       title: string;
+  //     }>;
+  //     setIds(idArrays);
+  //   }, 500);
+  // }, [slug]);
   const path = `/learn/${query.slug[0]}`;
+
   return (
     <div className="flex justify-between">
       <SectionContainer>
@@ -126,10 +133,8 @@ export const TutorialLayout: React.FC<Props> = ({
           <div className="p-6">
             <TutorialTips id={tutorialId} />
           </div>
+          <TableOfContent toc={toc} />
         </RightSidebar>
-        {/* <div>
-            <TableOfContent ids={ids} />
-          </div> */}
       </div>
     </div>
   );

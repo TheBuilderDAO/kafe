@@ -36,21 +36,9 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
 
-  const { mdxSource, frontMatter } = props.post;
+  const { mdxSource, frontMatter, anchors, toc } = props.post;
   const { config, lock, relativePath } = props;
-  const anchors = React.Children.toArray(mdxSource.compiledSource)
-    .filter(
-      (child: any) =>
-        child.props?.mdxType && ['h2', 'h3'].includes(child.props.mdxType),
-    )
-    .map((child: any) => ({
-      url: '#' + child.props.id,
-      depth:
-        (child.props?.mdxType &&
-          parseInt(child.props.mdxType.replace('h', ''), 0)) ??
-        0,
-      text: child.props.children,
-    }));
+  console.log(anchors);
   return (
     <>
       <Head>
@@ -60,6 +48,7 @@ const TutorialPage: NextPage<
         tutorialId={lock.proposalId}
         frontMatter={frontMatter}
         config={config}
+        toc={toc}
         next={frontMatter.next}
         prev={frontMatter.prev}
       >
@@ -122,7 +111,7 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const post = await getPost();
 
-  const mdxSource = await serializeContent({
+  const content = await serializeContent({
     content: post.content,
     data: post.data,
   });
@@ -131,7 +120,7 @@ export const getStaticProps: GetStaticProps = async context => {
       config,
       lock,
       relativePath,
-      post: { ...post, mdxSource },
+      post: { ...post, ...content },
       slug,
     },
     revalidate: 60 * 10, // In seconds
