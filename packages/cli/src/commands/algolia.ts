@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as commander from 'commander';
 
 import { AlgoliaApi } from '@builderdao/apis';
@@ -21,6 +22,88 @@ export function makeAlgoliaCommand() {
     sortSubcommands: true,
     sortOptions: false,
   });
+
+  algolia
+    .command('provision')
+    .description('Provisions Algolia app')
+    .helpOption()
+    .addOption(
+      new commander.Option('--appId <appId>', 'Algolia App Id')
+        .env('ALGOLIA_APP_ID')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--indexName <indexName>', 'Algolia Index Name')
+        .env('ALGOLIA_INDEX_NAME')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--accessKey <accessKey>', 'Algolia Access Key')
+        .env('ALGOLIA_ACCESS_KEY')
+        .makeOptionMandatory(),
+    )
+    .action(
+      async (
+        options: {
+          indexName: string;
+          appId: string;
+          accessKey: string;
+        },
+      ) => {
+        const client = new AlgoliaApi({
+          appId: options.appId,
+          accessKey: options.accessKey,
+          indexName: options.indexName,
+        });
+
+        try {
+          await client.provision();
+        } catch (err) {
+          console.log('ERR:', err);
+        }
+      },
+    );
+
+  algolia
+    .command('delete')
+    .description('Deletes Algolia index')
+    .helpOption()
+    .addOption(
+      new commander.Option('--appId <appId>', 'Algolia App Id')
+        .env('ALGOLIA_APP_ID')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--indexName <indexName>', 'Algolia Index Name')
+        .env('ALGOLIA_INDEX_NAME')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--accessKey <accessKey>', 'Algolia Access Key')
+        .env('ALGOLIA_ACCESS_KEY')
+        .makeOptionMandatory(),
+    )
+    .action(
+      async (
+        options: {
+          indexName: string;
+          appId: string;
+          accessKey: string;
+        },
+      ) => {
+        const client = new AlgoliaApi({
+          appId: options.appId,
+          accessKey: options.accessKey,
+          indexName: options.indexName,
+        });
+
+        try {
+          await client.delete();
+        } catch (err) {
+          console.log('Error: ', err);
+        }
+      },
+    );
 
   algolia
     .command('updateIndex')
