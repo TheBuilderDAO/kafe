@@ -40,10 +40,7 @@ export type BuilderDaoConfigJson = {
   title: string;
   description: string;
   imageUrl: string;
-  categories: {
-    name: string;
-    slug: string;
-  }[];
+  categories: string[];
 }
 export class LowWithLodash<T> extends Low<T> {
   chain: lodash.ExpChain<this['data']> = lodash.chain(this).get('data')
@@ -68,34 +65,34 @@ export class BuilderDaoConfig {
   }
 
 
-async updateHashDigestOfFolder() {
-  const tutorialMetadata = await getTutorialContentByPath({
-    rootFolder: this.rootFolder,
-  });
-  
-  await this.lock.read();
-  const hashQueue = async.queue(
-    async (file: { path: string; name: string; digest?: string }) => {
-      const digest = await hashSumDigest(file.path);
-      const relativePath = path.relative(this.rootFolder, file.path);
-      const prev = this.lock.chain.get(`content["${relativePath}"]`).value();
-      this.lock.chain
-        .set(`content["${relativePath}"]`, {
-          ...prev,
-          name: file.name,
-          path: relativePath,
-          digest,
-        })
-        .value();
-      await this.lock.write();
-    },
-    2,
-  );
-  tutorialMetadata.content.forEach((file: {path: string; name: string}) => {
-    hashQueue.push(file);
-  });
-  await hashQueue.drain();
-}
+  async updateHashDigestOfFolder() {
+    const tutorialMetadata = await getTutorialContentByPath({
+      rootFolder: this.rootFolder,
+    });
+
+    await this.lock.read();
+    const hashQueue = async.queue(
+      async (file: { path: string; name: string; digest?: string }) => {
+        const digest = await hashSumDigest(file.path);
+        const relativePath = path.relative(this.rootFolder, file.path);
+        const prev = this.lock.chain.get(`content["${relativePath}"]`).value();
+        this.lock.chain
+          .set(`content["${relativePath}"]`, {
+            ...prev,
+            name: file.name,
+            path: relativePath,
+            digest,
+          })
+          .value();
+        await this.lock.write();
+      },
+      2,
+    );
+    tutorialMetadata.content.forEach((file: { path: string; name: string }) => {
+      hashQueue.push(file);
+    });
+    await hashQueue.drain();
+  }
 
 
   static async initial({ proposalId, slug }: {
@@ -106,7 +103,7 @@ async updateHashDigestOfFolder() {
     // const email = (await this.git.getConfig('user.email')).value
 
     const author = {
-      name:  'The Builder Dao',
+      name: 'The Builder Dao',
       avatarUrl: "https://github.com/TheBuilderDAO.png",
       url: 'https://builderdao.io',
       nickname: 'TheBuilderDAO'
