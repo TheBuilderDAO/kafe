@@ -35,7 +35,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "917577b48a0acec0ef939b9416ec6363d10960caa5196ef9452068902591a637"
+      "digest": "917577b48a0acec0ef939b9416ec6363d10960caa5196ef9452068902591a637",
+      "arweaveHash": "1OvbBVykbgiM8pothfQzLMSq6g2W88tT17c5RTPfKmk"
     }
   },
   "href": "learn/polygon-smart-contract-unit-testing-with-truffle",

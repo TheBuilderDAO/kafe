@@ -95,7 +95,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "512462d9b96ba962d0bb5070889de77af63062ee008d155b6e14508045ccb643"
+      "digest": "512462d9b96ba962d0bb5070889de77af63062ee008d155b6e14508045ccb643",
+      "arweaveHash": "C6Vra4pMgVtzYLPY0QV2AaWwmYH4Mm-rtx5quOccBRI"
     }
   },
   "href": "learn/celo-crowd-funding-project",

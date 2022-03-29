@@ -110,7 +110,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e474400ecd393279f965eadbfc049a13fcf69e86a3c9aea66fe7133ac419b23a"
+      "digest": "e474400ecd393279f965eadbfc049a13fcf69e86a3c9aea66fe7133ac419b23a",
+      "arweaveHash": "dXp2uU3Oqww1Nyw7APO3XkkcDlqYrAc5jfm3FFQWSrs"
     },
     "content/assets/solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png": {
       "name": "solana-create-a-solana-nft-marketplace-with-metaplex-your-nf-ts-15.png",

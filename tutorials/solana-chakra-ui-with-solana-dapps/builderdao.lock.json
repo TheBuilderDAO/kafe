@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "a6ea862a967161dd15073932086134ac3bb99ea9d16f5fdf61fd1cfa32b66834"
+      "digest": "a6ea862a967161dd15073932086134ac3bb99ea9d16f5fdf61fd1cfa32b66834",
+      "arweaveHash": "QDjWTntegq_h0rf1y50pSov9ZST4Pr0AgDBbo_ZpDxY"
     }
   },
   "href": "learn/solana-chakra-ui-with-solana-dapps",

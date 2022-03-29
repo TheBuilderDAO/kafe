@@ -30,7 +30,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9bc658a96a5b72cc1cd0e2def5b3f73078b75a95b5ad48dacc7749b4980d7af6"
+      "digest": "9bc658a96a5b72cc1cd0e2def5b3f73078b75a95b5ad48dacc7749b4980d7af6",
+      "arweaveHash": "z-NSnFEyZjROHU318z1NysK2mQeos8YnBF4OzdGpNGo"
     },
     "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-1.png": {
       "name": "solana-create-a-simple-blog-dapp-on-solana-image-1.png",

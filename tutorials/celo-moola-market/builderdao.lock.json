@@ -105,7 +105,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "0a18b830a19c52e0d4e56696298930dd31933f7fd6408080d49bf9d245845084"
+      "digest": "0a18b830a19c52e0d4e56696298930dd31933f7fd6408080d49bf9d245845084",
+      "arweaveHash": "dtqUp-uItLyMebwx2wuijYT-VxpD2fEHw9Xb34vK4JA"
     },
     "content/assets/celo-moola-market-image-9.png": {
       "name": "celo-moola-market-image-9.png",

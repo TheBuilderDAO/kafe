@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "273fd71506982b6b6e1213f65936746388d1e5948291026a02658c3edf2bd200"
+      "digest": "273fd71506982b6b6e1213f65936746388d1e5948291026a02658c3edf2bd200",
+      "arweaveHash": "08yi9OX_bRpPAfXQe_qykXZl1tyAI030uNUgI5s3q6U"
     }
   },
   "href": "learn/near-cross-contract-calls",

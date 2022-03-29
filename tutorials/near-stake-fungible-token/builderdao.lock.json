@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "6789137608584c93f025395dab2a8c28d651f2018ca6fa9a8cb06b9ad7b27f4a"
+      "digest": "6789137608584c93f025395dab2a8c28d651f2018ca6fa9a8cb06b9ad7b27f4a",
+      "arweaveHash": "xLe-3A2oIUHkwNq9WpSb4FKLTwXmY2glhhyXdDPoDh4"
     },
     "content/assets/near-stake-fungible-token-image-1.png": {
       "name": "near-stake-fungible-token-image-1.png",

@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c1d18c1f486c9af6c40b7671ea6dc5d297f523e889321c2cd87b609c96bc3737"
+      "digest": "c1d18c1f486c9af6c40b7671ea6dc5d297f523e889321c2cd87b609c96bc3737",
+      "arweaveHash": "QCI9bM435pJ5veKHrK-uyqtdQEC9RSSm_G2mDi-CpBQ"
     },
     "content/assets/polygon-create-a-donation-dapp-on-polygon-demo-gif-6.png": {
       "name": "polygon-create-a-donation-dapp-on-polygon-demo-gif-6.png",

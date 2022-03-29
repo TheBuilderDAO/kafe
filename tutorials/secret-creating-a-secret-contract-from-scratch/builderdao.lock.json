@@ -30,7 +30,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3ccfc02c43b1dd349866280f2d43a024e9ac747252c3573a70cabc7a51c2b6da"
+      "digest": "3ccfc02c43b1dd349866280f2d43a024e9ac747252c3573a70cabc7a51c2b6da",
+      "arweaveHash": "IiNNrfy15oU-BxXZizoVdmWPJvbed6G15xaXNCU1TFk"
     }
   },
   "href": "learn/secret-creating-a-secret-contract-from-scratch",

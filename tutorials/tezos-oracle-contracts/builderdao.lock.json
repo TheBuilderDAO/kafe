@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "72a134d96a3d28a4bb6ecfcd2594a23dc488fd302db32c74898b84ec7435b5ac"
+      "digest": "72a134d96a3d28a4bb6ecfcd2594a23dc488fd302db32c74898b84ec7435b5ac",
+      "arweaveHash": "MVm3pi8UbudCTceoBIymCsPpOOdGHpSZ7bmpMVEKGgc"
     }
   },
   "href": "learn/tezos-oracle-contracts",

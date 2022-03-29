@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "937a4d0417c16b38491431ff8320f36052f3fb5df88a460f0c049689acd29af3"
+      "digest": "937a4d0417c16b38491431ff8320f36052f3fb5df88a460f0c049689acd29af3",
+      "arweaveHash": "Xh3rSnsiWMOT9KJP9IKEIzzNqDu1x-lGwHx4rjtxg_4"
     }
   },
   "href": "learn/polkadot-substrate-kitties-overview",

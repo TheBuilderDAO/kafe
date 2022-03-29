@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b1f9fea34fb4f117db72a11eec1157c48d62478eb8e81016654e7585b78af17a"
+      "digest": "b1f9fea34fb4f117db72a11eec1157c48d62478eb8e81016654e7585b78af17a",
+      "arweaveHash": "yn8TxEx2qErEbFylBpknKETVVucxlYxzxHJbNza-kKQ"
     }
   },
   "href": "learn/celo-send-celo-and-cusd",

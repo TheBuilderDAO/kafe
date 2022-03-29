@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "48de08d87a85b286e5dd9e421e24cab62a5eeccec4c246fe11496b73f87e5f8f"
+      "digest": "48de08d87a85b286e5dd9e421e24cab62a5eeccec4c246fe11496b73f87e5f8f",
+      "arweaveHash": "Ix5DbFadIIoYOLVdxymrZywlTD-5X25tjEp-6noZxsQ"
     }
   },
   "href": "learn/polkadot-substrate-kitties-interacting-functions",

@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "b01a4b0ed360eea2e66d5af50d443d2c9ff63152aabcbd16a86fef3ddc323f5d"
+      "digest": "b01a4b0ed360eea2e66d5af50d443d2c9ff63152aabcbd16a86fef3ddc323f5d",
+      "arweaveHash": "jZAygXT6Z_V4KVa1uOMrqve093Jl6aVBAwVfXHBlSYk"
     },
     "content/assets/near-write-nft-contracts-in-rust-image-1.png": {
       "name": "near-write-nft-contracts-in-rust-image-1.png",

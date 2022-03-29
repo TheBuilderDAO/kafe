@@ -35,7 +35,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3012d1ac6a97f210fd9ba251599efb7116da87d2f70fea89d9f85c092c1fc88e"
+      "digest": "3012d1ac6a97f210fd9ba251599efb7116da87d2f70fea89d9f85c092c1fc88e",
+      "arweaveHash": "TOmEIi8GK-ClkKz419hMl9z_7KAprMj78SXFAyGy4sk"
     }
   },
   "href": "learn/polygon-deploying-and-debugging-smart-contracts-on-polygon",

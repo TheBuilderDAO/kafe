@@ -40,7 +40,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5f5a120358a8fe41cec2384a0ae21e0803cd49120379a7ce11b54703aa87ced7"
+      "digest": "5f5a120358a8fe41cec2384a0ae21e0803cd49120379a7ce11b54703aa87ced7",
+      "arweaveHash": "mr423EtE_rCBu2nWLLnqDbtxtVP9wm80wTMytu7YhgA"
     }
   },
   "href": "learn/celo-for-remix",

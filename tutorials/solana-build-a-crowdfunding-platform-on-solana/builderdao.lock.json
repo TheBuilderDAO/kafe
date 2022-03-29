@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "629d80393ea005c8d364311755819ee86df94121788c9744647d33c97626090b"
+      "digest": "629d80393ea005c8d364311755819ee86df94121788c9744647d33c97626090b",
+      "arweaveHash": "QljzfLhwfMF05jidyPUfK9R9pUf4oo9c2ysjL_Lnx5Q"
     }
   },
   "href": "learn/solana-build-a-crowdfunding-platform-on-solana",

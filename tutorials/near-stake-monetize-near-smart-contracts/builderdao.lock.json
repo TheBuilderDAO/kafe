@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ed5b1e0f16581252bd2f2d090646db0f51351b0241566117cfe1741cae7abb10"
+      "digest": "ed5b1e0f16581252bd2f2d090646db0f51351b0241566117cfe1741cae7abb10",
+      "arweaveHash": "xI0vXl0elLP4Qbnnbc313QsiPRYM0mI-m_79X2zIIuw"
     },
     "content/assets/near-stake-monetize-near-smart-contracts-image-1.png": {
       "name": "near-stake-monetize-near-smart-contracts-image-1.png",

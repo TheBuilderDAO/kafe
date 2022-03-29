@@ -65,7 +65,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e01919af134cbd706cfd0d0cef29129f3ccc586ab9b2dfca6545454f89ed3ac6"
+      "digest": "e01919af134cbd706cfd0d0cef29129f3ccc586ab9b2dfca6545454f89ed3ac6",
+      "arweaveHash": "vWwun65QR0VIrpS05smqygXt4sRGPq-e9o-h3ZIDVqs"
     },
     "content/assets/polygon-funding-dao-polygon-demo-gif-1.png": {
       "name": "polygon-funding-dao-polygon-demo-gif-1.png",

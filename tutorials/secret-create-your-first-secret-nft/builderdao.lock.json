@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "4de0f96d683e21ccd83771c9665955ee974256c56fe84149c9996470b8e15fdc"
+      "digest": "4de0f96d683e21ccd83771c9665955ee974256c56fe84149c9996470b8e15fdc",
+      "arweaveHash": "AX-rZpeSjri8F_yYsYwpnaiuedChbdV-enl8chhI_ZA"
     }
   },
   "href": "learn/secret-create-your-first-secret-nft",

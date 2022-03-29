@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c917abacb577d640983d04f6c227749622a2f329a8279e0b52d9448e7e3c0322"
+      "digest": "c917abacb577d640983d04f6c227749622a2f329a8279e0b52d9448e7e3c0322",
+      "arweaveHash": "cQNOewTvvWuT9nAx5J76ETeT9Ycc5d5zyt77-SroLdg"
     }
   },
   "href": "learn/polkadot-how-to-build-custom-pallets-with-substrate",

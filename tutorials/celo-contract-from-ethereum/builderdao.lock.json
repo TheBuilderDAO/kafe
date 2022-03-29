@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "dbd7dd01588f5082919d9c0d3633fa6b93a4114981c43e43bcfebde01682cb8d"
+      "digest": "dbd7dd01588f5082919d9c0d3633fa6b93a4114981c43e43bcfebde01682cb8d",
+      "arweaveHash": "gEMdZQGSdcK0woEujjec2St6MoSW1lMtJEu54GJn-Hw"
     }
   },
   "href": "learn/celo-contract-from-ethereum",

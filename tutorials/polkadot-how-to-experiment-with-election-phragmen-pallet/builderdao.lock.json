@@ -35,7 +35,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "484923731a5d9f8a6c3d667c2ec6ca9b89beaf2c990352489e06bf5c3d6c9418"
+      "digest": "484923731a5d9f8a6c3d667c2ec6ca9b89beaf2c990352489e06bf5c3d6c9418",
+      "arweaveHash": "u_HJLtMAXIZFru3CnPs9lBInya3to79kC_jnfUosALw"
     }
   },
   "href": "learn/polkadot-how-to-experiment-with-election-phragmen-pallet",

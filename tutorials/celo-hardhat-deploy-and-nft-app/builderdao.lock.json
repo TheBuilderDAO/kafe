@@ -55,7 +55,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e35ddc2d91cbf4b07fd6d6da71a2e17f3e4b20662225ce7bae3111d148749ca9"
+      "digest": "e35ddc2d91cbf4b07fd6d6da71a2e17f3e4b20662225ce7bae3111d148749ca9",
+      "arweaveHash": "MVuKXzrlQxOU1a9WUT1AJlzrmDdwRmnMhJNFigPWZTU"
     },
     "content/assets/celo-hardhat-deploy-and-nft-app-village-3.png": {
       "name": "celo-hardhat-deploy-and-nft-app-village-3.png",

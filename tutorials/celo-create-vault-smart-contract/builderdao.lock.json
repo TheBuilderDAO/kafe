@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "f6e11d2d91a7f46aa358e8e23349815ef13a99a609c04ef759baf5442aaae1b5"
+      "digest": "f6e11d2d91a7f46aa358e8e23349815ef13a99a609c04ef759baf5442aaae1b5",
+      "arweaveHash": "MdrykPTSOKjz_8DNmzeikmiGRk42Gsy7f4MryMJBHuQ"
     },
     "content/assets/celo-create-vault-smart-contract-image-1.png": {
       "name": "celo-create-vault-smart-contract-image-1.png",

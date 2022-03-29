@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ecbe3f592a52ddf5b2c07907fbe24348d65dfea0d08990b8fabe2a5cee97edc6"
+      "digest": "ecbe3f592a52ddf5b2c07907fbe24348d65dfea0d08990b8fabe2a5cee97edc6",
+      "arweaveHash": "u2Gf4safJSookzM98pf0uurYoa0B8S-RMTIjmaZcmb4"
     },
     "content/assets/near-stake-pool-contract-image-6.png": {
       "name": "near-stake-pool-contract-image-6.png",

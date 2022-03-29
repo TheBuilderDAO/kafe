@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5d227e3ad42a83b984ed4e8d4f2cb0e062ad94fc6ad9a40824b1f2dfef540cd2"
+      "digest": "5d227e3ad42a83b984ed4e8d4f2cb0e062ad94fc6ad9a40824b1f2dfef540cd2",
+      "arweaveHash": "Sja0qcIAXtgS2RbOv0xSnpD6a9Z0X46DInhE-qNxTZw"
     }
   },
   "href": "learn/polkadot-build-a-poe-decentralized-app",

@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "76fa5028663e922bea86366f0fa52769a38f71cb78132a3821ab67a8284d8cd8"
+      "digest": "76fa5028663e922bea86366f0fa52769a38f71cb78132a3821ab67a8284d8cd8",
+      "arweaveHash": "F_7m0FXKs2w1s4UjMmLTMIxVku1qhl9ZaGtGuV86INQ"
     }
   },
   "href": "learn/secret-delegate-and-unbond-tokens",

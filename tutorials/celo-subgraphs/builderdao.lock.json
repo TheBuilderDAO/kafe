@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3807a59605a3fc98d94678784837b73ba607896be29e424234d473356eb2e41a"
+      "digest": "3807a59605a3fc98d94678784837b73ba607896be29e424234d473356eb2e41a",
+      "arweaveHash": "rBWviR8xZngok0Jhh58th5SDfbYgPdNVSsJGZNLN-pM"
     },
     "content/assets/celo-subgraphs-query-explorer-3.png": {
       "name": "celo-subgraphs-query-explorer-3.png",

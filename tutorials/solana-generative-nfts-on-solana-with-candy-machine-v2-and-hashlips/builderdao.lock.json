@@ -95,7 +95,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "aacf217e7879397a73d075e47b2111406053f0e314493f7995395b50b650ede6"
+      "digest": "aacf217e7879397a73d075e47b2111406053f0e314493f7995395b50b650ede6",
+      "arweaveHash": "jqTTy7beCVcpLfaVJfTmnFhY-j4uugFg-pyxqAd3aWI"
     },
     "content/assets/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif-14.png": {
       "name": "solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips-nft-minting-gif-gif-14.png",

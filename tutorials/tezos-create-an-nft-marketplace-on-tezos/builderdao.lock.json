@@ -70,7 +70,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "742fffa44e28f4c3cef50c7f7820eb9aa4d147d560885d184a2bbb8a7883155c"
+      "digest": "742fffa44e28f4c3cef50c7f7820eb9aa4d147d560885d184a2bbb8a7883155c",
+      "arweaveHash": "7NmIzDLMIqzOoqX_wz8v_7YIeJN-sILcauh7Dv14JeU"
     },
     "content/assets/tezos-create-an-nft-marketplace-on-tezos-image-9.png": {
       "name": "tezos-create-an-nft-marketplace-on-tezos-image-9.png",

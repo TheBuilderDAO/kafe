@@ -30,7 +30,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "66adfa8cf05443126cd9aa70637464d55829b547185a49dbe4d970b2824ccfe8"
+      "digest": "66adfa8cf05443126cd9aa70637464d55829b547185a49dbe4d970b2824ccfe8",
+      "arweaveHash": "9qu7RtvuSw5oL9Vawc2Jb-o18jGCZE1glfUgEPg9fEU"
     }
   },
   "href": "learn/terra-querying-the-terra-blockchain",

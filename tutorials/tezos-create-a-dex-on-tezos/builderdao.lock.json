@@ -40,7 +40,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "6894188e361117d775d592d3fc15c2c36f7eb59ae22ffa4fdf0fad3ff759ae09"
+      "digest": "6894188e361117d775d592d3fc15c2c36f7eb59ae22ffa4fdf0fad3ff759ae09",
+      "arweaveHash": "TlvDGJO-tLzUl2ObkoSlriszbKaasuAkXqJgwnr1b4E"
     }
   },
   "href": "learn/tezos-create-a-dex-on-tezos",

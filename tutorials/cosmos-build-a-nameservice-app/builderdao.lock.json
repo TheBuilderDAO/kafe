@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e4d1c8759fb3997daf9daad2a029211317311a9800ec21a5e76a9039b5bcb69d"
+      "digest": "e4d1c8759fb3997daf9daad2a029211317311a9800ec21a5e76a9039b5bcb69d",
+      "arweaveHash": "tDtrdbvXTb4yO7IrrxXvnEI7ejqiuyG9y-v1FIPd968"
     }
   },
   "href": "learn/cosmos-build-a-nameservice-app",

@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "993b7f9c468f779f00ea64de77eaf0f29c9f194c59b3a45f4ef2af728e34c09c"
+      "digest": "993b7f9c468f779f00ea64de77eaf0f29c9f194c59b3a45f4ef2af728e34c09c",
+      "arweaveHash": "S7iMkEnVKV0Ngkcd7-CAR1L9VyV0VPlsZGiCw9-i4xM"
     }
   },
   "href": "learn/polkadot-parachain-lifecycle",

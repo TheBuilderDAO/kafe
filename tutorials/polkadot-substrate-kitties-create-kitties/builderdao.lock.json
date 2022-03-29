@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "835e1607c4d11b720832e13f123e0738d9928c5958491c21a4ff881ee02e800c"
+      "digest": "835e1607c4d11b720832e13f123e0738d9928c5958491c21a4ff881ee02e800c",
+      "arweaveHash": "WbHV5yJJl4h4uPQaSB0zzcNYVcHHf14TeGszExz25ZY"
     }
   },
   "href": "learn/polkadot-substrate-kitties-create-kitties",

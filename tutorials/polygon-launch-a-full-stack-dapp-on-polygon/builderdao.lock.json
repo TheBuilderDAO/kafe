@@ -75,7 +75,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "26d553da5664bf242686b4fb27bf10157eef0a0272951bf201e4e44f7752f159"
+      "digest": "26d553da5664bf242686b4fb27bf10157eef0a0272951bf201e4e44f7752f159",
+      "arweaveHash": "LWz3-ENKsEElvA5LWVkWZXpWz26rDw4CQaFWG3iD-F4"
     }
   },
   "href": "learn/polygon-launch-a-full-stack-dapp-on-polygon",

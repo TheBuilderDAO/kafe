@@ -105,7 +105,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c59424f535d0141377c59f8e11cd4b3d2452827c305963041dce4102829c6a1a"
+      "digest": "c59424f535d0141377c59f8e11cd4b3d2452827c305963041dce4102829c6a1a",
+      "arweaveHash": "-IET3jNp_f7dgHrI8f9jKnTnDvxXC1YV1IXYXdj8WoI"
     }
   },
   "href": "learn/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts",

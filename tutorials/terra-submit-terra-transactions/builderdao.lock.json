@@ -25,7 +25,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "66de6c9c94fb6dbc15eb3253253fa8bd05a6a363aacc930e8328ef546694850b"
+      "digest": "66de6c9c94fb6dbc15eb3253253fa8bd05a6a363aacc930e8328ef546694850b",
+      "arweaveHash": "JrJ1Heh2gC2JpT6yoot7gZfTED-tgVfWTR8C_WAcnR4"
     }
   },
   "href": "learn/terra-submit-terra-transactions",

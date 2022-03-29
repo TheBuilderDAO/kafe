@@ -165,7 +165,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "cc9bb1174aba8a5190536724c1ab78e83bc1c278d1fc7b625d29b0fdde95a8db"
+      "digest": "cc9bb1174aba8a5190536724c1ab78e83bc1c278d1fc7b625d29b0fdde95a8db",
+      "arweaveHash": "wJBx2Hxs8ugIfjajKDce_RmNn9NZcE-HIuMmvdaL1OE"
     }
   },
   "href": "learn/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum",

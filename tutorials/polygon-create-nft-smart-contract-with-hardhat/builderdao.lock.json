@@ -65,7 +65,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "5e420b37bc810287b3fd3cb4e295f017e9522e6475aa8a36d4e4f61e07feaddf"
+      "digest": "5e420b37bc810287b3fd3cb4e295f017e9522e6475aa8a36d4e4f61e07feaddf",
+      "arweaveHash": "ObCz45-M2skVK6lGgdBDUbwO70NWYrfh3meJkaHse7Q"
     },
     "content/assets/polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet-9.png": {
       "name": "polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet-9.png",

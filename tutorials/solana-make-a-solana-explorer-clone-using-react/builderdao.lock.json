@@ -55,7 +55,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "21085e0311c4a9a1567a792eabc266cf7edbc76ba0368e082fdb9105740d65f5"
+      "digest": "21085e0311c4a9a1567a792eabc266cf7edbc76ba0368e082fdb9105740d65f5",
+      "arweaveHash": "L8AQubD9lt52pmG1nRVNRs0Gc2bsd6iGze6P2P4i6v0"
     },
     "content/assets/solana-make-a-solana-explorer-clone-using-react-image-7.png": {
       "name": "solana-make-a-solana-explorer-clone-using-react-image-7.png",

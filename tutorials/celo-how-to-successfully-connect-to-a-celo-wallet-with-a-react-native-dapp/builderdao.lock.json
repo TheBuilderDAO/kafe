@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "50f460427e00a5f19ec7056d292a428814b71474f8479156ed520b921a5f438b"
+      "digest": "50f460427e00a5f19ec7056d292a428814b71474f8479156ed520b921a5f438b",
+      "arweaveHash": "iLZD9nwoL-ivA46qICisG7iGYj6Bca1R3LgDZr_rzsc"
     },
     "content/assets/celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png": {
       "name": "celo-how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp-wallet-screen-4.png",

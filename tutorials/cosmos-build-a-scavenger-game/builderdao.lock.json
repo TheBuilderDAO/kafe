@@ -40,7 +40,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "f0ff3abd3c09b8797afcbba8a49d41166dd73b96c5c637d26fbb13dbd026b3c8"
+      "digest": "f0ff3abd3c09b8797afcbba8a49d41166dd73b96c5c637d26fbb13dbd026b3c8",
+      "arweaveHash": "7tGva_WritEVoULwXHGG5iLkso9TB208Oyi8ZyfTj-M"
     }
   },
   "href": "learn/cosmos-build-a-scavenger-game",

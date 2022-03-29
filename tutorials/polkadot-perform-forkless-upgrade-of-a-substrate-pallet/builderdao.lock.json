@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "35cd24b4cc1c2de446324b17d61774be8ee331027302e9ad836c4832a585074d"
+      "digest": "35cd24b4cc1c2de446324b17d61774be8ee331027302e9ad836c4832a585074d",
+      "arweaveHash": "uctWsrx8g3AtC_v2LD8F8Ob3JT17pXx2Y1rqn3-HCTQ"
     },
     "content/assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png": {
       "name": "polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-5.png",

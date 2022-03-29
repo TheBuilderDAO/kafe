@@ -45,7 +45,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "7d16b4dd4e2b26a87db78046820c3368a0daa751c9da4e712ba7f8243ae9f46a"
+      "digest": "7d16b4dd4e2b26a87db78046820c3368a0daa751c9da4e712ba7f8243ae9f46a",
+      "arweaveHash": "-wB-7SXdM1tc0mhUuFlqOeOe-05Gfx9PYYC9JCps06Y"
     }
   },
   "href": "learn/near-stake-token-vision",

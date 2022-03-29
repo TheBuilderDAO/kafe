@@ -90,7 +90,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "4520fe1f9eabdf02e9aa4e1ac68d81b91676d04baa927183b880219ba9de0d2e"
+      "digest": "4520fe1f9eabdf02e9aa4e1ac68d81b91676d04baa927183b880219ba9de0d2e",
+      "arweaveHash": "mCQcnQ30jY3nJGfa6QfU0Lw616i6qPzIGqIrH8GXzfs"
     }
   },
   "href": "learn/polygon-build-a-quadratic-voting-dapp",

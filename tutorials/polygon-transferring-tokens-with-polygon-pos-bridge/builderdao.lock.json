@@ -65,7 +65,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "42f30480b8704ef7dd2469c9d9633b8a5a0c97d0b7f4a4de2d896001a2c5e95c"
+      "digest": "42f30480b8704ef7dd2469c9d9633b8a5a0c97d0b7f4a4de2d896001a2c5e95c",
+      "arweaveHash": "rY4QBadi-VwOeQjYYHkodOlzGzIE6ku6_Ma2mQ97hq0"
     },
     "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-transfer-9.png": {
       "name": "polygon-transferring-tokens-with-polygon-pos-bridge-transfer-9.png",

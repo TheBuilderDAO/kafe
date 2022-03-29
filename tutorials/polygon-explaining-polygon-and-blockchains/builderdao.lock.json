@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "a52d204219b6dd7ca272ba5aed3b547b82051b953a6899c945e3587b9aec9454"
+      "digest": "a52d204219b6dd7ca272ba5aed3b547b82051b953a6899c945e3587b9aec9454",
+      "arweaveHash": "rF7sr7pPVBCaYdo6wLttwAXtTirEom-N5SzsFEocQK0"
     }
   },
   "href": "learn/polygon-explaining-polygon-and-blockchains",

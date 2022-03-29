@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e0623bcab21af80568f9c31bbf1b382edcc7849200aa14add08f9c14e217d589"
+      "digest": "e0623bcab21af80568f9c31bbf1b382edcc7849200aa14add08f9c14e217d589",
+      "arweaveHash": "VFsig6BVYyNk_1tyUweN70F19pnYn9JZzpGpYOXUPGw"
     },
     "content/assets/the-graph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png": {
       "name": "the-graph-deploy-a-subgraph-for-polygon-subgraph-studio-1.png",

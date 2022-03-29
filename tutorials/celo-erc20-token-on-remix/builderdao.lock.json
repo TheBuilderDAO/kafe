@@ -55,7 +55,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "8d8ac7b470b036a48dd1780c0623231f631dd7ad39ab78c4a434d2d1a5616153"
+      "digest": "8d8ac7b470b036a48dd1780c0623231f631dd7ad39ab78c4a434d2d1a5616153",
+      "arweaveHash": "jps4sk_0hLtagOSjSuLhBiFcmOrOFUMkqZY4i_qX8nc"
     },
     "content/assets/celo-erc20-token-on-remix-accessibility-text-7.png": {
       "name": "celo-erc20-token-on-remix-accessibility-text-7.png",

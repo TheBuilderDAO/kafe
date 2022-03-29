@@ -35,7 +35,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c382e826156210581c5de40b4d59e5017959f9aafabc1f64caf583560963daa4"
+      "digest": "c382e826156210581c5de40b4d59e5017959f9aafabc1f64caf583560963daa4",
+      "arweaveHash": "rhajPnUd8f5YUaVmDVW2Z9AM_ditVcJ65obTHUVSKgM"
     },
     "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png": {
       "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png",

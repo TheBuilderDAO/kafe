@@ -160,7 +160,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "bd6bf6e2efd701245e8666faa4d9df4467b5a5b2ebd694bda8c4ef213850bade"
+      "digest": "bd6bf6e2efd701245e8666faa4d9df4467b5a5b2ebd694bda8c4ef213850bade",
+      "arweaveHash": "g7-TDDTMrUhOTHCi_PyDJS5uX8iRJGZeF_M6dJW2uAY"
     }
   },
   "href": "learn/solana-explaining-solanas-innovations-without-technical-jargon",

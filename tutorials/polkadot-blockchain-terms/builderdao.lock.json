@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "ab70944b8cf1263d85ab59792ba9a74628a26a7d2f5d7b2b657eef08bc4ef8bc"
+      "digest": "ab70944b8cf1263d85ab59792ba9a74628a26a7d2f5d7b2b657eef08bc4ef8bc",
+      "arweaveHash": "tK4E4RddWz2oklXCvpbBPRvcxsNEXLDMjGS_pGMUtwk"
     },
     "content/assets/polkadot-blockchain-terms-image-6.png": {
       "name": "polkadot-blockchain-terms-image-6.png",

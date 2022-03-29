@@ -75,7 +75,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "d756a00e4f38ab5cfe789c3eadbff6a619a00bece62bdcd379c988109e90126a"
+      "digest": "d756a00e4f38ab5cfe789c3eadbff6a619a00bece62bdcd379c988109e90126a",
+      "arweaveHash": "DcijapVa4XJ-6fiLeqPRdY6wP938qZFUvDltAgezmAc"
     },
     "content/assets/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-11.png": {
       "name": "polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-11.png",

@@ -40,7 +40,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c9b145cf9f24265c8aa929d0341ba6dba06a79a864f94713090feda93b4392f2"
+      "digest": "c9b145cf9f24265c8aa929d0341ba6dba06a79a864f94713090feda93b4392f2",
+      "arweaveHash": "VBDr4N_CmpmzjIjMdFfKKjbaH-XuV4l_ERQHN65BVSk"
     },
     "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png": {
       "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png",

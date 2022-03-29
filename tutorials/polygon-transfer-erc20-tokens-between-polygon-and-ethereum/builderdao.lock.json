@@ -65,7 +65,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "d72d423e2883c61fdb52a11b4758cd870c3138e4129bbbec2e817937f87c7ce0"
+      "digest": "d72d423e2883c61fdb52a11b4758cd870c3138e4129bbbec2e817937f87c7ce0",
+      "arweaveHash": "-yNhbOjamqclovDQVTuixGlTRnCeGiW8a5ktjRFAWC4"
     },
     "content/assets/polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer-9.png": {
       "name": "polygon-transfer-erc20-tokens-between-polygon-and-ethereum-transfer-9.png",

@@ -50,7 +50,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "3ca3238d049b07fbd361f7b02f75a02eed60b39f73654d0d0f1bd0cf92538ef9"
+      "digest": "3ca3238d049b07fbd361f7b02f75a02eed60b39f73654d0d0f1bd0cf92538ef9",
+      "arweaveHash": "_wiwZCbyM8Vt3lDAkss4kxnXuZuncHzFpG5BhllQnSY"
     },
     "content/assets/polkadot-build-polkadot-amm-using-ink-demo-5.png": {
       "name": "polkadot-build-polkadot-amm-using-ink-demo-5.png",

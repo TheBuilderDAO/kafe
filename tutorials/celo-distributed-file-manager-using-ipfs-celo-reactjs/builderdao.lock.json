@@ -75,7 +75,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "e60580ceec31a233299696b8a3367667bdfaa4b5e14be23b7a473b75260cc3c8"
+      "digest": "e60580ceec31a233299696b8a3367667bdfaa4b5e14be23b7a473b75260cc3c8",
+      "arweaveHash": "j1VrK3KXNfgWWPZR6n1ok_-COWJbp9TnS65CZhTC1xY"
     },
     "content/assets/celo-distributed-file-manager-using-ipfs-celo-reactjs-image-11.png": {
       "name": "celo-distributed-file-manager-using-ipfs-celo-reactjs-image-11.png",
