@@ -22,6 +22,7 @@ export type BuilderDaoLockJson = {
       name: string;
       path: string;
       digest: string;
+      arweaveHash?: string;
     }
   };
   reviewers: {

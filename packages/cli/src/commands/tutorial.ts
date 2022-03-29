@@ -28,6 +28,7 @@ import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
 import { rootTutorialFolderPath } from '../constants';
+import _ from 'lodash';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -170,7 +171,7 @@ Notes:
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-      const { lock  } = new BuilderDaoConfig(rootFolder);
+      const { lock } = new BuilderDaoConfig(rootFolder);
       await lock.read()
       if (!options.skipReviewers) {
         const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
@@ -264,7 +265,14 @@ Notes:
     .addOption(
       new commander.Option('--skip-images', 'Skip uploading images').default(false)
     )
+    .addOption(
+      new commander.Option('--verbose', 'Verbose').default(false)
+    )
     .action(async (learnPackageName, options) => {
+      if (options.verbose) {
+        log(options);
+        console.log('-'.repeat(120))
+      }
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
@@ -288,6 +296,7 @@ Notes:
         protocol: options.arweave_protocol,
       });
       log(proposal);
+      console.log('-'.repeat(120))
       log(ceramicMetadata);
 
       const deployQueue = async.queue(
@@ -296,10 +305,14 @@ Notes:
           name: string;
           digest: string;
           fullPath: string;
+          arweaveHash?: string;
         }) => {
           console.log('Uploading', file.name);
+          console.log(file);
+          // return
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
-
+          const digest = await hashSumDigest(file.fullPath);
+          // return
           const arweaveHash = await arweave.publishTutorial(
             fileContent,
             `${learnPackageName}/${file.path}`,
@@ -308,7 +321,6 @@ Notes:
           console.log(
             `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
           );
-          const digest = await hashSumDigest(file.fullPath);
           lock.chain.set(`content["${file.path}"].digest`, digest).value();
           lock.chain
             .set(`content["${file.path}"].arweaveHash`, arweaveHash)
@@ -317,10 +329,17 @@ Notes:
           console.log('🔒 Updated builderdao.lock.json!');
           await lock.read();
           console.log('🔶 Updating ceramic metadata');
-          await ceramic.updateMetadata(proposal.streamId, {
-            content: lock.chain.get('content').value(),
-          })
-          console.log('🔶 Updated ceramic metadata');
+          try {
+            const updatedFile = lock.chain.get(`content["${file.name}"]`).value();
+            const updatedMetada = _.set(ceramicMetadata, `content.${file.name}`, updatedFile);
+            await ceramic.updateMetadata(proposal.streamId, {
+              ...updatedMetada,
+            })
+            console.log('🔶 Updated ceramic metadata');
+          } catch (err) {
+            console.log('🔶 Failed to update ceramic metadata');
+            console.log(err);
+          }
         },
         2,
       );
@@ -346,10 +365,20 @@ Notes:
         console.log('Kicking initial process.');
         files.forEach(async file => {
           const filePath = path.join(rootFolder, file.path);
-          deployQueue.push({
-            ...file,
-            fullPath: filePath,
-          });
+          const digest = await hashSumDigest(filePath);
+          if (file.arweaveHash && file.digest === digest) {
+            log({
+              SKIPPING: {
+                reason: `Skipping file it is already uploaded.`,
+                ...file
+              }
+            })
+          } else {
+            deployQueue.push({
+              ...file,
+              fullPath: filePath,
+            });
+          }
         });
         // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
         // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
@@ -367,9 +396,8 @@ Notes:
         });
       } else {
         tutorial.error(`
-        🛑 The tutorial is not ready to publish/update. 🚧 state: ${
-          Object.keys(proposal.state)[0]
-        }
+        🛑 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]
+          }
         `);
       }
       await deployQueue.drain();
