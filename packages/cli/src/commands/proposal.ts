@@ -5,7 +5,6 @@ import { ProposalStateE } from '@builderdao-sdk/dao-program';
 
 import { getClient } from '../client';
 import { log as _log, createKeypairFromSecretKey } from '../utils';
-import { rootTutorialFolderPath } from '../constants';
 import { BuilderDaoConfig } from '../services';
 
 function myParseInt(value: string) {
@@ -49,7 +48,6 @@ export function makeProposalCommand() {
     .command('setstate')
     .description('Set the state of a proposal')
     .argument('[proposalId]', 'Proposal ID', val => myParseInt(val))
-    .option('-s, --slug [slug>', 'Slug of the proposal')
     .addOption(
       new commander.Option('-s, --state <state>', 'State of the proposal')
         .choices(Object.keys(ProposalStateE))
@@ -80,10 +78,10 @@ export function makeProposalCommand() {
         let tutorialId: number;
         if (!proposalId) {
           const rootFolder = process.cwd();
-          const { lock  } = new BuilderDaoConfig(rootFolder);
+          const { lock } = new BuilderDaoConfig(rootFolder);
           await lock.read()
           tutorialId = lock.chain.get('proposalId').value();
-        }  else {
+        } else {
           tutorialId = proposalId;
         }
 
@@ -115,14 +113,6 @@ Notes:
     .option('-i, --id <id>', 'ID of the proposal')
     .option('-p, --publicKey <publicKey>', 'PublicKey of the proposal')
     .action(async options => {
-      if (!Object.values(options).some(v => v)) {
-        proposal
-          .showHelpAfterError(
-            '💡 Use `builderdao proposal get --help` for additional information',
-          )
-          .error('You must provide at least one option for fetching, -i or -s');
-      }
-
       if (options.slug) {
         log(await client.getTutorialBySlug(options.slug));
       } else if (options.id) {
@@ -133,7 +123,24 @@ Notes:
             options.publicKey,
           ),
         );
+      } else {
+        const rootFolder = process.cwd();
+        const { lock } = new BuilderDaoConfig(rootFolder);
+        await lock.read()
+        const proposalId = lock.chain.get('proposalId').value();
+        // eslint-disable-next-line no-param-reassign
+        options.id = proposalId;
+        log(await client.getTutorialById(proposalId));
       }
+
+      if (!Object.values(options).some(v => v)) {
+        proposal
+          .showHelpAfterError(
+            '💡 Use `builderdao proposal get --help` for additional information',
+          )
+          .error('You must provide at least one option for fetching, -i or -s');
+      }
+
     });
 
   return proposal;

@@ -308,7 +308,6 @@ Notes:
           arweaveHash?: string;
         }) => {
           console.log('Uploading', file.name);
-          console.log(file);
           // return
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const digest = await hashSumDigest(file.fullPath);
