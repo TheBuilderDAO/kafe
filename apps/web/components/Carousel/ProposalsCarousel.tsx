@@ -12,11 +12,10 @@ import {
 } from '@app/constants';
 import { connectHits } from 'react-instantsearch-dom';
 import { truncateString } from '../../utils/strings';
-import ButtonLeft from '@app/components/Carousel/ButtonLeft';
-import ButtonRight from '@app/components/Carousel/ButtonRight';
 import useCarousel from '@app/components/Carousel/useCarousel';
 import Loader from '@app/components/Loader/Loader';
 import routes from '../../routes';
+import BorderSVG from '../SVG/BorderSVG';
 
 const PER_PAGE = 3;
 
@@ -31,25 +30,28 @@ const ProposalCard = props => {
   return (
     <div
       className={
-        'border border-dotted border-1 rounded-3xl dark:border-kafewhite border-kafeblack w-[450px] min-h-[240px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
+        'relative z-0 rounded-[35px] dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack'
       }
     >
-      <div className="flex justify-between items-center">
-        <div className="flex items-center">
-          <small className="text-xs mr-2">Proposal by</small>{' '}
-          <UserAvatar ellipsis={true} address={hit.author} />
+      <BorderSVG />
+      <div className="p-8">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <small className="mr-2 text-xs">Proposal by</small>{' '}
+            <UserAvatar ellipsis={true} address={hit.author} />
+          </div>
+          <ImageStack addresses={['1', '2', '3']} />
         </div>
-        <ImageStack addresses={['1', '2', '3']} />
-      </div>
-      <div>
-        <Link href={routes.vote.proposal(hit.slug)}>
-          <h3 className="text-2xl font-larken mt-14">{hit.title}</h3>
-        </Link>
-        <p className="text-xs tracking-wide">
-          {truncateString(hit.description)}
-        </p>
-        <div className="mt-4">
-          <Tags tags={hit.tags} />
+        <div>
+          <Link href={routes.vote.proposal(hit.slug)}>
+            <h3 className="text-2xl font-larken mt-14">{hit.title}</h3>
+          </Link>
+          <p className="text-xs tracking-wide">
+            {truncateString(hit.description)}
+          </p>
+          <div className="mt-4">
+            <Tags tags={hit.tags} />
+          </div>
         </div>
       </div>
     </div>
@@ -68,23 +70,17 @@ const Wrapper = ({ hits }) => {
 
   const hit = hits[currentIndex];
 
-  return (
-    <>
-      <ButtonLeft onClick={handlePrev} />
-      <div className="relative">
-        <div key={hit.objectID} className={`absolute top-6 left-6`}>
-          <ProposalCard hit={hit} />
-        </div>
-        <div key="dummy-1" className={`absolute top-4 left-4`}>
-          <ProposalCard hit={hit} />
-        </div>
-        <div key="dummy-2" className={`absolute top-2 left-2`}>
-          <ProposalCard hit={hit} />
-        </div>
-      </div>
-      <ButtonRight onClick={handleNext} />
-    </>
-  );
+  return [
+    <div key={hit.objectID} className={`relative top-2 left-6`}>
+      <ProposalCard hit={hit} />
+    </div>,
+    <div key="dummy-1" className={`absolute top-4 left-4`}>
+      <ProposalCard hit={hit} />
+    </div>,
+    <div key="dummy-2" className={`absolute top-6 left-2`}>
+      <ProposalCard hit={hit} />
+    </div>,
+  ];
 };
 
 const Proposals = connectHits(Wrapper);

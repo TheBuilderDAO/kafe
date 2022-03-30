@@ -1,66 +1,11 @@
-import styled from '@emotion/styled';
 import useProgress from '@app/lib/hooks/useProgress';
 import useScrollSpy from '@app/lib/hooks/useScrollSpy';
-import { useReducedMotion, motion, useViewportScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React from 'react';
 import ProgressBar from './ProgressBar';
-import tw from 'twin.macro';
-
-interface WrapperProps {
-  showTableOfContents: boolean;
-}
-
-const Wrapper = styled('div')<WrapperProps>`
-  @media (max-width: 1250px) {
-    left: 10px;
-  }
-  margin-top: 8px;
-  width: 280px;
-
-  ${p =>
-    !p.showTableOfContents
-      ? `
-   ul {
-     display: none;
-   }
-  `
-      : ''}
-
-  ul {
-    @media (max-width: 1250px) {
-      display: none;
-    }
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-
-    li {
-      list-style: none;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.5;
-      margin-bottom: 22px;
-      ${tw`ml-2`}
-      a {
-        ${p =>
-          !p.showTableOfContents ? `cursor: none;  pointer-events: none;` : ''}
-        text-decoration: none;
-      }
-
-      &:focus:not(:focus-visible) {
-        outline: 0;
-      }
-
-      &:focus-visible {
-        outline: 2px solid var(--maximeheckel-colors-brand);
-        opacity: 1 !important;
-      }
-    }
-  }
-`;
 
 interface TableOfContentProps {
-  ids: Array<{ id: string; title: string }>;
+  toc: Array<{ id: string; title: string; href: string; depth: number }>;
 }
 
 /**
@@ -69,30 +14,8 @@ interface TableOfContentProps {
  */
 const OFFSET = 150;
 
-const TableOfContent = ({ ids }: TableOfContentProps) => {
-  const shouldReduceMotion = useReducedMotion();
+const TableOfContent = ({ toc }: TableOfContentProps) => {
   const readingProgress = useProgress();
-
-  /**
-   * Only show the table of content between 7% and 95%
-   * of the page scrolled.
-   */
-  const shouldShowTableOfContent =
-    readingProgress > 0.07 && readingProgress < 0.95;
-
-  /**
-   * Variants handling hidding/showing the table of content
-   * based on the amount scrolled by the reader
-   */
-  const variants = {
-    hide: {
-      opacity: shouldReduceMotion ? 1 : 0,
-    },
-    show: (shouldShowTableOfContent: boolean) => ({
-      opacity: shouldReduceMotion || shouldShowTableOfContent ? 1 : 0,
-    }),
-  };
-
   /**
    * Handles clicks on links of the table of content and smooth
    * scrolls to the corresponding section.
@@ -101,7 +24,6 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
    */
   const handleLinkClick = (event: React.MouseEvent, id: string) => {
     event.preventDefault();
-
     const element = document.getElementById(id)!;
     const bodyRect = document.body.getBoundingClientRect().top;
     const elementRect = element.getBoundingClientRect().top;
@@ -109,7 +31,6 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
     const offsetPosition = elementPosition - 50;
 
     /**
-     * Note @MaximeHeckel: This doesn't work on Safari :(
      * TODO: find an alternative for Safari
      */
     window.scrollTo({
@@ -124,57 +45,49 @@ const TableOfContent = ({ ids }: TableOfContentProps) => {
    * table of content
    */
   const [currentActiveIndex] = useScrollSpy(
-    ids.map(
-      item => document.querySelector(`section[id="${item.id}-section"]`)!,
-    ),
+    typeof document !== 'undefined'
+      ? toc.map(item => document.querySelector(`section[id="${item.id}"]`))
+      : [],
     { offset: OFFSET },
   );
-  const { scrollYProgress } = useViewportScroll();
-
   return (
-    <Wrapper showTableOfContents={shouldShowTableOfContent}>
-      {/* <ProgressBar progress={readingProgress} /> */}
-      {ids.length > 0 ? (
-        <ul className="w-menu">
-          <motion.p
-            // initial="hide"
-            // variants={variants}
-            // animate="show"
-            // transition={{ type: 'spring' }}
-            // custom={shouldShowTableOfContent}
-            className="font-larken text-xl p-2 pb-6"
-          >
-            Contents
-          </motion.p>
-          {ids.map((item, index) => {
+    <div className={`flex flex-row py-4`}>
+      <ProgressBar progress={readingProgress} />
+      {toc.length > 0 ? (
+        <ul className="ml-2">
+          <motion.p className="p-2 pb-6 text-xl font-larken">Contents</motion.p>
+          {toc.map((item, index) => {
             return (
               <motion.li
-                //   initial="hide"
-                //   className={
-                //     currentActiveIndex === index
-                //       ? 'text-kafered dark:text-kafegold font-bold'
-                //       : 'text-kafeblack dark:text-kafewhite text-xs font-extralight'
-                //   }
-                //   variants={variants}
-                //   animate="show"
-                //   transition={{ type: 'spring' }}
+                className={`
+                  ${
+                    currentActiveIndex < index + 2 - item.depth &&
+                    item.depth > 2
+                      ? 'hidden'
+                      : 'block'
+                  }
+                  px-4
+                  py-1
+                  ${
+                    currentActiveIndex === index
+                      ? 'text-kafered dark:text-kafegold font-bold'
+                      : 'text-kafeblack dark:text-kafewhite'
+                  }`}
                 key={item.id}
-                //   custom={shouldShowTableOfContent}
               >
                 <a
-                  href={`#${item.id}`}
-                  onClick={event =>
-                    handleLinkClick(event, `${item.id}-section`)
-                  }
+                  href={`${item.href}`}
+                  className="font-mono break-all text-md"
+                  onClick={event => handleLinkClick(event, `${item.id}`)}
                 >
-                  {item.title}
+                  {'∘'.repeat(item.depth - 1)} {item.title}
                 </a>
               </motion.li>
             );
           })}
         </ul>
       ) : null}
-    </Wrapper>
+    </div>
   );
 };
 

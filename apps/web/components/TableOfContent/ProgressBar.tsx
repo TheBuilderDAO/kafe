@@ -42,7 +42,7 @@ const ProgressBar = ({ progress }: { progress: number }) => {
         style={{
           transformOrigin: 'top',
           scaleY: progress,
-          width: '2px',
+          width: '4px',
           height: '100%',
         }}
         className={'dark:bg-kafered bg-kafepurple'}

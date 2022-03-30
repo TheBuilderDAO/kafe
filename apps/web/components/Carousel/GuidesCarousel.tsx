@@ -12,8 +12,6 @@ import {
 } from '@app/constants';
 import { connectHits } from 'react-instantsearch-dom';
 import { truncateString } from '../../utils/strings';
-import ButtonLeft from '@app/components/Carousel/ButtonLeft';
-import ButtonRight from '@app/components/Carousel/ButtonRight';
 import useCarousel from '@app/components/Carousel/useCarousel';
 import Loader from '@app/components/Loader/Loader';
 import routes from '../../routes';
@@ -31,12 +29,12 @@ const GuideCard = props => {
   return (
     <div
       className={
-        'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[240px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
+        'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
       }
     >
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <small className="text-xs mr-2">Guide by</small>{' '}
+          <small className="mr-2 text-xs">Guide by</small>{' '}
           <UserAvatar ellipsis={true} address={hit.author} />
         </div>
         <ImageStack addresses={['1', '2', '3']} />
@@ -67,24 +65,17 @@ const Wrapper = ({ hits }) => {
   }
 
   const hit = hits[currentIndex];
-
-  return (
-    <>
-      <ButtonLeft onClick={handlePrev} />
-      <div className="relative">
-        <div key={hit.objectID} className={`absolute top-6 left-6`}>
-          <GuideCard hit={hit} />
-        </div>
-        <div key="dummy-1" className={`absolute top-4 left-4`}>
-          <GuideCard hit={hit} />
-        </div>
-        <div key="dummy-2" className={`absolute top-2 left-2`}>
-          <GuideCard hit={hit} />
-        </div>
-      </div>
-      <ButtonRight onClick={handleNext} />
-    </>
-  );
+  return [
+    <div key={hit.objectID} className={`relative top-6 left-6`}>
+      <GuideCard hit={hit} />
+    </div>,
+    <div key="dummy-1" className={`absolute top-4 left-4`}>
+      <GuideCard hit={hit} />
+    </div>,
+    <div key="dummy-2" className={`absolute top-2 left-2`}>
+      <GuideCard hit={hit} />
+    </div>,
+  ];
 };
 
 const Guides = connectHits(Wrapper);

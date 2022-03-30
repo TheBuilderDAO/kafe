@@ -3,6 +3,7 @@ import remarkAutolinkHeadings from 'remark-autolink-headings';
 import remarkSlug from 'remark-slug';
 import { remarkSectionize } from './remark-sectionize-fork';
 import remarkImgToJsx from './remark-img-to-jsx';
+import { remarkTOC } from './remark-toc';
 export const serializeContent = async ({
   content,
   data,
@@ -10,7 +11,9 @@ export const serializeContent = async ({
   content: string;
   data: any;
 }) => {
-  return await serialize(content, {
+  const anchors = [];
+  const toc = [];
+  const mdxSource = await serialize(content, {
     scope: {
       data,
     },
@@ -26,7 +29,21 @@ export const serializeContent = async ({
             behavior: 'wrap',
           },
         ],
+        [
+          remarkTOC,
+          {
+            data,
+            anchors,
+            toc,
+          },
+        ],
       ],
     },
   });
+
+  return {
+    mdxSource,
+    anchors,
+    toc,
+  };
 };

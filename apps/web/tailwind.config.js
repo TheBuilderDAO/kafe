@@ -23,6 +23,9 @@ module.exports = {
         kafedarker: '#131213',
         kafelighter: '#FCFBF9',
         kafemellow: '#B2ADA4',
+        kafedarkred: '#A24A5B',
+        kafedarkpurple: '#B930B4',
+        kafedarkgold: '#BA8D57',
       },
       fontFamily: {
         larken: ['Larken', 'sans-serif'],
