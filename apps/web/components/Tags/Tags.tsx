@@ -24,13 +24,15 @@ const Tags: React.FC<TagsProps> = props => {
     shortenedTags = [...tags].slice(0, 6);
     leftOverCount = tags.length - shortenedTags.length;
   }
-
+  const getTagValue = tag => {
+    return tag?.value?.toUpperCase() || tag?.toUpperCase();
+  };
   return (
     <span>
       {(!shortenedTags || !!overrideLengthCheck) &&
-        tags.map(tag => (
+        tags.map((tag, index) => (
           <span
-            key={tag}
+            key={`tag-${index}-${getTagValue(tag).toLowerCase()}`}
             className="inline-flex items-center px-2 py-0 m-2 ml-0 rounded-sm text-[10px] font-extralight dark:bg-[#2A2829] text-kafeblack dark:text-kafewhite bg-kafelighter"
           >
             {tag?.value?.toUpperCase() || tag?.toUpperCase()}
@@ -38,9 +40,9 @@ const Tags: React.FC<TagsProps> = props => {
         ))}
       {shortenedTags && !overrideLengthCheck && (
         <span>
-          {shortenedTags.map(tag => (
+          {shortenedTags.map((tag, index) => (
             <span
-              key={tag}
+              key={`tag-${index}-${getTagValue(tag).toLowerCase()}`}
               className="inline-flex items-center px-2 py-0 m-2 ml-0 rounded-sm text-[10px] font-extralight dark:bg-[#2A2829] text-kafeblack dark:text-kafewhite bg-kafelighter"
             >
               {tag?.value?.toUpperCase() || tag?.toUpperCase()}
