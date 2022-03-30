@@ -62,6 +62,8 @@ const LearnIndexPage: NextPage<
                       />
                     </div>
                   </IsAdmin>
+                  <Hits hitComponent={GuideHit} />
+                  <Pagination />
                   {process.env.NODE_ENV === 'development' ? (
                     <div className="space-y-0.5 divide-y-2">
                       {allTutorials.map(tutorial => (
@@ -73,9 +75,6 @@ const LearnIndexPage: NextPage<
                       ))}
                     </div>
                   ) : null}
-                  <Hits hitComponent={GuideHit} />
-
-                  <Pagination />
                 </div>
               </div>
               <RightSidebar>
