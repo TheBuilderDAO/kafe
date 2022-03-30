@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 solana-test-validator -r > /dev/null 2>&1 &
 VALIDATOR_PID=$!
