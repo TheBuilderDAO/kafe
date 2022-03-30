@@ -1,6 +1,7 @@
 import { PublicKey, Keypair, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { getAssociatedTokenAddress } from '@solana/spl-token';
 import bs58 from 'bs58';
+import * as anchor from '@project-serum/anchor';
 
 export const getNumberBuffer = (n: number, alloc = 8) => {
   const buffer = Buffer.alloc(alloc);

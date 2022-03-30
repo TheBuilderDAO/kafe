@@ -4,7 +4,7 @@ pub const TIPPING_SEED: &str = "Tipping";
 pub const CREATOR_TIP_WEIGHT: u64 = 70;
 pub const REVIEWER_TIP_WEIGHT: u64 = 15;
 
-pub const CREATOR_REWARD: u64 = 1_000_000;
+pub const CREATOR_REWARD: u64 = 2_000_000;
 pub const CREATOR_TIP_REWARD: u64 = 1_000_000;
 pub const REVIEWER_TIP_REWARD: u64 = 1_000_000;
 

@@ -246,7 +246,7 @@
         },
         {
           "name": "proposal",
-          "isMut": false,
+          "isMut": true,
           "isSigner": false
         },
         {

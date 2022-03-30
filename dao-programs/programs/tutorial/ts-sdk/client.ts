@@ -50,7 +50,7 @@ export class TutorialProgramClient {
   public readonly provider: anchor.Provider;
   public readonly tutorialProgram: anchor.Program<Tutorial>;
   public readonly kafeMint: PublicKey;
-  public readonly BdrMint: PublicKey;
+  public readonly bdrMint: PublicKey;
   public readonly programId: PublicKey;
 
   private readonly pda;
@@ -66,7 +66,7 @@ export class TutorialProgramClient {
     this.programId = PROGRAM_ID;
     this.tutorialProgram = getProgram(this.provider);
     this.kafeMint = kafeMint;
-    this.BdrMint = bdrMint;
+    this.bdrMint = bdrMint;
     this.pda = getPda(this.programId);
   }
 
@@ -281,7 +281,7 @@ export class TutorialProgramClient {
     return guideTipping({
       program: this.tutorialProgram,
       mintKafe: this.kafeMint,
-      mintBDR: this.BdrMint,
+      mintBDR: this.bdrMint,
       proposalId: data.id,
       tipperPk: data.tipperPk,
       amount: data.amount,

@@ -1,10 +1,16 @@
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
+import {
+  TOKEN_PROGRAM_ID,
+  getAssociatedTokenAddress,
+  getAccount,
+  TokenAccountNotFoundError,
+  TokenInvalidAccountOwnerError,
+  createAssociatedTokenAccountInstruction,
+} from '@solana/spl-token';
 
 import { Tutorial } from '../idl/tutorial';
 import { getPda } from '../pda';
-import { getAta } from '../utils';
 
 /**
  * @param program Dao program.
@@ -43,12 +49,50 @@ export const guideTipping = async ({
   const { creator, reviewer1, reviewer2 } =
     await program.account.proposalAccount.fetch(proposal.pda);
 
-  const creatorTokenAccount = await getAta(creator, mintKafe);
-  const reviewer1TokenAccount = await getAta(reviewer1, mintKafe);
-  const reviewer2TokenAccount = await getAta(reviewer2, mintKafe);
-  const tipperTokenAccount = await getAta(tipperPk, mintBDR);
+  const creatorTokenAccount = await getAssociatedTokenAddress(
+    mintKafe,
+    creator,
+  );
+  const reviewer1TokenAccount = await getAssociatedTokenAddress(
+    mintKafe,
+    reviewer1,
+  );
+  const reviewer2TokenAccount = await getAssociatedTokenAddress(
+    mintKafe,
+    reviewer2,
+  );
 
-  const signature = await program.rpc.guideTipping(
+  let associatedToken = await getAssociatedTokenAddress(mintBDR, tipperPk);
+
+  const feePayer = !!signer
+    ? signer.publicKey
+    : program.provider.wallet.publicKey;
+  const transaction = new anchor.web3.Transaction({ feePayer });
+
+  let blockhash = (
+    await program.provider.connection.getRecentBlockhash('finalized')
+  ).blockhash;
+  transaction.recentBlockhash = blockhash;
+
+  try {
+    await getAccount(program.provider.connection, associatedToken);
+  } catch (error: unknown) {
+    if (
+      error instanceof TokenAccountNotFoundError ||
+      error instanceof TokenInvalidAccountOwnerError
+    ) {
+      transaction.add(
+        createAssociatedTokenAccountInstruction(
+          program.provider.wallet.publicKey,
+          associatedToken,
+          program.provider.wallet.publicKey,
+          mintBDR,
+        ),
+      );
+    }
+  }
+
+  const instruction = program.instruction.guideTipping(
     tipper.bump,
     amount,
     daoVaultKafeAccount.bump,
@@ -70,13 +114,24 @@ export const guideTipping = async ({
         creatorTokenAccount: creatorTokenAccount,
         reviewer1TokenAccount: reviewer1TokenAccount,
         reviewer2TokenAccount: reviewer2TokenAccount,
-        tipperTokenAccount: tipperTokenAccount,
+        tipperTokenAccount: associatedToken,
         tokenProgram: TOKEN_PROGRAM_ID,
       },
       ...(signer && { signers: [signer] }),
     },
   );
-
+  transaction.add(instruction);
+  let signature;
+  if (!signer) {
+    const tx = await program.provider.wallet.signTransaction(transaction);
+    signature = await program.provider.send(tx);
+  } else {
+    signature = await anchor.web3.sendAndConfirmTransaction(
+      program.provider.connection,
+      transaction,
+      [signer],
+    );
+  }
   return signature;
 };
 

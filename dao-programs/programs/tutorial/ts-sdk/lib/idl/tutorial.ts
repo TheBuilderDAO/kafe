@@ -246,7 +246,7 @@ export type Tutorial = {
         },
         {
           name: 'proposal';
-          isMut: false;
+          isMut: true;
           isSigner: false;
         },
         {
@@ -1272,7 +1272,7 @@ export const IDL: Tutorial = {
         },
         {
           name: 'proposal',
-          isMut: false,
+          isMut: true,
           isSigner: false,
         },
         {
