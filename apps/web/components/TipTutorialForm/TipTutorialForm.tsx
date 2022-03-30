@@ -96,7 +96,7 @@ const TipTutorialForm = (props: TipTutorialProps) => {
               })}
               type="number"
               id="number"
-              min="0"
+              min="0.000001"
               step="0.000001"
               placeholder="Amount in SOL"
               className="w-full dark:bg-kafedarker bg-kafelighter rounded-2xl h-14 px-4 text-kafeblack dark:text-kafewhite ring-kafeblack dark:ring-kafewhite"
