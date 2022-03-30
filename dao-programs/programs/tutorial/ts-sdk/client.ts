@@ -35,6 +35,7 @@ import {
   proposalSetState,
   guideTipping,
   proposalPublish,
+  daoSetQuorum,
 } from './lib/instructions';
 
 import { Tutorial } from './lib/idl/tutorial';
@@ -285,6 +286,17 @@ export class TutorialProgramClient {
       proposalId: data.id,
       tipperPk: data.tipperPk,
       amount: data.amount,
+    });
+  }
+
+  async daoSetQuorum(data: {
+    adminPk: anchor.web3.PublicKey;
+    quorum: number;
+  }): Promise<string> {
+    return daoSetQuorum({
+      program: this.tutorialProgram,
+      quorum: data.quorum,
+      adminPk: data.adminPk,
     });
   }
 

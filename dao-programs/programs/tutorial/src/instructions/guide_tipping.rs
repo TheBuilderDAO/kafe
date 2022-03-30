@@ -45,6 +45,8 @@ pub struct GuideTipping<'info> {
   #[account(mut)]
   pub proposal: Account<'info, ProposalAccount>,
   #[account(mut)]
+  pub dao_account: Account<'info, DaoAccount>,
+  #[account(mut)]
   /// CHECK: we only add LAMPORT here
   pub creator: UncheckedAccount<'info>,
   #[account(mut)]
@@ -145,7 +147,8 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
   ctx.accounts.proposal.tipped_amount += amount;
   ctx.accounts.proposal.tipper_count += 1;
 
-  if ctx.accounts.proposal.tipper_count == 10 {
+  if ctx.accounts.proposal.tipper_count == 10 
+    && ctx.accounts.proposal.creator != ctx.accounts.dao_account.super_admin {
     let cpi_program = ctx.accounts.token_program.to_account_info();
     let cpi_accounts1 = Transfer {
       from: ctx.accounts.dao_vault_kafe.to_account_info(),

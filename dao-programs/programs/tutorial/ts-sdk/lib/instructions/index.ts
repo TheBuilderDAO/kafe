@@ -6,6 +6,7 @@ export { default as daoRemoveAdmin } from './daoRemoveAdmin';
 export { default as daoSetQuorum } from './daoSetQuorum';
 export { default as daoVaultClose } from './daoVaultClose';
 export { default as daoVaultInitialize } from './daoVaultInitialize';
+export { default as daoSetNonce } from './daoSetNonce';
 
 export { default as guideTipping } from './guideTipping';
 export { default as tipperClose } from './tipperClose';
@@ -13,6 +14,7 @@ export { default as tipperClose } from './tipperClose';
 export { default as proposalClose } from './proposalClose';
 export { default as proposalCreate } from './proposalCreate';
 export { default as proposalPublish } from './proposalPublish';
+export { default as proposalSetCreator } from './proposalSetCreator';
 export {
   default as proposalSetState,
   ProposalStateE,

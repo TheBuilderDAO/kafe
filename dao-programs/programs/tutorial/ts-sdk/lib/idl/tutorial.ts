@@ -131,6 +131,27 @@ export type Tutorial = {
       ];
     },
     {
+      name: 'daoSetNonce';
+      accounts: [
+        {
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: false;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'nonce';
+          type: 'u64';
+        },
+      ];
+    },
+    {
       name: 'daoSetQuorum';
       accounts: [
         {
@@ -246,6 +267,11 @@ export type Tutorial = {
         },
         {
           name: 'proposal';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
           isMut: true;
           isSigner: false;
         },
@@ -528,6 +554,62 @@ export type Tutorial = {
         {
           name: 'state';
           type: 'string';
+        },
+      ];
+    },
+    {
+      name: 'proposalSetCreator';
+      accounts: [
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'creator';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'creatorTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'superAdmin';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
         },
       ];
     },
@@ -1013,11 +1095,16 @@ export type Tutorial = {
     },
     {
       code: 6012;
+      name: 'ActionOnlyPossibleForDefaultReviewer';
+      msg: 'Error: Cannot set creator: constraint on current creator not reach ';
+    },
+    {
+      code: 6013;
       name: 'NotEnoughSolError';
       msg: 'Error: Cannot tip: not enough SOL';
     },
     {
-      code: 6013;
+      code: 6014;
       name: 'CreatorCannotBeAReviewer';
       msg: 'Error: Assign Reviewer: Creator Cannot be reviewer';
     },
@@ -1157,6 +1244,27 @@ export const IDL: Tutorial = {
       ],
     },
     {
+      name: 'daoSetNonce',
+      accounts: [
+        {
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: false,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'nonce',
+          type: 'u64',
+        },
+      ],
+    },
+    {
       name: 'daoSetQuorum',
       accounts: [
         {
@@ -1272,6 +1380,11 @@ export const IDL: Tutorial = {
         },
         {
           name: 'proposal',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
           isMut: true,
           isSigner: false,
         },
@@ -1554,6 +1667,62 @@ export const IDL: Tutorial = {
         {
           name: 'state',
           type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'proposalSetCreator',
+      accounts: [
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'creator',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'creatorTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'superAdmin',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
         },
       ],
     },
@@ -2039,11 +2208,16 @@ export const IDL: Tutorial = {
     },
     {
       code: 6012,
+      name: 'ActionOnlyPossibleForDefaultReviewer',
+      msg: 'Error: Cannot set creator: constraint on current creator not reach ',
+    },
+    {
+      code: 6013,
       name: 'NotEnoughSolError',
       msg: 'Error: Cannot tip: not enough SOL',
     },
     {
-      code: 6013,
+      code: 6014,
       name: 'CreatorCannotBeAReviewer',
       msg: 'Error: Assign Reviewer: Creator Cannot be reviewer',
     },

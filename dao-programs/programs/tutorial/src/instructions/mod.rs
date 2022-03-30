@@ -13,6 +13,9 @@ pub use dao_initialize::*;
 pub mod dao_set_amount_to_create_proposal;
 pub use dao_set_amount_to_create_proposal::*;
 
+pub mod dao_set_nonce;
+pub use dao_set_nonce::*;
+
 pub mod dao_set_quorum;
 pub use dao_set_quorum::*;
 
@@ -36,6 +39,9 @@ pub use proposal_publish::*;
 
 pub mod proposal_set_state;
 pub use proposal_set_state::*;
+
+pub mod proposal_set_creator;
+pub use proposal_set_creator::*;
 
 pub mod reviewer_assign;
 pub use reviewer_assign::*;

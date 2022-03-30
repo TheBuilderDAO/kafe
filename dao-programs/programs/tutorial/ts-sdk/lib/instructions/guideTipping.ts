@@ -38,9 +38,13 @@ export const guideTipping = async ({
   amount: anchor.BN;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaProposalById, pdaTipperAccount, pdaDaoVaultAccount } = getPda(
-    program.programId,
-  );
+  const {
+    pdaProposalById,
+    pdaTipperAccount,
+    pdaDaoVaultAccount,
+    pdaDaoAccount,
+  } = getPda(program.programId);
+  const daoAccount = await pdaDaoAccount();
   const proposal = await pdaProposalById(proposalId);
   const tipper = await pdaTipperAccount(proposalId, tipperPk);
   const daoVaultKafeAccount = await pdaDaoVaultAccount(mintKafe);
@@ -100,6 +104,7 @@ export const guideTipping = async ({
     {
       accounts: {
         tipperAccount: tipper.pda,
+        daoAccount: daoAccount.pda,
         proposal: proposal.pda,
         creator,
         reviewer2,

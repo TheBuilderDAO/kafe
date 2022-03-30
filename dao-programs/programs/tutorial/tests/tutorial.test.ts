@@ -34,8 +34,10 @@ import {
   daoRemoveAdmin,
   daoSetAmountToCreateProposal,
   daoSetQuorum,
+  daoSetNonce,
   proposalClose,
   proposalCreate,
+  proposalSetCreator,
   voteCast,
   voteCancel,
   reviewerAssign,
@@ -459,11 +461,26 @@ describe('tutorial-program', () => {
     await daoSetQuorum({
       program,
       adminPk: auth1.publicKey,
-      quorum: new anchor.BN(2),
+      quorum: 2,
       signer: auth1,
     });
     daoAccount = await getDaoAccount(program, pdaDaoAccount);
     expect(daoAccount.quorum.toNumber()).toBe(2);
+
+    await daoSetNonce({
+      program,
+      adminPk: superAdmin.publicKey,
+      nonce: new anchor.BN(2),
+      signer: superAdmin,
+    });
+    daoAccount = await getDaoAccount(program, pdaDaoAccount);
+    expect(daoAccount.nonce.toNumber()).toBe(2);
+    await daoSetNonce({
+      program,
+      adminPk: superAdmin.publicKey,
+      nonce: new anchor.BN(0),
+      signer: superAdmin,
+    });
 
     await daoSetAmountToCreateProposal({
       program,
@@ -948,7 +965,7 @@ describe('tutorial-program', () => {
   test('An anonymous tip a tutorial', async () => {
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(10_000_000_000);
-    const tippingAndCreateAtaCost = new anchor.BN(3_331_904);
+    const tippingAndCreateAtaCost = new anchor.BN(3_331_840);
 
     const CREATOR_WEIGHT = 70 / 100;
     const REVIEWER_WEIGHT = 15 / 100;
@@ -1122,6 +1139,72 @@ describe('tutorial-program', () => {
     });
     proposalAccount = await getProposalAccountBySlug(program, slug2);
     expect(proposalAccount.id.toNumber()).toBe(2);
+  });
+
+  test('Proposal Set creator test', async () => {
+    const daoAccount = await getDaoAccount(program, pdaDaoAccount);
+    const nonce = daoAccount.nonce.toNumber();
+    const balance0 = await provider.connection.getBalance(user2.publicKey);
+    const tokenBalance0 = await provider.connection.getTokenAccountBalance(
+      user2Ata.address,
+    );
+    const tokenAmount0 = parseInt(tokenBalance0.value.amount);
+
+    await proposalCreate({
+      program,
+      mintPk: mintKafe,
+      proposalId: nonce,
+      userPk: superAdmin.publicKey,
+      slug: 'i-am-a-slug-stuff',
+      streamId:
+        'kjzl6cwe1jw149hl95f35wz2z861uw6yxm4iyc29bhpyx726wy59t8hpbqow26h',
+      signer: superAdmin,
+    });
+
+    await proposalSetState({
+      program: program,
+      proposalId: nonce,
+      adminPk: auth1.publicKey,
+      newState: ProposalStateE.published,
+      signer: auth1,
+    });
+
+    for (let i = 0; i < 10; i++) {
+      await guideTipping({
+        program,
+        mintKafe,
+        mintBDR,
+        proposalId: nonce,
+        tipperPk: user1.publicKey,
+        amount: new anchor.BN(1_000_000),
+        signer: user1,
+      });
+    }
+
+    await proposalSetCreator({
+      program,
+      proposalId: nonce,
+      mintPk: mintKafe,
+      creatorPk: user2.publicKey,
+      superAdminPk: superAdmin.publicKey,
+      signer: superAdmin,
+    });
+
+    const balance = await provider.connection.getBalance(user2.publicKey);
+    const tokenBalance = await provider.connection.getTokenAccountBalance(
+      user2Ata.address,
+    );
+    const tokenAmount = parseInt(tokenBalance.value.amount);
+
+    expect(balance - balance0).toBe(7_000_000);
+    expect(tokenAmount - tokenAmount0).toBe(1_000_000);
+
+    const proposalAccount = await getProposalAccountById(
+      program,
+      pdaProposalById,
+      nonce,
+    );
+    expect(proposalAccount.creator.toString()).toBe(user2.publicKey.toString());
   });
 
   test('User1 Close Tutorial0', async () => {
