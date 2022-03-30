@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { getTutorialPaths } from '@builderdao/md-utils';
@@ -18,17 +18,20 @@ import GuideHit from '@app/components/Search/GuideHit';
 import Pagination from '@app/components/Search/Pagination';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import Link from 'next/link';
+import useSearchState from '../../hooks/useSearchState';
 
 const PER_PAGE = 10;
+
+const searchClient = algoliasearch(
+  NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+  NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
+);
 
 const LearnIndexPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const { allTutorials } = props;
-  const searchClient = algoliasearch(
-    NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
-  );
+  const searchStateProps = useSearchState();
 
   return (
     <>
@@ -45,6 +48,7 @@ const LearnIndexPage: NextPage<
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+            {...searchStateProps}
           >
             <Configure
               hitsPerPage={PER_PAGE}

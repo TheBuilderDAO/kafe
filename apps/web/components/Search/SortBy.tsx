@@ -7,7 +7,8 @@ type Item = {
   value?: string;
 };
 
-const SortBy = ({ items, refine, Control, customStyles }) => {
+const SortBy = props => {
+  const { currentRefinement, items, refine, Control, customStyles } = props;
   const { theme } = useTheme();
   const innerTheme = theme;
   return (

@@ -1,30 +1,39 @@
 import { connectPagination } from 'react-instantsearch-dom';
+import { getPages } from '../../utils/pagination';
+import { useMemo } from 'react';
 
-const Pagination = ({ currentRefinement, nbPages, refine, createURL }) => {
+const Pagination = props => {
+  const { currentRefinement, nbPages, refine, createURL, padding = 3 } = props;
+
+  const pages = useMemo(() => {
+    return getPages(currentRefinement, nbPages, padding).map(value => ({
+      key: value,
+      label: value,
+      value,
+      selected: value === currentRefinement,
+    }));
+  }, [currentRefinement, nbPages, padding]);
+
   return (
     <nav
-      className="relative z-0 inline-flex rounded-md mb-40 mt-5"
+      className="relative z-0 flex justify-center rounded-md mb-40 mt-5"
       aria-label="Pagination"
     >
-      {new Array(nbPages).fill(null).map((_, index) => {
-        const page = index + 1;
-
+      {pages.map((page, index) => {
         return (
           <a
-            key={index}
-            href={createURL(page)}
+            key={page.key}
+            href={createURL(page.value)}
             className={`px-8 py-2 mr-4 rounded-3xl  ${
-              currentRefinement === page
-                ? 'bg-kafelighter dark:bg-kafedarker'
-                : null
+              page.selected ? 'bg-kafelighter dark:bg-kafedarker' : null
             } text-sm font-medium text-kafeblack dark:text-kafewhite hover:bg-kafelighter dark:hover:bg-kafewhite dark:hover:text-kafeblack`}
             onClick={event => {
               event.preventDefault();
-              refine(page);
+              refine(page.value);
               window.scrollTo(0, 0);
             }}
           >
-            {page}
+            {page.label}
           </a>
         );
       })}
