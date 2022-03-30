@@ -1,6 +1,8 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import { filterProposalByState, ProposalStateE } from '@builderdao-sdk/dao-program';
 
 import { getClient } from '../client';
 import { log as _log, createKeypairFromSecretKey } from '../utils';
@@ -137,6 +139,60 @@ export function makeProposalCommand() {
           newState: options.state,
         });
         log({ txId });
+      },
+    );
+
+  proposal
+    .command('setQuorum')
+    .description('Set the Quorum of all proposal')
+    .argument('[quorum]', 'Quorum', val => myParseInt(val))
+    .addOption(
+      new commander.Option(
+        '-a, --adminKp <adminKp>',
+        'Admin KeyPair (bs58 encoded)',
+      )
+        .argParser(val => createKeypairFromSecretKey(val))
+        .env('ADMIN_KP')
+        .makeOptionMandatory(),
+    )
+    .action(
+      async (
+        quorum: number,
+        options: {
+          adminKp: anchor.web3.Keypair;
+        },
+      ) => {
+        client = getClient({
+          kafePk: proposal.optsWithGlobals().kafePk,
+          network: proposal.optsWithGlobals().network,
+          payer: options.adminKp,
+        });
+
+        const currentQuorum = (await client.getDaoAccount()).quorum.toNumber();
+        if (currentQuorum <= quorum) {
+          return
+        }
+
+        const proposalsToUpdate = (
+          await client.getProposals([
+            filterProposalByState(ProposalStateE.submitted),
+          ])
+        ).filter(data => data.account.numberOfVoter.toNumber() >= quorum).map(data => data.account);
+
+        for (const proposalData of proposalsToUpdate) {
+          const txId = await client.proposalSetState({
+            adminPk: options.adminKp.publicKey,
+            id: proposalData.id.toNumber(),
+            newState: ProposalStateE.funded,
+          });
+          log({ txId });
+        }
+
+        const sgn = await client.daoSetQuorum({
+          adminPk: options.adminKp.publicKey,
+          quorum,
+        });
+        log({ sgn });
       },
     );
 

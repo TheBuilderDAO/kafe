@@ -26,6 +26,8 @@ pub enum ErrorDao {
   InvalidState,
   #[msg("Error: Cannot setState: bad previous state")]
   BadPreviousState,
+  #[msg("Error: Cannot set creator: constraint on current creator not reach ")]
+  ActionOnlyPossibleForDefaultReviewer,
   #[msg("Error: Cannot tip: not enough SOL")]
   NotEnoughSolError,
   #[msg("Error: Assign Reviewer: Creator Cannot be reviewer")]

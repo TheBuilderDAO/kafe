@@ -50,6 +50,10 @@ pub mod tutorial {
     instructions::dao_set_amount_to_create_proposal::handler(ctx, quorum)
   }
 
+  pub fn dao_set_nonce(ctx: Context<DaoSetNonce>, nonce: u64) -> Result<()> {
+    instructions::dao_set_nonce::handler(ctx, nonce)
+  }
+
   pub fn dao_set_quorum(ctx: Context<DaoSetQuorum>, quorum: u64) -> Result<()> {
     instructions::dao_set_quorum::handler(ctx, quorum)
   }
@@ -96,6 +100,10 @@ pub mod tutorial {
 
   pub fn proposal_set_state(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
     instructions::proposal_set_state::handler(ctx, state)
+  }
+
+  pub fn proposal_set_creator(ctx: Context<ProposalSetCreator>, bump: u8) -> Result<()> {
+    instructions::proposal_set_creator::handler(ctx, bump)
   }
 
   pub fn reviewer_assign(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {

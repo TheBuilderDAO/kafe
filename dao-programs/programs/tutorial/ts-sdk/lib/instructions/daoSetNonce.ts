@@ -12,21 +12,21 @@ import { getPda } from '../pda';
  * @param signer (optinal, default to provider.wallet.publicKey) signer of the transaction.
  * @returns signature of the transaction
  */
-export const daoSetQuorum = async ({
+export const daoSetNonce = async ({
   program,
   adminPk,
-  quorum,
+  nonce,
   signer,
 }: {
   program: Program<Tutorial>;
   adminPk: anchor.web3.PublicKey;
-  quorum: number;
+  nonce: anchor.BN;
   signer?: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
 
-  const signature = await program.rpc.daoSetQuorum(new anchor.BN(quorum), {
+  const signature = await program.rpc.daoSetNonce(nonce, {
     accounts: {
       daoAccount: daoAccount.pda,
       authority: adminPk,
@@ -37,4 +37,4 @@ export const daoSetQuorum = async ({
   return signature;
 };
 
-export default daoSetQuorum;
+export default daoSetNonce;
