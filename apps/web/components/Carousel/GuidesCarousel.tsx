@@ -31,7 +31,7 @@ const GuideCard = props => {
   return (
     <div
       className={
-        'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[240px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
+        'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
       }
     >
       <div className="flex justify-between items-center">
@@ -64,7 +64,7 @@ const Wrapper = ({ hits, currentIndex }) => {
   const hit = hits[currentIndex];
 
   return [
-    <div key={hit.objectID} className={`absolute top-6 left-6`}>
+    <div key={hit.objectID} className={`relative top-6 left-6`}>
       <GuideCard hit={hit} />
     </div>,
     <div key="dummy-1" className={`absolute top-4 left-4`}>
@@ -82,8 +82,8 @@ const GuidesCarousel = () => {
   const { currentIndex, handlePrev, handleNext } = useCarousel(PER_PAGE);
 
   return (
-    <div className="relative h-[200px]">
-      <ButtonLeft onClick={handlePrev} />
+    <div>
+      {/* <ButtonLeft onClick={handlePrev} /> */}
       <InstantSearch
         searchClient={searchClient}
         indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
@@ -97,7 +97,7 @@ const GuidesCarousel = () => {
           <Guides currentIndex={currentIndex} />
         </div>
       </InstantSearch>
-      <ButtonRight onClick={handleNext} />
+      {/* <ButtonRight onClick={handleNext} /> */}
     </div>
   );
 };
