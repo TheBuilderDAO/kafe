@@ -2,7 +2,6 @@
 /* eslint-disable jest/expect-expect */
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
-// coucou
 import {
   getMint,
   createMint,
@@ -24,6 +23,7 @@ import {
   userVoteAccountById as getUserVoteAccountById,
   listOfVoterById as getListOfVoterById,
   tipperAccountsListById as getTipperAccountsListById,
+  tipperAccountListByUser as getTipperAccountListByUser,
 } from '../ts-sdk/lib/fetchers';
 
 import { Tutorial } from '../ts-sdk/lib/idl/tutorial';
@@ -51,8 +51,12 @@ import {
 
 import { filterProposalByState, ProposalStateE } from '../ts-sdk';
 
-import { airdrops } from '../ts-sdk/lib/utils';
+import { airdrops, getAta } from '../ts-sdk/lib/utils';
 import { getPda } from '../ts-sdk/lib/pda';
+
+beforeAll(() => {
+  jest.spyOn(console, 'error').mockImplementation(jest.fn());
+});
 
 describe('tutorial-program', () => {
   const provider = anchor.Provider.env();
@@ -105,7 +109,6 @@ describe('tutorial-program', () => {
     pdaDaoVaultAccount,
     pdaProposalById,
     pdaReviewerAccount,
-    pdaTipperAccount,
     pdaUserVoteAccountById,
   } = getPda(program.programId);
 
@@ -141,8 +144,8 @@ describe('tutorial-program', () => {
     expect(mintKafe).toBeTruthy();
     expect(mintBDR).toBeTruthy();
 
-    let mintAccount = await getMint(provider.connection, mintKafe);
-    console.log(mintAccount);
+    // let mintAccount = await getMint(provider.connection, mintKafe);
+    // console.log(mintAccount);
   });
 
   test('create userATAs Kafe', async () => {
@@ -191,7 +194,7 @@ describe('tutorial-program', () => {
       mintKafe,
       user1Ata.address,
       mintAuth.publicKey,
-      2_500_000,
+      2_000_000,
     );
     await mintTo(
       provider.connection,
@@ -199,7 +202,7 @@ describe('tutorial-program', () => {
       mintKafe,
       user2Ata.address,
       mintAuth.publicKey,
-      1_500_000,
+      2_000_000,
     );
     await mintTo(
       provider.connection,
@@ -207,7 +210,7 @@ describe('tutorial-program', () => {
       mintKafe,
       reviewer1Ata.address,
       mintAuth.publicKey,
-      1_000_000,
+      2_000_000,
     );
     await mintTo(
       provider.connection,
@@ -215,7 +218,7 @@ describe('tutorial-program', () => {
       mintKafe,
       reviewer2Ata.address,
       mintAuth.publicKey,
-      1_000_000,
+      2_000_000,
     );
     await mintTo(
       provider.connection,
@@ -223,7 +226,7 @@ describe('tutorial-program', () => {
       mintKafe,
       reviewer3Ata.address,
       mintAuth.publicKey,
-      1_000_000,
+      2_000_000,
     );
     await mintTo(
       provider.connection,
@@ -231,7 +234,7 @@ describe('tutorial-program', () => {
       mintKafe,
       superAdminAta.address,
       mintAuth.publicKey,
-      1_000_000,
+      2_000_000,
     );
 
     const user1tokenAmount = await provider.connection.getTokenAccountBalance(
@@ -247,11 +250,11 @@ describe('tutorial-program', () => {
     const reviewer3tokenAmount =
       await provider.connection.getTokenAccountBalance(reviewer3Ata.address);
 
-    expect(user1tokenAmount.value.amount).toBe('2500000');
-    expect(user2tokenAmount.value.amount).toBe('1500000');
-    expect(reviewer1tokenAmount.value.amount).toBe('1000000');
-    expect(reviewer2tokenAmount.value.amount).toBe('1000000');
-    expect(reviewer3tokenAmount.value.amount).toBe('1000000');
+    expect(user1tokenAmount.value.amount).toBe('2000000');
+    expect(user2tokenAmount.value.amount).toBe('2000000');
+    expect(reviewer1tokenAmount.value.amount).toBe('2000000');
+    expect(reviewer2tokenAmount.value.amount).toBe('2000000');
+    expect(reviewer3tokenAmount.value.amount).toBe('2000000');
   });
 
   test('create userATAs BDR', async () => {
@@ -623,7 +626,7 @@ describe('tutorial-program', () => {
     expect(listOfVoter).toHaveLength(1);
   });
 
-  it('User1 Cancel a Vote on Tutorial0', async () => {
+  test('User1 Cancel a Vote on Tutorial0', async () => {
     await voteCancel({
       program,
       proposalId: 0,
@@ -866,13 +869,14 @@ describe('tutorial-program', () => {
     tokenAmount = await provider.connection.getTokenAccountBalance(
       user1Ata.address,
     );
-    expect(tokenAmount.value.amount).toBe('2000000');
+
+    expect(tokenAmount.value.amount).toBe('2500000');
   });
 
   test('user2 tip a tutorial', async () => {
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(10_000_000_000);
-    const tippingCost = new anchor.BN(1_287_600);
+    const tippingCost = new anchor.BN(1_292_600);
 
     const CREATOR_WEIGHT = 70 / 100;
     const REVIEWER_WEIGHT = 15 / 100;
@@ -923,13 +927,79 @@ describe('tutorial-program', () => {
     let bdrBalance = await provider.connection.getTokenAccountBalance(
       user2AtaBDR.address,
     );
+
     expect(bdrBalance.value.amount).toBe('151000000');
 
     // Basic check
     expect(initialTipperBalance - finalTipperBalance).toBe(
       tippedAmount.toNumber() + tippingCost.toNumber(),
     );
+    expect(finalCreatorBalance - initialCreatorBalance).toBe(
+      CREATOR_WEIGHT * tippedAmount.toNumber(),
+    );
+    expect(finalReviewer1Balance - initialReviewer1Balance).toBe(
+      REVIEWER_WEIGHT * tippedAmount.toNumber(),
+    );
+    expect(finalReviewer2Balance - initialReviewer2Balance).toBe(
+      REVIEWER_WEIGHT * tippedAmount.toNumber(),
+    );
+  });
 
+  test('An anonymous tip a tutorial', async () => {
+    // Amount to tip in LAMPORT
+    const tippedAmount = new anchor.BN(10_000_000_000);
+    const tippingAndCreateAtaCost = new anchor.BN(3_331_904);
+
+    const CREATOR_WEIGHT = 70 / 100;
+    const REVIEWER_WEIGHT = 15 / 100;
+
+    // Initial balance of actors
+    const initialTipperBalance = await provider.connection.getBalance(
+      provider.wallet.publicKey,
+    );
+    const initialCreatorBalance = await provider.connection.getBalance(
+      user1.publicKey,
+    );
+    const initialReviewer1Balance = await provider.connection.getBalance(
+      reviewer1.publicKey,
+    );
+    const initialReviewer2Balance = await provider.connection.getBalance(
+      reviewer2.publicKey,
+    );
+
+    // Tipping instruction
+    await guideTipping({
+      program,
+      mintKafe,
+      mintBDR,
+      proposalId: 0,
+      tipperPk: provider.wallet.publicKey,
+      amount: tippedAmount,
+    });
+
+    // Final balance of actors
+    const finalTipperBalance = await provider.connection.getBalance(
+      provider.wallet.publicKey,
+    );
+    const finalCreatorBalance = await provider.connection.getBalance(
+      user1.publicKey,
+    );
+    const finalReviewer1Balance = await provider.connection.getBalance(
+      reviewer1.publicKey,
+    );
+    const finalReviewer2Balance = await provider.connection.getBalance(
+      reviewer2.publicKey,
+    );
+    let walletAta = await getAta(provider.wallet.publicKey, mintBDR);
+    const bdrBalance = await provider.connection.getTokenAccountBalance(
+      walletAta,
+    );
+    expect(bdrBalance.value.amount).toBe('150000000');
+
+    // Basic check
+    expect(initialTipperBalance - finalTipperBalance).toBe(
+      tippedAmount.toNumber() + tippingAndCreateAtaCost.toNumber(),
+    );
     expect(finalCreatorBalance - initialCreatorBalance).toBe(
       CREATOR_WEIGHT * tippedAmount.toNumber(),
     );
@@ -951,8 +1021,35 @@ describe('tutorial-program', () => {
       amount: new anchor.BN(1_000_000_000),
       signer: user2,
     });
-    const tipperInfo = await getTipperAccountsListById(program, 0);
+    const tipperInfo = await getTipperAccountListByUser(
+      program,
+      user2.publicKey,
+    );
     expect(tipperInfo[0].account.amount.toNumber()).toBe(11_000_000_000);
+  });
+
+  test('user2 tip until the guide as been tipped 10 times', async () => {
+    const balance0 = await provider.connection.getTokenAccountBalance(
+      user1Ata.address,
+    );
+    const amount0 = parseInt(balance0.value.amount);
+    for (let i = 0; i < 10; i++) {
+      await guideTipping({
+        program,
+        mintKafe,
+        mintBDR,
+        proposalId: 0,
+        tipperPk: user2.publicKey,
+        amount: new anchor.BN(5_000_000),
+        signer: user2,
+      });
+    }
+
+    const balance = await provider.connection.getTokenAccountBalance(
+      user1Ata.address,
+    );
+    const amount = parseInt(balance.value.amount);
+    expect(amount0 + 1_000_000).toBe(amount);
   });
 
   test('reviewer3 tip the guide', async () => {
@@ -966,7 +1063,7 @@ describe('tutorial-program', () => {
       signer: reviewer3,
     });
     const tipperInfo = await getTipperAccountsListById(program, 0);
-    expect(tipperInfo.length).toBe(2);
+    expect(tipperInfo.length).toBe(3);
   });
 
   test('Close tipper for reviewer3.', async () => {
@@ -978,7 +1075,7 @@ describe('tutorial-program', () => {
       signer: auth1,
     });
     const tipperInfo = await getTipperAccountsListById(program, 0);
-    expect(tipperInfo.length).toBe(1);
+    expect(tipperInfo.length).toBe(2);
   });
 
   test('user2 tip too  much', async () => {
@@ -1056,7 +1153,7 @@ describe('tutorial-program', () => {
     vaultBalance = await provider.connection.getTokenAccountBalance(
       superAdminAta.address,
     );
-    console.log('>>>>', vaultBalance.value.uiAmount);
+    // console.log('>>>>', vaultBalance.value.uiAmount);
     // expect(tipperInfo.length).toBe(1);
   });
 
@@ -1077,13 +1174,11 @@ describe('tutorial-program', () => {
     vaultBalance = await provider.connection.getTokenAccountBalance(
       superAdminAtaBDR.address,
     );
-    console.log('>>>>', vaultBalance.value.uiAmount);
-    console.log('>>>>', vaultBalance.value.amount);
-    // expect(tipperInfo.length).toBe(1);
+    // console.log('>>>>', vaultBalance.value.uiAmount);
+    // console.log('>>>>', vaultBalance.value.amount);
   });
 
   test('Close DaoAccount.', async () => {
-    // const daoAccount = await pdaDaoAccount();
     await expect(
       daoClose({
         program,

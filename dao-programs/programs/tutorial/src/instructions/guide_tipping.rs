@@ -42,6 +42,7 @@ pub struct GuideTipping<'info> {
     space = TipperAccount::LEN,
   )]
   pub tipper_account: Account<'info, TipperAccount>,
+  #[account(mut)]
   pub proposal: Account<'info, ProposalAccount>,
   #[account(mut)]
   /// CHECK: we only add LAMPORT here
@@ -144,7 +145,7 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
   ctx.accounts.proposal.tipped_amount += amount;
   ctx.accounts.proposal.tipper_count += 1;
 
-  if ctx.accounts.proposal.tipper_count.rem_euclid(10) == 0 {
+  if ctx.accounts.proposal.tipper_count == 10 {
     let cpi_program = ctx.accounts.token_program.to_account_info();
     let cpi_accounts1 = Transfer {
       from: ctx.accounts.dao_vault_kafe.to_account_info(),
@@ -205,14 +206,6 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
     )?;
   }
 
-  let adjusted_sol_amount: u64 = unwrap_int!((amount)
-    .checked_div(100)
-    .and_then(|v| v.to_u64()));
-
-  let bdr_amount: u64 = unwrap_int!((adjusted_sol_amount)
-    .checked_add(50000000)
-    .and_then(|v| v.to_u64()));
-
   if ctx.accounts.tipper_token_account.is_frozen() { 
     let cpi_program5 = ctx.accounts.token_program.to_account_info();
     let cpi_accounts5 = ThawAccount {
@@ -233,6 +226,14 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
       ),
     )?;
   }
+
+  let adjusted_sol_amount: u64 = unwrap_int!((amount)
+  .checked_div(100)
+  .and_then(|v| v.to_u64()));
+
+  let bdr_amount: u64 = unwrap_int!((adjusted_sol_amount)
+    .checked_add(50000000)
+    .and_then(|v| v.to_u64()));
 
   let cpi_program = ctx.accounts.token_program.to_account_info();
   let cpi_accounts4 = Transfer {
