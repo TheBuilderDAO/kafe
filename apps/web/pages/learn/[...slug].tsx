@@ -31,7 +31,7 @@ import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
 
 const getFile = (slug, pathForFile) => {
   if (NODE_ENV === 'production') {
-    return `/api/github/${slug}/${pathForFile}`;
+    return getGithubUrl(slug, pathForFile);
   } else {
     return path.join('/tutorials/', slug, pathForFile);
   }
