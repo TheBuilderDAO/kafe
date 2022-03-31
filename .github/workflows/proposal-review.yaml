@@ -80,12 +80,10 @@ jobs:
       run:
         shell: bash
     steps: 
-      - name: Get VERCEL_GIT_COMMIT_REF
-        id: get_vercel_git_commit_ref
-        run: |
-          ref="${github_ref////-}"
-          echo $ref
-          echo "::set-output name=ref::$ref"
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: Find Status Comment
         uses: peter-evans/find-comment@v2
         id: fc
@@ -107,8 +105,8 @@ jobs:
             REVIEWER2: ${{ needs.fetch_proposal.outputs.reviewer2_githubName }}
             ```
 
-            See [:scroll: Proposal](https://kafe-git-${{steps.get_vercel_git_commit_ref.outputs.ref}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
-            See [:open_book: Tutorial](https://kafe-git-${{steps.get_vercel_git_commit_ref.outputs.ref}}-builder-dao.vercel.app/learn/${{ needs.get_proposal_slug.outputs.slug }})
+            See [:scroll: Proposal](https://kafe-git-${{steps.extract_branch.outputs.branch}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
+            See [:open_book: Tutorial](https://kafe-git-${{steps.extract_branch.outputs.branch}}-builder-dao.vercel.app/learn/${{ needs.get_proposal_slug.outputs.slug }})
 
           edit-mode: replace
       - uses: actions/github-script@v6
