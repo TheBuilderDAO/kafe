@@ -85,7 +85,7 @@ jobs:
         run: |
           ref="${github_ref////-}"
           echo $ref
-          echo "::set-env name=ref::$ref"
+          echo "::set-output name=ref::$ref"
       - name: Find Status Comment
         uses: peter-evans/find-comment@v2
         id: fc
@@ -189,7 +189,7 @@ jobs:
           echo "::set-output name=all_reviewers_approved::true"
       - name: Report Status
         if: ${{ !steps.check_all_reviewers_approved.outputs.all_reviewers_approved }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
               github.rest.issues.addLabels({
@@ -207,7 +207,7 @@ jobs:
         run: |
             builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
       - name: label 
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
               github.rest.issues.deleteLabel({
