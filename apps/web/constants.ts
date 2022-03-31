@@ -1,4 +1,5 @@
 import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import { PublicKey } from '@solana/web3.js';
 
 const getEnvOrFail = <T>(
   val: string | number | undefined,
@@ -68,7 +69,9 @@ export const NEXT_PUBLIC_SOLANA_NODE_URL = getEnvOrFail<string>(
   true,
 );
 
-export const ZERO_ADDRESS = '11111111111111111111111111111111';
+export const SUPER_ADMIN_PK = new PublicKey(
+  'waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA',
+);
 
 export const NEXT_PUBLIC_ARWEAVE_APP_NAME = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_ARWEAVE_APP_NAME,

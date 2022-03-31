@@ -30,6 +30,8 @@ import { getClient } from '../client';
 import { rootTutorialFolderPath } from '../constants';
 import _ from 'lodash';
 
+const SUPER_ADMIN_PK = new PublicKey('waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA')
+
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
 async function updateHashDigestOfFolder(rootFolder: string) {
@@ -560,7 +562,7 @@ Notes:
           config.config.data ||= defaults.config;
           config.lock.data ||= defaults.lock;
 
-          if (proposal.reviewer1.toString() !== PublicKey.default.toString()) {
+          if (proposal.reviewer1.toString() !== SUPER_ADMIN_PK) {
             const reviewer1 = await getReviewer(client, proposal.reviewer1);
             ui.log.write(`🕵️‍♂️ Adding Reviewer 1... ${reviewer1.githubName}`);
             config.lock.chain
@@ -571,7 +573,7 @@ Notes:
           } else {
             ui.log.write('No Reviewer1 found yet.');
           }
-          if (proposal.reviewer2.toString() !== PublicKey.default.toString()) {
+          if (proposal.reviewer2.toString() !== SUPER_ADMIN_PK) {
             const reviewer2 = await getReviewer(client, proposal.reviewer2);
             ui.log.write(`🧙‍♂️ Adding Reviewer 2... ${reviewer2.githubName}`);
             config.lock.chain

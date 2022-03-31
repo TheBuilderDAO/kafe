@@ -3,7 +3,7 @@ import Eyecon from 'public/assets/icons/eyes.svg';
 import Image from 'next/image';
 import AssignReviewersForm from '../AssignReviewersForm/AssignReviewersForm';
 import { ProposalStateE, useIsAdmin } from '@builderdao-sdk/dao-program';
-import { ZERO_ADDRESS } from '@app/constants';
+import { SUPER_ADMIN_PK } from '@app/constants';
 import { useDapp } from '../../hooks/useDapp';
 import { useMemo } from 'react';
 
@@ -46,20 +46,20 @@ const WriteOnGitHub = ({ tutorial, RenderReviewer }) => {
                     <AssignReviewersForm tutorial={tutorial} />
                   ) : (
                     <>
-                      {tutorial.reviewer1 !== ZERO_ADDRESS && (
+                      {tutorial.reviewer1 !== SUPER_ADMIN_PK && (
                         <RenderReviewer
                           pubkey={tutorial.reviewer1}
                           number="1"
                         />
                       )}
-                      {tutorial.reviewer2 !== ZERO_ADDRESS && (
+                      {tutorial.reviewer2 !== SUPER_ADMIN_PK && (
                         <RenderReviewer
                           pubkey={tutorial.reviewer2}
                           number="2"
                         />
                       )}
-                      {tutorial.reviewer1 === ZERO_ADDRESS &&
-                        tutorial.reviewer2 === ZERO_ADDRESS && (
+                      {tutorial.reviewer1 === SUPER_ADMIN_PK &&
+                        tutorial.reviewer2 === SUPER_ADMIN_PK && (
                           <p className="py-3">No reviewers assigned yet</p>
                         )}
                     </>
