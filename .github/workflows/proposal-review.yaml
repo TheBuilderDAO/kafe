@@ -239,28 +239,22 @@ jobs:
         run: |
           builderdao algolia updateIndex $OBJECT_ID --data='{"state": "readyToPublish"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
 
-  request_review_from_reviewer1:
+  request_reviews:
     needs: fetch_proposal
-    if: ${{needs.fetch_proposal.outputs.reviewer1}}
-    name: Assign Reviewer 1 to PR
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create PR review request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
-        run: |
-          gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME
-
-  request_review_from_reviewer2:
-    needs: fetch_proposal
-    if: ${{needs.fetch_proposal.outputs.reviewer2}}
+    if: ${{needs.fetch_proposal.outputs.reviewer2}} && ${{needs.fetch_proposal.outputs.reviewer1}} 
     name: Assign Reviewer 2 to PR
     runs-on: ubuntu-latest
     steps:
       - name: Create PR review request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
-        run: |
-          gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME
+        uses: actions/github-script@v6
+        with:
+          script: |
+              github.rest.pulls.requestReviewers({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.number,
+                reviewers: [
+                  ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
+                  ${{needs.fetch_proposal.outputs.reviewer2_githubName}}
+                ]
+              });
