@@ -8,6 +8,7 @@ import { getClient } from '../client';
 import { log as _log, createKeypairFromSecretKey } from '../utils';
 import { BuilderDaoConfig } from '../services';
 import { CeramicApi } from '@builderdao/apis';
+import _ from 'lodash';
 
 function myParseInt(value: string) {
   // parseInt takes a string and a radix
@@ -222,7 +223,7 @@ Notes:
       new commander.Option('--skip-ceramic', 'Skip Ceramic').default(false)
     )
     .action(async options => {
-      let proposal;
+      let proposal: any;
       if (options.slug) {
         proposal = await client.getTutorialBySlug(options.slug)
       } else if (options.id) {
@@ -240,15 +241,14 @@ Notes:
         options.id = proposalId;
         proposal = await client.getTutorialById(proposalId)
       }
-      log(proposal);
-      console.log('-'.repeat(80))
       if (!options.skipCeramic) {
         const ceramic = new CeramicApi({
           nodeUrl: options.nodeUrl,
         });
         const proposalDetails = await ceramic.getMetadata(proposal.streamId);
-        log(proposalDetails);
+        proposal = _.merge(proposal, proposalDetails);
       }
+      log(proposal);
 
 
       if (!Object.values(options).some(v => v)) {

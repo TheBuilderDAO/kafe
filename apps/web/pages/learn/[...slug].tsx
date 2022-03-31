@@ -31,7 +31,7 @@ import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
 
 const getFile = (slug, pathForFile) => {
   if (NODE_ENV === 'production') {
-    return `/api/github/${slug}/${pathForFile}`;
+    return getGithubUrl(slug, pathForFile);
   } else {
     return path.join('/tutorials/', slug, pathForFile);
   }
@@ -109,24 +109,24 @@ export const getStaticProps: GetStaticProps = async context => {
   const pathForFile = getPathForFile(slug[0], slug[1]);
   const relativePath = path.relative(rootFolder, pathForFile);
   let servedFrom: 'local' | 'arweave' | 'github' = 'local';
-
   const getPost = async (): Promise<{ content: string; data: any }> => {
     if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
       try {
-        const arweave = await new ArweaveApi({
+        const arweave = new ArweaveApi({
           appName: NEXT_PUBLIC_ARWEAVE_APP_NAME,
           host: NEXT_PUBLIC_ARWEAVE_HOST,
           port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
           protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
         });
         const response = await arweave.getTutorialByHash(
-          config.content[relativePath].arweaveHash,
+          lock.content[relativePath].arweaveHash,
         );
         if (response) {
           servedFrom = 'arweave';
           return getFileParse<PostType.TUTORIAL>(response.data);
         }
       } catch (err) {
+        console.log(err);
         servedFrom = 'github';
         const file = await getFileFromGithub(slug[0], relativePath);
         return getFileParse<PostType.TUTORIAL>(file);
