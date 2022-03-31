@@ -1,0 +1,59 @@
+{
+  "proposalId": 22,
+  "slug": "polygon-explaining-polygon-and-blockchains",
+  "authors": [
+    {
+      "name": "Raj Ranjan",
+      "avatarUrl": "https://github.com/rajranjan0608.png",
+      "url": "https://github.com/rajranjan0608",
+      "nickname": "rajranjan0608"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-explaining-polygon-and-blockchains-image-2.png": {
+      "name": "polygon-explaining-polygon-and-blockchains-image-2.png",
+      "path": "content/assets/polygon-explaining-polygon-and-blockchains-image-2.png",
+      "digest": "3b9af71f0cfc578feb5c656e203a5acaa540d59dc26d84fda106234f357d8afd"
+    },
+    "content/assets/polygon-explaining-polygon-and-blockchains-image-3.png": {
+      "name": "polygon-explaining-polygon-and-blockchains-image-3.png",
+      "path": "content/assets/polygon-explaining-polygon-and-blockchains-image-3.png",
+      "digest": "48e14d877b78033ae17dd28e974b4d1126a17d46dcfcf4a589a2f2479e2e3223"
+    },
+    "content/assets/polygon-explaining-polygon-and-blockchains-image-1.png": {
+      "name": "polygon-explaining-polygon-and-blockchains-image-1.png",
+      "path": "content/assets/polygon-explaining-polygon-and-blockchains-image-1.png",
+      "digest": "321fee8e24c8e54449f1d7a44c60b49da3caaee0511f710109ac14527d2cfaf0"
+    },
+    "content/assets/polygon-explaining-polygon-and-blockchains-image-5.png": {
+      "name": "polygon-explaining-polygon-and-blockchains-image-5.png",
+      "path": "content/assets/polygon-explaining-polygon-and-blockchains-image-5.png",
+      "digest": "346a00d1d516174b3fd0352df2e5a2701a8357b7a0ab418b3d9bade5dc2544cb"
+    },
+    "content/assets/polygon-explaining-polygon-and-blockchains-image-4.png": {
+      "name": "polygon-explaining-polygon-and-blockchains-image-4.png",
+      "path": "content/assets/polygon-explaining-polygon-and-blockchains-image-4.png",
+      "digest": "4720caa0414106cc700140d613f33276456b0e64950aeb200017ad8a707bbd79"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "a52d204219b6dd7ca272ba5aed3b547b82051b953a6899c945e3587b9aec9454",
+      "arweaveHash": "rF7sr7pPVBCaYdo6wLttwAXtTirEom-N5SzsFEocQK0"
+    }
+  },
+  "href": "learn/polygon-explaining-polygon-and-blockchains",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

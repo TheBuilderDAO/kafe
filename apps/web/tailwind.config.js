@@ -22,6 +22,10 @@ module.exports = {
         kafered: '#EB5F49',
         kafedarker: '#131213',
         kafelighter: '#FCFBF9',
+        kafemellow: '#B2ADA4',
+        kafedarkred: '#A24A5B',
+        kafedarkpurple: '#B930B4',
+        kafedarkgold: '#BA8D57',
       },
       fontFamily: {
         larken: ['Larken', 'sans-serif'],
@@ -29,11 +33,20 @@ module.exports = {
         'larken-extra-bold': ['Larken Extra Bold', 'sans-serif'],
         'larken-extra-bold-italic': ['Larken Extra Bold Italic', 'sans-serif'],
         space: ['Space Mono', 'monospace'],
-        sans: ['Space Mono', 'sans-serif'],
+        'space-italic': ['Space Mono Italic', 'monospace'],
+        'space-bold': ['Space Mono Bold', 'monospace'],
+        'space-bold-italic': ['Space Mono Bold Italic', 'monospace'],
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': { content: '' },
+            'code::after': { content: '' },
+          },
+        },
       },
       animation: {
         'slide-up': 'bazinga 0.5s ease forwards',
-        // 'slide-down': 'bazinga 0.5s ease backwards',
       },
       keyframes: {
         bazinga: {
@@ -41,7 +54,17 @@ module.exports = {
           '100%': { transform: 'translateY(-70px)' },
         },
       },
+      width: {
+        menu: '320px',
+      },
+      screens: {
+        phone: '300px',
+      },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
-}
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+  ],
+};

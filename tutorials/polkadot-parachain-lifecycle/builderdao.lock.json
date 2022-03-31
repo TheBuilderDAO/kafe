@@ -1,0 +1,59 @@
+{
+  "proposalId": 76,
+  "slug": "polkadot-parachain-lifecycle",
+  "authors": [
+    {
+      "name": "Danny Salman",
+      "avatarUrl": "https://github.com/DannyS03.png",
+      "url": "https://github.com/DannyS03",
+      "nickname": "DannyS03"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-parachain-lifecycle-image-2.png": {
+      "name": "polkadot-parachain-lifecycle-image-2.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-2.png",
+      "digest": "ac83c77f78ccc61efe27576cb28395087c2f30285c8a710ac63980563b4cd610"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-1.png": {
+      "name": "polkadot-parachain-lifecycle-image-1.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-1.png",
+      "digest": "44a2449738022487220ac48ced83bd922187fa2e5736a9bc274bafa0f7cf289a"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-3.png": {
+      "name": "polkadot-parachain-lifecycle-image-3.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-4.png": {
+      "name": "polkadot-parachain-lifecycle-image-4.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-4.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-parachain-lifecycle-image-5.png": {
+      "name": "polkadot-parachain-lifecycle-image-5.png",
+      "path": "content/assets/polkadot-parachain-lifecycle-image-5.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "993b7f9c468f779f00ea64de77eaf0f29c9f194c59b3a45f4ef2af728e34c09c",
+      "arweaveHash": "S7iMkEnVKV0Ngkcd7-CAR1L9VyV0VPlsZGiCw9-i4xM"
+    }
+  },
+  "href": "learn/polkadot-parachain-lifecycle",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

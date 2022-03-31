@@ -1,0 +1,69 @@
+{
+  "proposalId": 57,
+  "slug": "celo-hardhat-deploy-and-nft-app",
+  "authors": [
+    {
+      "name": "Lucas Espinosa",
+      "avatarUrl": "https://github.com/lucasespinosa28.png",
+      "url": "https://github.com/lucasespinosa28",
+      "nickname": "lucasespinosa28"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-39-1.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-captura-de-tela-39-1.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-39-1.png",
+      "digest": "0367251f24109d91e572ef0dbdf3a6911febcb7a75a67137c8e22bada7f4568d"
+    },
+    "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-43-2.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-captura-de-tela-43-2.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-43-2.png",
+      "digest": "bb0cf43c414f57f240a067d143fafdd0c527809f616b36b216a020377e531f1f"
+    },
+    "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-49-4.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-captura-de-tela-49-4.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-49-4.png",
+      "digest": "d54bfff07f75c05de2593b031183cf37aafcbfe3d514d6fdfdb9f6ef85eef90d"
+    },
+    "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-50-5.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-captura-de-tela-50-5.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-50-5.png",
+      "digest": "0608bec43b1f6a925bcb5a1dd96853b088c16b9428be75559112bfdeafecf863"
+    },
+    "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-54-6.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-captura-de-tela-54-6.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-54-6.png",
+      "digest": "d36eea5d795e660b6701b9132ab4254e813cb88a55b4c7cfc2b6e9eb2610f477"
+    },
+    "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-55-7.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-captura-de-tela-55-7.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-captura-de-tela-55-7.png",
+      "digest": "9586a786f6333d9a7623beffca9962367a196942c1ff2b69cf7447edb8970d20"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e35ddc2d91cbf4b07fd6d6da71a2e17f3e4b20662225ce7bae3111d148749ca9",
+      "arweaveHash": "MVuKXzrlQxOU1a9WUT1AJlzrmDdwRmnMhJNFigPWZTU"
+    },
+    "content/assets/celo-hardhat-deploy-and-nft-app-village-3.png": {
+      "name": "celo-hardhat-deploy-and-nft-app-village-3.png",
+      "path": "content/assets/celo-hardhat-deploy-and-nft-app-village-3.png",
+      "digest": "1c17045c25f2d54611b4203e8d5c6d8949abdf8b7f27c247d75aa7df662001aa"
+    }
+  },
+  "href": "learn/celo-hardhat-deploy-and-nft-app",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

@@ -1,0 +1,7 @@
+# require review 
+/dao-programs/**/* @TheBuilderDAO/core
+/token-scripts/ @TheBuilderDAO/core
+
+
+# Prevent unreviewed lock files beign merge to main.  
+/tutorials/**/builderdao.lock.json  @TheBuilderDAO/reviewers

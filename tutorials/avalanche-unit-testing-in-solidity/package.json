@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/avalanche-unit-testing-in-solidity",
+  "version": "1.0.0",
+  "description": "How to write unit tests for Solidity smart contracts using Truffle's Assertions",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Solidity",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

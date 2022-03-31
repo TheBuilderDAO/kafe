@@ -1,0 +1,99 @@
+{
+  "proposalId": 147,
+  "slug": "polygon-build-a-quadratic-voting-dapp",
+  "authors": [
+    {
+      "name": "Giraffekey",
+      "avatarUrl": "https://github.com/giraffekey.png",
+      "url": "https://github.com/giraffekey",
+      "nickname": "giraffekey"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-build-a-quadratic-voting-dapp-app-demo-1.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-app-demo-1.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-app-demo-1.png",
+      "digest": "f236852e4aa27c01b82437d1525ad57c71cb0a371f5f70d2f8b6407b3bb7188c"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-completed-app-13.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-completed-app-13.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-completed-app-13.png",
+      "digest": "f236852e4aa27c01b82437d1525ad57c71cb0a371f5f70d2f8b6407b3bb7188c"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-create-item-7.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-create-item-7.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-create-item-7.png",
+      "digest": "c6710317fcb0fc996af6655b88dfbbc295b336d6a40bf28b9e73e6ad9145e106"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-create-item-meta-mask-8.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-create-item-meta-mask-8.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-create-item-meta-mask-8.png",
+      "digest": "7a3f3dc3da276cc9d7b4375d69307ef94d8aa32605035b16d2155bafa8104aa3"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-file-structure-3.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-file-structure-3.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-file-structure-3.png",
+      "digest": "bbf5e6289cd89f5a53dfa500d6e7d6590c056f887090fa8a03bbad41e4488098"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-meta-mask-config-2.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-meta-mask-config-2.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-meta-mask-config-2.png",
+      "digest": "eae2341aec0c6ee8d3e33782f8ca31781b31a316e28565cc5b48c9dc9c040379"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-ranked-items-with-voting-controls-10.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-ranked-items-with-voting-controls-10.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-ranked-items-with-voting-controls-10.png",
+      "digest": "91121bd7922ef0af076924f4d10616ff862af1bef5277cebfa3fe343d90e1d35"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-submit-vote-11.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-submit-vote-11.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-submit-vote-11.png",
+      "digest": "62d5c2e5cb1401c73eb7cdc05d56c2a91877f8d77ddb83ba34776b16a1e03693"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-submit-vote-meta-mask-12.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-submit-vote-meta-mask-12.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-submit-vote-meta-mask-12.png",
+      "digest": "29d8a07216584c925e0eb84d2bf0459f133a01037422295581546c25e86d2b18"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-ranked-items-with-claim-button-9.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-ranked-items-with-claim-button-9.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-ranked-items-with-claim-button-9.png",
+      "digest": "6556229fa12c3d55b9ba4b7bd8321c14a9bf764a80e3a8189d799a56e2510dd0"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-truffle-compile-4.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-truffle-compile-4.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-truffle-compile-4.png",
+      "digest": "15016db6fa31808b6ad603819353947effbda0c5e5dba295198fa3fea464c2dc"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-truffle-test-6.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-truffle-test-6.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-truffle-test-6.png",
+      "digest": "af89528427ef2049ee9377c813725c82cfb95baf2f589f98883e4cd9975e1939"
+    },
+    "content/assets/polygon-build-a-quadratic-voting-dapp-truffle-migrate-5.png": {
+      "name": "polygon-build-a-quadratic-voting-dapp-truffle-migrate-5.png",
+      "path": "content/assets/polygon-build-a-quadratic-voting-dapp-truffle-migrate-5.png",
+      "digest": "dab9e8d33b919b01a370378bb649225341e00726fb9f0cb25a4bd584217d185b"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "4520fe1f9eabdf02e9aa4e1ac68d81b91676d04baa927183b880219ba9de0d2e",
+      "arweaveHash": "mCQcnQ30jY3nJGfa6QfU0Lw616i6qPzIGqIrH8GXzfs"
+    }
+  },
+  "href": "learn/polygon-build-a-quadratic-voting-dapp",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

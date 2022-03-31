@@ -1,0 +1,64 @@
+{
+  "proposalId": 115,
+  "slug": "near-stake-pool-contract",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-stake-pool-contract-image-1.png": {
+      "name": "near-stake-pool-contract-image-1.png",
+      "path": "content/assets/near-stake-pool-contract-image-1.png",
+      "digest": "c297f7608bc800382d8fb63f2e538ce2040a7a49116b787edf0aa7f37f614901"
+    },
+    "content/assets/near-stake-pool-contract-image-2.png": {
+      "name": "near-stake-pool-contract-image-2.png",
+      "path": "content/assets/near-stake-pool-contract-image-2.png",
+      "digest": "0299a9fa58777518cc1fb077f7f40c8ca1969aca595b26863415af232d7c6dab"
+    },
+    "content/assets/near-stake-pool-contract-image-4.png": {
+      "name": "near-stake-pool-contract-image-4.png",
+      "path": "content/assets/near-stake-pool-contract-image-4.png",
+      "digest": "33799e110b0f28c4131bc38fd90566f0f3d80e077c66ca3dada5cc09ebe13c04"
+    },
+    "content/assets/near-stake-pool-contract-image-3.png": {
+      "name": "near-stake-pool-contract-image-3.png",
+      "path": "content/assets/near-stake-pool-contract-image-3.png",
+      "digest": "f625e987faf1fd200a99f4e53dad21e389a4cfe9effcfda7022fddabe5f30f25"
+    },
+    "content/assets/near-stake-pool-contract-image-5.png": {
+      "name": "near-stake-pool-contract-image-5.png",
+      "path": "content/assets/near-stake-pool-contract-image-5.png",
+      "digest": "7c7ef0b80a8cd5742afdf5e054c8ac73892f412269033ad865cf51d107830afc"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ecbe3f592a52ddf5b2c07907fbe24348d65dfea0d08990b8fabe2a5cee97edc6",
+      "arweaveHash": "u2Gf4safJSookzM98pf0uurYoa0B8S-RMTIjmaZcmb4"
+    },
+    "content/assets/near-stake-pool-contract-image-6.png": {
+      "name": "near-stake-pool-contract-image-6.png",
+      "path": "content/assets/near-stake-pool-contract-image-6.png",
+      "digest": "6bc987a9628eb12f2479c6ae8ff268a47114c1dca03a54c5c39904f4c79cd642"
+    }
+  },
+  "href": "learn/near-stake-pool-contract",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

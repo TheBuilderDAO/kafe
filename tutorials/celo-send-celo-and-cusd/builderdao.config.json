@@ -1,0 +1,6 @@
+{
+  "title": "Send CELO & cUSD",
+  "description": "Learn how to connect to the Celo test network and transfer tokens using ContractKit",
+  "imageUrl": "",
+  "categories": ["Celo", "JS/TS", "NodeJS"]
+}

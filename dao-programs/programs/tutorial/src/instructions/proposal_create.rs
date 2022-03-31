@@ -6,21 +6,21 @@ use crate::constants::*;
 use crate::state::*;
 
 #[derive(Accounts)]
-#[instruction(bump:u8, id: u64)]
+#[instruction(bump: u8, slug: String)]
 pub struct ProposalCreate<'info> {
   #[account(
     init,
     payer = payer,
     seeds = [
       PROGRAM_SEED.as_bytes(), 
-      id.to_le_bytes().as_ref(),
+      dao_account.nonce.to_le_bytes().as_ref(),
     ],
     bump,
-    space = ProposalAccount::LEN
+    space=ProposalAccount::space(&slug),
   )]
-  pub proposal: Account<'info, ProposalAccount>,
+  pub proposal_account: Account<'info, ProposalAccount>,
   #[account(mut)]
-  pub dao_config: Account<'info, DaoAccount>,
+  pub dao_account: Account<'info, DaoAccount>,
   #[account(mut)]
   pub dao_vault: Account<'info, TokenAccount>,
   pub mint: Account<'info, Mint>,
@@ -48,33 +48,37 @@ impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Trans
 
 pub fn handler(
   ctx: Context<ProposalCreate>, 
-  bump: u8,  
-  id: u64,   
+  bump: u8,
   slug: String,
   stream_id: String,
 ) -> Result<()> {
-  let min_amount_to_create_proposal = ctx.accounts.dao_config.min_amount_to_create_proposal;
+  let min_amount_to_create_proposal = ctx.accounts.dao_account.min_amount_to_create_proposal;
   token::transfer((&*ctx.accounts).into(), min_amount_to_create_proposal)?;
 
-  if slug.chars().count() > 200 {
+  if slug.chars().count() > MAX_SLUG_LEN {
     return Err(error!(ErrorDao::SlugTooLong));
   }
 
-  if stream_id.chars().count() > 200 {
-    return Err(error!(ErrorDao::StreamIdTooLong));
+  if stream_id.chars().count() != LEN_STREAM_ID {
+    return Err(error!(ErrorDao::StreamIdSizeMissmatch));
   }
+  let id = ctx.accounts.dao_account.nonce;
+  let default_reviewer = ctx.accounts.dao_account.super_admin;
+  ctx.accounts.proposal_account.created_at = Clock::get()?.unix_timestamp;
+  ctx.accounts.proposal_account.creator = ctx.accounts.payer.key();
+  ctx.accounts.proposal_account.state = ProposalState::default();
+  ctx.accounts.proposal_account.stream_id = stream_id;
+  ctx.accounts.proposal_account.bump = bump;
+  ctx.accounts.proposal_account.slug = slug;
+  ctx.accounts.proposal_account.id = id;
+  ctx.accounts.proposal_account.number_of_voter = 0;
+  ctx.accounts.proposal_account.tipped_amount = 0;
+  ctx.accounts.proposal_account.tipper_count = 0;
+  ctx.accounts.proposal_account.reviewer1 = default_reviewer;
+  ctx.accounts.proposal_account.reviewer2 = default_reviewer;
 
-  ctx.accounts.proposal.created_at = Clock::get()?.unix_timestamp;
-  ctx.accounts.proposal.creator = ctx.accounts.payer.key();
-  ctx.accounts.proposal.state = ProposalState::default();
-  ctx.accounts.proposal.stream_id = stream_id;
-  ctx.accounts.proposal.bump = bump;
-  ctx.accounts.proposal.slug = slug;
-  ctx.accounts.proposal.id = id;
-  ctx.accounts.proposal.number_of_voter = 0;
-  ctx.accounts.proposal.reviewer1 = Pubkey::default();
-  ctx.accounts.proposal.reviewer2 = Pubkey::default();
+  ctx.accounts.dao_account.number_of_proposal += 1;
+  ctx.accounts.dao_account.nonce += 1;
 
-  ctx.accounts.dao_config.number_of_tutorial += 1;
   Ok(())
 }

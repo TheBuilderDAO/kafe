@@ -1,0 +1,84 @@
+{
+  "proposalId": 35,
+  "slug": "polkadot-implement-social-recovery-on-polkadot",
+  "authors": [
+    {
+      "name": "Rogan X",
+      "avatarUrl": "https://github.com/pyr0gan.png",
+      "url": "https://github.com/pyr0gan",
+      "nickname": "pyr0gan"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-1.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-1.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-1.png",
+      "digest": "d72535c93647f662e1becefc094e869d40c83fbd398ba55e1f7a750654a46b85"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-10.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-10.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-10.png",
+      "digest": "537eb9a045f1b079f229b60a67204e0a77d62f9e14a82acb7de109949ac44742"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-2.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-2.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-2.png",
+      "digest": "40eafa7adb0d757feed145b449f0ab259c5ed890c96f0be910308d4f60eababe"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-3.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-3.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-3.png",
+      "digest": "9d863fb2a3c032757a596ae010b729b05ca996970ae9f1147a684fb09f872a24"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-4.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-4.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-4.png",
+      "digest": "9ab614cb5fee28853941b562cc08aaa6d6b48aedd4efe6147c451cd7d1fc5797"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-5.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-5.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-5.png",
+      "digest": "4db06a4eaf59b7458a2c0269b6c89944fe4cba0246e57eeea9a6a94196126b7b"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-7.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-7.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-7.png",
+      "digest": "3e0edf51d879c7a448045b44b40fb7d40bb124a73783c1a263c2890c9532865d"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-6.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-6.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-6.png",
+      "digest": "a152ca5ca5b4b543a6dd25534a7f7046880ce613fa485ed47d1525adb9b9724a"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-9.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-9.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-9.png",
+      "digest": "d17e63194691669b46f61ff48a2986e8422816488ccc86fccdd465612ab2b798"
+    },
+    "content/assets/polkadot-implement-social-recovery-on-polkadot-image-8.png": {
+      "name": "polkadot-implement-social-recovery-on-polkadot-image-8.png",
+      "path": "content/assets/polkadot-implement-social-recovery-on-polkadot-image-8.png",
+      "digest": "5678e367f4bd8e3475c8d18216630a8d0e8180a977e0d4c8033742c24c03bef4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "f6051aef0fd0614703a9f3be93a4edd6aa73df16cd345120566b51c77c43dfda",
+      "arweaveHash": "M3NGGEV5LqB1v5Rt_wHEHvTLBTvl8BldZjCSWwNd2W4"
+    }
+  },
+  "href": "learn/polkadot-implement-social-recovery-on-polkadot",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

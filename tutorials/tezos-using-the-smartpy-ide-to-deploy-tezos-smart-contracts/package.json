@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts",
+  "version": "1.0.0",
+  "description": "Learn how to write, deploy & interact with a smart contract on Tezos, using SmartPy.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Tezos",
+    "Python",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

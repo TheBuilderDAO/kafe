@@ -1,0 +1,13 @@
+{
+  "title": "Build a Decentralized Autonomous Organization (DAO) on Celo",
+  "description": "Build a functioning DAO by writing the Solidity smart contract and building a React Native dApp",
+  "imageUrl": "",
+  "categories": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "React Native",
+    "NodeJS",
+    "Truffle"
+  ]
+}

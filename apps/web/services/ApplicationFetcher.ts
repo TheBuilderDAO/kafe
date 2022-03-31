@@ -1,7 +1,7 @@
 import { useDapp } from './../hooks/useDapp';
 import { Tutorial } from '@app/types/index';
 import { SolanaApi, CeramicApi } from '@builderdao/apis';
-import tags from '../data/tags';
+import { technologies, protocols } from '@builderdao/data';
 import useSWR from 'swr';
 import routes from 'routes';
 
@@ -9,7 +9,7 @@ class ApplicationFetcher {
   constructor(private solanaApi: SolanaApi, private ceramicApi: CeramicApi) {}
 
   async getTags(): Promise<string[]> {
-    return tags;
+    return [...technologies, ...protocols];
   }
 
   async getCeramicMetadata(streamId: string) {

@@ -1,242 +1,106 @@
 # BuilderDAO CLI
 
-## Usage
+A CLI to interact with BuilderDAO on-chain programs.
 
-```bash
-Usage: builderdao [options] [command]
-██████╗ ██╗   ██╗██╗██╗     ██████╗ ███████╗██████╗ ██████╗  █████╗  ██████╗
-██╔══██╗██║   ██║██║██║     ██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔═══██╗
-██████╔╝██║   ██║██║██║     ██║  ██║█████╗  ██████╔╝██║  ██║███████║██║   ██║
-██╔══██╗██║   ██║██║██║     ██║  ██║██╔══╝  ██╔══██╗██║  ██║██╔══██║██║   ██║
-██████╔╝╚██████╔╝██║███████╗██████╔╝███████╗██║  ██║██████╔╝██║  ██║╚██████╔╝
-╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝
+## Setup
 
-CLI to interact with BuilderDAO programs.
+Build the ESM and CJS modules with:
+
+```text
+yarn build:cli
+```
+
+## General Usage
+
+Once it has been built, you can invoke the CLI from anywhere with `builderdao`.
+
+- `builderdao -v` displays the current version of `builderdao`.
+
+- `builderdao` or `builderdao <command>` will display extended help, for example `builderdao tutorial` will output:
+
+```text
+Usage: builderdao tutorial [options] [command]
+
+Initialize & publish Kafé tutorials
 
 Options:
-  -V, --version   output the version number
-  -k --key <key>  get key from the result
-  --kafePk <kafePk>    Kafe Token PublicKey (default: "KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW")
-  --network <network>  Solana Network (choices: "mainnet-beta", "devnet", "testnet", "localnet", default: "testnet")
-  --payer <payer>      Keypair to sign trasactions (default: "4QGkjyQdXVtewXqMvnSkuNStx8nMS7E98aqxt4qW8HkfG5WGNLcjGJV9eVj9QQyej7GaZHwnzLheysmLy7GsrpwQ")
-  -h, --help      display help for command
+  -h, --help                            display help for command
 
 Commands:
-  proposal        Proposal Account
-  reviewer        Reviewer Account
-  help [command]  display help for command
+  get <learnPackageName>                Display metadata for a single tutorial
+  init [options]                        Initialize a tutorial package from a
+                                        proposal
+  list                                  List all tutorials and metadata
+  prepublish [learnPackageName]         Perform pre-publishing tasks
+  publish [options] [learnPackageName]  Publish tutorial to Arweave & Ceramic
 ```
 
-## Proposal Account
+- To see details about the options for any command, you can add the `-h` or `--help` option after the command, for example `builderdao tutorial prepublish --help` will output:
 
-```bash
-Usage: builderdao proposal [options] [command]
+```text
+Usage: builderdao tutorial prepublish [options] [learnPackageName]
 
-Proposal Account
-
-Options:
-  -h, --help      display help for command
-  -k --key <key>  get key from the result
-
-Commands:
-  list
-  setstate        Set the state of a proposal
-  get [options]   Fetch Proposal
-  help [command]  display help for command
-```
-
-### List Proposals
-
-```bash
-$ builderdao proposal list
-0:
-  publicKey: 6rbAj2N4sJQsWifKrRnJAE2BcwFtea1gQCFzz9534f1L
-  account:
-    id:            1
-    bump:          255
-    creator:       Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy
-    reviewer1:     FdW4ieKucCXZy1i8hMdaJ5ztTwrFBnXVKmFBjVufToRe
-    reviewer2:     BQfAioQkL1P6yb9jsgjbXN5LraTDdTNzoNgSTXatYnBM
-    numberOfVoter: 1
-    createdAt:     1646224528
-    state:
-      hasReviewers:
-    slug:          near-101
-    streamId:      kjzl6cwe1jw145wg457n52vguustdhrk4k5gb2btvcmekczc3is9wrcst9b3fdr
-1:
-  publicKey: E1XY2b1AZQyzudmhHmhZ8aB6zEjSdULBEoNG5GFYRkJb
-  account:
-    id:            2
-    bump:          253
-    creator:       Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy
-    reviewer1:     11111111111111111111111111111111
-    reviewer2:     11111111111111111111111111111111
-    numberOfVoter: 0
-    createdAt:     1646256488
-    state:
-      submitted:
-    slug:          celo-101
-    streamId:      kjzl6cwe1jw149di4kvrcsie2t8uit9lm2gf8j6al0pwf33hbws98q9imscsyvl
-...
-```
-
-### Get Proposal
-
-```bash
-Usage: builderdao proposal get [options]
-
-Fetch Proposal
-
-Options:
-  -s, --slug <slug>            slug of the proposal
-  -i, --id <id>                id of the proposal
-  -p, --publicKey <publicKey>  PublicKey of the proposal
-  -h, --help                   display help for command
-```
-
-#### via Slug
-
-```
-$builderdao proposal get -s near-101
-id:            1
-bump:          255
-creator:       Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy
-reviewer1:     FdW4ieKucCXZy1i8hMdaJ5ztTwrFBnXVKmFBjVufToRe
-reviewer2:     BQfAioQkL1P6yb9jsgjbXN5LraTDdTNzoNgSTXatYnBM
-numberOfVoter: 1
-createdAt:     1646224528
-state:
-  hasReviewers:
-slug:          near-101
-streamId:      kjzl6cwe1jw145wg457n52vguustdhrk4k5gb2btvcmekczc3is9wrcst9b3fdr
-
-```
-
-#### via ID
-
-```bash
-$ builderdao proposal get -i 2
-id:            2
-bump:          253
-creator:       Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy
-reviewer1:     11111111111111111111111111111111
-reviewer2:     11111111111111111111111111111111
-numberOfVoter: 0
-createdAt:     1646256488
-state:
-  submitted:
-slug:          celo-101
-streamId:      kjzl6cwe1jw149di4kvrcsie2t8uit9lm2gf8j6al0pwf33hbws98q9imscsyvl
-```
-
-#### via PublicKey
-
-```bash
-$ builderdao proposal get -p DKxxioeChZDFnCb79bcfHj8DVnrpeBfRUSr7sg2vLpo4
-id:            3
-bump:          254
-creator:       9c8oxENj8XrEM2EMadxUoifZgB1Vbc8GEYqKTxTfPo3i
-reviewer1:     11111111111111111111111111111111
-reviewer2:     11111111111111111111111111111111
-numberOfVoter: 0
-createdAt:     1646261917
-state:
-  submitted:
-slug:          build-a-blog-dapp-using-the-anchor-framework
-streamId:      kjzl6cwe1jw147lc9kvxwur5o3k1n1igbfb7hdbz8g3gntqbqoj6jperqsw3sil
-```
-
-#### set State of proposal
-
-```bash
-Usage: builderdao proposal setstate [options] <proposalId>
-
-Set the state of a proposal
+Perform pre-publishing tasks
 
 Arguments:
-  proposalId               Proposal ID
+  learnPackageName  Tutorial slug for complete tutorial package
 
 Options:
-  -s, --state <state>      State of the proposal (choices: "funded", "hasReviewers", "published", "readyToPublish", "submitted", "writing")
-  -a, --adminKp <adminKp>  Admin KeyPair (env: ADMIN_KP)
-  -h, --help               display help for command
+  -h, --help        Display help for command
+
+Example call:
+  $ builderdao tutorial prepublish near-101
+
+Notes:
+  - The prepublish workflow deals with the builderdao-config.service to generate the
+  builderdao config and lock files, also updating the hash digest of the tutorial folder.
 ```
 
-```bash
+> Example calls start with the default prompt character $ - Remember that it is not part of the command!
+
+## Basic options
+
+- `--kafePk` can be used to specify the Kafé token public key, the default will be used if one is not provided.
+
+- `--network` will default to Solana's testnet cluster if you do not specify another cluster. Only use localnet if you have a currently running [Solana Test Validator](https://docs.solana.com/developing/test-validator). Note that the default may change in the future when Kafé is deployed to mainnet.
+
+- `--payer` can be used to specify a [base58 encoded](https://tools.ietf.org/id/draft-msporny-base58-01.html#alphabet) private key to sign any Solana transactions required by the CLI.
+
+```text
+Usage: builderdao [options] [command]
+
+Options:
+  -h, --help           Display help for command
+  -k, --key <key>      Get key from the result
+  --kafePk <kafePk>    Kafe Token PublicKey (default:
+                       "KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW")
+  --network <network>  Solana Network (choices: "mainnet-beta", "devnet",
+                       "testnet", "localnet", default: "testnet")
+  --payer <payer>      Base58-encoded private key to sign trasactions (default:
+                       "4TbkzfQgj37cvwRuNFGmABUZ8aZrnSkym9kw22hNgP6Y1cTrENV53srxZxwgwZFN4LXELzBnN2v3q8DjsgjFJU5e")
+  -v --version         Outputs version number
+```
+
+## Accessing the key in a result
+
+If you provide the flag `-k` or `--key`, the result will be accessed via `_.get(result, key)`:
+
+```text
+$ builderdao reviewer get -p 8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU -k githubName
+
+Output would be "Necmttn"
+```
+
+## Setting the state of a Proposal
+
+Only Kafé Admins can alter the state of a proposal. The Keypair can be passed as an environment variable.
+
+```text
 ADMIN_KP=$ADMIN_KP builderdao proposal setstate 1 -state published
-# or
+```
+
+or
+
+```text
 builderdao proposal setstate 1 -state published -a $ADMIN_KP
-```
-
-## Reviewer Account
-
-```bash
-Usage: builderdao reviewer [options] [command]
-
-Reviewer Account
-
-Options:
-  -h, --help      display help for command
-
-Commands:
-  list
-  get [options]
-  help [command]  display help for command
-```
-
-### List Reviewers.
-
-```bash
-$ builderdao reviewer list
-0:
-  publicKey: FdW4ieKucCXZy1i8hMdaJ5ztTwrFBnXVKmFBjVufToRe
-  account:
-    bump:               255
-    pubkey:             HtdezEbemuLpAh9no1jp7Eezy8drWcbFuk3VPhs17bM4
-    numberOfAssignment: 1
-    githubName:         vunderkind
-1:
-  publicKey: BQfAioQkL1P6yb9jsgjbXN5LraTDdTNzoNgSTXatYnBM
-  account:
-    bump:               255
-    pubkey:             9Gaovv3PatKvTLUDLLMqCj2CYaB4rAnXm4nziVfmjovT
-    numberOfAssignment: 4
-    githubName:         yash-sharma1
-2:
-  publicKey: 8XFt9LTf2vjiJB7UNEeu7vydJy5SNzcRRQ7EqMgRzqxF
-  account:
-    bump:               255
-    pubkey:             B1auxYrvvhJW9Y5nE8ghZKzvX1SGZZUQTt9kALFR4uvv
-    numberOfAssignment: 3
-    githubName:         zurgl
-
-```
-
-### Get Reviewer by Github Login
-
-```bash
-  ➜ builderdao reviewer get -l Necmttn
-bump:               255
-pubkey:             8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU
-numberOfAssignment: 0
-githubName:         Necmttn
-```
-
-### Get Reviewer by PublicKey
-
-```bash
-  ➜ builderdao reviewer get -p 8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU
-bump:               255
-pubkey:             8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU
-numberOfAssignment: 0
-githubName:         Necmttn
-```
-
-## Accessing the key in result.
-
-if you provide the flag `-k` or `--key`, the result will be accessed via `_.get(result, key)`
-
-```
-➜  builderdao reviewer get -p 8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU -k githubName
-Necmttn
 ```

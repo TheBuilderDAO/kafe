@@ -1,0 +1,6 @@
+{
+  "title": "Scan the latest pairs added on UniswapV3 using TheGraph",
+  "description": "Scan the latest pairs added on UniswapV3 using TheGraph in Google Sheets",
+  "imageUrl": "",
+  "categories": ["The Graph", "JS/TS", "GraphQL", "Javascript"]
+}

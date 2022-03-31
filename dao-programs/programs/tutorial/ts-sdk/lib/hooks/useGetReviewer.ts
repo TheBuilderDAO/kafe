@@ -7,7 +7,7 @@ export const useGetReviewer = <D>(publicKey: PublicKey) => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error } = useSWR(routes.reviewer(publicKey), async () =>
-    tutorialProgram.getReviewerByReviewerAccountPDA(publicKey),
+    tutorialProgram.getReviewerByReviewerPk(publicKey),
   );
 
   return {

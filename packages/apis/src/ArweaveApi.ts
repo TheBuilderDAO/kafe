@@ -3,7 +3,6 @@ import { JWKPublicInterface } from 'arweave/node/lib/wallet';
 
 export type ApiConfig = {
   appName: string;
-  wallet: string;
   host?: string;
   port?: number;
   protocol?: string;
@@ -25,25 +24,26 @@ class ArweaveApi {
 
   private client: Arweave;
 
-  private readonly wallet: JWKPublicInterface;
 
   private static ARWEAVE_REQUIRED_CONFIRMATIONS = 2;
 
   constructor(config: ApiConfig) {
     this.appName = config.appName;
-    this.wallet = JSON.parse(config.wallet) as JWKPublicInterface;
     this.client = Arweave.init({
       host: config.host || 'localhost',
       port: config.port || 1984,
       protocol: config.protocol || 'http',
+      timeout: 200000
     });
   }
 
-  async publishTutorial(data: string, address: string): Promise<string> {
+  async publishTutorial(data: string, address: string, wallet: string): Promise<string> {
     // Create Arweave transaction passing in data. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
+
+    const parsedWallet = JSON.parse(wallet) as JWKPublicInterface
     const transaction = await this.client.createTransaction(
       { data },
-      this.wallet,
+      parsedWallet,
     );
 
     // Add tags:
@@ -56,7 +56,7 @@ class ArweaveApi {
     transaction.addTag('Address', address);
 
     // Sign Arweave transaction with your wallet. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
-    await this.client.transactions.sign(transaction, this.wallet);
+    await this.client.transactions.sign(transaction, parsedWallet);
 
     // Post Arweave transaction. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
     await this.client.transactions.post(transaction);
@@ -73,7 +73,6 @@ class ArweaveApi {
         string: true,
       },
     )) as string;
-    const txData = JSON.parse(txDataResp);
 
     // Get Arweave transaction status. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
     const txStatusResp = await this.client.transactions.getStatus(
@@ -110,7 +109,7 @@ class ArweaveApi {
 
       return {
         id: transactionHash as string,
-        data: txData,
+        data: txDataResp,
         status: txStatus,
         timestamp: block?.timestamp,
         tags,
@@ -119,7 +118,7 @@ class ArweaveApi {
 
     return {
       id: transactionHash as string,
-      data: txData,
+        data: txDataResp,
       status: txStatus,
     };
   }

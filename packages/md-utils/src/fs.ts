@@ -1,5 +1,5 @@
 import path from 'path';
-import { promises as fs } from 'fs';
+import fs from 'fs-extra';
 
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
@@ -10,15 +10,16 @@ import { FrontMatterPostType, PostType } from './types';
 const TWEET_RE = /<StaticTweet\sid="[0-9]+"\s\/>/g;
 
 export const getFileByPath = async <T extends PostType>(
-  slug: string,
   pathForFile: string,
 ): Promise<FrontMatterPostType<T>> => {
   const source = await fs.readFile(pathForFile, 'utf8');
+  return await getFileParse<T>(source);
+};
 
+export const getFileParse = async <T extends PostType>(source: string) => {
   const parsedFile = matter(source);
 
   const { data, content } = parsedFile;
-  // const mdxSource = await serializeContent(parsedFile);
 
   // TODO: maybe we want to extract this in its own lib?
   /**
@@ -47,7 +48,6 @@ export const getFileByPath = async <T extends PostType>(
     tweetIDs: tweetIDs || [],
     frontMatter: {
       readingTime: readingTime(content),
-      slug,
       ...data,
     },
   };
@@ -55,18 +55,10 @@ export const getFileByPath = async <T extends PostType>(
   return result as unknown as FrontMatterPostType<T>;
 };
 
-const rootFolderPathForTutorials = path.join(
-  process.cwd(),
-  '..',
-  '..',
-  'node_modules',
-  '@builderdao-learn',
-); // TODO: make this direct path.
-
-export const getTutorialContent = (slug: string) => {
-  const filePath = path.join(rootFolderPathForTutorials, slug, 'content.mdx');
-  return getFileByPath(slug, filePath);
-};
+const rootFolderPathForTutorials =
+  process.env.NODE_ENV === 'production'
+    ? path.join(process.cwd(), 'public/tutorials')
+    : path.join(process.cwd(), '..', '..', 'tutorials'); // TODO: make this direct path.
 
 type TutorialPath = {
   params: {
@@ -85,20 +77,26 @@ export const getTutorialPaths = async (
   const allPaths: TutorialPath[] = [];
   const allTutorials = [];
   for (const learnPackageName of rootFolder) {
-    const { config, content, paths } = await getTutorialContentByPackageName({
-      learnPackageName,
-      rootFolderPath,
-    });
+    if (learnPackageName === 'tutorials') {
+      // ln -s reference.
+      continue;
+    }
+    const { config, lock, content, paths } =
+      await getTutorialContentByPackageName({
+        learnPackageName,
+        rootFolderPath,
+      });
     allPaths.push(...paths);
     allTutorials.push({
       slug: learnPackageName,
       config,
+      lock,
       content,
     });
   }
   return {
-    allPaths: allPaths,
-    allTutorials: allTutorials,
+    allPaths,
+    allTutorials,
   };
 };
 
@@ -119,34 +117,59 @@ export const getTutorialContentByPath = async ({
   rootFolder: string;
 }) => {
   const learnPackageName = path.basename(rootFolder);
-  const contentFiles = await fs.readdir(path.join(rootFolder, 'content'));
   const paths: TutorialPath[] = [];
-  const filepathWithoutExtension = contentFiles.map(contentName => {
-    const slugArray = [learnPackageName];
-    if (contentName.includes('index')) {
-    } else {
-      slugArray.push(contentName.replace('.mdx', ''));
-    }
-    paths.push({
-      params: {
-        slug: slugArray,
-      },
+  const content: { name: string; path: string }[] = [];
+  const getFiles = async (dir: string) => {
+    return await fs.readdir(dir).then(async (fileOrDirs: string[]) => {
+      const filtered = fileOrDirs.filter(file => !file.startsWith('.'));
+      for (const fileOrDir of filtered) {
+        const f = path.join(dir, fileOrDir);
+        if (
+          ['.md', '.mdx', '.png', '.jpg', '.jpeg', '.gif', '.svg'].some(ext =>
+            f.endsWith(ext),
+          )
+        ) {
+          const slugArray = [learnPackageName];
+          if (fileOrDir.includes('index')) {
+          } else {
+            slugArray.push(fileOrDir.replace('.mdx', ''));
+          }
+
+          paths.push({
+            params: {
+              slug: slugArray,
+            },
+          });
+          content.push({
+            name: fileOrDir,
+            path: f,
+          });
+          continue;
+        }
+        const fileMeta = await fs.lstatSync(f);
+        if (fileMeta.isDirectory()) {
+          await getFiles(f);
+        }
+      }
     });
-    return {
-      name: contentName,
-      path: path.join(rootFolder, 'content', contentName),
-    };
-  });
+  };
+  getFiles(rootFolder);
+
   const rawConfigFile = await fs.readFile(
     path.join(rootFolder, 'builderdao.config.json'),
     'utf8',
   );
+  const rawLockFile = await fs.readFile(
+    path.join(rootFolder, 'builderdao.lock.json'),
+    'utf8',
+  );
   const config = JSON.parse(rawConfigFile);
-  config.href = `/learn/${learnPackageName}`;
+  const lock = JSON.parse(rawLockFile);
   return {
     paths,
-    content: filepathWithoutExtension,
+    content,
     config,
+    lock,
   };
 };
 
@@ -161,9 +184,12 @@ export const getPathForFile = (
   mdFileName: string | undefined = 'index',
 ) => {
   return path.join(
-    rootFolderPathForTutorials,
-    packageName,
+    getPathForRootFolder(packageName),
     'content',
     `${mdFileName}.mdx`,
   );
+};
+
+export const getPathForRootFolder = (packageName: string) => {
+  return path.join(rootFolderPathForTutorials, packageName);
 };

@@ -1,0 +1,64 @@
+{
+  "proposalId": 67,
+  "slug": "polkadot-blockchain-terms",
+  "authors": [
+    {
+      "name": "Danny Salman",
+      "avatarUrl": "https://github.com/DannyS03.png",
+      "url": "https://github.com/DannyS03",
+      "nickname": "DannyS03"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-blockchain-terms-image-1.png": {
+      "name": "polkadot-blockchain-terms-image-1.png",
+      "path": "content/assets/polkadot-blockchain-terms-image-1.png",
+      "digest": "ce94edfbc1af18dc2f54f2ad386e4830f67a2223991c85d8c487d3a30495a6ba"
+    },
+    "content/assets/polkadot-blockchain-terms-image-3.png": {
+      "name": "polkadot-blockchain-terms-image-3.png",
+      "path": "content/assets/polkadot-blockchain-terms-image-3.png",
+      "digest": "25b631bc591a24f7d34c3e0e5afb012c7ccc9114f02dcf6f9bc40f84ac74ef0c"
+    },
+    "content/assets/polkadot-blockchain-terms-image-2.png": {
+      "name": "polkadot-blockchain-terms-image-2.png",
+      "path": "content/assets/polkadot-blockchain-terms-image-2.png",
+      "digest": "cfc24ae6b165b63f5bdef6496641e922a8a2180e7ae55874dba101e7c270ee6e"
+    },
+    "content/assets/polkadot-blockchain-terms-image-4.png": {
+      "name": "polkadot-blockchain-terms-image-4.png",
+      "path": "content/assets/polkadot-blockchain-terms-image-4.png",
+      "digest": "295fb8196d6261c85c10aee7305a5eef8cd0887bab913fcdcb68b7e1063c18ef"
+    },
+    "content/assets/polkadot-blockchain-terms-image-5.png": {
+      "name": "polkadot-blockchain-terms-image-5.png",
+      "path": "content/assets/polkadot-blockchain-terms-image-5.png",
+      "digest": "9bef46f69aff49cc089521f0f5aeef7fb1a6e14549b867729ea6eecd38509eb4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "ab70944b8cf1263d85ab59792ba9a74628a26a7d2f5d7b2b657eef08bc4ef8bc",
+      "arweaveHash": "tK4E4RddWz2oklXCvpbBPRvcxsNEXLDMjGS_pGMUtwk"
+    },
+    "content/assets/polkadot-blockchain-terms-image-6.png": {
+      "name": "polkadot-blockchain-terms-image-6.png",
+      "path": "content/assets/polkadot-blockchain-terms-image-6.png",
+      "digest": "155232b2d160f1d24bc2d71ef25156a9df29f6347621d5e0cb9b581f80bd878f"
+    }
+  },
+  "href": "learn/polkadot-blockchain-terms",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

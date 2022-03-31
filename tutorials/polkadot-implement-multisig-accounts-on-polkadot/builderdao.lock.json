@@ -1,0 +1,84 @@
+{
+  "proposalId": 128,
+  "slug": "polkadot-implement-multisig-accounts-on-polkadot",
+  "authors": [
+    {
+      "name": "Rogan X",
+      "avatarUrl": "https://github.com/pyr0gan.png",
+      "url": "https://github.com/pyr0gan",
+      "nickname": "pyr0gan"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-2.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-2.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-2.png",
+      "digest": "e557ae982371f9807e33d585890c9782f26604534c6776fa0c453623dbb24e13"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-10.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-10.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-10.png",
+      "digest": "44032301d1ae377656ae44e90aa0b095c8937c542771eebcb23eb11355d249bd"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-3.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-3.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-3.png",
+      "digest": "f7f009c531598b28f981922cba5bdb3b5ae1c084dbcfb3d1c85df584c896b687"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-8.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-8.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-8.png",
+      "digest": "ca4b1d03cf4cf7981d9319b5ffd4cac21d89806ef53c985b235abb7b550ffb6a"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-1.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-image-1.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-1.png",
+      "digest": "d1a4c74e61e7879deb50194d42c92626d2108fcc1b1c62bde1c8ea3c1ee0f4dd"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-4.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-image-4.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-4.png",
+      "digest": "a88f90688ad53f29c063e7613cd1cb4560c1cbb86f8eaf51b8398c4ecad85fd9"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-6.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-image-6.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-6.png",
+      "digest": "278eb9017b6599f03e5addf20f616b16b8144c974da3e259df20224ac1acfea6"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-5.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-image-5.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-5.png",
+      "digest": "34bf3518e81047ec1b2086e4812b80d9954cde3e360d772bbaec60bac1acddbe"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-7.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-image-7.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-7.png",
+      "digest": "0e5afbdd309fe82309839c8cdcd119f75f1eb4e89e65c56794dd7aa27af1597f"
+    },
+    "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-9.png": {
+      "name": "polkadot-implement-multisig-accounts-on-polkadot-image-9.png",
+      "path": "content/assets/polkadot-implement-multisig-accounts-on-polkadot-image-9.png",
+      "digest": "53ffe6d024a1ec179676a4fa983610ce3f895ef0d82db9866bd248eec16eef2a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "1f1ef5fe29092d8d8742e29a978fa5034fe5fc2a4efebfc22d6728e7b1e90a46",
+      "arweaveHash": "ZAjm65KSMktZFUAXY2Qws4FNWqDMUKpXJ6nh8wYrGJE"
+    }
+  },
+  "href": "learn/polkadot-implement-multisig-accounts-on-polkadot",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

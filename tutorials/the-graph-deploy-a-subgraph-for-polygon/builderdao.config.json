@@ -1,0 +1,13 @@
+{
+  "title": "Deploy a subgraph for a Polygon smart contract",
+  "description": "Learn how to deploy a Solidity smart contract to Polygon Mumbai testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio",
+  "imageUrl": "",
+  "categories": [
+    "The Graph",
+    "JS/TS",
+    "Solidity",
+    "Javascript",
+    "Solidity",
+    "Hardhat"
+  ]
+}

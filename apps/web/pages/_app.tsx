@@ -24,19 +24,24 @@ import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import React, { useMemo } from 'react';
 import { DappProvider } from '../hooks/useDapp';
 import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import {
+  NEXT_PUBLIC_SOLANA_NETWORK,
+  NEXT_PUBLIC_SOLANA_NODE_URL,
+} from '@app/constants';
 
+require('nprogress/nprogress.css');
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 
 const App = ({ Component, pageProps }: AppProps) => {
   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
-  const network = process.env
-    .NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.ExtendedCluster;
+  const network =
+    NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.ExtendedCluster;
 
   // You can also provide a custom RPC endpoint
   const endpoint = useMemo(() => {
     return (
-      process.env.NEXT_PUBLIC_SOLANA_NODE_URL ||
+      NEXT_PUBLIC_SOLANA_NODE_URL ||
       TutorialProgramConfig.getClusterUrl(network)
     );
   }, [network]);
@@ -64,6 +69,9 @@ const App = ({ Component, pageProps }: AppProps) => {
           value={{
             fallback: pageProps?.fallback || {},
             fetcher: fetcherWithConfig,
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
           }}
         >
           <Head>
@@ -71,6 +79,7 @@ const App = ({ Component, pageProps }: AppProps) => {
               content="width=device-width, initial-scale=1"
               name="viewport"
             />
+            <link rel="shortcut icon" href="/favicon.ico" />
           </Head>
           {/* TODO: <Analytics /> */}
           <SWRDevTools>

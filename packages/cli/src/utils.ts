@@ -1,7 +1,7 @@
-import { set, get } from 'lodash';
+import * as _ from 'lodash';
 import prettyjson from 'prettyjson';
-import * as anchor from '@project-serum/anchor';
 import * as bs58 from 'bs58';
+import * as anchor from '@project-serum/anchor';
 import { Keypair } from '@solana/web3.js';
 import { promises as fs } from 'fs';
 import crypto from 'crypto';
@@ -13,15 +13,15 @@ function stringifyPublicKeys(obj: any) {
   for (let i = 0; i < keys.length; i++) {
     const val = obj[keys[i]];
     if (val?.toBuffer) {
-      set(result, keys[i], val.toString());
+      _.set(result, keys[i], val.toString());
     } else if (
       val instanceof Object &&
       Object.keys.length > 0 &&
       !Array.isArray(val)
     ) {
-      set(result, keys[i], stringifyPublicKeys(val));
+      _.set(result, keys[i], stringifyPublicKeys(val));
     } else {
-      set(result, keys[i], val);
+      _.set(result, keys[i], val);
     }
   }
   return result;
@@ -29,7 +29,7 @@ function stringifyPublicKeys(obj: any) {
 
 export const log = (object: any, key = undefined) => {
   if (key) {
-    console.log(stringifyPublicKeys({ [key]: get(object, key) })[key]);
+    console.log(stringifyPublicKeys({ [key]: _.get(object, key) })[key]);
   } else {
     console.log(prettyjson.render(stringifyPublicKeys(object)));
   }
@@ -40,16 +40,8 @@ export const createKeypairFromSecretKey = (secretKey: string) => {
   return anchor.web3.Keypair.fromSecretKey(array);
 };
 
-export const loadKeypairJson = async (path: string) =>
-  Keypair.fromSecretKey(
-    Uint8Array.from(
-      JSON.parse(
-        await fs.readFile(path, {
-          encoding: 'utf8',
-        }),
-      ),
-    ),
-  );
+export const encodeKeypairSecretKey = (keypair: Keypair) =>
+  bs58.encode(keypair.secretKey);
 
 export const hashSumDigest = async (path: string) => {
   const fileBuffer = await fs.readFile(path);
@@ -58,3 +50,7 @@ export const hashSumDigest = async (path: string) => {
 
   return hashSum.digest('hex');
 };
+
+// eslint-disable-next-line no-promise-executor-return
+export const sleep = async (ms: number) =>
+  new Promise(resolve => setTimeout(resolve, ms));

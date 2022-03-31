@@ -1,15 +1,17 @@
 import React, { useCallback } from 'react';
-
 import { useCastVote } from '../../hooks/useCastVote';
 import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
+import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 
 type CastVoteButtonProps = {
   id: number;
+  variant: string;
+  disabled?: boolean;
 };
 
 const CastVoteButton = (props: CastVoteButtonProps) => {
-  const { id } = props;
+  const { id, variant, disabled = false } = props;
 
   const { voters } = useGetListOfVoters(id);
   const [castVote, { submitting }] = useCastVote(voters);
@@ -21,7 +23,7 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
         loading: `Casting vote`,
         success: `Vote cast successfully`,
         error: `Error casting vote`,
-      })
+      });
     } catch (err) {
       toast.error(err.message);
     }
@@ -29,11 +31,18 @@ const CastVoteButton = (props: CastVoteButtonProps) => {
 
   return (
     <button
-      disabled={submitting}
-      className="items-center w-full px-4 py-2 mt-4 font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+      disabled={submitting || disabled}
+      className={`disabled:opacity-25 ${
+        variant === 'standard'
+          ? 'dark:bg-kafewhite bg-kafeblack w-full h-14 rounded-2xl dark:text-kafeblack text-kafewhite dark:hover:bg-kafered hover:bg-kafegold hover:text-kafeblack'
+          : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group'
+      }`}
       onClick={handleClick}
     >
-      {submitting ? 'Submitting...' : 'up vote'}
+      <div className="flex items-center justify-center p-0 m-0 w-[25px] h-[25px] mx-auto">
+        {!variant && <VotedSVG voted={true} />}
+        {variant && <p>vote</p>}
+      </div>
     </button>
   );
 };

@@ -3,12 +3,13 @@ import Button from './';
 import QuestionSVG from '../SVG/QuestionSVG';
 
 const HelpButton = () => {
-  const iconSize = 20;
-
   const handleHelp = () => {
-    //TODO implement help button
-    console.log('Help!');
+    window.open(
+      'https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19',
+      '_blank',
+    );
   };
+
   return (
     <Button handleClick={handleHelp}>
       <QuestionSVG iconSize={20} />

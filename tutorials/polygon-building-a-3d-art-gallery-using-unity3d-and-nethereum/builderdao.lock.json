@@ -1,0 +1,174 @@
+{
+  "proposalId": 140,
+  "slug": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum",
+  "authors": [
+    {
+      "name": "Bhaskar Dutta",
+      "avatarUrl": "https://github.com/BhaskarDutta2209.png",
+      "url": "https://github.com/BhaskarDutta2209",
+      "nickname": "BhaskarDutta2209"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-3-d-gallery-imported-png-3.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-3-d-gallery-imported-png-3.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-3-d-gallery-imported-png-3.png",
+      "digest": "145855d5c335b4a00bbd0ef607605449313e96778f50a35ad0938c673d6665dd"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-all-tags-16.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-all-tags-16.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-all-tags-16.png",
+      "digest": "0b63ea02d9fe46497dd76b1c4ce6525cd1cc23ff8e57f8287faee39406d896d4"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-all-text-area-13.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-all-text-area-13.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-all-text-area-13.png",
+      "digest": "ee3ae88db0971d6a688b205d6f17dc0946ebe1f128f7a37edb4f2cbad34386ba"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-ai-oin-game-png-8.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-ai-oin-game-png-8.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-ai-oin-game-png-8.png",
+      "digest": "7b247b6dd22d1e7587b163b492334829b62ba4e984862a90c9358f365c173656"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-canvas-2-d-png-10.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-canvas-2-d-png-10.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-canvas-2-d-png-10.png",
+      "digest": "1392ce694a45cd30e969eefd2f9f3c6c685533a3e902f908124faa210568f1d9"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-child-spawn-png-27.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-child-spawn-png-27.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-child-spawn-png-27.png",
+      "digest": "5bd213de2c9e5e2ec3b5ad001328c11d47301726b62d339307150c71651dcb80"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-coroutine-flow-png-25.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-coroutine-flow-png-25.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-coroutine-flow-png-25.png",
+      "digest": "36a124793e56ab1bc4f331e9c3406397e846a77d29cfdede2356396f0b3ef1ed"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-basic-image-png-9.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-basic-image-png-9.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-basic-image-png-9.png",
+      "digest": "2700c71644954ac05f80d04e5b0205d20e7cafbeb391f80952b4418015d112cd"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-helper-scripts-23.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-helper-scripts-23.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-helper-scripts-23.png",
+      "digest": "d17a7c6afd365e1fa40c2fa3a9199898a69cff8e796b277c8f02e8f8a8e3f400"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-demo-28.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-demo-28.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-demo-28.png",
+      "digest": "e5a6ebae020d4d59db4a7126b88835d7501433de0c036b86e733c1e8a558e7cf"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-imported-plugins-png-20.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-imported-plugins-png-20.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-imported-plugins-png-20.png",
+      "digest": "656b06419b6969122bed002f745f5ee6653ca8637856ffdbb7f6ca3aeef75018"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-import-fps-aio-png-7.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-import-fps-aio-png-7.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-import-fps-aio-png-7.png",
+      "digest": "697da43c1fc63d730d31d742a8878a3b3a4ee0559e4a3df3beecf6943ce4060d"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-in-game-view-14.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-in-game-view-14.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-in-game-view-14.png",
+      "digest": "e41394fa94c64d7456446f2c73a14577349b50e93be47fc1e636e7fa949ce46e"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-museum-prefab-png-4.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-museum-prefab-png-4.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-museum-prefab-png-4.png",
+      "digest": "d3a400876fc3b903b88be7d3e67225c583516950cff356ffa8e46d11c1c71b44"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-player-tag-15.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-player-tag-15.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-player-tag-15.png",
+      "digest": "edecf8e45b9e1158ca9a613e42b348ba47a9d8e62b335d6ba4b773ea439a405f"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-net-4-x-png-22.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-net-4-x-png-22.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-net-4-x-png-22.png",
+      "digest": "3282321bb311097a9d0f6cea25d897b628b0c8c7033e1862c10abe6b27bc7ee2"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-14-at-01-00-35-png-17.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-14-at-01-00-35-png-17.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-14-at-01-00-35-png-17.png",
+      "digest": "c85ab84af1dbd0ee8c747d602a28c99be0dca73b2646e73a91954ca0f4d41775"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-project-initiation-2.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-project-initiation-2.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-project-initiation-2.png",
+      "digest": "e40e80267ba072b7f15d16f72049754de8e66824c92da9dfb13f47d0c1e6c3eb"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-15-at-21-25-53-png-21.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-15-at-21-25-53-png-21.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-15-at-21-25-53-png-21.png",
+      "digest": "2183f8feddddd400b6ee606a10e1f10da7667c7264e64b7669eaa4d5756a4652"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-15-at-16-28-39-png-19.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-15-at-16-28-39-png-19.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-screenshot-2021-10-15-at-16-28-39-png-19.png",
+      "digest": "2ceb5971d38e194c0c7aab24ce186a0f59fda94a09bb4485609fec50559d179d"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-showing-museum-asset-imported-png-5.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-showing-museum-asset-imported-png-5.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-showing-museum-asset-imported-png-5.png",
+      "digest": "230c277328e7a9b0597ef93684f9373f527c28fb3effcaf4bbe22b6fee8e9c3a"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-setting-mesh-collider-png-6.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-setting-mesh-collider-png-6.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-setting-mesh-collider-png-6.png",
+      "digest": "e371fea16323a44d8e291472f124e7ce05510ecac3527543607ebf01adc7f4ef"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-spawn-points-png-26.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-spawn-points-png-26.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-spawn-points-png-26.png",
+      "digest": "53a3f6e7c6fb775819b54a2706cf785d7294641ff81e69ec2cf2187d884ae98d"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-starting-unity-1.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-starting-unity-1.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-starting-unity-1.png",
+      "digest": "a88d9fb0bcf4e41d21663455efac3789e5decb48040f893870bc41ce20abd493"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-texture-2-png-24.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-texture-2-png-24.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-texture-2-png-24.png",
+      "digest": "1e289cd6e45302a4df72be61aa28f3c6bf3495841dccc908b8324cf22799028a"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-test-data-18.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-test-data-18.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-test-data-18.png",
+      "digest": "ae5a842d296b6693e86c3a225fb5ccc3c93dd080d0443970369c666f0afa4dbe"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-tmp-png-11.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-tmp-png-11.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-tmp-png-11.png",
+      "digest": "42dd4ea97178e5bcaf950c8cbe3f78806e0148c4bb06e67078a8decc630ee431"
+    },
+    "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-title-area-png-12.png": {
+      "name": "polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-title-area-png-12.png",
+      "path": "content/assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-title-area-png-12.png",
+      "digest": "42ed0b8861043f7ba085865ed01e65b900cabc63bfc2578e04ac2dc98db5af3a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "cc9bb1174aba8a5190536724c1ab78e83bc1c278d1fc7b625d29b0fdde95a8db",
+      "arweaveHash": "wJBx2Hxs8ugIfjajKDce_RmNn9NZcE-HIuMmvdaL1OE"
+    }
+  },
+  "href": "learn/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

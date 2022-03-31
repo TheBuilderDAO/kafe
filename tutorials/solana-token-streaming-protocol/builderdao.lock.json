@@ -1,0 +1,49 @@
+{
+  "proposalId": 13,
+  "slug": "solana-token-streaming-protocol",
+  "authors": [
+    {
+      "name": "Sushant Chandla",
+      "avatarUrl": "https://github.com/SushantChandla.png",
+      "url": "https://github.com/SushantChandla",
+      "nickname": "SushantChandla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/solana-token-streaming-protocol-browser-image-1.png": {
+      "name": "solana-token-streaming-protocol-browser-image-1.png",
+      "path": "content/assets/solana-token-streaming-protocol-browser-image-1.png",
+      "digest": "7eb2b3129e8bc3d5a60a8e4c61a2333e6348e24a1e983db5a57087ad2e40528d"
+    },
+    "content/assets/solana-token-streaming-protocol-backend-files-3.png": {
+      "name": "solana-token-streaming-protocol-backend-files-3.png",
+      "path": "content/assets/solana-token-streaming-protocol-backend-files-3.png",
+      "digest": "1aad1c2ef43c1d7cf0fad7d51f095567ff82c70d58792e362ce0d8769e786b44"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "37e4e5b4f86884a336df3ed57f8de6ade7abea9857e668d11f9f1dc9e80e63e4",
+      "arweaveHash": "7DUtYSY932nqpXlJKSHP4xrE3HHoWHG8G4QJ_8Pd9g0"
+    },
+    "content/assets/solana-token-streaming-protocol-browser-image-2.png": {
+      "name": "solana-token-streaming-protocol-browser-image-2.png",
+      "path": "content/assets/solana-token-streaming-protocol-browser-image-2.png",
+      "digest": "666d2ff558dc3b47030530b5f205db87dd777652a91fa97e364d9a2aa812ffb5"
+    }
+  },
+  "href": "learn/solana-token-streaming-protocol",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

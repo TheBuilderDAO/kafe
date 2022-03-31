@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/avalanche-transfer-avax-from-c-chain-to-ethereum",
+  "version": "1.0.0",
+  "description": "Learn how to transfer AVAX tokens from C-Chain to an Ethereum address",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

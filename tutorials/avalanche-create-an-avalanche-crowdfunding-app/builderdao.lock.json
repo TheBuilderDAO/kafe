@@ -1,0 +1,79 @@
+{
+  "proposalId": 144,
+  "slug": "avalanche-create-an-avalanche-crowdfunding-app",
+  "authors": [
+    {
+      "name": "Sayan Kar & Soumyajit Deb",
+      "avatarUrl": "https://github.com/hyp3r5pace.png",
+      "url": "https://github.com/hyp3r5pace",
+      "nickname": "hyp3r5pace"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-6.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-6.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-6.png",
+      "digest": "ff4e141ac1ecef94516e81902879f13ed6704fc13b2701b6525920efb11d7034"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-7.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-7.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-7.png",
+      "digest": "01a72d47c7e9be3793dc7ccf8ab61a5b524d22cdadb8335076b09fea7fd63ed1"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-creating-a-project-4.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-creating-a-project-4.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-creating-a-project-4.png",
+      "digest": "2e16182f0a02daeced28dd724a4c9daaff14355893b2c76a6ab56e453bc8e1e6"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-image-displaying-contract-architecture-1.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-image-displaying-contract-architecture-1.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-image-displaying-contract-architecture-1.png",
+      "digest": "41c3a5811256db626323f6d2bc0777bada73df63f995222b68584de362f3ee66"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-funding-a-project-5.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-funding-a-project-5.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-funding-a-project-5.png",
+      "digest": "76e8bb8b50eb2f3b3cbbfe650ba3be8f7560a8163faf4ddf25824d0399a8dcb7"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-image-with-0-avax-8.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-image-with-0-avax-8.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-image-with-0-avax-8.png",
+      "digest": "d4e560172f267a2d58023891ab5dd58eb95050045be4045cbee4a28797c01aed"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-image-of-metamask-2.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-image-of-metamask-2.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-image-of-metamask-2.png",
+      "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-with-multiple-account-display-9.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-with-multiple-account-display-9.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-with-multiple-account-display-9.png",
+      "digest": "9a520c2a979032ee22628d47d131469da279f4fa8ebbf3f4eba371e42b6bc7bf"
+    },
+    "content/assets/avalanche-create-an-avalanche-crowdfunding-app-picture-of-remix-site-3.png": {
+      "name": "avalanche-create-an-avalanche-crowdfunding-app-picture-of-remix-site-3.png",
+      "path": "content/assets/avalanche-create-an-avalanche-crowdfunding-app-picture-of-remix-site-3.png",
+      "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "da0d2d1e38e69cbbb93a308975c55b8be4495bde7f0165f118f3650978a34426",
+      "arweaveHash": "pWc35vsSBM-swJquxrSiwCHyV32gwaaJd5mp_a9yrB0"
+    }
+  },
+  "href": "learn/avalanche-create-an-avalanche-crowdfunding-app",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

@@ -1,14 +1,22 @@
 name: Publish tutorial
 
+
+# for test only
+# on:
+#   pull_request:
+#     types: [ labeled ]
+
 on:
   pull_request:
-    branches:
-      - main
-    types: [closed]
+    types:
+      - closed
 
 jobs:
   get_proposal_slug:
-    if: ${{startsWith(github.head_ref, 'tutorials/')}} && && ${{ github.event.pull_request.merged }}
+    name: Get Proposal Slug
+    # for test only
+    # if: ${{ github.event.label.name == 'publish' }}
+    if: startsWith(github.head_ref, 'tutorials/') && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -31,6 +39,7 @@ jobs:
           echo "::set-output name=slug::${{ steps.regex_extract_proposal_id.outputs.result }}"
 
   fetch_proposal:
+    name: Fetch Proposal
     needs: get_proposal_slug
     if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
@@ -41,6 +50,7 @@ jobs:
       proposalId: ${{ steps.fetch.outputs.proposalId }}
       creator: ${{ steps.fetch.outputs.creator }}
       streamId: ${{ steps.fetch.outputs.streamId }}
+      state: ${{ steps.fetch.outputs.state }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/build-builderdao-cli/
@@ -52,71 +62,60 @@ jobs:
           PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
           CREATOR=$(builderdao proposal get -s $SLUG -k creator)
           STREAM_ID=$(builderdao proposal get -s $SLUG -k streamId)
+          STATE=$(builderdao proposal get -s $SLUG -k state)
           echo "::set-output name=proposalId::$PROPOSAL_ID"
           echo "::set-output name=creator::$CREATOR"
           echo "::set-output name=streamId::$STREAM_ID"
+          echo "::set-output name=streamId::$STATE"
 
-  get_tutorial_content:
-    needs: fetch_proposal
-    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
+  publish_tutorial:
+    name: Publish Tutorial
+    needs: [ get_proposal_slug, fetch_proposal ]
+    if: ${{ needs.fetch_proposal.outputs.proposalId }} != ''
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-    outputs:
-      content: ${{ steps.get_content.outputs.content }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/build-builderdao-cli/
-      - id: get_content
+      - id: publish_tutorial
         env:
           SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
-        run: |
-          CONTENT=$(builderdao proposal content -s $SLUG)
-          echo "::set-output name=content::$CONTENT"
-
-  store_to_arweave:
-    needs: get_tutorial_content
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    outputs:
-      content: ${{ steps.submit_arweave_tx.outputs.tx_id }}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/build-builderdao-cli/
-      - id: submit_arweave_tx
-        env:
-          CONTENT: ${{ needs.get_tutorial_content.outputs.content }}
-          ADDRESS: ${{ needs.fetch_proposal.outputs.creator }}
-          ARWEAVE_WALLET: ${{ secrets.ARWEAVE_WALLET }}
-          ARWEAVE_APP_NAME: ${{ secrets.ARWEAVE_APP_NAME }}
-        run: |
-          TX_ID=$(builderdao arweave store $CONTENT --address $ADDRESS --wallet $ARWEAVE_WALLET --appName $ARWEAVE_APP_NAME)
-          echo "::set-output name=tx_id::$TX_ID"
-
-
-  update_metadata:
-    needs: store_to_arweave
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/build-builderdao-cli/
-      - id: update_ceramic_stream
-        env:
-          STREAM_ID: ${{ needs.fetch_proposal.outputs.stream_id }}
-          ARWEAVE_TX_ID: ${{ needs.store_to_arweave.outputs.tx_id }}
+          ARWEAVE_WALLET: ${{ secrets.NEXT_PUBLIC_ARWEAVE_WALLET }}
+          ARWEAVE_APP_NAME: ${{ secrets.NEXT_PUBLIC_ARWEAVE_APP_NAME }}
+          ARWEAVE_HOST: ${{ secrets.NEXT_PUBLIC_ARWEAVE_HOST }}
+          ARWEAVE_PORT: ${{ secrets.NEXT_PUBLIC_ARWEAVE_PORT }}
+          ARWEAVE_PROTOCOL: ${{ secrets.NEXT_PUBLIC_ARWEAVE_PROTOCOL }}
           CERAMIC_NODE_URL: ${{ secrets.CERAMIC_NODE_URL }}
           CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
         run: |
-          builderdao ceramic updateMetadata $STREAM_ID --publishedUri $ARWEAVE_TX_ID --nodeUrl $CERAMIC_NODE_URL --seed $CERAMIC_SEED
+          builderdao tutorial publish $SLUG
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
+
+  set_state:
+    name: Set state to published
+    needs: [ publish_tutorial, fetch_proposal ]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: set_published
+        env:
+          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+        run: |
+          builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
 
   update_index:
-    needs: update_metadata
+    name: Update Algolia index
+    needs: [ get_proposal_slug, fetch_proposal, set_state ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -126,26 +125,9 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: update_algolia_index
         env:
-          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-          CONTENT: ${{ needs.get_tutorial_content.outputs.content }}
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_ACCESS_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
-          builderdao algolia updateIndex $OBJECT_ID --content $CONTENT --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
-
-  set_state:
-    needs: update_index
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: ./.github/actions/build-builderdao-cli/
-      - id: set_published
-      env:
-        PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-        TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
-      run: |
-        builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
-
+          builderdao algolia publish $SLUG --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME

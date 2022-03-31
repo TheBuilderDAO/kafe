@@ -7,13 +7,14 @@ permissions:
 on:
   pull_request:
     types: [ opened, reopened, synchronize ]
-    branches:    
-      - 'groundwork'
+    branches:
+      - 'dev'
       - 'main'
-  
+
 
 jobs:
   get_proposal_slug:
+    name: Get Proposal Slug
     if: ${{startsWith(github.head_ref, 'tutorials/')}}
     runs-on: ubuntu-latest
     defaults:
@@ -37,6 +38,7 @@ jobs:
           echo "::set-output name=slug::${{ steps.regex_extract_proposal_id.outputs.result }}"
 
   fetch_proposal:
+    name: Fetch Proposal
     needs: get_proposal_slug
     if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
@@ -45,6 +47,7 @@ jobs:
         shell: bash
     outputs:
       proposalId: ${{ steps.fetch.outputs.proposalId }}
+      proposalState: ${{ steps.fetch.outputs.proposalState }}
       reviewer1: ${{ steps.fetch.outputs.reviewer1 }}
       reviewer2: ${{ steps.fetch.outputs.reviewer2 }}
       reviewer1_githubName: ${{ steps.fetch.outputs.reviewer1_githubName }}
@@ -60,24 +63,108 @@ jobs:
         REVIEWER1=$(builderdao proposal get -s $SLUG -k reviewer1)
         REVIEWER2=$(builderdao proposal get -s $SLUG -k reviewer2)
         PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
+        PROPOSAL_STATE=$(builderdao proposal get -s $SLUG -k state)
         REVIEWER1_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER1 -k githubName)
         REVIEWER2_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER2 -k githubName)
         echo "::set-output name=reviewer1::$REVIEWER1"
         echo "::set-output name=reviewer2::$REVIEWER2"
         echo "::set-output name=proposalId::$PROPOSAL_ID"
+        echo "::set-output name=proposalState::$PROPOSAL_STATE"
         echo "::set-output name=reviewer1_githubName::$REVIEWER1_GITHUBNAME"
         echo "::set-output name=reviewer2_githubName::$REVIEWER2_GITHUBNAME"
-
-
-  check_review_status:
-    needs: fetch_proposal
-    name: Check if all reviewers are present and approved
+  label:
+    needs: [fetch_proposal, get_proposal_slug]
+    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-    outputs:
-      state: ${{ steps.fetch.outputs.proposalId }}
+    steps: 
+      - name: Get VERCEL_GIT_COMMIT_REF
+        id: get_vercel_git_commit_ref
+        run: |
+          ref="${github_ref////-}"
+          echo $ref
+          echo "::set-env name=ref::$ref"
+      - name: Find Status Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Tutorial Details
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            :open_book: Tutorial Details
+            ```
+            ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+            SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+            REVIEWER1: ${{ needs.fetch_proposal.outputs.reviewer1_githubName }}
+            REVIEWER2: ${{ needs.fetch_proposal.outputs.reviewer2_githubName }}
+            ```
+
+            See [:scroll: Proposal](https://kafe-git-${{steps.get_vercel_git_commit_ref.outputs.ref}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
+            See [:open_book: Tutorial](https://kafe-git-${{steps.get_vercel_git_commit_ref.outputs.ref}}-builder-dao.vercel.app/learn/${{ needs.get_proposal_slug.outputs.slug }})
+
+          edit-mode: replace
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['tutorial_proposal']
+            })
+
+  set_state:
+    name: Set state to writing
+    needs: fetch_proposal
+    if: ${{ needs.fetch_proposal.outputs.proposalState }} != 'published'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: set_writing
+        env:
+          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+        run: |
+          builderdao proposal setstate $PROPOSAL_ID --state='writing' --adminKp $TESTNET_ADMIN_KP
+
+  update_index_writing:
+    name: Update Algolia index (writing)
+    needs: [ fetch_proposal, set_state ]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: update_algolia_index
+        env:
+          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
+        run: |
+          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "writing"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+
+  check_review_status:
+    needs: [ fetch_proposal, update_index_writing ]
+    name: Check reviewers approved
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/check-required-reviewer
@@ -90,35 +177,74 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTHOR: ${{needs.fetch_proposal.outputs.reviewer2_githubName}}
-      - run: |
-          echo "reviewer0 ${{ steps.reviewer0_review.outputs.state }}"
-          echo "reviewer1 ${{ steps.reviewer1_review.outputs.state }}"
-          echo "reviewer2 ${{ steps.reviewer2_review.outputs.state }}"
-      - name: Approved
-        id: all_reviewers_approved
-        if: |
-          ${{ steps.reviewer1_review.outputs.state }} == "APPROVED" && ${{ steps.reviewer2_review.outputs.state }} == "APPROVED"
+      - env:
+          REVIEWER1_REVIEW: ${{ steps.reviewer1_review.outputs.state }}
+          REVIEWER2_REVIEW: ${{ steps.reviewer2_review.outputs.state }}
         run: |
-          echo "::set-output name=state::APPROVED"
+          echo "reviewer1 $REVIEWER1_REVIEW"
+          echo "reviewer2 $REVIEWER2_REVIEW"
+      - if: ${{ steps.reviewer1_review.outputs.state }} == 'APPROVED' && ${{ steps.reviewer2_review.outputs.state }} == 'APPROVED'
+        id: check_all_reviewers_approved
+        run: |
+          echo "::set-output name=all_reviewers_approved::true"
       - name: Report Status
-        if: ${{steps.all_reviewers_approved.outputs.state}} != "APPROVED"
+        if: ${{ !steps.check_all_reviewers_approved.outputs.all_reviewers_approved }}
         uses: actions/github-script@v3
         with:
           script: |
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['pending_review']
+              })
               core.setFailed('Assigned reviewers are not approved yet')
       - uses: ./.github/actions/build-builderdao-cli/
-      - id: set_ready_to_publish 
+      - id: set_ready_to_publish
         env:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
             builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
+      - name: label 
+        uses: actions/github-script@v3
+        with:
+          script: |
+              github.rest.issues.deleteLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: ['pending_review'],
+              });
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['ready_to_publish']
+              })
 
+  update_index_ready_to_publish:
+    name: Update Algolia index (readyToPublish)
+    needs: [ fetch_proposal, check_review_status ]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-builderdao-cli/
+      - id: update_algolia_index
+        env:
+          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
+        run: |
+          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "readyToPublish"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
 
   request_review_from_reviewer1:
     needs: fetch_proposal
     if: ${{needs.fetch_proposal.outputs.reviewer1}}
-    name: Request reviews on opened PRs
+    name: Assign Reviewer 1 to PR
     runs-on: ubuntu-latest
     steps:
       - name: Create PR review request
@@ -126,12 +252,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
         run: |
-          echo "gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME"
+          gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME
 
   request_review_from_reviewer2:
     needs: fetch_proposal
     if: ${{needs.fetch_proposal.outputs.reviewer2}}
-    name: Request reviews on opened PRs
+    name: Assign Reviewer 2 to PR
     runs-on: ubuntu-latest
     steps:
       - name: Create PR review request
@@ -139,4 +265,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REVIEWER_GITHUBNAME: ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
         run: |
-          echo "gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME"
+          gh pr edit ${{ github.event.pull_request.html_url }} --add-reviewer $REVIEWER_GITHUBNAME

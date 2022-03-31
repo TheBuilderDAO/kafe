@@ -1,0 +1,54 @@
+{
+  "proposalId": 71,
+  "slug": "celo-testing-truffle",
+  "authors": [
+    {
+      "name": "Alex Reyes",
+      "avatarUrl": "https://github.com/alexreyes.png",
+      "url": "https://github.com/alexreyes",
+      "nickname": "alexreyes"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/celo-testing-truffle-pass-2.png": {
+      "name": "celo-testing-truffle-pass-2.png",
+      "path": "content/assets/celo-testing-truffle-pass-2.png",
+      "digest": "ff1f1eff404825bf0d193fcd544c22e430ef2226b43a42675cad1bb8a6ecf7de"
+    },
+    "content/assets/celo-testing-truffle-last-test-4.png": {
+      "name": "celo-testing-truffle-last-test-4.png",
+      "path": "content/assets/celo-testing-truffle-last-test-4.png",
+      "digest": "f5c3149fa507cf259f4a61bf8b6109a8add22590434854511c430849ad389d7c"
+    },
+    "content/assets/celo-testing-truffle-result-3.png": {
+      "name": "celo-testing-truffle-result-3.png",
+      "path": "content/assets/celo-testing-truffle-result-3.png",
+      "digest": "ad38207e3a61b40269c1c5ffaa08ee6f79afae9560a7bbe2906c546bdffb1984"
+    },
+    "content/assets/celo-testing-truffle-result-1.png": {
+      "name": "celo-testing-truffle-result-1.png",
+      "path": "content/assets/celo-testing-truffle-result-1.png",
+      "digest": "a488339193d1254ca240ac51b706f2de02eec14095fac3be0f3072bab707fb37"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "23e06c8359408ca1b6596184bf074eae64ac571774d829693f1b563b285339df",
+      "arweaveHash": "faA6HiVxki5crZkYfwJVv9yfwAQkV6iSrEMzvYSwAcw"
+    }
+  },
+  "href": "learn/celo-testing-truffle",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

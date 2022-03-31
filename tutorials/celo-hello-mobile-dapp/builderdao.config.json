@@ -1,0 +1,13 @@
+{
+  "title": "Hello Mobile DApp",
+  "description": "Learn how to create a simple mobile DApp using dAppKit and the React Native Expo framework",
+  "imageUrl": "",
+  "categories": [
+    "Celo",
+    "Solidity",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle",
+    "CLI"
+  ]
+}

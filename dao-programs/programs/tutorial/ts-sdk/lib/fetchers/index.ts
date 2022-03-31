@@ -4,6 +4,7 @@ export { default as isReviewer } from './isReviewer';
 export { default as daoVaultAccountBalance } from './daoVaultAccountBalance';
 export { default as proposalAccountById } from './proposalAccountById';
 export { default as proposalAccountBySlug } from './proposalAccountBySlug';
+export { default as proposalAccountByStreamId } from './proposalAccountByStreamId';
 export { default as proposalAccountList } from './proposalAccountList';
 export { default as listOfVoterById } from './listOfVoterById';
 export { default as userVoteAccountById } from './userVoteAccountById';
@@ -13,3 +14,6 @@ export {
 } from './reviewerAccount';
 export { default as reviewerAccountByGithubLogin } from './reviewerAccountByGithubLogin';
 export { default as reviewerAccountList } from './reviewerAccountList';
+export { default as tipperAccountList } from './tipperAccountList';
+export { default as tipperAccountListByUser } from './tipperAccountListByUser';
+export { default as tipperAccountsListById } from './tipperAccountsListById';

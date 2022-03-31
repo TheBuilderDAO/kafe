@@ -1,0 +1,79 @@
+{
+  "proposalId": 8,
+  "slug": "polygon-transferring-tokens-with-polygon-pos-bridge",
+  "authors": [
+    {
+      "name": "Masoud Ghorbanzadeh",
+      "avatarUrl": "https://github.com/mlibre.png",
+      "url": "https://github.com/mlibre",
+      "nickname": "mlibre"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-map-image-2.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-map-image-2.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-map-image-2.png",
+      "digest": "b66a97ed4882b6ad7d85e802f01645f20dc340c212d9882db3a4da5e1a510ef7"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-dai-8.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-dai-8.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-dai-8.png",
+      "digest": "1333bd4d4252f61bb3e63627def386e4cd668871cb7a4701cb8c0ce41de581b2"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-metamask-after-map-4.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-metamask-after-map-4.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-metamask-after-map-4.png",
+      "digest": "04843c8a3199fa40d5788905fabbe417e6b68b31c6bc280dc7dd59bb301f14ed"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-mapped-image-3.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-mapped-image-3.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-mapped-image-3.png",
+      "digest": "b03a1d4b65bc38b8b3db5afb2ae1b06fc0c62f1209f7bdeb42428b27c1e797bf"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-metamask-ethereum-6.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-metamask-ethereum-6.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-metamask-ethereum-6.png",
+      "digest": "c06bbaf9e3e549790be1cff1d4ddac7823002a67d64a456cd833052f0d760064"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-mlb-metamask-5.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-mlb-metamask-5.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-mlb-metamask-5.png",
+      "digest": "4d3ea08ae6a42d5234a19481fc4a1f32e5fe65ce5770e6f32c2a494b94475153"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-mumbai-1.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-mumbai-1.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-mumbai-1.png",
+      "digest": "1d53b4c9db836763e9feaa09619893e8c536850df11843371f01bdf502c98a57"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-pos-web-ui-login-7.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-pos-web-ui-login-7.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-pos-web-ui-login-7.png",
+      "digest": "3d7e80a9e69a6c5e1b745b107dbad251100edf3a9b963b8b611b95a4107c4385"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "42f30480b8704ef7dd2469c9d9633b8a5a0c97d0b7f4a4de2d896001a2c5e95c",
+      "arweaveHash": "rY4QBadi-VwOeQjYYHkodOlzGzIE6ku6_Ma2mQ97hq0"
+    },
+    "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-transfer-9.png": {
+      "name": "polygon-transferring-tokens-with-polygon-pos-bridge-transfer-9.png",
+      "path": "content/assets/polygon-transferring-tokens-with-polygon-pos-bridge-transfer-9.png",
+      "digest": "fab291eb0d58e7fcd5e60156f36695ea2830838a77f2c99414fcfdb61b352a7d"
+    }
+  },
+  "href": "learn/polygon-transferring-tokens-with-polygon-pos-bridge",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@builderdao-learn/solana-chakra-ui-with-solana-dapps",
+  "version": "1.0.0",
+  "description": "Create beautiful front-ends for Solana dApps using the Chakra UI library",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Solana",
+    "JS/TS",
+    "Rust",
+    "Javascript",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

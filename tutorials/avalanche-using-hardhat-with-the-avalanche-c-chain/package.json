@@ -1,0 +1,30 @@
+{
+  "name": "@builderdao-learn/avalanche-using-hardhat-with-the-avalanche-c-chain",
+  "version": "1.0.0",
+  "description": "Learn how to use Hardhat with the Avalanche C-Chain",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Avalanche",
+    "Go",
+    "JS/TS",
+    "Solidity",
+    "NodeJS",
+    "Smart contracts",
+    "Avash",
+    "Waffle",
+    "Hardhat"
+  ],
+  "author": "",
+  "license": "ISC"
+}

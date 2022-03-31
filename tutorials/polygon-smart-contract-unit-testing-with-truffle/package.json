@@ -1,0 +1,26 @@
+{
+  "name": "@builderdao-learn/polygon-smart-contract-unit-testing-with-truffle",
+  "version": "1.0.0",
+  "description": "Learn how to deploy & unit test smart contracts written in Solidity using Truffle",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Polygon",
+    "Solidity",
+    "Truffle",
+    "Solidity",
+    "Metamask"
+  ],
+  "author": "",
+  "license": "ISC"
+}

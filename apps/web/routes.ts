@@ -4,6 +4,7 @@ export default {
   home: '/',
   learn: {
     index: '/learn',
+    guide: slug => `/learn/${slug}`,
   },
   vote: {
     index: '/vote',
@@ -18,10 +19,14 @@ export default {
       index: '/api/tags',
     },
     tutorials: {
-      createIndexRecord: '/api/tutorials/create-index-record',
       triggerWorkflow: '/api/tutorials/trigger-workflow',
-      storeMetadata: '/api/tutorials/store-metadata',
-      updateIndexRecord: '/api/tutorials/update-index-record',
+    },
+    algolia: {
+      createTutorial: '/api/algolia/create-tutorial',
+      updateTutorial: '/api/algolia/update-tutorial',
+    },
+    ceramic: {
+      storeMetadata: '/api/ceramic/store-metadata',
     },
   },
   fetchers: {

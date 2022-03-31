@@ -14,37 +14,33 @@ import { getPda } from '../pda';
  */
 export const voteCast = async ({
   program,
-  mintPk,
-  tutorialId,
-  userPk,
+  proposalId,
+  voterPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
-  tutorialId: number;
-  userPk: anchor.web3.PublicKey;
+  proposalId: number;
+  voterPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaUserVoteAccountById, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaUserVoteAccountById, pdaProposalById } = getPda(
     program.programId,
-    mintPk,
   );
   const daoAccount = await pdaDaoAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
-  const voteAccount = await pdaUserVoteAccountById(userPk, tutorialId);
+  const proposalAccount = await pdaProposalById(proposalId);
+  const voteAccount = await pdaUserVoteAccountById(voterPk, proposalId);
 
   const signature = await program.rpc.voteCast(
     voteAccount.bump,
-    new anchor.BN(tutorialId),
+    new anchor.BN(proposalId),
     {
       accounts: {
-        vote: voteAccount.pda,
-        daoConfig: daoAccount.pda,
-        tutorial: proposalAccount.pda,
+        voteAccount: voteAccount.pda,
+        daoAccount: daoAccount.pda,
+        proposalAccount: proposalAccount.pda,
         systemProgram: anchor.web3.SystemProgram.programId,
-        mint: mintPk,
         rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-        author: userPk,
+        author: voterPk,
       },
       ...(signer && { signers: [signer] }),
     },

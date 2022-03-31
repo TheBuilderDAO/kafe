@@ -1,0 +1,49 @@
+{
+  "proposalId": 42,
+  "slug": "polygon-peer-to-peer-payment-on-polygon-part-1",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "url": "https://github.com/viral-sangani",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api-2.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api-2.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-datahub-polygon-api-2.png",
+      "digest": "2e74d3790480fb1d4cd10ad757e67f0e5c9ae01d9159c3b6c07ad09315859a5a"
+    },
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui-3.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui-3.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-gateway-ui-3.png",
+      "digest": "f59de58ef75bdbaf3b2b7f5536012d372464b73955f6374d5546b92d38357435"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c382e826156210581c5de40b4d59e5017959f9aafabc1f64caf583560963daa4",
+      "arweaveHash": "rhajPnUd8f5YUaVmDVW2Z9AM_ditVcJ65obTHUVSKgM"
+    },
+    "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png": {
+      "name": "polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png",
+      "path": "content/assets/polygon-peer-to-peer-payment-on-polygon-part-1-payment-d-app-demo-1.png",
+      "digest": "86f9e7b3a64aed908f51f0302cb65ce9f7705c6901bc1eeb2ac018e89822e718"
+    }
+  },
+  "href": "learn/polygon-peer-to-peer-payment-on-polygon-part-1",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

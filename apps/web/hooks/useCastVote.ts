@@ -1,11 +1,12 @@
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { useCallback, useState } from 'react';
-import { useCastVote as solanaUseCastVote } from '@builderdao-sdk/dao-program';
+import { ProposalStateE, useCastVote as solanaUseCastVote, useGetDaoState } from '@builderdao-sdk/dao-program'
 
 type IndexVotesData = {
   id: number;
-  newNumberOfVotes: number;
+  numberOfVotes: number;
+  state?: ProposalStateE;
 };
 
 export const useCastVote = (
@@ -17,9 +18,10 @@ export const useCastVote = (
     error: Error;
   },
 ] => {
+  const { daoState } = useGetDaoState();
   const [castVote] = solanaUseCastVote();
-  const [updateIndex] = useApiCall<IndexVotesData, any>(
-    routes.api.tutorials.updateIndexRecord,
+  const [updateTutorialIndex] = useApiCall<IndexVotesData, any>(
+    routes.api.algolia.updateTutorial,
   );
 
   const [submitting, setSubmitting] = useState(false);
@@ -33,9 +35,20 @@ export const useCastVote = (
 
         await castVote(tutorialId);
 
-        await updateIndex({
-          data: { id: tutorialId, newNumberOfVotes: currentVotes.length + 1 },
+        const newNumberOfVotes = currentVotes.length + 1;
+        const partialIndexData: IndexVotesData = {
+          id: tutorialId,
+          numberOfVotes: newNumberOfVotes,
+        }
+
+        if (newNumberOfVotes >= daoState.quorum.toNumber()) {
+          partialIndexData.state = ProposalStateE.funded;
+        }
+
+        await updateTutorialIndex({
+          data: partialIndexData,
         });
+
       } catch (err) {
         console.log('Err:', err);
         setError(err);
@@ -44,7 +57,7 @@ export const useCastVote = (
         setSubmitting(false);
       }
     },
-    [castVote, updateIndex, currentVotes.length],
+    [castVote, updateTutorialIndex, currentVotes.length],
   );
 
   return [handleAction, { submitting, error }];

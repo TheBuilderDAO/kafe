@@ -1,0 +1,54 @@
+{
+  "proposalId": 153,
+  "slug": "terra-creating-your-first-terra-account-with-the-terra-sdk",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-2.png": {
+      "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-2.png",
+      "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-2.png",
+      "digest": "6ab37c73c94220ce343d1852e6fc303a65434189cc596ec3051d9c5ab2f3eda3"
+    },
+    "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-1.png": {
+      "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-1.png",
+      "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-1.png",
+      "digest": "add0d1a83831fd4487f2cd840f5403e3951fd02184d983cca782fab251e37b48"
+    },
+    "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-3.png": {
+      "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-3.png",
+      "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-3.png",
+      "digest": "f720899a09085aae836c627e015a8085717817bcef932a045dab8f0509f21fbf"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c9b145cf9f24265c8aa929d0341ba6dba06a79a864f94713090feda93b4392f2",
+      "arweaveHash": "VBDr4N_CmpmzjIjMdFfKKjbaH-XuV4l_ERQHN65BVSk"
+    },
+    "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png": {
+      "name": "terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png",
+      "path": "content/assets/terra-creating-your-first-terra-account-with-the-terra-sdk-image-4.png",
+      "digest": "0726e35dbf038973d698c5fcf2fc4770dcc3b5c80ba82c5f91355e8776826ee7"
+    }
+  },
+  "href": "learn/terra-creating-your-first-terra-account-with-the-terra-sdk",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

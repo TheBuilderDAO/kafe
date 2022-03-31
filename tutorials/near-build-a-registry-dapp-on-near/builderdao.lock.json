@@ -1,0 +1,54 @@
+{
+  "proposalId": 121,
+  "slug": "near-build-a-registry-dapp-on-near",
+  "authors": [
+    {
+      "name": "Viraj Anjan",
+      "avatarUrl": "https://github.com/viraja1.png",
+      "url": "https://github.com/viraja1",
+      "nickname": "viraja1"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-build-a-registry-dapp-on-near-image-1.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-1.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-1.png",
+      "digest": "925505158ef2070364ecbd07cb25cf71a60a6103e7c9472815e2d5bee65eb670"
+    },
+    "content/assets/near-build-a-registry-dapp-on-near-image-2.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-2.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-2.png",
+      "digest": "8906836c0f5b598a16bcdd12fe1d9102339ed57f2dec5b35a70a00b90f4b924d"
+    },
+    "content/assets/near-build-a-registry-dapp-on-near-image-3.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-3.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-3.png",
+      "digest": "307c3b37cb94a18b96f6196b3b7c8fe46373dd18cfc60ff3cf6367e30b131f9f"
+    },
+    "content/assets/near-build-a-registry-dapp-on-near-image-4.png": {
+      "name": "near-build-a-registry-dapp-on-near-image-4.png",
+      "path": "content/assets/near-build-a-registry-dapp-on-near-image-4.png",
+      "digest": "67b3daee69b144ba29022bcf807b0a6469cd3cd979b2ef159ebdb80c84ac0e2e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6c3ebc23062b58c74d6d5c5ede473cae72ccf3a7641b93ff278684e9bba82e83",
+      "arweaveHash": "jWVTh68-aVcOfc7LbOtY81gPh7Cmb0XurLmGrTd12kQ"
+    }
+  },
+  "href": "learn/near-build-a-registry-dapp-on-near",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

@@ -8,6 +8,14 @@ import {
   TutorialProgramContextProvider,
 } from '@builderdao-sdk/dao-program';
 import { Cluster, clusterApiUrl, Connection, PublicKey } from '@solana/web3.js';
+import {
+  CERAMIC_SEED,
+  NEXT_PUBLIC_CERAMIC_NODE_URL,
+  NEXT_PUBLIC_KAFE_MINT,
+  NEXT_PUBLIC_BDR_MINT,
+  NEXT_PUBLIC_SOLANA_NETWORK,
+  NEXT_PUBLIC_SOLANA_NODE_URL,
+} from '@app/constants';
 
 type DappContextTypes = {
   applicationFetcher: ApplicationFetcher | null;
@@ -22,23 +30,22 @@ type ApplicationFetcherConfig = {
 };
 
 export const getApplicationFetcher = () => {
-  const network = process.env
-    .NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.Network;
-  const url =
-    process.env.NEXT_PUBLIC_SOLANA_NODE_URL ||
-    clusterApiUrl(network as Cluster);
+  const network = NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.Network;
+  const url = NEXT_PUBLIC_SOLANA_NODE_URL || clusterApiUrl(network as Cluster);
   const connection = new Connection(url, 'confirmed');
 
   const solanaApi = new SolanaApi({
     connection,
     network,
     wallet: null,
-    kafeMint: new PublicKey(process.env.NEXT_PUBLIC_KAFE_MINT),
+    kafeMint: new PublicKey(NEXT_PUBLIC_KAFE_MINT),
+    bdrMint: new PublicKey(NEXT_PUBLIC_BDR_MINT),
   });
   const ceramicApi = new CeramicApi({
-    nodeUrl: process.env.NEXT_PUBLIC_CERAMIC_NODE_URL,
-    seed: process.env.CERAMIC_SEED,
+    nodeUrl: NEXT_PUBLIC_CERAMIC_NODE_URL,
   });
+
+  ceramicApi.setSeed(CERAMIC_SEED);
 
   return new ApplicationFetcher(solanaApi, ceramicApi);
 };
@@ -55,16 +62,17 @@ export const DappProvider = (props: DappProviderProps) => {
   const { connection } = useConnection();
   const wallet = useWallet();
   const network =
-    (process.env.NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.Network) ||
+    (NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.Network) ||
     TutorialProgramConfig.Network.TESTNET;
   const solanaApi = new SolanaApi({
     wallet: wallet as any,
     connection,
     network,
-    kafeMint: new PublicKey(process.env.NEXT_PUBLIC_KAFE_MINT),
+    kafeMint: new PublicKey(NEXT_PUBLIC_KAFE_MINT),
+    bdrMint: new PublicKey(NEXT_PUBLIC_BDR_MINT),
   });
   const ceramicApi = new CeramicApi({
-    nodeUrl: config?.ceramicApiUrl,
+    nodeUrl: config?.ceramicApiUrl || NEXT_PUBLIC_CERAMIC_NODE_URL,
   });
 
   const applicationFetcher = new ApplicationFetcher(solanaApi, ceramicApi);
@@ -73,7 +81,8 @@ export const DappProvider = (props: DappProviderProps) => {
     return new TutorialProgramClient(
       connection,
       wallet as any,
-      new PublicKey(process.env.NEXT_PUBLIC_KAFE_MINT),
+      new PublicKey(NEXT_PUBLIC_KAFE_MINT),
+      new PublicKey(NEXT_PUBLIC_BDR_MINT),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [connection, wallet, wallet.connected]);

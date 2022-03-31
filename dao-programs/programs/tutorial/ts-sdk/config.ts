@@ -1,9 +1,9 @@
 import { Cluster, clusterApiUrl, PublicKey } from '@solana/web3.js';
-import { Program, Provider } from '@project-serum/anchor';
+import * as anchor from '@project-serum/anchor';
 
 import idl from './lib/idl/tutorial.json';
 import { Tutorial } from './lib/idl/tutorial';
-import { isUndefined } from 'lodash';
+import * as _ from 'lodash';
 
 export namespace TutorialProgramConfig {
   /**
@@ -18,15 +18,15 @@ export namespace TutorialProgramConfig {
 
   // TODO: Try to auto generate populate this file.
   export const getConfig = (): {
-    getProgram: (provider: Provider) => Program<Tutorial>;
+    getProgram: (provider: anchor.Provider) => anchor.Program<Tutorial>;
     PROGRAM_ID: PublicKey;
   } => {
-    if (isUndefined(idl.metadata.address)) {
+    if (_.isUndefined(idl.metadata.address)) {
       throw new Error(`Program is not deployed`);
     }
     const PROGRAM_ID = new PublicKey(idl.metadata.address);
-    const getProgram = (provider: Provider): Program<Tutorial> => {
-      return new Program(idl as any, PROGRAM_ID, provider);
+    const getProgram = (provider: anchor.Provider): anchor.Program<Tutorial> => {
+      return new anchor.Program(idl as any, PROGRAM_ID, provider);
     };
     return {
       getProgram,

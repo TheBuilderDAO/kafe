@@ -44,9 +44,10 @@ npm i -g vercel
 
 ```bash
 vc login <figment-mail>@figment.io
-vc teams switch figment-learn
+vc teams switch builder-dao 
+vc link
 ```
 
 ```bash
-vercel env pull .env.local
+vercel env pull .env
 ```

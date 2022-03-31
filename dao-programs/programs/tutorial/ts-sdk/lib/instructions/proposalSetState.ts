@@ -8,7 +8,6 @@ export enum ProposalStateE {
   submitted = 'submitted',
   funded = 'funded',
   writing = 'writing',
-  hasReviewers = 'hasReviewers',
   readyToPublish = 'readyToPublish',
   published = 'published',
 }
@@ -16,7 +15,7 @@ export enum ProposalStateE {
 /**
  * @param program Dao program.
  * @param mintPk  token mint pk.
- * @param tutorialId tutorial id.
+ * @param proposalId tutorial id.
  * @param adminPk admin pk of the transaction.
  * @param newState new program state.
  * @param signer (optinal, default to provider.wallet.publicKey) signer of the transaction.
@@ -24,28 +23,26 @@ export enum ProposalStateE {
  */
 export const proposalSetState = async ({
   program,
-  mintPk,
-  tutorialId,
+  proposalId,
   adminPk,
   newState,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
-  tutorialId: number;
+  proposalId: number;
   adminPk: anchor.web3.PublicKey;
   newState: ProposalStateE;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaTutorialById } = getPda(program.programId, mintPk);
+  const { pdaDaoAccount, pdaProposalById } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
+  const proposalAccount = await pdaProposalById(proposalId);
 
   const signature = await program.rpc.proposalSetState(newState, {
     accounts: {
-      proposal: proposalAccount.pda,
-      daoConfig: daoAccount.pda,
-      signer: adminPk,
+      proposalAccount: proposalAccount.pda,
+      daoAccount: daoAccount.pda,
+      authority: adminPk,
     },
     ...(signer && { signers: [signer] }),
   });

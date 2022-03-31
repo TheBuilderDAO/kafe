@@ -11,7 +11,6 @@ export const CustomLink = ({
 >) => {
   const isInternalLink = href && href.startsWith('/');
   const isAnchorLink = href && href.startsWith('#');
-
   if (isInternalLink) {
     return (
       <Link href={href}>

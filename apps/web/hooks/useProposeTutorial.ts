@@ -4,7 +4,6 @@ import useApiCall from './useApiCall';
 import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { TutorialMetadata } from '@app/types/index';
-import { stringToSlug } from 'utils/strings';
 import {
   useGetDaoState,
   useProposeTutorial as solanaUseProposeTutorial,
@@ -32,10 +31,10 @@ export const useProposeTutorial = <AD>(): [
 
   const [proposeTutorial] = solanaUseProposeTutorial();
   const [createIndexRecord] = useApiCall<any, any>(
-    routes.api.tutorials.createIndexRecord,
+    routes.api.algolia.createTutorial,
   );
   const [storeMetadata] = useApiCall<TutorialMetadata, StoreMetadataResponse>(
-    routes.api.tutorials.storeMetadata,
+    routes.api.ceramic.storeMetadata,
   );
 
   const handleAction = useCallback(
@@ -46,17 +45,17 @@ export const useProposeTutorial = <AD>(): [
         setError(null);
         setSubmitting(true);
 
-        const id = daoState.numberOfTutorial.toNumber();
-        const slug = stringToSlug(data.title);
+        const id = daoState.nonce.toNumber();
 
         // Store Metadata to Ceramic. Get CID
         const { streamId } = await storeMetadata({
           data: {
             title: data.title,
-            slug,
+            slug: data.slug,
             description: data.description,
             difficulty: data.difficulty,
             tags: data.tags,
+            createdAt: Date.now(),
           },
         });
 
@@ -66,7 +65,7 @@ export const useProposeTutorial = <AD>(): [
         const txHash = await proposeTutorial({
           id,
           userPk: publicKey,
-          slug,
+          slug: data.slug,
           streamId,
         });
 
@@ -75,18 +74,19 @@ export const useProposeTutorial = <AD>(): [
         await createIndexRecord({
           data: {
             id: id.toString(),
-            slug,
+            slug: data.slug,
             title: data.title,
             description: data.description,
             author: publicKey.toString(),
             difficulty: data.difficulty,
             tags: data.tags,
+            lastUpdatedAt: Date.now(),
           },
         });
       } catch (err) {
         console.log('ERR:', err);
         setError(err);
-        throw new err();
+        throw err;
       } finally {
         setSubmitting(false);
       }

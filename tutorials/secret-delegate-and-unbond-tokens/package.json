@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/secret-delegate-and-unbond-tokens",
+  "version": "1.0.0",
+  "description": "Learn how to delegate and unbond tokens on Secret Network",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Secret",
+    "JS/TS",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

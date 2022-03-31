@@ -1,0 +1,28 @@
+{
+  "name": "@builderdao-learn/celo-subgraphs",
+  "version": "1.0.0",
+  "description": "Learn how to integrate The Graph with CELO",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Celo",
+    "GraphQL",
+    "Solidity",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

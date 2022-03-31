@@ -1,0 +1,54 @@
+{
+  "proposalId": 97,
+  "slug": "polkadot-how-to-build-custom-pallets-with-substrate",
+  "authors": [
+    {
+      "name": "Prasad Kumar",
+      "avatarUrl": "https://github.com/prasad-kumkar.png",
+      "url": "https://github.com/prasad-kumkar",
+      "nickname": "prasad-kumkar"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-2.png": {
+      "name": "polkadot-how-to-build-custom-pallets-with-substrate-image-2.png",
+      "path": "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-2.png",
+      "digest": "1dd4b1625726c1dbbb868ada65d18daa7ac3027b28f9b5021a57ac833c7a6367"
+    },
+    "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-1.png": {
+      "name": "polkadot-how-to-build-custom-pallets-with-substrate-image-1.png",
+      "path": "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-1.png",
+      "digest": "cabb03440ebe6f82a35dcad1a93e97da0a8378e2f629045d6777a21e3e0e45ea"
+    },
+    "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-4.png": {
+      "name": "polkadot-how-to-build-custom-pallets-with-substrate-image-4.png",
+      "path": "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-4.png",
+      "digest": "2caf3d04217c1034272d52c10f33c50c51c87a66b6c76b211a285a3310acebb0"
+    },
+    "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-3.png": {
+      "name": "polkadot-how-to-build-custom-pallets-with-substrate-image-3.png",
+      "path": "content/assets/polkadot-how-to-build-custom-pallets-with-substrate-image-3.png",
+      "digest": "6cc277f3ed6f08964a4c4522ff01e7e8fd991fc18ca6f76c0b5e60676e5ff45f"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c917abacb577d640983d04f6c227749622a2f329a8279e0b52d9448e7e3c0322",
+      "arweaveHash": "cQNOewTvvWuT9nAx5J76ETeT9Ycc5d5zyt77-SroLdg"
+    }
+  },
+  "href": "learn/polkadot-how-to-build-custom-pallets-with-substrate",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

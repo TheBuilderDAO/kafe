@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/polkadot-add-the-contracts-pallets-to-a-runtime",
+  "version": "1.0.0",
+  "description": "Learn how to add a contract pallet to a runtime",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Polkadot",
+    "Rust",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

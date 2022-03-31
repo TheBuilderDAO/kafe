@@ -1,0 +1,124 @@
+{
+  "proposalId": 12,
+  "slug": "tezos-mint-your-own-fungible-token-on-tezos",
+  "authors": [
+    {
+      "name": "Priyanshu Dangi",
+      "avatarUrl": "https://github.com/PriyanshuDangi.png",
+      "url": "https://github.com/PriyanshuDangi",
+      "nickname": "PriyanshuDangi"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-13.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-13.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-13.png",
+      "digest": "86360887a18ebc0a96962e66704a5dc67604fad9589ae6bd42e94b4b2641c085"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-14.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-14.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-14.png",
+      "digest": "68c6c83aafabd9bd59aa2c2cb7f37d6812e472703a96e815db3c91f9cb35ec7e"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-16.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-16.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-16.png",
+      "digest": "2187c527490b938bb2e9dac7a987f076bb2da69541b2c89e654619e2d542610c"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-15.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-15.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-15.png",
+      "digest": "1212fc12c91b694838f8a56f7693264bef39ef024f4aa14740618d80d5137dfd"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-17.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-17.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-17.png",
+      "digest": "39b24a58f140dc274cd71135763e1e2a082d909583c667b61b96d6c2ce0aef68"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-18.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-18.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-better-call-dev-18.png",
+      "digest": "ae4db314162262e3c99c578ee4c9eca68f76e99a2319729dee2c0c63bec9ea66"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs-11.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-ipfs-11.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs-11.png",
+      "digest": "1bc6197c2638c1d5facee3cb64657f885c6d17dda60f2f8f0ec8b6dc9cf21d52"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs-10.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-ipfs-10.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs-10.png",
+      "digest": "acafb45fbdb9e133c6e79cf70d9c64b77fca87110b5e5b9e91ef0b76d1a0051d"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs-12.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-ipfs-12.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-ipfs-12.png",
+      "digest": "381cecf824250bbd8e06a4ed31b7ddb081427a593eecf71a9ec4d6ee624cd9e5"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-1.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-1.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-1.png",
+      "digest": "248a09d014d866a0445d2782e63959aec2208c095db45e8936ac916664cb9bcf"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-2.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-2.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-2.png",
+      "digest": "ce3d339e4dc538b8c66cc9530b66b56bee970ee6812a4fc7a1d7d63ef0f524bc"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-3.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-3.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-3.png",
+      "digest": "59604099429ed1c5dd6c79d3746aeab6a823f3cb4b373ad2e2582ff10b9672de"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-4.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-4.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-4.png",
+      "digest": "0aa7f6ad0ded1f67d7b62dedabccca08815ebcea66577b1f0271286eca6ab5cf"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-6.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-6.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-6.png",
+      "digest": "70d7421cad63af0743df1729f785fb82ff4784df7f96b3594ea449706b40fe92"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-5.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-5.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-5.png",
+      "digest": "a71d0b33ca8063bd796c7c3b0f6eb84295fb167c02cbab00abd1929f57b7b61e"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-8.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-8.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-8.png",
+      "digest": "9ffa18e50c341d91ff7586e4c3e75240fe609ca9fd6779ac9067ab180fb26e58"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-7.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-7.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-7.png",
+      "digest": "ef91019d1c9ccafc34b7e9c44331a98ce85d45d1613dc9e71f03bc486830c278"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "adeb278c6a814ae7fcc66ef8ae4a2dd6832494f90a8013d0ae55bf76e6216c81",
+      "arweaveHash": "kxc6yLwUM57KEhx3hvwUfZhZss-lJTqHtLvfstVf9OU"
+    },
+    "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-9.png": {
+      "name": "tezos-mint-your-own-fungible-token-on-tezos-smart-py-9.png",
+      "path": "content/assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-9.png",
+      "digest": "00292fa0dbe79e1b36f3e047484f4274e9c521a561542413f1f9e79d041e75d6"
+    }
+  },
+  "href": "learn/tezos-mint-your-own-fungible-token-on-tezos",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

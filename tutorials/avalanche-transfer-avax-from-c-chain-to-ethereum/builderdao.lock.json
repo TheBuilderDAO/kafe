@@ -1,0 +1,49 @@
+{
+  "proposalId": 143,
+  "slug": "avalanche-transfer-avax-from-c-chain-to-ethereum",
+  "authors": [
+    {
+      "name": "Seongwoo Oh",
+      "avatarUrl": "https://github.com/blackwidoq.png",
+      "url": "https://github.com/blackwidoq",
+      "nickname": "blackwidoq"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png": {
+      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png",
+      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png",
+      "digest": "7639155d4733010e99facf8696b3b13c6b18dc04f69cdbf47500d398bbc60db5"
+    },
+    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-1.png": {
+      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-1.png",
+      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-1.png",
+      "digest": "cc195f3b28fe824b43f7c1714fb9823ea3306cf452484d9403befa4e92325e8a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "96ca058dc48da030296248492663961dc9936196444b1c484db13f18ead21807",
+      "arweaveHash": "NIzdkqKlcmUe2nviptnUabgLKTr_OtbuhEwVPYJhYCM"
+    },
+    "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png": {
+      "name": "avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png",
+      "path": "content/assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png",
+      "digest": "67982ff44859260581b76e8e57114e756154ce97ed2ac1f3790f48fe4806a97b"
+    }
+  },
+  "href": "learn/avalanche-transfer-avax-from-c-chain-to-ethereum",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

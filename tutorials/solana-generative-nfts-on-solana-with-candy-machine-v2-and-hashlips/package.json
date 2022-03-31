@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/solana-generative-nfts-on-solana-with-candy-machine-v2-and-hashlips",
+  "version": "1.0.0",
+  "description": "Learn how to create a collection of unique NFTs on Solana",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Solana",
+    "JS/TS",
+    "Javascript"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,1457 +1,2225 @@
 export type Tutorial = {
-  "version": "0.1.0",
-  "name": "tutorial",
-  "instructions": [
+  version: '0.1.0';
+  name: 'tutorial';
+  instructions: [
     {
-      "name": "daoInitialize",
-      "accounts": [
+      name: 'daoAddAdmin';
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoVault",
-          "isMut": true,
-          "isSigner": false
+          name: 'authority';
+          isMut: false;
+          isSigner: true;
         },
+      ];
+      args: [
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'admin';
+          type: 'publicKey';
         },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": [
-        {
-          "name": "bump",
-          "type": "u8"
-        },
-        {
-          "name": "quorum",
-          "type": "u64"
-        },
-        {
-          "name": "authorities",
-          "type": {
-            "vec": "publicKey"
-          }
-        }
-      ]
+      ];
     },
     {
-      "name": "daoSetQuorum",
-      "accounts": [
+      name: 'daoRemoveAdmin';
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "authority",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": [
+          name: 'authority';
+          isMut: false;
+          isSigner: true;
+        },
+      ];
+      args: [
         {
-          "name": "quorum",
-          "type": "u64"
-        }
-      ]
+          name: 'admin';
+          type: 'publicKey';
+        },
+      ];
     },
     {
-      "name": "daoAddAdmin",
-      "accounts": [
+      name: 'daoClose';
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "signer",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": [
-        {
-          "name": "admin",
-          "type": "publicKey"
-        }
-      ]
+          name: 'superAdmin';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [];
     },
     {
-      "name": "daoRemoveAdmin",
-      "accounts": [
+      name: 'daoInitialize';
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "signer",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": [
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
         {
-          "name": "admin",
-          "type": "publicKey"
-        }
-      ]
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'payer';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'quorum';
+          type: 'u64';
+        },
+        {
+          name: 'minAmountToCreateProposal';
+          type: 'u64';
+        },
+        {
+          name: 'superAdmin';
+          type: 'publicKey';
+        },
+        {
+          name: 'authorities';
+          type: {
+            vec: 'publicKey';
+          };
+        },
+      ];
     },
     {
-      "name": "daoSetAmountToCreateProposal",
-      "accounts": [
+      name: 'daoSetAmountToCreateProposal';
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "authority",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": [
+          name: 'authority';
+          isMut: false;
+          isSigner: true;
+        },
+      ];
+      args: [
         {
-          "name": "quorum",
-          "type": "u64"
-        }
-      ]
+          name: 'quorum';
+          type: 'u64';
+        },
+      ];
     },
     {
-      "name": "proposalCreate",
-      "accounts": [
+      name: 'daoSetNonce';
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'authority';
+          isMut: false;
+          isSigner: true;
         },
+      ];
+      args: [
         {
-          "name": "daoVault",
-          "isMut": true,
-          "isSigner": false
+          name: 'nonce';
+          type: 'u64';
         },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "userTokenAccount",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "bump",
-          "type": "u8"
-        },
-        {
-          "name": "id",
-          "type": "u64"
-        },
-        {
-          "name": "slug",
-          "type": "string"
-        },
-        {
-          "name": "streamId",
-          "type": "string"
-        }
-      ]
+      ];
     },
     {
-      "name": "proposalSetState",
-      "accounts": [
+      name: 'daoSetQuorum';
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'authority';
+          isMut: false;
+          isSigner: true;
         },
+      ];
+      args: [
         {
-          "name": "signer",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": [
-        {
-          "name": "state",
-          "type": "string"
-        }
-      ]
+          name: 'quorum';
+          type: 'u64';
+        },
+      ];
     },
     {
-      "name": "guideTipping",
-      "accounts": [
+      name: 'daoVaultClose';
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoVault';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "creator",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "reviewer2",
-          "isMut": true,
-          "isSigner": false
+          name: 'mint';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "reviewer1",
-          "isMut": true,
-          "isSigner": false
+          name: 'superAdmin';
+          isMut: true;
+          isSigner: true;
         },
         {
-          "name": "signer",
-          "isMut": true,
-          "isSigner": true
+          name: 'superAdminTokenAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
         {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'amount';
+          type: 'u64';
+        },
+        {
+          name: 'freeze';
+          type: 'bool';
+        },
+      ];
     },
     {
-      "name": "proposalClose",
-      "accounts": [
+      name: 'daoVaultInitialize';
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoVault';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'mint';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "daoVault",
-          "isMut": true,
-          "isSigner": false
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "creator",
-          "isMut": true,
-          "isSigner": true
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "userTokenAccount",
-          "isMut": true,
-          "isSigner": false
+          name: 'payer';
+          isMut: true;
+          isSigner: true;
         },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "bump",
-          "type": "u8"
-        }
-      ]
+      ];
+      args: [];
     },
     {
-      "name": "voteCast",
-      "accounts": [
+      name: 'guideTipping';
+      accounts: [
         {
-          "name": "vote",
-          "isMut": true,
-          "isSigner": false
+          name: 'tipperAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposal';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "tutorial",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          name: 'creator';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'reviewer2';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          name: 'reviewer1';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "author",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": [
-        {
-          "name": "bump",
-          "type": "u8"
+          name: 'signer';
+          isMut: true;
+          isSigner: true;
         },
         {
-          "name": "tutorialId",
-          "type": "u64"
-        }
-      ]
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'creatorTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer1TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer2TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tipperTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'amount';
+          type: 'u64';
+        },
+        {
+          name: 'bumpVault';
+          type: 'u8';
+        },
+        {
+          name: 'bumpBdr';
+          type: 'u8';
+        },
+      ];
     },
     {
-      "name": "voteCancel",
-      "accounts": [
+      name: 'proposalClose';
+      accounts: [
         {
-          "name": "vote",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "tutorial",
-          "isMut": true,
-          "isSigner": false
+          name: 'creator';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoVault';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "author",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": []
+          name: 'mint';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+        {
+          name: 'userTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+      ];
     },
     {
-      "name": "reviewerCreate",
-      "accounts": [
+      name: 'proposalCreate';
+      accounts: [
         {
-          "name": "reviewerAccount",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoVault';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          name: 'mint';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "authority",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": [
-        {
-          "name": "bump",
-          "type": "u8"
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "reviewer",
-          "type": "publicKey"
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "githubName",
-          "type": "string"
-        }
-      ]
+          name: 'payer';
+          isMut: true;
+          isSigner: true;
+        },
+        {
+          name: 'userTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'slug';
+          type: 'string';
+        },
+        {
+          name: 'streamId';
+          type: 'string';
+        },
+      ];
     },
     {
-      "name": "reviewerDelete",
-      "accounts": [
+      name: 'proposalPublish';
+      accounts: [
         {
-          "name": "reviewerAccount",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "authority",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": []
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+        {
+          name: 'userTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+      ];
     },
     {
-      "name": "reviewerAssign",
-      "accounts": [
+      name: 'proposalSetState';
+      accounts: [
         {
-          "name": "reviewer1",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
         },
         {
-          "name": "reviewer2",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
         },
+      ];
+      args: [
         {
-          "name": "tutorial",
-          "isMut": true,
-          "isSigner": false
+          name: 'state';
+          type: 'string';
         },
-        {
-          "name": "authority",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": []
-    }
-  ],
-  "accounts": [
+      ];
+    },
     {
-      "name": "daoAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'proposalSetCreator';
+      accounts: [
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'creator';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'creatorTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'superAdmin';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+      ];
+    },
+    {
+      name: 'reviewerAssign';
+      accounts: [
+        {
+          name: 'reviewer1';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer2';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'prevReviewer1';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'prevReviewer2';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'force';
+          type: 'bool';
+        },
+      ];
+    },
+    {
+      name: 'reviewerCreate';
+      accounts: [
+        {
+          name: 'reviewerAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'reviewer';
+          type: 'publicKey';
+        },
+        {
+          name: 'githubName';
+          type: 'string';
+        },
+      ];
+    },
+    {
+      name: 'reviewerDelete';
+      accounts: [
+        {
+          name: 'reviewerAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'force';
+          type: 'bool';
+        },
+      ];
+    },
+    {
+      name: 'tipperClose';
+      accounts: [
+        {
+          name: 'tipperAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'tipper';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [];
+    },
+    {
+      name: 'voteCancel';
+      accounts: [
+        {
+          name: 'voteAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'author';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [];
+    },
+    {
+      name: 'voteCast';
+      accounts: [
+        {
+          name: 'voteAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'proposalAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'systemProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'rent';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'author';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'tutorialId';
+          type: 'u64';
+        },
+      ];
+    },
+  ];
+  accounts: [
+    {
+      name: 'daoAccount';
+      type: {
+        kind: 'struct';
+        fields: [
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'bump';
+            type: 'u8';
           },
           {
-            "name": "numberOfTutorial",
-            "type": "u64"
+            name: 'nonce';
+            type: 'u64';
           },
           {
-            "name": "mint",
-            "type": "publicKey"
+            name: 'numberOfProposal';
+            type: 'u64';
           },
           {
-            "name": "quorum",
-            "type": "u64"
+            name: 'quorum';
+            type: 'u64';
           },
           {
-            "name": "minAmountToCreateProposal",
-            "type": "u64"
+            name: 'minAmountToCreateProposal';
+            type: 'u64';
           },
           {
-            "name": "admins",
-            "type": {
-              "vec": "publicKey"
-            }
-          }
-        ]
-      }
+            name: 'superAdmin';
+            type: 'publicKey';
+          },
+          {
+            name: 'admins';
+            type: {
+              vec: 'publicKey';
+            };
+          },
+        ];
+      };
     },
     {
-      "name": "proposalAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'proposalAccount';
+      type: {
+        kind: 'struct';
+        fields: [
           {
-            "name": "id",
-            "type": "u64"
+            name: 'bump';
+            type: 'u8';
           },
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'id';
+            type: 'u64';
           },
           {
-            "name": "creator",
-            "type": "publicKey"
+            name: 'creator';
+            type: 'publicKey';
           },
           {
-            "name": "reviewer1",
-            "type": "publicKey"
+            name: 'reviewer1';
+            type: 'publicKey';
           },
           {
-            "name": "reviewer2",
-            "type": "publicKey"
+            name: 'reviewer2';
+            type: 'publicKey';
           },
           {
-            "name": "numberOfVoter",
-            "type": "u64"
+            name: 'numberOfVoter';
+            type: 'u64';
           },
           {
-            "name": "createdAt",
-            "type": "i64"
+            name: 'createdAt';
+            type: 'i64';
           },
           {
-            "name": "state",
-            "type": {
-              "defined": "ProposalState"
-            }
+            name: 'tippedAmount';
+            type: 'u64';
           },
           {
-            "name": "slug",
-            "type": "string"
+            name: 'tipperCount';
+            type: 'u64';
           },
           {
-            "name": "streamId",
-            "type": "string"
-          }
-        ]
-      }
+            name: 'state';
+            type: {
+              defined: 'ProposalState';
+            };
+          },
+          {
+            name: 'streamId';
+            type: 'string';
+          },
+          {
+            name: 'slug';
+            type: 'string';
+          },
+        ];
+      };
     },
     {
-      "name": "reviewerAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'reviewerAccount';
+      type: {
+        kind: 'struct';
+        fields: [
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'bump';
+            type: 'u8';
           },
           {
-            "name": "pubkey",
-            "type": "publicKey"
+            name: 'pubkey';
+            type: 'publicKey';
           },
           {
-            "name": "numberOfAssignment",
-            "type": "u8"
+            name: 'numberOfAssignment';
+            type: 'u8';
           },
           {
-            "name": "githubName",
-            "type": "string"
-          }
-        ]
-      }
+            name: 'githubName';
+            type: 'string';
+          },
+        ];
+      };
     },
     {
-      "name": "voteAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'tipperAccount';
+      type: {
+        kind: 'struct';
+        fields: [
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'bump';
+            type: 'u8';
           },
           {
-            "name": "tutorialId",
-            "type": "u64"
+            name: 'tutorialId';
+            type: 'u64';
           },
           {
-            "name": "author",
-            "type": "publicKey"
+            name: 'pubkey';
+            type: 'publicKey';
           },
           {
-            "name": "votedAt",
-            "type": "i64"
-          }
-        ]
-      }
-    }
-  ],
-  "types": [
+            name: 'amount';
+            type: 'u64';
+          },
+        ];
+      };
+    },
     {
-      "name": "ProposalState",
-      "type": {
-        "kind": "enum",
-        "variants": [
+      name: 'voteAccount';
+      type: {
+        kind: 'struct';
+        fields: [
           {
-            "name": "Submitted"
+            name: 'bump';
+            type: 'u8';
           },
           {
-            "name": "Funded"
+            name: 'id';
+            type: 'u64';
           },
           {
-            "name": "Writing"
+            name: 'author';
+            type: 'publicKey';
           },
           {
-            "name": "HasReviewers"
+            name: 'votedAt';
+            type: 'i64';
+          },
+        ];
+      };
+    },
+  ];
+  types: [
+    {
+      name: 'ProposalState';
+      type: {
+        kind: 'enum';
+        variants: [
+          {
+            name: 'Submitted';
           },
           {
-            "name": "ReadyToPublish"
+            name: 'Funded';
           },
           {
-            "name": "Published"
-          }
-        ]
-      }
-    }
-  ],
-  "errors": [
+            name: 'Writing';
+          },
+          {
+            name: 'ReadyToPublish';
+          },
+          {
+            name: 'Published';
+          },
+        ];
+      };
+    },
+  ];
+  errors: [
     {
-      "code": 6000,
-      "name": "InsufficientFundsInVault",
-      "msg": "Error: Insufficient funds in vault"
+      code: 6000;
+      name: 'InsufficientFundsInVault';
+      msg: 'Error: Insufficient funds in vault';
     },
     {
-      "code": 6001,
-      "name": "SlugTooLong",
-      "msg": "Error: Given slug is too long"
+      code: 6001;
+      name: 'SlugTooLong';
+      msg: 'Error: Given slug is too long';
     },
     {
-      "code": 6002,
-      "name": "StreamIdTooLong",
-      "msg": "Error: Given streamId is too long"
+      code: 6002;
+      name: 'StreamIdSizeMissmatch';
+      msg: "Error: Given streamId doesn't fit the expected size";
     },
     {
-      "code": 6003,
-      "name": "AlreadyVoter",
-      "msg": "Error: User has already voted"
+      code: 6003;
+      name: 'AlreadyVoter';
+      msg: 'Error: User has already voted';
     },
     {
-      "code": 6004,
-      "name": "CannotCastVoteAnymore",
-      "msg": "Error: You cannot cast a vote anymore"
+      code: 6004;
+      name: 'CannotCastVoteAnymore';
+      msg: 'Error: You cannot cast a vote anymore';
     },
     {
-      "code": 6005,
-      "name": "CannotCancelVotelAnymore",
-      "msg": "Error: You cannot cancel a vote anymore"
+      code: 6005;
+      name: 'CannotCancelVoteAnymore';
+      msg: 'Error: You cannot cancel a vote anymore';
     },
     {
-      "code": 6006,
-      "name": "CannotDeleteAnAssignedReviewer",
-      "msg": "Error: You cannot delete an assigned reviewer"
+      code: 6006;
+      name: 'CannotDeleteAnAssignedReviewer';
+      msg: 'Error: You cannot delete an assigned reviewer';
     },
     {
-      "code": 6007,
-      "name": "ReviewerNeedToBeDifferents",
-      "msg": "Error: You cannot assigned: same reviewer"
+      code: 6007;
+      name: 'ReviewerNeedToBeDifferents';
+      msg: 'Error: You cannot assigned: same reviewer';
     },
     {
-      "code": 6008,
-      "name": "CannotCloseProposalRemainingVoter",
-      "msg": "Error: Remaining Voter Cannot Close proposal"
+      code: 6008;
+      name: 'CannotCloseProposalRemainingVoter';
+      msg: 'Error: Remaining Voter Cannot Close proposal';
     },
     {
-      "code": 6009,
-      "name": "UnauthorizeAccess",
-      "msg": "Error: Not authorize to call the instruction"
+      code: 6009;
+      name: 'UnauthorizedAccess';
+      msg: 'Error: Not authorize to call the instruction';
     },
     {
-      "code": 6010,
-      "name": "InvalidState",
-      "msg": "Error: Cannot setState: Invalid State"
+      code: 6010;
+      name: 'InvalidState';
+      msg: 'Error: Cannot setState: Invalid State';
     },
     {
-      "code": 6011,
-      "name": "BadPreviousState",
-      "msg": "Error: Cannot setState: bad previous state"
-    }
-  ]
+      code: 6011;
+      name: 'BadPreviousState';
+      msg: 'Error: Cannot setState: bad previous state';
+    },
+    {
+      code: 6012;
+      name: 'ActionOnlyPossibleForDefaultReviewer';
+      msg: 'Error: Cannot set creator: constraint on current creator not reach ';
+    },
+    {
+      code: 6013;
+      name: 'NotEnoughSolError';
+      msg: 'Error: Cannot tip: not enough SOL';
+    },
+    {
+      code: 6014;
+      name: 'CreatorCannotBeAReviewer';
+      msg: 'Error: Assign Reviewer: Creator Cannot be reviewer';
+    },
+  ];
 };
 
 export const IDL: Tutorial = {
-  "version": "0.1.0",
-  "name": "tutorial",
-  "instructions": [
+  version: '0.1.0',
+  name: 'tutorial',
+  instructions: [
     {
-      "name": "daoInitialize",
-      "accounts": [
+      name: 'daoAddAdmin',
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoVault",
-          "isMut": true,
-          "isSigner": false
+          name: 'authority',
+          isMut: false,
+          isSigner: true,
         },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        }
       ],
-      "args": [
+      args: [
         {
-          "name": "bump",
-          "type": "u8"
+          name: 'admin',
+          type: 'publicKey',
         },
-        {
-          "name": "quorum",
-          "type": "u64"
-        },
-        {
-          "name": "authorities",
-          "type": {
-            "vec": "publicKey"
-          }
-        }
-      ]
+      ],
     },
     {
-      "name": "daoSetQuorum",
-      "accounts": [
+      name: 'daoRemoveAdmin',
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "authority",
-          "isMut": false,
-          "isSigner": true
-        }
+          name: 'authority',
+          isMut: false,
+          isSigner: true,
+        },
       ],
-      "args": [
+      args: [
         {
-          "name": "quorum",
-          "type": "u64"
-        }
-      ]
+          name: 'admin',
+          type: 'publicKey',
+        },
+      ],
     },
     {
-      "name": "daoAddAdmin",
-      "accounts": [
+      name: 'daoClose',
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "signer",
-          "isMut": false,
-          "isSigner": true
-        }
+          name: 'superAdmin',
+          isMut: true,
+          isSigner: true,
+        },
       ],
-      "args": [
-        {
-          "name": "admin",
-          "type": "publicKey"
-        }
-      ]
+      args: [],
     },
     {
-      "name": "daoRemoveAdmin",
-      "accounts": [
+      name: 'daoInitialize',
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "signer",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": [
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
         {
-          "name": "admin",
-          "type": "publicKey"
-        }
-      ]
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'payer',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'quorum',
+          type: 'u64',
+        },
+        {
+          name: 'minAmountToCreateProposal',
+          type: 'u64',
+        },
+        {
+          name: 'superAdmin',
+          type: 'publicKey',
+        },
+        {
+          name: 'authorities',
+          type: {
+            vec: 'publicKey',
+          },
+        },
+      ],
     },
     {
-      "name": "daoSetAmountToCreateProposal",
-      "accounts": [
+      name: 'daoSetAmountToCreateProposal',
+      accounts: [
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "authority",
-          "isMut": false,
-          "isSigner": true
-        }
+          name: 'authority',
+          isMut: false,
+          isSigner: true,
+        },
       ],
-      "args": [
+      args: [
         {
-          "name": "quorum",
-          "type": "u64"
-        }
-      ]
+          name: 'quorum',
+          type: 'u64',
+        },
+      ],
     },
     {
-      "name": "proposalCreate",
-      "accounts": [
+      name: 'daoSetNonce',
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'authority',
+          isMut: false,
+          isSigner: true,
         },
-        {
-          "name": "daoVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "userTokenAccount",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
       ],
-      "args": [
+      args: [
         {
-          "name": "bump",
-          "type": "u8"
+          name: 'nonce',
+          type: 'u64',
         },
-        {
-          "name": "id",
-          "type": "u64"
-        },
-        {
-          "name": "slug",
-          "type": "string"
-        },
-        {
-          "name": "streamId",
-          "type": "string"
-        }
-      ]
+      ],
     },
     {
-      "name": "proposalSetState",
-      "accounts": [
+      name: 'daoSetQuorum',
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'authority',
+          isMut: false,
+          isSigner: true,
         },
-        {
-          "name": "signer",
-          "isMut": true,
-          "isSigner": true
-        }
       ],
-      "args": [
+      args: [
         {
-          "name": "state",
-          "type": "string"
-        }
-      ]
+          name: 'quorum',
+          type: 'u64',
+        },
+      ],
     },
     {
-      "name": "guideTipping",
-      "accounts": [
+      name: 'daoVaultClose',
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoVault',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "creator",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "reviewer2",
-          "isMut": true,
-          "isSigner": false
+          name: 'mint',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "reviewer1",
-          "isMut": true,
-          "isSigner": false
+          name: 'superAdmin',
+          isMut: true,
+          isSigner: true,
         },
         {
-          "name": "signer",
-          "isMut": true,
-          "isSigner": true
+          name: 'superAdminTokenAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
       ],
-      "args": [
+      args: [
         {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
+          name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'amount',
+          type: 'u64',
+        },
+        {
+          name: 'freeze',
+          type: 'bool',
+        },
+      ],
     },
     {
-      "name": "proposalClose",
-      "accounts": [
+      name: 'daoVaultInitialize',
+      accounts: [
         {
-          "name": "proposal",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoVault',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'mint',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "daoVault",
-          "isMut": true,
-          "isSigner": false
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "creator",
-          "isMut": true,
-          "isSigner": true
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "userTokenAccount",
-          "isMut": true,
-          "isSigner": false
+          name: 'payer',
+          isMut: true,
+          isSigner: true,
         },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
       ],
-      "args": [
-        {
-          "name": "bump",
-          "type": "u8"
-        }
-      ]
+      args: [],
     },
     {
-      "name": "voteCast",
-      "accounts": [
+      name: 'guideTipping',
+      accounts: [
         {
-          "name": "vote",
-          "isMut": true,
-          "isSigner": false
+          name: 'tipperAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposal',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "tutorial",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          name: 'creator',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'reviewer2',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          name: 'reviewer1',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "author",
-          "isMut": true,
-          "isSigner": true
-        }
+          name: 'signer',
+          isMut: true,
+          isSigner: true,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'creatorTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer1TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer2TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tipperTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
       ],
-      "args": [
+      args: [
         {
-          "name": "bump",
-          "type": "u8"
+          name: 'bump',
+          type: 'u8',
         },
         {
-          "name": "tutorialId",
-          "type": "u64"
-        }
-      ]
+          name: 'amount',
+          type: 'u64',
+        },
+        {
+          name: 'bumpVault',
+          type: 'u8',
+        },
+        {
+          name: 'bumpBdr',
+          type: 'u8',
+        },
+      ],
     },
     {
-      "name": "voteCancel",
-      "accounts": [
+      name: 'proposalClose',
+      accounts: [
         {
-          "name": "vote",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "tutorial",
-          "isMut": true,
-          "isSigner": false
+          name: 'creator',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoVault',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "author",
-          "isMut": true,
-          "isSigner": true
-        }
+          name: 'mint',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+        {
+          name: 'userTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
       ],
-      "args": []
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+      ],
     },
     {
-      "name": "reviewerCreate",
-      "accounts": [
+      name: 'proposalCreate',
+      accounts: [
         {
-          "name": "reviewerAccount",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoVault',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          name: 'mint',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "authority",
-          "isMut": true,
-          "isSigner": true
-        }
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'payer',
+          isMut: true,
+          isSigner: true,
+        },
+        {
+          name: 'userTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
       ],
-      "args": [
+      args: [
         {
-          "name": "bump",
-          "type": "u8"
+          name: 'bump',
+          type: 'u8',
         },
         {
-          "name": "reviewer",
-          "type": "publicKey"
+          name: 'slug',
+          type: 'string',
         },
         {
-          "name": "githubName",
-          "type": "string"
-        }
-      ]
+          name: 'streamId',
+          type: 'string',
+        },
+      ],
     },
     {
-      "name": "reviewerDelete",
-      "accounts": [
+      name: 'proposalPublish',
+      accounts: [
         {
-          "name": "reviewerAccount",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "authority",
-          "isMut": true,
-          "isSigner": true
-        }
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+        {
+          name: 'userTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
       ],
-      "args": []
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+      ],
     },
     {
-      "name": "reviewerAssign",
-      "accounts": [
+      name: 'proposalSetState',
+      accounts: [
         {
-          "name": "reviewer1",
-          "isMut": true,
-          "isSigner": false
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
         },
         {
-          "name": "reviewer2",
-          "isMut": true,
-          "isSigner": false
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
         },
         {
-          "name": "daoConfig",
-          "isMut": false,
-          "isSigner": false
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
         },
-        {
-          "name": "tutorial",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "authority",
-          "isMut": true,
-          "isSigner": true
-        }
       ],
-      "args": []
-    }
+      args: [
+        {
+          name: 'state',
+          type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'proposalSetCreator',
+      accounts: [
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'creator',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'creatorTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'superAdmin',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+      ],
+    },
+    {
+      name: 'reviewerAssign',
+      accounts: [
+        {
+          name: 'reviewer1',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer2',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'prevReviewer1',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'prevReviewer2',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'force',
+          type: 'bool',
+        },
+      ],
+    },
+    {
+      name: 'reviewerCreate',
+      accounts: [
+        {
+          name: 'reviewerAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'reviewer',
+          type: 'publicKey',
+        },
+        {
+          name: 'githubName',
+          type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'reviewerDelete',
+      accounts: [
+        {
+          name: 'reviewerAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'force',
+          type: 'bool',
+        },
+      ],
+    },
+    {
+      name: 'tipperClose',
+      accounts: [
+        {
+          name: 'tipperAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'tipper',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [],
+    },
+    {
+      name: 'voteCancel',
+      accounts: [
+        {
+          name: 'voteAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'author',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [],
+    },
+    {
+      name: 'voteCast',
+      accounts: [
+        {
+          name: 'voteAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'proposalAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'systemProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'rent',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'author',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'tutorialId',
+          type: 'u64',
+        },
+      ],
+    },
   ],
-  "accounts": [
+  accounts: [
     {
-      "name": "daoAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'daoAccount',
+      type: {
+        kind: 'struct',
+        fields: [
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'bump',
+            type: 'u8',
           },
           {
-            "name": "numberOfTutorial",
-            "type": "u64"
+            name: 'nonce',
+            type: 'u64',
           },
           {
-            "name": "mint",
-            "type": "publicKey"
+            name: 'numberOfProposal',
+            type: 'u64',
           },
           {
-            "name": "quorum",
-            "type": "u64"
+            name: 'quorum',
+            type: 'u64',
           },
           {
-            "name": "minAmountToCreateProposal",
-            "type": "u64"
+            name: 'minAmountToCreateProposal',
+            type: 'u64',
           },
           {
-            "name": "admins",
-            "type": {
-              "vec": "publicKey"
-            }
-          }
-        ]
-      }
+            name: 'superAdmin',
+            type: 'publicKey',
+          },
+          {
+            name: 'admins',
+            type: {
+              vec: 'publicKey',
+            },
+          },
+        ],
+      },
     },
     {
-      "name": "proposalAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'proposalAccount',
+      type: {
+        kind: 'struct',
+        fields: [
           {
-            "name": "id",
-            "type": "u64"
+            name: 'bump',
+            type: 'u8',
           },
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'id',
+            type: 'u64',
           },
           {
-            "name": "creator",
-            "type": "publicKey"
+            name: 'creator',
+            type: 'publicKey',
           },
           {
-            "name": "reviewer1",
-            "type": "publicKey"
+            name: 'reviewer1',
+            type: 'publicKey',
           },
           {
-            "name": "reviewer2",
-            "type": "publicKey"
+            name: 'reviewer2',
+            type: 'publicKey',
           },
           {
-            "name": "numberOfVoter",
-            "type": "u64"
+            name: 'numberOfVoter',
+            type: 'u64',
           },
           {
-            "name": "createdAt",
-            "type": "i64"
+            name: 'createdAt',
+            type: 'i64',
           },
           {
-            "name": "state",
-            "type": {
-              "defined": "ProposalState"
-            }
+            name: 'tippedAmount',
+            type: 'u64',
           },
           {
-            "name": "slug",
-            "type": "string"
+            name: 'tipperCount',
+            type: 'u64',
           },
           {
-            "name": "streamId",
-            "type": "string"
-          }
-        ]
-      }
+            name: 'state',
+            type: {
+              defined: 'ProposalState',
+            },
+          },
+          {
+            name: 'streamId',
+            type: 'string',
+          },
+          {
+            name: 'slug',
+            type: 'string',
+          },
+        ],
+      },
     },
     {
-      "name": "reviewerAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'reviewerAccount',
+      type: {
+        kind: 'struct',
+        fields: [
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'bump',
+            type: 'u8',
           },
           {
-            "name": "pubkey",
-            "type": "publicKey"
+            name: 'pubkey',
+            type: 'publicKey',
           },
           {
-            "name": "numberOfAssignment",
-            "type": "u8"
+            name: 'numberOfAssignment',
+            type: 'u8',
           },
           {
-            "name": "githubName",
-            "type": "string"
-          }
-        ]
-      }
+            name: 'githubName',
+            type: 'string',
+          },
+        ],
+      },
     },
     {
-      "name": "voteAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
+      name: 'tipperAccount',
+      type: {
+        kind: 'struct',
+        fields: [
           {
-            "name": "bump",
-            "type": "u8"
+            name: 'bump',
+            type: 'u8',
           },
           {
-            "name": "tutorialId",
-            "type": "u64"
+            name: 'tutorialId',
+            type: 'u64',
           },
           {
-            "name": "author",
-            "type": "publicKey"
+            name: 'pubkey',
+            type: 'publicKey',
           },
           {
-            "name": "votedAt",
-            "type": "i64"
-          }
-        ]
-      }
-    }
+            name: 'amount',
+            type: 'u64',
+          },
+        ],
+      },
+    },
+    {
+      name: 'voteAccount',
+      type: {
+        kind: 'struct',
+        fields: [
+          {
+            name: 'bump',
+            type: 'u8',
+          },
+          {
+            name: 'id',
+            type: 'u64',
+          },
+          {
+            name: 'author',
+            type: 'publicKey',
+          },
+          {
+            name: 'votedAt',
+            type: 'i64',
+          },
+        ],
+      },
+    },
   ],
-  "types": [
+  types: [
     {
-      "name": "ProposalState",
-      "type": {
-        "kind": "enum",
-        "variants": [
+      name: 'ProposalState',
+      type: {
+        kind: 'enum',
+        variants: [
           {
-            "name": "Submitted"
+            name: 'Submitted',
           },
           {
-            "name": "Funded"
+            name: 'Funded',
           },
           {
-            "name": "Writing"
+            name: 'Writing',
           },
           {
-            "name": "HasReviewers"
+            name: 'ReadyToPublish',
           },
           {
-            "name": "ReadyToPublish"
+            name: 'Published',
           },
-          {
-            "name": "Published"
-          }
-        ]
-      }
-    }
+        ],
+      },
+    },
   ],
-  "errors": [
+  errors: [
     {
-      "code": 6000,
-      "name": "InsufficientFundsInVault",
-      "msg": "Error: Insufficient funds in vault"
+      code: 6000,
+      name: 'InsufficientFundsInVault',
+      msg: 'Error: Insufficient funds in vault',
     },
     {
-      "code": 6001,
-      "name": "SlugTooLong",
-      "msg": "Error: Given slug is too long"
+      code: 6001,
+      name: 'SlugTooLong',
+      msg: 'Error: Given slug is too long',
     },
     {
-      "code": 6002,
-      "name": "StreamIdTooLong",
-      "msg": "Error: Given streamId is too long"
+      code: 6002,
+      name: 'StreamIdSizeMissmatch',
+      msg: "Error: Given streamId doesn't fit the expected size",
     },
     {
-      "code": 6003,
-      "name": "AlreadyVoter",
-      "msg": "Error: User has already voted"
+      code: 6003,
+      name: 'AlreadyVoter',
+      msg: 'Error: User has already voted',
     },
     {
-      "code": 6004,
-      "name": "CannotCastVoteAnymore",
-      "msg": "Error: You cannot cast a vote anymore"
+      code: 6004,
+      name: 'CannotCastVoteAnymore',
+      msg: 'Error: You cannot cast a vote anymore',
     },
     {
-      "code": 6005,
-      "name": "CannotCancelVotelAnymore",
-      "msg": "Error: You cannot cancel a vote anymore"
+      code: 6005,
+      name: 'CannotCancelVoteAnymore',
+      msg: 'Error: You cannot cancel a vote anymore',
     },
     {
-      "code": 6006,
-      "name": "CannotDeleteAnAssignedReviewer",
-      "msg": "Error: You cannot delete an assigned reviewer"
+      code: 6006,
+      name: 'CannotDeleteAnAssignedReviewer',
+      msg: 'Error: You cannot delete an assigned reviewer',
     },
     {
-      "code": 6007,
-      "name": "ReviewerNeedToBeDifferents",
-      "msg": "Error: You cannot assigned: same reviewer"
+      code: 6007,
+      name: 'ReviewerNeedToBeDifferents',
+      msg: 'Error: You cannot assigned: same reviewer',
     },
     {
-      "code": 6008,
-      "name": "CannotCloseProposalRemainingVoter",
-      "msg": "Error: Remaining Voter Cannot Close proposal"
+      code: 6008,
+      name: 'CannotCloseProposalRemainingVoter',
+      msg: 'Error: Remaining Voter Cannot Close proposal',
     },
     {
-      "code": 6009,
-      "name": "UnauthorizeAccess",
-      "msg": "Error: Not authorize to call the instruction"
+      code: 6009,
+      name: 'UnauthorizedAccess',
+      msg: 'Error: Not authorize to call the instruction',
     },
     {
-      "code": 6010,
-      "name": "InvalidState",
-      "msg": "Error: Cannot setState: Invalid State"
+      code: 6010,
+      name: 'InvalidState',
+      msg: 'Error: Cannot setState: Invalid State',
     },
     {
-      "code": 6011,
-      "name": "BadPreviousState",
-      "msg": "Error: Cannot setState: bad previous state"
-    }
-  ]
+      code: 6011,
+      name: 'BadPreviousState',
+      msg: 'Error: Cannot setState: bad previous state',
+    },
+    {
+      code: 6012,
+      name: 'ActionOnlyPossibleForDefaultReviewer',
+      msg: 'Error: Cannot set creator: constraint on current creator not reach ',
+    },
+    {
+      code: 6013,
+      name: 'NotEnoughSolError',
+      msg: 'Error: Cannot tip: not enough SOL',
+    },
+    {
+      code: 6014,
+      name: 'CreatorCannotBeAReviewer',
+      msg: 'Error: Assign Reviewer: Creator Cannot be reviewer',
+    },
+  ],
 };

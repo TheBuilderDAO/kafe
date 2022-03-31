@@ -14,15 +14,6 @@ export type DaoVaultAccountBalanceT = {
   decimals: number;
 };
 
-export enum ProposalStateE {
-  Submitted = 'submitted',
-  Funded = 'funded',
-  Writing = 'writing',
-  HasReviewers = 'hasReviewer',
-  ReadyToPublish = 'readyToPublish',
-  Published = 'published',
-}
-
 export interface ProposalAccountT {
   id: anchor.BN;
   bump: number;

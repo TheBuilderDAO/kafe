@@ -1,7 +1,10 @@
 {
   "pipeline": {
+    "prebuild:content": {
+      "cache": false
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["prebuild:content", "^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "build:localnet": {
@@ -10,6 +13,10 @@
     },
     "lint": {
       "outputs": []
+    },
+    "link": {
+      "dependsOn": ["build"],
+      "cache": false
     },
     "dev": {
       "cache": false
@@ -25,6 +32,9 @@
     "clean": {
       "cache": false
     },
-    "prepublish": {}
+    "builderdao": {},
+    "content:prepublish": {},
+    "content:publish": {},
+    "content:index": {}
   }
 }

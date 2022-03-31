@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/near-stake-monetize-near-smart-contracts",
+  "version": "1.0.0",
+  "description": "Learn how to design, build, and monetize smart contracts on the NEAR blockchain",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Near",
+    "JS/TS",
+    "Rust",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,44 @@
+{
+  "proposalId": 111,
+  "slug": "polkadot-how-to-experiment-with-election-phragmen-pallet",
+  "authors": [
+    {
+      "name": "Kelvin Welter",
+      "avatarUrl": "https://github.com/kelvinwelter.png",
+      "url": "https://github.com/kelvinwelter",
+      "nickname": "kelvinwelter"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview-1.png": {
+      "name": "polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview-1.png",
+      "path": "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-election-component-preview-1.png",
+      "digest": "f7b86a2d585cc502b03ec5895c9b586cbc6b32394c70ee6a2426c350834a5be6"
+    },
+    "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png": {
+      "name": "polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png",
+      "path": "content/assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png",
+      "digest": "36f8eb1c205cc5102fcf3cb940b9b8316e9c7ac8d24725336309287e12e25d43"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "484923731a5d9f8a6c3d667c2ec6ca9b89beaf2c990352489e06bf5c3d6c9418",
+      "arweaveHash": "u_HJLtMAXIZFru3CnPs9lBInya3to79kC_jnfUosALw"
+    }
+  },
+  "href": "learn/polkadot-how-to-experiment-with-election-phragmen-pallet",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

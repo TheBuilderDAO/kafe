@@ -14,24 +14,22 @@ import { getPda } from '../pda';
  */
 export const daoAddAdmin = async ({
   program,
-  mintPk,
   userPk,
   adminPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   userPk: anchor.web3.PublicKey;
   adminPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount } = getPda(program.programId, mintPk);
+  const { pdaDaoAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
 
   const signature = await program.rpc.daoAddAdmin(userPk, {
     accounts: {
-      daoConfig: daoAccount.pda,
-      signer: adminPk,
+      daoAccount: daoAccount.pda,
+      authority: adminPk,
     },
     ...(signer && { signers: [signer] }),
   });

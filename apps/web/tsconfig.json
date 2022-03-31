@@ -3,11 +3,18 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-        "@app/components/*": ["components/*"],
-        "@app/lib/*": ["lib/*"],
-        "@app/types/*": ["types/*"]
-    },
+      "@app/components/*": ["components/*"],
+      "@app/lib/*": ["lib/*"],
+      "@app/types/*": ["types/*"],
+      "@app/constants": ["constants.ts"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/ui/src/ThemeSwitch.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../../packages/ui/src/ThemeSwitch.tsx",
+    "scripts/content.js"
+  ],
   "exclude": ["node_modules"]
 }

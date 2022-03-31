@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as anchor from '@project-serum/anchor';
 import {
   TutorialProgramClient,
@@ -21,5 +22,9 @@ export const getClient = ({
   );
   const wallet = new anchor.Wallet(payer);
 
-  return new TutorialProgramClient(connection, wallet, kafePk);
+  return new TutorialProgramClient(
+    connection,
+    wallet,
+    new anchor.web3.PublicKey('KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW'),
+  );
 };

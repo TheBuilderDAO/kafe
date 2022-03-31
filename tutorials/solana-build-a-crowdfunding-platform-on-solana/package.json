@@ -1,0 +1,27 @@
+{
+  "name": "@builderdao-learn/solana-build-a-crowdfunding-platform-on-solana",
+  "version": "1.0.0",
+  "description": "Learn how to create and deploy a Crowdfunding dApp on Solana",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Solana",
+    "JS/TS",
+    "Rust",
+    "React",
+    "Javascript",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

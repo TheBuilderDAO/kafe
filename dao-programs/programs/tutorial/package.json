@@ -9,35 +9,26 @@
     "require": "./dist/index.cjs",
     "import": "./dist/index.js"
   },
+  "module": "./dist/index.js",
   "type": "module",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "prebuild:localnet": "anchor build && anchor deploy",
-    "build:localnet": "dao-sdk-utils postBuild tutorial localnet",
-    "postbuild:localnet": "yarn build",
-    "prebuild:devnet": "anchor build && anchor deploy",
-    "build:devnet": "dao-sdk-utils postBuild tutorial devnet",
-    "postbuild:devnet": "yarn build",
-    "prebuild:mainet": "anchor build && anchor deploy",
-    "build:mainnet": "dao-sdk-utils postBuild tutorial mainnet",
-    "postbuild:testnet": "yarn build",
-    "prebuild:testnet": "anchor build && anchor deploy",
-    "build:testnet": "dao-sdk-utils postBuild tutorial testnet",
+    "idl:copy": "cp -fv ../../target/types/tutorial.ts ts-sdk/lib/idl && cp -fv ../../target/idl/tutorial.json ts-sdk/lib/idl",
     "build": "tsup ts-sdk/index.ts --format esm,cjs --dts --external react ",
     "dev": "yarn build --watch",
     "lint": "TIMING=1 eslint ts-sdk --fix",
     "clean": "rm -rf node_modules && rm -rf dist",
-    "test:program": "jest --coverage --forceExit --detectOpenHandles --silent"
+    "test:program": "jest --coverage --forceExit"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@project-serum/anchor": "^0.20.1",
+    "@project-serum/anchor": "^0.23.0",
     "@solana/buffer-layout": "^4.0.0",
-    "@solana/spl-token": "^0.1.8",
+    "@solana/spl-token": "^0.2.0",
     "@solana/wallet-adapter-base": "^0.9.3",
     "@solana/wallet-adapter-react": "^0.15.3",
     "@solana/web3.js": "^1.32.0",
@@ -50,7 +41,6 @@
   },
   "devDependencies": {
     "@builderdao/config": "*",
-    "@builderdao/dao-utils": "*",
     "@builderdao/tsconfig": "*",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react-hooks": "^7.0.2",

@@ -1,0 +1,49 @@
+{
+  "proposalId": 113,
+  "slug": "near-stake-fungible-token-testing",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-stake-fungible-token-testing-image-2.png": {
+      "name": "near-stake-fungible-token-testing-image-2.png",
+      "path": "content/assets/near-stake-fungible-token-testing-image-2.png",
+      "digest": "3b40f0b138062d9ff1a5f3411aa050324096337209ac34cd7e21bcd8e043ed4b"
+    },
+    "content/assets/near-stake-fungible-token-testing-image-1.png": {
+      "name": "near-stake-fungible-token-testing-image-1.png",
+      "path": "content/assets/near-stake-fungible-token-testing-image-1.png",
+      "digest": "2e639765de8370ccc4b625c65b587c7267f92fd5a3c063bd049ce500974ce119"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "df8f6815bd842ecdbf736aae8d0fcc2457f2be9636b4dbee0c3dd72156c9b4db",
+      "arweaveHash": "Qj8Trs4frUcE_Dmu3v628-aozw_2wt5EeayEOXDaJR4"
+    },
+    "content/assets/near-stake-fungible-token-testing-image-3.png": {
+      "name": "near-stake-fungible-token-testing-image-3.png",
+      "path": "content/assets/near-stake-fungible-token-testing-image-3.png",
+      "digest": "baf5b697cf68e4817dcede617fb2448d323c2a1209a9dad4c528893e0d4bec90"
+    }
+  },
+  "href": "learn/near-stake-fungible-token-testing",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

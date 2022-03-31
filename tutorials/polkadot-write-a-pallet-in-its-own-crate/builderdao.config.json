@@ -1,0 +1,6 @@
+{
+  "title": "Write a Pallet in its Own Crate",
+  "description": "Learn how to write a Substrate pallet that lives in its own crate, and include it in a node based on the substrate-node-template",
+  "imageUrl": "",
+  "categories": ["Polkadot", "Rust", "AssemblyScript"]
+}

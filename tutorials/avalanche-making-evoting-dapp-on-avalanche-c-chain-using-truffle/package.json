@@ -1,0 +1,28 @@
+{
+  "name": "@builderdao-learn/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle",
+  "version": "1.0.0",
+  "description": "Learn how to use Truffle with the Avalanche C-Chain",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Avalanche",
+    "JS/TS",
+    "Solidity",
+    "NodeJS",
+    "Truffle",
+    "Solidity",
+    "Metamask"
+  ],
+  "author": "",
+  "license": "ISC"
+}

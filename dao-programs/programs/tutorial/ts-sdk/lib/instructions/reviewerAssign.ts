@@ -1,5 +1,6 @@
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
+import { proposalAccountById } from '../fetchers';
 
 import { Tutorial } from '../idl/tutorial';
 import { getPda } from '../pda';
@@ -16,36 +17,41 @@ import { getPda } from '../pda';
  */
 export const reviewerAssign = async ({
   program,
-  mintPk,
   reviewer1Pk,
   reviewer2Pk,
-  tutorialId,
+  proposalId,
   adminPk,
+  force,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   reviewer1Pk: anchor.web3.PublicKey;
   reviewer2Pk: anchor.web3.PublicKey;
-  tutorialId: number;
+  proposalId: number;
   adminPk: anchor.web3.PublicKey;
+  force?: boolean;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaReviewerAccount, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaReviewerAccount, pdaProposalById } = getPda(
     program.programId,
-    mintPk,
   );
   const daoAccount = await pdaDaoAccount();
-  const tutorialAccount = await pdaTutorialById(tutorialId);
+  const tutorialAccount = await pdaProposalById(proposalId);
   const reviewerAccount1 = await pdaReviewerAccount(reviewer1Pk);
   const reviewerAccount2 = await pdaReviewerAccount(reviewer2Pk);
+  const { reviewer1: prevReviewer1_0, reviewer2: prevReviewer2_0 } =
+    await proposalAccountById(program, pdaProposalById, proposalId);
+  const prevReviewer1 = await pdaReviewerAccount(prevReviewer2_0);
+  const prevReviewer2 = await pdaReviewerAccount(prevReviewer1_0);
 
-  const signature = await program.rpc.reviewerAssign({
+  const signature = await program.rpc.reviewerAssign(!!force, {
     accounts: {
       reviewer1: reviewerAccount1.pda,
       reviewer2: reviewerAccount2.pda,
-      daoConfig: daoAccount.pda,
-      tutorial: tutorialAccount.pda,
+      prevReviewer1: prevReviewer1.pda,
+      prevReviewer2: prevReviewer2.pda,
+      daoAccount: daoAccount.pda,
+      proposalAccount: tutorialAccount.pda,
       authority: adminPk,
     },
     ...(signer && { signers: [signer] }),

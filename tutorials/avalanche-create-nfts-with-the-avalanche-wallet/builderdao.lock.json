@@ -1,0 +1,89 @@
+{
+  "proposalId": 99,
+  "slug": "avalanche-create-nfts-with-the-avalanche-wallet",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-1.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-1.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-1.png",
+      "digest": "97d3683ed62cea80341f7663acb8a32a32544f5ada183e355614b6998b7e7802"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-10.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-10.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-10.png",
+      "digest": "d6f9b361cb71d841ed231a5a2ddd86ca7fbdc6f7acdb26b59be1f709f2319f98"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-2.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-2.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-2.png",
+      "digest": "54c1e2af0f30f148177ecbb86782fe93e71f6a0d4c7d0f5eb8aae292747f6601"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-11.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-11.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-11.png",
+      "digest": "2cdcc5d09ec3b621070069545587fb9816b6ca68704588940ccedb9278dfc90d"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-3.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-3.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-3.png",
+      "digest": "a9a6432e0a0793576637810eb8d4a36d33010b2f09a7b37d6765c5bfbabdb632"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-4.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-4.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-4.png",
+      "digest": "c2758781d1db9ba591f6ca02cadd23ef47bb3721acb15a5e2ec1d89223dc924d"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-6.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-6.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-6.png",
+      "digest": "87a2484c05a515018ef435958341c3eccf3e8595c5eb88242fd73d387eab684e"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-5.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-5.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-5.png",
+      "digest": "81454233965eb6684bb02d1b8a0bdcd4fa75b1854fe0af702916f7155ca9ece2"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-8.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-8.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-8.png",
+      "digest": "22a9fc1b4f23f3212ccdc9cfb4578854da03745ffb746823706cd8a1818cf907"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-7.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-7.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-7.png",
+      "digest": "24b68851342aba764917835a17f56133eb692875ea9c0a49dcbccafd0e64aab7"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "2bef1d4829cc9359c21ac2887c3a4d11e7a057dff49c9e5d3a757843fdebea5c",
+      "arweaveHash": "w3b0s34p2gDu2xt2kCH3OLgT4cpT9XYU_TpmyotLVUc"
+    },
+    "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-9.png": {
+      "name": "avalanche-create-nfts-with-the-avalanche-wallet-image-9.png",
+      "path": "content/assets/avalanche-create-nfts-with-the-avalanche-wallet-image-9.png",
+      "digest": "4e5cde9090e911dad872a4fe2c738ef89e8a0c0df002c7e7615c2ae666d80be1"
+    }
+  },
+  "href": "learn/avalanche-create-nfts-with-the-avalanche-wallet",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

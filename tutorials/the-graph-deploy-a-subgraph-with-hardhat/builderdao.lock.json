@@ -1,0 +1,74 @@
+{
+  "proposalId": 26,
+  "slug": "the-graph-deploy-a-subgraph-with-hardhat",
+  "authors": [
+    {
+      "name": "Robin Thomas",
+      "avatarUrl": "https://github.com/robin-thomas.png",
+      "url": "https://github.com/robin-thomas",
+      "nickname": "robin-thomas"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/the-graph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png": {
+      "name": "the-graph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png": {
+      "name": "the-graph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png": {
+      "name": "the-graph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png",
+      "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "253fa967f57321d1238b83362e21d19fa1df8a3da48f69f4d0ee1ea94152a244",
+      "arweaveHash": "d-oHWuMpLYIrNNZHD0XOAQJSK8L-dIJFQ1oaGG8WuvQ"
+    },
+    "content/assets/the-graph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png": {
+      "name": "the-graph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png",
+      "path": "content/assets/the-graph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-login-to-subgraph-studio-2.png",
+      "digest": "d9cb3ce52f21a222d3de4d0d097ab7f38e76e879a47ce48482be5f8882b7a113"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-create-your-first-subgraph-3.png",
+      "digest": "2323159902e21c2510e0ef0c00ecb04ea39e93dcbe3a9e4c47a85cb7c1ea4482"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-dashboard-4.png",
+      "digest": "e456782f76e8ea6a9b644a3ab175d2ee14e499d17e91e686cd6de9c97fbcc8ad"
+    },
+    "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png": {
+      "name": "thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png",
+      "path": "content/assets/thegraph-deploy-a-subgraph-with-hardhat-subgraph-studio-1.png",
+      "digest": "a5a59e982102155cf4772cf423ac88d006a231604feead3784c44bb5960cd79a"
+    }
+  },
+  "href": "learn/the-graph-deploy-a-subgraph-with-hardhat",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

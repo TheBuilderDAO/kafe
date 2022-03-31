@@ -1,0 +1,6 @@
+{
+  "title": "Query NFT Data with OpenZeppelin Subgraphs",
+  "description": "Learn how to create, deploy and use a subgraph for an ERC-721 smart contract on Ethereum mainnet",
+  "imageUrl": "",
+  "categories": ["The Graph", "GraphQL", "Smart contracts", "GraphQL"]
+}

@@ -14,32 +14,31 @@ import { getPda } from '../pda';
  */
 export const voteCancel = async ({
   program,
-  mintPk,
-  tutorialId,
-  userPk,
+  proposalId,
+  voterPk,
+  authorPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
-  tutorialId: number;
-  userPk: anchor.web3.PublicKey;
+  proposalId: number;
+  authorPk: anchor.web3.PublicKey;
+  voterPk: anchor.web3.PublicKey;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaUserVoteAccountById, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaUserVoteAccountById, pdaProposalById } = getPda(
     program.programId,
-    mintPk,
   );
   const daoAccount = await pdaDaoAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
-  const voteAccount = await pdaUserVoteAccountById(userPk, tutorialId);
+  const proposalAccount = await pdaProposalById(proposalId);
+  const voteAccount = await pdaUserVoteAccountById(voterPk, proposalId);
 
   const signature = await program.rpc.voteCancel({
     accounts: {
-      vote: voteAccount.pda,
-      daoConfig: daoAccount.pda,
-      tutorial: proposalAccount.pda,
-      mint: mintPk,
-      author: userPk,
+      voteAccount: voteAccount.pda,
+      daoAccount: daoAccount.pda,
+      proposalAccount: proposalAccount.pda,
+      author: authorPk,
+      authority: voterPk,
     },
     ...(signer && { signers: [signer] }),
   });

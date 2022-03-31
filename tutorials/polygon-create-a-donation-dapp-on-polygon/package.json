@@ -1,0 +1,26 @@
+{
+  "name": "@builderdao-learn/polygon-create-a-donation-dapp-on-polygon",
+  "version": "1.0.0",
+  "description": "Learn how to create a donation dApp on Polygon to award your favorite content creator with MATIC tokens",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Polygon",
+    "JS/TS",
+    "Solidity",
+    "Javascript",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

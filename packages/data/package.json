@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao/data",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "source": "./src/index.ts",
+  "type": "module",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "dev": "yarn build --watch",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "lint": "TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "keywords": [],
+  "author": "@builderdao",
+  "license": "ISC"
+}

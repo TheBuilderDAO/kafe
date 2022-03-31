@@ -1,5 +1,4 @@
 use anchor_lang::prelude::*;
-use anchor_spl::token::{Mint};
 
 use crate::errors::*;
 use crate::state::*;
@@ -7,25 +6,32 @@ use crate::state::*;
 #[derive(Accounts)]
 pub struct VoteCancel<'info> {
   #[account(
-    mut,     
-    has_one = author,  
+    mut,
+    constraint =  
+      dao_account.admins.contains(&authority.key()) 
+      || authority.key() == vote_account.author
+      || authority.key() == dao_account.super_admin
+      @ ErrorDao::UnauthorizedAccess
+    ,
     close = author
   )]
-  pub vote: Account<'info, VoteAccount>,
-  pub dao_config: Account<'info, DaoAccount>,
+  pub vote_account: Account<'info, VoteAccount>,
+  pub dao_account: Account<'info, DaoAccount>,
   #[account(mut)]
-  pub tutorial: Account<'info, ProposalAccount>,
-  pub mint: Account<'info, Mint>,
+  pub proposal_account: Account<'info, ProposalAccount>,
   #[account(mut)]
-  pub author: Signer<'info>,
+  /// CHECK: we only add LAMPORT here
+  pub author: UncheckedAccount<'info>,
+  #[account(mut)]
+  pub authority: Signer<'info>,
 }
 
 pub fn handler(ctx: Context<VoteCancel>) -> Result<()> {
-  let quorum = ctx.accounts.dao_config.quorum;
-  if ctx.accounts.tutorial.number_of_voter >= quorum {
-    return Err(error!(ErrorDao::CannotCancelVotelAnymore));
+  let quorum = ctx.accounts.dao_account.quorum;
+  if ctx.accounts.proposal_account.number_of_voter >= quorum {
+    return Err(error!(ErrorDao::CannotCancelVoteAnymore));
   }
-  ctx.accounts.tutorial.number_of_voter -= 1;
+  ctx.accounts.proposal_account.number_of_voter -= 1;
 
   Ok(())
 }

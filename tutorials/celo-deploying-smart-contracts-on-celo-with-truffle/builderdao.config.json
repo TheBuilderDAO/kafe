@@ -1,0 +1,6 @@
+{
+  "title": "Deploying smart contracts on Celo with Truffle",
+  "description": "We will learn how to use Truffle and ContractKit to deploy smart contracts to Celo.",
+  "imageUrl": "",
+  "categories": ["Celo", "JS/TS", "NodeJS", "Smart contracts", "Truffle"]
+}

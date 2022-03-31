@@ -1,0 +1,27 @@
+{
+  "name": "@builderdao-learn/celo-crowd-funding-project",
+  "version": "1.0.0",
+  "description": "Learn how to create a Smart Contract which facilitates crowdfunding.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "Smart contracts",
+    "Truffle",
+    "Solidity"
+  ],
+  "author": "",
+  "license": "ISC"
+}

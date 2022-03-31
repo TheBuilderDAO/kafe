@@ -1,0 +1,6 @@
+{
+  "title": "Deploy Pangolin To Your Local Testnet And Create Token Pair",
+  "description": "We will learn how to deploy Pangolin, a DEX which lives on C-Chain, to your local Avalanche testnet.",
+  "imageUrl": "",
+  "categories": ["Avalanche", "Go", "JS/TS", "NodeJS"]
+}

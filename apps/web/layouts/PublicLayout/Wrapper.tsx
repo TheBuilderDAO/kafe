@@ -3,20 +3,16 @@ import tw from 'tailwind-styled-components';
 
 const Wrapper = ({ children }) => {
   const StyledDiv = tw.div`
-        bg-kafewhite
-        text-kafeblack
-        dark:bg-kafeblack 
-        dark:text-kafewhite
-        p-8
-        flex flex-col
-        min-h-screen
-        min-w-screen
+  pt-0
+  mx-auto
+  w-full
+  bg-kafewhite
+  dark:bg-kafeblack
+  relative
+  max-w-screen-xl
     `;
-  return (
-    <StyledDiv>
-      <div>{children}</div>
-    </StyledDiv>
-  );
+
+  return <StyledDiv>{children}</StyledDiv>;
 };
 
 export default Wrapper;

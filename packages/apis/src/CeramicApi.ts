@@ -11,23 +11,30 @@ export type TutorialMetadata = {
   difficulty: string;
   tags: string[];
   publishedUri?: string;
+  content: {[filename: string]: {
+    name: string;
+    path: string;
+    digest: string;
+  }};
 };
 
 export type ApiConfig = {
   nodeUrl: string;
-  seed?: string;
 };
 
 class CeramicApi {
   public authenticatedDid: string | undefined;
 
-  private readonly seed: string | undefined;
+  private seed: string | undefined;
 
   private readonly client: CeramicClient;
 
   constructor(config: ApiConfig) {
-    this.seed = config.seed;
     this.client = new CeramicClient(config.nodeUrl);
+  }
+
+  setSeed(seed: string) {
+    this.seed = seed;
   }
 
   private async ensureAppAuthenticated() {

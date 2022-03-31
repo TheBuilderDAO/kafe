@@ -7,14 +7,18 @@ import Tags from '@app/components/Tags/Tags';
 import { getApplicationFetcher } from '../../hooks/useDapp';
 import { unstable_serialize } from 'swr';
 import routes from '../../routes';
-import AssignReviewersForm from '@app/components/AssignReviewersForm/AssignReviewersForm';
-import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import { useGetTutorialBySlugWithMetadata } from 'services/ApplicationFetcher';
 import TutorialProposalVotes from '@app/components/TutorialProposalVotes/TutorialProposalVotes';
-import {useGetReviewer} from '@builderdao-sdk/dao-program'
+import { ProposalStateE, useGetReviewer } from '@builderdao-sdk/dao-program';
 import { PublicKey } from '@solana/web3.js';
-import { addEllipsis } from 'utils/strings';
-
+import { ZERO_ADDRESS } from '../../constants';
+import UserAvatar from '@app/components/UserAvatar/UserAvatar';
+import BorderSVG from '@app/components/SVG/BorderSVG';
+import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
+import Loader from '@app/components/Loader/Loader';
+import WriteOnGitHub from '@app/components/Admin/WriteOnGithub';
+import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
+import { formatUnix } from '@app/lib/utils/format-date';
 type PageProps = {
   tutorial: any;
 };
@@ -28,64 +32,47 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   return (
     <div>
       <Head>
-        <title>{tutorial.title}</title>
+        <title>Kafé by Builder DAO - Proposal for {tutorial.title}</title>
       </Head>
-
-      <main>
-        <div className="flex flex-row gap-10">
-          <div className="w-full overflow-hidden bg-white shadow sm:rounded-lg">
-            <div className="px-4 py-5 sm:px-6">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">
-                {tutorial.title}
-              </h3>
-              <p className="max-w-2xl mt-1 text-sm text-gray-500">
-                {tutorial.description}
+      <main className="flex flex-row mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40 text-xs justify-between">
+        <div className="max-w-3xl min-w-3xl grow relative z-10 mx-0 h-fit min-h-[300px] mt-12">
+          <BorderSVG />
+          <section className="p-8">
+            <div className="flex mb-8 items-center">
+              <p className="mr-2">Proposal by </p>{' '}
+              <UserAvatar address={tutorial.creator} />{' '}
+              <p className="text-sm dark:text-kafemellow text-kafeblack ml-8">
+                {' '}
+                {formatUnix(tutorial.createdAt)}
               </p>
             </div>
-            <div className="border-t border-gray-200">
-              <dl>
-                <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">Author</dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    {tutorial.creator}
-                  </dd>
-                </div>
-                <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">Tags</dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <Tags tags={tutorial.tags} />
-                  </dd>
-                </div>
-                <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    Difficulty
-                  </dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    {tutorial.difficulty}
-                  </dd>
-                </div>
-                <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    Created at
-                  </dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    {tutorial.createdAt}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-          <div className="w-100">
-            <div className="p-6 mb-6 bg-white shadow sm:rounded-lg">
-              <TutorialProposalVotes id={tutorial.id} />
-            </div>
-            <div className="p-6 bg-white shadow w-60 sm:rounded-lg">
-              <RenderReviewer  reviewerAccountPk={tutorial.reviewer1} />
-              <RenderReviewer  reviewerAccountPk={tutorial.reviewer2} />
-              <IsAdmin>
-                <AssignReviewersForm tutorial={tutorial} />
-              </IsAdmin>
-            </div>
+
+            <h1 className="text-5xl mb-4 font-larken tracking-wider leading-2">
+              {tutorial.title}
+            </h1>
+
+            <Tags tags={tutorial.tags} overrideLengthCheck={true} />
+            <p className="mt-4 line-clamp-4 leading-6 text-md">
+              {tutorial.description}
+            </p>
+          </section>
+        </div>
+        <div className="mx-0 sticky">
+          <div>
+            <RightSidebar>
+              <div className="p-6">
+                <TutorialProposalVotes
+                  id={tutorial.id}
+                  state={tutorial.state as ProposalStateE}
+                />
+              </div>
+            </RightSidebar>
+            <IsLoggedIn>
+              <WriteOnGitHub
+                tutorial={tutorial}
+                RenderReviewer={RenderReviewer}
+              />
+            </IsLoggedIn>
           </div>
         </div>
       </main>
@@ -93,18 +80,27 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
   );
 };
 
-const RenderReviewer = (props:{reviewerAccountPk: string}) => {
-  const {reviewerAccountPk} = props;
-  const {reviewer, loading, error} = useGetReviewer(new PublicKey(reviewerAccountPk))
+const RenderReviewer = (props: { pubkey: string; number: string }) => {
+  const { pubkey, number } = props;
+  const { reviewer, loading, error } = useGetReviewer(new PublicKey(pubkey));
+
   return (
-    <div className="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          {loading ? '...'
-          :addEllipsis(reviewer.pubkey.toString())} ({reviewer.githubName})
+    <div className="py-2  sm:grid sm:grid-cols-3 sm:gap-4">
+      <dd className="mt-1 text-sm sm:mt-0 sm:col-span-2">
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="-mx-2">
+            <UserAvatar
+              address={reviewer.githubName.toString()}
+              ellipsis={false}
+            />
+          </div>
+        )}
       </dd>
     </div>
-  )
-}
+  );
+};
 
 // TODO: Using getServerSideProps for now. Use getStaticPaths and getStaticProps
 export async function getServerSideProps(context) {

@@ -1,0 +1,6 @@
+{
+  "title": "Build a nameservice application",
+  "description": "Learn how to build a nameservice application with the Cosmos SDK",
+  "imageUrl": "",
+  "categories": ["Cosmos", "Go", "CLI"]
+}

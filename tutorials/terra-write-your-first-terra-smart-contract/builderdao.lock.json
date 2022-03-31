@@ -1,0 +1,34 @@
+{
+  "proposalId": 148,
+  "slug": "terra-write-your-first-terra-smart-contract",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "f3648ba8349f6e50c10a450c3d0d009d0d3ed360f007ae49ad6eb3a21204b66f",
+      "arweaveHash": "Ho2NKGmlMNc-E1qHOop_UGNIiGzKr8QgSRxIza1PTdo"
+    }
+  },
+  "href": "learn/terra-write-your-first-terra-smart-contract",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}
