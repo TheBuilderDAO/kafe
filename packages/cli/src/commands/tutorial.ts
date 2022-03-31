@@ -553,7 +553,7 @@ Notes:
           ui.log.write('🚧  Updating slugs folder...');
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
-          const defaults = await config.initial({
+          const defaults = await BuilderDaoConfig.initial({
             proposalId: proposal.id.toNumber(),
             slug: proposal.slug,
           });
