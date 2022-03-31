@@ -1,7 +1,14 @@
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { useCallback, useState } from 'react';
-import { ProposalStateE, useCastVote as solanaUseCastVote, useGetDaoState } from '@builderdao-sdk/dao-program'
+import {
+  ProposalStateE,
+  useCastVote as solanaUseCastVote,
+  useGetDaoState,
+} from '@builderdao-sdk/dao-program';
+import { trackEvent } from '../utils/analytics';
+import { EventType, VotedEventProps } from '../utils/analytics/types';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 type IndexVotesData = {
   id: number;
@@ -18,6 +25,7 @@ export const useCastVote = (
     error: Error;
   },
 ] => {
+  const wallet = useWallet();
   const { daoState } = useGetDaoState();
   const [castVote] = solanaUseCastVote();
   const [updateTutorialIndex] = useApiCall<IndexVotesData, any>(
@@ -39,7 +47,7 @@ export const useCastVote = (
         const partialIndexData: IndexVotesData = {
           id: tutorialId,
           numberOfVotes: newNumberOfVotes,
-        }
+        };
 
         if (newNumberOfVotes >= daoState.quorum.toNumber()) {
           partialIndexData.state = ProposalStateE.funded;
@@ -49,6 +57,10 @@ export const useCastVote = (
           data: partialIndexData,
         });
 
+        trackEvent<VotedEventProps>(EventType.VOTED, {
+          tutorialId,
+          publicKey: wallet.publicKey.toString(),
+        });
       } catch (err) {
         console.log('Err:', err);
         setError(err);
@@ -57,7 +69,7 @@ export const useCastVote = (
         setSubmitting(false);
       }
     },
-    [castVote, updateTutorialIndex, currentVotes.length],
+    [castVote, updateTutorialIndex, currentVotes.length, wallet.publicKey],
   );
 
   return [handleAction, { submitting, error }];

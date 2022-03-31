@@ -60,3 +60,5 @@ test-ledger
 dao-programs/migrations/secret.js
 
 packages/dao-utils
+
+.idea
