@@ -1,0 +1,13 @@
+{
+  "title": "How to write and deploy a smart contract in Rust",
+  "description": "In this tutorial, we are going to write and test a smart contract using Rust",
+  "imageUrl": "",
+  "categories": [
+    "Near",
+    "Rust",
+    "NodeJS",
+    "Smart contracts",
+    "AssemblyScript",
+    "CLI"
+  ]
+}

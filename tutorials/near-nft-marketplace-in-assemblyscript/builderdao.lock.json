@@ -1,0 +1,49 @@
+{
+  "proposalId": 131,
+  "slug": "near-nft-marketplace-in-assemblyscript",
+  "authors": [
+    {
+      "name": "Rahmat Albariqi",
+      "avatarUrl": "https://github.com/hdriqi.png",
+      "url": "https://github.com/hdriqi",
+      "nickname": "hdriqi"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-nft-marketplace-in-assemblyscript-image-1.png": {
+      "name": "near-nft-marketplace-in-assemblyscript-image-1.png",
+      "path": "content/assets/near-nft-marketplace-in-assemblyscript-image-1.png",
+      "digest": "25e63e347e47c6a09792c94f2b5aac887cdbe6a5d883478b43e568be09104b4a"
+    },
+    "content/assets/near-nft-marketplace-in-assemblyscript-image-2.png": {
+      "name": "near-nft-marketplace-in-assemblyscript-image-2.png",
+      "path": "content/assets/near-nft-marketplace-in-assemblyscript-image-2.png",
+      "digest": "bd84ab223aacc3173d7bb3c49d0cdecddd3b180b5937cfec8679613b698590ad"
+    },
+    "content/assets/near-nft-marketplace-in-assemblyscript-image-3.png": {
+      "name": "near-nft-marketplace-in-assemblyscript-image-3.png",
+      "path": "content/assets/near-nft-marketplace-in-assemblyscript-image-3.png",
+      "digest": "c2c059e81e9ea4a4da41b786b832e2eb70d1d035557cbd1da96b204c968362d5"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "48cb8786651fce6a1faa8d5ddaf910ca54ebff89c2307aa431622da44585bb01",
+      "arweaveHash": "uYHIgFdo7JdryJQyxYXkUQXOImJkFkDurjTAm-MnFNc"
+    }
+  },
+  "href": "learn/near-nft-marketplace-in-assemblyscript",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

@@ -1,0 +1,154 @@
+{
+  "proposalId": 64,
+  "slug": "the-graph-uniswap-latest-pair",
+  "authors": [
+    {
+      "name": "Eloise",
+      "avatarUrl": "",
+      "url": "https://eloise88.medium.com/",
+      "nickname": "https://eloise88.medium.com/"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/the-graph-uniswap-latest-pair-import-jso-ngs-11.png": {
+      "name": "the-graph-uniswap-latest-pair-import-jso-ngs-11.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-import-jso-ngs-11.png",
+      "digest": "159ac3469aced3344abeb875bccc1ebaca161dbe56fe152bc95601cedf1a2fa9"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-playground-4.png": {
+      "name": "the-graph-uniswap-latest-pair-playground-4.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-playground-4.png",
+      "digest": "a9894227ca0984a7ecdbda75e1bdffc556bcc7f68983cc9d88f17ca0f3717427"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-googlesheeteditor-9.png": {
+      "name": "the-graph-uniswap-latest-pair-googlesheeteditor-9.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-googlesheeteditor-9.png",
+      "digest": "5e2b096f795962ff442ced0c01175aba0a34db7507138cb603f07bcb59593944"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-playgroundconstraints-5.png": {
+      "name": "the-graph-uniswap-latest-pair-playgroundconstraints-5.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-playgroundconstraints-5.png",
+      "digest": "a15726a1becf3139be3bddca1e38ba73865a3bd83ac65238aee86c9d22a614fd"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-postmanclean-6.png": {
+      "name": "the-graph-uniswap-latest-pair-postmanclean-6.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-postmanclean-6.png",
+      "digest": "ba5850c2356d309d5b472012e6ab10d2abeef8ff68f7fab40c9577b2dd619b9f"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-postmanjavascript-8.png": {
+      "name": "the-graph-uniswap-latest-pair-postmanjavascript-8.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-postmanjavascript-8.png",
+      "digest": "584c25d392c8f199b8a244e0afee3a2f8ced4961f1e67c39b0021606a41eabd1"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-postmanquery-7.png": {
+      "name": "the-graph-uniswap-latest-pair-postmanquery-7.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-postmanquery-7.png",
+      "digest": "061b23459afc7cc45a175101043d948efbd7e12a8457f1125d8128a6af9d5454"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-uniswa-pv-3-subgraph-3.png": {
+      "name": "the-graph-uniswap-latest-pair-uniswa-pv-3-subgraph-3.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-uniswa-pv-3-subgraph-3.png",
+      "digest": "409225c632cddfbc3cf9809360cafbcb1631bff81582cc842c684fc804be3302"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-uniswap-12.png": {
+      "name": "the-graph-uniswap-latest-pair-uniswap-12.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-uniswap-12.png",
+      "digest": "c0cf25a07f0edec58849cb5ccd8a4ccb638ee4091a81a7bd374ff9b31644f853"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-uniswapexchange-2.png": {
+      "name": "the-graph-uniswap-latest-pair-uniswapexchange-2.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-uniswapexchange-2.png",
+      "digest": "5f0eba4e37ea60a559e5949486c5ac05691cb819d7a423b3403136f96f58cd2e"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-uniswap-1.png": {
+      "name": "the-graph-uniswap-latest-pair-uniswap-1.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-uniswap-1.png",
+      "digest": "cd435566134183482d966874a7986704fd76e4b3adfc4eae7696c1aa504e10d4"
+    },
+    "content/assets/the-graph-uniswap-latest-pair-uniswapgs-10.png": {
+      "name": "the-graph-uniswap-latest-pair-uniswapgs-10.png",
+      "path": "content/assets/the-graph-uniswap-latest-pair-uniswapgs-10.png",
+      "digest": "7715963e76afae3c3dd40da8512e2c2249fdbb66d09d5bcd48ffeb2e858d7098"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "4fa59218ca8e0bf0409db05b05bb2cf361f223721f0dd7d4bda38431205a20e0",
+      "arweaveHash": "NZeT72VurlSD9mhnDb_-PUlTQNlwzHVsk7P-SY14s60"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-import-jso-ngs-11.png": {
+      "name": "thegraph-uniswap-latest-pair-import-jso-ngs-11.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-import-jso-ngs-11.png",
+      "digest": "159ac3469aced3344abeb875bccc1ebaca161dbe56fe152bc95601cedf1a2fa9"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-playground-4.png": {
+      "name": "thegraph-uniswap-latest-pair-playground-4.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-playground-4.png",
+      "digest": "a9894227ca0984a7ecdbda75e1bdffc556bcc7f68983cc9d88f17ca0f3717427"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-googlesheeteditor-9.png": {
+      "name": "thegraph-uniswap-latest-pair-googlesheeteditor-9.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-googlesheeteditor-9.png",
+      "digest": "5e2b096f795962ff442ced0c01175aba0a34db7507138cb603f07bcb59593944"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-playgroundconstraints-5.png": {
+      "name": "thegraph-uniswap-latest-pair-playgroundconstraints-5.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-playgroundconstraints-5.png",
+      "digest": "a15726a1becf3139be3bddca1e38ba73865a3bd83ac65238aee86c9d22a614fd"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-postmanclean-6.png": {
+      "name": "thegraph-uniswap-latest-pair-postmanclean-6.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-postmanclean-6.png",
+      "digest": "ba5850c2356d309d5b472012e6ab10d2abeef8ff68f7fab40c9577b2dd619b9f"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-postmanjavascript-8.png": {
+      "name": "thegraph-uniswap-latest-pair-postmanjavascript-8.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-postmanjavascript-8.png",
+      "digest": "584c25d392c8f199b8a244e0afee3a2f8ced4961f1e67c39b0021606a41eabd1"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-postmanquery-7.png": {
+      "name": "thegraph-uniswap-latest-pair-postmanquery-7.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-postmanquery-7.png",
+      "digest": "061b23459afc7cc45a175101043d948efbd7e12a8457f1125d8128a6af9d5454"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-uniswa-pv-3-subgraph-3.png": {
+      "name": "thegraph-uniswap-latest-pair-uniswa-pv-3-subgraph-3.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-uniswa-pv-3-subgraph-3.png",
+      "digest": "409225c632cddfbc3cf9809360cafbcb1631bff81582cc842c684fc804be3302"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-uniswap-12.png": {
+      "name": "thegraph-uniswap-latest-pair-uniswap-12.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-uniswap-12.png",
+      "digest": "c0cf25a07f0edec58849cb5ccd8a4ccb638ee4091a81a7bd374ff9b31644f853"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-uniswapexchange-2.png": {
+      "name": "thegraph-uniswap-latest-pair-uniswapexchange-2.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-uniswapexchange-2.png",
+      "digest": "5f0eba4e37ea60a559e5949486c5ac05691cb819d7a423b3403136f96f58cd2e"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-uniswap-1.png": {
+      "name": "thegraph-uniswap-latest-pair-uniswap-1.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-uniswap-1.png",
+      "digest": "cd435566134183482d966874a7986704fd76e4b3adfc4eae7696c1aa504e10d4"
+    },
+    "content/assets/thegraph-uniswap-latest-pair-uniswapgs-10.png": {
+      "name": "thegraph-uniswap-latest-pair-uniswapgs-10.png",
+      "path": "content/assets/thegraph-uniswap-latest-pair-uniswapgs-10.png",
+      "digest": "7715963e76afae3c3dd40da8512e2c2249fdbb66d09d5bcd48ffeb2e858d7098"
+    }
+  },
+  "href": "learn/the-graph-uniswap-latest-pair",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

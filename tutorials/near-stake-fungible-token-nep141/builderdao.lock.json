@@ -1,0 +1,59 @@
+{
+  "proposalId": 124,
+  "slug": "near-stake-fungible-token-nep141",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-stake-fungible-token-nep141-image-1.png": {
+      "name": "near-stake-fungible-token-nep141-image-1.png",
+      "path": "content/assets/near-stake-fungible-token-nep141-image-1.png",
+      "digest": "2560cc1368709d5fcc500fd330998c70edb6babf9a35c6eecc3e9a3afc59fa36"
+    },
+    "content/assets/near-stake-fungible-token-nep141-image-2.png": {
+      "name": "near-stake-fungible-token-nep141-image-2.png",
+      "path": "content/assets/near-stake-fungible-token-nep141-image-2.png",
+      "digest": "52925c52dc6f2c57a77fa80e743696e19549455ccc630247c2db7ca9f90bc09e"
+    },
+    "content/assets/near-stake-fungible-token-nep141-image-4.png": {
+      "name": "near-stake-fungible-token-nep141-image-4.png",
+      "path": "content/assets/near-stake-fungible-token-nep141-image-4.png",
+      "digest": "3b40f0b138062d9ff1a5f3411aa050324096337209ac34cd7e21bcd8e043ed4b"
+    },
+    "content/assets/near-stake-fungible-token-nep141-image-3.png": {
+      "name": "near-stake-fungible-token-nep141-image-3.png",
+      "path": "content/assets/near-stake-fungible-token-nep141-image-3.png",
+      "digest": "f13b6bb99a60c2385ca186ffbb88602f90d727e2147a3b7050c814d972aa3f80"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "f2015cbb057509d7d4c447000dcf2dd6f36c6f1234712e85d3fbf9655675790f",
+      "arweaveHash": "UgGM-5fcwjQ1V-vh5r3X5SKoXHLS3MJfW7ZQDM-kjnQ"
+    },
+    "content/assets/near-stake-fungible-token-nep141-image-5.png": {
+      "name": "near-stake-fungible-token-nep141-image-5.png",
+      "path": "content/assets/near-stake-fungible-token-nep141-image-5.png",
+      "digest": "2e639765de8370ccc4b625c65b587c7267f92fd5a3c063bd049ce500974ce119"
+    }
+  },
+  "href": "learn/near-stake-fungible-token-nep141",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

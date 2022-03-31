@@ -1,0 +1,49 @@
+{
+  "proposalId": 52,
+  "slug": "avalanche-create-a-decentralized-exchange-on-avalanche",
+  "authors": [
+    {
+      "name": "Devendra Yadav",
+      "avatarUrl": "https://github.com/Devilla.png",
+      "url": "https://github.com/Devilla",
+      "nickname": "Devilla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-1.png": {
+      "name": "avalanche-create-a-decentralized-exchange-on-avalanche-image-1.png",
+      "path": "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-2.png": {
+      "name": "avalanche-create-a-decentralized-exchange-on-avalanche-image-2.png",
+      "path": "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png": {
+      "name": "avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png",
+      "path": "content/assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "810b29dea5f1e8c49e5bd18287fca22abdfc1e2581296bfb8cb0d0d3fac0a999",
+      "arweaveHash": "wA2tut4YfcbL4Q030HxTEHg-uXaXTgfKu26GYMlD_5I"
+    }
+  },
+  "href": "learn/avalanche-create-a-decentralized-exchange-on-avalanche",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

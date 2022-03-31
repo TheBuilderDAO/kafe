@@ -1,0 +1,44 @@
+{
+  "proposalId": 66,
+  "slug": "near-stake-account-storage",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-stake-account-storage-image-1.png": {
+      "name": "near-stake-account-storage-image-1.png",
+      "path": "content/assets/near-stake-account-storage-image-1.png",
+      "digest": "c38838774a5cfd9b17d108eecbba896c2078bfd34613cd5a3e5d2fcdef7c07cc"
+    },
+    "content/assets/near-stake-account-storage-image-2.png": {
+      "name": "near-stake-account-storage-image-2.png",
+      "path": "content/assets/near-stake-account-storage-image-2.png",
+      "digest": "b9d58ef22cd6ae5df8674feeeca2adbdf5f44ee11b86096af1f41a33ddb6a734"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "24c1472e2cb8e7c30f33d5a0b159fb014ff1039349bdfbb8b3563de6aac2abd7",
+      "arweaveHash": "8JAA3QVt-Xwee6fXIzTYlCqPvDPPYl66_CbUnRB1_mA"
+    }
+  },
+  "href": "learn/near-stake-account-storage",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

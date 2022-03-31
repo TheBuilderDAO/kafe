@@ -1,0 +1,129 @@
+{
+  "proposalId": 28,
+  "slug": "avalanche-create-mint-transfer-nft",
+  "authors": [
+    {
+      "name": "Devendra Yadav",
+      "avatarUrl": "https://github.com/devilla.png",
+      "url": "https://github.com/devilla",
+      "nickname": "devilla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-mint-transfer-nft-image-10.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-10.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-10.png",
+      "digest": "c2ea6ab49ca6e075ebe814931fdb59d009d1eca5f1cf0f4b3760a04e1cd5c235"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-1.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-1.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-1.png",
+      "digest": "0893eec97f9bccb2e64500d329d3d63133da13c4d7414faf41285599a3ad1718"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-11.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-11.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-11.png",
+      "digest": "ac57d07e0acc6f83cbf28c385013628d1a57883759475d677a0da5ccc5c87c64"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-12.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-12.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-12.png",
+      "digest": "cfc674b5a4966de439285e664b6e87f6904d3c819e3a9eb99fe85aa7f8d5cf55"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-13.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-13.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-13.png",
+      "digest": "81454233965eb6684bb02d1b8a0bdcd4fa75b1854fe0af702916f7155ca9ece2"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-14.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-14.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-14.png",
+      "digest": "2b39d3553f8f142051e98fff5123a2bea54e24f449362e0061a9dd076a3c3cd0"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-15.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-15.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-15.png",
+      "digest": "9c82de8d5ff0eae0e9bd5042175ecea82efe5f06c7f49913a7582c09ce7bc639"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-16.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-16.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-16.png",
+      "digest": "94cfdc916e650ebcc3bf166c6abf8d829e3a624be68c57c51486c1c1a3de6a81"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-17.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-17.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-17.png",
+      "digest": "ea58f48bf63e4f0f64abeb6bbb1cd7fb9f4f93839b2f954867787d598cd43f23"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-18.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-18.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-18.png",
+      "digest": "dd46e74e19f42cf4b5290f8a22e150abbb7f4e0af65e34b9fb48531f2b8b41d7"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-19.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-19.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-19.png",
+      "digest": "69caa88b0657cf793b7e07a965b2e147b1eaf241329694f95e391c8c3bff77eb"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-2.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-2.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-2.png",
+      "digest": "cacc90d8e5388566c7ef0352a99543fde40a28c5a79ee8cbbf5d6cd985da6baf"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-3.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-3.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-3.png",
+      "digest": "a2d0e5abf9ab3ee516fcc9c1c1fa372d4a2b2d4c568c387c4e5e433e4c38de93"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-4.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-4.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-4.png",
+      "digest": "83e5d3140776b375479e9d1606a2a09b6b4769d27bf0421327a8e0b1a3bf8c9f"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-5.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-5.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-5.png",
+      "digest": "e79298a3281baab452285b39593f93fca276c04c661174267e2ce544f0c93c81"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-6.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-6.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-6.png",
+      "digest": "e859d6b5ba0ba11f930c0557be9d4a1a1ba6810ea73c4e54e0ddc5afd7a2ce70"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-7.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-7.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-7.png",
+      "digest": "47d13dbc427dd541826e40844fff386fd10ea9307b2345d7d3a15dedbafa7a04"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-8.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-8.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-8.png",
+      "digest": "7206a685f9b473fb8359b07dfa9c06b956113274cb4941e86cd5153efc35311e"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fb249b543eae5649a4fe5123c3116076c538ce7737502ef63e0ba87debeaf95d",
+      "arweaveHash": "HkMI4ODGrslSWYT8U0_xBflOGMru96D7a7PZq6Uz0Zk"
+    },
+    "content/assets/avalanche-create-mint-transfer-nft-image-9.png": {
+      "name": "avalanche-create-mint-transfer-nft-image-9.png",
+      "path": "content/assets/avalanche-create-mint-transfer-nft-image-9.png",
+      "digest": "7182c2adbb72926b0c3d33d6dd5a850acf2ffb6b2ae33a1e199d3ba47cfc4a49"
+    }
+  },
+  "href": "learn/avalanche-create-mint-transfer-nft",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

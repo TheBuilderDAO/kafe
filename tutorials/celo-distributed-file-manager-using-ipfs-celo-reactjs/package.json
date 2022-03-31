@@ -1,0 +1,30 @@
+{
+  "name": "@builderdao-learn/celo-distributed-file-manager-using-ipfs-celo-reactjs",
+  "version": "1.0.0",
+  "description": "Learn how to make a Distributed File Manager using the IPFS protocol for storing files on the Celo network",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "NodeJS",
+    "Smart contracts",
+    "Truffle",
+    "Solidity",
+    "IPFS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

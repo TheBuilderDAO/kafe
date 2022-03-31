@@ -1,0 +1,44 @@
+{
+  "proposalId": 63,
+  "slug": "near-write-and-deploy-a-smart-contract-on-near",
+  "authors": [
+    {
+      "name": "Nikhil Bhintade",
+      "avatarUrl": "https://github.com/nikbhintade.png",
+      "url": "https://github.com/nikbhintade",
+      "nickname": "nikbhintade"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-1.png": {
+      "name": "near-write-and-deploy-a-smart-contract-on-near-near-login-1.png",
+      "path": "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-1.png",
+      "digest": "8796a0e0a1e65d45e0d7b6c308726593d2eb576c5424af077bbdfc19c5176ac8"
+    },
+    "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation-2.png": {
+      "name": "near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation-2.png",
+      "path": "content/assets/near-write-and-deploy-a-smart-contract-on-near-near-login-confirmation-2.png",
+      "digest": "a61dcdb37a3115c8351424cab1468458aceeb341f8ba5bf1a4f85f597302e0fd"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "370a44310a5581ca9879a6358aef8a81af7f1dbaa67b9073452ffe031bed03ae",
+      "arweaveHash": "554uYoqsAjpndYjSNswFST0DVuZL6h_WfZQ72xP-CVU"
+    }
+  },
+  "href": "learn/near-write-and-deploy-a-smart-contract-on-near",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

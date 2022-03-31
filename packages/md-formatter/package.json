@@ -1,0 +1,45 @@
+{
+  "name": "@builderdao/md-formatter",
+  "version": "1.0.0",
+  "description": "",
+  "types": "./dist/cli.d.ts",
+  "source": "./src/cli.ts",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "dev": "yarn build --watch",
+    "build": "tsup src/cli.ts src/metadata.ts --format esm,cjs --dts",
+    "lint": "TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@builderdao/cli": "*",
+    "@types/async": "^3.2.12",
+    "async": "^3.2.3",
+    "axios": "^0.26.1",
+    "chalk": "^5.0.1",
+    "diff": "^5.0.0",
+    "fast-csv": "^4.3.6",
+    "fs-extra": "^10.0.1",
+    "is-absolute-url": "^4.0.1",
+    "lodash": "^4.17.21",
+    "lowdb": "^3.0.0",
+    "mdast-util-to-string": "^3.1.0",
+    "remark": "^14.0.2",
+    "remark-parse": "^10.0.1",
+    "remark-stringify": "^10.0.2",
+    "type-fest": "^2.12.1",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.0.2",
+    "@types/sort-object-keys": "^1.1.0"
+  }
+}

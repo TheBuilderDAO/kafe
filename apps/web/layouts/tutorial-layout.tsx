@@ -37,26 +37,6 @@ export const TutorialLayout: React.FC<Props> = ({
 }) => {
   const { query } = useRouter();
   const { slug, date, title, description, keywords } = frontMatter;
-  // const [ids, setIds] = React.useState<Array<{ id: string; title: string }>>(
-  //   [],
-  // );
-
-  // React.useEffect(() => {
-  //   /**
-  //    * Working around some race condition quirks :) (don't judge)
-  //    * TODO @Necmttn: see if there's a better way through a remark plugin to do this
-  //    */
-  //   setTimeout(() => {
-  //     const titles = document.querySelectorAll('h2');
-  //     const idArrays = Array.prototype.slice
-  //       .call(titles)
-  //       .map(title => ({ id: title.id, title: title.innerText })) as Array<{
-  //       id: string;
-  //       title: string;
-  //     }>;
-  //     setIds(idArrays);
-  //   }, 500);
-  // }, [slug]);
   const path = `/learn/${query.slug[0]}`;
 
   return (
@@ -81,10 +61,7 @@ export const TutorialLayout: React.FC<Props> = ({
                 <div className="py-4 font-thin text-left">{description}</div>
                 <div className="text-left">
                   <Tags
-                    tags={_.uniq([
-                      ...config.categories.map(c => c.name),
-                      ...keywords,
-                    ])}
+                    tags={_.uniq([...config.categories, ...keywords])}
                     overrideLengthCheck={true}
                   />
                 </div>

@@ -1,0 +1,6 @@
+{
+  "title": "Unit Testing in Solidity",
+  "description": "How to write unit tests for Solidity smart contracts using Truffle's Assertions",
+  "imageUrl": "",
+  "categories": ["Avalanche", "Solidity", "Truffle", "Solidity"]
+}

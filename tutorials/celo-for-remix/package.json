@@ -1,0 +1,27 @@
+{
+  "name": "@builderdao-learn/celo-for-remix",
+  "version": "1.0.0",
+  "description": "Learn how to use Remix IDE for deploying Celo smart contracts",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Celo",
+    "Solidity",
+    "Smart contracts",
+    "Solidity",
+    "Metamask",
+    "Remix"
+  ],
+  "author": "",
+  "license": "ISC"
+}

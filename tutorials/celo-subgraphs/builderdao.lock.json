@@ -1,0 +1,59 @@
+{
+  "proposalId": 58,
+  "slug": "celo-subgraphs",
+  "authors": [
+    {
+      "name": "Shardul Aeer",
+      "avatarUrl": "https://github.com/secretshardul.png",
+      "url": "https://github.com/secretshardul",
+      "nickname": "secretshardul"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/celo-subgraphs-create-subgraph-2.png": {
+      "name": "celo-subgraphs-create-subgraph-2.png",
+      "path": "content/assets/celo-subgraphs-create-subgraph-2.png",
+      "digest": "f6653c7cf31106cafff9eeb3bef6a287b663844770c9f656174f09f0629d8b3a"
+    },
+    "content/assets/celo-subgraphs-create-subgraph-1.png": {
+      "name": "celo-subgraphs-create-subgraph-1.png",
+      "path": "content/assets/celo-subgraphs-create-subgraph-1.png",
+      "digest": "ea386e1c6b9f882d9aa6b0ef6d88ca61e7a3fca83c48df44d108b34557722f14"
+    },
+    "content/assets/celo-subgraphs-postman-generate-code-button-4.png": {
+      "name": "celo-subgraphs-postman-generate-code-button-4.png",
+      "path": "content/assets/celo-subgraphs-postman-generate-code-button-4.png",
+      "digest": "560c5f07975e79b5fe1fdd76c60e011a32396f0fb5e66ecf0ea48d864ac170ea"
+    },
+    "content/assets/celo-subgraphs-postman-generated-code-results-5.png": {
+      "name": "celo-subgraphs-postman-generated-code-results-5.png",
+      "path": "content/assets/celo-subgraphs-postman-generated-code-results-5.png",
+      "digest": "26c9cee16bffb90bf757c838d10342d5b96c78b31736fe9b7134356be57c6bc9"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "3807a59605a3fc98d94678784837b73ba607896be29e424234d473356eb2e41a",
+      "arweaveHash": "rBWviR8xZngok0Jhh58th5SDfbYgPdNVSsJGZNLN-pM"
+    },
+    "content/assets/celo-subgraphs-query-explorer-3.png": {
+      "name": "celo-subgraphs-query-explorer-3.png",
+      "path": "content/assets/celo-subgraphs-query-explorer-3.png",
+      "digest": "d0b34c64aedc4986932ac0c56ea9a1b01a93de06e7ec0ff1896c5de13828c53e"
+    }
+  },
+  "href": "learn/celo-subgraphs",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

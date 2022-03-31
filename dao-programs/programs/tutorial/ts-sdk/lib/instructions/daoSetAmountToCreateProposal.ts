@@ -14,23 +14,21 @@ import { getPda } from '../pda';
  */
 export const daoSetAmountToCreateProposal = async ({
   program,
-  mintPk,
   adminPk,
   amount,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   adminPk: anchor.web3.PublicKey;
   amount: anchor.BN;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount } = getPda(program.programId, mintPk);
+  const { pdaDaoAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
 
   const signature = await program.rpc.daoSetAmountToCreateProposal(amount, {
     accounts: {
-      daoConfig: daoAccount.pda,
+      daoAccount: daoAccount.pda,
       authority: adminPk,
     },
     ...(signer && { signers: [signer] }),

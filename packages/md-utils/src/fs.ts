@@ -1,5 +1,5 @@
 import path from 'path';
-import { promises as fs } from 'fs';
+import fs from 'fs-extra';
 
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
@@ -77,6 +77,10 @@ export const getTutorialPaths = async (
   const allPaths: TutorialPath[] = [];
   const allTutorials = [];
   for (const learnPackageName of rootFolder) {
+    if (learnPackageName === 'tutorials') {
+      // ln -s reference.
+      continue;
+    }
     const { config, lock, content, paths } =
       await getTutorialContentByPackageName({
         learnPackageName,
@@ -113,24 +117,44 @@ export const getTutorialContentByPath = async ({
   rootFolder: string;
 }) => {
   const learnPackageName = path.basename(rootFolder);
-  const contentFiles = await fs.readdir(path.join(rootFolder, 'content'));
   const paths: TutorialPath[] = [];
-  const filepathWithoutExtension = contentFiles.map(contentName => {
-    const slugArray = [learnPackageName];
-    if (contentName.includes('index')) {
-    } else {
-      slugArray.push(contentName.replace('.mdx', ''));
-    }
-    paths.push({
-      params: {
-        slug: slugArray,
-      },
+  const content: { name: string; path: string }[] = [];
+  const getFiles = async (dir: string) => {
+    return await fs.readdir(dir).then(async (fileOrDirs: string[]) => {
+      const filtered = fileOrDirs.filter(file => !file.startsWith('.'));
+      for (const fileOrDir of filtered) {
+        const f = path.join(dir, fileOrDir);
+        if (
+          ['.md', '.mdx', '.png', '.jpg', '.jpeg', '.gif', '.svg'].some(ext =>
+            f.endsWith(ext),
+          )
+        ) {
+          const slugArray = [learnPackageName];
+          if (fileOrDir.includes('index')) {
+          } else {
+            slugArray.push(fileOrDir.replace('.mdx', ''));
+          }
+
+          paths.push({
+            params: {
+              slug: slugArray,
+            },
+          });
+          content.push({
+            name: fileOrDir,
+            path: f,
+          });
+          continue;
+        }
+        const fileMeta = await fs.lstatSync(f);
+        if (fileMeta.isDirectory()) {
+          await getFiles(f);
+        }
+      }
     });
-    return {
-      name: contentName,
-      path: path.join(rootFolder, 'content', contentName),
-    };
-  });
+  };
+  getFiles(rootFolder);
+
   const rawConfigFile = await fs.readFile(
     path.join(rootFolder, 'builderdao.config.json'),
     'utf8',
@@ -143,7 +167,7 @@ export const getTutorialContentByPath = async ({
   const lock = JSON.parse(rawLockFile);
   return {
     paths,
-    content: filepathWithoutExtension,
+    content,
     config,
     lock,
   };

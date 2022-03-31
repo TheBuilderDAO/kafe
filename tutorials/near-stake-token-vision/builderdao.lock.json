@@ -1,0 +1,54 @@
+{
+  "proposalId": 122,
+  "slug": "near-stake-token-vision",
+  "authors": [
+    {
+      "name": "Oysterpack",
+      "avatarUrl": "https://github.com/oysterpack.png",
+      "url": "https://github.com/oysterpack",
+      "nickname": "oysterpack"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/near-stake-token-vision-image-3.png": {
+      "name": "near-stake-token-vision-image-3.png",
+      "path": "content/assets/near-stake-token-vision-image-3.png",
+      "digest": "db46359bbcaa5bc2e1100d4bc6ee4e9f5c97dc41106b5b8094c6f41c6efb71ea"
+    },
+    "content/assets/near-stake-token-vision-image-1.png": {
+      "name": "near-stake-token-vision-image-1.png",
+      "path": "content/assets/near-stake-token-vision-image-1.png",
+      "digest": "48b23b630f82b37dc60d1c42b798a1894e60367e628660e820ccae217ef86a47"
+    },
+    "content/assets/near-stake-token-vision-image-4.png": {
+      "name": "near-stake-token-vision-image-4.png",
+      "path": "content/assets/near-stake-token-vision-image-4.png",
+      "digest": "15cc76982a83a963cfd0ddecb956371758fabad1d89f6f23ca5d47fcbb85c3c7"
+    },
+    "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers-2.png": {
+      "name": "near-stake-token-vision-stake-token-is-internet-money-with-super-powers-2.png",
+      "path": "content/assets/near-stake-token-vision-stake-token-is-internet-money-with-super-powers-2.png",
+      "digest": "0908e79a2a4238dc732ecb33ec17613ff0e1faee331b53af8fe4cea274020ac4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "7d16b4dd4e2b26a87db78046820c3368a0daa751c9da4e712ba7f8243ae9f46a",
+      "arweaveHash": "-wB-7SXdM1tc0mhUuFlqOeOe-05Gfx9PYYC9JCps06Y"
+    }
+  },
+  "href": "learn/near-stake-token-vision",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

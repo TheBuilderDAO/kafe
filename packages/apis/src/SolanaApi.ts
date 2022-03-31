@@ -10,6 +10,7 @@ export type ApiConfig = {
   wallet: Wallet;
   network: TutorialProgramConfig.Network;
   kafeMint: PublicKey;
+  bdrMint: PublicKey;
 };
 
 class SolanaApi {
@@ -20,6 +21,7 @@ class SolanaApi {
       config.connection,
       config.wallet,
       config.kafeMint,
+      config.bdrMint,
     );
   }
 }

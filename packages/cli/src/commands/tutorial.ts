@@ -18,14 +18,17 @@ import { ArweaveApi, CeramicApi, TutorialMetadata } from '@builderdao/apis';
 import { protocols, technologies } from '@builderdao/data';
 import {
   TutorialProgramClient,
-  filterAccountByFundedState,
-  filterAccountBySlug,
+  ProposalStateE,
+  filterProposalByState,
+  filterProposalBySlug,
 } from '@builderdao-sdk/dao-program';
 
 import { log as _log, hashSumDigest } from '../utils';
 import { BuilderDaoConfig } from '../services/builderdao-config.service';
 import { TemplateService } from '../services/template.service';
 import { getClient } from '../client';
+import { rootTutorialFolderPath } from '../constants';
+import _ from 'lodash';
 
 inquirer.registerPrompt('autocomplete', inquirerPrompt);
 
@@ -75,7 +78,6 @@ async function getReviewer(
 }
 
 export function makeTutorialCommand() {
-  const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
 
   const tutorial = new commander.Command('tutorial')
     .addHelpCommand(false)
@@ -117,6 +119,7 @@ Example call:
       );
     });
 
+
   tutorial
     .command('get')
     .description('Display metadata for a single tutorial')
@@ -141,6 +144,16 @@ Example call:
 
   tutorial
     .command('prepublish')
+    .argument(
+      '[learnPackageName]',
+      'Tutorial slug for complete tutorial package',
+    )
+    .addOption(
+      new commander.Option('--skip-reviewers', 'Skip reviewers').default(false)
+    )
+    .addOption(
+      new commander.Option('--force', 'Force Rewrite the lock file base on slug').default(false)
+    )
     .description('Perform pre-publishing tasks')
     .helpOption('-h, --help', 'Display help for command')
     .addHelpText(
@@ -154,32 +167,37 @@ Notes:
   builderdao config and lock files, also updating the hash digest of the tutorial folder.
 `,
     )
-    .argument(
-      '[learnPackageName]',
-      'Tutorial slug for complete tutorial package',
-    )
-    .action(async learnPackageName => {
+    .action(async (learnPackageName, options) => {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
-
-      const proposal = await client.getTutorialBySlug(learnPackageName);
-      const { lock, initial } = new BuilderDaoConfig(rootFolder);
-      const { lock: lockDefault } = await initial({
-        proposalId: proposal.id.toNumber(),
-        slug: proposal.slug as string,
-      });
-      await lock.read();
-      lock.data ||= lockDefault;
-      console.log(lock.data);
-      await lock.write();
-      lock.chain.set('proposalId', proposal.id.toNumber());
-      const reviewer1 = await getReviewer(client, proposal.reviewer1);
-      lock.chain.get('reviewers').set('reviewer1', reviewer1).value();
-      const reviewer2 = await getReviewer(client, proposal.reviewer1);
-      lock.chain.get('reviewers').set('reviewer2', reviewer2).value();
-      await lock.write();
+      const { lock } = new BuilderDaoConfig(rootFolder);
+      await lock.read()
+      if (!options.skipReviewers) {
+        const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
+        const { lock: lockDefault } = await BuilderDaoConfig.initial({
+          proposalId: proposal.id.toNumber(),
+          slug: proposal.slug as string,
+        });
+        await lock.read();
+        lock.data ||= lockDefault;
+        await lock.write();
+        lock.chain.set('proposalId', proposal.id.toNumber());
+        const reviewer1 = await getReviewer(client, proposal.reviewer1);
+        lock.chain.get('reviewers').set('reviewer1', reviewer1).value();
+        const reviewer2 = await getReviewer(client, proposal.reviewer1);
+        lock.chain.get('reviewers').set('reviewer2', reviewer2).value();
+        await lock.write();
+      }
+      if (options.force) {
+        const proposal = await client.getTutorialBySlug(lock.chain.get('slug').value());
+        lock.chain.set('proposalId', proposal.id.toNumber()).value();
+        lock.chain.set('creator', proposal.creator).value();
+        lock.write();
+      }
       await updateHashDigestOfFolder(rootFolder);
+      await lock.read()
+      log(lock.data);
     });
 
   tutorial
@@ -244,7 +262,17 @@ Notes:
         .env('ARWEAVE_PROTOCOL')
         .default('https'),
     )
+    .addOption(
+      new commander.Option('--skip-images', 'Skip uploading images').default(false)
+    )
+    .addOption(
+      new commander.Option('--verbose', 'Verbose').default(false)
+    )
     .action(async (learnPackageName, options) => {
+      if (options.verbose) {
+        log(options);
+        console.log('-'.repeat(120))
+      }
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
@@ -267,8 +295,9 @@ Notes:
         port: options.arweave_port,
         protocol: options.arweave_protocol,
       });
-      console.log(proposal);
-      console.log(ceramicMetadata);
+      log(proposal);
+      console.log('-'.repeat(120))
+      log(ceramicMetadata);
 
       const deployQueue = async.queue(
         async (file: {
@@ -276,24 +305,57 @@ Notes:
           name: string;
           digest: string;
           fullPath: string;
+          arweaveHash?: string;
+          options?: {
+            skipArweave?: boolean;
+            skipCeramic?: boolean;
+          }
         }) => {
           console.log('Uploading', file.name);
+          // return
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
-          const arweaveHash = await arweave.publishTutorial(
-            fileContent,
-            `${learnPackageName}/${file.path}`,
-            options.arweave_wallet,
-          );
-          console.log(
-            `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
-          );
           const digest = await hashSumDigest(file.fullPath);
-          lock.chain.set(`content["${file.path}"].digest`, digest).value();
-          lock.chain
-            .set(`content["${file.path}"].arweaveHash`, arweaveHash)
-            .value();
-          await lock.write();
-          console.log('🔒 Updated builderdao.lock.json!');
+          // return
+          if (!file.options?.skipArweave) {
+            const arweaveHash = await arweave.publishTutorial(
+              fileContent,
+              `${learnPackageName}/${file.path}`,
+              options.arweave_wallet,
+            );
+            console.log(
+              `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
+            );
+            lock.chain.set(`content["${file.path}"].digest`, digest).value();
+            lock.chain
+              .set(`content["${file.path}"].arweaveHash`, arweaveHash)
+              .value();
+            await lock.write();
+            console.log('🔒 Updated builderdao.lock.json!');
+          }
+          await lock.read();
+          console.log('🔶 Updating ceramic metadata');
+          if (!file.options?.skipCeramic) {
+            try {
+              const updatedFile = lock.chain.get(`content["${file.path}"]`).value();
+              const ceramicMetadataForFile = _.get(ceramicMetadata, `content["${file.path}"]`);
+              const isCeramicDataSync = _.isEqual(updatedFile, ceramicMetadataForFile)
+              if (isCeramicDataSync) {
+                log({
+                  message: "Skiping ceramic update because it's already synced",
+                  ...ceramicMetadataForFile,
+                })
+              } else {
+                const updatedMetadata = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
+                await ceramic.updateMetadata(proposal.streamId, {
+                  ...updatedMetadata,
+                })
+                console.log('🔶 Updated ceramic metadata');
+              }
+            } catch (err) {
+              console.log('🔶 Failed to update ceramic metadata');
+              console.log(err);
+            }
+          }
         },
         2,
       );
@@ -306,23 +368,39 @@ Notes:
       const isPublished = Object.keys(proposal.state).some(
         (k: string) => k === 'published',
       );
-      if (isReadyToPublish) {
+
+      const files = Object.values(content).filter(file => {
+        if (options.skipImages) {
+          if (/\.(png|jpg|jpeg|gif)$/.test(file.path)) {
+            return false;
+          }
+        }
+        return true;
+      });
+      if (isReadyToPublish || isPublished) {
         console.log('Kicking initial process.');
-        Object.values(content).forEach(async file => {
-          const filePath = path.join(rootFolder, file.path);
-          deployQueue.push({
-            ...file,
-            fullPath: filePath,
-          });
-        });
-        // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
-        // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
-      } else if (isPublished) {
-        console.log('Kicking update process.');
-        Object.values(content).forEach(async file => {
+        files.forEach(async file => {
           const filePath = path.join(rootFolder, file.path);
           const digest = await hashSumDigest(filePath);
-          if (file.digest !== digest) {
+
+          // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
+          // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
+          if (file.arweaveHash && file.digest === digest) {
+            log({
+              SKIPPING: {
+                reason: `Skipping file it is already uploaded.`,
+                ...file
+              }
+            })
+
+            deployQueue.push({
+              ...file,
+              fullPath: filePath,
+              options: {
+                skipArweave: true,
+              }
+            });
+          } else {
             deployQueue.push({
               ...file,
               fullPath: filePath,
@@ -331,13 +409,17 @@ Notes:
         });
       } else {
         tutorial.error(`
-        🛑 The tutorial is not ready to publish/update. 🚧 state: ${
-          Object.keys(proposal.state)[0]
-        }
+        🛑 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]
+          }
         `);
       }
       await deployQueue.drain();
       // End of the Ceramic & Arweave process.
+      log(await client.getTutorialById(proposalId));
+      console.log('-'.repeat(120))
+      log(await ceramic.getMetadata(
+        proposal.streamId as string,
+      ));
       console.log('✅ All items have been processed!');
     });
 
@@ -362,8 +444,8 @@ Notes:
           source: async () =>
             (
               await client.getProposals([
-                filterAccountByFundedState,
-                ...(options.slug ? [filterAccountBySlug(options.slug)] : []),
+                filterProposalByState(ProposalStateE.funded),
+                ...(options.slug ? filterProposalBySlug(options.slug) : []),
               ])
             ).map(data => `${data.account.slug}`),
         });
@@ -561,7 +643,7 @@ Notes:
           await template.setTags(q.answer.join(','));
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
           await config.config.read();
-          const tags = q.answer.map(t => ({
+          const tags = q.answer.map((t: string) => ({
             name: t,
             slug: t.toLowerCase(),
           }));

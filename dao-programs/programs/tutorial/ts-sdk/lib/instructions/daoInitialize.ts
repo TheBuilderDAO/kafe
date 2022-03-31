@@ -2,7 +2,6 @@ import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
 
 import { Tutorial } from '../idl/tutorial';
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import { getPda } from '../pda';
 
 /**
@@ -16,37 +15,34 @@ import { getPda } from '../pda';
  */
 export const daoInitialize = async ({
   program,
-  mintPk,
+  minAmountToCreateProposal,
   admins,
+  superAdmin,
   payerPk,
   quorum,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
+  minAmountToCreateProposal: anchor.BN;
+  superAdmin: anchor.web3.PublicKey;
   admins: anchor.web3.PublicKey[];
   payerPk: anchor.web3.PublicKey;
   quorum: anchor.BN;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaDaoVaultAccount } = getPda(
-    program.programId,
-    mintPk,
-  );
+  const { pdaDaoAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
-  const daoVaultAccount = await pdaDaoVaultAccount();
 
   const signature = await program.rpc.daoInitialize(
     daoAccount.bump,
     quorum,
+    minAmountToCreateProposal,
+    superAdmin,
     admins,
     {
       accounts: {
-        daoConfig: daoAccount.pda,
-        daoVault: daoVaultAccount.pda,
-        mint: mintPk,
+        daoAccount: daoAccount.pda,
         systemProgram: anchor.web3.SystemProgram.programId,
-        tokenProgram: TOKEN_PROGRAM_ID,
         rent: anchor.web3.SYSVAR_RENT_PUBKEY,
         payer: payerPk,
       },

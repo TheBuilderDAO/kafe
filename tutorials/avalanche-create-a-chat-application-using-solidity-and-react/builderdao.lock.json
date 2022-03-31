@@ -1,0 +1,69 @@
+{
+  "proposalId": 27,
+  "slug": "avalanche-create-a-chat-application-using-solidity-and-react",
+  "authors": [
+    {
+      "name": "Nimish Agrawal & Sayan Kar",
+      "avatarUrl": "https://github.com/realnimish.png",
+      "url": "https://github.com/realnimish",
+      "nickname": "realnimish"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-error-7.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-error-7.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-error-7.png",
+      "digest": "8cd1cf1387ad73fae04c85f07a4191e2ebb76ec891c39a27e23446d310adaf48"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-metamask-1.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-metamask-1.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-metamask-1.png",
+      "digest": "2700e2607cb1a33a8ffccd4184d5f8190e9b76c787e92cdf0ac19d73942d138a"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-multiple-account-preview-6.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-multiple-account-preview-6.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-multiple-account-preview-6.png",
+      "digest": "9a520c2a979032ee22628d47d131469da279f4fa8ebbf3f4eba371e42b6bc7bf"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend-4.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend-4.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-chatting-with-a-friend-4.png",
+      "digest": "4f5d8aec48c916f631469dfc9e2fe84865b0e9579fd8ae3180ea69c9103b089a"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-remix-preview-2.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-remix-preview-2.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-remix-preview-2.png",
+      "digest": "1f96cbcc12a589786e7b7dbb7e52c5d7df7ca36aa7569a7ced2b8b3358f02909"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-zero-balance-preview-5.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-zero-balance-preview-5.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-zero-balance-preview-5.png",
+      "digest": "d4e560172f267a2d58023891ab5dd58eb95050045be4045cbee4a28797c01aed"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "9d62aa01ef4e1aca086f5f983e8465d8f110d3656e57e2d157d8f54ae0fc80ca",
+      "arweaveHash": "nRPoF7GkNAjjnMpxy9NnX63zHN-wKBYGdiZRaSu5s64"
+    },
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png",
+      "digest": "c0ddd930a334eadb988bad6cdaac547a0335152d9735298d02776cef6c217a07"
+    }
+  },
+  "href": "learn/avalanche-create-a-chat-application-using-solidity-and-react",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

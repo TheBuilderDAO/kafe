@@ -1,0 +1,44 @@
+{
+  "proposalId": 149,
+  "slug": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
+  "authors": [
+    {
+      "name": "Raj Ranjan",
+      "avatarUrl": "https://github.com/rajranjan0608.png",
+      "url": "https://github.com/rajranjan0608",
+      "nickname": "rajranjan0608"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-dapp-truffle-1.png": {
+      "name": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-dapp-truffle-1.png",
+      "path": "content/assets/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-dapp-truffle-1.png",
+      "digest": "0505a987e4d7ae397c6884bbbeafbf93c70465b4fba15ad06ff469b62597198f"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "9d7d39bce532e5624355315ab4d857348c025cafa9b1bd84c51fb54178d5dc71",
+      "arweaveHash": "DpXc3QZHCjlObJvOcYB67UjB3CSJg7jS5joZCxs_27o"
+    },
+    "content/assets/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-image-2.png": {
+      "name": "avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-image-2.png",
+      "path": "content/assets/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle-image-2.png",
+      "digest": "e13d468ae9d2896367ee3a7381276f12a3f4e67fa6bbbc1f9775a10e8e3f0229"
+    }
+  },
+  "href": "learn/avalanche-making-advanced-e-voting-dapp-avalanche-fuji-using-trufle",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

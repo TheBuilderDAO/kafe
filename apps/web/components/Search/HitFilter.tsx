@@ -49,6 +49,7 @@ const HitFilter = () => {
           attribute="tags"
           Control={Control}
           customStyles={customStyles}
+          limit={50}
         />
       </div>
       <div className="px-10 pt-5">

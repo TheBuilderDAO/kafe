@@ -1,0 +1,22 @@
+{
+  "name": "@builderdao-learn/polygon-explaining-polygon-and-blockchains",
+  "version": "1.0.0",
+  "description": "Learning about Polygon with Pizza is fun",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Polygon"
+  ],
+  "author": "",
+  "license": "ISC"
+}

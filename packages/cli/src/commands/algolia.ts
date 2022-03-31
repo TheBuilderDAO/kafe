@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import * as commander from 'commander';
+import path from 'path';
 
 import { AlgoliaApi } from '@builderdao/apis';
 import { ProposalStateE } from '@builderdao-sdk/dao-program';
-import path from 'path';
 import { BuilderDaoConfig } from '../services';
 
 export function makeAlgoliaCommand() {
@@ -158,7 +158,7 @@ export function makeAlgoliaCommand() {
   algolia
     .command('publish')
     .description('Update index when tutorial is published')
-    .argument('<slug>', 'Tutorial slug')
+    .argument('[slug]', 'Tutorial slug')
     .helpOption('-h, --help', 'Display help for command')
     .addHelpCommand(false)
     .addOption(
@@ -202,12 +202,11 @@ export function makeAlgoliaCommand() {
         const description = config.chain.get('description').value().toString();
         const categories = config.chain.get('categories').value();
 
-        const tags = categories.map(category => category.name);
 
         await client.updateTutorial(proposalId, {
           title,
           description,
-          tags,
+          tags: categories,
           state: ProposalStateE.published,
           lastUpdatedAt: Date.now(),
         });

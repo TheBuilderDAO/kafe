@@ -13,7 +13,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../../packages/ui/src/ThemeSwitch.tsx"
+    "../../packages/ui/src/ThemeSwitch.tsx",
+    "scripts/content.js"
   ],
   "exclude": ["node_modules"]
 }

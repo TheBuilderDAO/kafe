@@ -1,0 +1,49 @@
+{
+  "proposalId": 75,
+  "slug": "celo-redeploy-ethereum-dapps-on-celo",
+  "authors": [
+    {
+      "name": "Deepanshu Hooda",
+      "avatarUrl": "https://github.com/gitofdeepanshu.png",
+      "url": "https://github.com/gitofdeepanshu",
+      "nickname": "gitofdeepanshu"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-1.png": {
+      "name": "celo-redeploy-ethereum-dapps-on-celo-image-1.png",
+      "path": "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-1.png",
+      "digest": "fe55ef4fa6222e4ab4b41e9fbc986d9277dc322c94048c9fd7555a233657bc20"
+    },
+    "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-2.png": {
+      "name": "celo-redeploy-ethereum-dapps-on-celo-image-2.png",
+      "path": "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-2.png",
+      "digest": "eb3aa08c36b57d6cd67cd2f344d87610bd143e75f8061cd3b7de04e041010408"
+    },
+    "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-3.png": {
+      "name": "celo-redeploy-ethereum-dapps-on-celo-image-3.png",
+      "path": "content/assets/celo-redeploy-ethereum-dapps-on-celo-image-3.png",
+      "digest": "4d56b8690420bf4f95321258c032e5454c5fc9aab1fa4c79804833f6f682c66d"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "056e6a243b4d1c203ec68497e227e7af6fd2b0d87a9598522463bc499a889dae",
+      "arweaveHash": "cr0zFYWYLwMvHb2JomxgyjZLcmEyzXQBqgyQx6F_QR0"
+    }
+  },
+  "href": "learn/celo-redeploy-ethereum-dapps-on-celo",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

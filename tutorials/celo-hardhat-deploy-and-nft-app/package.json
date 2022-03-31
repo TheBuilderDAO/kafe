@@ -1,0 +1,29 @@
+{
+  "name": "@builderdao-learn/celo-hardhat-deploy-and-nft-app",
+  "version": "1.0.0",
+  "description": "Learn how to write a smart contract using the Solidity language and a contract from the Openzeppelin library for ERC1155 tokens",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Celo",
+    "JS/TS",
+    "Solidity",
+    "React",
+    "NodeJS",
+    "Smart contracts",
+    "Javascript",
+    "Hardhat"
+  ],
+  "author": "",
+  "license": "ISC"
+}

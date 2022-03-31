@@ -1,0 +1,74 @@
+{
+  "proposalId": 93,
+  "slug": "avalanche-on-chain-nft-game",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "url": "https://github.com/viral-sangani",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/avalanche-on-chain-nft-game-nft-game-claim-health-7.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-claim-health-7.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-claim-health-7.png",
+      "digest": "733a8f5ab9950fa23f8316d2c1ad6f498eda402ca145f3217349b00892e72d8a"
+    },
+    "content/assets/avalanche-on-chain-nft-game-nft-game-arena-6.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-arena-6.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-arena-6.png",
+      "digest": "402326f27f3968935267b59808a2e75eb9d321b23c57100cfcd16a4bd0766237"
+    },
+    "content/assets/avalanche-on-chain-nft-game-nft-game-faucet-page-3.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-faucet-page-3.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-faucet-page-3.png",
+      "digest": "dc70686d8f313e13ae9cddd6115e62bc2d84a6dcf5f140aff33cd07448811297"
+    },
+    "content/assets/avalanche-on-chain-nft-game-nft-game-home-page-2.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-home-page-2.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-home-page-2.png",
+      "digest": "32a0ebb737fd126f7eac77acfc8ca1bb7edc9d6b593f169d75ba26cc544ef67a"
+    },
+    "content/assets/avalanche-on-chain-nft-game-nft-game-marketplace-page-4.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-marketplace-page-4.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-marketplace-page-4.png",
+      "digest": "df1bbd140ea0c67767f04fdb00d77eef72addcb78975b7c7773b3b2bf1f00462"
+    },
+    "content/assets/avalanche-on-chain-nft-game-nft-game-mint-character-5.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-mint-character-5.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-mint-character-5.png",
+      "digest": "10be732cbae081feddd1967f1dbcd377e1e0dfd0f7a36cf2ad6792b58c133e38"
+    },
+    "content/assets/avalanche-on-chain-nft-game-open-sea-example-8.png": {
+      "name": "avalanche-on-chain-nft-game-open-sea-example-8.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-open-sea-example-8.png",
+      "digest": "c227debd72676097371d9266c480c32350ba7995bda238073305c4fa988243bb"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "d49680e75e429ac191e2150d5922239bdcc6f27ad2a9a8ed28f76ee205a311b9",
+      "arweaveHash": "XhG_wNjZZm0Wq40D5-jRWtJYoc6FbVPwUn3HN-FcYLI"
+    },
+    "content/assets/avalanche-on-chain-nft-game-nft-game-demo-1.png": {
+      "name": "avalanche-on-chain-nft-game-nft-game-demo-1.png",
+      "path": "content/assets/avalanche-on-chain-nft-game-nft-game-demo-1.png",
+      "digest": "427348d22921d778246a5a78e8d948bc36d7a311b214bcc2a36dcafb39adb067"
+    }
+  },
+  "href": "learn/avalanche-on-chain-nft-game",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

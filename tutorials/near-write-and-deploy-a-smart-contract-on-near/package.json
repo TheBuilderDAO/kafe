@@ -1,0 +1,27 @@
+{
+  "name": "@builderdao-learn/near-write-and-deploy-a-smart-contract-on-near",
+  "version": "1.0.0",
+  "description": "In this tutorial, we are going to write and test a smart contract using Rust",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Near",
+    "Rust",
+    "NodeJS",
+    "Smart contracts",
+    "AssemblyScript",
+    "CLI"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -19,7 +19,7 @@ import { getAta } from '../utils';
 export const proposalCreate = async ({
   program,
   mintPk,
-  tutorialId,
+  proposalId,
   userPk,
   slug,
   streamId,
@@ -27,30 +27,28 @@ export const proposalCreate = async ({
 }: {
   program: Program<Tutorial>;
   mintPk: anchor.web3.PublicKey;
-  tutorialId: number;
+  proposalId: number;
   userPk: anchor.web3.PublicKey;
   slug: string;
   streamId: string;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaDaoVaultAccount, pdaTutorialById } = getPda(
+  const { pdaDaoAccount, pdaDaoVaultAccount, pdaProposalById } = getPda(
     program.programId,
-    mintPk,
   );
   const userAta = await getAta(userPk, mintPk);
   const daoAccount = await pdaDaoAccount();
-  const daoVaultAccount = await pdaDaoVaultAccount();
-  const proposalAccount = await pdaTutorialById(tutorialId);
+  const daoVaultAccount = await pdaDaoVaultAccount(mintPk);
+  const proposalAccount = await pdaProposalById(proposalId);
 
   const signature = await program.rpc.proposalCreate(
     proposalAccount.bump,
-    new anchor.BN(tutorialId),
     slug,
     streamId,
     {
       accounts: {
-        proposal: proposalAccount.pda,
-        daoConfig: daoAccount.pda,
+        proposalAccount: proposalAccount.pda,
+        daoAccount: daoAccount.pda,
         daoVault: daoVaultAccount.pda,
         mint: mintPk,
         systemProgram: anchor.web3.SystemProgram.programId,

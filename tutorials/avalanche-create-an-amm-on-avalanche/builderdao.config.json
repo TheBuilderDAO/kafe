@@ -1,0 +1,6 @@
+{
+  "title": "Create an Automated Market Maker (AMM) on Avalanche",
+  "description": "Learn how to build a basic AMM with Provide, Withdraw and Swap functions",
+  "imageUrl": "",
+  "categories": ["Avalanche", "JS/TS", "Solidity", "React", "Solidity"]
+}

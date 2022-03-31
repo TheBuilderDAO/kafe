@@ -1,0 +1,13 @@
+{
+  "title": "Build a Funding DAO on Polygon",
+  "description": "Create a Funding DAO, where people can use MATIC tokens to become either a Member or Stakeholder in the DAO and fund proposals they vote on.",
+  "imageUrl": "",
+  "categories": [
+    "Polygon",
+    "JS/TS",
+    "Truffle",
+    "Solidity",
+    "Arweave",
+    "Typescript"
+  ]
+}

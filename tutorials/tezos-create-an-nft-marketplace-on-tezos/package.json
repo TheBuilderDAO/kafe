@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/tezos-create-an-nft-marketplace-on-tezos",
+  "version": "1.0.0",
+  "description": "Learn how to create your own NFT marketplace on Tezos",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Tezos",
+    "Python",
+    "Smart contracts",
+    "IPFS"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,44 @@
+{
+  "proposalId": 152,
+  "slug": "polygon-smart-contract-unit-testing-with-truffle",
+  "authors": [
+    {
+      "name": "David Kim",
+      "avatarUrl": "https://github.com/PowerStream3604.png",
+      "url": "https://github.com/PowerStream3604",
+      "nickname": "PowerStream3604"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png": {
+      "name": "polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png",
+      "path": "content/assets/polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png",
+      "digest": "a84789c5bb9d4104eced3525a3e14eb8437a0d1992a1e1c65800555e681efa9a"
+    },
+    "content/assets/polygon-smart-contract-unit-testing-with-truffle-test-result-2.png": {
+      "name": "polygon-smart-contract-unit-testing-with-truffle-test-result-2.png",
+      "path": "content/assets/polygon-smart-contract-unit-testing-with-truffle-test-result-2.png",
+      "digest": "ae7985f5a58458e1ef4da4e93d0983b6f571606d677b68c203b90312111c6949"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "917577b48a0acec0ef939b9416ec6363d10960caa5196ef9452068902591a637",
+      "arweaveHash": "1OvbBVykbgiM8pothfQzLMSq6g2W88tT17c5RTPfKmk"
+    }
+  },
+  "href": "learn/polygon-smart-contract-unit-testing-with-truffle",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

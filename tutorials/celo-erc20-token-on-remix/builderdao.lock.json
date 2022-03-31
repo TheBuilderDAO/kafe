@@ -1,0 +1,69 @@
+{
+  "proposalId": 88,
+  "slug": "celo-erc20-token-on-remix",
+  "authors": [
+    {
+      "name": "Deepanshu Hooda",
+      "avatarUrl": "https://github.com/gitofdeepanshu.png",
+      "url": "https://github.com/gitofdeepanshu",
+      "nickname": "gitofdeepanshu"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-1.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-1.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-1.png",
+      "digest": "dc1d2b7a6672b6f4724e80312a3ddd79405d8d95e539836b2e22122f4cb0c09b"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-2.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-2.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-2.png",
+      "digest": "255aebd9093988129c4da309ff41d55002beff7977a1e5f1ff9812615633f8c0"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-3.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-3.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-3.png",
+      "digest": "b0dc6decdd94c86f5899c9bc25496a18ce8ee9e8b2a70ce0573bd0756776796e"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-4.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-4.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-4.png",
+      "digest": "4cba60343db645a4c8458b4db9fb0d6b3a356f8bed1f445b3d699e276bedbc78"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-5.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-5.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-5.png",
+      "digest": "abfb99f7ab91f28fc23021e2b24897daeb8f8e69b992a032d30b2fba91b39967"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-6.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-6.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-6.png",
+      "digest": "f7dbd3b44641a63d6e8e23dbcf28aa6a2d8ba66846aa91199e280c857c8c86a4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "8d8ac7b470b036a48dd1780c0623231f631dd7ad39ab78c4a434d2d1a5616153",
+      "arweaveHash": "jps4sk_0hLtagOSjSuLhBiFcmOrOFUMkqZY4i_qX8nc"
+    },
+    "content/assets/celo-erc20-token-on-remix-accessibility-text-7.png": {
+      "name": "celo-erc20-token-on-remix-accessibility-text-7.png",
+      "path": "content/assets/celo-erc20-token-on-remix-accessibility-text-7.png",
+      "digest": "e6909fc3b8a78098c3cd91260ef4331c03bbaa1ee9383857d9ed537044b1ef6e"
+    }
+  },
+  "href": "learn/celo-erc20-token-on-remix",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

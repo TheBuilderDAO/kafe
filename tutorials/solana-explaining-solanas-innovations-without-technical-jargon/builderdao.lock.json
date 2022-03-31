@@ -1,0 +1,169 @@
+{
+  "proposalId": 150,
+  "slug": "solana-explaining-solanas-innovations-without-technical-jargon",
+  "authors": [
+    {
+      "name": "Mahdi Mostafavi",
+      "avatarUrl": "https://github.com/mmostafavi.png",
+      "url": "https://github.com/mmostafavi",
+      "nickname": "mmostafavi"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-data-storage-jpg-19.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-data-storage-jpg-19.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-data-storage-jpg-19.png",
+      "digest": "54a3fdda2e91a1afc805b5293d2d999cb78b1a0763e04b99c7b44781711b18b6"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-bitcoin-mempool-jpg-16.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-bitcoin-mempool-jpg-16.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-bitcoin-mempool-jpg-16.png",
+      "digest": "1d746f5da8472fc632b98d1f5674b692da388f2256b8dfd13fbd6cc4985a1138"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-generated-data-jpg-18.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-generated-data-jpg-18.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-generated-data-jpg-18.png",
+      "digest": "f308bdd373cef1951e525f21ca79512e80d5b4fc14d5be9f7e82bd9621202d0b"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-grouped-transactions-jpg-22.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-grouped-transactions-jpg-22.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-grouped-transactions-jpg-22.png",
+      "digest": "bd0658b9512da9e359771dffa4f296cf7dc7cf1380bc6e0b590553e151439452"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-leader-rotation-gif-17.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-leader-rotation-gif-17.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-leader-rotation-gif-17.png",
+      "digest": "aa5b087c6aeceacc980c052df398f66f8583c87d6adda1d55e194aa772489d8b"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-neighborhood-interaction-jpg-13.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-neighborhood-interaction-jpg-13.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-neighborhood-interaction-jpg-13.png",
+      "digest": "0b180efe677568cc9f02c541db4f3aeb8fc657a25c603a7c12538134adc5add2"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-neighborhood-tree-jpg-12.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-neighborhood-tree-jpg-12.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-neighborhood-tree-jpg-12.png",
+      "digest": "2080e77bf65506b165b6d9afc50d3aa0cb9c971d26008d884d623fc65a9f9779"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-kitchen-gif-25.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-kitchen-gif-25.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-kitchen-gif-25.png",
+      "digest": "71d2d2000b0efad509bc58b5f0d6e8dbb223936aaccc02a1f865746330617696"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-parallel-execution-jpg-24.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-parallel-execution-jpg-24.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-parallel-execution-jpg-24.png",
+      "digest": "db7d0c273a374f99f5bbac8ee908539a35c0241494e5584f1c9d694c82fac217"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-runtimes-jpg-20.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-runtimes-jpg-20.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-runtimes-jpg-20.png",
+      "digest": "e2a3036014d39128ef6adb81a884cfe0148ebf7ecc82c8e4372ce827e3ffa6cc"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-slide-2-jpg-3.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-slide-2-jpg-3.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-slide-2-jpg-3.png",
+      "digest": "2af1352396d59a0e780d06b2112cf5fc620a5035da75f395a80df0b55c3de4c2"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-solana-ledger-jpg-2.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-solana-ledger-jpg-2.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-solana-ledger-jpg-2.png",
+      "digest": "658313ee330e4502fd670c7bd78489032f61ed18a8abd460212790770813ef75"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-sorted-by-id-jpg-23.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-sorted-by-id-jpg-23.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-sorted-by-id-jpg-23.png",
+      "digest": "189d7739fc85323de0d5c609b4e79c9cbc82c72a69db4af8d0b21af8b669d011"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-solana-ecosystem-jpeg-27.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-solana-ecosystem-jpeg-27.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-solana-ecosystem-jpeg-27.png",
+      "digest": "994cfe2d40eeea2534d559db93d4713fbbb62b786fabd61115690b1f4a747b33"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-transaction-anatomy-jpg-21.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-transaction-anatomy-jpg-21.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-transaction-anatomy-jpg-21.png",
+      "digest": "ea8428d5939534696995d26fadc2de8516569ca638cd7c6ea8e3f3d5086a443e"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-tree-creation-jpg-14.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-tree-creation-jpg-14.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-tree-creation-jpg-14.png",
+      "digest": "beef40ebf0acdcd412e3b588a4a699fd9564a5f122590f06da1f3038338b2c61"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-turbine-1-jpg-11.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-turbine-1-jpg-11.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-turbine-1-jpg-11.png",
+      "digest": "ac4dce548db99fed8caf05cf3b56d5c59b48b05c113719b85c5e59c7a1c9c9c0"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-turbine-erasure-codes-jpg-15.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-turbine-erasure-codes-jpg-15.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-turbine-erasure-codes-jpg-15.png",
+      "digest": "9f7958f849e89b1738201e18392b8536918ba53c2736bec07fdd2bc75b9525a8"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-turbine-jpg-10.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-turbine-jpg-10.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-turbine-jpg-10.png",
+      "digest": "2e6e115a38dc0166465e7f432f264e51671528742c85ba70912cd79a905d30d5"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vdf-jpg-1.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vdf-jpg-1.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vdf-jpg-1.png",
+      "digest": "d76dc48873f651629f82f3302b82a3653226174910f4e08c1832c921da25f5dc"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-0-jpg-4.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-0-jpg-4.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-0-jpg-4.png",
+      "digest": "4fa35fd190b00500963863c55aa6c559fed7a254a6574e2158fe6e02e37cf53f"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-tpu-gif-26.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-tpu-gif-26.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-tpu-gif-26.png",
+      "digest": "46f0c8821b809fd9cb6f20a2e775a47b19c67162eafdeb60d112bc7c4a4d8c9e"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-1-jpg-5.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-1-jpg-5.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-1-jpg-5.png",
+      "digest": "bd098235f673e7ed95b752cfbf9cad99723ab2e24d7a034bd489d8b6dd80f525"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-18-jpg-8.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-18-jpg-8.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-18-jpg-8.png",
+      "digest": "794a854b3f235f5597074a2ff97b02c9ff9e5247645a7124453bbc39ccb3d3a2"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-19-jpg-9.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-19-jpg-9.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-19-jpg-9.png",
+      "digest": "2b64f0d281ccc2bbe0fc3c033312b5f27fe26492fd7d207aed33b8ec4167bf3a"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-2-jpg-6.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-2-jpg-6.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-2-jpg-6.png",
+      "digest": "ce20269471767382a09385405a5d122f3d6b2ad26b8d9fc9305350cb8c1c14ab"
+    },
+    "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-5-jpg-7.png": {
+      "name": "solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-5-jpg-7.png",
+      "path": "content/assets/solana-explaining-solanas-innovations-without-technical-jargon-vote-stack-at-5-jpg-7.png",
+      "digest": "7d906c859bf782a0aff80a3adcb4357652c57ba1f0d8e351c86523c3bcb81d12"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "bd6bf6e2efd701245e8666faa4d9df4467b5a5b2ebd694bda8c4ef213850bade",
+      "arweaveHash": "g7-TDDTMrUhOTHCi_PyDJS5uX8iRJGZeF_M6dJW2uAY"
+    }
+  },
+  "href": "learn/solana-explaining-solanas-innovations-without-technical-jargon",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

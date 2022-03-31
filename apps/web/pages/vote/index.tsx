@@ -21,6 +21,7 @@ import {
 } from '@app/constants';
 import HitFilter from '@app/components/Search/HitFilter';
 import Loader from '@app/components/Loader/Loader';
+import useSearchState from '../../hooks/useSearchState';
 
 const PER_PAGE = 10;
 
@@ -52,6 +53,8 @@ const ProposalList = () => {
 };
 
 const Home: NextPage = () => {
+  const searchStateProps = useSearchState();
+
   return (
     <div>
       <Head>
@@ -68,6 +71,7 @@ const Home: NextPage = () => {
           <InstantSearch
             searchClient={searchClient}
             indexName={NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+            {...searchStateProps}
           >
             <Configure hitsPerPage={PER_PAGE} analytics={false} />
             <div className="flex items-start justify-between w-full">
@@ -75,7 +79,11 @@ const Home: NextPage = () => {
                 <div className="lg:my-6 mt-10 mb-4 z-30 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"
-                    defaultRefinement={[ProposalStateE.submitted]}
+                    defaultRefinement={[
+                      ProposalStateE.submitted,
+                      ProposalStateE.writing,
+                      ProposalStateE.readyToPublish,
+                    ]}
                   />
                 </div>
                 <Hits hitComponent={TutorialProposalHit} />

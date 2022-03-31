@@ -1,0 +1,79 @@
+{
+  "proposalId": 54,
+  "slug": "polygon-funding-dao-polygon",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "url": "https://github.com/viral-sangani",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-funding-dao-polygon-create-member-4.png": {
+      "name": "polygon-funding-dao-polygon-create-member-4.png",
+      "path": "content/assets/polygon-funding-dao-polygon-create-member-4.png",
+      "digest": "9f4ff4bd651b8aaf050f46e71c15429718c27334ff19c293ab9cef608907380b"
+    },
+    "content/assets/polygon-funding-dao-polygon-add-funds-9.png": {
+      "name": "polygon-funding-dao-polygon-add-funds-9.png",
+      "path": "content/assets/polygon-funding-dao-polygon-add-funds-9.png",
+      "digest": "71ea42ef5a0f0e934a8ae59e3d7ae2f8beef169198c50fdc2f5802d8f27afc63"
+    },
+    "content/assets/polygon-funding-dao-polygon-create-proposal-6.png": {
+      "name": "polygon-funding-dao-polygon-create-proposal-6.png",
+      "path": "content/assets/polygon-funding-dao-polygon-create-proposal-6.png",
+      "digest": "afec6b68ea90674f4347ee42bf1f0ce7c616c3befc6816aebb64684ff21edb8d"
+    },
+    "content/assets/polygon-funding-dao-polygon-folder-structure-2.png": {
+      "name": "polygon-funding-dao-polygon-folder-structure-2.png",
+      "path": "content/assets/polygon-funding-dao-polygon-folder-structure-2.png",
+      "digest": "da86ab056bbf9a569ebbf01c316b0220078e0915c255b0f0ee0682b3fbffd797"
+    },
+    "content/assets/polygon-funding-dao-polygon-funding-dao-index-3.png": {
+      "name": "polygon-funding-dao-polygon-funding-dao-index-3.png",
+      "path": "content/assets/polygon-funding-dao-polygon-funding-dao-index-3.png",
+      "digest": "b6231da7967e5af1129c92b8f2f19267e439e1f934c53c2a805f0344e087a77f"
+    },
+    "content/assets/polygon-funding-dao-polygon-investments-page-8.png": {
+      "name": "polygon-funding-dao-polygon-investments-page-8.png",
+      "path": "content/assets/polygon-funding-dao-polygon-investments-page-8.png",
+      "digest": "2ffe13370a1294c9db61945f6ef6cc9e1bb84b7032391e3a5f63954437087639"
+    },
+    "content/assets/polygon-funding-dao-polygon-proposal-card-5.png": {
+      "name": "polygon-funding-dao-polygon-proposal-card-5.png",
+      "path": "content/assets/polygon-funding-dao-polygon-proposal-card-5.png",
+      "digest": "fccde889393cd6d64906eae635c0c43d72aff75dd1702f042f692eefa89da8f6"
+    },
+    "content/assets/polygon-funding-dao-polygon-voting-modal-7.png": {
+      "name": "polygon-funding-dao-polygon-voting-modal-7.png",
+      "path": "content/assets/polygon-funding-dao-polygon-voting-modal-7.png",
+      "digest": "c4c60384121c9d9ff9e60669347d182ba7a3127729f70ba8cebe101fff06cab5"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e01919af134cbd706cfd0d0cef29129f3ccc586ab9b2dfca6545454f89ed3ac6",
+      "arweaveHash": "vWwun65QR0VIrpS05smqygXt4sRGPq-e9o-h3ZIDVqs"
+    },
+    "content/assets/polygon-funding-dao-polygon-demo-gif-1.png": {
+      "name": "polygon-funding-dao-polygon-demo-gif-1.png",
+      "path": "content/assets/polygon-funding-dao-polygon-demo-gif-1.png",
+      "digest": "45a70be0bdf4c79b0240b2d051d879f7bea338434893206931f6d57aee010ddf"
+    }
+  },
+  "href": "learn/polygon-funding-dao-polygon",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

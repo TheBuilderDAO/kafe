@@ -34,6 +34,8 @@ import {
   voteCast,
   proposalSetState,
   guideTipping,
+  proposalPublish,
+  daoSetQuorum,
 } from './lib/instructions';
 
 import { Tutorial } from './lib/idl/tutorial';
@@ -49,26 +51,35 @@ export class TutorialProgramClient {
   public readonly provider: anchor.Provider;
   public readonly tutorialProgram: anchor.Program<Tutorial>;
   public readonly kafeMint: PublicKey;
+  public readonly bdrMint: PublicKey;
   public readonly programId: PublicKey;
 
   private readonly pda;
 
   constructor(
     connection: Connection,
-    wallet: typeof anchor.Wallet,
+    wallet: anchor.Wallet,
     kafeMint: PublicKey,
+    bdrMint: PublicKey,
   ) {
     this.provider = new anchor.Provider(connection, wallet, providerOptions);
     const { getProgram, PROGRAM_ID } = TutorialProgramConfig.getConfig();
     this.programId = PROGRAM_ID;
     this.tutorialProgram = getProgram(this.provider);
     this.kafeMint = kafeMint;
-    this.pda = getPda(this.programId, kafeMint);
+    this.bdrMint = bdrMint;
+    this.pda = getPda(this.programId);
   }
 
   // Fetchers
   async getDaoAccount() {
     return daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount);
+  }
+
+  async getNonce() {
+    return (
+      await daoAccount(this.tutorialProgram, this.pda.pdaDaoAccount)
+    ).nonce.toNumber();
   }
 
   async getProposals(
@@ -108,8 +119,12 @@ export class TutorialProgramClient {
     return reviewerAccountByGithubLogin(this.tutorialProgram, githubLogin);
   }
 
-  async getDaoVaultAccountBalance() {
-    return daoVaultAccountBalance(this.provider, this.pda.pdaDaoVaultAccount);
+  async getDaoVaultAccountBalance(mintPk: anchor.web3.PublicKey) {
+    return daoVaultAccountBalance(
+      this.provider,
+      mintPk,
+      this.pda.pdaDaoVaultAccount,
+    );
   }
 
   async getTutorialBySlug(slug: string) {
@@ -119,7 +134,7 @@ export class TutorialProgramClient {
   async getTutorialById(id: number) {
     return proposalAccountById(
       this.tutorialProgram,
-      this.pda.pdaTutorialById,
+      this.pda.pdaProposalById,
       id,
     );
   }
@@ -157,21 +172,20 @@ export class TutorialProgramClient {
   }
 
   // Instructions
-  async castVote(tutorialId: number) {
+  async castVote(proposalId: number) {
     return voteCast({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
-      tutorialId,
-      userPk: this.provider.wallet.publicKey,
+      proposalId,
+      voterPk: this.provider.wallet.publicKey,
     });
   }
 
-  async cancelVote(tutorialId: number) {
+  async cancelVote(proposalId: number) {
     return voteCancel({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
-      tutorialId,
-      userPk: this.provider.wallet.publicKey,
+      proposalId,
+      authorPk: this.provider.wallet.publicKey,
+      voterPk: this.provider.wallet.publicKey,
     });
   }
 
@@ -184,7 +198,7 @@ export class TutorialProgramClient {
     return proposalCreate({
       program: this.tutorialProgram,
       mintPk: this.kafeMint,
-      tutorialId: data.id,
+      proposalId: data.id,
       userPk: data.userPk,
       slug: data.slug,
       streamId: data.streamId,
@@ -193,12 +207,14 @@ export class TutorialProgramClient {
 
   async closeTutorial(data: {
     id: number;
+    authorPk: anchor.web3.PublicKey;
     userPk: anchor.web3.PublicKey;
   }): Promise<string> {
     return proposalClose({
       program: this.tutorialProgram,
       mintPk: this.kafeMint,
-      tutorialId: data.id,
+      proposalId: data.id,
+      authorPk: data.authorPk,
       userPk: data.userPk,
     });
   }
@@ -210,7 +226,6 @@ export class TutorialProgramClient {
   }): Promise<string> {
     return reviewerCreate({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
       adminPk: data.authorityPk,
       reviewerPk: data.reviewerPk,
       githubName: data.githubName,
@@ -220,12 +235,13 @@ export class TutorialProgramClient {
   async deleteReviewer(data: {
     authorityPk: anchor.web3.PublicKey;
     reviewerPk: anchor.web3.PublicKey;
+    force?: boolean;
   }): Promise<string> {
     return reviewerDelete({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
       reviewerPk: data.reviewerPk,
       adminPk: data.authorityPk,
+      force: data.force,
     });
   }
 
@@ -233,14 +249,15 @@ export class TutorialProgramClient {
     authorityPk: anchor.web3.PublicKey;
     reviewerPks: anchor.web3.PublicKey[];
     id: number;
+    force?: boolean;
   }): Promise<string> {
     return reviewerAssign({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
       reviewer1Pk: data.reviewerPks[0],
       reviewer2Pk: data.reviewerPks[1],
-      tutorialId: data.id,
+      proposalId: data.id,
       adminPk: data.authorityPk,
+      force: data.force,
     });
   }
 
@@ -251,12 +268,12 @@ export class TutorialProgramClient {
   }): Promise<string> {
     return proposalSetState({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
-      tutorialId: data.id,
+      proposalId: data.id,
       adminPk: data.adminPk,
       newState: data.newState,
     });
   }
+
   async guideTipping(data: {
     id: number;
     tipperPk: anchor.web3.PublicKey;
@@ -264,10 +281,36 @@ export class TutorialProgramClient {
   }): Promise<string> {
     return guideTipping({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
+      mintKafe: this.kafeMint,
+      mintBDR: this.bdrMint,
       proposalId: data.id,
       tipperPk: data.tipperPk,
       amount: data.amount,
+    });
+  }
+
+  async daoSetQuorum(data: {
+    adminPk: anchor.web3.PublicKey;
+    quorum: number;
+  }): Promise<string> {
+    return daoSetQuorum({
+      program: this.tutorialProgram,
+      quorum: data.quorum,
+      adminPk: data.adminPk,
+    });
+  }
+
+  async proposalPublish(data: {
+    authorPk: anchor.web3.PublicKey;
+    adminPk: anchor.web3.PublicKey;
+    id: number;
+  }): Promise<string> {
+    return proposalPublish({
+      program: this.tutorialProgram,
+      mintPk: this.kafeMint,
+      proposalId: data.id,
+      adminPk: data.adminPk,
+      authorPk: data.authorPk,
     });
   }
 }

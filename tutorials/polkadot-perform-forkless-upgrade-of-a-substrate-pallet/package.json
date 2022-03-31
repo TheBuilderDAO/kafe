@@ -1,0 +1,24 @@
+{
+  "name": "@builderdao-learn/polkadot-perform-forkless-upgrade-of-a-substrate-pallet",
+  "version": "1.0.0",
+  "description": "Learn how to upgrade a Substrate pallet without forking the blockchain",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Polkadot",
+    "Rust",
+    "Rust"
+  ],
+  "author": "",
+  "license": "ISC"
+}

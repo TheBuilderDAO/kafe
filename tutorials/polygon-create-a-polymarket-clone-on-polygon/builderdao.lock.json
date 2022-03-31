@@ -1,0 +1,94 @@
+{
+  "proposalId": 32,
+  "slug": "polygon-create-a-polymarket-clone-on-polygon",
+  "authors": [
+    {
+      "name": "Viral Sangani",
+      "avatarUrl": "https://github.com/viral-sangani.png",
+      "url": "https://github.com/viral-sangani",
+      "nickname": "viral-sangani"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-form-view-5.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-admin-form-view-5.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-form-view-5.png",
+      "digest": "15b3e54d62a0da8387973a6fe575eacee43a23a34382e165fa8ee670efc5993b"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-list-6.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-admin-market-list-6.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-list-6.png",
+      "digest": "f3ac7130198bfa8094f80f6480370e55a60eeb2192ef2bb25edaa560d4d4d937"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-index-demo-10.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-admin-index-demo-10.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-index-demo-10.png",
+      "digest": "23b4af3e3672deabd1a980660bff3d9aaca62de0e921efa030c7216eed296835"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-resolve-12.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-admin-market-resolve-12.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-admin-market-resolve-12.png",
+      "digest": "612ed3a1e226340603716309df9be23b72d5417f047225666e00c0596f66ce0d"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-index-page-3.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-index-page-3.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-index-page-3.png",
+      "digest": "635483136f3b5c66f811e0092f4e52080c36380e03142b6a461626e7bf2caaf8"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-market-details-11.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-market-details-11.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-market-details-11.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-market-details-7.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-market-details-7.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-market-details-7.png",
+      "digest": "224e1f39070fae21fe633286f79d0489f2f2ae2c7dc12b89da1513e902252335"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-demo-gif-1.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-demo-gif-1.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-demo-gif-1.png",
+      "digest": "3bfdc82b1f374c1bb15bf317ea80bd39c5ec0d34e79879ed73d5d56d8ca9b31e"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-navbar-8.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-navbar-8.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-navbar-8.png",
+      "digest": "6703030f38d9eed5b8cc653b3ba94ba1464f9479c17202c5a844f0d357809bef"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-pages-folder-structure-2.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-pages-folder-structure-2.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-pages-folder-structure-2.png",
+      "digest": "85c4a9f13c426e4147f8860f6d3a171eecbe280c4c80cf1a032d4fddd7a654c7"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-polymarket-card-9.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-polymarket-card-9.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-polymarket-card-9.png",
+      "digest": "2dcd911fe044eb7df0958e2444d9f5db52b774ad4ef80380a340282c989b14be"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "c5e931645d90aecf833e770513c75f949c18a6504c0207035d4230642ca8a0fe",
+      "arweaveHash": "uMzD09l9s_mOC4FbBqHYWFmdV6IYviEztN2LXghhiT8"
+    },
+    "content/assets/polygon-create-a-polymarket-clone-on-polygon-portfolio-view-4.png": {
+      "name": "polygon-create-a-polymarket-clone-on-polygon-portfolio-view-4.png",
+      "path": "content/assets/polygon-create-a-polymarket-clone-on-polygon-portfolio-view-4.png",
+      "digest": "3e586f5969c63b35a99943c61c6e749eb34c6270b7e31d91bef1807444a9b2d6"
+    }
+  },
+  "href": "learn/polygon-create-a-polymarket-clone-on-polygon",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

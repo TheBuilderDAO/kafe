@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+# kaf4vazd5QTkKkKs5ov6dBpbV59MqZXdmwQHrqbCRU9 ==========> authority
+# waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA ==========> superAdmin
+
+solana-test-validator -r --clone KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2 \
+kaf4vazd5QTkKkKs5ov6dBpbV59MqZXdmwQHrqbCRU9 Cw36WehLgKbQejGFfNHvGa19YWzStjT2Dre55TSjZkQ Do1QQFGAywb468TK6unG4mX5MMyRevjbXcbDpi2x5DU4 \
+waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA 7mQ88Wv4WSxD3z5mmbMifN6EEhvYSSuqn7NnsJKs2eh5 HmWohbQ5vdjE9JXaPyfsTgJVS1uiCHk2ez1eTRQ9MJD7 \
+--url testnet

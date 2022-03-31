@@ -14,28 +14,26 @@ import { getPda } from '../pda';
  */
 export const reviewerDelete = async ({
   program,
-  mintPk,
   reviewerPk,
   adminPk,
+  force,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   reviewerPk: anchor.web3.PublicKey;
   adminPk: anchor.web3.PublicKey;
+  force?: boolean;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount, pdaReviewerAccount } = getPda(
-    program.programId,
-    mintPk,
-  );
+  const { pdaDaoAccount, pdaReviewerAccount } = getPda(program.programId);
   const daoConfig = await pdaDaoAccount();
   const reviewerAccount = await pdaReviewerAccount(reviewerPk);
 
-  const signature = await program.rpc.reviewerDelete({
+  const signature = await program.rpc.reviewerDelete(!!force, {
     accounts: {
-      daoConfig: daoConfig.pda,
+      daoAccount: daoConfig.pda,
       reviewerAccount: reviewerAccount.pda,
+      reviewer: reviewerPk,
       authority: adminPk,
     },
     ...(signer && { signers: [signer] }),

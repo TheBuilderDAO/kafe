@@ -12,8 +12,6 @@ import {
 } from '@app/constants';
 import { connectHits } from 'react-instantsearch-dom';
 import { truncateString } from '../../utils/strings';
-import ButtonLeft from '@app/components/Carousel/ButtonLeft';
-import ButtonRight from '@app/components/Carousel/ButtonRight';
 import useCarousel from '@app/components/Carousel/useCarousel';
 import Loader from '@app/components/Loader/Loader';
 import routes from '../../routes';
@@ -32,14 +30,14 @@ const ProposalCard = props => {
   return (
     <div
       className={
-        'relative z-0 rounded-3xl dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack'
+        'relative z-0 rounded-[35px] dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack'
       }
     >
       <BorderSVG />
       <div className="p-8">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <small className="text-xs mr-2">Proposal by</small>{' '}
+            <small className="mr-2 text-xs">Proposal by</small>{' '}
             <UserAvatar ellipsis={true} address={hit.author} />
           </div>
           <ImageStack addresses={['1', '2', '3']} />
@@ -60,7 +58,12 @@ const ProposalCard = props => {
   );
 };
 
-const Wrapper = ({ hits, currentIndex }) => {
+const Wrapper = ({ hits }) => {
+  const { currentIndex, handlePrev, handleNext } = useCarousel(
+    PER_PAGE,
+    hits.length,
+  );
+
   if (!hits.length) {
     return <Loader />;
   }
@@ -83,11 +86,8 @@ const Wrapper = ({ hits, currentIndex }) => {
 const Proposals = connectHits(Wrapper);
 
 const ProposalsCarousel = () => {
-  const { currentIndex, handlePrev, handleNext } = useCarousel(PER_PAGE);
-
   return (
-    <div>
-      {/* <ButtonLeft onClick={handlePrev} /> */}
+    <div className="relative h-[200px]">
       <InstantSearch
         searchClient={searchClient}
         indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
@@ -95,13 +95,10 @@ const ProposalsCarousel = () => {
         <Configure
           hitsPerPage={PER_PAGE}
           analytics={false}
-          filters="state:submitted OR state:writing OR state:readyToPublish"
+          filters="state:submitted OR state:writing OR state:readyToPublish OR state:funded"
         />
-        <div className="relative">
-          <Proposals currentIndex={currentIndex} />
-        </div>
+        <Proposals />
       </InstantSearch>
-      {/* <ButtonRight onClick={handleNext} /> */}
     </div>
   );
 };

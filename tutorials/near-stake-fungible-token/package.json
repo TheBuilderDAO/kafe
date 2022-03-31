@@ -1,0 +1,25 @@
+{
+  "name": "@builderdao-learn/near-stake-fungible-token",
+  "version": "1.0.0",
+  "description": "Complete guide to NEAR's new fungible token standard",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial  prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": [
+    "Near",
+    "JS/TS",
+    "Rust",
+    "Smart contracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}

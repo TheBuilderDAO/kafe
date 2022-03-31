@@ -1,0 +1,39 @@
+{
+  "proposalId": 33,
+  "slug": "avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle",
+  "authors": [
+    {
+      "name": "Raj Ranjan",
+      "avatarUrl": "https://github.com/rajranjan0608.png",
+      "url": "https://github.com/rajranjan0608",
+      "nickname": "rajranjan0608"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "53d9578c7021cae4b483e67415fcfd893651939669ab508413892e643c83020b",
+      "arweaveHash": "yMw3ALUM9veQBXPLnal4sTCJwyYaSvJ0STZPg2NUAL4"
+    },
+    "content/assets/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle-image-1.png": {
+      "name": "avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle-image-1.png",
+      "path": "content/assets/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle-image-1.png",
+      "digest": "25f752d0a9ac5244482814850533f57a020bd1dcfaebb134f863eb52a411a2d7"
+    }
+  },
+  "href": "learn/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

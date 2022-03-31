@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+
+import path from 'path'; 
 /* eslint-disable import/first */
-
-import dotenv from 'dotenv';
-import path from 'path';
-
-dotenv.config({ path: path.resolve(__dirname, '../.env.local')});
+require('dotenv-flow').config({
+  path: path.resolve(__dirname, '../')
+});
 
 import chalk from 'chalk';
 import * as commander from 'commander';

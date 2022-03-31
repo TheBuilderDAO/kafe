@@ -12,8 +12,6 @@ import {
 } from '@app/constants';
 import { connectHits } from 'react-instantsearch-dom';
 import { truncateString } from '../../utils/strings';
-import ButtonLeft from '@app/components/Carousel/ButtonLeft';
-import ButtonRight from '@app/components/Carousel/ButtonRight';
 import useCarousel from '@app/components/Carousel/useCarousel';
 import Loader from '@app/components/Loader/Loader';
 import routes from '../../routes';
@@ -34,9 +32,9 @@ const GuideCard = props => {
         'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
       }
     >
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <small className="text-xs mr-2">Guide by</small>{' '}
+          <small className="mr-2 text-xs">Guide by</small>{' '}
           <UserAvatar ellipsis={true} address={hit.author} />
         </div>
         <ImageStack addresses={['1', '2', '3']} />
@@ -56,13 +54,17 @@ const GuideCard = props => {
   );
 };
 
-const Wrapper = ({ hits, currentIndex }) => {
+const Wrapper = ({ hits }) => {
+  const { currentIndex, handlePrev, handleNext } = useCarousel(
+    PER_PAGE,
+    hits.length,
+  );
+
   if (!hits.length) {
     return <Loader />;
   }
 
   const hit = hits[currentIndex];
-
   return [
     <div key={hit.objectID} className={`relative top-6 left-6`}>
       <GuideCard hit={hit} />
@@ -79,11 +81,8 @@ const Wrapper = ({ hits, currentIndex }) => {
 const Guides = connectHits(Wrapper);
 
 const GuidesCarousel = () => {
-  const { currentIndex, handlePrev, handleNext } = useCarousel(PER_PAGE);
-
   return (
-    <div>
-      {/* <ButtonLeft onClick={handlePrev} /> */}
+    <div className="relative h-[200px]">
       <InstantSearch
         searchClient={searchClient}
         indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
@@ -93,11 +92,8 @@ const GuidesCarousel = () => {
           analytics={false}
           filters="state:published"
         />
-        <div className="relative">
-          <Guides currentIndex={currentIndex} />
-        </div>
+        <Guides />
       </InstantSearch>
-      {/* <ButtonRight onClick={handleNext} /> */}
     </div>
   );
 };

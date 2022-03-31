@@ -1,0 +1,59 @@
+{
+  "proposalId": 158,
+  "slug": "solana-build-a-crowdfunding-platform-on-solana",
+  "authors": [
+    {
+      "name": "Sushant Chandla",
+      "avatarUrl": "https://github.com/SushantChandla.png",
+      "url": "https://github.com/SushantChandla",
+      "nickname": "SushantChandla"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure-1.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-file-structure-1.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-file-structure-1.png",
+      "digest": "ea80999f15dac7fd00a3b8007e9bf63ad534dd9364e7eec126db6f2370cbad96"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project-3.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-front-end-project-3.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-front-end-project-3.png",
+      "digest": "ed55ba43e593574c5bfbaf5071d5065b6aac6384fe6bd01be970bcc8f721848e"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf-2.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf-2.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-program-complied-bpf-2.png",
+      "digest": "c90ab0c3022a9cb70020a6e9df1d2ff9fafe06195b8d9eb100dceb42d24a461f"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-4.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-result-4.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-4.png",
+      "digest": "07f31308786d9ae26b3bc3601cc442e2bf4876d51002c84dc59e41427cc2a915"
+    },
+    "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-5.png": {
+      "name": "solana-build-a-crowdfunding-platform-on-solana-result-5.png",
+      "path": "content/assets/solana-build-a-crowdfunding-platform-on-solana-result-5.png",
+      "digest": "b667c5cd8e91002f6989ac307032bc2a576bab95063368eb8040fceebf8a4ae4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "629d80393ea005c8d364311755819ee86df94121788c9744647d33c97626090b",
+      "arweaveHash": "QljzfLhwfMF05jidyPUfK9R9pUf4oo9c2ysjL_Lnx5Q"
+    }
+  },
+  "href": "learn/solana-build-a-crowdfunding-platform-on-solana",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

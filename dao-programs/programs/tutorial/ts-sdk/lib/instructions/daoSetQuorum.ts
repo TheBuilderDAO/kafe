@@ -14,23 +14,21 @@ import { getPda } from '../pda';
  */
 export const daoSetQuorum = async ({
   program,
-  mintPk,
   adminPk,
   quorum,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
   adminPk: anchor.web3.PublicKey;
-  quorum: anchor.BN;
+  quorum: number;
   signer?: anchor.web3.Keypair;
 }) => {
-  const { pdaDaoAccount } = getPda(program.programId, mintPk);
+  const { pdaDaoAccount } = getPda(program.programId);
   const daoAccount = await pdaDaoAccount();
 
-  const signature = await program.rpc.daoSetQuorum(quorum, {
+  const signature = await program.rpc.daoSetQuorum(new anchor.BN(quorum), {
     accounts: {
-      daoConfig: daoAccount.pda,
+      daoAccount: daoAccount.pda,
       authority: adminPk,
     },
     ...(signer && { signers: [signer] }),

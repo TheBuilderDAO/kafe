@@ -7,27 +7,42 @@ use crate::state::*;
 pub struct ReviewerAssign<'info> {
   #[account(
     mut,
-    constraint =  dao_config.admins.contains(&authority.key())
+    constraint =  dao_account.admins.contains(&authority.key())
+    || authority.key() == dao_account.super_admin
+    @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer1: Account<'info, ReviewerAccount>,
   #[account(
     mut,
-    constraint = dao_config.admins.contains(&authority.key())
+    constraint = dao_account.admins.contains(&authority.key())
+    || authority.key() == dao_account.super_admin
+    @ ErrorDao::UnauthorizedAccess 
   )]
   pub reviewer2: Account<'info, ReviewerAccount>,
-  pub dao_config: Account<'info, DaoAccount>,
+  pub prev_reviewer1: Account<'info, ReviewerAccount>,
+  pub prev_reviewer2: Account<'info, ReviewerAccount>,
+  pub dao_account: Account<'info, DaoAccount>,
   #[account(mut)]
-  pub tutorial: Account<'info, ProposalAccount>,
+  pub proposal_account: Account<'info, ProposalAccount>,
   #[account(mut)]
   pub authority: Signer<'info>,
 }
 
-pub fn handler(ctx: Context<ReviewerAssign>) -> Result<()> {
-  ctx.accounts.reviewer1.number_of_assignment += 1;
-  ctx.accounts.reviewer2.number_of_assignment += 1;
+pub fn handler(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
+  if force {
+    ctx.accounts.proposal_account.reviewer1 = ctx.accounts.reviewer1.pubkey;
+    ctx.accounts.proposal_account.reviewer2 = ctx.accounts.reviewer2.pubkey;
+  
+    ctx.accounts.reviewer1.number_of_assignment += 1;
+    ctx.accounts.reviewer2.number_of_assignment += 1;
+    ctx.accounts.prev_reviewer1.number_of_assignment -= 1;
+    ctx.accounts.prev_reviewer2.number_of_assignment -= 1;
+  
+    return Ok(()); 
+  }
 
-  if ctx.accounts.reviewer1.pubkey == ctx.accounts.tutorial.creator 
-    || ctx.accounts.reviewer2.pubkey == ctx.accounts.tutorial.creator {
+  if ctx.accounts.reviewer1.pubkey == ctx.accounts.proposal_account.creator 
+    || ctx.accounts.reviewer2.pubkey == ctx.accounts.proposal_account.creator {
     return Err(error!(ErrorDao::CreatorCannotBeAReviewer));
   }
 
@@ -35,8 +50,13 @@ pub fn handler(ctx: Context<ReviewerAssign>) -> Result<()> {
     return Err(error!(ErrorDao::ReviewerNeedToBeDifferents));
   }
 
-  ctx.accounts.tutorial.reviewer1 = ctx.accounts.reviewer1.pubkey;
-  ctx.accounts.tutorial.reviewer2 = ctx.accounts.reviewer2.pubkey;
+  ctx.accounts.proposal_account.reviewer1 = ctx.accounts.reviewer1.pubkey;
+  ctx.accounts.proposal_account.reviewer2 = ctx.accounts.reviewer2.pubkey;
+
+  ctx.accounts.reviewer1.number_of_assignment += 1;
+  ctx.accounts.reviewer2.number_of_assignment += 1;
+  ctx.accounts.prev_reviewer1.number_of_assignment -= 1;
+  ctx.accounts.prev_reviewer2.number_of_assignment -= 1;
 
   return Ok(());
 }

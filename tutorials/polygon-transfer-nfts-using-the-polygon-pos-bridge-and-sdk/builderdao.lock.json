@@ -1,0 +1,89 @@
+{
+  "proposalId": 157,
+  "slug": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk",
+  "authors": [
+    {
+      "name": "Masoud Ghorbanzadeh",
+      "avatarUrl": "https://github.com/mlibre.png",
+      "url": "https://github.com/mlibre",
+      "nickname": "mlibre"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-balances-metamask-7.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-balances-metamask-7.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-balances-metamask-7.png",
+      "digest": "3a3d5efa8afc82bb01f478aa195e80a63f8f7e7ef196bc21caabd53c0f743194"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-approve-9.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-approve-9.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-approve-9.png",
+      "digest": "0c7c48c3f03014b302e72e47a766ef571ff6615937b1601543b349eaa1f36230"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image-3.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image-3.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image-3.png",
+      "digest": "b22a87223043ff21058feb2bed4cd098703f42ee2034e865c3b0ee474484fc31"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-deposit-10.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-deposit-10.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-deposit-10.png",
+      "digest": "b8858d39ff83fe9234655a3d4e4b2fc1cad42431bce00fa5640f996797a9ad62"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-mapped-image-5.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-mapped-image-5.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-mapped-image-5.png",
+      "digest": "69376d056be8478bdecda31e63fda2b9daf85fc3c1ab2cc5d387a4b9ced5be01"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image-4.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image-4.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-map-image-4.png",
+      "digest": "1177feae1f944169491c5dfc1c478aea858f2c9fffed6462fcb987f716aaf859"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-metamask-goerli-8.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-metamask-goerli-8.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-metamask-goerli-8.png",
+      "digest": "7687402762f13d6c07e90066b593f480718d7e51b69ae79b6cdc510ab062fdc3"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-metamask-after-map-6.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-metamask-after-map-6.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-metamask-after-map-6.png",
+      "digest": "e6a95fbe19f096a543617f334f5bf96bdf19e8af99681a2789f2c080ffbb00aa"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-mumbai-2.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-mumbai-2.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-mumbai-2.png",
+      "digest": "1d53b4c9db836763e9feaa09619893e8c536850df11843371f01bdf502c98a57"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-tokens-balance-1.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-tokens-balance-1.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-tokens-balance-1.png",
+      "digest": "3d055c4968adb36df28c7b25098e4553db4db4bf537eb71818a947b9f5246cf4"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "fface5085b18eaae6f2a4ddcba4e9bc9372a65983f32c6b5ace8e7c5a63fa5e4",
+      "arweaveHash": "FmvsIiBRmdyqJjoibTkAidludJpIft5HKWlW1Xg7m8Q"
+    },
+    "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-transfer-done-11.png": {
+      "name": "polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-transfer-done-11.png",
+      "path": "content/assets/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk-transfer-done-11.png",
+      "digest": "cb44ca85804eca2601c81958fb558b5f1a5c056426dc9fb4ce6ca9b3751766de"
+    }
+  },
+  "href": "learn/polygon-transfer-nfts-using-the-polygon-pos-bridge-and-sdk",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

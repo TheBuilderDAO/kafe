@@ -2,7 +2,7 @@ import { Program } from '@project-serum/anchor';
 import * as anchor from '@project-serum/anchor';
 
 import { Tutorial } from '../idl/tutorial';
-import bs58 from 'bs58';
+import { filterTipperByPk } from '../filters';
 
 /**
  * This function return all tips done by a tipper
@@ -11,15 +11,6 @@ import bs58 from 'bs58';
 const tipperAccountListByUser = async (
   program: Program<Tutorial>,
   tipperPk: anchor.web3.PublicKey,
-) => {
-  return program.account.tipperAccount.all([
-    {
-      memcmp: {
-        offset: 17,
-        bytes: bs58.encode(tipperPk.toBuffer()),
-      },
-    },
-  ]);
-};
+) => program.account.tipperAccount.all([filterTipperByPk(tipperPk)]);
 
 export default tipperAccountListByUser;

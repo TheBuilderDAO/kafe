@@ -1,0 +1,54 @@
+{
+  "proposalId": 6,
+  "slug": "solana-explaining-solana-for-beginners",
+  "authors": [
+    {
+      "name": "Brandon Goss",
+      "avatarUrl": "https://github.com/brandongoss.png",
+      "url": "https://github.com/brandongoss",
+      "nickname": "brandongoss"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/solana-explaining-solana-for-beginners-kernel-3.png": {
+      "name": "solana-explaining-solana-for-beginners-kernel-3.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-kernel-3.png",
+      "digest": "e6364a7b676c4b21271592985a41d388ccf10f5b2f52eb2f6ed99646df340f68"
+    },
+    "content/assets/solana-explaining-solana-for-beginners-solana-1.png": {
+      "name": "solana-explaining-solana-for-beginners-solana-1.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-solana-1.png",
+      "digest": "f5230d86b41540fdd4b8f1ff104a2f54412972184070864c9032b91abccec070"
+    },
+    "content/assets/solana-explaining-solana-for-beginners-data-storage-4.png": {
+      "name": "solana-explaining-solana-for-beginners-data-storage-4.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-data-storage-4.png",
+      "digest": "a6b3bebd1242067a6090372fefb7168275da13651dec8b02ef0b5769b4837ae5"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "84438fd55bd41084b8cd978bad06cb661eac2dab87b0d7d7d2bd14d2f74b96ed",
+      "arweaveHash": "IrskQ-PASIZ5W0CSAWecCaCgFgPthoQZerongOftFBk"
+    },
+    "content/assets/solana-explaining-solana-for-beginners-transaction-flow-2.png": {
+      "name": "solana-explaining-solana-for-beginners-transaction-flow-2.png",
+      "path": "content/assets/solana-explaining-solana-for-beginners-transaction-flow-2.png",
+      "digest": "136ed953eb5186dd7836b08a007d29a291b5a77b9ab240ef3ebb352719a4a763"
+    }
+  },
+  "href": "learn/solana-explaining-solana-for-beginners",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}
