@@ -113,7 +113,6 @@ export const getStaticProps: GetStaticProps = async context => {
     if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
       try {
         const arweave = new ArweaveApi({
-          appName: NEXT_PUBLIC_ARWEAVE_APP_NAME,
           host: NEXT_PUBLIC_ARWEAVE_HOST,
           port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
           protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
