@@ -11,10 +11,12 @@ export type TutorialMetadata = {
   difficulty: string;
   tags: string[];
   publishedUri?: string;
-  content: {[filename: string]: {
+  createdAt: number;
+  content?: {[filename: string]: {
     name: string;
     path: string;
     digest: string;
+    arweaveHash?: string;
   }};
 };
 
