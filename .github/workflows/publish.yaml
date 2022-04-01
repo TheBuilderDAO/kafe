@@ -29,7 +29,6 @@ jobs:
     name: Get Proposal Slug
     # for test only
     # if: ${{ github.event.label.name == 'publish' }}
-    if: startsWith(github.head_ref, 'tutorials/') && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -39,6 +38,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         id: regex_extract_proposal_id
+        if: startsWith(github.head_ref, 'tutorials/') && github.event.pull_request.merged == true
         with:
           result-encoding: string
           script: |
@@ -48,13 +48,19 @@ jobs:
             return slug && slug[1] || ''
       - name: Set Output
         id: set_output
+        if: github.event.input.slug != ''
+        run: |
+          echo "::set-output name=slug::${{ github.event.input.slug }}"
+      - name: Set Output
+        id: set_output
+        if: steps.regex_extract_proposal_id.outputs.result != ''
         run: |
           echo "::set-output name=slug::${{ steps.regex_extract_proposal_id.outputs.result }}"
 
   fetch_proposal:
     name: Fetch Proposal
     needs: get_proposal_slug
-    if: ${{ needs.get_proposal_slug.outputs.slug }} != '' || ${{ github.event.input.slug }} != ''
+    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
     defaults:
       run:
