@@ -10,6 +10,16 @@ permissions:
   pull-requests: write
 
 on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'The slug of the tutorial to publish'
+        required: true
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
+
   pull_request:
     types:
       - closed
@@ -44,7 +54,7 @@ jobs:
   fetch_proposal:
     name: Fetch Proposal
     needs: get_proposal_slug
-    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
+    if: ${{ needs.get_proposal_slug.outputs.slug }} != '' || ${{ github.event.input.slug }} != ''
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -59,7 +69,7 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: fetch
         env:
-          SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }} || ${{ github.event.input.slug }}
         run: |
           builderdao proposal get -s $SLUG
           PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
