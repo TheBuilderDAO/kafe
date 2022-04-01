@@ -3,11 +3,11 @@ import { useDapp } from './useDapp';
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { TutorialMetadata } from '@app/types/index';
 import {
   useGetDaoState,
   useProposeTutorial as solanaUseProposeTutorial,
 } from '@builderdao-sdk/dao-program';
+import { TutorialMetadata } from '@builderdao/apis/src/CeramicApi';
 
 type StoreMetadataResponse = {
   did: string;

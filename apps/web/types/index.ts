@@ -1,12 +1,4 @@
-export type TutorialMetadata = {
-  title: string;
-  slug: string;
-  description: string;
-  difficulty: string;
-  tags: string[];
-  publishedUri?: string;
-  createdAt: number;
-};
+import { TutorialMetadata } from '@builderdao/apis/src/CeramicApi';
 
 export type Tutorial = {
   id: number;
@@ -16,6 +8,7 @@ export type Tutorial = {
   creator: string;
   reviewer1: string;
   reviewer2: string;
+  streamId: string;
 } & TutorialMetadata;
 
 export enum TutorialState {
