@@ -110,24 +110,33 @@ export const getStaticProps: GetStaticProps = async context => {
   const relativePath = path.relative(rootFolder, pathForFile);
   let servedFrom: 'local' | 'arweave' | 'github' = 'local';
   const getPost = async (): Promise<{ content: string; data: any }> => {
-    try {
-      const arweave = new ArweaveApi({
-        host: NEXT_PUBLIC_ARWEAVE_HOST,
-        port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
-        protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
-      });
-      const response = await arweave.getTutorialByHash(
-        lock.content[relativePath].arweaveHash,
-      );
-      if (response) {
-        servedFrom = 'arweave';
-        return getFileParse<PostType.TUTORIAL>(response.data);
+    if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
+      try {
+        const arweave = new ArweaveApi({
+          host: NEXT_PUBLIC_ARWEAVE_HOST,
+          port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
+          protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+        });
+        const response = await arweave.getTutorialByHash(
+          lock.content[relativePath].arweaveHash,
+        );
+        if (response) {
+          servedFrom = 'arweave';
+          return getFileParse<PostType.TUTORIAL>(response.data);
+        }
+      } catch (err) {
+        console.log(err);
+        servedFrom = 'github';
+        const file = await getFileFromGithub(slug[0], relativePath);
+        return getFileParse<PostType.TUTORIAL>(file);
       }
-    } catch (err) {
-      console.log(err);
-      servedFrom = 'github';
+    } else if (NODE_ENV === 'production') {
       const file = await getFileFromGithub(slug[0], relativePath);
+      servedFrom = 'github';
       return getFileParse<PostType.TUTORIAL>(file);
+    } else {
+      servedFrom = 'local';
+      return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
   };
 
