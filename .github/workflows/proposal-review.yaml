@@ -150,66 +150,22 @@ jobs:
           ALL_REQUIRED_REVIEWERS_APPROVED: ${{steps.reviewer1_review.outputs.state == 'APPROVED' && steps.reviewer2_review.outputs.state  == 'APPROVED'}}
         run: |
           echo $ALL_REQUIRED_REVIEWERS_APPROVED
-          STATUS=$([ "$ALL_REQUIRED_REVIEWERS_APPROVED" == true ] && echo "DONE" || echo "FAIL")
+          STATUS=$([ "$ALL_REQUIRED_REVIEWERS_APPROVED" == true ] && echo "readyToPublish" || echo "writing")
           echo $STATUS
           echo "::set-output name=all_reviewers_approved::$STATUS"
 
       - uses: ./.github/actions/build-builderdao-cli/
 
       - name: Set Proposal Status to Writing
-        if: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, 'FAIL')
         env:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+          STATE: ${{ steps.check_all_reviewers_approved.outputs.all_reviewers_approved }}
         run: |
-          builderdao proposal setstate $PROPOSAL_ID --state='writing' --adminKp $TESTNET_ADMIN_KP
-
-      - name: Report Status setFailed
-        uses: actions/github-script@v6
-        with:
-          cond: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, 'FAIL')
-          if_true:
-            script: |
-              github.rest.issues.addLabels({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                labels: ['pending_review']
-              })
-              core.setFailed('Assigned reviewers are not approved yet')
-          if_false:
-            run: |
-              echo "::set-output name=all_reviewers_approved::$STATUS"
-
-      - id: set_ready_to_publish
-        if: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, 'DONE')
-        env:
-          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
-        run: |
-          builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
-      - name: label
-        if: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, 'DONE')
-        uses: actions/github-script@v6
-        with:
-          script: |
-            try {
-              github.rest.issues.deleteLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                name: ['pending_review'],
-              });
-            } catch (err) {
-              console.log(err);
-            }
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['ready_to_publish']
-            })
+          builderdao proposal setstate $PROPOSAL_ID --state=$STATE --adminKp $TESTNET_ADMIN_KP
 
   update_algolia_index:
+   if: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, "readyTopublish")
     name: Update Algolia Index
     needs: [check_review_status]
     runs-on: ubuntu-latest
