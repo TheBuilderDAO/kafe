@@ -11,7 +11,6 @@ on:
       - 'dev'
       - 'main'
 
-
 jobs:
   get_proposal_slug:
     name: Get Proposal Slug
@@ -72,6 +71,7 @@ jobs:
         echo "::set-output name=proposalState::$PROPOSAL_STATE"
         echo "::set-output name=reviewer1_githubName::$REVIEWER1_GITHUBNAME"
         echo "::set-output name=reviewer2_githubName::$REVIEWER2_GITHUBNAME"
+
   label:
     needs: [fetch_proposal, get_proposal_slug]
     if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
@@ -120,43 +120,6 @@ jobs:
               labels: ['tutorial_proposal']
             })
 
-  set_state:
-    name: Set state to writing
-    needs: fetch_proposal
-    if: ${{ needs.fetch_proposal.outputs.proposalState }} != 'published'
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/build-builderdao-cli/
-      - id: set_writing
-        env:
-          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
-        run: |
-          builderdao proposal setstate $PROPOSAL_ID --state='writing' --adminKp $TESTNET_ADMIN_KP
-
-  update_index_writing:
-    name: Update Algolia index (writing)
-    needs: [ fetch_proposal, set_state ]
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/build-builderdao-cli/
-      - id: update_algolia_index
-        env:
-          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
-        run: |
-          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "writing"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
-
   check_review_status:
     needs: [ fetch_proposal, update_index_writing ]
     name: Check reviewers approved
@@ -187,9 +150,19 @@ jobs:
           ALL_REQUIRED_REVIEWERS_APPROVED: ${{steps.reviewer1_review.outputs.state == 'APPROVED' && steps.reviewer2_review.outputs.state  == 'APPROVED'}}
         run: |
           echo $ALL_REQUIRED_REVIEWERS_APPROVED
-          echo "::set-output name=all_reviewers_approved::$ALL_REQUIRED_REVIEWERS_APPROVED"
-      - name: Report Status
-        if: ${{ !steps.check_all_reviewers_approved.outputs.all_reviewers_approved }}
+          echo "::set-output name=all_reviewers_not_approved::$ALL_REQUIRED_REVIEWERS_APPROVED"
+
+      - uses: ./.github/actions/build-builderdao-cli/
+
+      - name: Set Proposal Status to Writing
+        if: !steps.check_all_reviewers_approved.outputs.all_reviewers_approved
+        env:
+          PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
+        run: |
+          builderdao proposal setstate $PROPOSAL_ID --state='writing' --adminKp $TESTNET_ADMIN_KP
+      - name: Report Status setFailed
+        if: !steps.check_all_reviewers_approved.outputs.all_reviewers_approved
         uses: actions/github-script@v6
         with:
           script: |
@@ -200,14 +173,16 @@ jobs:
                 labels: ['pending_review']
               })
               core.setFailed('Assigned reviewers are not approved yet')
-      - uses: ./.github/actions/build-builderdao-cli/
+
       - id: set_ready_to_publish
+        if: steps.check_all_reviewers_approved.outputs.all_reviewers_approved
         env:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
             builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
       - name: label 
+        if: steps.check_all_reviewers_approved.outputs.all_reviewers_approved
         uses: actions/github-script@v6
         with:
           script: |
@@ -227,9 +202,9 @@ jobs:
                 labels: ['ready_to_publish']
               })
 
-  update_index_ready_to_publish:
-    name: Update Algolia index (readyToPublish)
-    needs: [ fetch_proposal, check_review_status ]
+  update_algolia_index:
+    name: Update Algolia Index
+    needs: [ check_review_status ]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -237,14 +212,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/build-builderdao-cli/
+      - id: fetch
+        env:
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+        run: |
+          builderdao proposal get -s $SLUG
+          PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id --skip-ceramic)
+          PROPOSAL_STATE=$(builderdao proposal get -s $SLUG -k state --skip-ceramic)
+          echo "::set-output name=proposalId::$PROPOSAL_ID"
+          echo "::set-output name=proposalState::$PROPOSAL_STATE"
       - id: update_algolia_index
         env:
-          OBJECT_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
+          OBJECT_ID: ${{ steps.fetch.outputs.proposalId }}
+          PROPOSAL_STATE: ${{ steps.fetch.outputs.proposalState }}
           ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
           ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
-          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "readyToPublish"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+          builderdao algolia updateIndex $OBJECT_ID --data='{"state": "$PROPOSAL_STATE"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
 
   request_reviews:
     needs: fetch_proposal
