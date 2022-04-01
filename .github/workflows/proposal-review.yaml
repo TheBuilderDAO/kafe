@@ -106,7 +106,6 @@ jobs:
             ```
 
             See [:scroll: Proposal](https://kafe-git-${{steps.extract_branch.outputs.branch}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
-            See [:open_book: Tutorial](https://kafe-git-${{steps.extract_branch.outputs.branch}}-builder-dao.vercel.app/learn/${{ needs.get_proposal_slug.outputs.slug }})
 
           edit-mode: replace
       - uses: actions/github-script@v6
@@ -252,7 +251,7 @@ jobs:
               github.rest.pulls.requestReviewers({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                pull_number: context.number,
+                pull_number: ${{github.event.pull_request.number}},
                 reviewers: [
                   "${{needs.fetch_proposal.outputs.reviewer1_githubName}}",
                   "${{needs.fetch_proposal.outputs.reviewer2_githubName}}"
