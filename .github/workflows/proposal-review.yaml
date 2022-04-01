@@ -79,7 +79,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    steps: 
+    steps:
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
@@ -146,11 +146,13 @@ jobs:
           echo "reviewer1 $REVIEWER1_REVIEW"
           echo "reviewer2 $REVIEWER2_REVIEW"
       - id: check_all_reviewers_approved
-        env: 
-          ALL_REQUIRED_REVIEWERS_APPROVED: ${{steps.reviewer1_review.outputs.state == 'APPROVED' && steps.reviewer2_review.outputs.state  == 'APPROVED' && "DONE"}}
+        env:
+          ALL_REQUIRED_REVIEWERS_APPROVED: ${{steps.reviewer1_review.outputs.state == 'APPROVED' && steps.reviewer2_review.outputs.state  == 'APPROVED'}}
         run: |
           echo $ALL_REQUIRED_REVIEWERS_APPROVED
-          echo "::set-output name=all_reviewers_approved::$ALL_REQUIRED_REVIEWERS_APPROVED"
+          STATUS=$([ "$ALL_REQUIRED_REVIEWERS_APPROVED" == true ] && echo "DONE" || echo "FAIL")
+          echo $STATUS
+          echo "::set-output name=all_reviewers_approved::$STATUS"
 
       - uses: ./.github/actions/build-builderdao-cli/
 
@@ -181,7 +183,7 @@ jobs:
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
             builderdao proposal setstate $PROPOSAL_ID --state='readyToPublish' --adminKp $TESTNET_ADMIN_KP
-      - name: label 
+      - name: label
         if: ${{ steps.check_all_reviewers_approved.outputs.all_reviewers_approved == "DONE" }}
         uses: actions/github-script@v6
         with:
@@ -233,7 +235,7 @@ jobs:
 
   request_reviews:
     needs: fetch_proposal
-    if: ${{needs.fetch_proposal.outputs.reviewer2}} && ${{needs.fetch_proposal.outputs.reviewer1}} 
+    if: ${{needs.fetch_proposal.outputs.reviewer2}} && ${{needs.fetch_proposal.outputs.reviewer1}}
     name: Assign Reviewer 2 to PR
     runs-on: ubuntu-latest
     steps:
