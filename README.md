@@ -1,4 +1,4 @@
-# Builder DAO
+# Builder DAO.
 
 Builder DAO monorepo.
 
