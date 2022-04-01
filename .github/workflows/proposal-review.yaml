@@ -184,7 +184,7 @@ jobs:
           echo "reviewer2 $REVIEWER2_REVIEW"
       - id: check_all_reviewers_approved
         env: 
-          ALL_REQUIRED_REVIEWERS_APPROVED: ${{steps.reviewer1_review.outputs.state == 'APPROVED'}} && ${{steps.reviewer2_review.outputs.state  == 'APPROVED'}}
+          ALL_REQUIRED_REVIEWERS_APPROVED: $(${{steps.reviewer1_review.outputs.state == 'APPROVED'}} && ${{steps.reviewer2_review.outputs.state  == 'APPROVED'}})
         run: |
           echo $ALL_REQUIRED_REVIEWERS_APPROVED
           echo "::set-output name=all_reviewers_approved::$ALL_REQUIRED_REVIEWERS_APPROVED"
