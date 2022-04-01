@@ -8,6 +8,8 @@ import async from 'async';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import simpleGit, { CleanOptions } from 'simple-git';
+import * as mime from 'mime';
+
 
 import {
   getTutorialPaths,
@@ -313,19 +315,16 @@ Notes:
             skipCeramic?: boolean;
           }
         }) => {
-          console.log('Uploading', file.name);
-          // return
           const fileContent = await fs.readFile(file.fullPath, 'utf8');
           const digest = await hashSumDigest(file.fullPath);
-          // return
           if (!file.options?.skipArweave) {
             const arweaveHash = await arweave.publishTutorial(
               fileContent,
               options.arweave_wallet,
               {
                 'App-Name': options.arweave_appName,
-                'Slug': learnPackageName,
-                'Content-Type': 'text/plain',
+                'Slug': `/${proposal.slug}/${file.path}`,
+                'Content-Type': mime.contentType('text/ plain'),
                 'Address': proposal.creator.toString(),
               }
             );
