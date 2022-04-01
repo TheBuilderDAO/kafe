@@ -1,0 +1,11 @@
+{
+  "title": "A super cool tutorial",
+  "description": "ok let's do this",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "Solana",
+      "slug": "solana"
+    }
+  ]
+}
