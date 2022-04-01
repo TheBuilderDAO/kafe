@@ -155,14 +155,14 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
 
       - name: Set Proposal Status to Writing
-        if: !${{steps.check_all_reviewers_approved.outputs.all_reviewers_approved}}
+        if: "!steps.check_all_reviewers_approved.outputs.all_reviewers_approved"
         env:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
           builderdao proposal setstate $PROPOSAL_ID --state='writing' --adminKp $TESTNET_ADMIN_KP
       - name: Report Status setFailed
-        if: !${{steps.check_all_reviewers_approved.outputs.all_reviewers_approved}}
+        if: "!steps.check_all_reviewers_approved.outputs.all_reviewers_approved"
         uses: actions/github-script@v6
         with:
           script: |
