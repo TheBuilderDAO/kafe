@@ -215,9 +215,11 @@ jobs:
           ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
         run: |
           builderdao algolia updateIndex $OBJECT_ID --data='{"state": "$PROPOSAL_STATE"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+
+  # TODO: after ready_to_publish if they push code set state back to writing.
   request_reviews:
-    needs: fetch_proposal
-    if: ${{needs.fetch_proposal.outputs.reviewer2}} && ${{needs.fetch_proposal.outputs.reviewer1}}
+    needs: [check_review_status, fetch_proposal]
+    if: contains(needs.check_review_status.outputs.state, 'writing')
     name: Assign Reviewer 2 to PR
     runs-on: ubuntu-latest
     steps:
