@@ -34,7 +34,7 @@ jobs:
       run:
         shell: bash
     outputs:
-      slug: ${{ steps.set_output.outputs.slug }} || ${{ github.event.input.slug }}
+      slug: ${{ steps.set_output.outputs.slug || github.event.inputs.slug }}
     steps:
       - uses: actions/github-script@v6
         id: regex_extract_proposal_id
@@ -70,7 +70,7 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: fetch
         env:
-          SLUG: ${{ needs.get_proposal_slug.outputs.slug }} || ${{ github.event.input.slug }}
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }} 
         run: |
           builderdao proposal get -s $SLUG
           PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
