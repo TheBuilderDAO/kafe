@@ -26,7 +26,7 @@
     "content:setstate:publish": "turbo run builderdao --scope=@builderdao-learn/* --concurrency=3 -- proposal publish",
     "content:prepublish": "turbo run content:prepublish --scope=@builderdao-learn/* --concurrency=4",
     "content:index": "turbo run content:index --scope='@builderdao-learn/*' --concurrency=4",
-    "content:publish": "turbo run content:publish --scope='@builderdao-learn/*' --concurrency=3 --force -- --skip-images",
+    "content:publish": "turbo run content:publish --scope='@builderdao-learn/avalanche-advanced-evoting-avalanche-reactjs' --concurrency=3 --force -- --skip-images --force",
     "content:deploy": "turbo run content:prepublish content:index  --scope='@builderdao-learn/avalanche-advanced-evoting-avalanche-reactjs' --concurrency=1"
   },
   "devDependencies": {

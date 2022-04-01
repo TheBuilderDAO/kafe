@@ -268,6 +268,9 @@ Notes:
     .addOption(
       new commander.Option('--verbose', 'Verbose').default(false)
     )
+    .addOption(
+      new commander.Option('--force', 'Force').default(false)
+    )
     .action(async (learnPackageName, options) => {
       if (options.verbose) {
         log(options);
@@ -389,7 +392,7 @@ Notes:
 
           // Compare the content.*.digest of the proposal with the content of the ceramicMetadata
           // and update the proposal if needed, then find the changed files and redeploy them to Arweave.
-          if (file.arweaveHash && file.digest === digest) {
+          if (file.arweaveHash && file.digest === digest && !options.force) {
             log({
               SKIPPING: {
                 reason: `Skipping file it is already uploaded.`,
@@ -401,7 +404,7 @@ Notes:
               ...file,
               fullPath: filePath,
               options: {
-                skipArweave: true,
+                skipArweave: options.force,
               }
             });
           } else {
