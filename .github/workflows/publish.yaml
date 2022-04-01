@@ -18,7 +18,7 @@ on:
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true 
+        required: true
 
   pull_request:
     types:
@@ -70,7 +70,7 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: fetch
         env:
-          SLUG: ${{ needs.get_proposal_slug.outputs.slug }} 
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
         run: |
           builderdao proposal get -s $SLUG
           PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
@@ -107,10 +107,6 @@ jobs:
           CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
         run: |
           builderdao tutorial publish $SLUG
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
 
   set_state:
     name: Set state to published
