@@ -16,7 +16,7 @@ inputs:
 outputs:
   state:
     description: "Status of the review"
-    value: ${{ steps.review_state.outputs.state }}
+    value: ${{ steps.result.outputs.state }}
 
 runs:
   using: "composite"
@@ -46,10 +46,18 @@ runs:
           ' --jq '.data.repository.pullRequest.reviews.nodes.[].state')"
           echo "::set-output name=state::$state"
       - name: result
+        id: result
         shell: bash
-        env: 
+        env:
           STATE: ${{ steps.review_state.outputs.state }}
           PR_NUMBER: ${{ inputs.PR_NUMBER }}
           AUTHOR: ${{ inputs.AUTHOR}}
         run: |
+            [  -z "$STATE" ] && echo "::set-output name=state::$STATE" || echo "::set-output name=state::'PENDING'"
+      - name: ECHO RESULT
+        shell: bash
+        env:
+          STATE: ${{ steps.result.outputs.state }}
+          PR_NUMBER: ${{ inputs.PR_NUMBER }}
+          AUTHOR: ${{ inputs.AUTHOR}}
             echo "$AUTHOR is $STATE on PR $PR_NUMBER"
