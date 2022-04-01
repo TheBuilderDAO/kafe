@@ -119,6 +119,8 @@ jobs:
     defaults:
       run:
         shell: bash
+    outputs:
+      state: ${{ steps.check_all_reviewers_approved.outputs.state }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/check-required-reviewer
@@ -186,8 +188,8 @@ jobs:
             })
   update_algolia_index:
     name: Update Algolia Index
-    if: contains(steps.check_all_reviewers_approved.outputs.state, 'readyToPublish')
     needs: [get_proposal_slug, check_review_status]
+    if: contains(needs.check_review_status.outputs.state, 'readyToPublish')
     runs-on: ubuntu-latest
     defaults:
       run:
