@@ -8,7 +8,7 @@ import async from 'async';
 import inquirer, { Answers, DistinctQuestion } from 'inquirer';
 import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import simpleGit, { CleanOptions } from 'simple-git';
-import * as mime from 'mime';
+import mimer from 'mimer';
 
 
 import {
@@ -315,52 +315,61 @@ Notes:
             skipCeramic?: boolean;
           }
         }) => {
-          const fileContent = await fs.readFile(file.fullPath, 'utf8');
-          const digest = await hashSumDigest(file.fullPath);
-          if (!file.options?.skipArweave) {
-            const arweaveHash = await arweave.publishTutorial(
-              fileContent,
-              options.arweave_wallet,
-              {
-                'App-Name': options.arweave_appName,
-                'Slug': `/${proposal.slug}/${file.path}`,
-                'Content-Type': mime.contentType('text/ plain'),
-                'Address': proposal.creator.toString(),
-              }
-            );
-            console.log(
-              `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
-            );
-            lock.chain.set(`content["${file.path}"].digest`, digest).value();
-            lock.chain
-              .set(`content["${file.path}"].arweaveHash`, arweaveHash)
-              .value();
-            await lock.write();
-            console.log('🔒 Updated builderdao.lock.json!');
-          }
-          await lock.read();
-          console.log('🔶 Updating ceramic metadata');
-          if (!file.options?.skipCeramic) {
-            try {
-              const updatedFile = lock.chain.get(`content["${file.path}"]`).value();
-              const ceramicMetadataForFile = _.get(ceramicMetadata, `content["${file.path}"]`);
-              const isCeramicDataSync = _.isEqual(updatedFile, ceramicMetadataForFile)
-              if (isCeramicDataSync) {
-                log({
-                  message: "Skiping ceramic update because it's already synced",
-                  ...ceramicMetadataForFile,
-                })
-              } else {
-                const updatedMetadata = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
-                await ceramic.updateMetadata(proposal.streamId, {
-                  ...updatedMetadata,
-                })
-                console.log('🔶 Updated ceramic metadata');
-              }
-            } catch (err) {
-              console.log('🔶 Failed to update ceramic metadata');
-              console.log(err);
+          try {
+            console.log(`in deploy queue- ${file.name} - `);
+            console.log({ file })
+            const fileContent = await fs.readFile(file.fullPath, 'utf8');
+            const digest = await hashSumDigest(file.fullPath);
+            if (!file.options?.skipArweave) {
+              const arweaveHash = await arweave.publishTutorial(
+                fileContent,
+                options.arweave_wallet,
+                {
+                  'App-Name': options.arweave_appName,
+                  'Slug': `/${proposal.slug}/${file.path}`,
+                  'Content-Type': mimer(file.path),
+                  'Address': proposal.creator.toString(),
+                }
+              );
+              console.log(
+                `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
+              );
+              lock.chain.set(`content["${file.path}"].digest`, digest).value();
+              lock.chain
+                .set(`content["${file.path}"].arweaveHash`, arweaveHash)
+                .value();
+              await lock.write();
+              console.log('🔒 Updated builderdao.lock.json!');
+            } else {
+              console.log(`Skipping Arweave Upload`)
             }
+            await lock.read();
+            console.log('🔶 Updating ceramic metadata');
+            if (!file.options?.skipCeramic) {
+              try {
+                const updatedFile = lock.chain.get(`content["${file.path}"]`).value();
+                const ceramicMetadataForFile = _.get(ceramicMetadata, `content["${file.path}"]`);
+                const isCeramicDataSync = _.isEqual(updatedFile, ceramicMetadataForFile)
+                if (isCeramicDataSync) {
+                  log({
+                    message: "Skiping ceramic update because it's already synced",
+                    ...ceramicMetadataForFile,
+                  })
+                } else {
+                  const updatedMetadata = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
+                  await ceramic.updateMetadata(proposal.streamId, {
+                    ...updatedMetadata,
+                  })
+                  console.log('🔶 Updated ceramic metadata');
+                }
+              } catch (err) {
+                console.log('🔶 Failed to update ceramic metadata');
+                console.log(err);
+              }
+            }
+          } catch (err) {
+            console.log(err);
+            console.log('🔒 Failed to update builderdao.lock.json!');
           }
         },
         2,
@@ -403,7 +412,7 @@ Notes:
               ...file,
               fullPath: filePath,
               options: {
-                skipArweave: options.force,
+                skipArweave: true,
               }
             });
           } else {
