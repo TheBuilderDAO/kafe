@@ -53,7 +53,7 @@ runs:
           PR_NUMBER: ${{ inputs.PR_NUMBER }}
           AUTHOR: ${{ inputs.AUTHOR}}
         run: |
-            [  -z "$STATE" ] && echo "::set-output name=state::$STATE" || echo "::set-output name=state::'PENDING'"
+            [  -z "$STATE" ] && echo "::set-output name=state::$STATE" || echo "::set-output name=state::PENDING"
       - name: ECHO RESULT
         shell: bash
         env:
