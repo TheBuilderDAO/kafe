@@ -167,14 +167,19 @@ jobs:
       - name: Report Status setFailed
         uses: actions/github-script@v6
         with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['pending_review']
-            })
-            core.setFailed('Assigned reviewers are not approved yet')
+          cond: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, 'FAIL')
+          if_true:
+            script: |
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['pending_review']
+              })
+              core.setFailed('Assigned reviewers are not approved yet')
+          if_false:
+            run: |
+              echo "::set-output name=all_reviewers_approved::$STATUS"
 
       - id: set_ready_to_publish
         if: contains(steps.check_all_reviewers_approved.outputs.all_reviewers_approved, 'DONE')
