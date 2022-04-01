@@ -60,10 +60,10 @@ jobs:
         SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
       run: |
         builderdao proposal get -s $SLUG
-        REVIEWER1=$(builderdao proposal get -s $SLUG -k reviewer1)
-        REVIEWER2=$(builderdao proposal get -s $SLUG -k reviewer2)
-        PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
-        PROPOSAL_STATE=$(builderdao proposal get -s $SLUG -k state)
+        REVIEWER1=$(builderdao proposal get -s $SLUG -k reviewer1 --skip-ceramic)
+        REVIEWER2=$(builderdao proposal get -s $SLUG -k reviewer2 --skip-ceramic)
+        PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id --skip-ceramic)
+        PROPOSAL_STATE=$(builderdao proposal get -s $SLUG -k state --skip-ceramic)
         REVIEWER1_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER1 -k githubName)
         REVIEWER2_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER2 -k githubName)
         echo "::set-output name=reviewer1::$REVIEWER1"
@@ -100,10 +100,12 @@ jobs:
             :open_book: Tutorial Details
             ```
             ID: ${{ needs.fetch_proposal.outputs.proposalId }}
-            SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
-            REVIEWER1: ${{ needs.fetch_proposal.outputs.reviewer1_githubName }}
-            REVIEWER2: ${{ needs.fetch_proposal.outputs.reviewer2_githubName }}
             ```
+            ```
+            SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+            ```
+            REVIEWER1: [${{ needs.fetch_proposal.outputs.reviewer1_githubName }}](https://github.com/${{ needs.fetch_proposal.outputs.reviewer1_githubName }})
+            REVIEWER2: [${{ needs.fetch_proposal.outputs.reviewer2_githubName }}](https://github.com/${{ needs.fetch_proposal.outputs.reviewer2_githubName }})
 
             See [:scroll: Proposal](https://kafe-git-${{steps.extract_branch.outputs.branch}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
 
@@ -207,11 +209,15 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-              github.rest.issues.deleteLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                name: ['pending_review'],
-              });
+              try {
+                github.rest.issues.deleteLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: ['pending_review'],
+                });
+              } catch (err) {
+                console.log(err);
+              }
               github.rest.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
