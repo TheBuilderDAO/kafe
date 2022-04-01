@@ -165,12 +165,12 @@ you can exit from console with `ctrl+C` or `ctrl+D`.
 
 From here we need the address, and `privateKey` as I mentioned.
 
-Success! We got and account, before we forget let's save it into our `.env` as we will use it later. Your `.env` should look like this.
+Success! We got and account, before we forget let's save it into our `.env` as we will use it later. Your `.env` should look like this, including your account address and private key.
 
 ```text
 DATAHUB_NODE_URL=https://celo-alfajores--rpc.datahub.figment.io/apikey/<YOUR API KEY>/
-ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC # your address
-PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650 # your private key
+ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC
+PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650
 ```
 
 # Funding the account
@@ -198,7 +198,7 @@ npx truffle create contract Vault
 The above command will create a new Smart Contract in the following location:
 
 ```bash
-ls -la vault-dapp/contracts # Listing directory: vault-dapp/contracts:
+ls -la vault-dapp/contracts
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
@@ -375,7 +375,7 @@ Compiling your contracts...
 Truffle automatically puts our Vault smart contract bytecode and ABI inside the following json file. Make sure you can see it!
 
 ```bash
-$ ls -la  vault-dapp/build/contracts # Directory Listing: vault-dapp/build/contracts
+$ ls -la  vault-dapp/build/contracts
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
@@ -446,7 +446,7 @@ Starting migrations...
    > contract address:    0xB017aD96e31B43AFB670dAB020561dA8E2154C5B
    > block number:        4661756
    > block timestamp:     1618659332
-   > account:             0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC # save this address to next steps
+   > account:             0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC
    > balance:             4.89973486
    > gas used:            1916762 (0x1d3f5a)
    > gas price:           20 gwei
@@ -466,9 +466,11 @@ Summary
 > Final cost:          0.04326108 ETH
 ```
 
+Remember to save the address listed as **account** from the deployment output, we'll need it for the next step.
+
 Awesome!, our Vault Smart Contract is now in Alfajores, and we can deposit funds into it, lock them, and withdraw them. Let's build an interface in React for our Vault Smart Contract next.
 
-## Take a break!
+# Take a break!
 
 In this section, we’ve learned how to create our first Celo Vault contract, compile and deploy it to Alfajores, also some of the language constructors of Solidity. Congratulations for making it this far! Have a break, stand up and stretch, get some water and then come back for the React finale!
 
@@ -476,7 +478,7 @@ In this section, we’ve learned how to create our first Celo Vault contract, co
 
 Now that we have our vault contract, let's connect the methods with an interface.
 
-## Interface with the Vault Smart Contract
+# Interface with the Vault Smart Contract
 
 First, let's initialize our react app, we can do this within our node/truffle project directory we have been working on:
 
@@ -497,10 +499,14 @@ Let's also transfer our .env file over to this new project, with a quick fix:
 
 ```bash
 REACT_APP_DATAHUB_NODE_URL=https://alfajores-forno.celo-testnet.org
-REACT_APP_ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC # your recently created account address
-REACT_APP_PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650 # your recently created account private key
-REACT_APP_VAULT_ADDRESS=0xB017aD96e31B43AFB670dAB020561dA8E2154C5B # the recently created address of the vault contract (see 2_vault_deployment.js deploy output above)
+REACT_APP_ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC
+REACT_APP_PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650
+REACT_APP_VAULT_ADDRESS=0xB017aD96e31B43AFB670dAB020561dA8E2154C5B
 ```
+
+- `REACT_APP_ADDRESS` is your recently created account address.
+- `REACT_APP_PRIVATE_KEY` is your recently created account private key.
+- `REACT_APP_VAULT_ADDRESS` is the recently created address of the vault contract (see 2_vault_deployment.js deploy output above).
 
 This is how mine looks like, as you can see we still have the same variables, juts added the `REACT_APP` prefix.
 
@@ -564,7 +570,7 @@ Mode                 LastWriteTime         Length Name
 -a---           4/17/2021  7:35 AM         870803 Vault.json
 ```
 
-## Populate our main application
+# Populate our main application
 
 Our next step is to copy and paste some code to the App React Component `App.js`.
 

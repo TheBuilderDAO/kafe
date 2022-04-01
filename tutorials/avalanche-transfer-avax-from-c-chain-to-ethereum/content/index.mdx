@@ -82,7 +82,7 @@ async function main(){
 
 `console.log(web3.utils.fromWei(result, "ether") + " AVAX")` is what outputs the current balance on the C-chain of the sender's wallet.
 
-The block below is to view the # of transactions associated with the wallet address (not necessary for the purpose of AVAX transfer from C chain to an ETH address) but could be useful when you later want to transfer an ERC20 token.
+The block below is to view the number of transactions associated with the wallet address (not necessary for the purpose of AVAX transfer from C chain to an ETH address) but could be useful when you later want to transfer an ERC20 token.
 
 ```javascript
     web3.eth.getTransactionCount(wallet.address)

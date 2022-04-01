@@ -23,13 +23,13 @@ The easiest way to transfer AVAX between chains is to use [the Avalanche Wallet]
 
 The Avalanche Wallet source code can be found [here](https://github.com/ava-labs/avalanche-wallet).
 
-### Step 1 - Open the Avalanche Wallet
+## Step 1 - Open the Avalanche Wallet
 
 ![](./assets/avalanche-transfer-avax-between-the-x-chain-and-c-chain-image-1.png)
 
 Select **Access Wallet** to enter your wallet. To connect the wallet to a network other than the main Avalanche network, select **Mainnet** and choose the network to connect to.
 
-### Step 2 - Log In to Your Wallet
+## Step 2 - Log In to Your Wallet
 
 You can access your wallet using the private key, mnemonic key phrase, keystore file or Ledger Nano S. C-Chain transfers via Ledger are not supported yet.
 
@@ -37,13 +37,13 @@ You can access your wallet using the private key, mnemonic key phrase, keystore 
 
 After a successful login you will see your balance, assets portfolio and various other information.
 
-### Step 3 - Go to the Cross Chain Tab
+## Step 3 - Go to the Cross Chain Tab
 
 ![](./assets/avalanche-transfer-avax-between-the-x-chain-and-c-chain-image-3.png)
 
 Functionality for transferring tokens between chains is on the **Cross Chain** tab.
 
-### Step 4 - Enter Amount to Transfer
+## Step 4 - Enter Amount to Transfer
 
 You will be presented with a choice for **Source Chain** and **Destination Chain**. Select X-Chain and C-Chain, respectively. You will see your X and C balances, and an input field for entering the amount to transfer from source to destination chain.
 
@@ -51,13 +51,13 @@ You will be presented with a choice for **Source Chain** and **Destination Chain
 
 Enter the amount you wish to transfer from the X-Chain to the C-Chain.
 
-### Step 5 - Confirm the Transaction
+## Step 5 - Confirm the Transaction
 
 ![](./assets/avalanche-transfer-avax-between-the-x-chain-and-c-chain-image-5.png)
 
 Press **Confirm**, and then **Transfer** to initiate the transfer.
 
-### Step 6 - Done!
+## Step 6 - Done!
 
 A cross-chain transfer is a two step process: first a transaction to export the funds from the X-Chain, and another to import it to the C-Chain. The wallet will do both and show its the progress while doing so.
 
@@ -65,7 +65,7 @@ A cross-chain transfer is a two step process: first a transaction to export the 
 
 That's it! You've transferred AVAX from the X-Chain to C-Chain! Now you can use them to deploy smart contracts on C-Chain.
 
-### Transfer from the C-Chain to X-chain
+## Transfer from the C-Chain to X-chain
 
 To return the AVAX back to the X-Chain, you need to do the transfer in the opposite direction.
 
@@ -84,7 +84,7 @@ As you may have noticed while transferring AVAX using the Avalanche Wallet, a cr
 
 Before we can do the transfer, we need to set up the address on the C-Chain, along with the controlling key.
 
-### Set Up Address and Key on the C-Chain
+## Set Up Address and Key on the C-Chain
 
 The X-Chain uses [Bech32](http://support.avalabs.org/en/articles/4587392-what-is-bech32) addresses and the C-Chain uses hex Ethereum Virtual Machine (EVM) addresses. There is no way to convert the address from one format to the other since they are both derived from a private key using a one-way cryptographic function.
 
@@ -146,7 +146,7 @@ The response contains a hex-encoded EVM address:
 
 Now we have everything we need to transfer the tokens.
 
-### Transfer from the X-Chain to C-Chain
+## Transfer from the X-Chain to C-Chain
 
 Use the address corresponding to the private key you exported and switch to using the C- prefix in the [`avm.exportAVAX`]() call:
 
@@ -261,7 +261,7 @@ The response should look like this:
 }
 ```
 
-# Wrapping Up
+# Conclusion
 
 That’s it! Now, you can swap AVAX back and forth between the X-Chain and C-Chain, both by using the Avalanche Wallet, and by calling the appropriate API calls on an Avalanche node.
 

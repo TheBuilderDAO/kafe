@@ -20,7 +20,7 @@ After we have implemented all the features in our smart contract, we will connec
 
 ![project image](./assets/near-build-a-crowdfunding-dapp-on-near-project-image-1.png)
 
-# Prerequisites📋
+# Prerequisites
 
 To follow along and complete this tutorial, you will need the basic knowledge of [React](https://reactjs.org/) and [Rust](https://www.youtube.com/watch?v=KDn_j48yoAo&t=581s).
 
@@ -40,7 +40,7 @@ To follow along and complete this tutorial, you will need the basic knowledge of
 
 We have looked at the things we need to install to follow along in this tutorial, now let’s look at the things we will be doing as the tutorial progresses. We will use the [npx](https://www.npmjs.com/package/npx) binary to scaffold our project with [create-near-app](https://github.com/near/create-near-app) which provides us with options of what to use for the frontend and backend. After scaffolding our project we will look at the file structure, write our smart contract and deploy and test that all functions are working, and connect to our React frontend.
 
-# Setting up our project
+# Project Setup
 
 We set up our project with [create-near-app](https://github.com/near/create-near-app) by running the following command:
 
@@ -55,8 +55,6 @@ with the `--frontend=react` and `--contract=rust` options, we create our project
 
 Now everything is successfully installed, and everything is ready to go, let’s look at what our file structure looks like.
 
-## File structure
-
 ![file structure](./assets/near-build-a-crowdfunding-dapp-on-near-file-structure-3.png)
 
 In our file structure, we have the `contract` folder, where we will be writing our contract specifically in the `src` directory. Then there is our `near-dev` folder that contains the configuration for deploying our contract in development mode and our `src` folder for our frontend. Looking closer into our contract folder:
@@ -69,8 +67,6 @@ In the contract folder we have the `src` folder where we’ll be creating a `mod
 
 In the last section, we have seen how to set up our project and how our project is structured. Now let’s dive into building our contract.
 
-## How does our contract work
-
 Before building our contract, let’s discuss how our contract works, and the functions/endpoints we will call. In our contract, we want to be able to:
 
 1.  Create a crowdfunding project - To do this we will need a `add_crowdfund` function, that when invoked will create a new crowdfunding project and add it to our array of crowdfunds.
@@ -80,7 +76,7 @@ Before building our contract, let’s discuss how our contract works, and the fu
 
 Create a `model.rs`, `lib.rs`, and `utils.rs` file in the `src` folder. In our `utils` file, we copy and paste the following code.
 
-> The `utils.rs` file contains some helpful functions and types we will be using as we build our contract, with some comments explaining what they do. Don’t get intimidated as you only need to copy and paste it into your `utils.rs` file
+The `utils.rs` file contains some helpful functions and types we will be using as we build our contract, with some comments explaining what they do. Don’t get intimidated as you only need to copy and paste it into your `utils.rs` file:
 
 ```rust
  // utils.rs
@@ -138,8 +134,6 @@ Create a `model.rs`, `lib.rs`, and `utils.rs` file in the `src` folder. In our `
         };
     }
 ```
-
-## Create our models
 
 We can describe the model in our contract as a custom data container for defining new types. Just like the way we have primitive types, we can create our own custom types in our model that describe or are patterned to what we are building. The code for our `model.rs` file can be found below and we will explain what it does step by step
 
@@ -225,12 +219,10 @@ Above we have the rust contract standard imports and can see the dependencies th
 
 Here, we just import some custom types we will be using from our `utils.rs` file. After this piece of code, we have our crowdfund `struct` which is crucial to our contract.
 
-## Crowdfund Struct
-
 A `struct` in rust is similar to classes in other languages. Structs kind of hold the state of the contract. Building our contract, our `struct` will be followed by an `impl`, where we write the core logic function of the contract.
 
 ```rust
-//model.rs
+// model.rs
     #[derive(Clone, Serialize, Deserialize, BorshDeserialize, BorshSerialize)]
     #[serde(crate = "near_sdk::serde")]
     pub struct Crowdfund{
@@ -362,9 +354,7 @@ In our contract `struct` we have the the `owner` field and then we have the `cro
 
 In our Contract `impl` the `#init` allows us to create a custom initialization of the contract with a function that takes in a parameter of `owner`. We construct a new, empty vector with the `Vec::new()`and assign it to `crowdfund` and `donations` respectively.
 
-> The vector will not be allocated until elements are pushed onto it.
-
-## The add_crowdfund function
+The vector will not be allocated until elements are pushed onto it.
 
 After our initialization, we start writing our functions. The first function we have is the `add_crowdfund` function.
 
@@ -461,7 +451,7 @@ We have created two functions `crowdfund_count` that simply returns the length o
 
 Now that we are done with all the functions for this contract, it is time to deploy and invoke the functions in our contract to make sure everything is working fine, and that is what we will be doing in the next section
 
-# Deploying the smart contract🚀
+# Deploying the smart contract
 
 Before we deploy our smart contract, let’s first login with the `near-cli` into the NEAR account we created.
 
@@ -475,8 +465,6 @@ Make sure you already have the `near-cli` installed, you can see the installatio
 
 After login to the account we created, we see a successful message in the
 terminal.
-
-## Deploy the contract
 
 To deploy our crowdfunding contract, we need to create an account for it. Since we have already created a testnet account, in my case `umavictor.testnet` , we can create a subaccount under `umavictor.testnet` to deploy the contract.
 
@@ -504,11 +492,9 @@ we can see that after running the command, our contract was deployed successfull
 
 > If you make a change in your contract, you can just delete the sub account with the command `near delete crowdfunddapp.umavictor.testnet umavictor.testnet`, and create it again.
 
-# Interact with our contract by calling contract methods
+# Calling contract methods
 
 Now we can interact with our contract and make sure all our functions are doing what they are supposed to do. Let’s test out each function!.
-
-## Add Crowdfund project
 
 Call `add_crowdfund` with the `near-cli`:
 
@@ -521,19 +507,15 @@ In your terminal, you will see an output like this:
 
 ![add crowdfund](./assets/near-build-a-crowdfunding-dapp-on-near-add-crowdfund-7.png)
 
-## Vote on a Crowdfund Project
-
 Call `add_vote` with the `near-cli`:
 
 ```shell
    near call crowdfunddapp.umavictor.testnet add_vote '{"id":0}' --accountId umavictor.testnet
 ```
 
-this command increments the vote of the first crowdfunding project by one.
+This command increments the vote of the first crowdfunding project by one.
 
 ![addvote](./assets/near-build-a-crowdfunding-dapp-on-near-addvote-8.png)
-
-# Donate to a crowdfunding project
 
 Call the `add_donate` method with the `near-cli`
 
@@ -541,9 +523,7 @@ Call the `add_donate` method with the `near-cli`
  near call crowdfunddapp.umavictor.testnet add_donation '{"id":0, "amount":1}' --accountId umavictor.testnet
 ```
 
-this command calls the `add_donation` method and 1 NEAR is sent to the crowdfund project.
-
-# List all crowdfunding projects
+This command calls the `add_donation` method and 1 NEAR is sent to the crowdfund project.
 
 Call the `list_crowdfunds` method.
 
@@ -802,9 +782,7 @@ Yay!. We have concluded the tutorial and you can find the source code [here](htt
 
 Finally!, we have come to the end of this tutorial. We learned how to build a crowdfunding dApp on the NEAR blockchain using Rust for the backend and React for the frontend, test our methods and deploy our smart contract live.
 
-# What Next?
-
-You can play around with the code, and add some more functionalities like adding pagination so users can go back and forth between pages. Also you can add a sort functionality so the user can sort which crowdfunding project has the highest votes.
+Now you can play around with the code, and add some more functionalities like adding pagination so users can go back and forth between pages. Also you can add a sort functionality so the user can sort which crowdfunding project has the highest votes.
 
 # About the Author
 
@@ -812,4 +790,4 @@ This tutorial was created by [Uma Victor](https://twitter.com/umavictor_), a sof
 
 # References
 
-- NEAR [docs](https://docs.near.org/docs/develop/basics/getting-started).
+- [NEAR docs](https://docs.near.org/docs/develop/basics/getting-started)

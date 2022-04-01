@@ -19,11 +19,11 @@ The second reason is flexibility. It’s nice to be able to encode logic like, �
 
 Suppose that we want to issue an asset that represents shares of a corporation. No shares exist to start with, but more shares may be created later. Let’s create such an asset.
 
-### Assumptions
+## Assumptions
 
 We assume that you’re already familiar with [**DataHub**](https://datahub.figment.io/sign_up?service=avalanche) and connecting to the Avalanche services.
 
-## Create the Asset
+# Create the Asset
 
 Our asset will exist on the X-Chain, so to create our asset we’ll call `avm.createVariableCapAsset`, which is a method of the [X-Chain’s API](https://docs.figment.io/network-documentation/avalanche/rpc-and-rest-api/).
 
@@ -49,7 +49,7 @@ avm.createVariableCapAsset({
 }
 ```
 
-#### Parameters <a id="parameters"></a>
+## Parameters
 
 - `name` is a human-readable name for our asset. Not necessarily unique. Between 0 and 128 characters.
 - `symbol` is a shorthand symbol for this asset. Between 0 and 4 characters. Not necessarily unique. May be omitted.
@@ -59,7 +59,7 @@ avm.createVariableCapAsset({
 - `from` are the addresses that you want to use for this operation. If omitted, uses any of your addresses as needed.
 - `changeAddr` is the address any change will be sent to. If omitted, change is sent to one of the addresses controlled by the user.
 
-#### Response <a id="response"></a>
+## Response
 
 - `assetID` is the ID of the new asset.
 - `changeAddr` in the result is the address where any change was sent.
@@ -115,7 +115,7 @@ The response should look like this:
 
 Right now 0 shares exist. Let’s mint 10M shares.
 
-#### Create the Unsigned Transaction <a id="create-the-unsigned-transaction"></a>
+## Create the Unsigned Transaction
 
 We’ll use `avm.mint` to mint the shares.
 
@@ -177,9 +177,9 @@ This should give:
 }
 ```
 
-## Trade the Asset
+# Trade the Asset
 
-#### Check a Balance <a id="check-a-balance"></a>
+## Check a Balance
 
 All 10M shares are controlled by the `to` address we specified in `mint`. To verify this we’ll use `avm.getBalance`:
 
@@ -207,7 +207,7 @@ The response confirms that our asset creation was successful, and that the expec
 }
 ```
 
-#### Send the Asset <a id="send-the-asset"></a>
+## Send the Asset
 
 Let’s send 100 shares to another address by using `avm.send`. To do so:
 
@@ -252,7 +252,7 @@ The response should be:
 }
 ```
 
-## Wrapping up
+## Conclusion
 
 In this tutorial, we:
 

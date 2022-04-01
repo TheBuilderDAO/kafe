@@ -39,7 +39,7 @@ runscript scripts/five_node_staking.lua
 
 A five node Avalanche network is running on your machine. When you want to exit Avash, run `exit`, but don't do that now, and don't close this terminal tab.
 
-## Create truffle directory and install dependencies
+# Create truffle directory and install dependencies
 
 Open a new terminal tab to so we can create a `truffle` directory and install some further dependencies.
 
@@ -67,7 +67,7 @@ We'll use web3 to set an HTTP Provider which is how web3 will speak to the EVM. 
 truffle init
 ```
 
-## Update truffle-config.js
+# Update truffle-config.js
 
 One of the files created when you ran `truffle init` is `truffle-config.js`. Add the following to `truffle-config.js`.
 
@@ -94,7 +94,7 @@ module.exports = {
 
 Note that you can change the `protocol`, `ip` and `port` if you want to direct API calls to a different AvalancheGo node. Also note that we're setting the `gasPrice` and `gas` to the appropriate values for the Avalanche C-Chain.
 
-## Add Storage.sol
+# Add Storage.sol
 
 In the `contracts` directory add a new file called `Storage.sol` and add the following block of code:
 
@@ -130,7 +130,7 @@ contract Storage {
 
 `Storage` is a solidity smart contract which lets us write a number to the blockchain via a `store` function and then read the number back from the blockchain via a `retrieve` function.
 
-## Add new migration
+# Add new migration
 
 Create a new file in the `migrations` directory named `2_deploy_contracts.js`, and add the following block of code. This handles deploying the `Storage` smart contract to the blockchain.
 
@@ -142,7 +142,7 @@ module.exports = function (deployer) {
 };
 ```
 
-## Compile Contracts with Truffle
+# Compile Contracts with Truffle
 
 Any time you make a change to `Storage.sol` you need to run `truffle compile`.
 
@@ -162,11 +162,11 @@ Compiling your contracts...
    - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
 ```
 
-## Create, fund and unlock an account on the C-Chain
+# Create, fund and unlock an account on the C-Chain
 
 When deploying smart contracts to the C-Chain, truffle will default to the first available account provided by your C-Chain client as the `from` address used during migrations.
 
-### Create an account
+## Create an account
 
 Truffle has a very useful [console](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#console) which we can use to interact with the blockchain and our contract. Open the console:
 
@@ -198,7 +198,7 @@ This prints the account:
 '0x090172CD36e9f4906Af17B2C36D662E69f162282';
 ```
 
-### Unlock your account:
+## Unlock your account
 
 ```javascript
 truffle(development) > (await web3.eth.personal.unlockAccount(account[0]));
@@ -216,11 +216,11 @@ Exit the truffle console:
 truffle(development)> .exit
 ```
 
-### Fund your account
+## Fund your account
 
 Follow the steps in the [Transfer AVAX Between X-Chain and C-Chain]() tutorial to fund the newly created account. You'll need to send at least `135422040` nAVAX to the account to cover the cost of contract deployments.
 
-## Run Migrations
+# Run Migrations
 
 Now everything is in place to run migrations and deploy the `Storage` contract:
 
@@ -309,7 +309,7 @@ Error:  *** Deployment Failed ***
 "Migrations" -- Returned error: authentication needed: password or unlock.
 ```
 
-## Interacting with your contract
+# Interacting with your contract
 
 Now the `Storage` contract has been deployed. Let's write a number to the blockchain and then read it back. Open the truffle console again:
 
@@ -329,7 +329,7 @@ This returns:
 undefined;
 ```
 
-### Writing a number to the blockchain
+## Writing a number to the blockchain
 
 Now that you have an instance of the `Storage` contract, call it's `store` method and pass in a number to write to the blockchain.
 
@@ -369,7 +369,7 @@ You should see something like:
 }
 ```
 
-### Reading a number from the blockhain
+## Reading a number from the blockhain
 
 To read the number from the blockchain, call the `retrieve` method of the `Storage` contract instance.
 
@@ -395,7 +395,7 @@ You should see the number you stored.
 1234;
 ```
 
-# Summary
+# Conclusion
 
 Now you have the tools you need to launch a local Avalanche network, create a truffle project, as well as create, compile, deploy and interact with Solidity contracts.
 

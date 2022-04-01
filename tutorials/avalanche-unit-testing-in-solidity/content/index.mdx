@@ -86,7 +86,7 @@ when the contract is instantiated  with (["US Election", "Presidential Election"
 
 We have five test cases in total, two to validate that our constructor() and addCandidate() function work as expected, the other three to validate the functionality of the vote() function.
 
-# Writing the unit-tests in Solidity
+# Writing unit tests in Solidity
 
 Running `truffle init` in the previous article created the basic directories necessary for smart contract development. One of these directories is the `test` directory. We'll need to navigate to this directory as it is the specialized directory for test files:
 
@@ -257,7 +257,7 @@ To test the exception:
 - Encode the selector with `bytes memory data = abi.encodeWithSelector(selector, uint256(0))`
 - Then make an external call with the returned data from the second step with `(bool success, ) = address(election).call(data);`, lastly we validate that the transaction failed with `Assert.isFalse(success, "Should be false");`
 
-# **Conclusion**
+# Conclusion
 
 Congratulations! You've made it to the end of this short but informative tutorial on writing unit tests for smart contracts in Avalanche!
 

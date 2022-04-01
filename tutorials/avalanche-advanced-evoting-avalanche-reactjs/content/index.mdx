@@ -35,7 +35,7 @@ Open a terminal and navigate to the directory where we will create the applicati
 cd ~
 ```
 
-## **Setting up the ReactJS project**
+# Setting up the ReactJS project
 
 Create a new react app using npx. npx is a npm package runner (x probably stands for eXecute). The typical use is to download and run a package temporarily or for trials. Using npx to execute the package binaries for create-react-app will generate a new React app scaffold in the specified directory.
 
@@ -124,7 +124,7 @@ ReactDOM.render(
 
 React project setup is now complete.
 
-### **Setting up the Truffle project**
+# Setting up the Truffle project
 
 Run the following command in the project root directory, to create a boilerplate for the Truffle project.
 
@@ -191,7 +191,7 @@ For deploying smart contracts we need two things: A node connected to the Avalan
 
 Now we need an Avalanche wallet, where we would keep our funds, required for all the transactions on the network. So, visit [here](https://wallet.avax.network) and create an account. Save the mnemonic in a secure place (we would need it later). Instructions to add funds will be provided later in the tutorial.
 
-### **Add .env file**
+# Add .env file
 
 Create a `.env` file in the project root folder. Please take a note that dot (.) is necessary for the `.env` file name. Now copy your Datahub's Avalanche API key and the Avalanche wallet's mnemonic in the .env file as shown below. In the .env file, **MNEMONIC** should be enclosed within double-quotes (" "). If you are facing any difficulty in setting up .env file then please refer to **Extra Guides** on [dotenv and .env](https://docs.figment.io/network-documentation/extra-guides/dotenv-and-.env).
 
@@ -393,7 +393,7 @@ function createElection (string[] memory _nda, string[] memory _candidates) publ
 
 The `Election` contract is deployed on the network using the `new` keyword, which deploys the contract, initializes the contract's variables, runs the `constructor()` function and returns the **address** of the newly deployed contract to the caller. Then the address is stored in the `Elections` mapping. Once the election contract is deployed successfully, `electionId` is incremented.
 
-## **Create a file for migrating smart contracts**
+# Create a file for migrating smart contracts
 
 Create a new file in the `migrations` directory named `2_deploy_contracts.js`, and add the following block of code. This handles deploying the `MainContract` and `Election` smart contract to the blockchain.
 
@@ -407,7 +407,7 @@ module.exports = function(deployer) {
 
 We are deploying only the `MainContract`, because the `Election` contract will be deployed by the `MainContract` itself during the runtime, using the function `createElection()`.
 
-## Compile Contracts with Truffle
+# Compile Contracts with Truffle
 
 If we have altered the code within our Solidity source files or made new ones (like `Elections.sol`), we need to run `truffle compile` in the terminal, from inside the project root directory.
 

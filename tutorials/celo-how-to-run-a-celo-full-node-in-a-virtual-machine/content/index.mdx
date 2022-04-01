@@ -42,9 +42,9 @@ The installation of Debian is complete and the VM is now ready.
 
 [![SC2 Video](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video-2.png)](http://www.youtube.com/watch?v=l8qAISLJZq8)
 
-### Gain sudo on the VM
+# Gain sudo on the VM
 
-On Linux, the command `sudo` stands for "substitute user do".\
+On Linux, the command `sudo` stands for "substitute user do".
 Once a user account is added to the `sudo` group, it will be able to act with administrator or "root" privileges on the VM.
 
 The following commands are entered into the VM terminal:
@@ -53,9 +53,11 @@ The following commands are entered into the VM terminal:
 
 - You will be required to enter the root password of the VM.
 
-`usermod -aG sudo YOURUSERNAME`
+```text
+usermod -aG sudo YOURUSERNAME
+```
 
-- YOURUSERNAME needs to be replaced with the currently logged in users' account name. By default this should be displayed in the terminal prompt, but you can use the command `who` to make sure which account you are currently logged in with.
+- `YOURUSERNAME` needs to be replaced with the currently logged in users' account name. By default this should be displayed in the terminal prompt, but you can use the command `who` to make sure which account you are currently logged in with.
 - Restart the VM
 
 `id`
@@ -64,7 +66,7 @@ The following commands are entered into the VM terminal:
 
 ![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-3.png)
 
-## Install Docker & utilities
+# Install Docker & utilities
 
 Curl will be used for inserting GitHub scripts into the terminal.
 
@@ -80,7 +82,7 @@ Vim is a tool used for editing files within the terminal. [Click here](https://w
 
 `sudo apt install vim`
 
-## Enable bi-directional copy/paste & and improve display resolution
+# Enable bi-directional copy/paste & and improve display resolution
 
 Run an external program called VBoxLinuxAdditions, which enables copy/paste between the VM and the host machine.
 
@@ -102,7 +104,7 @@ Linux headers provide many vital functions without installing unnecessary files,
 - Restart the VM
 - Select "Adjust window size" under View on the menubar.
 
-## Install nvm and the Celo CLI
+# Install nvm and the Celo CLI
 
 This is the install script for [nvm](https://github.com/nvm-sh/nvm), the Node Version Manager. Remember to source files after adding them.
 
@@ -118,7 +120,7 @@ Install/use node version 10, then install the Celo CLI onto this client.
 
 `npm install -g @celo/celocli` : The `-g` flag here means we will [install the package globally](https://docs.npmjs.com/downloading-and-installing-packages-globally).
 
-## Join the Docker group
+# Join the Docker group
 
 Add your user account to the Docker group.
 
@@ -134,7 +136,7 @@ Docker is required for running the light client.
 
 - Close this terminal
 
-## Use curl to fetch the script
+# Use curl to fetch the script
 
 To learn about `.env` files check out this [guide](https://docs.figment.io/network-documentation/extra-guides/dotenv-and-.env).
 
@@ -178,7 +180,7 @@ The command `mkdir` is for making a new directory, `cd` is for changing the curr
 
 The docker container should now be running.
 
-## Starting the node
+# Starting the node
 
 **Run this command from inside celo-data-dir :**
 
@@ -198,7 +200,7 @@ Next, run `vim celo.env`
 - Exit vim by pressing ":", then typing "wq", then press return (sometimes called enter).
 - Because we have changed the contents, remember to run `source celo.env`
 
-## Running the light client
+# Running the light client
 
 `chmod u+x ./start_celo.sh`, Gives the user permission to execute the script.
 
@@ -222,7 +224,7 @@ Next, run `vim celo.env`
 
 ![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-8.png)
 
-## Sending Celo to and from the node
+# Sending Celo to and from the node
 
 - Send both CUSD, and CELO native token to your node address.
 - Have 2 terminal windows open. One is for running the light client, and the other for entering commands.
