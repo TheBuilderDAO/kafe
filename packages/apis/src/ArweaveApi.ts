@@ -2,7 +2,6 @@ import Arweave from 'arweave';
 import { JWKPublicInterface } from 'arweave/node/lib/wallet';
 
 export type ApiConfig = {
-  appName: string;
   host?: string;
   port?: number;
   protocol?: string;
@@ -14,21 +13,18 @@ export enum TransactionStatus {
 }
 
 export type TutorialTags = {
+  Slug: string;
   'App-Name': string;
   'Content-Type': string;
   Address: string;
 };
 
 class ArweaveApi {
-  private readonly appName: string;
-
   private client: Arweave;
-
 
   private static ARWEAVE_REQUIRED_CONFIRMATIONS = 2;
 
   constructor(config: ApiConfig) {
-    this.appName = config.appName;
     this.client = Arweave.init({
       host: config.host || 'localhost',
       port: config.port || 1984,
@@ -37,7 +33,7 @@ class ArweaveApi {
     });
   }
 
-  async publishTutorial(data: string, address: string, wallet: string): Promise<string> {
+  async publishTutorial(data: string, wallet: string, tags: Partial<TutorialTags>): Promise<string> {
     // Create Arweave transaction passing in data. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
 
     const parsedWallet = JSON.parse(wallet) as JWKPublicInterface
@@ -50,10 +46,12 @@ class ArweaveApi {
     // - App-Name - APP_NAME environmental variable
     // - Content-Type - Should be application/json
     // - Address - Address of a user
+    // - Path - Path to tutorial
     // Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
-    transaction.addTag('App-Name', this.appName as string);
-    transaction.addTag('Content-Type', 'application/json');
-    transaction.addTag('Address', address);
+    Object.keys(tags).forEach((key) => {
+      const value = tags[key as keyof TutorialTags];
+      transaction.addTag(key, value as string);
+    });
 
     // Sign Arweave transaction with your wallet. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
     await this.client.transactions.sign(transaction, parsedWallet);
@@ -118,7 +116,7 @@ class ArweaveApi {
 
     return {
       id: transactionHash as string,
-        data: txDataResp,
+      data: txDataResp,
       status: txStatus,
     };
   }

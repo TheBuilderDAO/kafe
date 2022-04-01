@@ -290,7 +290,6 @@ Notes:
       );
       ceramic.setSeed(options.seed);
       const arweave = new ArweaveApi({
-        appName: options.arweave_appName,
         host: options.arweave_host,
         port: options.arweave_port,
         protocol: options.arweave_protocol,
@@ -319,8 +318,13 @@ Notes:
           if (!file.options?.skipArweave) {
             const arweaveHash = await arweave.publishTutorial(
               fileContent,
-              `${learnPackageName}/${file.path}`,
               options.arweave_wallet,
+              {
+                'App-Name': options.arweave_appName,
+                'Slug': learnPackageName,
+                'Content-Type': 'text/plain',
+                'Address': proposal.creator.toString(),
+              }
             );
             console.log(
               `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
