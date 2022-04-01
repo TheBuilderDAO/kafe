@@ -34,7 +34,7 @@ jobs:
       run:
         shell: bash
     outputs:
-      slug: ${{ steps.set_output.outputs.slug }}
+      slug: ${{ steps.set_output.outputs.slug }} || ${{ github.event.input.slug }}
     steps:
       - uses: actions/github-script@v6
         id: regex_extract_proposal_id
@@ -46,11 +46,6 @@ jobs:
             const regex = /tutorials\/([A-z0-9]+(?:[_-][A-z0-9]+)*)/
             const slug = headBranch.match(regex)
             return slug && slug[1] || ''
-      - name: Set Output
-        id: set_output
-        if: github.event.input.slug != ''
-        run: |
-          echo "::set-output name=slug::${{ github.event.input.slug }}"
       - name: Set Output
         id: set_output
         if: steps.regex_extract_proposal_id.outputs.result != ''
