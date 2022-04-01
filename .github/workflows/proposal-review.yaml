@@ -150,7 +150,7 @@ jobs:
           ALL_REQUIRED_REVIEWERS_APPROVED: ${{steps.reviewer1_review.outputs.state == 'APPROVED' && steps.reviewer2_review.outputs.state  == 'APPROVED'}}
         run: |
           echo $ALL_REQUIRED_REVIEWERS_APPROVED
-          echo "::set-output name=all_reviewers_not_approved::$ALL_REQUIRED_REVIEWERS_APPROVED"
+          echo "::set-output name=all_reviewers_approved::$ALL_REQUIRED_REVIEWERS_APPROVED"
 
       - uses: ./.github/actions/build-builderdao-cli/
 
