@@ -254,7 +254,7 @@ jobs:
                 repo: context.repo.repo,
                 pull_number: context.number,
                 reviewers: [
-                  ${{needs.fetch_proposal.outputs.reviewer1_githubName}}
-                  ${{needs.fetch_proposal.outputs.reviewer2_githubName}}
+                  "${{needs.fetch_proposal.outputs.reviewer1_githubName}}",
+                  "${{needs.fetch_proposal.outputs.reviewer2_githubName}}"
                 ]
               });
