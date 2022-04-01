@@ -60,4 +60,5 @@ runs:
           STATE: ${{ steps.result.outputs.state }}
           PR_NUMBER: ${{ inputs.PR_NUMBER }}
           AUTHOR: ${{ inputs.AUTHOR}}
+        run: | 
             echo "$AUTHOR is $STATE on PR $PR_NUMBER"
