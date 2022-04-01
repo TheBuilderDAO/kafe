@@ -92,6 +92,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       - uses: ./.github/actions/build-builderdao-cli/
       - id: publish_tutorial
         env:
