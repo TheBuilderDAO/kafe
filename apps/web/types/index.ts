@@ -1,4 +1,4 @@
-import { TutorialMetadata } from '@builderdao/apis/src/CeramicApi';
+import { TutorialMetadata } from '@builderdao/apis';
 
 export type Tutorial = {
   id: number;

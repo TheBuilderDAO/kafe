@@ -7,7 +7,7 @@ import {
   useGetDaoState,
   useProposeTutorial as solanaUseProposeTutorial,
 } from '@builderdao-sdk/dao-program';
-import { TutorialMetadata } from '@builderdao/apis/src/CeramicApi';
+import { TutorialMetadata } from '@builderdao/apis';
 
 type StoreMetadataResponse = {
   did: string;

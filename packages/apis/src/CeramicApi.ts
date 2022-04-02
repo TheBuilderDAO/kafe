@@ -12,12 +12,14 @@ export type TutorialMetadata = {
   tags: string[];
   publishedUri?: string;
   createdAt: number;
-  content?: {[filename: string]: {
-    name: string;
-    path: string;
-    digest: string;
-    arweaveHash?: string;
-  }};
+  content?: {
+    [filename: string]: {
+      name: string;
+      path: string;
+      digest: string;
+      arweaveHash?: string;
+    }
+  };
 };
 
 export type ApiConfig = {
