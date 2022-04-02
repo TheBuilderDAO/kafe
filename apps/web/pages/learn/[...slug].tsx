@@ -19,15 +19,20 @@ import { getMDXComponents, MDXComponents } from '@builderdao/ui';
 import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
-import { ArweaveApi } from '@builderdao/apis';
+import { ArweaveApi, CeramicApi, SolanaApi } from '@builderdao/apis';
 import {
   NEXT_PUBLIC_ARWEAVE_APP_NAME,
   NEXT_PUBLIC_ARWEAVE_HOST,
   NEXT_PUBLIC_ARWEAVE_PORT,
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+  NEXT_PUBLIC_BDR_MINT,
+  NEXT_PUBLIC_CERAMIC_NODE_URL,
+  NEXT_PUBLIC_KAFE_MINT,
   NODE_ENV,
 } from '@app/constants';
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
+import { PublicKey } from '@solana/web3.js';
+import { getApplicationFetcher } from '../../hooks/useDapp';
 
 const getFile = (slug, pathForFile) => {
   if (NODE_ENV === 'production') {
@@ -110,16 +115,20 @@ export const getStaticProps: GetStaticProps = async context => {
   const relativePath = path.relative(rootFolder, pathForFile);
   let servedFrom: 'local' | 'arweave' | 'github' = 'local';
   const getPost = async (): Promise<{ content: string; data: any }> => {
-    if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
+    if (NODE_ENV === 'production') {
       try {
+        const applicationFetcher = getApplicationFetcher();
+
+        const tutorial = await applicationFetcher.getTutorialBySlug(slug[0]);
         const arweave = new ArweaveApi({
           host: NEXT_PUBLIC_ARWEAVE_HOST,
           port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
           protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
         });
-        const response = await arweave.getTutorialByHash(
-          lock.content[relativePath].arweaveHash,
-        );
+
+        const arweaveHash = tutorial.content[relativePath].arweaveHash;
+
+        const response = await arweave.getTutorialByHash(arweaveHash);
         if (response) {
           servedFrom = 'arweave';
           return getFileParse<PostType.TUTORIAL>(response.data);

@@ -31,6 +31,7 @@ class ApplicationFetcher {
       creator: proposalAccount.creator.toString(),
       reviewer1: proposalAccount.reviewer1.toString(),
       reviewer2: proposalAccount.reviewer2.toString(),
+      streamId: proposalAccount.streamId.toString(),
       ...metadata,
     };
   }
