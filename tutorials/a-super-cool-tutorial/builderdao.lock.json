@@ -26,7 +26,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "c1b882e5d145540666be2442b4f20b664a443c48b2ac112bc60435d3136edfd5"
+      "digest": "33b236fa0edd75cd04d20d6f6729108e8fdf652b011561b2367da853509da01a",
+      "arweaveHash": "5vmPx80YFnJoGzWfMraG2XXRP427edhiMDfcwdD8KwM"
     }
   },
   "href": "/learn/a-super-cool-tutorial"
