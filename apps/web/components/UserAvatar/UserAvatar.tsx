@@ -2,6 +2,7 @@ import React from 'react';
 import Identicon from 'react-identicons';
 import { addEllipsis } from 'utils/strings';
 import { useTheme } from 'next-themes';
+import { AVATAR_SIZE } from '@app/constants';
 
 type UserAvatarProps = {
   address: string;
@@ -14,7 +15,7 @@ const UserAvatar = (props: UserAvatarProps) => {
   const { theme } = useTheme();
   const {
     address,
-    size = 30,
+    size = AVATAR_SIZE,
     bg = theme === 'dark' ? '#EB5F49' : '#EFBB73',
     ellipsis = true,
   } = props;
