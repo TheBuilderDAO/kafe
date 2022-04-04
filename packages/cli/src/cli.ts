@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import path from 'path'; 
+import path from 'path';
 /* eslint-disable import/first */
 require('dotenv-flow').config({
   path: path.resolve(__dirname, '../')
@@ -35,11 +35,11 @@ program
   ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝
       `,
     ) +
-      chalk.white(
-        `
+    chalk.white(
+      `
   CLI to interact with Builder DAO programs.
         `,
-      ),
+    ),
   )
   .version(
     `Builder DAO CLI v${version}`,
@@ -59,7 +59,14 @@ program.addOption(
   new commander.Option('--kafePk <kafePk>', 'Kafe Token PublicKey').default(
     new anchor.web3.PublicKey(
       'KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW',
-    ).toString(),
+    ),
+  ),
+);
+program.addOption(
+  new commander.Option('--bdrPk <bdrPk>', 'BDR Token PublicKey').default(
+    new anchor.web3.PublicKey(
+      'BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2',
+    ),
   ),
 );
 program.addOption(
