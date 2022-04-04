@@ -21,3 +21,6 @@ pub const LEN_STREAM_ID: usize = 63;
 pub const MAX_ADMIN_NUMBER: usize = 12;
 pub const MAX_SLUG_LEN: usize = 100;
 pub const MAX_GITHUB_LOGIN_LEN: usize = 50;
+
+pub const AIRDROP_AMOUNT_KAFE: u64 = 1_000_000;
+pub const AIRDROP_AMOUNT_BDR: u64 = 10_000_000;

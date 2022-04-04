@@ -25,6 +25,7 @@ import {
 } from './lib/fetchers';
 
 import {
+  airdrop,
   proposalClose,
   proposalCreate,
   reviewerAssign,
@@ -311,6 +312,19 @@ export class TutorialProgramClient {
       proposalId: data.id,
       adminPk: data.adminPk,
       authorPk: data.authorPk,
+    });
+  }
+
+  async airdrop(data: {
+    memberPk: anchor.web3.PublicKey;
+    authority: anchor.web3.Keypair;
+  }): Promise<string> {
+    return airdrop({
+      program: this.tutorialProgram,
+      memberPk: data.memberPk,
+      mintKafePk: this.kafeMint,
+      mintBdrPk: this.bdrMint,
+      authority: data.authority,
     });
   }
 }

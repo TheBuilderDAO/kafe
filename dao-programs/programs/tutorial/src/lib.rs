@@ -13,6 +13,10 @@ declare_id!("prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp");
 pub mod tutorial {
   use super::*;
 
+  pub fn airdrop(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8) -> Result<()> {
+    instructions::airdrop::handler(ctx, bump_kafe, bump_bdr)
+  }
+
   pub fn dao_add_admin(ctx: Context<DaoAddAdmin>, admin: Pubkey) -> Result<()> {
     instructions::dao_add_admin::handler(ctx, admin)
   }

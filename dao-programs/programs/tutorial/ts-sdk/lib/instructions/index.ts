@@ -1,3 +1,5 @@
+export { default as airdrop } from './airdrop';
+
 export { default as daoAddAdmin } from './daoAddAdmin';
 export { default as daoClose } from './daoClose';
 export { default as daoInitialize } from './daoInitialize';
