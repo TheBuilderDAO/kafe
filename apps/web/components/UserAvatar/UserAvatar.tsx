@@ -22,7 +22,7 @@ const UserAvatar = (props: UserAvatarProps) => {
 
   return (
     <div className="flex items-center">
-      <div className="mr-2 rounded-full w-[30px] h-[30px] overflow-hidden lg:flex">
+      <div className="mr-2 rounded-full w-[25px] h-[25px] overflow-hidden lg:flex">
         <Identicon string={address} size={size} bg={bg} />
       </div>
       {ellipsis && <p className="text-xs font-black">{addEllipsis(address)}</p>}
