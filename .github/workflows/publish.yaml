@@ -123,7 +123,7 @@ jobs:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
-          builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
+          builderdao proposal publish $PROPOSAL_ID --adminKp $TESTNET_ADMIN_KP
 
   update_index:
     name: Update Algolia index
