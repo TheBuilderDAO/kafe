@@ -2,6 +2,8 @@ import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
 import { getClient } from '../client';
 import { log as _log } from '../utils';
+import { TutorialProgramClient } from '@builderdao-sdk/dao-program';
+import { PublicKey } from '@solana/web3.js';
 
 export function makeReviewerCommand() {
   const reviewer = new commander.Command('reviewer')
@@ -78,5 +80,22 @@ Notes:
       }
     });
 
+  return reviewer;
+}
+
+
+export async function getReviewer(
+  client: TutorialProgramClient,
+  reviewerPK: PublicKey,
+) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatReviewer = (data: any) => ({
+    pda: data.pda,
+    pubkey: data.pubkey,
+    githubName: data.githubName,
+  });
+  const reviewer = await client
+    .getReviewerByReviewerPk(reviewerPK)
+    .then(formatReviewer);
   return reviewer;
 }
