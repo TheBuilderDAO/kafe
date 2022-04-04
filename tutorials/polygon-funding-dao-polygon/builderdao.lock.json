@@ -22,6 +22,12 @@
     }
   },
   "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "e01919af134cbd706cfd0d0cef29129f3ccc586ab9b2dfca6545454f89ed3ac6",
+      "arweaveHash": "tqtOz8j7Axn7FHvVU7TUlH3Ydlyyx3rCKUJXqfFMf6Y"
+    },
     "content/assets/polygon-funding-dao-polygon-create-member-4.png": {
       "name": "polygon-funding-dao-polygon-create-member-4.png",
       "path": "content/assets/polygon-funding-dao-polygon-create-member-4.png",
@@ -52,6 +58,11 @@
       "path": "content/assets/polygon-funding-dao-polygon-investments-page-8.png",
       "digest": "2ffe13370a1294c9db61945f6ef6cc9e1bb84b7032391e3a5f63954437087639"
     },
+    "content/assets/polygon-funding-dao-polygon-demo-gif-1.png": {
+      "name": "polygon-funding-dao-polygon-demo-gif-1.png",
+      "path": "content/assets/polygon-funding-dao-polygon-demo-gif-1.png",
+      "digest": "45a70be0bdf4c79b0240b2d051d879f7bea338434893206931f6d57aee010ddf"
+    },
     "content/assets/polygon-funding-dao-polygon-proposal-card-5.png": {
       "name": "polygon-funding-dao-polygon-proposal-card-5.png",
       "path": "content/assets/polygon-funding-dao-polygon-proposal-card-5.png",
@@ -61,17 +72,6 @@
       "name": "polygon-funding-dao-polygon-voting-modal-7.png",
       "path": "content/assets/polygon-funding-dao-polygon-voting-modal-7.png",
       "digest": "c4c60384121c9d9ff9e60669347d182ba7a3127729f70ba8cebe101fff06cab5"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "e01919af134cbd706cfd0d0cef29129f3ccc586ab9b2dfca6545454f89ed3ac6",
-      "arweaveHash": "tqtOz8j7Axn7FHvVU7TUlH3Ydlyyx3rCKUJXqfFMf6Y"
-    },
-    "content/assets/polygon-funding-dao-polygon-demo-gif-1.png": {
-      "name": "polygon-funding-dao-polygon-demo-gif-1.png",
-      "path": "content/assets/polygon-funding-dao-polygon-demo-gif-1.png",
-      "digest": "45a70be0bdf4c79b0240b2d051d879f7bea338434893206931f6d57aee010ddf"
     }
   },
   "href": "learn/polygon-funding-dao-polygon",

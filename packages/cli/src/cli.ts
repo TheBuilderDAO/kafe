@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import path from 'path'; 
+import path from 'path';
 /* eslint-disable import/first */
 require('dotenv-flow').config({
   path: path.resolve(__dirname, '../')
@@ -35,11 +35,11 @@ program
   ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝
       `,
     ) +
-      chalk.white(
-        `
+    chalk.white(
+      `
   CLI to interact with Builder DAO programs.
         `,
-      ),
+    ),
   )
   .version(
     `Builder DAO CLI v${version}`,
