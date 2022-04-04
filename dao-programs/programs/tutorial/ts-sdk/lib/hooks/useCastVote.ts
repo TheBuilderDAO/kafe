@@ -31,7 +31,7 @@ export const useCastVote = (): [
 
         mutate(routes.tutorialById(tutorialId));
         mutate(
-          routes.listOfVoters(tutorialId),
+          routes.listOfVotersById(tutorialId),
           async (voters: any) => {
             return [
               ...voters,

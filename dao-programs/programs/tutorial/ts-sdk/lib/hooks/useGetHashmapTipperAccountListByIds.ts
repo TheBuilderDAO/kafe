@@ -2,15 +2,18 @@ import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './index';
 
-export const useGetListOfVoters = <D>(tutorialId: number) => {
+export const useGetHashmapTipperAccountListByIds = <D>(
+  tutorialIds: number[],
+) => {
   const tutorialProgram = useTutorialProgram();
+
   const { data, error } = useSWR(
-    tutorialProgram ? routes.listOfVoters(tutorialId) : null,
-    async () => tutorialProgram?.getListOfVoters(tutorialId),
+    routes.listOfTippersByIds(tutorialIds),
+    async () => tutorialProgram?.getTipperAccountListHashmapByIds(tutorialIds),
   );
 
   return {
-    voters: data,
+    tippers: data,
     loading: !error && !data,
     error,
   };
