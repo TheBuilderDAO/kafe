@@ -59,7 +59,14 @@ program.addOption(
   new commander.Option('--kafePk <kafePk>', 'Kafe Token PublicKey').default(
     new anchor.web3.PublicKey(
       'KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW',
-    ).toString(),
+    ),
+  ),
+);
+program.addOption(
+  new commander.Option('--bdrPk <bdrPk>', 'BDR Token PublicKey').default(
+    new anchor.web3.PublicKey(
+      'BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2',
+    ),
   ),
 );
 program.addOption(
