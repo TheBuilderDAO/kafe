@@ -1,3 +1,6 @@
+pub mod airdrop;
+pub use airdrop::*;
+
 pub mod dao_add_admin;
 pub use dao_add_admin::*;
 

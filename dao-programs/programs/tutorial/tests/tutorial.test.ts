@@ -11,6 +11,7 @@ import {
   freezeAccount,
   setAuthority,
   AuthorityType,
+  getAssociatedTokenAddress,
 } from '@solana/spl-token';
 import {
   daoAccount as getDaoAccount,
@@ -49,6 +50,7 @@ import {
   tipperClose,
   daoVaultClose,
   daoClose,
+  airdrop,
 } from '../ts-sdk/lib/instructions';
 
 import { filterProposalByState, ProposalStateE } from '../ts-sdk';
@@ -578,6 +580,96 @@ describe('tutorial-program', () => {
     );
   });
 
+  test('Airdrop with existing Ata', async () => {
+    const memberPk = reviewer3.publicKey;
+    await airdrop({
+      program,
+      memberPk,
+      mintKafePk: mintKafe,
+      mintBdrPk: mintBDR,
+      authority: auth1,
+    });
+    const bdrAssociatedToken = await getAssociatedTokenAddress(
+      mintBDR,
+      memberPk,
+    );
+    const bdrTokenBalance = await provider.connection.getTokenAccountBalance(
+      bdrAssociatedToken,
+    );
+    const bdrAmount = parseInt(bdrTokenBalance.value.amount);
+    expect(bdrAmount).toBe(11_000_000);
+
+    const kafeAssociatedToken = await getAssociatedTokenAddress(
+      mintKafe,
+      memberPk,
+    );
+    const kafeTokenBalance = await provider.connection.getTokenAccountBalance(
+      kafeAssociatedToken,
+    );
+    const kafeAmount = parseInt(kafeTokenBalance.value.amount);
+    expect(kafeAmount).toBe(3_000_000);
+  });
+
+  test('Airdrop to keypair', async () => {
+    const memberPk = anchor.web3.Keypair.generate().publicKey;
+    await airdrop({
+      program,
+      memberPk,
+      mintKafePk: mintKafe,
+      mintBdrPk: mintBDR,
+      authority: auth1,
+    });
+    const bdrAssociatedToken = await getAssociatedTokenAddress(
+      mintBDR,
+      memberPk,
+    );
+    const bdrTokenBalance = await provider.connection.getTokenAccountBalance(
+      bdrAssociatedToken,
+    );
+    const bdrAmount = parseInt(bdrTokenBalance.value.amount);
+    expect(bdrAmount).toBe(10_000_000);
+
+    const kafeAssociatedToken = await getAssociatedTokenAddress(
+      mintKafe,
+      memberPk,
+    );
+    const kafeTokenBalance = await provider.connection.getTokenAccountBalance(
+      kafeAssociatedToken,
+    );
+    const kafeAmount = parseInt(kafeTokenBalance.value.amount);
+    expect(kafeAmount).toBe(1_000_000);
+  });
+
+  test('Airdrop to wallet', async () => {
+    const memberPk = provider.wallet.publicKey;
+    await airdrop({
+      program,
+      memberPk,
+      mintKafePk: mintKafe,
+      mintBdrPk: mintBDR,
+      authority: auth1,
+    });
+    const bdrAssociatedToken = await getAssociatedTokenAddress(
+      mintBDR,
+      memberPk,
+    );
+    const bdrTokenBalance = await provider.connection.getTokenAccountBalance(
+      bdrAssociatedToken,
+    );
+    const bdrAmount = parseInt(bdrTokenBalance.value.amount);
+    expect(bdrAmount).toBe(10_000_000);
+
+    const kafeAssociatedToken = await getAssociatedTokenAddress(
+      mintKafe,
+      memberPk,
+    );
+    const kafeTokenBalance = await provider.connection.getTokenAccountBalance(
+      kafeAssociatedToken,
+    );
+    const kafeAmount = parseInt(kafeTokenBalance.value.amount);
+    expect(kafeAmount).toBe(1_000_000);
+  });
+
   test('User1 Create a tutorial', async () => {
     let proposalAccount: any;
     await proposalCreate({
@@ -965,7 +1057,7 @@ describe('tutorial-program', () => {
   test('An anonymous tip a tutorial', async () => {
     // Amount to tip in LAMPORT
     const tippedAmount = new anchor.BN(10_000_000_000);
-    const tippingAndCreateAtaCost = new anchor.BN(3_331_840);
+    const tippingAndCreateAtaCost = new anchor.BN(1292544);
 
     const CREATOR_WEIGHT = 70 / 100;
     const REVIEWER_WEIGHT = 15 / 100;
@@ -1011,7 +1103,7 @@ describe('tutorial-program', () => {
     const bdrBalance = await provider.connection.getTokenAccountBalance(
       walletAta,
     );
-    expect(bdrBalance.value.amount).toBe('150000000');
+    expect(bdrBalance.value.amount).toBe('160000000');
 
     // Basic check
     expect(initialTipperBalance - finalTipperBalance).toBe(

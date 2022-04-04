@@ -3,6 +3,66 @@ export type Tutorial = {
   name: 'tutorial';
   instructions: [
     {
+      name: 'airdrop';
+      accounts: [
+        {
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'kafeTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'bdrTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bumpKafe';
+          type: 'u8';
+        },
+        {
+          name: 'bumpBdr';
+          type: 'u8';
+        },
+      ];
+    },
+    {
       name: 'daoAddAdmin';
       accounts: [
         {
@@ -1115,6 +1175,66 @@ export const IDL: Tutorial = {
   version: '0.1.0',
   name: 'tutorial',
   instructions: [
+    {
+      name: 'airdrop',
+      accounts: [
+        {
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'kafeTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'bdrTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bumpKafe',
+          type: 'u8',
+        },
+        {
+          name: 'bumpBdr',
+          type: 'u8',
+        },
+      ],
+    },
     {
       name: 'daoAddAdmin',
       accounts: [
