@@ -37,9 +37,6 @@ pub fn handler(ctx: Context<VoteCast>, bump: u8, id: u64) -> Result<()> {
   ctx.accounts.vote_account.voted_at = Clock::get()?.unix_timestamp;
 
   ctx.accounts.proposal_account.number_of_voter += 1;
-  if ctx.accounts.proposal_account.number_of_voter == quorum {
-    ctx.accounts.proposal_account.state = ProposalState::Funded;
-  }
 
   Ok(())
 }
