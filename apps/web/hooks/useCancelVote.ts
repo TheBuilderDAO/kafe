@@ -33,7 +33,8 @@ export const useCancelVote = (): [
         setError(null);
         setSubmitting(true);
 
-        const currentVotes = await tutorialProgram.getListOfVoters(tutorialId);
+        const currentVotes =
+          await tutorialProgram.getVoteAccountListByTutorialId(tutorialId);
 
         await cancelVote(tutorialId);
 
