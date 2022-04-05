@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { addEllipsis } from '../../utils/strings';
 import VoteButton from '../VoteButton/VoteButton';
-import {
-  ProposalStateE,
-  useGetDaoState,
-  useGetListOfTippersById,
-  useGetListOfVoters,
-} from '@builderdao-sdk/dao-program';
+import { useGetListOfTippersById } from '@builderdao-sdk/dao-program';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
@@ -71,7 +66,7 @@ const TutorialTips = (props: TutorialTipsProps) => {
             Supporters
           </h3>
           <button
-            className="absolute right-8 top-6 text-3xl "
+            className="absolute text-3xl right-8 top-6 "
             onClick={closeModal}
           >
             <VscClose />
@@ -81,7 +76,7 @@ const TutorialTips = (props: TutorialTipsProps) => {
           <ul className="px-8">
             {tippers.map((tipperAccount, index) => (
               <li
-                className="py-4 dark:text-kafewhite text-xs text-kafeblack flex items-center justify-between"
+                className="flex items-center justify-between py-4 text-xs dark:text-kafewhite text-kafeblack"
                 key={index}
               >
                 <UserAvatar address={tipperAccount.account.pubkey.toString()} />
@@ -106,9 +101,9 @@ const TutorialTips = (props: TutorialTipsProps) => {
   }
 
   return (
-    <div className="text-kafeblack dark:text-kafewhite w-full">
+    <div className="w-full text-kafeblack dark:text-kafewhite">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-larken text-xl">
+        <h3 className="text-xl font-larken">
           {tippers.length} {tippers.length !== 1 ? 'supporters' : 'supporter'}
         </h3>
         {tippers.length > 5 && (
@@ -124,7 +119,7 @@ const TutorialTips = (props: TutorialTipsProps) => {
       <ul>
         {tippers.map((tipperAccount, index) => (
           <li
-            className="py-4 dark:text-kafewhite text-xs text-kafeblack flex items-center justify-between"
+            className="flex items-center justify-between py-4 text-xs dark:text-kafewhite text-kafeblack"
             key={tipperAccount.account.pubkey.toString()}
           >
             <UserAvatar address={tipperAccount.account.pubkey.toString()} />
