@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useCastVote } from '../../hooks/useCastVote';
-import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
+import { useGetListOfVotersById } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
 import VotedSVG from '../SVG/Coffee Icons/VotedSVG';
 
@@ -13,7 +13,7 @@ type CastVoteButtonProps = {
 const CastVoteButton = (props: CastVoteButtonProps) => {
   const { id, variant, disabled = false } = props;
 
-  const { voters } = useGetListOfVoters(id);
+  const { voters } = useGetListOfVotersById(id);
   const [castVote, { submitting }] = useCastVote(voters);
 
   const handleClick = useCallback(async () => {

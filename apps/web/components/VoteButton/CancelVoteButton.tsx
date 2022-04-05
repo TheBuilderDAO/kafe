@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useCancelVote } from '../../hooks/useCancelVote';
-import { useGetListOfVoters } from '@builderdao-sdk/dao-program';
+import { useGetListOfVotersById } from '@builderdao-sdk/dao-program';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import votedIcon from 'public/assets/icons/voted.png';
@@ -14,7 +14,7 @@ type CancelVoteButtonProps = {
 const CancelVoteButton = (props: CancelVoteButtonProps) => {
   const { id, variant, disable = false } = props;
 
-  const { voters } = useGetListOfVoters(id);
+  const { voters } = useGetListOfVotersById(id);
 
   const [cancelVote, { submitting }] = useCancelVote(voters);
 
