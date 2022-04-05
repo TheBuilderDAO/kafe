@@ -7,13 +7,7 @@ import ImageStack from '@app/components/ImageStack';
 import React from 'react';
 import Loader from '../Loader/Loader';
 
-const TippersInfo = ({ tippers }) => {
-  // const { tippers, loading, error } = useGetListOfTippersById(id);
-  // if (loading) {
-  //   return <Loader message="Loading..." />;
-  // } else if (error) {
-  //   return <div>Error</div>;
-  // }
+const TippersInfo = ({ tippers, id }) => {
   return (
     <div className="flex flex-row items-center gap-2 text-right">
       <div className="flex items-center">
@@ -37,7 +31,7 @@ const GuideHit = props => {
           <p className="mr-2">Guide by</p>
           <UserAvatar address={props.hit.author} />
         </div>
-        <TippersInfo tippers={tippers} />
+        <TippersInfo tippers={tippers} id={props.hit.objectID} />
       </div>
       <div className="flex flex-row content-center justify-between px-4 py-5 sm:p-6">
         <div>

@@ -13,7 +13,7 @@ const _TutorialProposalHits = ({ hits }) => {
         <TutorialProposalHit
           key={`proposalHit-${index}`}
           hit={hit}
-          voters={voters[hit.objectID]}
+          voters={voters ? voters[hit.objectID] : []}
         />
       ))}
     </>

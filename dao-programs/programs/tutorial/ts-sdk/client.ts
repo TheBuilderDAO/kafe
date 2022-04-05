@@ -148,6 +148,7 @@ export class TutorialProgramClient {
   async getVoteAccountListHashmapByTutorialIds(tutorialIds: number[]) {
     return voteAccountListHashmapByTutorialIds(
       this.tutorialProgram,
+      this.provider,
       tutorialIds,
     );
   }
@@ -174,7 +175,11 @@ export class TutorialProgramClient {
   }
 
   async getTipperAccountListHashmapByIds(ids: number[]) {
-    return tipperAccountListHashmapByIds(this.tutorialProgram, ids);
+    return tipperAccountListHashmapByIds(
+      this.tutorialProgram,
+      this.provider,
+      ids,
+    );
   }
 
   async getTotalTipsById(id: number) {
