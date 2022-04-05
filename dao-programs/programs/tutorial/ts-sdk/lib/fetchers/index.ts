@@ -6,7 +6,8 @@ export { default as proposalAccountById } from './proposalAccountById';
 export { default as proposalAccountBySlug } from './proposalAccountBySlug';
 export { default as proposalAccountByStreamId } from './proposalAccountByStreamId';
 export { default as proposalAccountList } from './proposalAccountList';
-export { default as listOfVoterById } from './listOfVoterById';
+export { default as voteAccountListByTutorialId } from './voteAccountListByTutorialId';
+export { default as voteAccountListHashmapByTutorialIds } from './voteAccountListHashmapByTutorialIds';
 export { default as userVoteAccountById } from './userVoteAccountById';
 export {
   reviewerAccountByReviewerPK,
@@ -16,4 +17,5 @@ export { default as reviewerAccountByGithubLogin } from './reviewerAccountByGith
 export { default as reviewerAccountList } from './reviewerAccountList';
 export { default as tipperAccountList } from './tipperAccountList';
 export { default as tipperAccountListByUser } from './tipperAccountListByUser';
-export { default as tipperAccountsListById } from './tipperAccountsListById';
+export { default as tipperAccountsListById } from './tipperAccountListById';
+export { default as tipperAccountListHashmapByIds } from './tipperAccountListHashmapByIds';

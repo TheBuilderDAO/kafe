@@ -10,7 +10,8 @@ import {
   daoAccount,
   daoVaultAccountBalance,
   isAdmin,
-  listOfVoterById,
+  voteAccountListByTutorialId,
+  voteAccountListHashmapByTutorialIds,
   proposalAccountById,
   proposalAccountBySlug,
   proposalAccountList,
@@ -22,6 +23,7 @@ import {
   tipperAccountList,
   tipperAccountListByUser,
   tipperAccountsListById,
+  tipperAccountListHashmapByIds,
 } from './lib/fetchers';
 
 import {
@@ -140,8 +142,16 @@ export class TutorialProgramClient {
     );
   }
 
-  async getListOfVoters(tutorialId: number) {
-    return listOfVoterById(this.tutorialProgram, tutorialId);
+  async getVoteAccountListByTutorialId(tutorialId: number) {
+    return voteAccountListByTutorialId(this.tutorialProgram, tutorialId);
+  }
+
+  async getVoteAccountListHashmapByTutorialIds(tutorialIds: number[]) {
+    return voteAccountListHashmapByTutorialIds(
+      this.tutorialProgram,
+      this.provider,
+      tutorialIds,
+    );
   }
 
   async getVote(tutorialId: number, publicKey: PublicKey) {
@@ -163,6 +173,14 @@ export class TutorialProgramClient {
 
   async getListOfTippersById(id: number) {
     return tipperAccountsListById(this.tutorialProgram, id);
+  }
+
+  async getTipperAccountListHashmapByIds(ids: number[]) {
+    return tipperAccountListHashmapByIds(
+      this.tutorialProgram,
+      this.provider,
+      ids,
+    );
   }
 
   async getTotalTipsById(id: number) {
