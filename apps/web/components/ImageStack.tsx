@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Identicon from 'react-identicons';
 import { useTheme } from 'next-themes';
+import { AVATAR_SIZE } from '@app/constants';
 
 type ImageStackProps = {
   addresses: string[];
@@ -11,7 +12,7 @@ type ImageStackProps = {
 
 const ImageStack = (props: ImageStackProps) => {
   const { theme } = useTheme();
-  const { addresses, size = 50, limit = 3 } = props;
+  const { addresses, size = AVATAR_SIZE, limit = 3 } = props;
   const bg = theme === 'dark' ? '#EB5F49' : '#EFBB73';
 
   return (

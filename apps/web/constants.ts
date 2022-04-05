@@ -86,3 +86,5 @@ export const NEXT_PUBLIC_ARWEAVE_PROTOCOL = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_ARWEAVE_PROTOCOL,
   'NEXT_PUBLIC_ARWEAVE_PROTOCOL',
 );
+
+export const AVATAR_SIZE = 25;
