@@ -1,0 +1,15 @@
+{
+  "title": "Publishing Test",
+  "description": "Testing tutorial publishing workflow.",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "CLI",
+      "slug": "cli"
+    },
+    {
+      "name": "Rust",
+      "slug": "rust"
+    }
+  ]
+}
