@@ -86,7 +86,7 @@ export const TutorialPrepublishCommand = () => {
       lock.chain.set('proposalId', proposal.id.toNumber());
       const reviewer1 = await getReviewer(client, proposal.reviewer1);
       lock.chain.get('reviewers').set('reviewer1', reviewer1).value();
-      const reviewer2 = await getReviewer(client, proposal.reviewer1);
+      const reviewer2 = await getReviewer(client, proposal.reviewer2);
       lock.chain.get('reviewers').set('reviewer2', reviewer2).value();
       await lock.write();
       await updateHashDigestOfFolder(rootFolder);
