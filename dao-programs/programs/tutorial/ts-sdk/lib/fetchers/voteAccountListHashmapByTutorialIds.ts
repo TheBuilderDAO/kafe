@@ -1,3 +1,4 @@
+import { createFiltersWithAccountDiscriminator } from './../utils';
 import { Program, Provider } from '@project-serum/anchor';
 
 import { Tutorial } from '../idl/tutorial';
@@ -15,7 +16,11 @@ export const voteAccountsHashmapByTutorialIds = async (
   tutorialIds: number[],
 ) => {
   const requests = tutorialIds.map((id: number): RpcParams => {
-    const filters = [filterVoteById(id)];
+    const filters = createFiltersWithAccountDiscriminator(
+      program,
+      program.account.voteAccount._idlAccount.name,
+      [filterVoteById(id)],
+    );
     return {
       id: id.toString(),
       methodName: 'getProgramAccounts',

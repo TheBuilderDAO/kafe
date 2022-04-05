@@ -4,6 +4,7 @@ import { Tutorial } from '../idl/tutorial';
 import { filterTipperById } from '../filters';
 import _ from 'lodash';
 import {
+  createFiltersWithAccountDiscriminator,
   createRpcBatchRequest,
   getProgramAccountArgs,
   RpcParams,
@@ -15,7 +16,11 @@ export const tipperAccountListHashmapByIds = async (
   tutorialIds: number[],
 ) => {
   const requests = tutorialIds.map((id: number): RpcParams => {
-    const filters = [filterTipperById(id)];
+    const filters = createFiltersWithAccountDiscriminator(
+      program,
+      program.account.tipperAccount._idlAccount.name,
+      [filterTipperById(id)],
+    );
     return {
       id: id.toString(),
       methodName: 'getProgramAccounts',
