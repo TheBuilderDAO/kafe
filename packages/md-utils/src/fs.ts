@@ -77,6 +77,9 @@ export const getTutorialPaths = async (
   const allPaths: TutorialPath[] = [];
   const allTutorials = [];
   for (const learnPackageName of rootFolder) {
+    if (learnPackageName.startsWith('.')) {
+      continue;
+    }
     if (learnPackageName === 'tutorials') {
       // ln -s reference.
       continue;

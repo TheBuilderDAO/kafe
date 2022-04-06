@@ -3,7 +3,7 @@ import VoteButton from '../VoteButton/VoteButton';
 import {
   ProposalStateE,
   useGetDaoState,
-  useGetListOfVoters,
+  useGetListOfVotersById,
 } from '@builderdao-sdk/dao-program';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import UserAvatar from '../UserAvatar/UserAvatar';
@@ -29,7 +29,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
     voters,
     loading: listLoading,
     error: listError,
-  } = useGetListOfVoters(id);
+  } = useGetListOfVotersById(id);
 
   useEffect(() => {
     if (voters && daoState) {
@@ -48,10 +48,10 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex items-center justify-between mb-2">
         <p className="text-2xl font-larken">Voters </p>
         <div className="flex-row justify-between">
-          <small className="font-space text-xs">
+          <small className="text-xs font-space">
             <span>{voters.length}</span>
             <span className="text-kafemellow">
               /{daoState.quorum.toString()} votes
@@ -62,7 +62,7 @@ const TutorialProposalVotes = (props: TutorialProposalVotesProps) => {
       <ul>
         {voters.map(tutorialVote => (
           <li
-            className="py-4 w-full flex"
+            className="flex w-full py-4"
             key={tutorialVote.account.author.toString()}
           >
             <UserAvatar address={tutorialVote.account.author.toString()} />

@@ -22,6 +22,7 @@ import {
 import HitFilter from '@app/components/Search/HitFilter';
 import Loader from '@app/components/Loader/Loader';
 import useSearchState from '../../hooks/useSearchState';
+import TutorialProposalHits from '@app/components/Search/TutorialProposalHits';
 
 const PER_PAGE = 10;
 
@@ -76,7 +77,7 @@ const Home: NextPage = () => {
             <Configure hitsPerPage={PER_PAGE} analytics={false} />
             <div className="flex items-start justify-between w-full">
               <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px] w-screen">
-                <div className="lg:my-6 mt-10 mb-4 z-30 text-kafeblack dark:text-kafewhite">
+                <div className="z-30 mt-10 mb-4 lg:my-6 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"
                     defaultRefinement={[
@@ -86,7 +87,7 @@ const Home: NextPage = () => {
                     ]}
                   />
                 </div>
-                <Hits hitComponent={TutorialProposalHit} />
+                <TutorialProposalHits />
                 <Pagination />
               </div>
               <RightSidebar>
