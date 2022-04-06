@@ -19,6 +19,7 @@ import Pagination from '@app/components/Search/Pagination';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import Link from 'next/link';
 import useSearchState from '../../hooks/useSearchState';
+import GuideHits from '@app/components/Search/GuideHits';
 
 const PER_PAGE = 10;
 
@@ -66,7 +67,7 @@ const LearnIndexPage: NextPage<
                       />
                     </div>
                   </IsAdmin>
-                  <Hits hitComponent={GuideHit} />
+                  <GuideHits />
                   <Pagination />
                   {process.env.NODE_ENV === 'development' ? (
                     <div className="space-y-0.5 divide-y-2">
