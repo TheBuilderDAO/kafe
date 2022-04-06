@@ -5,7 +5,7 @@ keywords: [Avalanche, Solidity, Smart contracts, Javascript, Solidity]
 date: '2021-11-16T21:48:34.333Z'
 ---
 
-# Introduction
+## Introduction
 
 Whether you are looking to create your own token, provide liquidity for existing tokens or to trade on Pangolin that is deployed on Avalanche's c-chain, you will need to create a token pair on Pangolin.
 
@@ -13,7 +13,7 @@ However before that, we must familiarize ourselves with the functionality of tok
 
 In this tutorial we will illustrate how to create your own Pangolin exchange locally and also create a trading pair from any arbitrary ERC20 tokens.
 
-# Prerequisites
+## Prerequisites
 
 If you have completed the Avalanche tutorial on [Using Truffle with the Avalanche C-Chain](https://docs.avax.network/build/tutorials/smart-contracts/using-truffle-with-the-avalanche-c-chain), you will have completed most of the prerequisites.
 
@@ -33,11 +33,11 @@ npm install --dev @pangolindex/exchange-contracts
 npm install --dev @openzeppelin/contracts
 ```
 
-# About Pangolin
+## About Pangolin
 
 Pangolin is a fork of Uniswap V2 and the first decentralized exchange (DEX) on Avalanche C-chain where users can swap their [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens.
 
-# Copy OpenZeppelin ERC20 Contracts to build directory
+## Copy OpenZeppelin ERC20 Contracts to build directory
 
 We now need to make sure we have access to ERC20 token contracts that we will use help create our token pair when we deploy it to pangolin.
 
@@ -54,7 +54,7 @@ cp node_modules/\@pangolindex/exchange-contracts/artifacts/contracts/pangolin-co
 cp node_modules/\@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinFactory.sol/IPangolinFactory.json build/contracts/
 ```
 
-# Create a new Migration file
+## Create a new Migration file
 
 We now need to create a new migration file called `3_deploy.js` with the content, following this; we will step through what is going on below:
 
@@ -131,7 +131,7 @@ module.exports = function (deployer, network, accounts) {
 };
 ```
 
-# Import Required Contracts & Bytecode
+## Import Required Contracts & Bytecode
 
 The first thing we need do is to import the ERC20 contracts as well as the bytecode for the Pangolin Factory, Router, Pair Interface and Factory Interface and the Wrapped AVAX (wAVAX).
 
@@ -147,7 +147,7 @@ const IPangolinFactory = artifacts.require('IPangolinFactory');
 const IPangolinPair = artifacts.require('IPangolinPair');
 ```
 
-# Deploy Mock Tokens
+## Deploy Mock Tokens
 
 Next we need to deploy the mock ERC20 tokens.
 
@@ -158,7 +158,7 @@ const OneERC20 = await deployer.deploy(MockERC20);
 const AnotherERC20 = await deployer.deploy(MockERC20);
 ```
 
-# Construct Zero Address Argument And Deploy Factory
+## Construct Zero Address Argument And Deploy Factory
 
 In order to construct any token pair on Pangolin, you will need to interact with the Factory contract and that means we need to deploy it to our local testnet first.
 
@@ -178,7 +178,7 @@ const pangolinFactoryAddress = (
 ).contractAddress;
 ```
 
-# WAVAX
+## WAVAX
 
 As with ETH, AVAX is not ERC20 compliant and since it's the native token on avalanche, it must be wrapped.
 
@@ -196,7 +196,7 @@ const wAVAXAddress = (
 ).contractAddress;
 ```
 
-# Router
+## Router
 
 After we have deployed the bytecode for both the factory and WAVAX, we will take the address and append them as arguments to the router bytecode.
 
@@ -221,7 +221,7 @@ const PangolinRouterAddress = (
 ).contractAddress;
 ```
 
-# Interfaces: IPangolinFactory & IPangolinPair
+## Interfaces: IPangolinFactory & IPangolinPair
 
 The interface for the factory and pair token contracts isn’t necessarily needed here because we are deploying both contracts themselves and we could use the contract ABI directly.
 
@@ -229,7 +229,7 @@ However if we were going to access these through another contract, they would al
 
 For example, if you wanted to modify PangolinPair and PangolinRouter without changing the contracts you may have already deployed (assuming they have a way to pull in the new address), then you will easily be able to do this if you deployed your contracts with the interfaces.
 
-# Create Pair with router and pair interfaces
+## Create Pair with router and pair interfaces
 
 For the final step, we need to access the instance of the factory address through the interface.
 
@@ -249,7 +249,7 @@ const PangoPairAddress = PangoPairTx['logs'][0]['args']['pair'];
 const PangoPair = await IPangolinPair.at(PangoPairAddress);
 ```
 
-# Deployment
+## Deployment
 
 Run `truffle deploy`
 
@@ -257,7 +257,7 @@ This is what your deployment should look like if it is succesful:
 
 ![](./assets/avalanche-deploy-pangolin-to-local-testnet-image-1.png)
 
-# Conclusion
+## Conclusion
 
 In this tutorial we have covered:
 

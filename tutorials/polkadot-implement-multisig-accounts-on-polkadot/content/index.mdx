@@ -5,7 +5,7 @@ keywords: [Polkadot, JS/TS, NodeJS]
 date: '2021-07-21T10:47:19.256Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial we will cover the process of creating a multisig - an account which shares authority for transactions across multiple addresses. The word "multisig" stands for "multiple signature". For the purposes of this tutorial, we will generate two additional accounts and ensure they are both funded with enough WND to cover the existential deposit and to send a few transactions. These will be used to simulate the other signing parties of the multisig wallet.
 
@@ -34,7 +34,7 @@ _also:_
 > - Existential deposit is equal to 0.01 WND (Westies; Westend's native coin) instead of 1 DOT.
 > - The multi signature transaction deposit is equal to ~1 WND instead of ~20.2 DOT.
 
-# Setup
+## Setup
 
 It is not a requirement, however completing the Polkadot [Pathway](../polkadot-pathway.md) and the [social recovery](implement-social-recovery-on-polkadot.md) tutorial form a strong basis of understanding which will enhance this tutorial.
 
@@ -116,7 +116,7 @@ Fund the Alice account by visiting <https://faucet.figment.io> and entering addr
 
 There are three types of actions to be taken with a multi-sig account. Executing a call, approving a call, or cancelling a call.
 
-# Create a Multisig account
+## Create a Multisig account
 
 ![Click to enlarge](./assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-2.png)
 
@@ -208,7 +208,7 @@ transfer tx: https://westend.subscan.io/extrinsic/...
 
 > Remember to copy and paste the resulting value for Multisig Address into `.env` as `MULTISIG_ADDRESS` in preparation for the next step!
 
-# Fund a Multisig account
+## Fund a Multisig account
 
 ![Click to enlarge](./assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-3.png)
 
@@ -283,7 +283,7 @@ The [SubScan](https://westend.subscan.io/) page will include these 4 events. Ref
 
 ![](./assets/polkadot-implement-multisig-accounts-on-polkadot-image-7.png)
 
-# Execute a Multisig transfer
+## Execute a Multisig transfer
 
 ![Click to enlarge.](./assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-8.png)
 
@@ -391,7 +391,7 @@ approveAsMulti tx: https://westend.subscan.io/extrinsic/...
 
 ![](./assets/polkadot-implement-multisig-accounts-on-polkadot-image-9.png)
 
-# Approve a Multisig transfer
+## Approve a Multisig transfer
 
 ![Click to enlarge.](./assets/polkadot-implement-multisig-accounts-on-polkadot-click-to-enlarge-10.png)
 
@@ -488,7 +488,7 @@ to 5GpDZiUMpdX2GcGJzAZVX36kSGoScraCLEjTTgvhufEokRCX
 asMulti tx: https://westend.subscan.io/extrinsic/...
 ```
 
-# Cancel a multisig transfer
+## Cancel a multisig transfer
 
 Create a new file called `cancel_multisig.js` and paste the following code :
 
@@ -577,6 +577,6 @@ Submitted values : cancelAsMulti(2, otherSignatories: [
 cancelAsMulti tx: https://westend.subscan.io/extrinsic/0x774822d10f1159f12491bf9351a7b043100ccac88f5ed2c34ab1eac07fe190fe
 ```
 
-# Conclusion
+## Conclusion
 
 Congratulations! This tutorial has covered the creation and usage of a multisig account using the Polkadot JS API. We are now able to initiate, approve and cancel transactions using an account that requires multiple authorizations. This functionality enables many other amazing things to be built on Polkadot, and we all look forward to seeing what you build using multisig accounts.

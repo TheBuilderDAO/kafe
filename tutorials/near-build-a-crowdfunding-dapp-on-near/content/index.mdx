@@ -5,7 +5,7 @@ keywords: [Near, JS/TS, Rust, React, Rust]
 date: '2022-02-18T00:04:33.034Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will build a crowdfunding dApp on the NEAR blockchain. Our smart contract will be written in Rust and our frontend will be written in React.
 
@@ -20,11 +20,11 @@ After we have implemented all the features in our smart contract, we will connec
 
 ![project image](./assets/near-build-a-crowdfunding-dapp-on-near-project-image-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To follow along and complete this tutorial, you will need the basic knowledge of [React](https://reactjs.org/) and [Rust](https://www.youtube.com/watch?v=KDn_j48yoAo&t=581s).
 
-# Requirements
+## Requirements
 
 - Install the [rust toolchain](https://www.rust-lang.org/tools/install).
 - [npx binary](https://www.npmjs.com/package/npx).
@@ -36,11 +36,11 @@ To follow along and complete this tutorial, you will need the basic knowledge of
 
 > Make sure you have everything installed from the requirements including near-cli and have a NEAR account
 
-# Overview
+## Overview
 
 We have looked at the things we need to install to follow along in this tutorial, now let’s look at the things we will be doing as the tutorial progresses. We will use the [npx](https://www.npmjs.com/package/npx) binary to scaffold our project with [create-near-app](https://github.com/near/create-near-app) which provides us with options of what to use for the frontend and backend. After scaffolding our project we will look at the file structure, write our smart contract and deploy and test that all functions are working, and connect to our React frontend.
 
-# Project Setup
+## Project Setup
 
 We set up our project with [create-near-app](https://github.com/near/create-near-app) by running the following command:
 
@@ -63,7 +63,7 @@ In our file structure, we have the `contract` folder, where we will be writing o
 
 In the contract folder we have the `src` folder where we’ll be creating a `model.rs`, `lib.rs`, and `utils.rs` file. We already have the `lib.rs` file, so no need to create another one. The `cargo.toml` file contains information about our contract, including all the dependencies we need.
 
-# Building our contract
+## Building our contract
 
 In the last section, we have seen how to set up our project and how our project is structured. Now let’s dive into building our contract.
 
@@ -290,7 +290,7 @@ The following model we have in our `model.rs` file is:
 For our donation `struct` we have a `donor` field we would like to store on the blockchain. Then we initialize the donation `struct` with the `donor` with the default value of the `predecessor_account_id()` which signifies the person that donated to the crowdfunding campaign.
 Now let's move over to our `lib.rs` file where we call the different functions that will make all the features for our crowdfunding dApp possible.
 
-# Adding a crowdfund project
+## Adding a crowdfund project
 
 We have created our models in the model.rs file and we are now moving over to our `lib.rs` file where we will be writing the different functions we need to call to perform certain operations in the dApp. Before we get into the nitty-gritty of things let's look at some code we need available at the top of our `lib.rs` file.
 
@@ -377,7 +377,7 @@ The `add_crowdfund` function accepts three parameters, `title`, `donate`, and `d
 
 > Notice how we also passed in `&mut self` in our function?. It simply means we are passing on a mutable reference of `self` which points to our `Contract`
 
-# List all crowdfunding projects
+## List all crowdfunding projects
 
 We need to return all crowdfunding projects, so we create a function `list_crowdfunds` .
 
@@ -391,7 +391,7 @@ We need to return all crowdfunding projects, so we create a function `list_crowd
 
 When we call the function, we make use of the `assert_self` function from our `utils.rs` file, to make sure the contract calls itself, then we return our crowdfunds as a vector that displays an array of all our crowdfunding projects.
 
-# Voting a project
+## Voting a project
 
 Assuming there is a project that really needs some support, the user can vote on that project. So in our contract, we added an `add_vote` function.
 
@@ -414,7 +414,7 @@ We pass an `id` parameter to the `add_vote` function to determine the particular
 
 This increments the `total_votes` field by 1, each time we call the function, then we add the voter to the votes vector, and we can see who has voted on that project.
 
-# Donate to a project
+## Donate to a project
 
 To donate to a particular project, we create an `add_donation` function and pass in the `id` of the project we want to donate to, and the amount of NEAR token we want to donate.
 
@@ -432,7 +432,7 @@ To donate to a particular project, we create an `add_donation` function and pass
 
 Here we pass as a parameter, the `id` of the crowdfunding project and the `amount` we want to donate. We then add the donated amount to our current `total_donations` balance, and push a new donation each time we call the function and the amount in NEAR is transferred to the crowdfunding project owner.
 
-# Get total crowdfunds and donations count
+## Get total crowdfunds and donations count
 
 Let’s add two more functions to our contract to determine the total crowdfunding projects we have and the total sum of donations a particular crowdfunding project has received.
 
@@ -451,7 +451,7 @@ We have created two functions `crowdfund_count` that simply returns the length o
 
 Now that we are done with all the functions for this contract, it is time to deploy and invoke the functions in our contract to make sure everything is working fine, and that is what we will be doing in the next section
 
-# Deploying the smart contract
+## Deploying the smart contract
 
 Before we deploy our smart contract, let’s first login with the `near-cli` into the NEAR account we created.
 
@@ -492,7 +492,7 @@ we can see that after running the command, our contract was deployed successfull
 
 > If you make a change in your contract, you can just delete the sub account with the command `near delete crowdfunddapp.umavictor.testnet umavictor.testnet`, and create it again.
 
-# Calling contract methods
+## Calling contract methods
 
 Now we can interact with our contract and make sure all our functions are doing what they are supposed to do. Let’s test out each function!.
 
@@ -538,7 +538,7 @@ This command lists all the crowdfunding projects to the terminal.
 You can see the two crowdfund projects from the image and all the information we set.
 We have invoked the methods to see how they are working, let’s now build the react frontend
 
-# Building our frontend
+## Building our frontend
 
 We are finally done building the smart contract. To connect and build our React frontend, we will be working on the `src` folder. This is not a React tutorial, so we will only touch on the important things.
 First, navigate to `utils.js` and update your change and view methods
@@ -635,7 +635,7 @@ Next, we check if a user is signed in, and if no user is signed in, we prompt th
 
 Once signed in, we will see available projects we can donate to.
 
-## List Crowdfund component
+### List Crowdfund component
 
 For our `App.js` component, we looped through all our crowdfunding projects and passed in the object prop to our `ListCrowdfunds` component. This is what our `ListCrowdfunds` component looks like.
 
@@ -699,7 +699,7 @@ export default ListCrowdfunds;
 In the `ListCrowdfunds` component, we set the donation amount state and when we want to donate, by clicking on the `Donate` button, the `donate` function is called which calls the `add_donation` method in our contract with the argument we provide from the form.
 We also have a notification component that notifies the user when our donation is successful.
 
-## Create Crowdfund Component
+### Create Crowdfund Component
 
 Our `CreateCrowdfund` component is a modal that contains a form for us to add a new crowdfund project.
 
@@ -778,16 +778,16 @@ You can check out a this [video](https://www.loom.com/share/f65f0c04298e434f88e0
 
 Yay!. We have concluded the tutorial and you can find the source code [here](https://github.com/uma-victor1/Crowdfunding-dApp).
 
-# Conclusion
+## Conclusion
 
 Finally!, we have come to the end of this tutorial. We learned how to build a crowdfunding dApp on the NEAR blockchain using Rust for the backend and React for the frontend, test our methods and deploy our smart contract live.
 
 Now you can play around with the code, and add some more functionalities like adding pagination so users can go back and forth between pages. Also you can add a sort functionality so the user can sort which crowdfunding project has the highest votes.
 
-# About the Author
+## About the author
 
 This tutorial was created by [Uma Victor](https://twitter.com/umavictor_), a software developer and web3 enthusiast.
 
-# References
+## References
 
 - [NEAR docs](https://docs.near.org/docs/develop/basics/getting-started)

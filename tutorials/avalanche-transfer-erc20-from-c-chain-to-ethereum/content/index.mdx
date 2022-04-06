@@ -5,11 +5,11 @@ keywords: [Avalanche, JS/TS, Javascript]
 date: '2021-09-10T19:31:24.503Z'
 ---
 
-# Introduction
+## Introduction
 
 Continuing with the theme of token transfers, in this tutorial we are going to learn how to programmatically transfer ERC-20 tokens from the Avalanche C-Chain to a Metamask wallet.
 
-# Prerequisites
+## Prerequisites
 
 - [Create an Avalanche wallet](https://wallet.avax.network/create)
 - [Fund your Avalanche wallet with the FUJI Faucet](https://docs.avax.network/build/tutorials/platform/fuji-workflow#get-a-drip-from-the-fuji-faucet)
@@ -17,14 +17,14 @@ Continuing with the theme of token transfers, in this tutorial we are going to l
 - Having an integrated development environment, such as [Visual Studio Code](https://code.visualstudio.com/download)
 - Familiarity with the use of a DEX such as Pangolin and [the concept of token swap](https://www.youtube.com/watch?v=kNQp4t03lOQ)
 
-# Requirements
+## Requirements
 
 - [NodeJS](https://nodejs.org/en)
 - [Ethers](https://docs.ethers.io/v5/) , which you can install with `npm install ethers`
 - Install [Metamask extension](https://metamask.io/download.html) in your browser.
 - [Configure your Metamask to add Avalanche FUJI testnet](https://docs.avax.network/build/tutorials/smart-contracts/deploy-a-smart-contract-on-avalanche-using-remix-and-metamask#step-1-setting-up-metamask)
 
-# Getting started
+## Getting started
 
 For the purpose of this tutorial, I have created an ERC-20 token named AVAXDATAHUB and created an AVAXDATAHUB - AVAX liquidity pool on [Pangolin](https://app.pangolin.exchange/#/swap) on the Fuji testnet. Pangolin is a decentralized exchange built on Avalanche and it is compatible with the Fuji testnet as well, for testing purposes.
 
@@ -64,7 +64,7 @@ Then, you should be able to see the tokens show up on your list, as shown in the
 
 What we have done up to this point has taught you that any ERC-20 token can be stored on the C-Chain of your Avalanche wallet.
 
-# Transfer ERC-20 tokens from C-Chain to ETH address
+## Transfer ERC-20 tokens from C-Chain to ETH address
 
 We are going to create a new file called `ERC20_fromC_to_ETH_address.js` in the root directory of your project. Once you create a .js file under the specified name, we will type in the following blocks of code in.
 
@@ -279,9 +279,9 @@ As you can see in the image below, the balance did change from 4.97 to 5.97.
 
 ![metamask_balance](./assets/avalanche-transfer-erc20-from-c-chain-to-ethereum-metamask-balance-9.png)
 
-# Troubleshooting
+## Troubleshooting
 
-## Transaction Failure
+### Transaction Failure
 
 If you have enough AVAX on the C-Chain but not enough AVAXDATAHUB token (or any ERC20 token that you intend to transfer), you may end up getting an error in the terminal. Such an error message would be as shown below.
 
@@ -291,10 +291,10 @@ Although the error message says something along the lines of gas cost estimate i
 
 Conversely, if you have enough AVAXDATAHUB balance, but not enough AVAX token to pay for the transaction, the same error message is produced. Similarily, make sure that you have sufficient AVAX balance to pay for the transaction.
 
-# Conclusion
+## Conclusion
 
 This tutorial has taught you how to transfer ERC-20 tokens from the C-Chain to a Metamask wallet. Note that the C-Chain uses the Ethereum Virtual Machine and is compatible with all of the key Ethereum tools.
 
-# About the Author
+## About the author
 
 This tutorial was created by [Seongwoo Oh](https://github.com/blackwidoq). He is a student and an Avalanche novice.

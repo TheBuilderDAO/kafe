@@ -5,17 +5,17 @@ keywords: [Secret, JS/TS, Rust, NodeJS]
 date: '2021-07-21T11:06:35.056Z'
 ---
 
-# Introduction
+## Introduction
 
 For a high level introduction to Non-Fungible-Tokens see the [first installment of this series](https://learn.figment.io/tutorials/create-your-first-secret-nft). In this tutorial we will download and compile the [snip721 reference implementation](https://github.com/baedrik/snip721-reference-impl), deploy it onto the secret testnet and interact with the contract, minting your own secret NFTs. Unlike the [previous tutorial](https://learn.figment.io/tutorials/create-your-first-secret-nft) we will configure the contract ourselves and learn about access right management of secret contracts and tokens on the way.
 
 <Embed url="https://youtu.be/jRuSOos9ig4" />
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have completed the [Secret Pathway](https://learn.figment.io/protocols/secret) already, as we will be building upon that foundation of knowledge and skill. If you have not already done so, you would be wise to take the time to complete the Pathway.
 
-# Requirements
+## Requirements
 
 - The latest version of [NodeJS](https://nodejs.org/en/) installed (use of nvm, the node version manager, is _encouraged_ for web3 developers)
 - A code editor like [VSCode](https://code.visualstudio.com/Download), Theia, Atom, _etc_.
@@ -25,7 +25,7 @@ This tutorial assumes that you have completed the [Secret Pathway](https://learn
 - [Rust](https://rustup.rs) toolchain to compile secret contracts
 - [Docker](https://docs.docker.com/get-docker/) is needed for smart contract optimization
 
-## Generate the contract
+### Generate the contract
 
 If you do not already have the `cargo-generate` crate installed, add it with the command
 
@@ -56,7 +56,7 @@ Cargo.toml  Importing.md   NOTICE   README.md      rustfmt.toml  src
 
 While we will keep most of the files as-is during this tutorial, we will alter some of them for the tutorial to deepen your understanding what is happening behind the scenes. For now the goal is to compile the contract and upload it to the Secret testnet.
 
-## Compile the contract
+### Compile the contract
 
 To compile the smart contract into a WebAssembly (.wasm) binary, run this command in the terminal:
 
@@ -72,7 +72,7 @@ make compile-optimized-reproducible
 
 Before deploying or storing the contract on the testnet, you need to run the [secret contract optimizer](https://hub.docker.com/r/enigmampc/secret-contract-optimizer). Note that if you already did this due to `cargo wasm` failing, it is not necessary to do it again.
 
-## Optimize compiled wasm
+### Optimize compiled wasm
 
 ```text
 docker run --rm -v "$(pwd)":/contract \
@@ -91,7 +91,7 @@ gunzip contract.wasm.gz
 
 You should be able to find a newly created file `contract.wasm` in the current directory.
 
-## Uploading the contract
+### Uploading the contract
 
 We are now switching back to the project root directory and will start writing some Javascript to manage our newly created contract. For this we will need the `secretjs` and `dotenv` packages to be installed.
 
@@ -172,7 +172,7 @@ main().catch(err => {
 });
 ```
 
-## Initialize the client
+### Initialize the client
 
 In the `deploy-nft.js` file, under the comment `// 1. Initialize client` add the following code :
 
@@ -189,7 +189,7 @@ const client = new SigningCosmWasmClient(
 console.log(`Wallet address=${accAddress}`);
 ```
 
-## Upload the contract wasm
+### Upload the contract wasm
 
 Under the comment `// 2. Upload the contract wasm` add the following code :
 
@@ -210,7 +210,7 @@ Ensure that if you have changed the name of the contract folder, you also change
 const wasm = fs.readFileSync('my-snip721/contract.wasm');
 ```
 
-# Instantiating the contract
+## Instantiating the contract
 
 Similar to what you have seen before, we first got the `codeId` from the upload receipt and then defined the `initMsg` to instantiate the contract. In this case the initMsg is more complex than for a simple counter and allows us to configure the secret NFT to our liking.
 
@@ -218,7 +218,7 @@ Open up the `msg.rs` file within the `src` folder of the contract code. You will
 
 Lets have a look at the different fields and what part of the contract they control:
 
-## InitMsg
+### InitMsg
 
 | Name               | Type                                                                           | Description                                                         | Optional | Value If Omitted   |
 | :----------------- | :----------------------------------------------------------------------------- | :------------------------------------------------------------------ | :------- | :----------------- |
@@ -229,7 +229,7 @@ Lets have a look at the different fields and what part of the contract they cont
 | config             | [Config (see below)](deploy-your-own-secret-nft.md#config)                     | Privacy configuration for the contract                              | yes      | defined below      |
 | post_init_callback | [PostInitCallback (see below)](deploy-your-own-secret-nft.md#postinitcallback) | Information used to perform a callback message after initialization | yes      | nothing            |
 
-## InitConfig
+### InitConfig
 
 | Name                          | Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Optional | Value If Omitted |
 | :---------------------------- | :--- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------- | :--------------- |
@@ -290,7 +290,7 @@ Let's check for some common causes:
 
 After this executed successfully you can take the program you created in the [first tutorial](https://learn.figment.io/tutorials/create-your-first-secret-nft), change the contract address to the one of your contract and interact with it in the same way!
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have made it to the end of the first instalment of this Secret NFT series. We have covered a lot of information, and I feel you can really be proud of what you have achieved. Just to recap:
 
@@ -300,10 +300,10 @@ Congratulations! We have made it to the end of the first instalment of this Secr
 
 This is a solid foundation to play with and build upon!
 
-# About the author
+## About the author
 
 This tutorial was created by [Florian Uhde](https://twitter.com/florianuhde), a software engineer and game developer with a passion for blockchain, creativity and systemic design.
 
-# References
+## References
 
 snip721 Reference Implementation: [Github Repo](https://github.com/baedrik/snip721-reference-impl)

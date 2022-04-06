@@ -11,7 +11,7 @@ In my last tutorial I introduced you to the **next generation** OysterPack SMART
 > You will learn about OysterPack SMART components and interfaces that you may leverage for your next contract to help you build smarter, faster, and better on the NEAR platform.
 > You will also benefit from my experience and gain insight into my thought process for contract design.
 
-# The Big Picture
+## The Big Picture
 
 ![](./assets/near-stake-pool-for-validators-image-1.png)
 
@@ -41,9 +41,9 @@ Below is the list of components used by the contract along with brief descriptio
 
 As you can see, there is much to cover. Here's the approach we will take. For each of the contract API interfaces, we'll review the Rust contract API and how to invoke the API via the [NEAR CLI](https://docs.near.org/docs/tools/near-cli). If you are interested in seeing how the APIs are implemented, then all the contract [source code](https://github.com/oysterpack/oysterpack-smart) is available on GitHub to study and explore.
 
-## Account Management Component
+### Account Management Component
 
-### Storage Management API
+#### Storage Management API
 
 The storage management API implements the NEAR standard NEP-145, which I have covered in depth my prior [Account Storage Standard](https://learn.figment.io/tutorials/5-account-storage) tutorial. Proper storage management is crucial to safeguard any multi-user contract from what I call a "Denial of Storage" attack. Storage management closes a big security vulnerability in the first generation staking pool contracts that are currently in use. The attack is very simple based on the facts:
 
@@ -71,7 +71,7 @@ Thus, in order to prevent malicious behavior, contracts should be designed to pa
 
 ![](./assets/near-stake-pool-for-validators-image-3.png)
 
-```text
+````text
 export DATAHUB_APIKEY=<DATAHUB_APIKEY>
 export NEAR_NODE_URL=https://near-testnet--rpc.datahub.figment.io/apikey/$DATAHUB_APIKEY
 
@@ -83,22 +83,41 @@ STAKE_FACTORY=<STAKE-FACTORY-ACCOUNT.testnet>
 STAKE=<STAKE-FT-SYMBOL>
 CONTRACT=$STAKE.$STAKE_FACTORY
 
-# VIEW METHODS
+## View methods
+
+```text
 near-figment view $CONTRACT storage_balance_bounds
 near-figment view $CONTRACT storage_balance_of --args '{"account_id":"oysterpack.testnet"}'
+````
 
-# deposits NEAR for predecessor account
+Deposits NEAR for predecessor account
+
+```text
 near-figment call $CONTRACT storage_deposit --accountId $NEAR_ACCOUNT --amount 1
-# deposits funds into specified "account_id" for account registration purposes only
+```
+
+Deposits funds into specified "account_id" for account registration purposes only
+
+```text
 near-figment call $CONTRACT storage_deposit --accountId $NEAR_ACCOUNT --amount 0.00393 --args '{"account_id":"oysterpack.testnet", "registration_only":true}'
-# deposits funds for account self registration, i.e, for the predecessor account
+```
+
+Deposits funds for account self registration, i.e, for the predecessor account
+
+```text
 near-figment call $CONTRACT storage_deposit --accountId $NEAR_ACCOUNT --amount 1 --args '{"registration_only":true}'
+```
 
-# withdraw total account storage available balance
+Withdraw total account storage available balance
+
+```text
 near-figment call $CONTRACT storage_withdraw --accountId $NEAR_ACCOUNT --amount 0.000000000000000000000001
-# withdraw the specified amount from the account storage available balance
-near-figment call $CONTRACT storage_withdraw --accountId $NEAR_ACCOUNT --amount 0.000000000000000000000001 -args '{"amount":"1000000"}'
+```
 
+Withdraw the specified amount from the account storage available balance
+
+```text
+near-figment call $CONTRACT storage_withdraw --accountId $NEAR_ACCOUNT --amount 0.000000000000000000000001 -args '{"amount":"1000000"}'
 near-figment call $CONTRACT storage_unregister --accountId oysterpack-2.testnet --amount 0.000000000000000000000001
 near-figment call $CONTRACT storage_unregister --args '{"force":true}' --accountId oysterpack-2.testnet --amount 0.000000000000000000000001
 ```
@@ -132,34 +151,47 @@ Any other permission bits granted to an account will be ignored. The **treasurer
 
 ![](./assets/near-stake-pool-for-validators-image-5.png)
 
+Used to check permissions
+
 ```text
-# used to check permissions
 near-figment view $CONTRACT ops_permissions_is_admin --args '{"account_id":"oysterpack.testnet"}'
 near-figment view $CONTRACT ops_permissions_is_operator --args '{"account_id":"oysterpack.testnet"}'
 near-figment view $CONTRACT ops_permissions --args '{"account_id":"oysterpack.testnet"}'
 near-figment view $CONTRACT ops_permissions_granted --args '{"account_id":"oysterpack.testnet"}'
+```
 
-# used to grant permissions
+Used to grant permissions
+
+```text
 near-figment call $CONTRACT ops_permissions_grant_admin --args '{"account_id":"oysterpack-2.testnet"}' --accountId $NEAR_ACCOUNT
 near-figment call $CONTRACT ops_permissions_grant_operator --args '{"account_id":"oysterpack-2.testnet"}' --accountId $NEAR_ACCOUNT
+```
 
-# used to grant permissions using a bitmask, e.g, 9 sets permission bits #0  and # 4:
-# 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001
+Used to grant permissions using a bitmask, e.g, 9 sets permission bits #0 and #4: i.e. 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001
+
+```text
 near-figment call $CONTRACT ops_permissions_grant --args '{"account_id":"oysterpack-2.testnet", "permissions": 9}' --accountId $NEAR_ACCOUNT
-# used to specify permission bits separately as an array, e.g., [0,4] does the same as above, but may be easier to use
-# when the API is invoked manually
-near-figment call $CONTRACT ops_permissions_grant_permissions --args '{"account_id":"oysterpack-2.testnet", "permissions": [0,4]}' --accountId $NEAR_ACCOUNT
+```
 
-# used to revoke permissions
+Used to specify permission bits separately as an array, e.g., [0,4] does the same as above, but may be easier to use when the API is invoked manually
+
+```text
+near-figment call $CONTRACT ops_permissions_grant_permissions --args '{"account_id":"oysterpack-2.testnet", "permissions": [0,4]}' --accountId $NEAR_ACCOUNT
+```
+
+Used to revoke permissions
+
+```text
 near-figment call $CONTRACT ops_permissions_revoke_admin --args '{"account_id":"oysterpack-2.testnet"}' --accountId $NEAR_ACCOUNT
 near-figment call $CONTRACT ops_permissions_revoke_operator --args '{"account_id":"oysterpack-2.testnet"}' --accountId $NEAR_ACCOUNT
-
 near-figment call $CONTRACT ops_permissions_revoke_all --args '{"account_id":"oysterpack-2.testnet"}' --accountId $NEAR_ACCOUNT
 near-figment call $CONTRACT ops_permissions_revoke --args '{"account_id":"oysterpack-2.testnet", "permissions": 9}' --accountId $NEAR_ACCOUNT
 near-figment call $CONTRACT ops_permissions_revoke_permissions --args '{"account_id":"oysterpack-2.testnet", "permissions": [0]}' --accountId $NEAR_ACCOUNT
+```
 
-# returns the custom permissions outside of admin and operator that the contract supports
-# for the STAKE pool contract, the only special permission is treasurer
+Returns the custom permissions outside of admin and operator that the contract supports for the STAKE pool contract, the only special permission is treasurer
+
+```text
 near-figment view $CONTRACT ops_permissions_contract_permissions
 ```
 
@@ -171,16 +203,15 @@ near-figment call $CONTRACT ops_stake_revoke_treasurer --args '{"account_id":"oy
 near-figment view $CONTRACT ops_stake_is_treasurer --args '{"account_id":"oysterpack-2.testnet"}'
 ```
 
-If the admin permission is revoked from the contract owner, then the contract owner has the ability to grant himself admin permission through the **Contract Operator** API interface using the following method:
+If the admin permission is revoked from the contract owner, then the contract owner has the ability to grant himself admin permission through the **Contract Operator** API interface using the following method which can only be invoked by the contract owner:
 
 ```text
-# can only be invoked by the contract owner
 near-figment call $CONTRACT ops_owner_grant_admin --accountId $NEAR_ACCOUNT
 ```
 
 ## Contract Component
 
-### Contract Ownership API
+**Contract Ownership API**
 
 The API supports the following use cases:
 
@@ -199,22 +230,35 @@ The contract owner available balance will always be zero for the STAKE pool cont
 
 ![](./assets/near-stake-pool-for-validators-image-7.png)
 
+Returns the contract owner account ID
+
 ```text
-# returns the contract owner account ID
 near-figment view $CONTRACT ops_owner
-# for the STAKE Pool contract, the owner available balance should always be 0
+```
+
+For the STAKE Pool contract, the owner available balance should always be 0
+
+```text
 near-figment view $CONTRACT ops_owner_balance
+```
 
-# returns the prospective owner that the transfer is waiting on for finalization.
+Returns the prospective owner that the transfer is waiting on for finalization.
+
+```text
 near-figment view $CONTRACT  ops_owner_prospective
+```
 
-# used to transfer ownership
-# 1 yoctoNEAR deposit is required for transfer calls to force the owner to verify and confirm the transactions via the NEAR wallet
+Used to transfer ownership. 1 yoctoNEAR deposit is required for transfer calls to force the owner to verify and confirm the transactions via the NEAR wallet
+
+```text
 near -node_url $NEAR_NODE_URL call $CONTRACT ops_owner_transfer --args '{"new_owner":"oysterpack-2.testnet"}' --accountId $NEAR_ACCOUNT --amount 0.000000000000000000000001
 near -node_url $NEAR_NODE_URL call $CONTRACT ops_owner_cancel_transfer --accountId $NEAR_ACCOUNT --amount 0.000000000000000000000001
 near -node_url $NEAR_NODE_URL call $CONTRACT ops_owner_finalize_transfer --accountId $NEAR_ACCOUNT  --amount 0.000000000000000000000001
+```
 
-# 1 yoctoNEAR deposit is required to force the owner to verify and confirm the transaction via the NEAR wallet
+1 yoctoNEAR deposit is required to force the owner to verify and confirm the transaction via the NEAR wallet
+
+```text
 near -node_url $NEAR_NODE_URL call $CONTRACT ops_owner_withdraw_balance --accountId $NEAR_ACCOUNT --amount 0.000000000000000000000001
 ```
 
@@ -224,13 +268,15 @@ The operator API enables storage balance to be locked based on expected contract
 
 ![](./assets/near-stake-pool-for-validators-image-8.png)
 
-```text
-# storage usage is specified in bytes
-# this should never need to be invoked on the STAKE pool contract, but is exposed just in case
-near -node_url $NEAR_NODE_URL call $CONTRACT ops_operator_lock_storage_balance --args '{"storage_usage":10000}' --accountId $NEAR_ACCOUNT
+Storage usage is specified in bytes. This should never need to be invoked on the STAKE pool contract, but is exposed just in case
 
-# can only be invoked by the contract owner to grant himself admin permission
-# NOTE: the owner is automatically granted admin when the contract is deployed
+```text
+near -node_url $NEAR_NODE_URL call $CONTRACT ops_operator_lock_storage_balance --args '{"storage_usage":10000}' --accountId $NEAR_ACCOUNT
+```
+
+Can only be invoked by the contract owner to grant himself admin permission. NOTE: The owner is automatically granted admin when the contract is deployed
+
+```text
 near-figment call $CONTRACT ops_owner_grant_admin --accountId $NEAR_ACCOUNT
 ```
 
@@ -245,31 +291,47 @@ The following metrics are tracked:
 
 ![](./assets/near-stake-pool-for-validators-image-9.png)
 
+Returns the total number of registered accounts
+
 ```text
-# returns the total number of registered accounts
 near-figment view $CONTRACT ops_metrics_total_registered_accounts
+```
 
-# returns total contract storage usage and total storage usage across all accounts
+Returns total contract storage usage and total storage usage across all accounts
+
+```text
 near-figment view $CONTRACT ops_metrics_contract_storage_usage
+```
 
-# returns storage usage costs based on current storage byte cost and breaks down who is paying the storage bill
+Returns storage usage costs based on current storage byte cost and breaks down who is paying the storage bill
+
+```text
 near-figment view $CONTRACT ops_metrics_storage_usage_costs
+```
 
-# returns a breakdown of all NEAR balances
+Returns a breakdown of all NEAR balances
+
+```text
 near-figment view $CONTRACT ops_metrics_near_balances
+```
 
-# returns metrics for account storage and NEAR balances
+Returns metrics for account storage and NEAR balances
+
+```text
 near-figment view $CONTRACT ops_metrics_accounts
+```
 
-# returns an aggregate metric view for all of the above metrics
+Returns an aggregate metric view for all of the above metrics
+
+```text
 near-figment view $CONTRACT ops_metrics
 ```
 
-**STAKE Pool Contract Balances**
+## STAKE Pool Contract Balances
 
 This is fundamental to understand because it's how all the "money" is managed. The diagram below shows all the contract managed balances, how the balances are connected, and how the money flows.
 
-> PAY ATTENTION HERE - This is the most critical diagram to understand how money is flowing within the contract.
+PAY ATTENTION HERE - This is the most critical diagram to understand how money is flowing within the contract.
 
 ![](./assets/near-stake-pool-for-validators-image-10.png)
 
@@ -346,86 +408,140 @@ In addition to the standard Fungible Token API interfaces, the contract also pro
 
 ![](./assets/near-stake-pool-for-validators-image-11.png)
 
+Commands require operator permission
+
 ```text
-# commands require operator permission
 near-figment call $CONTRACT ft_operator_command --accountId $NEAR_ACCOUNT --args '{"command":{"SetIcon":"data://image/svg+xml,<svg></svg>"}}'
 near-figment call $CONTRACT ft_operator_command --accountId $NEAR_ACCOUNT --args '{"command":"ClearIcon"}'
 near-figment call $CONTRACT ft_operator_command --accountId $NEAR_ACCOUNT --args '{"command":{"SetReference":["http://stake.json","UjZ6ZiKxnwiCXpFfrYDFQq1PTDTbzrrZ9QB5lLPjkgg="]}}'
 near-figment call $CONTRACT ft_operator_command --accountId $NEAR_ACCOUNT --args '{"command":"ClearReference"}'
 near-figment call $CONTRACT ft_operator_command --accountId $NEAR_ACCOUNT --args '{"command":{"SetTransferCallbackGas":"15"}}'
+```
 
-# returns the amount of gas configured for the resolve transfer callback
+Returns the amount of gas configured for the resolve transfer callback
+
+```text
 near-figment view $CONTRACT ft_operator_transfer_callback_gas
 ```
 
 As stated above, the STAKE Pool contract also has a STAKE account, which serves as the treasury. STAKE tokens received by the STAKE Pool contract are handled in the following manner:
 
-- If STAKE tokens are directly transferred over via `ft_transfer`, then the STAKE is treated as distributions. The next time funds are staked,
+- If STAKE tokens are directly transferred over via `ft_transfer`, then the STAKE is treated as distributions. The next time funds are staked, the STAKE token deposit will be distributed as treasury dividends, i.e., burned.
 
-  the STAKE token deposit will be distributed as treasury dividends, i.e., burned.
-
-- If STAKE tokens are received via `ft_transfer_call`, then the STAKE tokens are deposited into the treasury which will be
-
-  used to increase dividend yield through STAKE earnings
+- If STAKE tokens are received via `ft_transfer_call`, then the STAKE tokens are deposited into the treasury which will be used to increase dividend yield through STAKE earnings
 
 ## Staking Pool Component
 
 Most of these APIs were covered in my last tutorial. I am also including them here for completeness as one-stop-shop API guide.
 
-### Staking Pool API
+### **Staking Pool API**
 
 ![](./assets/near-stake-pool-for-validators-image-12.png)
 
+Used to check if the STAKE pool is online or offline
+
 ```text
-# used to check if the STAKE pool is online or offline
 near-figment view $CONTRACT ops_stake_status
+```
 
-# used to check and monitor pool balances
+Used to check and monitor pool balances
+
+```text
 near-figment view $CONTRACT ops_stake_pool_balances
+```
 
-# returns the current staking fees
+Returns the current staking fees
+
+```text
 near-figment view $CONTRACT ops_stake_fees
+```
 
-# returns the current validator public key used for staking
+Returns the current validator public key used for staking
+
+```text
 near-figment view $CONTRACT ops_stake_public_key
+```
 
-# returns the NEAR value of 1 STAKE token - value includes estimated earnings minus dividends
+Returns the NEAR value of 1 STAKE token - value includes estimated earnings minus dividends
+
+````text
 near-figment view $CONTRACT ops_stake_token_value
-# returns the NEAR value for the specified amount of STAKE
+```text
+
+Returns the NEAR value for the specified amount of STAKE
+
+```text
 near-figment view $CONTRACT ops_stake_token_value --args '{"amount":"5000000000000000000000000"}'
-# same as above except that earnings are collected before computing the NEAR value
-# includes the latest dividend earnings
+````
+
+Same as above except that earnings are collected before computing the NEAR value - Includes the latest dividend earnings
+
+```text
 near-figment call $CONTRACT ops_stake_token_value_with_earnings --account_id $NEAR_ACCOUNT
+```
 
-# looks up the STAKE account balances for the specified account ID
+Looks up the STAKE account balances for the specified account ID
+
+```text
 near-figment view $CONTRACT ops_stake_balance --args '{"account_id":"oysterpack.testnet"}'
+```
 
-# stakes funds from account storage available balance
+Stakes funds from account storage available balance
+
+```text
 near-figment call $CONTRACT ops_stake --accountId $NEAR_ACCOUNT
-# stakes the attached deposit in addition to any account storage available balance
+```
+
+Stakes the attached deposit in addition to any account storage available balance
+
+```text
 near-figment call $CONTRACT ops_stake --accountId $NEAR_ACCOUNT --amount 0.1
+```
 
-# unstakes account's total staked balance
+Unstakes account's total staked balance
+
+```text
 near-figment call $CONTRACT ops_unstake --accountId $NEAR_ACCOUNT
-# unstakes the specified amount
+```
+
+Unstakes the specified amount
+
+```text
 near-figment call $CONTRACT ops_unstake --accountId $NEAR_ACCOUNT --args '{"amount":"1000000000000000000000000"}'
+```
 
-# restakes account's total unstaked balance
+Restakes account's total unstaked balance
+
+```text
 near-figment call $CONTRACT ops_restake --accountId $NEAR_ACCOUNT
-# restakes the specified amount from the account's unstaked balance
+```
+
+Restakes the specified amount from the account's unstaked balance
+
+```text
 near-figment call $CONTRACT ops_restake --accountId $NEAR_ACCOUNT --args '{"amount":"1000000000000000000000000"}'
+```
 
-# withdraws account's total unstaked available balance
+Withdraws account's total unstaked available balance
+
+```text
 near-figment call $CONTRACT ops_stake_withdraw --accountId $NEAR_ACCOUNT
-# withdraws the specified amount from the account's unstaked available balance
-near-figment call $CONTRACT ops_stake_withdraw --accountId $NEAR_ACCOUNT --args '{"amount":"1000000000000000000000000"}'
+```
 
-# convenience methods used to transfer STAKE tokens by specifying the amounts in NEAR - instead in STAKE via the FT APis
+Withdraws the specified amount from the account's unstaked available balance
+
+```text
+near-figment call $CONTRACT ops_stake_withdraw --accountId $NEAR_ACCOUNT --args '{"amount":"1000000000000000000000000"}'
+```
+
+Convenience methods used to transfer STAKE tokens by specifying the amounts in NEAR - instead in STAKE via the FT APIs
+
+```text
 near-figment call $CONTRACT ops_stake_transfer --accountId $NEAR_ACCOUNT --args '{"receiver_id":"oysterpack.testnet","amount":"1000000000000000000000000"}' --amount 0.000000000000000000000001
 near-figment call $CONTRACT ops_stake_transfer_call --accountId $NEAR_ACCOUNT--args '{"receiver_id":"oysterpack.testnet","amount":"1000000000000000000000000", "msg":""}' --amount 0.000000000000000000000001
 ```
 
-### NEAR STaking Pool API
+## NEAR Staking Pool API
 
 This API mirrors the first generation staking pool API to make it easier for folks to migrate over. The only difference I want to call out is that when staking, accounts will be automatically registered. This means the account storage balance fees will be deducted from the attached deposit.
 
@@ -440,9 +556,7 @@ The API provides convenience APIs to manage the treasurer permissions, which was
     - Deposits any attached deposit into the treasury.
     - This will effectively stake the deposit and mint STAKE for the treasury.
     - This enables external sources of revenue to be deposited into the treasury.
-    - The entire deposit is staked. When minting STAKE, the conversion from NEAR -> STAKE is rounded down. Thus, the NEAR
-
-      deposit remainder will also get staked, effectively distributing the funds to the current stakers.
+    - The entire deposit is staked. When minting STAKE, the conversion from NEAR -> STAKE is rounded down. Thus, the NEAR deposit remainder will also get staked, effectively distributing the funds to the current stakers.
 
 2.  **ops_stake_treasury_distribution**
     - Deposits and stakes any attached deposit, which effectively distributes the funds to all current STAKE owners.
@@ -456,9 +570,7 @@ The API provides convenience APIs to manage the treasurer permissions, which was
 
 ```text
 near-figment call $CONTRACT ops_stake_treasury_deposit --accountId oysterpack.testnet --amount 10
-
 near-figment call $CONTRACT ops_stake_treasury_distribution --accountId oysterpack.testnet --amount 10
-
 near-figment call $CONTRACT ops_stake_treasury_transfer_to_owner --accountId oysterpack.testnet --args '{"amount":"1000000000000000000000000"}'
 ```
 
@@ -468,7 +580,7 @@ The staking pool operator APIs were well covered in the \[previous tutorial]\[11
 
 ![](./assets/near-stake-pool-for-validators-image-15.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations if you made it to the end!
 
@@ -482,7 +594,7 @@ I will leave with one final thought ... I understand that DeFi is all the craze 
 
 That being said ... I invite you to join the Figment and NEAR communities and embark on our common mission to defend and take back the Internet together.
 
-# Next Steps
+## Next Steps
 
 Stay tuned for more tutorials on the OysterPack SMART component based framework to help contract developers build **_SMARTER_**, **_FASTER_**, and **_BETTER_** on the [NEAR](https://near.org/) platform.
 

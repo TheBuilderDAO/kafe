@@ -5,27 +5,27 @@ keywords: [Avalanche, JS/TS, Solidity, React, Solidity]
 date: '2021-11-04T19:48:31.265Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to build a very basic AMM having features namely Provide, Withdraw & Swap with no incentive mechanism like trading fees. Also, we will not deal with ERC20 tokens instead, we will maintain our own mapping storing the balance of the accounts to keep things simple! We will build the smart contract in Solidity and the frontend of our application with the help of ReactJS.
 
-# Prerequisites
+## Prerequisites
 
 - Basic familiarity with ReactJS and Solidity
 - Should've completed [Deploy a Smart Contract on Avalanche using Remix and MetaMask](https://learn.figment.io/network-documentation/avalanche/tutorials/deploy-a-smart-contract-on-avalanche-using-remix-and-metamask) tutorial
 
-# Requirements
+## Requirements
 
 - [Node.js](https://nodejs.org/en/download/releases/) v10.18.0+
 - [Metamask extension](https://metamask.io/download.html) on your browser
 
-# What's an AMM?
+## What's an AMM?
 
 Automated Market Maker(AMM) is a type of decentralized exchange which is based on a mathematical formula of price assets. It allows digital assets to be traded without any permissions and automatically by using liquidity pools instead of any traditional buyers and sellers which uses an order book that was used in traditional exchange, here assets are priced according to a pricing algorithm.
 
 For example, Uniswap uses p \* q = k, where p is the amount of one token in the liquidity pool, and q is the amount of the other. Here “k” is a fixed constant which means the pool’s total liquidity always has to remain the same. For further explanation let us take an example if an AMM has coin A and Coin B, two volatile assets, every time A is bought, the price of A goes up as there is less A in the pool than before the purchase. Conversely, the price of B goes down as there is more B in the pool. The pool stays in constant balance, where the total value of A in the pool will always equal the total value of B in the pool. The size will expand only when new liquidity providers join the pool.
 
-# Implementing the smart contract
+## Implementing the smart contract
 
 Let's start with the boilerplate code. We create a contract named `AMM` and import the SafeMath library from OpenZeppelin to perform mathematical operations with proper checks.
 
@@ -101,7 +101,7 @@ function faucet(uint256 _amountToken1, uint256 _amountToken2) external {
 
 Now we will start implementing the three core functionalities - Provide, Withdraw and Swap.
 
-## Provide
+### Provide
 
 `provide` function takes two parameters - amount of token1 & amount of token2 that the user wants to lock in the pool. If the pool is initially empty then the equivalence rate is set as **\_amountToken1 : \_amountToken2** and the user is issued 100 shares for it. Otherwise, it is checked whether the two amounts provided by the user have equivalent value or not. This is done by checking if the two amounts are in equal proportion to the total number of their respective token locked in the pool i.e. **\_amountToken1 : totalToken1 :: \_amountToken2 : totalToken2** should hold.
 
@@ -152,7 +152,7 @@ function getEquivalentToken2Estimate(uint256 _amountToken1) public view activePo
 }
 ```
 
-## Withdraw
+### Withdraw
 
 Withdraw is used when a user wishes to burn a given amount of share to get back their tokens. Token1 and Token2 are released from the pool in proportion to the share burned with respect to total shares issued i.e. **share : totalShare :: amountTokenX : totalTokenX**.
 
@@ -180,7 +180,7 @@ function withdraw(uint256 _share) external activePool validAmountCheck(shares, _
 }
 ```
 
-## Swap
+### Swap
 
 To swap from Token1 to Token2 we will implement three functions - `getSwapToken1Estimate`, `getSwapToken1EstimateGivenToken2` & `swapToken1`. The first two functions only determine the values of swap for estimation purposes while the last one does the conversion.
 
@@ -258,9 +258,9 @@ function swapToken2(uint256 _amountToken2) external activePool validAmountCheck(
 
 This completes the smart contract implementation part. Now we will deploy it on the Fuji C-Chain testnet.
 
-# Deploying the smart contract
+## Deploying the smart contract
 
-## Setting up Metamask
+### Setting up Metamask
 
 Log in to MetaMask -> Click the Network drop-down -> Select Custom RPC
 
@@ -276,7 +276,7 @@ Log in to MetaMask -> Click the Network drop-down -> Select Custom RPC
 
 Fund your address from the given [faucet](https://faucet.avax-test.network/).
 
-## Deploy using Remix
+### Deploy using Remix
 
 Open [Remix](https://remix.ethereum.org/) -> Select Solidity
 
@@ -465,7 +465,7 @@ Approve the transaction on Metamask pop-up interface. Once our contract is deplo
   can learn more about the ABI from the solidity documentation
 </Hint>
 
-# Creating a frontend in React
+## Creating a frontend in React
 
 Now, we are going to create a react app and set up the front-end of the application. In the frontend, we represent token1 and token2 as KAR and KOTHI respectively.
 
@@ -509,7 +509,7 @@ Now it's time to run our React app. Use the following command to start the React
 npm start
 ```
 
-# Walkthrough
+## Walkthrough
 
 - Visit <http://localhost:3000> to interact with the AMM.
 
@@ -529,11 +529,11 @@ npm start
 
 ![preview](./assets/avalanche-create-an-amm-on-avalanche-preview-6.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have successfully developed a working AMM model where users can swap tokens, provide & withdraw liquidity. As a next step, you can play around with the price formula, integrate the ERC20 standard, introduce fees as an incentive mechanism for providers or add slippage protection, and much more...
 
-# Troubleshooting
+## Troubleshooting
 
 **Transaction Failure**
 
@@ -545,11 +545,11 @@ Congratulations! We have successfully developed a working AMM model where users 
 
 ![Multiple account preview](./assets/avalanche-create-an-amm-on-avalanche-multiple-account-preview-8.png)
 
-# About the Author(s)
+## About the author(s)
 
 The tutorial was created by [Sayan Kar](https://github.com/SayanKar), [Yash Kothari](https://github.com/Yashkothari9), and [Nimish Agrawal](https://github.com/realnimish). You can reach out to them for any query regarding the tutorial.
 
-# References
+## References
 
 - [How Uniswap works](https://docs.uniswap.org/protocol/V2/concepts/protocol-overview/how-uniswap-works)
 

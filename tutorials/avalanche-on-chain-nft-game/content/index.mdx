@@ -5,7 +5,7 @@ keywords: [Avalanche]
 date: '2022-01-31T22:32:57.845Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to create an NFT game with a Solidity smart contract deployed on Avalanche Network and a NextJS front-end to interact with the game.
 
@@ -26,13 +26,13 @@ Sounds interesting? This is what the game we will be creating looks like:
 
 ![NFT Game Demo](./assets/avalanche-on-chain-nft-game-nft-game-demo-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully follow along with this tutorial, you will need a good understanding of [ERC721 standards](https://eips.ethereum.org/EIPS/eip-721), [Solidity language](https://docs.soliditylang.org/en/v0.8.11/), the [Hardhat framework](https://hardhat.org/), and the [Next.js framework](https://nextjs.org/).
 
 We will be using [ethers.js](https://docs.ethers.io/v5/) library to interact with the smart contract and Next.js for the frontend.
 
-# Requirements
+## Requirements
 
 - [Hardhat](https://hardhat.org/) - Hardhat provides a local development environment for creating and testing blockchain applications.
 - [Metamask](https://metamask.io/) - You will need a Metamask wallet installed in your browser.
@@ -40,7 +40,7 @@ We will be using [ethers.js](https://docs.ethers.io/v5/) library to interact wit
 - [Arweave](https://www.arweave.org/) - We will store images related to a proposal on Arweave.
 - [TailwindCSS](https://tailwindcss.com/) - A CSS utility framework.
 
-# Project Setup
+## Project Setup
 
 We will be using [nextjs-hardhat-tailwind-starter](https://github.com/viral-sangani/nextjs-hardhat-tailwind-starter) to get the initial setup. Run the following code to get started with boilerplate code.
 
@@ -58,7 +58,7 @@ We will need a few more packages to create awesome UI for our game. Run the foll
 yarn add @headlessui/react dotenv react-lottie react-spring react-step-progress-bar react-toastify react-tooltip
 ```
 
-# Creating EPIC ERC20 Token
+## Creating EPIC ERC20 Token
 
 Rename `contracts/ERC20Token.sol` to `EPICToken.sol` and paste the following code.
 
@@ -84,7 +84,7 @@ In the `EPICToken` contract, we will accept the token name and token symbol from
 
 We also have a faucet method that will airdrop up to 20 EPIC tokens in the caller's account. Note that the method call will revert if more than 20 tokens are requested.
 
-# Creating NFTEpicGame smart contract
+## Creating NFTEpicGame smart contract
 
 Create a file called `NFTEpicGame.sol` in the contracts folder and write the following code -
 
@@ -597,7 +597,7 @@ In the end, we will quickly deploy this contract on Rinkby Testnet, mint a new c
 
 This is all we need to do in `NFTEpicGame.sol`. Now let's write a script for hardhat to deploy this contract in a local blockchain to develop the frontend app.
 
-# Compiling and deploying with Hardhat
+## Compiling and deploying with Hardhat
 
 Open `scripts/run.ts`, delete all the contracts and paste the following code -
 
@@ -620,7 +620,7 @@ Once `NFTEpicGame` is deployed we need to make two contract calls before anyone 
 
 That's all we are doing in `run.ts`, deploying two smart contracts and calling `addAttacks` and `addSpecialAttacks` which sets up the game characters.
 
-# Uploading images to Arweave
+## Uploading images to Arweave
 
 All the assets used in this game can be found [here](https://github.com/viral-sangani/epic-nft-game/tree/main/assets).
 
@@ -630,7 +630,7 @@ When you use Arweave Faucet to create an account you also get 0.2 AR tokens whic
 
 Login to ArDrive, if you are a new user it will ask for username and password. Once you have access to the dashboard you can upload the image in the dashboard and click on the preview button to get the image URL. Use these URLs in the `run.ts` for characters and attacks.
 
-# Running contracts locally
+## Running contracts locally
 
 To run the contracts locally run the following command.
 
@@ -652,7 +652,7 @@ npx hardhat run scripts/run.ts --network localhost
 
 This will deploy both contracts and print the contract address in the terminal. Note these addresses.
 
-# Building the Frontend
+## Building the Frontend
 
 In our game, we will have four pages.
 
@@ -663,7 +663,7 @@ In our game, we will have four pages.
 
 In this tutorial, we will try to separate business logic with our frontend UI code. We will create a global context that will have all the necessary data fetched from the `NFTEpicGame` contract as well as all the method calls.
 
-## Business Logic
+### Business Logic
 
 Create a file `contexts/DappContext.tsx` and paste the following code -
 
@@ -1173,7 +1173,7 @@ export const TOKEN_CONTRACT_ADDRESS =
 
 This is where we store our contract addresses. When we deploy to either local blockchain or mainnet/testnet, we have to update the contract address in this file.
 
-## Fontend Logic
+### Fontend Logic
 
 Before we start, we will have t use the DappContext that we have created on our game. Open `_app.tsx` and paste the following code.
 
@@ -1388,7 +1388,7 @@ In `Loader.tsx` we are simply rendering a Lottie animation in the center of the 
 
 This sums up our UI code. Let's deploy our contract on \`\`Avalanche FUJI C-Chain.
 
-# Deploy contract on Avalanche
+## Deploy contract on Avalanche
 
 Create a file called `deploy.ts` in the `scripts` folder and paste the following code.
 
@@ -1465,12 +1465,12 @@ Here comes the end of this long tutorial. Here is our game in action.
 
 You can find the source code of the game [here](https://github.com/viral-sangani/epic-nft-game).
 
-# Conclusion
+## Conclusion
 
 Congratulation on making it to the end of this very long tutorial and thank you for taking this journey with me. In this tutorial, we have learned how to create NFT based gaming contract. how to create an ERC20 token, how to create a beautiful UI for the game, and deploy our contract on Avalanche testnet.
 
 Keep building on Web3. #WAGMI
 
-# About the Author
+## About the author
 
 I'm Viral Sangani, a tech enthusiast working on blockchain projects & love the Web3 community. Feel free to connect with me on [Github](https://github.com/viral-sangani).

@@ -5,7 +5,7 @@ keywords: [Polygon, JS/TS, Solidity, Truffle, Solidity]
 date: '2021-09-22T19:47:04.601Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to perform CRUD (Create, Read, Update and Delete) operations in a Flutter Dapp on the Polygon network by creating a To-do app.
 
@@ -13,11 +13,11 @@ This is what the dApp we will be creating looks like:
 
 ![App Demo](./assets/polygon-create-a-todo-dapp-with-flutter-app-demo-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully follow along with this tutorial, you will need basic knowledge and understanding of Blockchain technology, the Solidity programming language for smart contracts, and the Flutter framework.
 
-# Requirements
+## Requirements
 
 - [Truffle](https://github.com/trufflesuite/truffle) - Truffle provides a local development environment for creating and testing blockchain applications.
 - [Flutter](https://flutter.dev/docs/get-started/install) - used to create an Android/iOS dApp.
@@ -28,7 +28,7 @@ If you don't have a DataHub account, you can create a free account and get the A
 
 We will be using [web3dart](https://pub.dev/packages/web3dart) to interact with the blockchain in our Flutter application. web3dart is an alternative to the commonly used web3js for the Flutter ecosystem.
 
-# Project Setup
+## Project Setup
 
 Run the following commands to install the packages and create the project directories:
 
@@ -57,7 +57,7 @@ The `truffle init` command creates the following directories:
 - `test`: All the test scripts for smart contracts are stored in this directory.
 - `truffle-config.js`: Contains configuration settings for Truffle.
 
-# Creating the smart contract
+## Creating the smart contract
 
 Create a new file called `TodoContract.sol` in the `contracts` directory and add the following code:
 
@@ -137,7 +137,7 @@ function toggleComplete(uint256 _taskId) public {
 
 That's all for the smart contract, and now we can move forward with the compilation and migration process.
 
-# Compiling and deploying with Truffle
+## Compiling and deploying with Truffle
 
 Now that we have our smart contract written, it's time to compile it. Open your terminal in the `smartcontract` directory and run the following command:
 
@@ -198,7 +198,7 @@ This will deploy the contract to the Ganache development blockchain and will giv
 
 ![Contract Migration](./assets/polygon-create-a-todo-dapp-with-flutter-contract-migration-4.png)
 
-# Connecting to a Flutter application with web3dart
+## Connecting to a Flutter application with web3dart
 
 The smart contract is created and deployed; we can start integrating it with our Flutter application.
 
@@ -206,7 +206,7 @@ Open the `pubspec.yaml` file and add the following dependencies:
 
 ```yaml
 dependencies:
-  # Needed for smart contract interaction
+  ## Needed for smart contract interaction
   http: ^0.13.3
   web3dart: ^2.1.4
   web_socket_channel: ^2.1.0
@@ -631,7 +631,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-# Publishing the smart contract to Mumbai testnet
+## Publishing the smart contract to Mumbai testnet
 
 We can publish our smart contract to Polygon Mumbai testnet by adding provider details of testnet in `truffle-config.js`.
 
@@ -702,10 +702,10 @@ Truffle will deploy the contract to Mumbai using your account from Metamask.
 
 You can find the complete source code of this project [on Github](https://github.com/viral-sangani/flutter-todo-dapp).
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing the tutorial! Thank you for taking the time to complete it. In this tutorial, you have learned how to create a Flutter dApp from scratch using `web3dart`. Since Flutter is a multi-platform framework and the web3dart package supports all the platforms - Android, iOS, Linux, macOS, Web, and Windows you can use the same codebase to build multi-platform dApps very quickly.
 
-# About the Author
+## About the author
 
 I'm Viral Sangani, a tech enthusiast working on blockchain projects & love the Web3 community. Feel free to connect with me on [Github](https://github.com/viral-sangani).

@@ -14,7 +14,7 @@ This tutorial has three parts:
 2.  Deploying a Crowdfunding Smart Contract in Celo
 3.  Interacting with the Crowdfunding Smart Contracts
 
-# Building a Crowdfunding Smart Contract in Celo
+## Building a Crowdfunding Smart Contract in Celo
 
 We're going to write a smart contract in Solidity which facilitates crowdfunding (like GoFundMe, Kickstarter, and Indiegogo) on Celo in 172 lines of code.
 
@@ -28,7 +28,7 @@ Solidity and Celo make building the backend for this easy! Not to mention, 🌎 
 
 This three part tutorial series will take us through writing the smart contract, deploying it, and interacting with it using Javascript.
 
-# Prerequisites
+## Prerequisites
 
 Click the image below in order to watch the Youtube video for "Building a Crowdfunding Smart Contract in Celo".
 
@@ -45,7 +45,7 @@ Before we continue, make sure you have truffle installed. If you don't, run the 
 
 **Note:** This tutorial uses Node v14.16.1
 
-# Project setup
+## Project setup
 
 First, open the terminal and make a new project folder. We’ll call it celo-crowdfunding:
 
@@ -78,7 +78,7 @@ Here's what a successful run of `truffle init` will look like:
 
 ![truffle init](./assets/celo-crowd-funding-project-truffle-init-2.png)
 
-# Writing the Contract
+## Writing the Contract
 
 First things first, open the newly created project in your favorite code editor and create a file called **CeloCrowdfund.sol** in your `contracts/` folder.
 
@@ -139,7 +139,7 @@ We use the `enum` named `ProjectState` in order to keep track of a project's cur
 
 We also create a private variable named `cUSDToken` which is of type `IERC20`. This is the variable we'll use to interface with the cUSD tokens.
 
-# Expanding the Project contract
+## Expanding the Project contract
 
 Next, we'll add some public variables which describe a `Project`. Public variables in Solidity can be accessed by any other contract or dApp. We make these variables public in our contract because we will need it when we interact with the contract in order to get details about the `Project`. For more info on Solidity variable types, be sure to check out [this guide](https://www.bitdegree.org/learn/solidity-variables#control-variable-visibility).
 
@@ -337,7 +337,7 @@ This function returns information about the project by returning the public vari
 
 That's it for the `Project` contract!
 
-# Back to the crowdfund contract
+## Back to the crowdfund contract
 
 ![Celo crowdfund contract back to the future image](./assets/celo-crowd-funding-project-celo-crowdfund-contract-back-to-the-future-image-3.png)
 
@@ -414,7 +414,7 @@ function returnProjects() external view returns(Project[] memory) {
 
 And that's it for our two contracts!
 
-# Conclusion
+## Conclusion
 
 Just like that, we've created two smart contracts which will allow for crowdfunding in Celo.
 

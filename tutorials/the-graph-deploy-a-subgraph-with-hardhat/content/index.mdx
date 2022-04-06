@@ -5,7 +5,7 @@ keywords: [The Graph, Graphql, Solidity, GraphQL, Solidity]
 date: '2021-09-22T19:38:49.996Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial you will learn how to deploy a Solidity smart contract to the Ethereum Rinkeby testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio.
 
@@ -18,7 +18,7 @@ Topics covered in this tutorial:
 - Downloading the contract abi and then creating a subgraph from it
 - Deploying the subgraph to Subgraph Studio
 
-# Prerequisites
+## Prerequisites
 
 To successfully complete this tutorial, you will need to have a basic understanding of Ethereum, Solidity, and the NodeJS ecosystem.
 
@@ -30,12 +30,12 @@ You will also need some Rinkeby Ether in your Metamask wallet. Follow the instru
 - Click on the `Give me Ether` button
 - You shall receive some Rinkeby Ether once your transaction is mined
 
-# Requirements
+## Requirements
 
 - You will need Metamask installed in your browser. You can install it from <https://metamask.io/>
 - You need to have a recent version of Node.js installed. We recommend using v14.17.6 LTS for compatibility.
 
-# Project setup
+## Project setup
 
 Run these commands to install the yarn package manager and the graph CLI globally. These are required to build and deploy your subgraph.
 
@@ -90,7 +90,7 @@ The following command will install the HardHat plugins necessary to compile and 
 yarn add --dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle
 ```
 
-# Writing the smart contract
+## Writing the smart contract
 
 Create a new directory called `contracts` inside the `vendingMachine` directory, then create a file inside the `contracts` directory called `VendingMachine.sol`.
 
@@ -150,7 +150,7 @@ contract VendingMachine {
 
 ```
 
-# Compiling the smart contract
+## Compiling the smart contract
 
 To compile the smart contract via HardHat (which will still use the solc compiler), run:
 
@@ -167,7 +167,7 @@ Compilation finished successfully
 
 The `VendingMachine.sol` smart contract has now been compiled successfully.
 
-# Deploying the smart contract
+## Deploying the smart contract
 
 To deploy to the Ethereum Rinkeby testnet with HardHat, you need to add a network entry to your `hardhat.config.js` file:
 
@@ -234,7 +234,7 @@ Yay! You just deployed your smart contract successfully to Rinkeby testnet!
 
 We will need the smart contract address later.
 
-# Creating the project in Subgraph Studio
+## Creating the project in Subgraph Studio
 
 First, you will want to head over to the Subgraph Studio at <https://thegraph.com/studio/>.
 
@@ -250,7 +250,7 @@ Next, you need to give your subgraph a name. Give the name as **vending**. Once 
 
 On this screen, you can see details about the subgraph like your deploy key, the subgraph slug and status.
 
-# Creating the subgraph
+## Creating the subgraph
 
 Run the following command to create the subgraph by downloading the contract ABI from the Rinkeby testnet. A new directory called `vending` will be created, and all node dependencies will be installed automatically.
 
@@ -296,7 +296,7 @@ It shall create three files:
 - `schema.graphql`: This defines the data to be stored and how it can be queried using GraphQL
 - `src/mapping.ts`: This defines the mapping between blockchain events to the entities defined in the schema
 
-# Deploying the subgraph
+## Deploying the subgraph
 
 Before you can deploy your subgraph, you need to get your deploy key from <https://thegraph.com/studio/subgraph/vending/>.
 
@@ -356,10 +356,10 @@ You have now deployed the subgraph to your Subgraph Studio account. It will now 
 
 Once the sync is complete, you can access the subgraph on the Playground to run your queries.
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing this tutorial! You have learned how to deploy a smart contract to the Rinkeby testnet using HardHat. You also learned how to create and deploy a subgraph for the smart contract on Subgraph Studio.
 
-# About the Author
+## About the author
 
 I'm Robin Thomas, a blockchain enthusiast with few years of experience working with various blockchain protocols. Feel free to connect with me on [GitHub](https://github.com/robin-thomas).

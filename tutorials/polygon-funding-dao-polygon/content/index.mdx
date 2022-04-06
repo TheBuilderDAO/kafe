@@ -5,7 +5,7 @@ keywords: [Polygon, JS/TS, Truffle, Solidity, Arweave, Typescript]
 date: '2021-12-17T01:24:04.713Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to create a Decentralized Autonomous Organization, or "DAO" with a Solidity smart contract deployed on Polygon and a NextJS front-end to interact with the DAO.
 
@@ -23,13 +23,13 @@ This is what the DAO we will be creating looks like:
 
 ![Demo GIF](./assets/polygon-funding-dao-polygon-demo-gif-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully follow along with this tutorial, you will need a good understanding of the Solidity language, the Truffle framework, and the Next.js framework. Having a basic understanding of what a DAO is and how it functions is also beneficial.
 
 We will be using the [web3.js](https://web3js.readthedocs.io/en/v1.5.2/) JavaScript library to interact with the smart contract and Next.js for backend logic.
 
-# Requirements
+## Requirements
 
 - [Truffle](https://github.com/trufflesuite/truffle) - Truffle provides a local development environment for creating and testing blockchain applications.
 - [Metamask](https://metamask.io/) - You will need a Metamask wallet installed in your browser.
@@ -38,7 +38,7 @@ We will be using the [web3.js](https://web3js.readthedocs.io/en/v1.5.2/) JavaScr
 - [Next.js](https://nextjs.org/) - A web framework to create a user interface.
 - [TailwindCSS](https://tailwindcss.com/) - A CSS utility framework.
 
-# Project Setup
+## Project Setup
 
 Run the following commands in a terminal to create the project directories and install the required packages:
 
@@ -53,7 +53,7 @@ npx tailwindcss init -p
 
 `npm install -g truffle` will install the Truffle utilities, `npx create-next-app --typescript funding-dao` will create a Next.js app with typescript support, `truffle init` will scaffold a smart contract, yarn add will install all the required dependencies for the dApp and `npx tailwindcss init -p` will set up tailwindcss for the project.
 
-# Creating FundingDao smart contract
+## Creating FundingDao smart contract
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -540,7 +540,7 @@ The `createStakeholder` can be invoked by anyone, members, stakeholder, or the u
 
 We are done with `FundingDao.sol`, now let's deploy the smart contract to a local blockchain for testing.
 
-# Compiling and deploying with Truffle
+## Compiling and deploying with Truffle
 
 Go to the `migrations` directory, create a new file called `2_funding_dao_migration.js`
 
@@ -600,7 +600,7 @@ truffle compile
 truffle deploy
 ```
 
-# Creating the Frontend
+## Creating the Frontend
 
 In Next.js, a page is a React Component exported from `.jsx` or `.tsx` file in the `pages` directory. Each page is associated with a route based on it's file name. Example, If you create `pages/home.tsx` that exported component like below, it will be accessible at `/home` endpoint in the browser.
 
@@ -2021,12 +2021,12 @@ This is how the DAO dApp looks like at the end:
 
 [Demo Video](https://vimeo.com/654823931)
 
-# Conclusion
+## Conclusion
 
 Congratulation on finishing this tutorial. In this tutorial, we have learned how to create a Funding DAO smart contract and a frontend using Next.js for the same. To extend this dApp you can create an authentication system using protocols like [Ceremic Network](https://ceramic.network/).
 
 Keep building on Web3.
 
-# About the Author
+## About the author
 
 I'm Viral Sangani, a tech enthusiast working on blockchain projects & love the Web3 community. Feel free to connect with me on [Github](https://github.com/viral-sangani).

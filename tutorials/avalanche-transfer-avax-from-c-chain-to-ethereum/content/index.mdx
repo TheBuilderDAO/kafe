@@ -5,25 +5,25 @@ keywords: [Avalanche, JS/TS, Javascript]
 date: '2021-09-10T19:27:18.738Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we are going to learn how to programatically transfer native AVAX tokens from the Avalanche C-Chain to a Metamask wallet.
 
-# Prerequisites
+## Prerequisites
 
 - [Create an Avalanche wallet](https://wallet.avax.network/create)
 - [Fund your Avalanche wallet with the FUJI Faucet](https://docs.avax.network/build/tutorials/platform/fuji-workflow#get-a-drip-from-the-fuji-faucet)
 - [Transfer FUJI Avax tokens from X-chain to C-chain](https://docs.avax.network/build/tutorials/platform/transfer-avax-between-x-chain-and-c-chain)
 - Having an integrated development environment, such as [Visual Studio Code](https://code.visualstudio.com/download)
 
-# Requirements
+## Requirements
 
 - [NodeJS](https://nodejs.org/en)
 - [Ethers](https://docs.ethers.io/v5/) and [web3](https://web3js.readthedocs.io/en/v1.5.2/), which you can install with `npm install ethers web3`
 - Install [Metamask extension](https://metamask.io/download.html) in your browser.
 - [Configure your Metamask to add Avalanche FUJI testnet](https://docs.avax.network/build/tutorials/smart-contracts/deploy-a-smart-contract-on-avalanche-using-remix-and-metamask#step-1-setting-up-metamask)
 
-# Transfer AVAX
+## Transfer AVAX
 
 We are going to start by creating a new file called `AVAX_C_chain_to_ETH_address.js` in the root directory of your project. Once you create a .js file under the specified name, we will type in the following blocks of code in.
 
@@ -168,9 +168,9 @@ main().catch(err => {
 
 To run the script `AVAX_C_chain_to_ETH_address.js`, type `node AVAX_C_chain_to_ETH_address.js` and run it in your terminal (`node` before the file name is the way to invoke the NodeJS runtime environment).
 
-# Troubleshooting
+## Troubleshooting
 
-## Transaction Failure
+### Transaction Failure
 
 - Check if you have sufficient balance in your Avalanche wallet.
 
@@ -182,7 +182,7 @@ Make sure that your balance on the C-chain is sufficient as shown below
 
 ![example](./assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-2.png)
 
-# Conclusion
+## Conclusion
 
 This tutorial has taught you how to transfer AVAX native tokens from the C chain to an ETH wallet. Also, this has shown how Avalanche blockchain C chain is compatible with the popular web3.js library. This is a powerful aspect of the Avalanche blockchain, as it allows Ethereum developers to easily port their work over to Avalanche.
 
@@ -192,6 +192,6 @@ When everything was run as expected, the output in the terminal should look simi
 
 ![example](./assets/avalanche-transfer-avax-from-c-chain-to-ethereum-example-3.png)
 
-# About the author
+## About the author
 
 This tutorial was created by [Seongwoo Oh](https://github.com/blackwidoq). He is a student and an Avalanche novice.

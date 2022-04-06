@@ -5,7 +5,7 @@ keywords: [Celo, JS/TS, Solidity, NodeJS, Smart contracts, Truffle]
 date: '2021-07-21T09:05:34.837Z'
 ---
 
-# Introduction
+## Introduction
 
 The Celo blockchain is completely independent from the Ethereum blockchain, but both compile their smart contracts to [EVM](https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc) bytecode. This means that any smart contract written for the Ethereum blockchain is already compatible with the Celo network.
 
@@ -13,13 +13,13 @@ To better understand this relationship, we’re going to take the faucet code fr
 
 Please note that while this contract is written in Solidity, contracts written in any EVM-compatible high-level programming language (LLL, Serpent, Mutan) can be used for Celo. As long as the code is compiled to run on an \[Ethereum Virtual Machine]\(- [The Ethereum Virtual Machine](https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc)) it is compatible with both chains.
 
-# Why alter the contract?
+## Why alter the contract?
 
 Celo's native currency, CELO, is also an ERC-20 compliant token. The same is true for Celo's stable coin, cUSD. We'll see in the next section that our basic Ethereum faucet does not account for ERC-20 tokens. When it is run on the Celo blockchain, it will assume we want to withdraw the native currency, CELO, as default.
 
 This tutorial aims to show how we can rewrite the faucet and capitalize on the fact that CELO is an ERC-20 compliant token just like its stable coin, cUSD.
 
-# Original Faucet code
+## Original Faucet code
 
 Below is the [code](https://raw.githubusercontent.com/ethereumbook/ethereumbook/develop/code/Solidity/Faucet8.sol) from the Ethereum book.
 
@@ -84,7 +84,7 @@ But what about Celo's stable currency, cUSD? How would we withdraw that token fr
 
 To withdraw a specific token, we will have to rewrite our faucet to consider ERC-20 tokens.
 
-# Rewriting the Faucet
+## Rewriting the Faucet
 
 While we're at it, we should utilize the [Open Zeppelin](https://github.com/pkdcryptos/OpenZeppelin-openzeppelin-solidity) library to avoid rewriting code that has already have been security audited and used in many Ethereum contracts without issue. There is no guarantee these contracts will provide absolute safety, but they've been tested and can be trusted more than any custom ones we whip up.
 
@@ -194,7 +194,7 @@ This is our Ethereum faucet contract completely altered for Celo.
 
 We even added some additional checks to make sure the token passed to the withdraw function matches the CELO or cUSD contract address. This ensures only Celo currencies can be withdrawn from this faucet.
 
-# Calling the contract
+## Calling the contract
 
 To call this contract from a dApp kit frontend, we can run the following code. There is a truffle box kit that works out-of-the-box for Celo applications that we should use as our foundation for the project because it simplifies the setup process for our Celo full-stack projects. If we're not interested in seeing our blockchain results in GUI format, we could simply quickstart a [Truffle](https://www.trufflesuite.com/docs/truffle/quickstart#compiling) project with no frontend consideration.
 
@@ -270,17 +270,17 @@ withdrawFromFaucet = async withdrawAmount => {
 };
 ```
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned how to alter a smart contract originally written for Ethereum and customize it for use on the Celo network. We learned about the difference between a native token such as Ether or Celo, and an ERC-20 token such as cUSD. We altered some example Solidity code to illustrate the process generally used to prepare an Ethereum contract for use on another EVM compatible network, including specific mention of alternative tokens where necessary - such as inside the withdraw function, as part of a require statement.
 
 As long as we understand that both blockchains are EVM compatible and run the same bytecode, we can customize any existing Ethereum contract for the Celo network.
 
-# Next Steps
+## Next Steps
 
 I hope this tutorial helps to see the potential in looking at existing open source code and understanding how simple modifications can lead to efficient coding solutions. Please consider the following reading list to continue on your journey.
 
-# Further Reading
+## Further Reading
 
 - [The Ethereum Virtual Machine](https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc)
 - [Celo Background and Key Concepts](https://docs.celo.org/overview#background-and-key-concepts)
@@ -292,6 +292,6 @@ I hope this tutorial helps to see the potential in looking at existing open sour
 - [Celo for Ethereum Developers](https://docs.celo.org/developer-guide/celo-for-eth-devs)
 - [Truffle Quickstart](https://www.trufflesuite.com/docs/truffle/quickstart#compiling)
 
-# About the author
+## About the author
 
 This tutorial was created by [Brittany Deventer](https://github.com/BrittanyDeventer). Brittany is a full-stack developer.

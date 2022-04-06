@@ -5,13 +5,13 @@ keywords: [Terra, JS/TS, NodeJS, Javascript]
 date: '2021-07-22T10:04:49.905Z'
 ---
 
-# Introduction
+## Introduction
 
 In order to benefit from the full potential of the Terra blockchain, you will first need to connect to a Terra node.
 
 In this tutorial, we will use the Terra SDK to connect to a Terra node hosted by [**DataHub**](https://datahub.figment.io/). We will be building a simple NodeJS application. More details about Terra.js can be found [**here**](https://terra-project.github.io/terra.js/).
 
-# Creating the NodeJS App
+## Creating the NodeJS App
 
 Before we can jump in and start using the Terra SDK, we need to set up our project and all required dependencies.
 
@@ -43,7 +43,7 @@ You will then be prompted with several questions. For the purpose of this tutori
 }
 ```
 
-# Installing packages
+## Installing packages
 
 Now that we have our NodeJS application set up we can install the required packages:
 
@@ -54,7 +54,7 @@ Now that we have our NodeJS application set up we can install the required packa
 npm install --save dotenv @terra-money/terra.js
 ```
 
-# Store sensitive data
+## Store sensitive data
 
 When we have that out of our way, we can continue by creating an `.env` file which will hold all our sensitive data.
 
@@ -81,7 +81,7 @@ TERRA_CHAIN_ID='tequila-0004'
   TERRA_NODE_URL
 </Hint>
 
-# Connect to Terra
+## Connect to Terra
 
 Add the following code to a new file called `connect.js` inside the project folder, for example `terra-project/connect.js`:
 
@@ -155,13 +155,13 @@ This uses the LCDClient class to create a connection to Terra. Run this code wit
 }
 ```
 
-# Conclusion
+## Conclusion
 
 Now that we have successfully connected to a Terra node using [**DataHub**](https://datahub.figment.io/), we are ready to move on to the next tutorial.
 
 The complete code for this tutorial series can be found [here](https://github.com/figment-networks/tutorials/tree/main/terra)
 
-# Next Steps
+## Next Steps
 
 In the [next tutorial](https://github.com/figment-networks/tutorials/blob/main/terra/2_creating_account/create_account.js), we will be creating a Terra account using the Terra SDK.
 

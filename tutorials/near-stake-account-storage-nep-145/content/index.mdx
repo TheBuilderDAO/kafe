@@ -7,7 +7,7 @@ date: '2021-07-22T13:43:49.273Z'
 
 [Storage staking](https://docs.near.org/docs/concepts/storage-staking) is an issue that needs to be addressed by any multi-user contract that allocates storage for the user on the blockchain. This issue first arose while designing the [Fungible Token Core Standard - NEP-141](https://learn.figment.io/tutorials/2-fungible-token#what-does-account-registration-have-to-do-with-fungible-tokens). Once NEP-141 was finalized, the NEAR community circled back to work on this problem. In this tutorial, I will summarize the lengthy [online discussion](https://github.com/near/NEPs/discussions/145) and present to you the fruits of our labor.
 
-# Motivation: There Is No Free Storage
+## Motivation: There Is No Free Storage
 
 You can't get something for nothing. Long term contract state storage on the blockchain must be paid for. On the NEAR platform long term storage is paid for using a process called [storage staking](https://docs.near.org/docs/concepts/storage-staking). The contract is responsible to stake NEAR to pay for the contract's storage usage. The NEAR amount that is used for storage staking is effectively locked and cannot be transferred or used to pay for gas. Storage staking costs are the most expensive costs to consider for the contract on NEAR. If storage costs are not managed properly, then they can [break the bank](https://docs.near.org/docs/concepts/storage-staking#the-million-cheap-data-additions-attack) for the contract.
 
@@ -29,7 +29,7 @@ On NEAR, the contract is responsible to pay for its long term persistent storage
 - How to close the account and be able to withdraw all funds.
 - How the contract should account for changes in price for storage on the NEAR blockchain over time.
 
-# Quick API Overview
+## Quick API Overview
 
 ![](./assets/near-stake-account-storage-nep-145-image-1.png)
 
@@ -146,7 +146,7 @@ Used to lookup the account storage balance for the specified account. If the acc
 
 - If `account_id` is not a valid NEAR account ID
 
-# Conclusion
+## Conclusion
 
 Overall, the Account Storage API itself is pretty straight forward. The key is to know its purpose and what problem it is trying to solve. Let's recap:
 
@@ -154,7 +154,7 @@ Overall, the Account Storage API itself is pretty straight forward. The key is t
 - We learned about how [storage staking](https://docs.near.org/docs/concepts/storage-staking) works on NEAR and how it impacts multi-user contracts.
 - We reviewed the new standard Account Storage API (NEP-145) in detail.
 
-# Next Steps
+## Next Steps
 
 Enough theoretical discussion for now ... in the next tutorial we will get back to coding where we will implement the Account Storage API for the [STAKE](https://github.com/oysterpack/oysterpack-near-stake-token) token contract. Until next time, I leave you with these final words ...
 

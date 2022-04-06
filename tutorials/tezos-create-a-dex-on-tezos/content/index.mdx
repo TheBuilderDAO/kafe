@@ -5,23 +5,23 @@ keywords: [Tezos, Python, React, Smart contracts]
 date: '2021-10-28T18:16:36.195Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we'll create a simple DEX (Decentralized Exchange) with which we'll understand how to code a DEX and how a DEX works in general.
 
 This DEX will be using the Constant Product Market-Making algorithm, and it will be based on the v1 of Uniswap. If you want more information about the Constant Product Market-Making algorithm and v1 of Uniswap you can read this [white paper](https://hackmd.io/@HaydenAdams/HJ9jLsfTz). You can also refer to this [video](https://www.youtube.com/watch?v=-6HefvM5vBg) to get an understanding of the CPMM algorithm. Before we start to write extensive code, you can find the full source code from this repository: https://github.com/vivekascoder/tez-dex
 
-# Prerequisites
+## Prerequisites
 
 Basic knowledge of SmartPy, React, Taquito and smart contracts.
 
-# Requirements
+## Requirements
 
 - [NodeJs](https://nodejs.org/en/) (v14.18.1 or higher)
 - [Yarn](https://yarnpkg.com/)
 - [Temple Wallet](https://templewallet.com/)
 
-# Project Setup
+## Project Setup
 
 Create an empty React project using `create-react-app`, after creating it install the following packages.
 
@@ -45,9 +45,9 @@ After installing the dependencies make a folder called `./contracts` in the root
 
 Deploy two FA1.2 tokens namely **🐱 Cat Token** and **LP Token** which we'll be using later in this tutorial.
 
-# Working on the Smart Contract
+## Working on the Smart Contract
 
-## Add dex.py
+### Add dex.py
 
 We'll start working on our smart contract by creating a file called `dex.py` in the `contracts` directory where we'll keep all the code related to our DEX functionality.
 
@@ -146,7 +146,7 @@ The `mint_lp` method takes the amount of tokens to mint and then it does an inte
 
 > NOTE: Please note that here our DEX contract is the admin of LP Token contract and that's why it can mint and burn the tokens.
 
-## Initialize Exchange
+### Initialize Exchange
 
 Now we'll work on an entry point called `initialize_exchange` that will be responsible for providing the initial liquidity in the pool and govern the initial ratio between the token and xtz which will we used to govern the prices.
 
@@ -176,7 +176,7 @@ This entry point first checks whether the total quantity of tez and token is zer
 
 Then we check whether the token amount and xtz amount is more than 0, and then we update the `tez_pool` and `token_pool` along with the invariant. Then we transfer the tokens from the user to our contract using our utility function `transfer_tokens`.
 
-## Tez to Token Swap
+### Tez to Token Swap
 
 Now we'll code the most interesting part of our dex which is the exchange tez into tokens and vice versa. We'll start with tez to token swap, we'll create an entry point called `tez_to_token` which will exchange the amount of xtz sent i.e `sp.sender` and exchange it to Cat tokens based on the current exchange ratio.
 
@@ -213,7 +213,7 @@ def tez_to_token(self):
         )
 ```
 
-## Token to Tez Swap
+### Token to Tez Swap
 
 The process of exchanging tokens into tez is also quite similar to what we've done in our tez to token swap.
 
@@ -267,7 +267,7 @@ tez_out = self.data.tez_pool - sp.utils.nat_to_mutez(new_tez_pool)
 self.transfer_tez(to_=sp.sender, amount=tez_out)
 ```
 
-## Invest Liquidity
+### Invest Liquidity
 
 We're done with exchanging the tez into tokens and vice versa, but we need to add a way in our contract with which we can allow other people to add new liquidity to the pool, and for this, we're going to add two entry points namely `invest_liquidty` and `divest_liquidity` which will allow users to add new liquidity to the pool and remove their liquidity from the pool respectively.
 
@@ -333,7 +333,7 @@ self.transfer_tokens(
 )
 ```
 
-## Divest Liquidity
+### Divest Liquidity
 
 Now, users can invest liquidity into our pool, so let's work on `divest_liquidity` which will allow liquidity providers to get back their liquidity.
 
@@ -402,7 +402,7 @@ sp.else:
 
 So far we've coded all the required entry points. Now let's move to the frontend. For getting full source code, check this repository: https://github.com/vivekascoder/tez-dex
 
-# Working on the Frontend
+## Working on the Frontend
 
 We'll start by importing the necessary things in the `App.jsx` file.
 
@@ -811,7 +811,7 @@ You can start the React project with the command `yarn start`. Then open your we
 
 ![Tez Dex](./assets/tezos-create-a-dex-on-tezos-tez-dex-1.png)
 
-## Swapping Tez into token.
+### Swapping Tez into tokens
 
 Click on the Swap button after entering some amount in xtz let's say 1.
 
@@ -820,11 +820,11 @@ Click on the Swap button after entering some amount in xtz let's say 1.
 You can see after exchanging 1 tez we're getting around 97 cat token based on current ratio.
 ![Transaction](./assets/tezos-create-a-dex-on-tezos-transaction-3.png)
 
-# About The Author
+## About The Author
 
 I am Vivek Kumar, you can find more about me [on my GitHub profile](https://github.com/vivekascoder)!
 
-# References
+## References
 
 1.  [Uniswap v1 white paper](https://hackmd.io/@HaydenAdams/HJ9jLsfTz)
 2.  [Video Explaining DEX](https://hackmd.io/@HaydenAdams/HJ9jLsfTz)

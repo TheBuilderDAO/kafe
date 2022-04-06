@@ -5,28 +5,28 @@ keywords: [Polkadot, Rust, Rust]
 date: '2021-12-17T05:43:49.591Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to build an AMM with the functionality to Provide, Withdraw & Swap with trading fees & slippage tolerance. We will build the smart contract in ink!, a Rust-based embedded Domain Specific Language (eDSL) and then see how to deploy it on a public testnet. Finally, we will create a frontend to the smart contract in ReactJS.
 
-# Prerequisites
+## Prerequisites
 
 - You should be familiar with Rust and ReactJS
 - It will be much easier to follow this tutorial if you have completed the [ink! beginners guide](https://docs.substrate.io/tutorials/v3/ink-workshop/pt1/)
 
-# Requirements
+## Requirements
 
 - [Node.js](https://nodejs.org/en/download/releases/) v10.18.0+
 - [Polkadot{.js} extension](https://polkadot.js.org/extension/) on your browser
 - [Ink! v3 setup](https://paritytech.github.io/ink-docs/getting-started/setup)
 
-# What is an AMM?
+## What is an AMM?
 
 Automated Market Maker(AMM) is a type of decentralized exchange which is based on a mathematical formula of price assets. It allows digital assets to be traded without any permissions and automatically by using liquidity pools instead of any traditional buyers and sellers which uses an order book that was used in traditional exchange, here assets are priced according to a pricing algorithm.
 
 For example, Uniswap uses p \* q = k, where p is the amount of one token in the liquidity pool, and q is the amount of the other. Here “k” is a fixed constant which means the pool’s total liquidity always has to remain the same. For further explanation let us take an example if an AMM has coin A and Coin B, two volatile assets, every time A is bought, the price of A goes up as there is less A in the pool than before the purchase. Conversely, the price of B goes down as there is more B in the pool. The pool stays in constant balance, where the total value of A in the pool will always equal the total value of B in the pool. The size will expand only when new liquidity providers join the pool.
 
-# Implementing the smart contract
+## Implementing the smart contract
 
 Move to the directory where you want to create your ink! project and run the following command in the terminal which will create a template ink! project for you.
 
@@ -71,7 +71,7 @@ mod amm {
 }
 ```
 
-## Part 1. Define Error enum
+### Define Error enum
 
 The `Error` enum will contain all the error values that our contract throws. Ink! requires returned values to have certain traits. So we are deriving them for our custom enum type with the `#[derive(...)]` attribute.
 
@@ -98,7 +98,7 @@ pub enum Error {
 }
 ```
 
-## Part 2. Define storage struct
+### Define storage struct
 
 Next, we define the state variables needed to operate the AMM. We will be using the same mathematical formula as used by Uniswap to determine the price of the assets (K = totalToken1 \* totalToken2). For simplicity, We are maintaining our own internal balance mapping (token1Balance & token2Balance) instead of dealing with external tokens. The `HashMap` in Rust works in a similar way to a mapping in the Solidity language, storing a key-value pair.
 Also keep in mind that in Rust, data must have an associated type - which is why you'll see the type `Balance` associated with the number of shares.
@@ -117,7 +117,7 @@ pub struct Amm {
 }
 ```
 
-## Part 3. Helper functions
+### Helper functions
 
 We will define the private functions in a separate implementation block to keep the code structure clean and we need to add the `#[ink(impl)]` attribute to make ink! aware of it.
 The following functions will be used to check the validity of the parameters passed to the functions and restrict certain activities when the pool is empty.
@@ -156,7 +156,7 @@ impl Amm {
 }
 ```
 
-## Part 4. Constructor
+### Constructor
 
 Our constructor takes `_fees` as a parameter which determines the percent of fees the user is charged when performing a swap operation. The value of `_fees` should be between 0 and 1000 (exclusive) so that any swap operation will be charged **\_fees/1000** percent of the amount deposited.
 
@@ -173,7 +173,7 @@ pub fn new(_fees: Balance) -> Self {
 }
 ```
 
-## Part 5. Faucet
+### Faucet
 
 We are not using any external tokens for the purposes of this tutorial, instead we are maintaining a record of the balance ourselves. We need a way to allocate tokens to new users so that they can interact with the dApp. Users can call this faucet function to get some tokens to play with!
 
@@ -190,7 +190,7 @@ pub fn faucet(&mut self, _amountToken1: Balance, _amountToken2: Balance) {
 }
 ```
 
-## Part 6. Read current state
+### Read current state
 
 The following functions are used to get the present state of the smart contract.
 
@@ -217,7 +217,7 @@ pub fn getPoolDetails(&self) -> (Balance, Balance, Balance, Balance) {
 }
 ```
 
-## Part 7. Provide
+### Provide
 
 The `provide` function takes two parameters - the amount of token1 & the amount of token2 that the user wants to lock in the pool. If the pool is initially empty then the equivalence rate is set as **\_amountToken1 : \_amountToken2** and the user is issued 100 shares for it. Otherwise, it is checked whether the two amounts provided by the user have equivalent value or not. This is done by checking if the two amounts are in equal proportion to the total number of their respective token locked in the pool i.e. **\_amountToken1 : totalToken1 : : \_amountToken2 : totalToken2** should hold.
 
@@ -293,7 +293,7 @@ pub fn getEquivalentToken2Estimate(
 }
 ```
 
-## Part 8. Withdraw
+### Withdraw
 
 Withdraw is used when a user wishes to burn a given amount of share to get back their tokens. Token1 and Token2 are released from the pool in proportion to the share burned with respect to total shares issued i.e. **share : totalShare : : amountTokenX : totalTokenX**.
 
@@ -335,7 +335,7 @@ pub fn withdraw(&mut self, _share: Balance) -> Result<(Balance, Balance), Error>
 }
 ```
 
-## Part 9. Swap
+### Swap
 
 To swap from Token1 to Token2 we will implement four functions - `getSwapToken1EstimateGivenToken1`, `getSwapToken1EstimateGivenToken2`, `swapToken1GivenToken1` & `swapToken1GivenToken2`. The first two functions only determine the values of swap for estimation purposes while the last two do the actual conversion.
 
@@ -452,7 +452,7 @@ Similarly for Token2 to Token1 swap we need to implement four functions - `getSw
 
 Congrats! That was a lot of code to go through to finish the implementation of the smart contract. The complete code can be found [here](https://github.com/realnimish/polkadot-amm/blob/main/contract/lib.rs).
 
-## Part 10. Unit Testing
+### Unit Testing
 
 Now let's write some unit tests to make sure our program is working as intended. Module(s) marked with `#[cfg(test)]` attribute tells rust to run the following code when `cargo test` command is executed. Test functions are marked with attribute `#[ink::test]` when we want ink! to inject environment variables like `caller` during the contract invocation.
 
@@ -544,7 +544,7 @@ cargo +nightly contract test
 
 Next, we will learn how to deploy the contract on a public testnet.
 
-# Deploying the smart contract
+## Deploying the smart contract
 
 We will deploy our ink! smart contract on the Jupiter A1 testnet of Patract ([More info about the Jupiter testnet](https://docs.patract.io/en/jupiter/network)). First, we need to build our ink! project to obtain the necessary artifacts. From your ink! project directory run the following command in the terminal:
 
@@ -581,9 +581,9 @@ Click on _Deploy_ followed by _Sign and Submit_. Wait for the Tx to be mined and
 
 ![Find contract address](./assets/polkadot-build-polkadot-amm-using-ink-find-contract-address-4.png)
 
-# How to interact with polkadot.{js}
+## How to interact with polkadot.{js}
 
-In this section, we will see how to interact with our smart contract using polkadot.{js}. Install the required packages
+In this section, we will see how to interact with our smart contract using polkadot.{js}. Install the required packages:
 
 ```text
 npm install @polkadot/api @polkadot/api-contract @polkadot/extension-dapp
@@ -720,7 +720,7 @@ const faucet = async (amountKAR, amountKOTHI) => {
 
 The function faucet makes a transaction to the **faucet** method of our smart contract. We pass the object with **value** and **gasLimit** keys as the first parameter and then we pass the other arguments required for the **faucet** method, the **amountKAR** and **amountKOTHI**. We then sign and send the transaction using the **signAndSend** method. To this method we pass the account address as the first parameter, an object containing the signer as the second parameter, and a callback function that calls the **getAccountHoldings** function when the transaction is Finalized.
 
-# Creating a frontend in React
+## Creating a frontend in React
 
 Now, we are going to create a react app and set up the front-end of the application. In the frontend, we represent token1 and token2 as KAR and KOTHI respectively.
 
@@ -775,15 +775,15 @@ Now it's time to run our React app. Use the following command to start the React
 npm start
 ```
 
-# Walkthrough
+## Walkthrough
 
 ![demo](./assets/polkadot-build-polkadot-amm-using-ink-demo-5.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have successfully developed a working AMM model where users can swap tokens, provide & withdraw liquidity. As a next step, you can play around with the price formula, integrate the ERC20 standard, and much more...
 
-# Troubleshooting
+## Troubleshooting
 
 **Account not showing up**
 
@@ -803,16 +803,13 @@ Try building the ink! contract using the latest version. If the contract doesn't
 
 Make sure that you are providing a sufficient gas amount for the transaction and have built the contract with `--release` flag as mentioned in the deployment section.
 
-# About the Author(s)
+## About the author(s)
 
 The tutorial was created by [Sayan Kar](https://github.com/SayanKar) and [Nimish Agrawal](https://github.com/realnimish). You can reach out to them for any query regarding the tutorial.
 
-# References
+## References
 
-- [How Uniswap works](https://docs.uniswap.org/protocol/V2/concepts/protocol-overview/how-uniswap-works)
-
-- [How to build an AMM on Avalanche](https://learn.figment.io/tutorials/create-an-amm-on-avalanche)
-
-- [Constant Product Market Maker](https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf)
-
-- [How to integrate substate contract with frontend](https://github.com/polk4-net/flipper-app)
+1. [How Uniswap works](https://docs.uniswap.org/protocol/V2/concepts/protocol-overview/how-uniswap-works)
+2. [How to build an AMM on Avalanche](https://learn.figment.io/tutorials/create-an-amm-on-avalanche)
+3. [Constant Product Market Maker](https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf)
+4. [How to integrate substate contract with frontend](https://github.com/polk4-net/flipper-app)

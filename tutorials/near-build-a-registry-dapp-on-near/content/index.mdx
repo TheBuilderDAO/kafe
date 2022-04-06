@@ -5,17 +5,17 @@ keywords: [Near, AssemblyScript, AssemblyScript]
 date: '2021-09-30T23:31:21.739Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial we will be building a complete dApp for the NEAR Registry. NEAR Registry will allow you to track popular content just like Hacker News. Anyone can post an entry to the Registry. Upvoting the content requires you to connect using your NEAR wallet and attach NEAR to the entry. The Registry is sorted based on the NEAR attached to the entries. The same logic can be extended for any other type of registry.
 
-# Requirements
+## Requirements
 
 - A NEAR testnet account: <https://wallet.testnet.near.org/>
 - [Nodejs](https://nodejs.org/en/download/) v14 LTS or higher installed
 - [yarn](https://yarnpkg.com/) installed
 
-# Setup
+## Setup
 
 ```text
 git clone https://github.com/viraja1/near-registry.git
@@ -24,7 +24,7 @@ yarn install
 yarn test
 ```
 
-# Exploring The Code
+## Exploring The Code
 
 1.  The backend code is present in the `/assembly` folder and gets deployed to the NEAR blockchain when you run `yarn deploy`. This sort of code that runs on a blockchain is called a "smart contract". [Learn more about NEAR smart contracts][smart contract docs].
 2.  The backend test code is present in the `/assembly/__tests__/` folder. We can test the backend code using the command `yarn test`.
@@ -132,7 +132,7 @@ There are two types of functions that can interact with the blockchain -- "view"
 
 In the `addEntry` function, we create a new Entry and add it to the entries PersistentVector using the push method. In the `upVoteEntry` function, we first fetch the entry from the entries PersistentVector using the index. Then we increment the entry votes using context.attachedDeposit. Then we update the entries PersistentVector using the index.
 
-# Unit tests
+## Unit tests
 
 **assembly/\_\_tests\_\_/registry.spec.ts**
 
@@ -230,11 +230,11 @@ describe('attached deposit tests', () => {
 });
 ```
 
-# Deploying the smart contract
+## Deploying the smart contract
 
 Every smart contract on NEAR has its [own associated account][near accounts]. When running `yarn dev` to deploy, the smart contracts are deployed to the live NEAR testnet with a throwaway account. To make the deployment permanent, use the following steps:
 
-## Install the NEAR CLI
+### Install the NEAR CLI
 
 This command will install the NEAR CLI globally:
 
@@ -248,7 +248,7 @@ Then ensure that it is installed properly using the following command
 near --version
 ```
 
-## Create an account for the contract
+### Create an account for the contract
 
 Visit [NEAR Wallet] and make a new account. You'll be deploying these smart contracts to this new account.
 
@@ -258,7 +258,7 @@ Now authorize via NEAR CLI for this new account, then follow the instructions to
 near login
 ```
 
-## Deploy with yarn
+### Deploy with yarn
 
 ```text
 yarn deploy
@@ -279,7 +279,7 @@ As you can see in `package.json`, this builds & deploys smart contracts to NEAR 
 
 Take note of the smart contract account id from the console and update it in `src/config.js`.
 
-# Run the Frontend locally
+## Run the Frontend locally
 
 To see the frontend as it will appear after deployment, we need to use the local development server. Run the following commands from the `near-registry` directory:
 
@@ -291,7 +291,7 @@ yarn start
 
 Now you can visit http://localhost:1234 in your browser to test the NEAR Registry frontend and smart contracts deployed on the NEAR testnet.
 
-# Deploy the Frontend using netlify
+## Deploy the Frontend using netlify
 
 When you are happy with the looks and functionality of the dApp, you can deploy to a remote server. Run the following commands from the `near-registry` directory:
 
@@ -305,7 +305,7 @@ netlify deploy --prod
 
 You must follow the instructions given by the netlify CLI and specify `./dist` as the publish directory.
 
-# Screenshots
+## Screenshots
 
 ![](./assets/near-build-a-registry-dapp-on-near-image-1.png)
 
@@ -315,21 +315,21 @@ You must follow the instructions given by the netlify CLI and specify `./dist` a
 
 ![](./assets/near-build-a-registry-dapp-on-near-image-4.png)
 
-# App Link (NEAR Testnet)
+## App Link (NEAR Testnet)
 
 https://near-registry.netlify.app/
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have successfully deployed the NEAR Registry smart contract on the NEAR testnet. We have also tested the smart contracts by writing the test cases. We have then interacted with the smart contracts using the React frontend.
 
-# References
+## References
 
 - NEAR Guest Book - https://github.com/near-examples/guest-book/
 - NEAR Smart Contract Docs - https://docs.nearprotocol.com/docs/roles/developer/contracts/assemblyscript
 - NEAR Frontend Docs - https://docs.near.org/docs/api/naj-quick-reference
 
-# About the author
+## About the author
 
 This tutorial was created by [Viraj Anchan](https://github.com/viraja1/).
 

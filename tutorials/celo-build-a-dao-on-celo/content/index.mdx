@@ -5,7 +5,7 @@ keywords: [Celo, JS/TS, Solidity, React Native, NodeJS, Truffle]
 date: '2021-08-13T13:20:01.122Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will build a functioning DAO (Distributed Autonomous Organization) by first writing the Solidity smart contract code which will be deployed on the Celo network and then building a React Native App to interact with the smart contract.
 
@@ -21,7 +21,7 @@ Read more [here](https://ethereum.org/en/dao/).
 
 In this tutorial, you will learn how to build a functioning Charity DAO. The smart contract code is deployed on the Alfajores testnet of the Celo network. The contract allows its members to contribute to the DAO. Members can initiate charity proposals which Stakeholders will have to vote on within a specified period of time. After that time has elapsed, the DAO contract will disburse the pooled funds.
 
-# Prerequisites
+## Prerequisites
 
 These tutorials assume that you have basic knowledge of Solidity, JavaScript/TypeScript, and also how to start a React Native App using [expo](https://expo.io/). It is also assumed that you have read the expo documentation and have basic knowledge of the Celo Wallet.
 
@@ -31,7 +31,7 @@ These tutorials assume that you have basic knowledge of Solidity, JavaScript/Typ
 - The Celo dAppKit [documentation](https://docs.celo.org/developer-guide/dappkit/setup) is also going to be useful.
 - Learn about [Redux](https://redux.js.org/introduction/getting-started) as well.
 
-# Requirements
+## Requirements
 
 For this tutorial, following software needs to be installed:
 
@@ -50,7 +50,7 @@ We will begin by outlining a visual representation of the dApp, its features, an
 
 ![](./assets/celo-build-a-dao-on-celo-image-1.png)
 
-# Features
+## Features
 
 The functionality of the dApp includes:
 
@@ -69,13 +69,13 @@ Building the React Native App, in which we show you how to quickly put together 
 
 Connecting the React Native App to the Smart Contract using Redux, which brings it all together and allows our mobile dApp to utilize Celo efficiently.
 
-# Writing the DAO Smart Contract in Solidity
+## Writing the DAO Smart Contract in Solidity
 
 In this tutorial, we are going to build the foundations of a functional DAO by writing the smart contract.
 
 The smart contract is written using the [Solidity programming language](https://docs.soliditylang.org/en/v0.8.7/). Solidity is used on Ethereum as well as other Ethereum Virtual Machine (EVM) compatible blockchains like Celo.
 
-# Initial Setup
+## Initial Setup
 
 The first task is to initialize a basic Solidity project using Truffle. Most commonly, an empty directory somewhere under the users home directory is a good place to create the project files. Running the command `truffle init` in an empty directory will install the default files for the project.
 
@@ -96,7 +96,7 @@ Try our scaffold commands to get started:
 http://trufflesuite.com/docs
 ```
 
-# Overview
+## Overview
 
 Here is an look at the full code for the DAO contract, we’ll go over the different functions below to look at what they do and why they are needed.
 
@@ -611,7 +611,7 @@ The `isContributor()` function returns true/false depending on whether the calle
 
 Now that we have written the smart contract code, the next step is to build the React Native App!
 
-# Building the React Native App
+## Building the React Native App
 
 Note: If you have never built an app using React Native to connect to the Celo wallet before, you can follow the guide [here](https://learn.figment.io/tutorials/how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp#project-setup).
 
@@ -642,11 +642,11 @@ First, we will outline the UI and then write out the code for building each of t
 
 At this stage of making the dApp, we will outline how the actions of the smart contract are carried out with a connection to the dApp. First, let’s put the code in place for all the screens. The screens at this point do not yet interact with the smart contract.
 
-## Initialize the dApp
+### Initialize the dApp
 
 This section assumes that you already know how to initialize and start a React Native App. This will serve as a high level overview on how to start your React Native app.
 
-## Setting up UI Kitten
+### Setting up UI Kitten
 
 UI Kitten is a customizable React Native UI Library based on Eva Design System specifications, it is a framework of UI components that can easily be added to a React Native app.\
 Initializing the app with the `expo init` command and the blank managed workflow as the selected template sets up a basic @ui-kitten/components configuration for us. If this does not work for you, install UI Kitten using the following command instead:
@@ -693,9 +693,9 @@ export default function App() {
 
 We are making use of the eva dark theme and we have configured `IconRegistry` to use the `EvaIconsPack`. Now that we have UI Kitten set up, we can style our dApp as we build. Now let’s go ahead and build out the screens!
 
-# Screens
+## Screens
 
-## Welcome Screen
+### Welcome Screen
 
 The Welcome screen is the first thing users will see when loading the dApp. The UI is only one button which the user must click to connect to the DAO. Since our app is making use of the Celo protocol, we will have to connect to the Alfajores/Valora wallet.
 
@@ -737,13 +737,13 @@ const styles = StyleSheet.create({
 
 > Notice anything missing? Don't worry, we will add the functionality to connect this screen to the Wallet and carry out user actions in the Redux tutorial.
 
-## Side Menu Navigation
+### Side Menu Navigation
 
 This is based on React Navigation’s Drawer Navigation. To use the React Drawer navigation, you have to install and set up React Navigation following the instructions in the [docs](https://reactnavigation.org/docs/getting-started). The instructions for designing a Drawer based navigation can be found [here](https://reactnavigation.org/docs/drawer-based-navigation).
 
 ![](./assets/celo-build-a-dao-on-celo-image-3.png)
 
-## All Proposals Screen
+### All Proposals Screen
 
 The All Proposals screen contains all the DAO proposals that have been created. The UI is a button at the top which will open a modal window containing a form to be filled out by the user creating the proposal.
 
@@ -813,7 +813,7 @@ export const ProposalsPage = ({ navigation }) => {
 };
 ```
 
-## Create Proposal Modal
+### Create Proposal Modal
 
 The Create Proposal modal component is imported into the Proposals page and is displayed when the Create proposal Button is clicked.
 
@@ -1015,7 +1015,7 @@ In the return statement inside of `Layout` add the CreateProposalModal Component
 <CreateProposalModal setVisible={setCreateVisible} visible={createVisible} />
 ```
 
-## Profile Screen
+### Profile Screen
 
 The Profile screen contains an input field through which users can contribute some Celo tokens (at least 5 Celo) to become a Contributor. Below are the static elements of the Profile screen. We will be adding the user actions in the Redux tutorial ahead.
 
@@ -1195,7 +1195,7 @@ export const ProfilePage = ({ navigation }) => {
 };
 ```
 
-## View Proposal Modal
+### View Proposal Modal
 
 The View Proposal modal component is imported into the Profile page and is displayed when a Proposal Card is clicked.
 
@@ -1321,7 +1321,7 @@ const closeIcon = props => {
 
 All of our app pages are now complete!
 
-# Bringing it together with Redux
+## Bringing it together with Redux
 
 To be able to interact with the smart contract on Celo, we will use Redux actions and reducers to connect with the functions in the smart contract. The next tutorial covers Redux and how to make these connections between actions performed by users and the smart contract functionality.
 
@@ -1409,7 +1409,7 @@ Putting the sub action creators into nested functions also allows us to give the
 
 All other action creators for this project follow the same process as the one explained above.
 
-# Connecting Action Creators with The UI
+## Connecting Action Creators with The UI
 
 <Hint type="info">
   Three dots ... on a line by themselves indicate the presence of other code
@@ -1456,7 +1456,7 @@ export const ProfilePage = ({ navigation }) => {
 }
 ```
 
-# Conclusion
+## Conclusion
 
 In this tutorial, you learned how to build a complete Charity DAO. We covered the complete smart contract code using the Solidity programming language. We scaffolded the App using React Native and then used Redux to tie the actions together!
 
@@ -1466,6 +1466,6 @@ The App is available in an Open Source code repository on [Github](https://githu
 
 Congratulations for completing these tutorials. There are no limits to what you can build using the tools and techniques we have discussed.
 
-# About the Authors
+## About the Authors
 
 This tutorial was created by [Segun Ogundipe](https://github.com/Segun-Ogundipe) and [Emmanuel Oaikhenan](https://github.com/emmaodia).

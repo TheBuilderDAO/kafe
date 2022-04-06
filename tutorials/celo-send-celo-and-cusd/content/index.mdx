@@ -7,7 +7,7 @@ date: '2021-07-22T07:56:19.932Z'
 
 [**The original tutorial can be found in the Celo documentation here**](https://docs.celo.org/developer-guide/start/hellocelo).
 
-# Introduction
+## Introduction
 
 In this guide, we are going to write a Node.js script to introduce some of the basic concepts that are important to understand how Celo works. This will get us started with connecting to the Celo network and learning how to develop more advanced applications.
 
@@ -15,7 +15,7 @@ In this guide, we are going to write a Node.js script to introduce some of the b
   We assume you already have Node.js and NPM installed on your computer.
 </Hint>
 
-# Learning Objectives
+## Learning Objectives
 
 At the end of this guide, you will be able to:
 
@@ -24,7 +24,7 @@ At the end of this guide, you will be able to:
 - Read account and contract information from the test network
 - Transferring CELO and cUSD on the test network
 
-# Getting Started
+## Getting Started
 
 To start, [clone this GitHub repo](https://github.com/critesjosh/helloCelo). This is a Node.js application.
 
@@ -34,7 +34,7 @@ We will be using the Celo ContractKit SDK to interact with the Celo test network
 
     npm install
 
-# Importing ContractKit
+## Importing ContractKit
 
 We will be writing our Node.js app in the `helloCelo.js` file.
 
@@ -59,7 +59,7 @@ const kit = ContractKit.newKitFromWeb3(web3);
   when you run the script.
 </Hint>
 
-# Reading from Alfajores
+## Reading from Alfajores
 
 ContractKit contains a `contracts` property that we can use to access certain information about deployed Celo contracts.
 
@@ -108,7 +108,7 @@ In order to do transfers (aka [transactions](https://docs.celo.org/getting-start
 2.  Fund it with test CELO and cUSDs
 3.  Sign and send transactions to the network
 
-# Accounts
+## Accounts
 
 We are accessing the Celo network via a remote [node](https://docs.celo.org/getting-started/glossary#node) via HTTP requests at `'https://alfajores-forno.celo-testnet.org'`.
 
@@ -154,7 +154,7 @@ async function createAccount() {
 
 Run this script again with `node helloCelo.js`. This will print `0`, as we have not funded the associated account yet.
 
-# Using the faucet
+## Using the faucet
 
 We can get free test CELO and cUSDs on the test network for development via the [Celo Alfajores faucet](https://celo.org/build/faucet).
 
@@ -162,7 +162,7 @@ Copy your randomly generated account address from the console output mentioned a
 
 Once your account has been funded, run the command `node helloCelo.js` again to see your updated balance.
 
-# Sending Value
+## Sending Value
 
 We have an account with CELO and cUSD in it, now how do we send tokens to another account? Remember the token wrappers we used to read account balances earlier? We can use the same wrappers to send tokens, you just need to add the private key associated with your account to ContractKit (see line 10).
 
@@ -225,7 +225,7 @@ async function send() {
 
 Run `node helloCelo.js` again to send the transactions and see the printed output in the console.
 
-# Connecting to a Ledger device from a Web Application
+## Connecting to a Ledger device from a Web Application
 
 The above instructions apply to building NodeJS applications. If you want to build an integration with a web application, you can still use the ContractKit by following slightly modified instructions.
 
@@ -289,7 +289,7 @@ const transfer = async (from, to, amount) => {
 
 This is the basic setup to integrate the Celo Ledger App with a web application. You can also view the [Celo Ledger App example codebase](https://github.com/celo-org/celo-ledger-web-app) for some other examples of connecting to a Ledger Device from a web application.
 
-# Conclusion
+## Conclusion
 
 Congratulations! You have accomplished a lot in this short introduction to developing on Celo.
 

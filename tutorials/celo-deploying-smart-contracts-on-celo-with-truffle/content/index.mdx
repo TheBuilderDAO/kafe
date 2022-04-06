@@ -5,13 +5,13 @@ keywords: [Celo, JS/TS, NodeJS, Smart contracts, Truffle]
 date: '2021-07-21T07:59:56.503Z'
 ---
 
-# Introduction
+## Introduction
 
 How would you go about deploying an existing Solidity smart contract on the Celo network? One answer is that you could do it with the help of Truffle -- a development environment that is designed to make deploying smart contracts much easier.
 
 Read on to learn how to deploy smart contracts on Celo with Truffle!
 
-# Prerequisites
+## Prerequisites
 
 This tutorial would be most helpful if you have a smart contract you've written which you'd like to deploy on Celo. If not, that's okay as we will be deploying the default Truffle Migrations contract.
 
@@ -19,7 +19,7 @@ Before you continue, make sure you have Truffle installed. If you don't, run the
 
 `npm install -g truffle`
 
-# Project setup
+## Project setup
 
 First, open the terminal and make a new project folder. We’ll call it celoSmartContract:
 
@@ -47,7 +47,7 @@ Here's what a successful run of truffle initialization would look like:
 
 [![truffle init](./assets/celo-deploying-smart-contracts-on-celo-with-truffle-truffle-init-1.png)](https://camo.githubusercontent.com/96639b87ce3a287a678cff74b466d840f84b83a42403fae9b23287163e275cee/68747470733a2f2f692e696d6775722e636f6d2f4a46367a646f542e706e67)
 
-# A simple smart contract
+## A simple smart contract
 
 Now that we've initialized Truffle, we'll move on to the smart contract we'll be deploying.
 
@@ -82,7 +82,7 @@ contract Migrations {
 
 We won't be going over this smart contract in this tutorial, but if you want to learn Solidity feel free to go through the other tutorials on Figment Learn!
 
-# The migrations folder
+## The migrations folder
 
 Files in the migrations folder are used as deployment scripts. In Truffle, these deployment scripts are called migrations. For each Solidity file you want to deploy, you'll need a corresponding migration.
 
@@ -116,7 +116,7 @@ module.exports = function (deployer) {
 };
 ```
 
-# Connecting to a testnet node
+## Connecting to a testnet node
 
 Now we're going to need to connect to a Celo testnet node, which will be how we communicate with the Celo blockchain.
 
@@ -136,7 +136,7 @@ Next, open the .env file you created in your code editor and add the following v
 
 Now we have the URL we'll use to connect to the Celo testnet saved.
 
-# Getting a Celo account
+## Getting a Celo account
 
 Next, we’re going to need a Celo account to deploy from. We will need a few things for deployment:
 
@@ -201,7 +201,7 @@ Now that you have a Celo account, take the address and paste it into the [Celo d
 
 [![funding](./assets/celo-deploying-smart-contracts-on-celo-with-truffle-funding-4.png)](https://camo.githubusercontent.com/0c74bcb5251da3397bae2c6901c25218a6ff73befb825a53c546181e95e0db06/68747470733a2f2f692e696d6775722e636f6d2f7a5074575748572e706e67)
 
-# Truffle config
+## Truffle config
 
 The **truffle-config.js** is used in order to tell truffle how you want to deploy your contract.
 
@@ -269,7 +269,7 @@ alfajores: {
 }
 ```
 
-# Deployment
+## Deployment
 
 We’re almost there! Run the following to check that you did everything correctly:
 
@@ -295,7 +295,7 @@ You should see a successful contract deployment at that address!
 
 [![block explorer](./assets/celo-deploying-smart-contracts-on-celo-with-truffle-block-explorer-7.png)](https://camo.githubusercontent.com/2d23c68351d5f73727daf04dad01cc6efd9a82e5678789d61436c608865036eb/68747470733a2f2f692e696d6775722e636f6d2f6e6c32383869612e706e67)
 
-# Conclusion
+## Conclusion
 
 Congratulations! You've just deployed a smart contract on the Celo network using Truffle!
 
@@ -303,11 +303,11 @@ Now that you've finished the tutorial, you should have a basic understanding of 
 
 The complete source code for this tutorial can be found on [GitHub](https://github.com/alexreyes/Celo-Deploying-With-Truffle).
 
-# Next Steps
+## Next Steps
 
 Now that you've learned how to deploy smart contracts on Celo using Truffle, you can build new use cases for the cryptoeconomy on Celo! To learn more Solidity, check out Solidity by Example. You can also continue with the other tutorials on [Figment Learn](https://learn.figment.io/tutorials/).
 
-# Common Errors & Solutions
+## Common Errors & Solutions
 
 If you run into errors at any point, feel free to ask on the Celo channel on the Figment Learn discord server. In any case, here are some common errors you may encounter.
 
@@ -337,6 +337,6 @@ Make sure your account isn't empty like this one!
 
 [![empty account](./assets/celo-deploying-smart-contracts-on-celo-with-truffle-empty-account-10.png)](https://camo.githubusercontent.com/60a2da1b381d2d9f9c21ade38e54f3793ead7bf2162d4eb7ccb8297733494cbc/68747470733a2f2f692e696d6775722e636f6d2f795055594353442e706e67)
 
-# About the author
+## About the author
 
 This tutorial was created by [Alex Reyes](https://www.linkedin.com/in/alexreyes-tech). Alex is a student (BS, Computer Science) and crypto enthusiast who's learning all about the world of web3 one day at a time and he's contributing to Web3 communities actively. He completed his previous internships at Facebook and Microsoft.

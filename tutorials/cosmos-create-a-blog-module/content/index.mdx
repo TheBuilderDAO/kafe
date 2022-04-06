@@ -7,11 +7,11 @@ date: '2021-07-22T08:18:44.798Z'
 
 [**The original tutorial can be found in the Cosmos SDK documentation here**](https://tutorials.cosmos.network/starport-blog/tutorial/01-index.html).
 
-# Introduction
+## Introduction
 
 By following this tutorial, you will learn how to create a simple blog app that is powered by the Cosmos SDK.
 
-# Getting Started
+## Getting Started
 
 Let's get started! The first step is to install the [starport](https://github.com/tendermint/starport) CLI tool.
 
@@ -23,7 +23,7 @@ starport app github.com/example/blog
 
 One of the main features of Starport is code generation. The command above has generated a directory structure with a working blockchain application. Starport can also add data types to your app with `starport type` command. To see it in action, follow the [poll application tutorial](https://learn.figment.io/tutorials/build-a-polling-app). In this guide, however, we'll create those files manually to understand how it all works under the hood.
 
-# Overview
+## Overview
 
 Let's take a quick look at what Starport has generated for us. The [`app/app.go`](https://docs.cosmos.network/master/basics/app-anatomy.html#core-application-file) file imports and configures SDK modules and creates a constructor for our application that extends a [basic SDK application](https://docs.cosmos.network/master/core/baseapp.html) among other things. This app will use only a couple of standard modules bundled with the Cosmos SDK (including `auth` for dealing with accounts and `bank` for handling coin transfers) and one module (`x/blog`) that will contain custom functionality.
 
@@ -472,7 +472,7 @@ func init() {
 }
 ```
 
-# Launch
+## Launch
 
 Now we are ready to build and start our app and create some posts.
 
@@ -509,9 +509,9 @@ http://localhost:26657/tx?hash=0xCA1491B39384A4F29E568F62B156E0F2D0601507EF499CE
 
 Congratulations! You have just created and launched your custom blockchain and sent the first transaction 🎉
 
-# Potential errors and their solutions
+## Potential errors and their solutions
 
-## Cannot find module providing package
+### Cannot find module providing package
 
 ```text
 x/blog/client/cli/tx.go:12:2: cannot find module providing package github.com/cosmos/cosmos-sdk/client/utils: import lookup disabled by -mod=readonly
@@ -528,7 +528,7 @@ import (
 )
 ```
 
-## Unknown command "create-post" for "blog"
+### Unknown command "create-post" for "blog"
 
 ```text
 blogcli tx blog create-post 'Hello!' 'My first post' --from=user1
@@ -537,7 +537,7 @@ ERROR: unknown command "create-post" for "blog"
 
 Make sure you’ve added `GetCmdCreatePost(cdc)`, to `func GetTxCmd` in `x/blog/client/cli/tx.go`.
 
-## Cannot encode unregistered concrete type
+### Cannot encode unregistered concrete type
 
 ```text
 blogcli tx blog create-post Hello! --from=user1
@@ -546,6 +546,6 @@ panic: Cannot encode unregistered concrete type types.MsgCreatePost.
 
 Make sure you’ve added `cdc.RegisterConcrete(MsgCreatePost{}, "blog/CreatePost", nil)` to `func RegisterCodec` in `x/blog/types/codec.go`.
 
-# Conclusion
+## Conclusion
 
 Congratulations, you now have a functioning blog app which stores its data on Cosmos!

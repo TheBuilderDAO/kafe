@@ -5,16 +5,16 @@ keywords: [Solana, Rust, NodeJS, Rust]
 date: '2021-11-24T15:30:35.963Z'
 ---
 
-# Introduction
+## Introduction
 
 Real-time streaming can be understood as a constant flow of assets from one wallet to another over a period of time. It simplifies transactions and also enables a trustless environment. Subscription services or freelancers can use streaming transactions to maintain a trustless environment with their customers.
 There are many uses of this concept. You can check out the [SuperFluid](https://www.superfluid.finance/home) protocol built on the Ethereum network as an example. This tutorial is comprised of three parts. First, we will write a Solana program to handle the streaming, then we will create a backend for our protocol. Finally, we will connect it all with our front-end.
 
-# Prerequisites
+## Prerequisites
 
 A good understanding of the [Rust](https://www.rust-lang.org/) programming language and [React](https://reactjs.org/) and [Redux](https://redux.js.org/) is required to grasp the contents of this tutorial.
 
-# Requirements
+## Requirements
 
 The following software is required to complete this tutorial:
 
@@ -27,7 +27,7 @@ The following software is required to complete this tutorial:
 
 We will write the tutorial in 3 parts. First, we will write our Solana program then we will create a backend for our protocol, and in the end, we will connect it all with our front-end.
 
-# Solana Program
+## Solana Program
 
 Before getting into the coding, let us briefly review what a **streaming protocol** means and what instructions we need to create in our Solana program.
 A **streaming protocol** creates an escrow account that will keep track of the balance of both parties with the help of time. Initially, all the funds in the escrow account will be owned by the sender. As time passes, ownership of some funds will be transferred to the receiver which means the receiver can then withdraw those funds.
@@ -687,7 +687,7 @@ Program Id: DcGPfiGbubEKh1EnQ86EdMvitjhrUo8fGSgvqtFG4A9t
 
 We can verify the deployment by checking on the [Solana Explorer for Devnet.](https://explorer.solana.com/?cluster=devnet). We can search for our program id to see any related transactions, including the deployment.
 
-# Backend
+## Backend
 
 We will be creating our backend with help of the [rocket web framework](https://rocket.rs/), but before we start writing the code for the backend it would be a great time to understand why we need a backend.
 
@@ -1204,7 +1204,7 @@ In the main function we are getting all the program accounts and populating our 
 
 You can see the complete Backend [HERE](https://github.com/SushantChandla/sol-stream-backend).
 
-# Frontend
+## Frontend
 
 Now let's write the frontend part of the app. I have created a React app for the frontend, using Redux for state management. I have already created the UI part of it, which you can find [HERE](https://github.com/SushantChandla/sol-stream-frontend/tree/ui).
 
@@ -1542,10 +1542,10 @@ Now for testing it we will need the backend server running. Here is a video walk
 
 <Embed url="https://youtu.be/MUyt5Rz9T64" caption="Sol Streaming Protocol" />
 
-# Conclusion
+## Conclusion
 
 In this tutorial, you learned how to build a Sol token streaming protocol on Solana. We covered the on-chain program's code using the Rust programming language. We built the User Interface with React. And we have created a backend with Rocket framework to index PDA's data.
 
-# About the Author
+## About the author
 
 This tutorial was created by [Sushant Chandla](https://github.com/SushantChandla).
