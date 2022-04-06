@@ -1,22 +1,24 @@
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { useCallback, useState } from 'react';
-import { useCancelVote as solanaUseCancelVote } from '@builderdao-sdk/dao-program';
+import {
+  useCancelVote as solanaUseCancelVote,
+  useTutorialProgram,
+} from '@builderdao-sdk/dao-program';
 
 type IndexVotesData = {
   id: number;
   numberOfVotes: number;
 };
 
-export const useCancelVote = (
-  currentVotes,
-): [
+export const useCancelVote = (): [
   (tutorialId: number) => Promise<void>,
   {
     submitting: boolean;
     error: Error;
   },
 ] => {
+  const tutorialProgram = useTutorialProgram();
   const [cancelVote] = solanaUseCancelVote();
   const [updateTutorialIndex] = useApiCall<IndexVotesData, any>(
     routes.api.algolia.updateTutorial,
@@ -31,6 +33,9 @@ export const useCancelVote = (
         setError(null);
         setSubmitting(true);
 
+        const currentVotes =
+          await tutorialProgram.getVoteAccountListByTutorialId(tutorialId);
+
         await cancelVote(tutorialId);
 
         await updateTutorialIndex({
@@ -44,7 +49,7 @@ export const useCancelVote = (
         setSubmitting(false);
       }
     },
-    [cancelVote, updateTutorialIndex, currentVotes.length],
+    [tutorialProgram, cancelVote, updateTutorialIndex],
   );
 
   return [handleAction, { submitting, error }];

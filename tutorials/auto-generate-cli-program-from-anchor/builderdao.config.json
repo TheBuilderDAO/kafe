@@ -1,0 +1,15 @@
+{
+  "title": "Auto generate CLI program from Anchor",
+  "description": "I'm going to show you how to auto-generate the anchor CLI tool to interact with the Solana program in this tutorial.",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "Solana",
+      "slug": "solana"
+    },
+    {
+      "name": "CLI",
+      "slug": "cli"
+    }
+  ]
+}

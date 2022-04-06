@@ -1,6 +1,16 @@
-import { PublicKey, Keypair, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import {
+  PublicKey,
+  Keypair,
+  LAMPORTS_PER_SOL,
+  Commitment,
+  GetProgramAccountsConfig,
+} from '@solana/web3.js';
 import { getAssociatedTokenAddress } from '@solana/spl-token';
 import bs58 from 'bs58';
+import * as anchor from '@project-serum/anchor';
+import RpcClient from 'jayson/lib/client/browser';
+import { Tutorial } from './idl/tutorial';
+import { Program } from '@project-serum/anchor';
 
 export const getNumberBuffer = (n: number, alloc = 8) => {
   const buffer = Buffer.alloc(alloc);
@@ -37,3 +47,82 @@ export const stringToBytes = (str: string) => bs58.encode(Buffer.from(str));
 export const numberToBytes = (id: number) => bs58.encode(getNumberBuffer(id));
 
 export const publicKeyToBytes = (pk: PublicKey) => bs58.encode(pk.toBuffer());
+
+export const createFiltersWithAccountDiscriminator = (
+  program: Program<Tutorial>,
+  accountName: string,
+  filters: Buffer | Array<any>,
+) => {
+  return [
+    {
+      memcmp: program.coder.accounts.memcmp(
+        accountName,
+        filters instanceof Buffer ? filters : undefined,
+      ),
+    },
+    ...(Array.isArray(filters) ? filters : []),
+  ];
+};
+
+export const getProgramAccountArgs = (
+  programId: PublicKey,
+  provider: anchor.Provider,
+  configOrCommitment?: GetProgramAccountsConfig | Commitment,
+) => {
+  const extra: Pick<GetProgramAccountsConfig, 'dataSlice' | 'filters'> = {};
+
+  let commitment;
+  let encoding;
+  if (configOrCommitment) {
+    if (typeof configOrCommitment === 'string') {
+      commitment = configOrCommitment;
+    } else {
+      commitment = configOrCommitment.commitment;
+      encoding = configOrCommitment.encoding;
+
+      if (configOrCommitment.dataSlice) {
+        extra.dataSlice = configOrCommitment.dataSlice;
+      }
+      if (configOrCommitment.filters) {
+        extra.filters = configOrCommitment.filters;
+      }
+    }
+  }
+
+  const args = provider.connection._buildArgs(
+    [programId.toBase58()],
+    commitment,
+    encoding || 'base64',
+    extra,
+  );
+  return args;
+};
+
+export type RpcParams = {
+  id?: string;
+  methodName: string;
+  args: Array<any>;
+};
+
+export type RpcBatchRequest = (requests: RpcParams[]) => any;
+
+export function createRpcBatchRequest(client: RpcClient): RpcBatchRequest {
+  return (requests: RpcParams[]) => {
+    return new Promise((resolve, reject) => {
+      // Do nothing if requests is empty
+      if (requests.length === 0) resolve([]);
+
+      const batch = requests.map((params: RpcParams) => {
+        return client.request(params.methodName, params.args, params?.id);
+      });
+
+      client.request(batch, (err: any, response: any) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve(response);
+      });
+    });
+  };
+}

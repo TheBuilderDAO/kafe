@@ -1,5 +1,6 @@
 import * as commander from 'commander';
 import path from 'path';
+import fs from 'fs-extra';
 
 import { hashSumDigest, log as _log } from 'src/utils';
 import { rootTutorialFolderPath } from 'src/constants';
