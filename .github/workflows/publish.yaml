@@ -55,7 +55,7 @@ jobs:
   fetch_proposal:
     name: Fetch Proposal
     needs: get_proposal_slug
-    if: ${{ needs.get_proposal_slug.outputs.slug }} != '_empty_'
+    if: ${{ needs.get_proposal_slug.outputs.slug != '_empty_' }}
     runs-on: ubuntu-latest
     defaults:
       run:
