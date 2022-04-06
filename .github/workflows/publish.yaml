@@ -34,7 +34,7 @@ jobs:
       run:
         shell: bash
     outputs:
-      slug: ${{ steps.set_output.outputs.slug || github.event.inputs.slug }}
+      slug: ${{ steps.set_output.outputs.slug || github.event.inputs.slug || '_empty_' }}
     steps:
       - uses: actions/github-script@v6
         id: regex_extract_proposal_id
@@ -55,7 +55,7 @@ jobs:
   fetch_proposal:
     name: Fetch Proposal
     needs: get_proposal_slug
-    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
+    if: ${{ needs.get_proposal_slug.outputs.slug }} != '_empty_'
     runs-on: ubuntu-latest
     defaults:
       run:
