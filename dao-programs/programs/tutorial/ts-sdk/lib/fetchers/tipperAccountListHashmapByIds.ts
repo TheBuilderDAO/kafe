@@ -18,6 +18,7 @@ export const tipperAccountListHashmapByIds = async (
   const requests = tutorialIds.map((id: number): RpcParams => {
     const filters = createFiltersWithAccountDiscriminator(
       program,
+      // @ts-ignore
       program.account.tipperAccount._idlAccount.name,
       [filterTipperById(id)],
     );
@@ -29,6 +30,7 @@ export const tipperAccountListHashmapByIds = async (
   });
 
   const customRpcRequest = createRpcBatchRequest(
+    // @ts-ignore
     provider.connection._rpcClient,
   );
   const decodeResults = (accountName: string, results: any[]) =>
@@ -42,8 +44,10 @@ export const tipperAccountListHashmapByIds = async (
       };
     });
   const results = await customRpcRequest(requests);
+  // @ts-ignore
   return results.reduce((prev, resp) => {
     prev[resp.id] = decodeResults(
+      // @ts-ignore
       program.account.tipperAccount._idlAccount.name,
       resp.result,
     );

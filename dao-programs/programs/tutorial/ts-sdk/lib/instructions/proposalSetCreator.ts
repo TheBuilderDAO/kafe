@@ -5,14 +5,6 @@ import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress } from '@solana/spl-token';
 import { Tutorial } from '../idl/tutorial';
 import { getPda } from '../pda';
 
-export enum ProposalStateE {
-  submitted = 'submitted',
-  funded = 'funded',
-  writing = 'writing',
-  readyToPublish = 'readyToPublish',
-  published = 'published',
-}
-
 /**
  * @param program Dao program.
  * @param mintPk  token mint pk.
@@ -27,15 +19,13 @@ export const proposalSetCreator = async ({
   proposalId,
   mintPk,
   creatorPk,
-  superAdminPk,
-  signer,
+  authorityKp,
 }: {
   program: Program<Tutorial>;
   proposalId: number;
   creatorPk: anchor.web3.PublicKey;
   mintPk: anchor.web3.PublicKey;
-  superAdminPk: anchor.web3.PublicKey;
-  signer?: anchor.web3.Keypair;
+  authorityKp: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount, pdaProposalById, pdaDaoVaultAccount } = getPda(
     program.programId,
@@ -60,9 +50,9 @@ export const proposalSetCreator = async ({
         mintKafe: mintPk,
         creatorTokenAccount: creatorTokenAccount,
         tokenProgram: TOKEN_PROGRAM_ID,
-        superAdmin: superAdminPk,
+        authority: authorityKp.publicKey,
       },
-      ...(signer && { signers: [signer] }),
+      signers: [authorityKp],
     },
   );
 
