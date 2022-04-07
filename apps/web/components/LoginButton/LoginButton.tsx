@@ -10,13 +10,13 @@ type LoginButtonProps = {
 const LoginButton = (props: LoginButtonProps) => {
   const {
     children = 'Connect wallet',
-    className = 'dark:bg-kafedarker bg-kafelighter rounded-2xl text-kafeblack dark:text-kafelighter font-space font-extralight text-xs dark:hover:text-kafeblack dark:hover:bg-kafelighter hover:text-kafewhite hover:bg-kafeblack min-h-12 w-full text-center px-4 flex',
+    className = 'dark:bg-kafedarker bg-kafelighter rounded-2xl text-kafeblack dark:text-kafelighter font-space font-extralight dark:hover:text-kafeblack dark:hover:bg-kafelighter hover:text-kafewhite hover:bg-kafeblack min-h-12 min-w-[188px] px-4 flex justify-center text-sm',
   } = props;
   const { wallet } = useDapp();
 
   return (
     <WalletMultiButton className={className}>
-      <div className="grow">{wallet.connected ? null : children}</div>
+      {wallet.connected ? null : children}
     </WalletMultiButton>
   );
 };

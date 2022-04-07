@@ -15,7 +15,7 @@ const TutorialProposalHit = props => {
   return (
     <div className="relative z-10 mb-6 text-kafeblack dark:text-kafewhite min-h-72 grow">
       <BorderSVG />
-      <div className="px-7 py-2 pr-2">
+      <div className="p-8 py-6 pr-14">
         <div className="flex flex-row justify-between">
           <div className="flex items-center flex-nowrap">
             <p className="mr-2 text-xs">Proposal by</p>
@@ -43,10 +43,12 @@ const TutorialProposalHit = props => {
                 </div>
               </div>
               <IsLoggedIn>
-                <VoteButton
-                  id={props.hit.objectID}
-                  currentState={props.hit.state}
-                />
+                <div className="absolute left-0 right-0 top-0 bottom-0 p-2">
+                  <VoteButton
+                    id={props.hit.objectID}
+                    currentState={props.hit.state}
+                  />
+                </div>
               </IsLoggedIn>
             </div>
           )}
