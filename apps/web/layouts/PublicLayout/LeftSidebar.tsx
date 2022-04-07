@@ -11,14 +11,16 @@ import {
   useSpring,
   useTransform,
   useViewportScroll,
+  useMotionValue,
 } from 'framer-motion';
 
 const LeftSidebar = () => {
   const router = useRouter();
   const homepage = router.pathname === routes.home;
   const { scrollYProgress } = useViewportScroll();
+  console.log('Scrolly', scrollYProgress);
   const headingSize = useTransform(
-    scrollYProgress,
+    useMotionValue(10),
     [0, 0.4],
     [homepage ? 400 : 270, 150],
   );
