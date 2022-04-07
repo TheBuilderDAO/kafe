@@ -11,7 +11,7 @@ export default function Custom500() {
       ) : (
         <Image src={Dark500} width={668} height={418} alt="404" />
       )}
-      <div className="-mt-10 text-center">
+      <div className="-mt-10 flex flex-col items-center">
         <div className="flex space-x-2 font-larken text-4xl">
           <p className="leading-none">something has gone</p>
           <div className="rotate-180 leading-none">wrong</div>

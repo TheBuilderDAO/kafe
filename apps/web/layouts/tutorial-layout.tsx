@@ -48,7 +48,8 @@ export const TutorialLayout: React.FC<Props> = ({
           <div className="px-7 py-4">
             <header>
               <div className="pb-5 space-y-1 text-center">
-                <dl>
+                {/* The below snippet of code will be uncommented out when we have the author and reviewer info as part of props */}
+                {/* <dl>
                   <div className="flex justify-between text-xs">
                     <div className="flex space-x-1 items-center">
                       <p>Guide by</p>
@@ -66,7 +67,7 @@ export const TutorialLayout: React.FC<Props> = ({
                       <UserAvatar address={'hsdragon.sol'} ellipsis={false} />
                     </div>
                   </div>
-                </dl>
+                </dl> */}
                 <div className="font-larken pt-12">
                   <PageTitle>{title}</PageTitle>
                 </div>
