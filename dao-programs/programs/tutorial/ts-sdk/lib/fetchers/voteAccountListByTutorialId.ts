@@ -2,7 +2,6 @@ import { Program } from '@project-serum/anchor';
 
 import { Tutorial } from '../idl/tutorial';
 import { filterVoteById } from '../filters';
-import _ from 'lodash';
 
 const voteAccountListByTutorialId = async (
   program: Program<Tutorial>,

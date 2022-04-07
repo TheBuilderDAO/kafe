@@ -22,7 +22,7 @@ import {
   reviewerAccountByReviewerPK as getReviewerAccount,
   reviewerAccountByGithubLogin as getReviewerAccountByGithubLogin,
   userVoteAccountById as getUserVoteAccountById,
-  listOfVoterById as getListOfVoterById,
+  voteAccountListByTutorialId as getVoteAccountListByTutorialId,
   tipperAccountsListById as getTipperAccountsListById,
   tipperAccountListByUser as getTipperAccountListByUser,
 } from '../ts-sdk/lib/fetchers';
@@ -731,7 +731,7 @@ describe('tutorial-program', () => {
     );
     expect(voteAccount.id.toNumber()).toBe(0);
     expect(voteAccount.author.toString()).toBe(user1.publicKey.toString());
-    const listOfVoter = await getListOfVoterById(program, 0);
+    const listOfVoter = await getVoteAccountListByTutorialId(program, 0);
     expect(listOfVoter).toHaveLength(1);
   });
 
@@ -743,7 +743,7 @@ describe('tutorial-program', () => {
       authorPk: user1.publicKey,
       signer: user1,
     });
-    const listOfVoter = await getListOfVoterById(program, 0);
+    const listOfVoter = await getVoteAccountListByTutorialId(program, 0);
     expect(listOfVoter).toHaveLength(0);
   });
 
