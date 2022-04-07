@@ -41,7 +41,7 @@ const LearnIndexPage: NextPage<
       </Head>
       <main className="mt-10">
         <Banner
-          header="Learm from guides written by our community"
+          header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
           link="https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19"
         />
