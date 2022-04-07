@@ -19,7 +19,7 @@ const ImageStack = (props: ImageStackProps) => {
     <div className="flex flex-row">
       {addresses.slice(0, limit).map(address => (
         <div
-          className={`-mr-3 shadow:md border-[1px] flex w-[25px] h-[25px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110 overflow-hidden`}
+          className={`shadow:md border-[1px] flex w-[25px] h-[25px] rounded-full dark:border-kafeblack border-kafewhite shadow:xl hover:scale-110 overflow-hidden`}
           key={address}
         >
           <Identicon string={address} size={size} bg={bg} />
