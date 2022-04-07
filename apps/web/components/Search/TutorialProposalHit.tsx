@@ -15,7 +15,7 @@ const TutorialProposalHit = props => {
   return (
     <div className="relative z-10 mb-6 text-kafeblack dark:text-kafewhite min-h-72 grow">
       <BorderSVG />
-      <div className="px-8 py-4">
+      <div className="px-7 py-2 pr-2">
         <div className="flex flex-row justify-between">
           <div className="flex items-center flex-nowrap">
             <p className="mr-2 text-xs">Proposal by</p>

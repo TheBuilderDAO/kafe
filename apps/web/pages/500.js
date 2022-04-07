@@ -7,9 +7,9 @@ export default function Custom500() {
   return (
     <section className="max-w-[1000px] h-screen flex justify-center items-center flex-col">
       {theme === 'light' ? (
-        <Image src={Light404} width={668} height={418} alt="404" />
+        <Image src={Light500} width={668} height={418} alt="404" />
       ) : (
-        <Image src={Dark404} width={668} height={418} alt="404" />
+        <Image src={Dark500} width={668} height={418} alt="404" />
       )}
       <div className="-mt-10 text-center">
         <div className="flex space-x-2 font-larken text-4xl">
