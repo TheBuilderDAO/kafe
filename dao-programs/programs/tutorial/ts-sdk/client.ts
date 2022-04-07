@@ -30,6 +30,7 @@ import {
   airdrop,
   proposalClose,
   proposalCreate,
+  proposalSetCreator,
   reviewerAssign,
   reviewerCreate,
   reviewerDelete,
@@ -330,6 +331,20 @@ export class TutorialProgramClient {
       proposalId: data.id,
       adminPk: data.adminPk,
       authorPk: data.authorPk,
+    });
+  }
+
+  async proposalSetAuthor(data: {
+    creatorPk: anchor.web3.PublicKey;
+    adminKp: anchor.web3.Keypair;
+    id: number;
+  }): Promise<string> {
+    return proposalSetCreator({
+      program: this.tutorialProgram,
+      mintPk: this.kafeMint,
+      proposalId: data.id,
+      creatorPk: data.creatorPk,
+      authorityKp: data.adminKp,
     });
   }
 

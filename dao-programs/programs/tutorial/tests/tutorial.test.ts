@@ -1278,8 +1278,7 @@ describe('tutorial-program', () => {
       proposalId: nonce,
       mintPk: mintKafe,
       creatorPk: user2.publicKey,
-      superAdminPk: superAdmin.publicKey,
-      signer: superAdmin,
+      authorityKp: superAdmin,
     });
 
     const balance = await provider.connection.getBalance(user2.publicKey);

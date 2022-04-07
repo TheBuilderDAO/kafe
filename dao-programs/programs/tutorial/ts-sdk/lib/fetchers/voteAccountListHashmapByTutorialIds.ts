@@ -18,6 +18,7 @@ export const voteAccountsHashmapByTutorialIds = async (
   const requests = tutorialIds.map((id: number): RpcParams => {
     const filters = createFiltersWithAccountDiscriminator(
       program,
+      // @ts-ignore
       program.account.voteAccount._idlAccount.name,
       [filterVoteById(id)],
     );
@@ -29,6 +30,7 @@ export const voteAccountsHashmapByTutorialIds = async (
   });
 
   const customRpcRequest = createRpcBatchRequest(
+    // @ts-ignore
     provider.connection._rpcClient,
   );
   const decodeResults = (accountName: string, results: any[]) =>
@@ -42,8 +44,10 @@ export const voteAccountsHashmapByTutorialIds = async (
       };
     });
   const results = await customRpcRequest(requests);
+  // @ts-ignore
   return results.reduce((prev, resp) => {
     prev[resp.id] = decodeResults(
+      // @ts-ignore
       program.account.voteAccount._idlAccount.name,
       resp.result,
     );

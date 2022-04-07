@@ -661,7 +661,7 @@ export type Tutorial = {
           isSigner: false;
         },
         {
-          name: 'superAdmin';
+          name: 'authority';
           isMut: true;
           isSigner: true;
         },
@@ -1834,7 +1834,7 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
-          name: 'superAdmin',
+          name: 'authority',
           isMut: true,
           isSigner: true,
         },
