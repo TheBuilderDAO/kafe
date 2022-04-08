@@ -4,22 +4,107 @@ keywords: [{{tags}}]
 date: '2020-04-24'
 description: '{{description}}'
 next:
-  title: 'Fetching'
-  slug: '/fetching'
+  title: 'Part 2'
+  slug: '/part_2'
 ---
 
 ## Part 1: {{title}}
 
 {{description}}
 
-Irure qui qui reprehenderit do dolor in quis. Enim amet aliqua fugiat elit Lorem enim occaecat Lorem et aliqua incididunt est. Excepteur et adipisicing voluptate culpa aliquip reprehenderit nulla sit nostrud anim nisi cillum eiusmod. Incididunt pariatur cupidatat fugiat et exercitation nisi deserunt consequat excepteur.
+## Introduction
 
-Reprehenderit ea ipsum Lorem duis excepteur minim irure mollit est esse. Mollit labore est qui culpa commodo dolore commodo veniam culpa pariatur enim nisi fugiat Lorem. Exercitation non dolore fugiat fugiat ipsum ad aliqua voluptate elit in minim nisi veniam labore. Dolor pariatur et sit deserunt aliquip proident minim mollit est qui. Aliquip ut labore fugiat id nulla.
+Write your introduction here. Keep it short and informative.
 
-Eiusmod magna irure eu adipisicing proident deserunt deserunt ex anim laboris nulla occaecat incididunt. Magna dolor duis culpa ut mollit cupidatat tempor quis duis ex. Quis sit minim non amet consequat Lorem est. Ex ut dolor sit ea. Non aute do minim culpa amet elit sint. Pariatur id reprehenderit Lorem amet irure Lorem.
+---
 
-Quis commodo reprehenderit magna proident exercitation tempor. Reprehenderit minim pariatur dolor Lorem sunt. Ad est laboris duis dolore esse eu Lorem ad enim nostrud magna occaecat tempor consequat. Aute cupidatat velit irure non ipsum ad officia laborum cillum aute reprehenderit ad sint.
+## Prerequisites
 
-Elit incididunt eu adipisicing nisi. Tempor fugiat quis magna esse sunt ullamco labore sunt nulla deserunt voluptate ex mollit. Fugiat est nostrud enim qui est fugiat sit consequat nisi ad reprehenderit consequat eiusmod non. Eiusmod laborum ex officia sint quis aliqua labore minim. Adipisicing minim sunt cupidatat magna.
+The Prerequisites section is where you can inform readers of any other learning they will find beneficial before attempting this tutorial.
 
-Sint non eiusmod sit dolor. Veniam commodo eu tempor irure ullamco enim est et ex magna. Et et irure ullamco reprehenderit occaecat ad eiusmod excepteur sunt. Ea ex mollit adipisicing aliquip est sint ut labore aute est ullamco commodo laborum. Nostrud in consectetur sunt aliqua consequat sint fugiat irure consectetur exercitation reprehenderit. Esse ipsum amet cillum veniam. Irure occaecat pariatur eu dolor pariatur dolore minim in minim.
+For example:
+
+To successfully complete this tutorial, you will need to have a basic understanding of X, Y & Z.
+
+---
+
+## Requirements
+
+The Requirements section is where you inform readers of any software or tokens they need to have before starting the tutorial.
+
+For example:
+
+- You will need Metamask installed in your browser. You can install it from <https://metamask.io/>
+- You need to have a recent version of Node.js installed. We recommend using v14.17.6 LTS for compatibility.
+
+---
+
+## Project setup 
+
+This heading is an example only - You can use your own heading and subheadings for the body of your tutorial.
+
+Following are examples for various types of content blocks and how to utilize the Markdown and MDX syntax.
+
+## Code blocks
+
+If you want to display terminal commands to users, use a code block with `text` syntax. 
+Always leave a blank line before and after the code block:
+
+```text
+npm i -g yarn
+npm i -g @graphprotocol/graph-cli
+```
+
+For other types of code highlighting, use the name of the language that the code block contains:
+
+Rust:
+
+```rust
+let _desc: String = read!(\"{}\n\");
+println!();
+```
+
+TypeScript:
+
+```typescript
+function filterByTerm(input: string, searchTerm: string) {
+    // TODO
+}
+```
+
+Solidity:
+
+```solidity
+event TokenMinted(address indexed owner, uint256 indexed tokenId, string indexed tokenURI);
+```
+
+## Image links 
+
+![Example Image Link](https://github.com/figment-networks/learn-tutorials/raw/master/assets/graph_playground.png)
+
+## MDX Components
+
+You can use React components in your markdown, like this:
+
+<WhatsNextSection 
+    title={\"Fetching data from an RPC\"} 
+    link={\"/learn/solana-blog/fetching\"}
+    image={\"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Spaniel_Fetching.jpg/220px-Spaniel_Fetching.jpg\"}
+>
+    In the next section we will learn how to fetch data from an RPC.
+</WhatsNextSection>
+
+---
+
+# Conclusion
+
+Congratulations on finishing this tutorial! You have learned how to Q, R, S.
+
+---
+
+# About the Author
+
+I'm <YOUR_GITHUB_USER_PROFILE>, a blockchain enthusiast with a few years of experience working with various blockchain protocols.
+If you enjoyed this tutorial, please connect with me on [GitHub](https://github.com/<YOUR_GITHUB_USER_PROFILE>).
+
+---
