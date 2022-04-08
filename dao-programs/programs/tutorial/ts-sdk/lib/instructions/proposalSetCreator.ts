@@ -17,14 +17,16 @@ import { getPda } from '../pda';
 export const proposalSetCreator = async ({
   program,
   proposalId,
-  mintPk,
+  mintKafePk,
+  mintBDRPk,
   creatorPk,
   authorityKp,
 }: {
   program: Program<Tutorial>;
   proposalId: number;
   creatorPk: anchor.web3.PublicKey;
-  mintPk: anchor.web3.PublicKey;
+  mintKafePk: anchor.web3.PublicKey;
+  mintBDRPk: anchor.web3.PublicKey;
   authorityKp: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount, pdaProposalById, pdaDaoVaultAccount } = getPda(
@@ -32,14 +34,17 @@ export const proposalSetCreator = async ({
   );
   const daoAccount = await pdaDaoAccount();
   const proposalAccount = await pdaProposalById(proposalId);
-  const kafeVaultAccount = await pdaDaoVaultAccount(mintPk);
+  const kafeVaultAccount = await pdaDaoVaultAccount(mintKafePk);
+  const bdrVaultAccount = await pdaDaoVaultAccount(mintBDRPk);
   const creatorTokenAccount = await getAssociatedTokenAddress(
-    mintPk,
+    mintKafePk,
     creatorPk,
   );
+  const bdrTokenAccount = await getAssociatedTokenAddress(mintBDRPk, creatorPk);
 
   const signature = await program.rpc.proposalSetCreator(
     kafeVaultAccount.bump,
+    bdrVaultAccount.bump,
     {
       accounts: {
         proposalAccount: proposalAccount.pda,
@@ -47,8 +52,11 @@ export const proposalSetCreator = async ({
         creator: creatorPk,
         systemProgram: anchor.web3.SystemProgram.programId,
         daoVaultKafe: kafeVaultAccount.pda,
-        mintKafe: mintPk,
+        mintKafe: mintKafePk,
         creatorTokenAccount: creatorTokenAccount,
+        daoVaultBdr: bdrVaultAccount.pda,
+        mintBdr: mintBDRPk,
+        bdrTokenAccount: bdrTokenAccount,
         tokenProgram: TOKEN_PROGRAM_ID,
         authority: authorityKp.publicKey,
       },

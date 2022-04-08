@@ -16,12 +16,16 @@ export const airdrop = async ({
   memberPk,
   mintKafePk,
   mintBdrPk,
+  kafeDrop,
+  bdrDrop,
   authority,
 }: {
   program: Program<Tutorial>;
   memberPk: anchor.web3.PublicKey;
   mintKafePk: anchor.web3.PublicKey;
   mintBdrPk: anchor.web3.PublicKey;
+  kafeDrop?: boolean;
+  bdrDrop?: boolean;
   authority: anchor.web3.Keypair;
 }) => {
   const { pdaDaoAccount, pdaDaoVaultAccount } = getPda(program.programId);
@@ -82,6 +86,8 @@ export const airdrop = async ({
   const instruction = await program.instruction.airdrop(
     vaultKafe.bump,
     vaultBdr.bump,
+    !kafeDrop,
+    !bdrDrop,
     {
       accounts: {
         daoAccount: daoAccount.pda,

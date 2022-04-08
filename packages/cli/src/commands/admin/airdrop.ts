@@ -8,8 +8,18 @@ import { getClient } from '../../client';
 import { createKeypairFromSecretKey } from '../../utils';
 
 const helpText = `
-Example call:
+Aidrop info:
+- 1 Kafe Token
+- 100 BDR Token (frozen)
+
+Example call to airdrop both Kafe and BDR token:
 $ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey>
+
+Example call to airdrop only BDR token:
+$ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyBDR
+
+Example call to airdrop only Kafe token:
+$ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyKafe
 `;
 
 export const AdminAirdropCommand = () => {
@@ -38,23 +48,26 @@ export const AdminAirdropCommand = () => {
         .argParser(val => new anchor.web3.PublicKey(val))
         .makeOptionMandatory(),
     )
+    .option('--onlyKafe', 'Airdrop only Kafe Token')
+    .option('--onlyBDR', 'Airdrop only BDR Token')
     .action(
-      async (
-        options: {
-          address: anchor.web3.PublicKey;
-          adminKp: anchor.web3.Keypair;
-        },
-      ) => {
+      async (options) => {
         const client = getClient({
           network: airdrop.optsWithGlobals().network,
-          payer: airdrop.optsWithGlobals().payer,
+          payer: options.adminKp,
         });
+
         const spinner = ora('Processing Airdrop')
         spinner.start();
+
+        const isKafeDrop = !!options.onlyBdr
+        const isBdrDrop = !!options.onlyKafe
 
         const signature = await client.airdrop({
           memberPk: options.address,
           authority: options.adminKp,
+          isBdrDrop,
+          isKafeDrop,
         });
 
         spinner.succeed(`signature: ${signature}`);
