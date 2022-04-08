@@ -4,13 +4,13 @@ import path from 'path';
 
 import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex } from '@builderdao/apis';
 import { ProposalStateE, getProposalState } from '@builderdao-sdk/dao-program';
-import { BuilderDaoConfig } from '../services';
+import { BuilderDaoConfig } from 'src/services';
 import { getClient } from 'src/client';
+import { log as _log } from 'src/utils';
 import async from 'async';
 
 export function makeAlgoliaCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
-
 
   const algolia = new commander.Command('algolia')
     .addHelpCommand(false)
@@ -21,6 +21,7 @@ export function makeAlgoliaCommand() {
       sortOptions: true,
     });
 
+  const log = (object: any) => _log(object, algolia.optsWithGlobals().key);
   algolia.configureHelp({
     sortSubcommands: true,
     sortOptions: false,
@@ -204,7 +205,7 @@ export function makeAlgoliaCommand() {
           indexName: options.indexName,
         });
         const allProposals = await client.getProposals()
-
+        let processedCount = 0;
         const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Array<{ solana: any, ceramic: TutorialMetadata }>) => {
           // console.log(proposals.map(p => p.));
           const tutorials: Array<TutorialIndex> = tasks.map(t => {
@@ -223,6 +224,12 @@ export function makeAlgoliaCommand() {
             };
           })
           await algoliaClient.upsertTutorials(tutorials);
+          processedCount += tutorials.length;
+          log({
+            message: 'Updated index',
+            tutorials: tutorials.map(t => t.slug),
+            status: `${processedCount}/${allProposals.length}`,
+          })
         }, 1, 10);
 
 
