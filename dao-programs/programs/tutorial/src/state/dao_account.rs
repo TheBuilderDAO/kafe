@@ -35,5 +35,6 @@ impl DaoAccount {
     + LEN_U64
     + LEN_U64
     + LEN_U64
+    + LEN_PUBKEY
     + LEN_VEC_ALLOCATOR + MAX_ADMIN_NUMBER * LEN_PUBKEY;
 }

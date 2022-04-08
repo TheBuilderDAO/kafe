@@ -17,14 +17,16 @@ import { getAta } from '../utils';
  */
 export const proposalPublish = async ({
   program,
-  mintPk,
+  mintKafePk,
+  mintBdrPk,
   proposalId,
   authorPk,
   adminPk,
   signer,
 }: {
   program: Program<Tutorial>;
-  mintPk: anchor.web3.PublicKey;
+  mintKafePk: anchor.web3.PublicKey;
+  mintBdrPk: anchor.web3.PublicKey;
   proposalId: number;
   authorPk: anchor.web3.PublicKey;
   adminPk: anchor.web3.PublicKey;
@@ -33,23 +35,39 @@ export const proposalPublish = async ({
   const { pdaDaoAccount, pdaProposalById, pdaDaoVaultAccount } = getPda(
     program.programId,
   );
-  const authorAta = await getAta(authorPk, mintPk);
+  const authorAta = await getAta(authorPk, mintKafePk);
+  const authorAtaBdr = await getAta(authorPk, mintBdrPk);
   const daoAccount = await pdaDaoAccount();
-  const daoVaultAccount = await pdaDaoVaultAccount(mintPk);
+  const daoVaultAccount = await pdaDaoVaultAccount(mintKafePk);
+  const daoVaultBDRAccount = await pdaDaoVaultAccount(mintBdrPk);
   const proposalAccount = await pdaProposalById(proposalId);
+  const { reviewer1, reviewer2 } = await program.account.proposalAccount.fetch(
+    proposalAccount.pda,
+  );
+  const reviewer1AtaBdr = await getAta(reviewer1, mintBdrPk);
+  const reviewer2AtaBdr = await getAta(reviewer2, mintBdrPk);
 
-  const signature = await program.rpc.proposalPublish(daoVaultAccount.bump, {
-    accounts: {
-      proposalAccount: proposalAccount.pda,
-      daoAccount: daoAccount.pda,
-      daoVaultKafe: daoVaultAccount.pda,
-      mintKafe: mintPk,
-      authority: adminPk,
-      userTokenAccount: authorAta,
-      tokenProgram: TOKEN_PROGRAM_ID,
+  const signature = await program.rpc.proposalPublish(
+    daoVaultAccount.bump,
+    daoVaultBDRAccount.bump,
+    {
+      accounts: {
+        proposalAccount: proposalAccount.pda,
+        daoAccount: daoAccount.pda,
+        daoVaultKafe: daoVaultAccount.pda,
+        daoVaultBdr: daoVaultBDRAccount.pda,
+        bdrTokenAccount: authorAtaBdr,
+        mintBdr: mintBdrPk,
+        mintKafe: mintKafePk,
+        authority: adminPk,
+        userTokenAccount: authorAta,
+        tokenProgram: TOKEN_PROGRAM_ID,
+        reviewer1TokenAccount: reviewer1AtaBdr,
+        reviewer2TokenAccount: reviewer2AtaBdr,
+      },
+      ...(signer && { signers: [signer] }),
     },
-    ...(signer && { signers: [signer] }),
-  });
+  );
 
   return signature;
 };

@@ -21,6 +21,7 @@ import { makeArweaveCommand } from './commands/arweave';
 import { makeCeramicCommand } from './commands/ceramic';
 import { makeAlgoliaCommand } from './commands/algolia';
 import { makeTutorialCommand } from './commands/tutorial';
+import { makeAdminCommand } from './commands/admin';
 
 const program = new commander.Command();
 program
@@ -90,6 +91,7 @@ program.addCommand(makeArweaveCommand());
 program.addCommand(makeCeramicCommand());
 program.addCommand(makeAlgoliaCommand());
 program.addCommand(makeTutorialCommand());
+program.addCommand(makeAdminCommand());
 program.showSuggestionAfterError();
 program.showHelpAfterError('💡 Use `builderdao` to see all available commands');
 program.parseAsync(process.argv);

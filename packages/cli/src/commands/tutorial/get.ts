@@ -1,7 +1,8 @@
 import { getTutorialContentByPackageName } from '@builderdao/md-utils';
 import * as commander from 'commander';
-import { log as _log } from 'src/utils';
+
 import { rootTutorialFolderPath } from 'src/constants';
+import { log as _log } from 'src/utils';
 
 const helpText = `
 Example call:

@@ -1,12 +1,20 @@
 use anchor_lang::prelude::*;
-use anchor_spl::token::{self, TokenAccount, Token, Transfer, Mint};
+use anchor_spl::token::{
+  self, 
+  Mint, 
+  Token, 
+  TokenAccount, 
+  ThawAccount,
+  FreezeAccount,
+  Transfer, 
+};
 
 use crate::errors::*;
 use crate::constants::*;
 use crate::state::*;
 
 #[derive(Accounts)]
-#[instruction(bump: u8, slug: String)]
+#[instruction(bump: u8, bump_bdr: u8, slug: String)]
 pub struct ProposalCreate<'info> {
   #[account(
     init,
@@ -29,8 +37,13 @@ pub struct ProposalCreate<'info> {
   #[account(mut)]
   pub payer: Signer<'info>,
   #[account(mut)]
-  pub user_token_account: Account<'info, TokenAccount>,
+  pub user_token_account: Box<Account<'info, TokenAccount>>,
   pub token_program: Program<'info, Token>,
+  #[account(mut)]
+  pub bdr_token_account: Box<Account<'info, TokenAccount>>,
+  #[account(mut)]
+  pub dao_vault_bdr: Box<Account<'info, TokenAccount>>,
+  pub mint_bdr: Box<Account<'info, Mint>>,
 }
 
 impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Transfer<'info>> {
@@ -49,6 +62,7 @@ impl<'info> From<&ProposalCreate<'info>> for CpiContext<'_, '_, '_, 'info, Trans
 pub fn handler(
   ctx: Context<ProposalCreate>, 
   bump: u8,
+  bump_bdr: u8,
   slug: String,
   stream_id: String,
 ) -> Result<()> {
@@ -79,6 +93,66 @@ pub fn handler(
 
   ctx.accounts.dao_account.number_of_proposal += 1;
   ctx.accounts.dao_account.nonce += 1;
+
+  if ctx.accounts.bdr_token_account.is_frozen() { 
+    let cpi_program = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts = ThawAccount {
+      account: ctx.accounts.bdr_token_account.to_account_info(),
+      mint: ctx.accounts.mint_bdr.to_account_info(),
+      authority: ctx.accounts.dao_vault_bdr.to_account_info(),
+    };
+
+    token::thaw_account(
+      CpiContext::new_with_signer(
+        cpi_program,
+        cpi_accounts,
+        &[&[
+          PROGRAM_SEED.as_bytes(),
+          ctx.accounts.mint_bdr.key().as_ref(),
+          &[bump_bdr],
+        ]],
+      ),
+    )?;
+  }
+
+  let cpi_program = ctx.accounts.token_program.to_account_info();
+  let cpi_accounts = Transfer {
+    from: ctx.accounts.dao_vault_bdr.to_account_info(),
+    to: ctx.accounts.bdr_token_account.to_account_info(),
+    authority: ctx.accounts.dao_vault_bdr.to_account_info(),
+  };
+
+  token::transfer(
+    CpiContext::new_with_signer(
+      cpi_program,
+      cpi_accounts,
+      &[&[
+        PROGRAM_SEED.as_bytes(),
+        ctx.accounts.mint_bdr.key().as_ref(),
+        &[bump_bdr],
+      ]],
+    ),
+    PROPOSAL_REWARD,
+  )?;
+
+  let cpi_program = ctx.accounts.token_program.to_account_info();
+  let cpi_accounts = FreezeAccount {
+    account: ctx.accounts.bdr_token_account.to_account_info(),
+    mint: ctx.accounts.mint_bdr.to_account_info(),
+    authority: ctx.accounts.dao_vault_bdr.to_account_info(),
+  };
+
+  token::freeze_account(
+    CpiContext::new_with_signer(
+      cpi_program,
+      cpi_accounts,
+      &[&[
+        PROGRAM_SEED.as_bytes(),
+        ctx.accounts.mint_bdr.key().as_ref(),
+        &[bump_bdr],
+      ]],
+    ),
+  )?;
 
   Ok(())
 }
