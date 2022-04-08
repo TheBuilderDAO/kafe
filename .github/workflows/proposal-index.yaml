@@ -8,6 +8,10 @@ on:
 jobs:
   index_algolia:
     name: Index Algolia
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps: 
       - uses: actions/checkout@v2
         with:
