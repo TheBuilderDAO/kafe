@@ -1,6 +1,6 @@
 # Builder DAO
 
-Welcome to a [Builder DAO](https://builderdao.notion.site) monorepo! This [turborepo](https://turborepo.org/) uses [Yarn](https://yarnpkg.com/) as a package manager.
+Welcome to the [Builder DAO](https://builderdao.notion.site) monorepo! This [turborepo](https://turborepo.org/) uses [Yarn](https://yarnpkg.com/) as a package manager.
 
 ![](https://img.shields.io/twitter/follow/TheBuilderDAO?style=social)
 
@@ -72,34 +72,6 @@ Click each heading below for details:
 
 ---
 
-### Build
-
-> Unless otherwise specified, run all `yarn` commands from the project root directory.
-
-To build **all** apps and packages:
-
-```text
-yarn run build
-```
-
-To build **only the CLI package**:
-
-```text
-yarn run build:cli
-```
-
-### Develop
-
-> By default, the Next.js development server runs on port 3000.
-
-Run the development server:
-
-```text
-yarn run dev
-```
-
----
-
 ## Quick start for tutorial authors
 
 - Propose your tutorial on Kafé: [https://dev.builderdao.io/write](https://dev.builderdao.io/write)
@@ -126,7 +98,6 @@ Before you can write and sumbit a tutorial for review, it must be proposed and r
 - You must have at least one KAFE token in your Solana wallet
 
 - Click on “Connect wallet” at the top right of the **[Write](https://dev.builderdao.io/write)** page.
-
     - The **title** of your proposal should be the title of your tutorial. Take a minute to think of what would attract readers to view your tutorial. Keep it short and sweet! *Examples*: “Build a payment dApp on Solana” - “Polygon p2p payment dApp” - “Ceramic schema cookbook”.
     - The **tags** field is useful to categorize your tutorial, and up to 5 can be selected.
     Only select tags that are relevant to the topic of your proposed tutorial. Users will filter content on Kafé using these tags.
@@ -136,31 +107,13 @@ Before you can write and sumbit a tutorial for review, it must be proposed and r
 
 ## Writing a tutorial for Kafé
 
-Make sure you have built and can run the `builderdao` CLI by running the command:
-
-```text
-builderdao -v
-```
-This should output the current version of the CLI tool:
-
-```text
-Builder DAO CLI v0.0.2
-```
-
-> If the command fails to display the version number or you see an error, make sure you have installed the dependencies and run the build script `yarn run build:cli`.
-
-### Initializing the template
-
-In order to prepare the directory, metadata and tutorial template for your proposal, run the command:
+In order to prepare the tutorial directory, metadata and markdown template for your proposal, run the command:
 
 ```text
 builderdao tutorial init
 ```
 
 Complete the interactive prompts to prepare the tutorial template and checkout the correct branch.
-
-<details>
- <summary>👈 Click to expand for details</summary>
 
 First, you will need to select your tutorial by its **slug** which will match the title you gave your proposal, in lower-kebab-case. You can scroll through the list with the up and down arrow keys on your keyboard.
 
@@ -170,23 +123,20 @@ First, you will need to select your tutorial by its **slug** which will match th
 
 - “Are you sure you want to create a tutorial for `...` ?” - **Answer “y” for Yes**.
 - “Are you sure you want to checkout the branch "`tutorials/<SLUG>`”? - **Answer "y" for Yes**.
-- Select tutorial type (**single** or **multipage**)
+- Select tutorial type (choose **single** or **multipage**)
 - Tutorial Title - You can change the title of your tutorial _or_ press Enter to accept the Proposal title.
 - Tutorial Description - You can change the description of your tutorial _or_ press Enter to accept the Proposal description.
 - Select the keywords you would like to use (maximum of 5) - 
 - Push changes? - **Answer "y" for Yes**.
 
-After you are done you will have a boilerplate Markdown file to start writing your tutorial. A new directory will be created for your tutorial, matching the tutorial slug.
+When this is complete, a new directory will be created for your tutorial inside the `tutorials` directory, matching the tutorial slug.
 
 Inside, you will find:
 - `/content/` - Directory containing the tutorial markdown files
-- `/content/assets/` - Place any images used in your tutorial here
+- `/content/index.mdx` - The main markdown file for your tutorial
+- `/content/assets/` - Place any images used in your tutorial here, linking to images is explained in the tutorial template
 - `/builderdao.config.json` - Tutorial metadata
 - `/builderdao.lock.json` - Configuration lockfile
-
-</details>
-
----
 
 ## Commit, Push, Create a PR
 
