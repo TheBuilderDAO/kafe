@@ -170,6 +170,3 @@ export const getStaticProps: GetStaticProps = async context => {
 };
 
 export default TutorialPage;
-
-// https://raw.githubusercontent.com/TheBuilderDAO/kafe/nk/md-formatter/tutorials/avalanche-create-a-local-test-network/content/index.mdx?token=GHSAT0AAAAAABOK2Q2R24VONMIVRUY3B2CEYSCW4AQ
-// https://raw.githubusercontent.com/TheBuilderDAO/kafe/nk/md-formatter/tutorials/avalanche-create-a-local-test-network/content/index.mdx?token=GHSAT0AAAAAABOK2Q2QNKE3ZMG5VVQMGLA2YSCWQWQ
