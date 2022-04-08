@@ -1,5 +1,7 @@
 import React from 'react';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
+import VoteLight from 'public/assets/images/vote_l.png';
+import VoteDark from 'public/assets/images/vote_d.png';
 import ImageStack from '../ImageStack';
 import Tags from '../Tags/Tags';
 import algoliasearch from 'algoliasearch/lite';
@@ -16,6 +18,8 @@ import useCarousel from '@app/components/Carousel/useCarousel';
 import Loader from '@app/components/Loader/Loader';
 import routes from '../../routes';
 import BorderSVG from '../SVG/BorderSVG';
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 const PER_PAGE = 3;
 
@@ -59,6 +63,8 @@ const ProposalCard = props => {
 };
 
 const Wrapper = ({ hits }) => {
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
   const { currentIndex, handlePrev, handleNext } = useCarousel(
     PER_PAGE,
     hits.length,
@@ -70,24 +76,30 @@ const Wrapper = ({ hits }) => {
 
   const hit = hits[currentIndex];
 
-  return [
-    <div key={hit.objectID} className={`relative top-2 left-6`}>
-      <ProposalCard hit={hit} />
-    </div>,
-    <div key="dummy-1" className={`absolute top-4 left-4`}>
-      <ProposalCard hit={hit} />
-    </div>,
-    <div key="dummy-2" className={`absolute top-6 left-2`}>
-      <ProposalCard hit={hit} />
-    </div>,
-  ];
+  return (
+    <div className="relative">
+      <div className="absolute w-[420px] h-[420px] -top-24 left-60">
+        {dark && <Image src={VoteDark} width={420} height={400} alt="vote" />}
+        {!dark && <Image src={VoteLight} width={420} height={400} alt="vote" />}
+      </div>
+      <div key={hit.objectID} className={`relative top-2 left-6`}>
+        <ProposalCard hit={hit} />
+      </div>
+      <div key="dummy-1" className={`absolute top-4 left-4`}>
+        <ProposalCard hit={hit} />
+      </div>
+      <div key="dummy-2" className={`absolute top-6 left-2`}>
+        <ProposalCard hit={hit} />
+      </div>
+    </div>
+  );
 };
 
 const Proposals = connectHits(Wrapper);
 
 const ProposalsCarousel = () => {
   return (
-    <div className="relative h-[200px]">
+    <div className="relative h-[420px] top-10">
       <InstantSearch
         searchClient={searchClient}
         indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
