@@ -55,7 +55,7 @@ module.exports = {
         },
       },
       width: {
-        menu: '320px',
+        menu: '294px',
       },
       screens: {
         phone: '300px',

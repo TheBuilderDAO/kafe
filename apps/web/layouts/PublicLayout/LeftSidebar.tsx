@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import {
   motion,
   useMotionTemplate,
+  useMotionValue,
   useSpring,
   useTransform,
   useViewportScroll,
@@ -17,17 +18,18 @@ const LeftSidebar = () => {
   const router = useRouter();
   const homepage = router.pathname === routes.home;
   const { scrollYProgress } = useViewportScroll();
+  const y = useMotionValue(0);
   const headingSize = useTransform(
     scrollYProgress,
-    [0, 0.4],
+    [0, 0.004],
     [homepage ? 400 : 270, 150],
   );
-  const fontSize = useTransform(scrollYProgress, [0, 0.4], [14, 0]);
+  const fontSize = useTransform(scrollYProgress, [0, 0.004], [14, 0]);
   const headingSizeSpring = useSpring(headingSize, {
-    mass: 0.005,
+    mass: 0.05,
   });
   const fontSizeSpring = useSpring(fontSize, {
-    mass: 0.005,
+    mass: 0.05,
   });
   const fontSizePx = useMotionTemplate`${fontSizeSpring}px`;
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
