@@ -60,7 +60,7 @@ export const AdminAirdropCommand = () => {
         const spinner = ora('Processing Airdrop')
         spinner.start();
 
-        const isKafeDrop = !!options.onlyBdr
+        const isKafeDrop = !!options.onlyBDR
         const isBdrDrop = !!options.onlyKafe
 
         const signature = await client.airdrop({
