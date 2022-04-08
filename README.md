@@ -97,7 +97,7 @@ Before you can write and sumbit a tutorial for review, it must be proposed and r
 - Phantom must be connected to the [Solana](https://solana.com) **testnet**
 - You must have at least one KAFE token in your Solana wallet
 
-- Click on “Connect wallet” at the top right of the **[Write](https://dev.builderdao.io/write)** page.
+- Click on “Connect wallet” at the top right of the **[Write](https://dev.builderdao.io/write)** page to connect your Phantom wallet to the site.
     - The **title** of your proposal should be the title of your tutorial. Take a minute to think of what would attract readers to view your tutorial. Keep it short and sweet! *Examples*: “Build a payment dApp on Solana” - “Polygon p2p payment dApp” - “Ceramic schema cookbook”.
     - The **tags** field is useful to categorize your tutorial, and up to 5 can be selected.
     Only select tags that are relevant to the topic of your proposed tutorial. Users will filter content on Kafé using these tags.
@@ -112,7 +112,6 @@ In order to prepare the tutorial directory, metadata and markdown template for y
 ```text
 builderdao tutorial init
 ```
-
 Complete the interactive prompts to prepare the tutorial template and checkout the correct branch.
 
 First, you will need to select your tutorial by its **slug** which will match the title you gave your proposal, in lower-kebab-case. You can scroll through the list with the up and down arrow keys on your keyboard.
@@ -126,7 +125,7 @@ First, you will need to select your tutorial by its **slug** which will match th
 - Select tutorial type (choose **single** or **multipage**)
 - Tutorial Title - You can change the title of your tutorial _or_ press Enter to accept the Proposal title.
 - Tutorial Description - You can change the description of your tutorial _or_ press Enter to accept the Proposal description.
-- Select the keywords you would like to use (maximum of 5) - 
+- Select the keywords you would like to use (maximum of 5) - This list can be scrolled with the arrow keys, but unless you want to add any tags here it will already have the tags you added when submitting the proposal so you can press Enter to continue. 
 - Push changes? - **Answer "y" for Yes**.
 
 When this is complete, a new directory will be created for your tutorial inside the `tutorials` directory, matching the tutorial slug.
