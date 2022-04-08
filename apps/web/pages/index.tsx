@@ -63,6 +63,7 @@ const LandingPage: NextPage = () => {
                     width={400}
                     height={400}
                     alt="create"
+                    priority={true}
                   />
                 )}
                 {!dark && (
@@ -71,15 +72,28 @@ const LandingPage: NextPage = () => {
                     width={400}
                     height={400}
                     alt="create"
+                    priority={true}
                   />
                 )}
               </div>
               <div className="absolute inset-0 w-[457px]">
                 {dark && (
-                  <Image src={PropD} width={457} height={280} alt="propose" />
+                  <Image
+                    src={PropD}
+                    width={457}
+                    height={280}
+                    alt="propose"
+                    priority={true}
+                  />
                 )}
                 {!dark && (
-                  <Image src={PropL} width={457} height={280} alt="propose" />
+                  <Image
+                    src={PropL}
+                    width={457}
+                    height={280}
+                    alt="propose"
+                    priority={true}
+                  />
                 )}
               </div>
             </div>

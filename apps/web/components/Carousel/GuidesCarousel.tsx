@@ -74,9 +74,23 @@ const Wrapper = ({ hits }) => {
   return (
     <div className="relative w-96">
       <div className="absolute w-[420px] h-[420px] -top-44 -left-6">
-        {dark && <Image src={LearnDark} width={420} height={420} alt="learn" />}
+        {dark && (
+          <Image
+            src={LearnDark}
+            width={420}
+            height={420}
+            alt="learn"
+            priority={true}
+          />
+        )}
         {!dark && (
-          <Image src={LearnLight} width={420} height={420} alt="learn" />
+          <Image
+            src={LearnLight}
+            width={420}
+            height={420}
+            alt="learn"
+            priority={true}
+          />
         )}
       </div>
       <div key={hit.objectID} className={`absolute left-[125px] top-[30px]`}>
