@@ -1,0 +1,18 @@
+name: Trigger Algolia Index on a CRON Schedule
+
+on:
+  schedule:
+    # Runs "every 15 min." (see https://crontab.guru)
+    - cron: '*/15 * * * *'
+
+jobs:
+  index_algolia:
+    name: Index Algolia
+    steps: 
+      - uses: actions/checkout@v2
+        with:
+          ref: dev
+      - uses: ./.github/actions/build-builderdao-cli/
+      - name: cURL request
+        run: |
+          builderdao algolia index
