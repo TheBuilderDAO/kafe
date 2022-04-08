@@ -30,6 +30,7 @@
     "content:deploy": "turbo run content:prepublish content:index  --scope='@builderdao-learn/*' --concurrency=1"
   },
   "devDependencies": {
+    "auto": "^10.36.5",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",

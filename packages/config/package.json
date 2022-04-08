@@ -10,6 +10,9 @@
     "jest-next.js",
     "jest-server.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",

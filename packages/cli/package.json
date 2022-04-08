@@ -27,6 +27,9 @@
   "keywords": [],
   "author": "@builderdao",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@builderdao/config": "*",
     "@builderdao/tsconfig": "*",
