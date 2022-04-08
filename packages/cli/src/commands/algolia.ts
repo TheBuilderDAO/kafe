@@ -1,3 +1,5 @@
+import { BuilderDaoConfigJson, BuilderDaoLockJson } from './../services/builderdao-config.service';
+import fs from 'fs-extra';
 /* eslint-disable no-console */
 import * as commander from 'commander';
 import path from 'path';
@@ -205,14 +207,16 @@ export function makeAlgoliaCommand() {
         });
         const allProposals = await client.getProposals()
         let processedCount = 0;
-        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Array<{ solana: any, ceramic: TutorialMetadata }>) => {
+        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Array<{ solana: any, ceramic: TutorialMetadata, config?: BuilderDaoConfigJson, lock?: BuilderDaoLockJson }>) => {
           // console.log(proposals.map(p => p.));
           const tutorials: Array<TutorialIndex> = tasks.map(t => {
             return {
               objectID: t.solana.id.toNumber(),
               author: t.solana.creator.toString(),
               title: t.ceramic.title,
-              description: t.ceramic.description,
+              // TODO: if It's published use the config description. This is Monkey patch till we have Ceramic metadata update.
+              // https://figmentio.atlassian.net/jira/software/c/projects/LR/boards/71/backlog?view=detail&selectedIssue=LR-328&issueLimit=100&search=ceramic
+              description: getProposalState(t.solana.state) === ProposalStateE.published ? t.config?.description : t.ceramic.description,
               state: getProposalState(t.solana.state),
               slug: t.solana.slug,
               tags: t.ceramic.tags,
@@ -237,10 +241,24 @@ export function makeAlgoliaCommand() {
         });
         const ceramicFetchQueue = async.queue(async (task: { solana: any }) => {
           const proposalDetails = await ceramic.getMetadata(task.solana.streamId);
-          await algoliaUpdateIndexQueue.pushAsync({
-            solana: task.solana,
-            ceramic: proposalDetails
-          })
+          const pathToTutorial = path.join(rootTutorialFolderPath, task.solana.slug);
+          if (!fs.existsSync(pathToTutorial)) {
+            await algoliaUpdateIndexQueue.pushAsync({
+              solana: task.solana,
+              ceramic: proposalDetails
+            })
+          } else {
+            const { config, lock } = new BuilderDaoConfig(pathToTutorial)
+            await config.read();
+            await lock.read();
+            await algoliaUpdateIndexQueue.pushAsync({
+              solana: task.solana,
+              ceramic: proposalDetails,
+              config: config.data!,
+              lock: lock.data!,
+            })
+
+          }
         }, 20)
         allProposals.forEach(async (proposal) => {
           await ceramicFetchQueue.pushAsync({
