@@ -12,6 +12,11 @@ export enum ProposalStateE {
   published = 'published',
 }
 
+export const getProposalState = (proposalState: any): ProposalStateE => {
+  const key = Object.keys(proposalState)[0] as ProposalStateE;
+  return ProposalStateE[key];
+};
+
 /**
  * @param program Dao program.
  * @param mintPk  token mint pk.
