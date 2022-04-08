@@ -2,9 +2,11 @@
 
 import path from 'path';
 /* eslint-disable import/first */
-require('dotenv-flow').config({
+const dotenv = require('dotenv-flow').config({
   path: path.resolve(__dirname, '../')
 });
+const dotenvExpand = require('dotenv-expand')
+dotenvExpand.expand(dotenv)
 
 import chalk from 'chalk';
 import * as commander from 'commander';

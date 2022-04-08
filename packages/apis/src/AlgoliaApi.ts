@@ -154,6 +154,10 @@ class AlgoliaApi {
     await this.index.saveObject(record).wait();
   }
 
+  async upsertTutorials(records: Array<Partial<TutorialIndex>>) {
+    return this.index.partialUpdateObjects(records, { createIfNotExists: true }).wait();
+  }
+
   async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {
     await this.index
       .partialUpdateObject({

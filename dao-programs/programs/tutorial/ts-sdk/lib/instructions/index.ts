@@ -20,6 +20,7 @@ export { default as proposalSetCreator } from './proposalSetCreator';
 export {
   default as proposalSetState,
   ProposalStateE,
+  getProposalState,
 } from './proposalSetState';
 
 export { default as reviewerAssign } from './reviewerAssign';

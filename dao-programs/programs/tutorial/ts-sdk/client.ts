@@ -50,9 +50,11 @@ const providerOptions: { commitment: Commitment } = {
   commitment: 'processed',
 };
 
+export type TutorialProgram = anchor.Program<Tutorial>;
+
 export class TutorialProgramClient {
   public readonly provider: anchor.Provider;
-  public readonly tutorialProgram: anchor.Program<Tutorial>;
+  public readonly tutorialProgram: TutorialProgram;
   public readonly kafeMint: PublicKey;
   public readonly bdrMint: PublicKey;
   public readonly programId: PublicKey;
