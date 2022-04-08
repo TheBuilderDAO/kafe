@@ -198,7 +198,6 @@ export function makeAlgoliaCommand() {
           nodeUrl: string;
         },
       ) => {
-        console.log('Updating index...', options);
         const algoliaClient = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
