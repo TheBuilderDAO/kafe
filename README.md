@@ -122,7 +122,8 @@ Before you can write and sumbit a guide for review, it must be proposed and reac
 
 - You must have a Solana wallet installed in the Chrome browser (we recommend the [Phantom](https://phantom.app) wallet)
 - Your Solana wallet must be connected to the **testnet** cluster
-- You must have at least one KAFE token in your Solana wallet
+- You must have at least one $KAFE token in your Solana wallet
+- Don't have $KAFE and want to participate? Reach out to us on Discord
 
 - Click on “Connect wallet” at the top right of the **[Write](https://dev.builderdao.io/write)** page on Kafé to connect your Solana wallet to the site.
   - The **title** of your proposal should be the title of your guide. Take a minute to think of what would attract readers to view your guide. Keep it short and sweet! _Examples_: “Build a payment dApp on Solana” - “Polygon p2p payment dApp” - “Ceramic schema cookbook”.
