@@ -15,8 +15,14 @@
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mdx",
+    "md"
+  ],
+  "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "ISC",
   "dependencies": {
     "@builderdao/cli": "*",
@@ -41,5 +47,5 @@
   "devDependencies": {
     "@types/diff": "^5.0.2",
     "@types/sort-object-keys": "^1.1.0"
-  }
+  },
 }

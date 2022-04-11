@@ -10,6 +10,7 @@
     "jest-next.js",
     "jest-server.js"
   ],
+  "author": "@builderdao",
   "publishConfig": {
     "access": "public"
   },

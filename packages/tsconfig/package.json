@@ -7,5 +7,9 @@
     "base.json",
     "nextjs.json",
     "react-library.json"
-  ]
+  ],
+  "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  }
 }

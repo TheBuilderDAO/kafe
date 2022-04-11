@@ -26,10 +26,10 @@
   },
   "keywords": [],
   "author": "@builderdao",
-  "license": "ISC",
   "publishConfig": {
     "access": "public"
   },
+  "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
     "@builderdao/tsconfig": "*",
