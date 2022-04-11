@@ -10,6 +10,7 @@ import TutorialTips from '@app/components/TutorialTips/TutorialTips';
 import { BuilderDaoConfigJson } from '@builderdao/cli';
 import _ from 'lodash';
 import { formatDate } from '@app/lib/utils/format-date';
+import UserAvatar from '../components/UserAvatar/UserAvatar';
 
 interface Props {
   tutorialId: number;
@@ -43,22 +44,34 @@ export const TutorialLayout: React.FC<Props> = ({
     <div className="flex justify-between">
       <SectionContainer>
         {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-        <article className="z-50 inline-flex mt-8 border dark:bg-kafeblack bg-kafewhite border-1 border-kafeblack dark:border-kafewhite ">
-          <div className="px-10 py-4">
+        <article className="z-50 inline-flex mt-8 border dark:bg-kafeblack bg-kafewhite border-1 border-kafeblack dark:border-kafewhite">
+          <div className="px-7 py-4">
             <header>
               <div className="pb-5 space-y-1 text-center">
-                <dl>
-                  <div>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6">
-                      <time dateTime={date}>{formatDate(date)}</time>
-                    </dd>
+                {/* The below snippet of code will be uncommented out when we have the author and reviewer info as part of props */}
+                {/* <dl>
+                  <div className="flex justify-between text-xs">
+                    <div className="flex space-x-1 items-center">
+                      <p>Guide by</p>
+                      <UserAvatar address={'eskimo.sol'} ellipsis={false} />
+                      <div>
+                        <dt className="sr-only">Published on</dt>
+                        <dd className="text-xs font-medium leading-6 ml-4">
+                          <time dateTime={date}>{formatDate(date)}</time>
+                        </dd>
+                      </div>
+                    </div>
+                    <div className="flex space-x-2 items-center">
+                      <p>Reviewed by</p>
+                      <UserAvatar address={'dustin54.sol'} ellipsis={false} />
+                      <UserAvatar address={'hsdragon.sol'} ellipsis={false} />
+                    </div>
                   </div>
-                </dl>
-                <div className="font-larken">
+                </dl> */}
+                <div className="font-larken pt-12">
                   <PageTitle>{title}</PageTitle>
                 </div>
-                <div className="py-4 font-thin text-left">{description}</div>
+                <p className="pt-4 pb-2 font-thin text-left">{description}</p>
                 <div className="text-left">
                   <Tags
                     tags={_.uniq([...config.categories, ...keywords])}

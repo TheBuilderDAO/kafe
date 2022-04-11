@@ -30,6 +30,7 @@ import {
   airdrop,
   proposalClose,
   proposalCreate,
+  proposalSetCreator,
   reviewerAssign,
   reviewerCreate,
   reviewerDelete,
@@ -50,9 +51,11 @@ const providerOptions: { commitment: Commitment } = {
   commitment: 'processed',
 };
 
+export type TutorialProgram = anchor.Program<Tutorial>;
+
 export class TutorialProgramClient {
   public readonly provider: anchor.Provider;
-  public readonly tutorialProgram: anchor.Program<Tutorial>;
+  public readonly tutorialProgram: TutorialProgram;
   public readonly kafeMint: PublicKey;
   public readonly bdrMint: PublicKey;
   public readonly programId: PublicKey;
@@ -194,6 +197,7 @@ export class TutorialProgramClient {
   async castVote(proposalId: number) {
     return voteCast({
       program: this.tutorialProgram,
+      mintBdrPk: this.bdrMint,
       proposalId,
       voterPk: this.provider.wallet.publicKey,
     });
@@ -217,6 +221,7 @@ export class TutorialProgramClient {
     return proposalCreate({
       program: this.tutorialProgram,
       mintPk: this.kafeMint,
+      mintBdrPk: this.bdrMint,
       proposalId: data.id,
       userPk: data.userPk,
       slug: data.slug,
@@ -326,22 +331,42 @@ export class TutorialProgramClient {
   }): Promise<string> {
     return proposalPublish({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
+      mintKafePk: this.kafeMint,
+      mintBdrPk: this.bdrMint,
       proposalId: data.id,
       adminPk: data.adminPk,
       authorPk: data.authorPk,
     });
   }
 
+  async proposalSetAuthor(data: {
+    creatorPk: anchor.web3.PublicKey;
+    adminKp: anchor.web3.Keypair;
+    id: number;
+  }): Promise<string> {
+    return proposalSetCreator({
+      program: this.tutorialProgram,
+      mintKafePk: this.kafeMint,
+      mintBDRPk: this.bdrMint,
+      proposalId: data.id,
+      creatorPk: data.creatorPk,
+      authorityKp: data.adminKp,
+    });
+  }
+
   async airdrop(data: {
     memberPk: anchor.web3.PublicKey;
     authority: anchor.web3.Keypair;
+    isKafeDrop?: boolean;
+    isBdrDrop?: boolean;
   }): Promise<string> {
     return airdrop({
       program: this.tutorialProgram,
       memberPk: data.memberPk,
       mintKafePk: this.kafeMint,
       mintBdrPk: this.bdrMint,
+      kafeDrop: data.isKafeDrop,
+      bdrDrop: data.isBdrDrop,
       authority: data.authority,
     });
   }

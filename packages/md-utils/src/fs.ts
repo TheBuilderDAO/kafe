@@ -176,6 +176,12 @@ export const getTutorialContentByPath = async ({
   };
 };
 
+export const getRelativePathForFile = (
+  fileName: string | undefined = 'index',
+) => {
+  const extenstion = path.extname(fileName) ? path.extname(fileName) : 'mdx';
+  return path.join('content', `${fileName}.${extenstion}`);
+};
 /**
  *
  * @param packageName the name of the package to get the content from (e.g. 'solana-wallet-tutorial') literaly name of the package.json except the '@builderdao-tutorials'
@@ -188,8 +194,7 @@ export const getPathForFile = (
 ) => {
   return path.join(
     getPathForRootFolder(packageName),
-    'content',
-    `${mdFileName}.mdx`,
+    getRelativePathForFile(mdFileName),
   );
 };
 

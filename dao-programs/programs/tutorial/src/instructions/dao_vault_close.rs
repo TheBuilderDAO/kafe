@@ -7,6 +7,7 @@ use anchor_spl::token::{
   Transfer,
   CloseAccount,
   SetAuthority,
+  ThawAccount, 
 };
 
 use crate::errors::*;
@@ -31,6 +32,27 @@ pub struct DaoVaultClose<'info> {
 }
 
 pub fn handler(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool) -> Result<()> {
+  if ctx.accounts.super_admin_token_account.is_frozen() { 
+    let cpi_program5 = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts5 = ThawAccount {
+      account: ctx.accounts.super_admin_token_account.to_account_info(),
+      mint: ctx.accounts.mint.to_account_info(),
+      authority: ctx.accounts.dao_vault.to_account_info(),
+    };
+
+    token::thaw_account(
+      CpiContext::new_with_signer(
+        cpi_program5,
+        cpi_accounts5,
+        &[&[
+          PROGRAM_SEED.as_bytes(),
+          ctx.accounts.mint.key().as_ref(),
+          &[bump],
+        ]],
+      ),
+    )?;
+  }
+  
   let cpi_program = ctx.accounts.token_program.to_account_info();
   let cpi_accounts = Transfer {
     from: ctx.accounts.dao_vault.to_account_info(),
@@ -89,8 +111,6 @@ pub fn handler(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool)
       ]],
     ),
   )?;
-
-
 
   Ok(())
 }

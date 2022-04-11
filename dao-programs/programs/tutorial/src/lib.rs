@@ -13,8 +13,14 @@ declare_id!("prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp");
 pub mod tutorial {
   use super::*;
 
-  pub fn airdrop(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8) -> Result<()> {
-    instructions::airdrop::handler(ctx, bump_kafe, bump_bdr)
+  pub fn airdrop(
+    ctx: Context<Airdrop>,
+    bump_kafe: u8,
+    bump_bdr: u8,
+    is_kafe_drop: bool,
+    is_bdr_drop: bool,
+  ) -> Result<()> {
+    instructions::airdrop::handler(ctx, bump_kafe, bump_bdr, is_kafe_drop, is_bdr_drop)
   }
 
   pub fn dao_add_admin(ctx: Context<DaoAddAdmin>, admin: Pubkey) -> Result<()> {
@@ -92,22 +98,23 @@ pub mod tutorial {
   pub fn proposal_create(
     ctx: Context<ProposalCreate>,
     bump: u8,
+    bump_bdr: u8,
     slug: String,
     stream_id: String,
   ) -> Result<()> {
-    instructions::proposal_create::handler(ctx, bump, slug, stream_id)
+    instructions::proposal_create::handler(ctx, bump, bump_bdr, slug, stream_id)
   }
 
-  pub fn proposal_publish(ctx: Context<ProposalPublish>, bump: u8) -> Result<()> {
-    instructions::proposal_publish::handler(ctx, bump)
+  pub fn proposal_publish(ctx: Context<ProposalPublish>, bump: u8, bump_bdr: u8) -> Result<()> {
+    instructions::proposal_publish::handler(ctx, bump, bump_bdr)
   }
 
   pub fn proposal_set_state(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
     instructions::proposal_set_state::handler(ctx, state)
   }
 
-  pub fn proposal_set_creator(ctx: Context<ProposalSetCreator>, bump: u8) -> Result<()> {
-    instructions::proposal_set_creator::handler(ctx, bump)
+  pub fn proposal_set_creator(ctx: Context<ProposalSetCreator>, bump: u8, bump_bdr: u8) -> Result<()> {
+    instructions::proposal_set_creator::handler(ctx, bump, bump_bdr)
   }
 
   pub fn reviewer_assign(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
@@ -135,7 +142,7 @@ pub mod tutorial {
     instructions::vote_cancel::handler(ctx)
   }
 
-  pub fn vote_cast(ctx: Context<VoteCast>, bump: u8, tutorial_id: u64) -> Result<()> {
-    instructions::vote_cast::handler(ctx, bump, tutorial_id)
+  pub fn vote_cast(ctx: Context<VoteCast>, bump: u8, tutorial_id: u64, bump_bdr: u8) -> Result<()> {
+    instructions::vote_cast::handler(ctx, bump, tutorial_id, bump_bdr)
   }
 }

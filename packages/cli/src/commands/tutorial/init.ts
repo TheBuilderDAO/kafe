@@ -249,10 +249,7 @@ export const TutorialInitCommand = () => {
           await template.setTags(q.answer.join(','));
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
           await config.config.read();
-          const tags = q.answer.map((t: string) => ({
-            name: t,
-            slug: t.toLowerCase(),
-          }));
+          const tags = q.answer;
           config.config.chain.set('categories', tags).value();
           await config.config.write();
           emitter.next({

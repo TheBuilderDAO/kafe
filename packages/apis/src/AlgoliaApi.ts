@@ -52,12 +52,12 @@ class AlgoliaApi {
       "tags",
     ];
 
-    const numberOfVotesAscReplica = this.client.initIndex(`${this.index.indexName}_numberOfVotes_asc`);
-    const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_numberOfVotes_desc`);
-    const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_lastUpdatedAt_asc`);
-    const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_lastUpdatedAt_desc`);
-    const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_totalTips_asc`);
-    const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_totalTips_desc`);
+    const numberOfVotesAscReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_asc`);
+    const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_desc`);
+    const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_asc`);
+    const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_desc`);
+    const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_total_tips_asc`);
+    const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_total_tips_desc`);
 
     await this.index.setSettings({
       searchableAttributes,
@@ -133,12 +133,12 @@ class AlgoliaApi {
   }
 
   async delete() {
-    const numberOfVotesAscReplica = this.client.initIndex(`${this.index.indexName}_numberOfVotes_asc`);
-    const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_numberOfVotes_desc`);
-    const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_lastUpdatedAt_asc`);
-    const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_lastUpdatedAt_desc`);
-    const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_totalTips_asc`);
-    const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_totalTips_desc`);
+    const numberOfVotesAscReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_asc`);
+    const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_desc`);
+    const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_asc`);
+    const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_desc`);
+    const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_total_tips_asc`);
+    const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_total_tips_desc`);
 
     await this.index.delete();
 
@@ -152,6 +152,10 @@ class AlgoliaApi {
 
   async createTutorial(record: Partial<TutorialIndex>) {
     await this.index.saveObject(record).wait();
+  }
+
+  async upsertTutorials(records: Array<Partial<TutorialIndex>>) {
+    return this.index.partialUpdateObjects(records, { createIfNotExists: true }).wait();
   }
 
   async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {
