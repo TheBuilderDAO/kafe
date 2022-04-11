@@ -118,7 +118,7 @@ builderdao tutorial init
 
 ## Proposing a guide on Kafé
 
-Before you can write and sumbit a guide for review, it must be proposed and reach quorum on the [Kafé site](https://dev.builderdao.io/). Requirements for the proposal process:
+Before you can write and submit a guide for review, it must be proposed and reach quorum on the [Kafé site](https://dev.builderdao.io/). Requirements for the proposal process:
 
 - You must have a Solana wallet installed in the Chrome browser (we recommend the [Phantom](https://phantom.app) wallet)
 - Your Solana wallet must be connected to the **testnet** cluster
