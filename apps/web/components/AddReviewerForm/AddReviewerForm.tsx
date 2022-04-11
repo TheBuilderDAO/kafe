@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { useReviewerCreate } from '@builderdao/program-tutorial';
+import { useReviewerCreate } from '@builderdao/use-program-tutorial';
 import { useDapp } from '../../hooks/useDapp';
 import { useForm } from 'react-hook-form';
 import { PublicKey } from '@solana/web3.js';

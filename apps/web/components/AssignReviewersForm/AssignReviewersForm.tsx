@@ -6,7 +6,7 @@ import { PublicKey } from '@solana/web3.js';
 import {
   useReviewersAssign,
   useGetListOfReviewers,
-} from '@builderdao/program-tutorial';
+} from '@builderdao/use-program-tutorial';
 import { Tutorial } from '@app/types/index';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';

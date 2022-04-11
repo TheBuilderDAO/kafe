@@ -6,7 +6,7 @@ import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import {
   useProposeTutorial as solanaUseProposeTutorial,
   useTutorialProgram,
-} from '@builderdao/program-tutorial';
+} from '@builderdao/use-program-tutorial';
 import { TutorialMetadata } from '@builderdao/apis/src';
 
 type StoreMetadataResponse = {

@@ -6,7 +6,7 @@ import {
   TutorialProgramClient,
   TutorialProgramConfig,
   TutorialProgramContextProvider,
-} from '@builderdao/program-tutorial';
+} from '@builderdao/use-program-tutorial';
 import { Cluster, clusterApiUrl, Connection, PublicKey } from '@solana/web3.js';
 import {
   CERAMIC_SEED,

@@ -2,7 +2,7 @@ import RightSidebar from 'layouts/PublicLayout/RightSidebar';
 import Eyecon from 'public/assets/icons/eyes.svg';
 import Image from 'next/image';
 import AssignReviewersForm from '../AssignReviewersForm/AssignReviewersForm';
-import { ProposalStateE, useIsAdmin } from '@builderdao/program-tutorial';
+import { ProposalStateE, useIsAdmin } from '@builderdao/use-program-tutorial';
 import { ZERO_ADDRESS } from '@app/constants';
 import { useDapp } from '../../hooks/useDapp';
 import { useMemo } from 'react';

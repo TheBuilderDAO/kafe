@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { TutorialProgramClient } from '../..';
+import { TutorialProgramClient } from "@builderdao/program-tutorial";
 
 type DappContextTypes = {
   tutorialProgram: TutorialProgramClient | null;

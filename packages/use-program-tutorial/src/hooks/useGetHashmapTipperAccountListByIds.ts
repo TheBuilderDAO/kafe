@@ -1,3 +1,4 @@
+import { TipperAccount } from '@builderdao/program-tutorial';
 import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './index';
@@ -13,7 +14,7 @@ export const useGetHashmapTipperAccountListByIds = <D>(
   );
 
   return {
-    tippers: data,
+    tippers: data as { [tutorialAccountId: string]: TipperAccount },
     loading: !error && !data,
     error,
   };

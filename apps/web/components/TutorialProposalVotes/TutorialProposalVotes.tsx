@@ -4,7 +4,7 @@ import {
   ProposalStateE,
   useGetDaoState,
   useGetListOfVotersById,
-} from '@builderdao/program-tutorial';
+} from '@builderdao/use-program-tutorial';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import Loader from '@app/components/Loader/Loader';

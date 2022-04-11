@@ -1,7 +1,7 @@
 import React from 'react';
 import CancelVoteButton from './CancelVoteButton';
 import CastVoteButton from './CastVoteButton';
-import { ProposalStateE, useGetVote } from '@builderdao/program-tutorial';
+import { ProposalStateE, useGetVote } from '@builderdao/use-program-tutorial';
 import { useDapp } from '../../hooks/useDapp';
 import Loader from '@app/components/Loader/Loader';
 

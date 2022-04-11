@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { useReviewerDelete } from '@builderdao/program-tutorial';
+import { useReviewerDelete } from '@builderdao/use-program-tutorial';
 import { useDapp } from '../../hooks/useDapp';
 import { PublicKey } from '@solana/web3.js';
 import toast from 'react-hot-toast';

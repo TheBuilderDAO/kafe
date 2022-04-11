@@ -1,3 +1,4 @@
+import { VoteAccount } from '@builderdao/program-tutorial';
 import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './index';
@@ -13,7 +14,7 @@ export const useGetHashmapVoterAccountListByIds = <D>(
   );
 
   return {
-    voters: data,
+    voters: data as { [tutorialAccountId: string]: VoteAccount },
     loading: !error && !data,
     error,
   };

@@ -1,11 +1,10 @@
-import { IdlAccounts, Program } from '@project-serum/anchor';
+import { ReviewerAccount, AccountResult } from '@builderdao/program-tutorial';
 import useSWR from 'swr';
-import { Tutorial } from '../idl/tutorial';
 import routes from '../routes';
 import { useTutorialProgram } from './index';
 
 type reviewersMap = {
-  [publicKey: string]: IdlAccounts<Tutorial>["reviewerAccount"]
+  [publicKey: string]: ReviewerAccount
 }
 export const useGetListOfReviewers = <D>() => {
   const tutorialProgram = useTutorialProgram();
@@ -17,7 +16,7 @@ export const useGetListOfReviewers = <D>() => {
 
   return {
     reviewers: data,
-    reviewersMap: data?.reduce((prev, curr) => {
+    reviewersMap: data?.reduce((prev: reviewersMap, curr: AccountResult<ReviewerAccount>) => {
       prev[curr.publicKey.toString()] = curr.account;
       return prev;
     }, {} as reviewersMap),

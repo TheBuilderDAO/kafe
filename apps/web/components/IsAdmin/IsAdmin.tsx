@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useIsAdmin } from '@builderdao/program-tutorial';
+import { useIsAdmin } from '@builderdao/use-program-tutorial';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 type IsAdminProps = {

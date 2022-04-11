@@ -1,6 +1,6 @@
 import React from 'react';
 import { connectRefinementList } from 'react-instantsearch-dom';
-import { ProposalStateE } from '@builderdao/program-tutorial';
+import { ProposalStateE } from '@builderdao/use-program-tutorial';
 
 const GuideStateTabs = ({ currentRefinement, refine, createURL }) => {
   return (

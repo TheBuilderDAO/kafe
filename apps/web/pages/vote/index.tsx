@@ -10,7 +10,7 @@ import Banner from '@app/components/Banner';
 import {
   ProposalStateE,
   useGetListOfProposals,
-} from '@builderdao/program-tutorial';
+} from '@builderdao/use-program-tutorial';
 import ProposalStateTabs from '@app/components/Search/ProposalStateTabs';
 
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';
