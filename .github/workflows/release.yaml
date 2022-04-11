@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev 
+      - nk/publishing_npm
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
