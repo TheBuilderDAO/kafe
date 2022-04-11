@@ -16,5 +16,6 @@
   },
   "keywords": "CLI,Rust",
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

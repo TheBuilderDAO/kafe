@@ -23,5 +23,6 @@
     "Remix"
   ],
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

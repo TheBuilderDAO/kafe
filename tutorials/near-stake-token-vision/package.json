@@ -22,5 +22,6 @@
     "Rust"
   ],
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

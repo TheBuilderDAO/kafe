@@ -16,5 +16,6 @@
   },
   "keywords": "Near,CLI",
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

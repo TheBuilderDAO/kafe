@@ -16,5 +16,6 @@
   },
   "keywords": "Solana",
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

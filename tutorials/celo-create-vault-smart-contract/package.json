@@ -24,5 +24,6 @@
     "Truffle"
   ],
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

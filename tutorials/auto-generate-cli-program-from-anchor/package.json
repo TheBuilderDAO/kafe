@@ -16,5 +16,7 @@
   },
   "keywords": "Solana,CLI",
   "author": "",
+  "private": "true",
+  "private": "true",
   "license": "ISC"
 }

@@ -23,5 +23,6 @@
     "Typescript"
   ],
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

@@ -21,5 +21,6 @@
     "Metamask"
   ],
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

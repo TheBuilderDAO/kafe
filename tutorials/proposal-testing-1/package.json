@@ -16,5 +16,6 @@
   },
   "keywords": "CLI,Waffle",
   "author": "",
+  "private": "true",
   "license": "ISC"
 }

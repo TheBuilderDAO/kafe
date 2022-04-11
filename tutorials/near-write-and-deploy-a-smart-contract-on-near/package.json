@@ -23,5 +23,6 @@
     "CLI"
   ],
   "author": "",
+  "private": "true",
   "license": "ISC"
 }
