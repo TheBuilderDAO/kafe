@@ -1,5 +1,5 @@
 {
-  "name": "migration",
+  "name": "@builderdao/migration",
   "version": "0.0.1",
   "description": "",
   "types": "./dist/index.d.ts",
