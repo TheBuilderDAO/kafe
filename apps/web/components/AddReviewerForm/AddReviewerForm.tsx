@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { useReviewerCreate } from '@builderdao-sdk/dao-program';
+import { useReviewerCreate } from '@builderdao/program-tutorial';
 import { useDapp } from '../../hooks/useDapp';
 import { useForm } from 'react-hook-form';
 import { PublicKey } from '@solana/web3.js';
@@ -21,7 +21,7 @@ const AddReviewerForm = (props: AddReviewerFormProps) => {
   const onSubmit = useCallback(
     async (data: FormData) => {
       try {
-        const reviewerPk =  new PublicKey(data.reviewerPublicKey)
+        const reviewerPk = new PublicKey(data.reviewerPublicKey);
         const tx = createReviewer({
           authorityPk: wallet.publicKey,
           reviewerPk: new PublicKey(data.reviewerPublicKey),
@@ -29,10 +29,10 @@ const AddReviewerForm = (props: AddReviewerFormProps) => {
         });
 
         toast.promise(tx, {
-          loading: "Creating Reviewer",
-          success: "Reviewer added successfully",
-          error: "Error adding reviewer",
-        })
+          loading: 'Creating Reviewer',
+          success: 'Reviewer added successfully',
+          error: 'Error adding reviewer',
+        });
 
         reset();
       } catch (err) {

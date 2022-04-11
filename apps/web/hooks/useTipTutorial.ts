@@ -6,7 +6,7 @@ import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import {
   useGuideTipping,
   useTutorialProgram,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/program-tutorial';
 
 export const useTipTutorial = <AD>(): [
   (data: AD) => Promise<void>,

@@ -1,6 +1,6 @@
 {
   "name": "@builderdao/cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "types": "./dist/index.d.ts",
   "source": "./src/cli.ts",
@@ -42,7 +42,7 @@
     "eslint": "^8.9.0"
   },
   "dependencies": {
-    "@builderdao-sdk/dao-program": "*",
+    "@builderdao/program-tutorial": "*",
     "@builderdao/apis": "*",
     "@builderdao/data": "*",
     "@builderdao/md-utils": "*",

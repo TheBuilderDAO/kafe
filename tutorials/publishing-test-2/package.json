@@ -16,6 +16,6 @@
   },
   "keywords": "Ceramic,Solana",
   "author": "",
-  "private": "true",
+  "private": true,
   "license": "ISC"
 }

@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { TutorialIndex } from '@app/types/index';
 import { AlgoliaApi } from '@builderdao/apis';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import { ProposalStateE } from '@builderdao/program-tutorial';
 import {
   ALGOLIA_SEARCH_ADMIN_KEY,
   NEXT_PUBLIC_ALGOLIA_APP_ID,

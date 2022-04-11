@@ -1,4 +1,10 @@
-# @builderdao-sdk/dao-program
+# @builderdao/program-tutorial
+
+## 0.0.3
+
+### Patch Changes
+
+- This version has been bumped due to inconsistent versioning
 
 ## 0.0.2
 

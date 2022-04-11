@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import LeftSidebar from './LeftSidebar';
 import Header from './Header';
 import Content from './Content';
-import { useGetDaoState } from '@builderdao-sdk/dao-program';
+import { useGetDaoState } from '@builderdao/program-tutorial';
 import Wrapper from './Wrapper';
 import { Notifications } from '@app/components/Notifications/Notifications';
 import coffeeFull from '/public/assets/icons/coffee_cup_vote_complete.svg';

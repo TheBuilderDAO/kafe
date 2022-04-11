@@ -12,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@builderdao-sdk/dao-program": "*",
+    "@builderdao/program-tutorial": "*",
     "@builderdao/apis": "*",
     "@builderdao/cli": "*",
     "@builderdao/data": "*",

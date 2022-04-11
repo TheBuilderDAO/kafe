@@ -10,7 +10,7 @@ import Banner from '@app/components/Banner';
 import {
   ProposalStateE,
   useGetListOfProposals,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/program-tutorial';
 import ProposalStateTabs from '@app/components/Search/ProposalStateTabs';
 
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';

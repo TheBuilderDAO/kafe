@@ -6,7 +6,7 @@ import {
   useCastVote as solanaUseCastVote,
   useGetDaoState,
   useTutorialProgram,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/program-tutorial';
 
 type IndexVotesData = {
   id: number;

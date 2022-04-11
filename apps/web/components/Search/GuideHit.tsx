@@ -2,7 +2,7 @@ import Tags from '../Tags/Tags';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import routes from '../../routes';
 import Link from 'next/link';
-import { useGetListOfTippersById } from '@builderdao-sdk/dao-program';
+import { useGetListOfTippersById } from '@builderdao/program-tutorial';
 import ImageStack from '@app/components/ImageStack';
 import React from 'react';
 import Loader from '../Loader/Loader';

@@ -1,4 +1,4 @@
-import { useGetHashmapTipperAccountListByIds } from '@builderdao-sdk/dao-program';
+import { useGetHashmapTipperAccountListByIds } from '@builderdao/program-tutorial';
 import _ from 'lodash';
 import { connectHits } from 'react-instantsearch-dom';
 import GuideHit from './GuideHit';

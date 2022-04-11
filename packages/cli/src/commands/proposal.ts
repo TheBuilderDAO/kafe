@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { filterProposalByState, ProposalStateE } from '@builderdao-sdk/dao-program';
+import { filterProposalByState, ProposalStateE } from '@builderdao/program-tutorial';
 import { CeramicApi } from '@builderdao/apis';
 import _ from 'lodash';
 

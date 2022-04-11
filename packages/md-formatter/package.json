@@ -1,6 +1,6 @@
 {
   "name": "@builderdao/md-formatter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "types": "./dist/cli.d.ts",
   "source": "./src/cli.ts",

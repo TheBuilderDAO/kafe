@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { useReviewerDelete } from '@builderdao-sdk/dao-program';
+import { useReviewerDelete } from '@builderdao/program-tutorial';
 import { useDapp } from '../../hooks/useDapp';
 import { PublicKey } from '@solana/web3.js';
 import toast from 'react-hot-toast';
@@ -23,10 +23,10 @@ const DeleteReviewerButton = (props: DeleteReviewerButtonProps) => {
       });
 
       toast.promise(tx, {
-        loading: "Deleting Reviewer",
+        loading: 'Deleting Reviewer',
         success: `Reviewer deleted successfully`,
         error: `Error deleting reviewer`,
-      })
+      });
     } catch (err) {
       toast.error(err.message);
     }

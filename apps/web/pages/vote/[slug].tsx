@@ -9,7 +9,7 @@ import { unstable_serialize } from 'swr';
 import routes from '../../routes';
 import { useGetTutorialBySlugWithMetadata } from 'services/ApplicationFetcher';
 import TutorialProposalVotes from '@app/components/TutorialProposalVotes/TutorialProposalVotes';
-import { ProposalStateE, useGetReviewer } from '@builderdao-sdk/dao-program';
+import { ProposalStateE, useGetReviewer } from '@builderdao/program-tutorial';
 import { PublicKey } from '@solana/web3.js';
 import { ZERO_ADDRESS } from '../../constants';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';

@@ -1,7 +1,7 @@
 import Tags from '../Tags/Tags';
 import VoteButton from '@app/components/VoteButton/VoteButton';
 import BorderSVG from '../SVG/BorderSVG';
-import { useGetDaoState } from '@builderdao-sdk/dao-program';
+import { useGetDaoState } from '@builderdao/program-tutorial';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import ImageStack from '../ImageStack';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
