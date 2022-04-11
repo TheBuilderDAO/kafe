@@ -3,12 +3,12 @@
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
 import { filterProposalByState, ProposalStateE } from '@builderdao-sdk/dao-program';
+import { CeramicApi } from '@builderdao/apis';
+import _ from 'lodash';
 
 import { getClient } from '../client';
 import { log as _log, createKeypairFromSecretKey } from '../utils';
 import { BuilderDaoConfig } from '../services';
-import { CeramicApi } from '@builderdao/apis';
-import _ from 'lodash';
 
 function myParseInt(value: string) {
   // parseInt takes a string and a radix
@@ -34,6 +34,7 @@ export function makeProposalCommand() {
 
   let client = getClient({
     kafePk: proposal.optsWithGlobals().kafePk,
+    bdrPk: proposal.optsWithGlobals().bdrPk,
     network: proposal.optsWithGlobals().network,
     payer: proposal.optsWithGlobals().payer,
   });
@@ -69,6 +70,7 @@ export function makeProposalCommand() {
       ) => {
         client = getClient({
           kafePk: proposal.optsWithGlobals().kafePk,
+          bdrPk: proposal.optsWithGlobals().bdrPk,
           network: proposal.optsWithGlobals().network,
           payer: options.adminKp,
         });
@@ -120,6 +122,7 @@ export function makeProposalCommand() {
       ) => {
         client = getClient({
           kafePk: proposal.optsWithGlobals().kafePk,
+          bdrPk: proposal.optsWithGlobals().bdrPk,
           network: proposal.optsWithGlobals().network,
           payer: options.adminKp,
         });
@@ -165,6 +168,7 @@ export function makeProposalCommand() {
       ) => {
         client = getClient({
           kafePk: proposal.optsWithGlobals().kafePk,
+          bdrPk: proposal.optsWithGlobals().bdrPk,
           network: proposal.optsWithGlobals().network,
           payer: options.adminKp,
         });
@@ -223,6 +227,7 @@ Notes:
       new commander.Option('--skip-ceramic', 'Skip Ceramic').default(false)
     )
     .action(async options => {
+      // eslint-disable-next-line @typescript-eslint/no-shadow
       let proposal: any;
       if (options.slug) {
         proposal = await client.getTutorialBySlug(options.slug)

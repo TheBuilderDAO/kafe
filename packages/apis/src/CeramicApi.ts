@@ -4,6 +4,13 @@ import KeyDidResolver from 'key-did-resolver';
 import { DID } from 'dids';
 import { Ed25519Provider } from 'key-did-provider-ed25519';
 
+export type TutorialContent = {
+  name: string;
+  path: string;
+  digest: string;
+  arweaveHash?: string;
+}
+
 export type TutorialMetadata = {
   title: string;
   slug: string;
@@ -11,11 +18,8 @@ export type TutorialMetadata = {
   difficulty: string;
   tags: string[];
   publishedUri?: string;
-  content: {[filename: string]: {
-    name: string;
-    path: string;
-    digest: string;
-  }};
+  createdAt: number;
+  content?: { [filename: string]: TutorialContent };
 };
 
 export type ApiConfig = {

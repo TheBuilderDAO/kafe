@@ -3,6 +3,7 @@ permissions:
   contents: read
   pull-requests: write
 on:
+  pull_request_review:
   pull_request_target:
     types: [opened, reopened, synchronize]
     branches:
@@ -175,7 +176,7 @@ jobs:
               repo: context.repo.repo,
               labels: ['ready_to_publish']
             })
-      - name: prending_label
+      - name: pending_label
         if: contains(steps.check_all_reviewers_approved.outputs.state, 'writing')
         uses: actions/github-script@v6
         with:

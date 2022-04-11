@@ -55,12 +55,12 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9d62aa01ef4e1aca086f5f983e8465d8f110d3656e57e2d157d8f54ae0fc80ca",
-      "arweaveHash": "nRPoF7GkNAjjnMpxy9NnX63zHN-wKBYGdiZRaSu5s64"
+      "digest": "dfbd2a3ab169b4e8a682f6d3824cc99cb8e609225468d06fbef476cbe856e903",
+      "arweaveHash": "DTalchzu1avwSEOoJahrys4NI_8I-nGgNO_L8AJvPwk"
     },
-    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png": {
-      "name": "avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png",
-      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.png",
+    "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.gif": {
+      "name": "avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.gif",
+      "path": "content/assets/avalanche-create-a-chat-application-using-solidity-and-react-user-registration-and-adding-a-new-friend-3.gif",
       "digest": "c0ddd930a334eadb988bad6cdaac547a0335152d9735298d02776cef6c217a07"
     }
   },

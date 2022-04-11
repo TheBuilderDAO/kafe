@@ -3,6 +3,74 @@ export type Tutorial = {
   name: 'tutorial';
   instructions: [
     {
+      name: 'airdrop';
+      accounts: [
+        {
+          name: 'daoAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultKafe';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintKafe';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'kafeTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'bdrTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
+          isMut: true;
+          isSigner: true;
+        },
+      ];
+      args: [
+        {
+          name: 'bumpKafe';
+          type: 'u8';
+        },
+        {
+          name: 'bumpBdr';
+          type: 'u8';
+        },
+        {
+          name: 'isKafeDrop';
+          type: 'bool';
+        },
+        {
+          name: 'isBdrDrop';
+          type: 'bool';
+        },
+      ];
+    },
+    {
       name: 'daoAddAdmin';
       accounts: [
         {
@@ -469,10 +537,29 @@ export type Tutorial = {
           isMut: false;
           isSigner: false;
         },
+        {
+          name: 'bdrTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
       ];
       args: [
         {
           name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'bumpBdr';
           type: 'u8';
         },
         {
@@ -523,10 +610,39 @@ export type Tutorial = {
           isMut: false;
           isSigner: false;
         },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'bdrTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer1TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'reviewer2TokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
       ];
       args: [
         {
           name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'bumpBdr';
           type: 'u8';
         },
       ];
@@ -601,7 +717,22 @@ export type Tutorial = {
           isSigner: false;
         },
         {
-          name: 'superAdmin';
+          name: 'bdrTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'authority';
           isMut: true;
           isSigner: true;
         },
@@ -609,6 +740,10 @@ export type Tutorial = {
       args: [
         {
           name: 'bump';
+          type: 'u8';
+        },
+        {
+          name: 'bumpBdr';
           type: 'u8';
         },
       ];
@@ -820,6 +955,26 @@ export type Tutorial = {
           isSigner: false;
         },
         {
+          name: 'tokenProgram';
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: 'bdrTokenAccount';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'daoVaultBdr';
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: 'mintBdr';
+          isMut: false;
+          isSigner: false;
+        },
+        {
           name: 'author';
           isMut: true;
           isSigner: true;
@@ -833,6 +988,10 @@ export type Tutorial = {
         {
           name: 'tutorialId';
           type: 'u64';
+        },
+        {
+          name: 'bumpBdr';
+          type: 'u8';
         },
       ];
     },
@@ -1115,6 +1274,74 @@ export const IDL: Tutorial = {
   version: '0.1.0',
   name: 'tutorial',
   instructions: [
+    {
+      name: 'airdrop',
+      accounts: [
+        {
+          name: 'daoAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultKafe',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintKafe',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'kafeTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'bdrTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
+          isMut: true,
+          isSigner: true,
+        },
+      ],
+      args: [
+        {
+          name: 'bumpKafe',
+          type: 'u8',
+        },
+        {
+          name: 'bumpBdr',
+          type: 'u8',
+        },
+        {
+          name: 'isKafeDrop',
+          type: 'bool',
+        },
+        {
+          name: 'isBdrDrop',
+          type: 'bool',
+        },
+      ],
+    },
     {
       name: 'daoAddAdmin',
       accounts: [
@@ -1582,10 +1809,29 @@ export const IDL: Tutorial = {
           isMut: false,
           isSigner: false,
         },
+        {
+          name: 'bdrTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
       ],
       args: [
         {
           name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'bumpBdr',
           type: 'u8',
         },
         {
@@ -1636,10 +1882,39 @@ export const IDL: Tutorial = {
           isMut: false,
           isSigner: false,
         },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'bdrTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer1TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'reviewer2TokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
       ],
       args: [
         {
           name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'bumpBdr',
           type: 'u8',
         },
       ],
@@ -1714,7 +1989,22 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
-          name: 'superAdmin',
+          name: 'bdrTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'authority',
           isMut: true,
           isSigner: true,
         },
@@ -1722,6 +2012,10 @@ export const IDL: Tutorial = {
       args: [
         {
           name: 'bump',
+          type: 'u8',
+        },
+        {
+          name: 'bumpBdr',
           type: 'u8',
         },
       ],
@@ -1933,6 +2227,26 @@ export const IDL: Tutorial = {
           isSigner: false,
         },
         {
+          name: 'tokenProgram',
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: 'bdrTokenAccount',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'daoVaultBdr',
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: 'mintBdr',
+          isMut: false,
+          isSigner: false,
+        },
+        {
           name: 'author',
           isMut: true,
           isSigner: true,
@@ -1946,6 +2260,10 @@ export const IDL: Tutorial = {
         {
           name: 'tutorialId',
           type: 'u64',
+        },
+        {
+          name: 'bumpBdr',
+          type: 'u8',
         },
       ],
     },

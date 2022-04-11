@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-import path from 'path'; 
+import path from 'path';
 /* eslint-disable import/first */
-require('dotenv-flow').config({
+const dotenv = require('dotenv-flow').config({
   path: path.resolve(__dirname, '../')
 });
+const dotenvExpand = require('dotenv-expand')
+dotenvExpand.expand(dotenv)
 
 import chalk from 'chalk';
 import * as commander from 'commander';
@@ -19,6 +21,7 @@ import { makeArweaveCommand } from './commands/arweave';
 import { makeCeramicCommand } from './commands/ceramic';
 import { makeAlgoliaCommand } from './commands/algolia';
 import { makeTutorialCommand } from './commands/tutorial';
+import { makeAdminCommand } from './commands/admin';
 
 const program = new commander.Command();
 program
@@ -35,11 +38,11 @@ program
   ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝
       `,
     ) +
-      chalk.white(
-        `
+    chalk.white(
+      `
   CLI to interact with Builder DAO programs.
         `,
-      ),
+    ),
   )
   .version(
     `Builder DAO CLI v${version}`,
@@ -59,7 +62,14 @@ program.addOption(
   new commander.Option('--kafePk <kafePk>', 'Kafe Token PublicKey').default(
     new anchor.web3.PublicKey(
       'KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW',
-    ).toString(),
+    ),
+  ),
+);
+program.addOption(
+  new commander.Option('--bdrPk <bdrPk>', 'BDR Token PublicKey').default(
+    new anchor.web3.PublicKey(
+      'BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2',
+    ),
   ),
 );
 program.addOption(
@@ -81,6 +91,7 @@ program.addCommand(makeArweaveCommand());
 program.addCommand(makeCeramicCommand());
 program.addCommand(makeAlgoliaCommand());
 program.addCommand(makeTutorialCommand());
+program.addCommand(makeAdminCommand());
 program.showSuggestionAfterError();
 program.showHelpAfterError('💡 Use `builderdao` to see all available commands');
 program.parseAsync(process.argv);

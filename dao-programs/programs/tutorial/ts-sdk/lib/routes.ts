@@ -6,12 +6,22 @@ export default {
   admin: '/admin',
   tutorialBySlug: (slug: string) => ['tutorials/slug', slug],
   tutorialById: (id: number) => ['tutorials/id', id],
-  listOfVoters: (tutorialId: number) => ['tutorials', tutorialId, 'voters'],
+  listOfVotersById: (tutorialId: number) => ['tutorials', tutorialId, 'voters'],
+  listOfVotersByIds: (tutorialIds: number[]) => [
+    'tutorials',
+    ...tutorialIds,
+    'voters',
+  ],
   listOfReviewers: '/reviewers',
   listOfTippers: '/tippers',
   listOfTippersById: (tutorialId: number) => [
     'tutorials',
     tutorialId,
+    'tippers-by-id',
+  ],
+  listOfTippersByIds: (tutorialIds: number[]) => [
+    'tutorials',
+    ...tutorialIds,
     'tippers-by-id',
   ],
   listOfTippersByUser: (tipperPk: PublicKey) => [

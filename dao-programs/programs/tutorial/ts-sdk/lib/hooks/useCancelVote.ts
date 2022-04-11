@@ -24,7 +24,7 @@ export const useCancelVote = (): [
         await tutorialProgram?.cancelVote(tutorialId);
 
         mutate(
-          routes.listOfVoters(tutorialId),
+          routes.listOfVotersById(tutorialId),
           async (voters: any) => {
             return voters.filter(
               (voter: any) =>

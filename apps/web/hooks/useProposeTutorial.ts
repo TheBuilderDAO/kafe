@@ -3,11 +3,11 @@ import { useDapp } from './useDapp';
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { TutorialMetadata } from '@app/types/index';
 import {
-  useGetDaoState,
   useProposeTutorial as solanaUseProposeTutorial,
+  useTutorialProgram,
 } from '@builderdao-sdk/dao-program';
+import { TutorialMetadata } from '@builderdao/apis/src';
 
 type StoreMetadataResponse = {
   did: string;
@@ -27,7 +27,7 @@ export const useProposeTutorial = <AD>(): [
   const {
     wallet: { publicKey },
   } = useDapp();
-  const { daoState, loading } = useGetDaoState();
+  const tutorialProgram = useTutorialProgram();
 
   const [proposeTutorial] = solanaUseProposeTutorial();
   const [createIndexRecord] = useApiCall<any, any>(
@@ -45,7 +45,8 @@ export const useProposeTutorial = <AD>(): [
         setError(null);
         setSubmitting(true);
 
-        const id = daoState.nonce.toNumber();
+        const daoAccount = await tutorialProgram.getDaoAccount();
+        const id = daoAccount.nonce.toNumber();
 
         // Store Metadata to Ceramic. Get CID
         const { streamId } = await storeMetadata({
@@ -91,7 +92,13 @@ export const useProposeTutorial = <AD>(): [
         setSubmitting(false);
       }
     },
-    [publicKey, daoState, storeMetadata, proposeTutorial, createIndexRecord],
+    [
+      publicKey,
+      tutorialProgram,
+      storeMetadata,
+      proposeTutorial,
+      createIndexRecord,
+    ],
   );
 
   return [handleAction, { submitting, error }];

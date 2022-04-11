@@ -22,16 +22,16 @@
     }
   },
   "content": {
-    "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-2.png": {
-      "name": "solana-create-a-simple-blog-dapp-on-solana-image-2.png",
-      "path": "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-2.png",
-      "digest": "e3e558e01649d19bc280070baf61a7cf8437c808ef8e90217e84150247e29903"
-    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
       "digest": "9bc658a96a5b72cc1cd0e2def5b3f73078b75a95b5ad48dacc7749b4980d7af6",
-      "arweaveHash": "z-NSnFEyZjROHU318z1NysK2mQeos8YnBF4OzdGpNGo"
+      "arweaveHash": "nm4jS-vjb45cE0cY1xN3ATOe6KPqiSAYYaMwd_HIOpc"
+    },
+    "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-2.png": {
+      "name": "solana-create-a-simple-blog-dapp-on-solana-image-2.png",
+      "path": "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-2.png",
+      "digest": "e3e558e01649d19bc280070baf61a7cf8437c808ef8e90217e84150247e29903"
     },
     "content/assets/solana-create-a-simple-blog-dapp-on-solana-image-1.png": {
       "name": "solana-create-a-simple-blog-dapp-on-solana-image-1.png",

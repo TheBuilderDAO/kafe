@@ -1,0 +1,59 @@
+{
+  "proposalId": 41,
+  "slug": "polkadot-create-your-first-substrate-chain",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polkadot-create-your-first-substrate-chain-account-table-2.png": {
+      "name": "polkadot-create-your-first-substrate-chain-account-table-2.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-account-table-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-balance-transfer-3.png": {
+      "name": "polkadot-create-your-first-substrate-chain-balance-transfer-3.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-balance-transfer-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png": {
+      "name": "polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-chain-data-account-selector-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-metadata-json-4.png": {
+      "name": "polkadot-create-your-first-substrate-chain-metadata-json-4.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-metadata-json-4.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png": {
+      "name": "polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png",
+      "path": "content/assets/polkadot-create-your-first-substrate-chain-pallet-interactor-events-5.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "dc785c630df5d9d9af52ca05b875467734bdb08a8cf049167f5528a54bec1a74",
+      "arweaveHash": "dpL-toIvv-nBggVEzhetyjjFkhnzQObEbc2jELmK0ms"
+    }
+  },
+  "href": "learn/polkadot-create-your-first-substrate-chain",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

@@ -1,3 +1,5 @@
+export { default as airdrop } from './airdrop';
+
 export { default as daoAddAdmin } from './daoAddAdmin';
 export { default as daoClose } from './daoClose';
 export { default as daoInitialize } from './daoInitialize';
@@ -18,6 +20,7 @@ export { default as proposalSetCreator } from './proposalSetCreator';
 export {
   default as proposalSetState,
   ProposalStateE,
+  getProposalState,
 } from './proposalSetState';
 
 export { default as reviewerAssign } from './reviewerAssign';

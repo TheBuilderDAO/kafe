@@ -19,6 +19,7 @@ import Pagination from '@app/components/Search/Pagination';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import Link from 'next/link';
 import useSearchState from '../../hooks/useSearchState';
+import GuideHits from '@app/components/Search/GuideHits';
 
 const PER_PAGE = 10;
 
@@ -40,7 +41,7 @@ const LearnIndexPage: NextPage<
       </Head>
       <main className="mt-10">
         <Banner
-          header="Learm from guides written by our community"
+          header="Learn from guides written by our community"
           description="If you like a guide, you can support the creators by tipping"
           link="https://builderdao.notion.site/Kaf-by-Builder-DAO-b46af3ff401448d789288f4b94814e19"
         />
@@ -66,7 +67,7 @@ const LearnIndexPage: NextPage<
                       />
                     </div>
                   </IsAdmin>
-                  <Hits hitComponent={GuideHit} />
+                  <GuideHits />
                   <Pagination />
                   {process.env.NODE_ENV === 'development' ? (
                     <div className="space-y-0.5 divide-y-2">

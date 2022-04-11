@@ -1,0 +1,49 @@
+{
+  "proposalId": 119,
+  "slug": "polygon-metamask-with-matic-js",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-metamask-with-matic-js-image-2.png": {
+      "name": "polygon-metamask-with-matic-js-image-2.png",
+      "path": "content/assets/polygon-metamask-with-matic-js-image-2.png",
+      "digest": "6ac1954adf5a56eb06e682158429b37df854b118a50f778cd05cce3b8a5b79d6"
+    },
+    "content/assets/polygon-metamask-with-matic-js-image-1.png": {
+      "name": "polygon-metamask-with-matic-js-image-1.png",
+      "path": "content/assets/polygon-metamask-with-matic-js-image-1.png",
+      "digest": "b283b4f78556d65bcdb8d5d49c58b5be81f0425638bf9a3c95524cb0b47c079e"
+    },
+    "content/assets/polygon-metamask-with-matic-js-image-3.png": {
+      "name": "polygon-metamask-with-matic-js-image-3.png",
+      "path": "content/assets/polygon-metamask-with-matic-js-image-3.png",
+      "digest": "23c1cfdc99522353ac6195881edd9acb56da6639b23baad3c8481ace190d9d6a"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "5cc3d0e2157fbe9f83fea5f1587eb62b9e7c67cb2508f65d065c82f16307a20a",
+      "arweaveHash": "6IFjDgJcM8dlwHpronZSiiArHl25AF8EIL2ewvad_Gg"
+    }
+  },
+  "href": "learn/polygon-metamask-with-matic-js",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

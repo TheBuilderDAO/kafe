@@ -3,31 +3,32 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
-import { addEllipsis } from 'utils/strings';
 import path from 'path';
 import {
   getFileByPath,
   getFileParse,
   getPathForFile,
+  getRelativePathForFile,
   getPathForRootFolder,
-  getTutorialContentByPackageName,
   getTutorialContentByPath,
-  getTutorialPaths,
   PostType,
 } from '@builderdao/md-utils';
-import { getMDXComponents, MDXComponents } from '@builderdao/ui';
+import { getMDXComponents } from '@builderdao/ui';
 import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
-import { ArweaveApi } from '@builderdao/apis';
+import { ArweaveApi, CeramicApi } from '@builderdao/apis';
 import {
-  NEXT_PUBLIC_ARWEAVE_APP_NAME,
   NEXT_PUBLIC_ARWEAVE_HOST,
   NEXT_PUBLIC_ARWEAVE_PORT,
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
+  NEXT_PUBLIC_CERAMIC_NODE_URL,
   NODE_ENV,
 } from '@app/constants';
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
+import { PublicKey } from '@solana/web3.js';
+import { getApplicationFetcher } from '../../hooks/useDapp';
+import { BuilderDaoConfigJson, BuilderDaoLockJson } from '@builderdao/cli';
 
 const getFile = (slug, pathForFile) => {
   if (NODE_ENV === 'production') {
@@ -95,7 +96,6 @@ const TutorialPage: NextPage<
 };
 
 export async function getStaticPaths() {
-  const { allPaths } = await getTutorialPaths();
   return {
     paths: [], // arweave download takes time. skip it
     fallback: 'blocking', // false or 'blocking' /
@@ -104,22 +104,65 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async context => {
   const slug = context.params.slug as string[];
-  const rootFolder = getPathForRootFolder(slug[0]);
-  const { config, lock } = await getTutorialContentByPath({ rootFolder });
-  const pathForFile = getPathForFile(slug[0], slug[1]);
-  const relativePath = path.relative(rootFolder, pathForFile);
   let servedFrom: 'local' | 'arweave' | 'github' = 'local';
+  const relativePath = getRelativePathForFile(slug[1]);
+  const getBuilderdaoConfigLock = async (
+    tutorialSlug: string,
+  ): Promise<{
+    config: BuilderDaoConfigJson;
+    lock: BuilderDaoLockJson;
+  }> => {
+    if (NODE_ENV === 'production') {
+      const applicationFetcher = getApplicationFetcher();
+      const tutorial = await applicationFetcher.getTutorialBySlug(tutorialSlug);
+      const ceramicCLient = new CeramicApi({
+        nodeUrl: NEXT_PUBLIC_CERAMIC_NODE_URL,
+      });
+      const ceramicMetadata = await ceramicCLient.getMetadata(
+        tutorial.streamId,
+      );
+      return {
+        config: {
+          title: ceramicMetadata.title,
+          description: ceramicMetadata.description,
+          // TODO:  Ceramic calls it tags lock file calls it categories.
+          categories: ceramicMetadata.tags,
+          imageUrl: '',
+        },
+        lock: {
+          authors: [],
+          creator: tutorial.creator,
+          content: ceramicMetadata.content,
+          slug: tutorial.slug,
+          reviewers: {},
+          proposalId: tutorial.id,
+          href: `learn/${tutorial.slug}`,
+        },
+      };
+    } else {
+      const rootFolder = getPathForRootFolder(tutorialSlug);
+      const { config, lock } = await getTutorialContentByPath({ rootFolder });
+      return {
+        config,
+        lock,
+      };
+    }
+  };
   const getPost = async (): Promise<{ content: string; data: any }> => {
-    if (lock.content[relativePath].arweaveHash && NODE_ENV === 'production') {
+    if (NODE_ENV === 'production') {
       try {
+        const applicationFetcher = getApplicationFetcher();
+
+        const tutorial = await applicationFetcher.getTutorialBySlug(slug[0]);
         const arweave = new ArweaveApi({
           host: NEXT_PUBLIC_ARWEAVE_HOST,
           port: parseInt(NEXT_PUBLIC_ARWEAVE_PORT),
           protocol: NEXT_PUBLIC_ARWEAVE_PROTOCOL,
         });
-        const response = await arweave.getTutorialByHash(
-          lock.content[relativePath].arweaveHash,
-        );
+
+        const arweaveHash = tutorial.content[relativePath].arweaveHash;
+
+        const response = await arweave.getTutorialByHash(arweaveHash);
         if (response) {
           servedFrom = 'arweave';
           return getFileParse<PostType.TUTORIAL>(response.data);
@@ -136,10 +179,12 @@ export const getStaticProps: GetStaticProps = async context => {
       return getFileParse<PostType.TUTORIAL>(file);
     } else {
       servedFrom = 'local';
+      const pathForFile = getPathForFile(slug[0], slug[1]);
       return await getFileByPath<PostType.TUTORIAL>(pathForFile);
     }
   };
 
+  const { config, lock } = await getBuilderdaoConfigLock(slug[0]);
   const post = await getPost();
 
   const content = await serializeContent({
@@ -150,7 +195,6 @@ export const getStaticProps: GetStaticProps = async context => {
     props: {
       config,
       lock,
-      rootFolder,
       relativePath,
       post: { ...post, ...content },
       slug,
@@ -161,6 +205,3 @@ export const getStaticProps: GetStaticProps = async context => {
 };
 
 export default TutorialPage;
-
-// https://raw.githubusercontent.com/TheBuilderDAO/kafe/nk/md-formatter/tutorials/avalanche-create-a-local-test-network/content/index.mdx?token=GHSAT0AAAAAABOK2Q2R24VONMIVRUY3B2CEYSCW4AQ
-// https://raw.githubusercontent.com/TheBuilderDAO/kafe/nk/md-formatter/tutorials/avalanche-create-a-local-test-network/content/index.mdx?token=GHSAT0AAAAAABOK2Q2QNKE3ZMG5VVQMGLA2YSCWQWQ

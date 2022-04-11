@@ -10,7 +10,8 @@ import {
   daoAccount,
   daoVaultAccountBalance,
   isAdmin,
-  listOfVoterById,
+  voteAccountListByTutorialId,
+  voteAccountListHashmapByTutorialIds,
   proposalAccountById,
   proposalAccountBySlug,
   proposalAccountList,
@@ -22,11 +23,14 @@ import {
   tipperAccountList,
   tipperAccountListByUser,
   tipperAccountsListById,
+  tipperAccountListHashmapByIds,
 } from './lib/fetchers';
 
 import {
+  airdrop,
   proposalClose,
   proposalCreate,
+  proposalSetCreator,
   reviewerAssign,
   reviewerCreate,
   reviewerDelete,
@@ -47,9 +51,11 @@ const providerOptions: { commitment: Commitment } = {
   commitment: 'processed',
 };
 
+export type TutorialProgram = anchor.Program<Tutorial>;
+
 export class TutorialProgramClient {
   public readonly provider: anchor.Provider;
-  public readonly tutorialProgram: anchor.Program<Tutorial>;
+  public readonly tutorialProgram: TutorialProgram;
   public readonly kafeMint: PublicKey;
   public readonly bdrMint: PublicKey;
   public readonly programId: PublicKey;
@@ -139,8 +145,16 @@ export class TutorialProgramClient {
     );
   }
 
-  async getListOfVoters(tutorialId: number) {
-    return listOfVoterById(this.tutorialProgram, tutorialId);
+  async getVoteAccountListByTutorialId(tutorialId: number) {
+    return voteAccountListByTutorialId(this.tutorialProgram, tutorialId);
+  }
+
+  async getVoteAccountListHashmapByTutorialIds(tutorialIds: number[]) {
+    return voteAccountListHashmapByTutorialIds(
+      this.tutorialProgram,
+      this.provider,
+      tutorialIds,
+    );
   }
 
   async getVote(tutorialId: number, publicKey: PublicKey) {
@@ -164,6 +178,14 @@ export class TutorialProgramClient {
     return tipperAccountsListById(this.tutorialProgram, id);
   }
 
+  async getTipperAccountListHashmapByIds(ids: number[]) {
+    return tipperAccountListHashmapByIds(
+      this.tutorialProgram,
+      this.provider,
+      ids,
+    );
+  }
+
   async getTotalTipsById(id: number) {
     const tippers = await this.getListOfTippersById(id);
     const total = new anchor.BN(0);
@@ -175,6 +197,7 @@ export class TutorialProgramClient {
   async castVote(proposalId: number) {
     return voteCast({
       program: this.tutorialProgram,
+      mintBdrPk: this.bdrMint,
       proposalId,
       voterPk: this.provider.wallet.publicKey,
     });
@@ -198,6 +221,7 @@ export class TutorialProgramClient {
     return proposalCreate({
       program: this.tutorialProgram,
       mintPk: this.kafeMint,
+      mintBdrPk: this.bdrMint,
       proposalId: data.id,
       userPk: data.userPk,
       slug: data.slug,
@@ -307,10 +331,43 @@ export class TutorialProgramClient {
   }): Promise<string> {
     return proposalPublish({
       program: this.tutorialProgram,
-      mintPk: this.kafeMint,
+      mintKafePk: this.kafeMint,
+      mintBdrPk: this.bdrMint,
       proposalId: data.id,
       adminPk: data.adminPk,
       authorPk: data.authorPk,
+    });
+  }
+
+  async proposalSetAuthor(data: {
+    creatorPk: anchor.web3.PublicKey;
+    adminKp: anchor.web3.Keypair;
+    id: number;
+  }): Promise<string> {
+    return proposalSetCreator({
+      program: this.tutorialProgram,
+      mintKafePk: this.kafeMint,
+      mintBDRPk: this.bdrMint,
+      proposalId: data.id,
+      creatorPk: data.creatorPk,
+      authorityKp: data.adminKp,
+    });
+  }
+
+  async airdrop(data: {
+    memberPk: anchor.web3.PublicKey;
+    authority: anchor.web3.Keypair;
+    isKafeDrop?: boolean;
+    isBdrDrop?: boolean;
+  }): Promise<string> {
+    return airdrop({
+      program: this.tutorialProgram,
+      memberPk: data.memberPk,
+      mintKafePk: this.kafeMint,
+      mintBdrPk: this.bdrMint,
+      kafeDrop: data.isKafeDrop,
+      bdrDrop: data.isBdrDrop,
+      authority: data.authority,
     });
   }
 }

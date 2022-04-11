@@ -19,6 +19,7 @@ import { getAta } from '../utils';
 export const proposalCreate = async ({
   program,
   mintPk,
+  mintBdrPk,
   proposalId,
   userPk,
   slug,
@@ -27,6 +28,7 @@ export const proposalCreate = async ({
 }: {
   program: Program<Tutorial>;
   mintPk: anchor.web3.PublicKey;
+  mintBdrPk: anchor.web3.PublicKey;
   proposalId: number;
   userPk: anchor.web3.PublicKey;
   slug: string;
@@ -37,12 +39,15 @@ export const proposalCreate = async ({
     program.programId,
   );
   const userAta = await getAta(userPk, mintPk);
+  const authorAtaBdr = await getAta(userPk, mintBdrPk);
   const daoAccount = await pdaDaoAccount();
+  const daoVaultBDRAccount = await pdaDaoVaultAccount(mintBdrPk);
   const daoVaultAccount = await pdaDaoVaultAccount(mintPk);
   const proposalAccount = await pdaProposalById(proposalId);
 
   const signature = await program.rpc.proposalCreate(
     proposalAccount.bump,
+    daoVaultBDRAccount.bump,
     slug,
     streamId,
     {
@@ -51,6 +56,9 @@ export const proposalCreate = async ({
         daoAccount: daoAccount.pda,
         daoVault: daoVaultAccount.pda,
         mint: mintPk,
+        mintBdr: mintBdrPk,
+        bdrTokenAccount: authorAtaBdr,
+        daoVaultBdr: daoVaultBDRAccount.pda,
         systemProgram: anchor.web3.SystemProgram.programId,
         rent: anchor.web3.SYSVAR_RENT_PUBKEY,
         payer: userPk,

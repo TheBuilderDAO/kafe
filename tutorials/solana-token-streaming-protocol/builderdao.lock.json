@@ -22,6 +22,12 @@
     }
   },
   "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "37e4e5b4f86884a336df3ed57f8de6ade7abea9857e668d11f9f1dc9e80e63e4",
+      "arweaveHash": "JuB-AAH3iSdbpCqpXT56IVVXN0udKGYpytSRoIKIEBE"
+    },
     "content/assets/solana-token-streaming-protocol-browser-image-1.png": {
       "name": "solana-token-streaming-protocol-browser-image-1.png",
       "path": "content/assets/solana-token-streaming-protocol-browser-image-1.png",
@@ -31,12 +37,6 @@
       "name": "solana-token-streaming-protocol-backend-files-3.png",
       "path": "content/assets/solana-token-streaming-protocol-backend-files-3.png",
       "digest": "1aad1c2ef43c1d7cf0fad7d51f095567ff82c70d58792e362ce0d8769e786b44"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "37e4e5b4f86884a336df3ed57f8de6ade7abea9857e668d11f9f1dc9e80e63e4",
-      "arweaveHash": "7DUtYSY932nqpXlJKSHP4xrE3HHoWHG8G4QJ_8Pd9g0"
     },
     "content/assets/solana-token-streaming-protocol-browser-image-2.png": {
       "name": "solana-token-streaming-protocol-browser-image-2.png",

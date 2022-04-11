@@ -1,0 +1,84 @@
+{
+  "proposalId": 103,
+  "slug": "polygon-launch-a-full-stack-dapp-on-polygon",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://github.com/TheBuilderDAO",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-1.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-1.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-1.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-10.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-10.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-10.png",
+      "digest": "b94c050621df6f4bec6ffc5223505ab435bc554bfc67c681a3c7e50b2fcecc5f"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-2.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-2.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-2.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-3.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-3.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-3.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-4.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-4.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-4.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-5.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-5.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-5.png",
+      "digest": "2c5bab7c474a3cce328d38f5624f5d7532cb5b3a597b736165585b904d478cec"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-7.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-7.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-7.png",
+      "digest": "8fd4a2436e29ffd0061c63ace4d35195afbcda902fcf0d960db5102ba3bca6ef"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-6.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-6.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-6.png",
+      "digest": "f7fb428b96753ff4212aca899c8ea19bbb445ac9caac340039b5a9d645e91e7b"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-8.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-8.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-8.png",
+      "digest": "9e0e050ef3ca8b2312cbf1fd88fa44d14eb46280977b734ca306ae2acf69e264"
+    },
+    "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-9.png": {
+      "name": "polygon-launch-a-full-stack-dapp-on-polygon-image-9.png",
+      "path": "content/assets/polygon-launch-a-full-stack-dapp-on-polygon-image-9.png",
+      "digest": "9e1fb2e351d9e85f471e7043b65b21d85b61767d0bf258c64c9740e4bb4b08af"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "26d553da5664bf242686b4fb27bf10157eef0a0272951bf201e4e44f7752f159",
+      "arweaveHash": "Vlc_hQ4JeD3hElIxmTpVM9c6oWY2K_sKXkqTB7Ioy6g"
+    }
+  },
+  "href": "learn/polygon-launch-a-full-stack-dapp-on-polygon",
+  "creator": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA"
+}

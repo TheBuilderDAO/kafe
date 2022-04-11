@@ -18,9 +18,9 @@ on:
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true 
+        required: true
 
-  pull_request:
+  pull_request_target:
     types:
       - closed
 
@@ -34,7 +34,7 @@ jobs:
       run:
         shell: bash
     outputs:
-      slug: ${{ steps.set_output.outputs.slug || github.event.inputs.slug }}
+      slug: ${{ steps.set_output.outputs.slug || github.event.inputs.slug || '_empty_' }}
     steps:
       - uses: actions/github-script@v6
         id: regex_extract_proposal_id
@@ -55,7 +55,7 @@ jobs:
   fetch_proposal:
     name: Fetch Proposal
     needs: get_proposal_slug
-    if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
+    if: ${{ needs.get_proposal_slug.outputs.slug != '_empty_' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -70,7 +70,7 @@ jobs:
       - uses: ./.github/actions/build-builderdao-cli/
       - id: fetch
         env:
-          SLUG: ${{ needs.get_proposal_slug.outputs.slug }} 
+          SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
         run: |
           builderdao proposal get -s $SLUG
           PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
@@ -92,8 +92,6 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
       - uses: ./.github/actions/build-builderdao-cli/
       - id: publish_tutorial
         env:
@@ -107,10 +105,6 @@ jobs:
           CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
         run: |
           builderdao tutorial publish $SLUG
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
 
   set_state:
     name: Set state to published
@@ -127,7 +121,7 @@ jobs:
           PROPOSAL_ID: ${{ needs.fetch_proposal.outputs.proposalId }}
           TESTNET_ADMIN_KP: ${{ secrets.TESTNET_ADMIN_KP }}
         run: |
-          builderdao proposal setstate $PROPOSAL_ID --state='published' --adminKp $TESTNET_ADMIN_KP
+          builderdao proposal publish $PROPOSAL_ID --adminKp $TESTNET_ADMIN_KP
 
   update_index:
     name: Update Algolia index

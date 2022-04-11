@@ -22,6 +22,12 @@
     }
   },
   "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "adac54a0e6b46d653b08e61324548c0fa418fa05a509962628a6b07c02e7b565",
+      "arweaveHash": "Zr3KvDUeLaEpl6BX-InWbiajKXlxXTbweNqvw5qWksk"
+    },
     "content/assets/near-build-a-crowdfunding-dapp-on-near-addvote-8.png": {
       "name": "near-build-a-crowdfunding-dapp-on-near-addvote-8.png",
       "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-addvote-8.png",
@@ -71,12 +77,6 @@
       "name": "near-build-a-crowdfunding-dapp-on-near-sub-account-5.png",
       "path": "content/assets/near-build-a-crowdfunding-dapp-on-near-sub-account-5.png",
       "digest": "b3b2a6ffafe95f15857344cd72579054f33f586a2ec1e0dfdfcb483826b6a3be"
-    },
-    "content/index.mdx": {
-      "name": "index.mdx",
-      "path": "content/index.mdx",
-      "digest": "adac54a0e6b46d653b08e61324548c0fa418fa05a509962628a6b07c02e7b565",
-      "arweaveHash": "2XQQs7YXowuaLrmeLh4Y7MO2cwIfGT502lj3OWuODjI"
     }
   },
   "href": "learn/near-build-a-crowdfunding-dapp-on-near",
