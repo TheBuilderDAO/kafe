@@ -14,6 +14,18 @@
   "directories": {
     "test": "tests"
   },
+  "keywords": [
+    "Solana",
+    "DAO",
+    "Anchor",
+    "Typescript",
+    "Rust"
+  ],
+  "license": "MIT",
+  "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "idl:copy": "cp -fv ../../target/types/tutorial.ts ts-sdk/lib/idl && cp -fv ../../target/idl/tutorial.json ts-sdk/lib/idl",
     "build": "tsup ts-sdk/index.ts --format esm,cjs --dts --external react ",
@@ -22,9 +34,6 @@
     "clean": "rm -rf node_modules && rm -rf dist",
     "test:program": "jest --coverage --forceExit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@project-serum/anchor": "^0.23.0",
     "@solana/buffer-layout": "^4.0.0",
