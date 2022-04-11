@@ -20,7 +20,7 @@ YouTube video on building the Rust portion:
   caption="SolBlog - Solana blog platform built with Anchor"
 />
 
-# Introduction
+## Introduction
 
 In this tutotial, we will create a simple short form yet fully functional blog with the data saved on Solana. We are going to do this using the Anchor framework to illustrate how to use Anchor.
 
@@ -28,7 +28,7 @@ We're building a blog publishing platform because it is a simple web format that
 
 We will cover in this tutorial Anchor setup and Anchor program building, and touch on the JavaScript front end and how it interacts with the Anchor program.
 
-# What Anchor does for you
+## What Anchor does for you
 
 Building Solana programs in Rust language can be tough. Anytime you want to save or retrieve data from an account, you need to think about packing/unpacking the data, serializing/unserializing the data and formats, which are all a real pain.
 
@@ -38,7 +38,7 @@ There are always two parts to a Solana app -- the _on-chain_ program and account
 
 ![](./assets/solana-build-a-blog-dapp-using-anchor-image-2.png)
 
-# Prerequisites
+## Prerequisites
 
 Prior knowledge:
 
@@ -47,7 +47,7 @@ Prior knowledge:
 - Basic JavaScript knowledge
 - Basic Command Line Interface usage
 
-# Technical Requirements
+## Technical Requirements
 
 We will use these installed tools throughout the tutorial:
 
@@ -55,7 +55,7 @@ We will use these installed tools throughout the tutorial:
 - Anchor and Rust installed in accordance with the Setup section below
 - Phantom.app Solana Wallet, with an address you are comfortable using on DevNet (can make a new address in Phantom if you like)
 
-## Anchor Versions
+### Anchor Versions
 
 It's important to understand that Anchor is new, and the API may change as development proceeds. These directions are valid now, but might differ in the future if/when there are breaking changes. But the general overall concepts remain unchanged.
 
@@ -66,7 +66,7 @@ anchor --version
 anchor-cli 0.16.1
 ```
 
-# Setup
+## Setup
 
 Getting started with Anchor is fairly straightforward, and you can follow the [setup instructions on the Anchor website](https://project-serum.github.io/anchor/getting-started/installation.html).
 
@@ -74,7 +74,7 @@ For test environments, you have the choice of [installing a local validator](htt
 
 Once you have installed all the Anchor dependencies, it's time to initiate a project!
 
-## Init an Anchor Project
+### Init an Anchor Project
 
 Initiating a project is pretty straightforward. In the command line -- use Windows Subsystem for Linux 2 (WSL2) if you are on Windows, as the Berkeley Packet Filter (BPF) compiler portion of the Solana toolchain doesn't work in regular Windows.
 
@@ -86,7 +86,7 @@ anchor init solblog
 
 This creates a folder and puts the anchor starter in that directory. From here, we can build our app.
 
-## Project folders
+### Project folders
 
 The folders we are interested in the most to start are:
 
@@ -233,7 +233,7 @@ Now we have the three Anchor blocks we need to make our blog:
 
 But right now our program doesn't do anything, because our program methods are empty.
 
-# Writing the Rust functions
+## Writing the Rust functions
 
 In `initialize` we want to set our blog account `authority`. We will set `authority` to the same public key as the keys that signed the transaction.
 
@@ -369,7 +369,7 @@ anchor build
 
 Make sure you run anchor build in your project's root folder, anchor will take care of the rest.
 
-# Deploy to Devnet
+## Deploy to Devnet
 
 Now that our Rust Program has been written with the help of Anchor, it's time to deploy to the Devnet.
 
@@ -579,7 +579,7 @@ Now that the program is deployed to Solana Devnet, we can access it from the cli
 
 Let's build the client front end to interface with our program!
 
-# Client Setup
+## Client Setup
 
 Anchor is every bit about the client side as it is about the program side. Our program is complete and our IDL is built, so all that is left is for us to build a front end to use it all.
 
@@ -587,7 +587,7 @@ Although I have chosen to use Svelte for this, any front end can be used. We wil
 
 So I'll get straight to the `anchorClient.js` setup and then cover the SvelteKit integration for those who wish to stick around for that part.
 
-# Building our anchorClient
+## Building our anchorClient
 
 We have our IDL.json which describes how we use our app, but we need to build some handlers to call the remote procedure calls (RPCs).
 
@@ -663,7 +663,7 @@ async makePost(post, blogAccountStr) {
 
 In order for these calls to work, we need this `this.program` that you see used everywhere, so let's take care of that.
 
-# Creating program.\*
+## Creating the program
 
 We create `program` using a call to the class constructor:
 
@@ -808,7 +808,7 @@ So now that we have a connection, and a wallet we get a provider, and with the p
 
 The rest of the app integrates both `initialize` and `makePost` as well as `solana-web3.js` calls to interact with the program.
 
-# SvelteKit
+## SvelteKit
 
 You can use Anchor and these tutorial libraries with any framework, such as React, Vue, or Svelte. I chose to demonstrated this in Svelte, below are some front-end tips for working with the libraries, through a Svelte lens. But they can be applied to any other framework too.
 
@@ -834,7 +834,7 @@ npm install @project-serum/anchor --save
 
 There are a few gotchyas that you might run into while trying to use the Solana or Anchor libraries in client side browser code.
 
-## Gotchya #1 - Buffer not defined
+### Gotchya 1 - Buffer not defined
 
 Since Anchor uses borsh, there may be a small hack you need to add in order to get the Global varibale to work. In Svelte, if we paste something in our page layouts, it'll apply to all layouts, so we'll add our hack here to make things work with the imported Anchor library:
 
@@ -855,7 +855,7 @@ onMount(async () => {
 });
 ```
 
-## Gotchya #2 - import in onMount()
+### Gotchya 2 - import in onMount()
 
 The other issue is the solana / anchor code is NOT isomorphic, which means it doesn't play equally nicely in Nodejs and the browser. The way to force frontend frameworks like Svelte to use the Browser version only (and skip the whole Server Side Rendering, or SSR) is to `import` in the browser side code, in Svelte's case, in onMount():
 
@@ -884,7 +884,7 @@ export const loadAnchorClient = async () => {
 
 Embedding loading of our anchor Client into the Browser side ensires that the browser version of any non-isomorphic libraries gets loaded, and we don't get any nasty errors.
 
-# Summary of Account Address Keypairs
+## Summary of Account Address Keypairs
 
 There are a number of keypairs that are used throughout this whole process, and it can get a bit confusing:
 
@@ -900,7 +900,7 @@ Program upgrade authority keys are creates and funded during the first deploy ca
 
 The BlogAccount key is created on the fly during intilization, but if there was a reason you wanted to pick your key, it _could_ be passed in, but that's pretty extra.
 
-# Running the App
+## Running the App
 
 In the end, navigating to `./app` and running `npm run dev` will start up the Svelte App and get you to the home screen.
 
@@ -919,21 +919,21 @@ Open up your browser to `http://localhost:3000` and play around!
 
 ![](./assets/solana-build-a-blog-dapp-using-anchor-image-9.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! You have learned how to write an Anchor program and deploy it to the Solana Devnet, and interact with it in JavaScript to make posts and retreive posts.
 
 Please remember that this code is not intended for production! There are still a few other things to consider if you wanted to deploy this to mainnet, such as more robust wallet integration and unit testing. However this tutorial has given you the basics to build on top of!
 
-# Next Steps
+## Next Steps
 
 The blog program is a very basic smart contract. In what ways could you make it do more? You can now keep experimenting by adding other features like a bio or about section. Or you could try next to integrate Solana's "Cross Program Invocations" (CPI) to get the Blog program to call other programs, perhaps triggering an event in someone else's program based on a post (perhaps a token event, such as minting or burning a token?). The only limit is your imagination. What would you choose as next steps?
 
-# About the Author
+## About the author
 
 This tutorial was written by Doug Anderson. Doug is a computer engineer and retired Naval Engineering Officer in the Royal Canadian Navy. Get in touch with Doug on twitter and elsewhere under @DougAnderson444
 
-# References
+## References
 
 - Web3.js Library https://solana-labs.github.io/solana-web3.js/
 - Anchor Website https://project-serum.github.io/anchor/

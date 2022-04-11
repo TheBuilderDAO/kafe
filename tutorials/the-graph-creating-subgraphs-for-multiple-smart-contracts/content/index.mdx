@@ -5,7 +5,7 @@ keywords: [The Graph, AssemblyScript, Graphql, AssemblyScript, GraphQL]
 date: '2021-10-07T23:39:44.763Z'
 ---
 
-# Introduction
+## Introduction
 
 Most dapps span across multiple smart contracts with many of them being created dynamically. This tutorial demonstrates how to build a subgraph for a complex multi smart contract dapp with contracts deployed at runtime.
 
@@ -13,15 +13,15 @@ It uses the Uniswap AMM market contracts as an example as the reader might be fa
 
 ![Subgraph Studio](./assets/the-graph-creating-subgraphs-for-multiple-smart-contracts-subgraph-studio-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully complete this tutorial, you will need to have a basic understanding of Ethereum, Solidity, the Graph and Uniswap ecosystem.
 
-# Requirements
+## Requirements
 
 As the previous tutorial, to complete this tutorial, you will need the Graph CLI installed: https://www.npmjs.com/package/@graphprotocol/graph-cli
 
-# Creating a Graph Project
+## Creating a Graph Project
 
 After you have graph-cli installed, you can create a new subgraph using the `graph init command`
 
@@ -37,18 +37,18 @@ For the network, select mainnet. The contract address for Uniswap Factory Contra
 
 Graph will fetch the ABI of this contract for you and also initialize some of the files.
 
-# Uniswap Pair Creation and Volume Tracking
+## Uniswap Pair Creation and Volume Tracking
 
 In this tutorial, we are going to keep track of the reserves of tokens in Uniswap pairs.
 As you know, pairs in Uniswap are created dynamically by the factory contract. The factory contract deploys the pair contract and then users can add liquidity to these contracts. Since the pair contract address is not known in advance, we will be dynamically taking the address of the pairs from the events emitted by the Factory contract. Whenever a new pair is created PairCreated event is emitted. We will be listening to this event and add the new pair contracts as data sources when they are created.
 
 ![Uniswap Diagram](./assets/the-graph-creating-subgraphs-for-multiple-smart-contracts-uniswap-diagram-3.png)
 
-# Downloading the ABIs
+## Downloading the ABIs
 
 For this tutorial you will also need the ABI (Application Binary Interface) of the pair contract, as we will be listening to events in the pair contracts as well as the factory contract. The official ABIs are aviailable [here](https://github.com/Uniswap/v2-subgraph/blob/master/abis/pair.json).
 
-# Defining the Data Schema
+## Defining the Data Schema
 
 We must define the schema of the data that we want to index. This is done in the `schema.graphql` file
 
@@ -56,8 +56,8 @@ We must define the schema of the data that we want to index. This is done in the
 type Pair @entity {
   id: ID!
   count: BigInt!
-  token0: Bytes! # address
-  token1: Bytes! # address
+  token0: Bytes!
+  token1: Bytes!
   reserve0: BigInt!
   reserve1: BigInt!
 }
@@ -71,7 +71,7 @@ The pair entity represents one token pair and maps directly to a single smart co
 `reserve0` - The total reserves of first token in the pair contract
 `reserve1` - The total reserves of second token in the pair contract
 
-# Creating the Subgraph Config File
+## Creating the Subgraph Config File
 
 We will start with the `subgraph.yaml` file. The Graph CLI will automatically initialize some settings for you in this file. This information will be taken from the ABI that it will download from Etherscan. We will add the factory contract as a datasource. This is how it will look:
 
@@ -142,7 +142,7 @@ Notice that the format for template is exactly the same as a normal datasource b
 
 For the purposes of this tutorial, we will be handling the `Sync` event which provides the reserves of both tokens in the pair contract. It is fired every time a swap or other operation happens in the pair contract.
 
-# Generating Types
+## Generating Types
 
 Before writing the assemblyscript mapping file, we will need to generate the types for the contracts and data sources. You can do this using:-
 
@@ -186,7 +186,7 @@ Types generated successfully
 
 This should create a generated folder with all the generated types.
 
-# Write AssemblyScript Mapping
+## Write AssemblyScript Mapping
 
 In the mapping file, we need to write two functions. One for handling new Pair and one for handling the `Sync` event of each pair. Let's start with the `handleNewPair` Event. Let's import the types from the generated folder as well the `BigInt` type:
 
@@ -258,7 +258,7 @@ export function handleSync(event: Sync): void {
 }
 ```
 
-# Deploying the Subgraph
+## Deploying the Subgraph
 
 Now we are ready to deploy our subgraph. To deploy the subgraph to the graph, we will first deploy it to graph studio and test it.
 
@@ -327,10 +327,10 @@ You can now go to https://thegraph.com/studio/subgraph/uni-subgraph/ to play wit
 
 ![Playground](./assets/the-graph-creating-subgraphs-for-multiple-smart-contracts-playground-4.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing this tutorial! You learned how to create a subgraph for a dapp with multiple smartcontracts and how to add smartcontracts to your subgraph that are dynamically created.
 
-# About the Author
+## About the author
 
 I'm Mohit Jandwani, a crypto investor and software engineer. I teach about how to generate passive income from crypto on my [Youtube Channel](https://www.youtube.com/c/DefiMasterClass). Feel free to connect with me on [Twitter](https://twitter.com/mohitjandwani).

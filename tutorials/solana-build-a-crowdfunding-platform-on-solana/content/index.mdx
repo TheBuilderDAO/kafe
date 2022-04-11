@@ -5,17 +5,17 @@ keywords: [Solana, JS/TS, Rust, React, Javascript, Rust]
 date: '2021-10-28T16:36:26.590Z'
 ---
 
-# Introduction
+## Introduction
 
 We are going to make a CrowdFunding platform like GoFundMe, Kickstarter, and Indiegogo. Our DApp will let people create campaings, Donate SOL to existing campaings and payout to the compaign creator.
 We are going to make a Solana program and connect it with our front-end application.
 
-# Prerequisites
+## Prerequisites
 
 - React
 - Javascript
 
-# Requirements
+## Requirements
 
 The following software is required to complete this tutorial:
 
@@ -26,13 +26,13 @@ The following software is required to complete this tutorial:
 
 > If you already have good knowledge of the Rust programming language, you can skip the `Introduction to Rust` section. I would still recommend having a quick look at all the code blocks.
 
-# Introduction to Rust
+## Introduction to Rust
 
 Rust is a multi-paradigm, high-level, general-purpose programming language designed for performance and safety, especially safe concurrency.
 
 Rust code uses snake case as the conventional style for function and variable names.
 
-## Installing Rust on your system
+### Installing Rust on your system
 
 You can follow this this [link](https://doc.rust-lang.org/book/ch01-01-installation.html) for your operating system.
 
@@ -40,7 +40,7 @@ You can follow this this [link](https://doc.rust-lang.org/book/ch01-01-installat
 
 Before we start the tutorial, we need to understand some basics of Rust. I have added the link to the [Rust book](https://doc.rust-lang.org/book/ch00-00-introduction.html) pages if you want to read more about any topic.
 
-## Basics Data types in Rust
+### Basics Data types in Rust
 
 Rust has four primary scalar types: integers, floating-point numbers, Booleans, and characters.
 Integers are `u8`,`u32`, `i32`, `i64`, `usize`, and the list goes on here basically `u` prefix suggests that we have an unsigned integer and the suffix number tell the number of bits. So `u8` is an unsigned 8-bit number(0 to 255).
@@ -58,7 +58,7 @@ Rust has 2 types for strings, `str` and `String`. `String` is a growable, heap-a
 
 Read more on [Rust book](https://doc.rust-lang.org/book/ch03-02-data-types.html).
 
-## Creating a variable and mutability
+### Creating a variable and mutability
 
 We can create a variable with the `let` keyword
 
@@ -85,7 +85,7 @@ a=100;
 
 Read more on [Rust book](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html).
 
-## Control flow
+### Control flow
 
 We can use `if` `else` statement in Rust just like we can do in other language, here is a small program for us to understand the syntax.
 
@@ -113,7 +113,7 @@ fn main() {
 
 Read more on [Rust book](https://doc.rust-lang.org/book/ch03-05-control-flow.html).
 
-## Functions and Macros
+### Functions and Macros
 
 Function definitions in Rust start with fn and have a set of parentheses after the function name. The curly brackets tell the compiler where the function body begins and ends.
 
@@ -135,7 +135,7 @@ For this tutorial, we can assume macros are also functions. They end with `!`, l
 
 Read more about functions on [Rust book](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html).
 
-## Enums and the match syntax
+### Enums and the match syntax
 
 Rust has enums. They are more than simple enums other languages provide. In Rust, we can even store data in the enums.
 Here is the example of `Result enum`.
@@ -184,7 +184,7 @@ assert_eq!(a,30);
 
 Read more about match syntax in the [Rust book](https://doc.Rust-lang.org/book/ch06-02-match.html).
 
-## Cargo and Borsh
+### Cargo and Borsh
 
 Cargo is the Rust package manager. We use it to build our program and get dependencies. It also makes adding packages(crates) very easy. Read more about Cargo in the [Rust book](https://doc.Rust-lang.org/book/ch01-03-hello-cargo.html)
 
@@ -193,9 +193,9 @@ We are using it for data serialization and deserialization. Read more about the 
 
 This is all the Rust we would need to get started with our Solana program.
 
-# Solana program
+## Solana program
 
-## Setup
+### Setup
 
 1.  We create a React app. Open your projects directory in the terminal and run
 
@@ -251,7 +251,7 @@ crate-type = ["cdylib", "lib"]
 
 We have added all the dependencies we are going to need for our program. Run `cargo check` to get all the dependencies. We can now start working in `src/lib.rs` and start coding our program for the Solana blockchain.
 
-## What do we want in our program?
+### What do we want in our program?
 
 Before we start writing the code, let us discuss what entry points our crowdfunding app should have.
 
@@ -266,7 +266,7 @@ Before we start writing the code, let us discuss what entry points our crowdfund
 
 These are all the entry points we are going to need for our project. Let us discuss how we will be creating these.
 
-## Where can we store data?
+### Where can we store data?
 
 Before we start we have to understand Solana programs don't have storage(`contract storage` you might be familiar with). Then how and where should we store our data.
 
@@ -279,7 +279,7 @@ One way to deal with this is to create an Account with very large storage. Howev
 
 We can create as many program-owned accounts as we want, so the idea here is that we will have a size limit for every element in our map. And whenever we want to add a new element we will create a new program-owned account. Program-owned accounts are also called PDA(program-derived accounts).
 
-## Coding the program
+### Coding the program
 
 Now that we have discussed what we want to create. Let start coding.
 Go ahead and open up the `program` folder in VSCode or your favorite IDE.
@@ -428,7 +428,7 @@ fn donate(
 }
 ```
 
-## CampaignDetails struct
+### CampaignDetails struct
 
 We will create a struct in Rust. We have not discussed structs above so, I will explain them here. In Rust, we do not have class. If we want to store more than 1 variable (group variables) we create a struct.
 
@@ -571,7 +571,7 @@ If all goes well, we will write the `writing_account`. Here on our `input_data` 
 Hurry! We are done with the first `create_campaign` function.
 Let's continue writing the contract and write the withdraw function next.
 
-## Withdraw function implementation.
+### Withdraw function implementation.
 
 For the withdraw function also, we create a struct to get the input data. In this case, input data is only the amount we want to withdraw.
 
@@ -657,7 +657,7 @@ We do not want the campaign to get deleted after a withdrawal. We want it to alw
 
 > Note: We can only decrease the balance of a program-owned account.
 
-## Donate to a campaign
+### Donate to a campaign
 
 We want to donate to a campaign, however we can't decrease the balance of an account not owned by our program in our program. This means we can't just transfer the balance as we did in the withdraw function.
 [Solana policies](https://docs.solana.com/developing/programming-model/runtime#policy) state: "An account not assigned to the program cannot have its balance decrease."
@@ -724,7 +724,7 @@ Then at the end of the program we will write the new updated `campaign_data` to 
 
 Hooray, We have completed our Solana program, Now we can go ahead and deploy it.
 
-## Deploy Solana program.
+### Deploy Solana program.
 
 We are going to deploy the program on Devnet.
 
@@ -814,7 +814,7 @@ We can search our program id here.
 
 Hooray! We have completed everything to do with Rust for this tutorial and successfully deployed our program. Now, let us move forward and build the React app.
 
-# Front-end with Solana web3.js
+## Front-end with Solana web3.js
 
 We have created a React app, so we can open the `crowd-funding` directory in our code editor.
 This is not a React tutorial, so we will not go into the details of React. But I will be explaining what we are going to do.
@@ -910,7 +910,7 @@ export async function signAndSendTransaction(transaction) {
 }
 ```
 
-## Writing a function to invoke create_campaign instruction.
+### Writing a function to invoke create_campaign instruction.
 
 We need to write a JavaScript implementation for the Rust struct `CampaignDetails`. We have created a class and we will call it `CampaignDetails`. For deserialization and serialization we have to create a schema for our class. We will create map, and match the types of each field. Note that `PubKey` type is nothing but a u8 array with length 32.
 
@@ -1073,7 +1073,7 @@ const onSubmit = async e => {
 See the final [`form.js`](https://github.com/SushantChandla/solana-crowd-funding/blob/main/src/components/Form.js) file for reference.
 Now we can add campaigns.
 
-## Fetch all Campaigns
+### Fetch all Campaigns
 
 We have implemented a function to add campaigns, but we do not have any function to fetch all the campaigns. Let's make that.
 
@@ -1122,7 +1122,7 @@ See the final [`app.js`](https://github.com/SushantChandla/solana-crowd-funding/
 
 ![Result](./assets/solana-build-a-crowdfunding-platform-on-solana-result-4.png)
 
-## The donate function
+### The donate function
 
 For donating, we will again create an program account and we will fund it with the amount we want to donate. As we discussed while writing our program it is not possible to decrease the balance of an account that is not owned by our program.
 
@@ -1199,7 +1199,7 @@ See the final [`card.js`](https://github.com/SushantChandla/solana-crowd-funding
 
 ![Result](./assets/solana-build-a-crowdfunding-platform-on-solana-result-5.png)
 
-## The withdraw function
+### The withdraw function
 
 Now we will write the withdraw function. For withdrawls, we don't have to create a program account, and we will only pass one instruction. Since we are using a `WithdrawRequest` struct in our program, we will have to create a class and schema for borsh serialization. Let's set that up now:
 
@@ -1283,10 +1283,10 @@ And we're done!
 
 You can see the whole project on [github](https://github.com/SushantChandla/solana-crowd-funding).
 
-# Conclusion
+## Conclusion
 
 In this tutorial, you learned how to build a Crowd Funding app on Solana. We covered the on-chain program's code using the Rust programming language. We built the User Interface with React.
 
-# About the Author
+## About the author
 
 This tutorial was created by [Sushant Chandla](https://github.com/SushantChandla).

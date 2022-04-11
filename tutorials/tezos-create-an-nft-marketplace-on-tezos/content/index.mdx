@@ -5,33 +5,33 @@ keywords: [Tezos, Python, Smart contracts, IPFS]
 date: '2021-10-28T17:02:37.528Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will discuss how to create an NFT marketplace on the Tezos blockchain. We will build a simple open NFT marketplace where anyone can mint and collect NFTs. We will be going through writing the smart contracts, creating the UI, and invoking the entry points in the front end.
 
-# Prerequisites
+## Prerequisites
 
 - Basic familiarity with [ReactJS](https://reactjs.org/) and Redux.
 - Should also have some experience writing smart contracts on Tezos with SmartPy.
 
-# Requirements
+## Requirements
 
 - [Git](https://git-scm.com/downloads)
 - A wallet installed in your browser for Testing. We will use [Temple wallet](https://templewallet.com/)
 - Node.js
 - npm
 
-# Introduction to NFTs and IPFS
+## Introduction to NFTs and IPFS
 
-## What are NFTs?
+### What are NFTs?
 
 A non-fungible token is a unique and non-interchangeable unit of data stored on a digital ledger. NFTs can be used to represent easily-reproducible items such as photos, videos, audio, and other types of digital files as unique items, and use blockchain technology to establish a verified and public proof of ownership.
 
-## What is IPFS?
+### What is IPFS?
 
 The InterPlanetary File System is a protocol and peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting all computing devices. In this tutorial, we will be using [nft.storage](nft.storage) to store the metadata for NFTs.
 
-# Smart Contract
+## Smart Contract
 
 We will be building two contracts for the marketplace. First will be the token contract. On Tezos [FA2](https://tezos.b9lab.com/fa2) is the standard for Non-fungible Token contracts. We will be using the template provided by SmartPy to build out the Token Contract.
 The template contains the basic entry points for building a Fungible or Non-fungible token including
@@ -42,7 +42,7 @@ The template contains the basic entry points for building a Fungible or Non-fung
 
 You can check out the template for yourself [on the SmartPy site](https://smartpy.io/dev/templates/FA2.py).
 
-## Token contract
+### Token contract
 
 We will use SmartPy online IDE to build out the contract. You can also use the SmartPy CLI if you prefer.
 
@@ -97,7 +97,6 @@ You can customize all the parameters however you like and change the metadata IP
 ```python
 @sp.add_test(name = "Non Fungible Token")
 def test():
-    # ...
     token_contract = Token(FA2.FA2_config(non_fungible = True), admin = admin.address, metadata = sp.utils.metadata_of_url("ipfs://QmW8jPMdBmFvsSEoLWPPhaozN6jGQFxxkwuMLtVFqEy6Fb"))
 
     scenario += token_contract
@@ -107,7 +106,7 @@ def test():
 
 9.  We are all set for the Token contract. We can test this out by clicking on the run button.
 
-## Marketplace contract
+### Marketplace contract
 
 A marketplace contract handles minting and managing the NFTs. We usually set this contract as admin of the NFT contract. Then we use inter-contract calling to mint, transfer, collect NFTs.
 There are some important features for a marketplace.
@@ -144,7 +143,7 @@ class Marketplace(sp.Contract):
 
 Now, Let us code the entry points one by one.
 
-## Minting NFT
+### Minting NFT
 
 The mint function is used for minting new NFTs. We first verify the amount at which the minter wants to sell this NFT is positive.
 Then we call our token contract, by inter-contract calling. Once the inter contract call is made, we update our `data` big map. Here, We are also sending metadata to the `Token` contract.
@@ -179,7 +178,7 @@ We add a new token in our big map and set the holder as the contract, author as 
         self.data.token_id += 1
 ```
 
-## Collect NFT entry point
+### Collect NFT entry point
 
 Before we start coding this, let us first create a utility function that we can use to call the transfer entry point in the token contract.
 
@@ -216,7 +215,7 @@ If all the checks pass we can set our new holder. And we will use our utility fu
 
 We are also sending 97% of the amount to the author of the NFT.
 
-## Update admin Entry point
+### Update admin Entry point
 
 We check if the sender is admin and, if it is true we will update the admin.
 
@@ -229,7 +228,7 @@ We check if the sender is admin and, if it is true we will update the admin.
         self.data.admin = params
 ```
 
-## Collect management rewards
+### Collect management rewards
 
 Our smart contract has collected XTZ and we want to withdraw them. We are creating an entry point just for that.
 We verify the sender to be admin and transfer the amount of XTZ, specified in parameters.
@@ -244,7 +243,7 @@ We verify the sender to be admin and transfer the amount of XTZ, specified in pa
 
 Hurray! We have coded all the entrypoints now. Next, we can write tests for all of them.
 
-## Testing the contracts.
+### Testing the contracts.
 
 First, we initialize the `MarketPlace` Contract.
 We will pass the token address as the first parameter. We get the token address by calling `.address` on the Token contract instance.
@@ -292,7 +291,7 @@ Now, we can also try out the `collect_management_rewards` entry point and enter 
 
 Check out the complete code on SmartPy [here](https://smartpy.io/ide?cid=QmVGqtBwNNnxwdFPrnmZYnQGq5PEQGSGMQwrB53rMtuJfg&k=6c6a8bdfdaf5a2893854).
 
-## Deploy the contract
+### Deploy the contract
 
 Now, we are going to deploy both contracts.
 
@@ -335,13 +334,13 @@ Now we have deployed both the contracts. Now we can update the `admin` by callin
 
 > Note: you can update the IPFS hash, which can be done in the tests.
 
-# Front End
+## Front End
 
 We will build the frontend using React.js, Redux for state management, Taquito for interacting with the contract, and Beacon SDK for wallet connection.
 
 To get the boilerplate setup, we will clone a Template that includes a wallet connection and gives a basic idea of invoking the entry points.
 
-## Setup
+### Setup
 
 1.  Go to https://github.com/NishantChandla/taquito-react-redux-template
 2.  Click the `Use this template` button. This will create a new repository for you.
@@ -356,7 +355,7 @@ git clone URL
 
 > We will write the contract calls in `src/actions/index.js`.
 
-## Editing the template
+### Editing the template
 
 1.  We will edit the contract addresses in the `config/index.js` file. We will use the addresses we got after deploying.
 
@@ -409,14 +408,14 @@ We have to change all the URLs from FLORENCENET to GRANADANET.
 
 3.  You can change the name of the project in `package.json` and `public/index.html`
 
-## Writing Contract calls
+### Writing Contract calls
 
 We will first create actions creators for contract calls in `actions/index.js`
 
 - mintNFT
 - collectNFT
 
-## mintNFT
+### mintNFT
 
 We use the Tezos toolkit instance to create an instance of our marketplace contract. Then we can use the instance to call the entry points on our contract. Mint entry point requires two parameters amount and metadata URL. We can create these are parameters for the action creator and pass them up from a form. Here we cannot send a string as the second parameter as the metadata should of bytes type, so we convert it to hex code (bytes).
 
@@ -442,7 +441,7 @@ export const mintNFT = ({ Tezos, amount, metadata }) => {
 > We have added a dispatch to fetch data. We will create that action creator later.
 > Our mintNFT action creator is complete.
 
-## collectNFT
+### collectNFT
 
 As before, we use the Tezos toolkit instance to create an instance of our marketplace contract. Then we can use the instance to call the collect entry point on our contract. Collect entry point requires one parameter which is the token id. Additionally, we want to send the amount required to collect the NFT. We can do so by passing an object when calling the entry point.
 
@@ -469,7 +468,7 @@ export const collectNFT = ({ Tezos, amount, id }) => {
 We have added a dispatch to fetch data. We will create that action creator later. When we dispatch this action creator it will call our contract and buy the NFT specified.
 Note that the user address is already sent when we call `.send()` on the entry point
 
-## Getting the contract data
+### Getting the contract data
 
 Here we have two options either we can read the contract storage directly using taquito or we can use an indexer API to get the data.
 We will be using tzkt API to get the storage. There are a couple of reasons to do so. Getting the storage from the contract using taquito is slow and we will be getting the data multiple times in our app.
@@ -531,7 +530,7 @@ export const fetchData = () => {
 
 Here we dispatch the data with type `SET_TOKEN_DATA`. Now we will create reducers to store the data.
 
-## Creating reducers
+### Creating reducers
 
 As we can see we already have a reducer created for storing the wallet configuration i.e. user address and user balance.
 Now we will create a tokenDataReducer and store the data for our NFTs.
@@ -563,7 +562,7 @@ Now we can move on to minting our first NFT.
 
 At this point, you can go ahead and build your design that shows the NFTs. You can use the collect and mint action creators to interact with the contract.
 
-## Creating the UI
+### Creating the UI
 
 In this tutorial, we will be going over a basic frontend using `Semantic UI`
 
@@ -673,7 +672,7 @@ return (
 
 If you run `npm start` now you will get an error as the components don't exist yet. We will be fixing the errors now.
 
-## Fixing the errors
+### Fixing the errors
 
 We need to create three files `Create.js`, `Show.js`, `Home.js` in `components/layouts`. We will create a basic React component in each of the files to get rid of the error.
 
@@ -686,7 +685,7 @@ export default Create;
 
 > Note: Remember to use the component name in each file, such as: const Show = () => {} and const Home = () => {}
 
-## Creating a form to mint NFTs
+### Creating a form to mint NFTs
 
 Our mintNFT action creator requires two parameters amount and metadata IPFS hash. In this tutorial, we will use the `nft.storage` library to upload our NFT data to IPFS storage.
 
@@ -902,7 +901,7 @@ export default Create;
 
 ![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-8.png)
 
-## Displaying NFTs in the Home component
+### Displaying NFTs in the Home component
 
 As we have already stored the data in our Redux store, we can display it in our Home component. We can first create a section component to render the NFTs.
 
@@ -1021,7 +1020,7 @@ export default Home;
 
 ![image](./assets/tezos-create-an-nft-marketplace-on-tezos-image-9.png)
 
-## Displaying the detailed view
+### Displaying the detailed view
 
 To show the detailed view, we will use `useParams` hook from `react-router`. As we have already specified the id in the URL. We can retrieve it directly using this hook.
 
@@ -1170,12 +1169,12 @@ Hurray! We are all done. We have completed the UI of our NFT marketplace.
 Check out the complete code on [Github](https://github.com/NishantChandla/nft-marketplace-tutorial)
 Demo live on [Vercel](https://nft-marketplace-tutorial.vercel.app/)
 
-# Conclusion
+## Conclusion
 
 In this tutorial, you learned how to build an NFT marketplace on Tezos. We covered smart contract development with Smartpy. We built the User Interface with React.
 
 There's still a lot of grounds to cover on this project. For instance, we are not handling errors. Also, we can create custom indexers with a backend to make fetching faster.
 
-# About the Author
+## About the author
 
 This tutorial was created by Nishant Chandla. You can get in touch with the author on [GitHub](https://github.com/NishantChandla)

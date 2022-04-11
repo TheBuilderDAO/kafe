@@ -5,15 +5,15 @@ keywords: [Polygon, JS/TS, Solidity, Solidity, Hardhat]
 date: '2021-09-22T19:33:12.193Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial we will learn how to use HardHat which is a popular framework used for smart contract development. It is a JavaScript based framework like Truffle but has certain advantages over Truffle which we will go over in the tutorial. The goal of this tutorial is to build an awesome NFT project where we can convert anything into an NFT. We will also learn how to write, test and deploy smart contracts using the Hardhat framework.
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes you have a basic understanding of what smart contracts are & how they are used for building dApp projects. Ideally, you also know about and have used Metamask and are familiar with the concept of public and private keys. Familiarity with Solidity and Javascript along with Node.js will also be very helpful.
 
-# Requirements
+## Requirements
 
 Please make sure you have the following software installed:
 
@@ -22,7 +22,7 @@ Please make sure you have the following software installed:
   - Once you have installed MetaMask, add a connection with the [Polygon Mumbai testnet](https://docs.matic.network/docs/develop/metamask/config-polygon-on-metamask).
 - Remember to get your account funded with testnet MATIC tokens using the [Polygon faucet](https://faucet.polygon.technology/).
 
-# Creating Polygonscan API key
+## Creating Polygonscan API key
 
 When we deploy our contract to the blockchain (either mainnet or testnet), it is a good practice to verify the code of our smart contract after deploying it. If our smart contract is **verified**, then the smart contract code will be visible on the block explorer and users will be able to interact with the smart contract directly from the block explorer (such as Polygonscan). Verifying the source code is highly encouraged as it makes our project more transparent, and users are more likely to interact with it.
 
@@ -36,7 +36,7 @@ Using a HardHat plugin, smart contracts can be verified automatically during the
 
 You now have an API key which will allow you to access the Polygonscan API features such as contract verification. This key will be same for both mainnet and testnet.
 
-# Creating a HardHat project
+## Creating a HardHat project
 
 To install HardHat, run the command:
 
@@ -46,11 +46,12 @@ npm install -g hardhat
 
 This will install HardHat globally so that later we can make use of the `npx` command to create HardHat projects.
 
-Now to create our project, we will use the following code
+Now to create our project, we will use the following commands.
+Note that I am naming my project folder as `art_gallery` but any other name works as well.
 
 ```bash
-mkdir art_gallery # I am naming my project folder as art_gallery but any other name works
-cd art_gallery    # move into the directory
+mkdir art_gallery
+cd art_gallery
 npx hardhat
 ```
 
@@ -64,7 +65,7 @@ We can start with a basic sample project so that it is easier to understand the 
 
 **Congrats** 🎊🎊🎊 you have created your first HardHat project!
 
-# Understanding the code
+## Understanding the code
 
 Now let's open our project and take a look at what it contains. I will be using VSCode as my editor of choice but feel free to use any other code editor you are comfortable with.
 
@@ -108,7 +109,7 @@ While developing our project we are also doing to write our own custom tasks.
 
 At the end of the file is `module.export` , this is where we are going to list various parameters like compiler version, networks to use, API keys, etc. Please note, here we have defined the solidity version as `0.8.4` .
 
-# Install the OpenZeppelin library
+## Install the OpenZeppelin library
 
 While writing any program, we always prefer using various libraries so that we don't have to write everything from scratch. Since we are going to build an NFT based project, we will follow the standards defined in [EIP-721](https://eips.ethereum.org/EIPS/eip-721). The best way to do this is to import the ERC721 contract present in the OpenZeppelin contracts library and only making the necessary changes for our project. To install this package, open a terminal and run the command:
 
@@ -116,7 +117,7 @@ While writing any program, we always prefer using various libraries so that we d
 npm install @openzeppelin/contracts
 ```
 
-# Starting our smart contract
+## Starting our smart contract
 
 Let's create a new file named `Artwork.sol` inside the `contracts` directory. This is going to be our first smart contract which will help us in creating NFTs.
 
@@ -135,7 +136,7 @@ Next we are going to import the ERC721 smart contract from the OpenZeppelin libr
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 ```
 
-## Inheriting ERC721 and constructor initialisation
+### Inheriting ERC721 and constructor initialisation
 
 Make the following modifications to the code:
 
@@ -161,7 +162,7 @@ Here we are doing the following things:
 - The constructor is always the first function that is called while deploying a smart contract. Since we are inheriting another smart contract, we have to pass in the values for the constructor of that smart contract while defining our constructor. Here we take a name and symbol as constructor arguments and are passing them to the constructor of ERC721.
 - `name` and `symbol` are going to be the name and symbol of our NFT respectively.
 
-## Defining tokenCounter
+### Defining tokenCounter
 
 NFTs are called Non-Fungible Tokens because each one is unique. What makes them unique is the token id assigned to them. We are going to define a global variable called tokenCounter and use it for calculating the token id. It will start with zero and increment by 1 for every new NFT that is created (or "minted"). The value of tokenCounter is set to 0 in the constructor.
 
@@ -185,7 +186,7 @@ contract Artwork is ERC721 {
 }
 ```
 
-## Creating the mint function
+### Creating the mint function
 
 Now we are going to define a mint function which can be called by any user in order to mint new NFTs. Each NFT will have certain data associated with it. In our case, we are using images or other collectibles as the basis of the NFT and hence the image should be somehow stored in the smart contract. Since storing data directly on a blockchain has an associated cost, it won't be financially feasible if the entire image and other associated data (metadata) is stored.
 So, we will need to host the image separately along with a JSON file containing all the details about the NFT. The image and JSON file can be hosted separately either decentralised (using IPFS) or centrally using traditional methods. The JSON file contains the link to the image as well. Once the JSON file is hosted, the link pointing to that JSON file is stored in the blockchain in the as tokenURI. URI stands for "Universal Resource Identifier". [This](https://opensea-creatures-api.herokuapp.com/api/creature/2) is an example of centrally hosted tokenURI.
@@ -212,7 +213,7 @@ The `_setTokenURI()` function is not yet defined so just ignore it for the momen
 
 Once the token is minted and its tokenURI is set, we increment the tokenCounter by 1 so that the next minted token has a new token id.
 
-## Creating the \_setTokenURI() function
+### Creating the \_setTokenURI() function
 
 Our NFT smart contract must store all the valid token id's with their respective tokenURI. For this we can use the `mapping` data type in Solidity. Mappings work similarly to hashmaps in other programming languages like Java. We can define a mapping from a `uint256` number to a `string` which will signify that each token id is mapped to its respective tokenURI. Just after the declaration of the tokenCounter variable, define the mapping:
 
@@ -241,7 +242,7 @@ There are many new terms defined here so let's deal with them one-by-one:
 
 **In summary**: This function first makes sure that the tokenId for which we are trying to set the tokenURI is already minted. If it is, it will add the tokenURI to the mapping, along with the respective tokenId.
 
-## Creating the tokenURI() function
+### Creating the tokenURI() function
 
 The last function which we have to create is the `tokenURI()` function. It will be a publicly callable function which takes a tokenId as a parameter and returns its respective tokenURI. This is a standard function which is called by various NFT based platforms like [OpenSea](https://opensea.io/). Platforms like this use the tokenURI returned from this function to display various information about the NFT like its properties and the display image.
 
@@ -264,7 +265,7 @@ function tokenURI(uint256 _tokenId) public view virtual override returns(string 
 
 This function first checks whether the tokenId passed was actually minted. If the token was minted, it returns the tokenURI from the mapping.
 
-## Putting it all together
+### Putting it all together
 
 Putting all the functions together, the final smart contract will look like:
 
@@ -312,7 +313,7 @@ contract Artwork is ERC721 {
 }
 ```
 
-# Compiling the Smart Contract
+## Compiling the Smart Contract
 
 Now that our smart contract is ready, we must compile it. In order to compile a smart contract with HardHat, run the command:
 
@@ -326,7 +327,7 @@ If everything went as expected, you will be getting the message "Compilation fin
 - There is a mismatch between the Solidity compiler version defined with the **pragma** keyword and the version defined in `hardhat.config.js`.
 - There is a version mismatch between the imported smart contract's Solidity version and the version used to write our smart contract. To solve this, double check the version of the OpenZeppelin contracts you are installing with npm. In my case, the npm package is version **4.3.2** and the smart contracts are written with solidity version **0.8.0**.
 
-# Testing the smart contract
+## Testing the smart contract
 
 At this point, we have written our smart contract and compiled it. However, a successfully compiled smart contract doesn't mean that it is correct! It is very important to write test cases to ensure that it passes all the intended use cases and some edge cases. Testing smart contracts becomes even more important since once a smart contract is deployed to the blockchain it cannot be modified.
 
@@ -337,7 +338,7 @@ We are going to test our smart contract for the following:
 - **An NFT is minted successfully:** After an account calls the mint function, an NFT is minted for that account and its balance increases.
 - **The tokenURI is set successfully:** For two tokens minted with different tokenURIs, both tokens have their own respective tokenURI and the data can be retrieved properly.
 
-## Writing the test cases
+### Writing the test cases
 
 In the `test` folder there will be a script called `sample-test.js`. We will delete this file and create a new file called `artwork-test.js` in the same `test` directory. The filename is unimportant but to keep it organized the test file should be somehow related to the contract being tested. In this new file, add the following code:
 
@@ -362,7 +363,7 @@ describe('Artwork Smart Contract Tests', function () {
 
 **NOTE: Unlike with Truffle, HardHat has no need to run `ganache-cli` separately for tests. Hardhat have it's own local testnet which we can use.**
 
-## Deploying contract and writing tests
+### Deploying contract and writing tests
 
 In order to deploy the smart contract we have to first get a reference to the compiled smart contract using `ethers.getContractFactory()` and then we can use the `deploy()` method to deploy the smart contract and pass in the arguments. We do this in the `beforeEach()` section.
 
@@ -411,7 +412,7 @@ it('tokenURI is set sucessfully', async function () {
 });
 ```
 
-## Putting it all together
+### Putting it all together
 
 So finally, after putting all the test cases together, the content of `artwork-test.js` file will be:
 
@@ -468,7 +469,7 @@ This should output:
 
 ![Running Tests](./assets/polygon-create-nft-smart-contract-with-hardhat-running-tests-4.png)
 
-# Deploy the smart contract
+## Deploy the smart contract
 
 At this point we have learned how to write smart contracts and test them. Now its time we finally move towards deploying our smart contract to the Mumbai testnet so we can show off our newly learned skills to our friends 😎.
 
@@ -477,7 +478,7 @@ Before we move ahead and deploy our smart contract, we will need two additional 
 - **dotenv:** Type `npm install dotenv` . This will be used to manage environment variables, which are used for setting up access to our Polygonscan API key.
 - **@nomiclabs/hardhat-etherscan:** Type `npm install @nomiclabs/hardhat-etherscan`. This library is used to verify the smart contract while deploying it to the network. The process of verifying a smart contract on Etherscan and Polygonscan is identical.
 
-## Setting up environment variable
+### Setting up environment variable
 
 ![Creating ENV File](./assets/polygon-create-nft-smart-contract-with-hardhat-creating-env-file-5.png)
 
@@ -490,7 +491,7 @@ POLYGONSCAN_KEY=Paste the API key here
 PRIVATE_KEY=Paste the private key here
 ```
 
-## Modifying the config file
+### Modifying the config file
 
 In order to deploy a verified smart contract to the Mumbai testnet, we have to make certain changes in the `hardhat.config.js` file. First, copy & paste this entire code into the file and then we will go over it step by step to understand what is happening:
 
@@ -540,7 +541,7 @@ Let's now understand what we are doing here:
 - We also have created a new task for deploying our smart contract. To create the task, we use the task keyword and pass it a name and description. In this task we have written the code for deploying our smart contract. After deploying the contract, we call the verify:verify task, made available to us by the hardhat-etherscan plugin. We passed the contract address along with the parameters passed to the constructor while deploying the contract.
 - Finally since we are going to deploy our contract to Mumbai testnet, we created a new entry in the network section and added the RPC url to Mumbai testnet along with the private key of the account which will be used to deploy the smart contract.
 
-## Deploying the smart contract
+### Deploying the smart contract
 
 We are now ready to deploy our contract to testnet. Run the following command:
 
@@ -556,7 +557,7 @@ If everything is correct you should get an output similar to this:
 
 You can now view your contract at the link provided in the output. You can check out my example of the deployed contract [here](https://mumbai.polygonscan.com/address/0x12Fc3C44b4092aD55cf0212fa3A84a1210fCED5f).
 
-## Potential errors while deploying
+### Potential errors while deploying
 
 **Insufficient Funds**
 
@@ -589,7 +590,7 @@ For more info run Hardhat with --show-stack-traces
 
 In this case please make sure you are entering the correct API key.
 
-# Interacting with the smart contract
+## Interacting with the smart contract
 
 If we view our smart contract on Polygonscan, you can see that our contract is verified. This is indicated by a green checkmark in the Contracts tab. In the Contracts tab, click on `Write Contract`. Now click on "Connect to Web3" and connect your Metamask account.
 
@@ -603,22 +604,22 @@ Congratulations🥳🥳🥳, Your NFT is successfully minted. You can visit the 
 
 ![NFT in Opensea Testnet](./assets/polygon-create-nft-smart-contract-with-hardhat-nft-in-opensea-testnet-9.png)
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned some of the basics of HardHat. We wrote a smart contract that can be used to create NFTs, wrote tests for our smart contract and finally deployed it to the Mumbai testnet. We also verified our contract using a HardHat plugin and a Polygonscan API key. Using a similar procedure, we can build any number of DeFi projects and deploy to any EVM compatible network (Ethereum, Polygon, Binance Smart Chain, Avalanche, etc.).
 
-# Next Steps
+## Next Steps
 
 Why stop here? Looking ahead, you can also learn how to build an NFT Marketplace contract where various NFTs can be listed, bought and sold. You can also dig deeper into other aspects of NFTs and learn new things 😎!
 
-# About The Author
+## About The Author
 
 Hi, my name is Bhaskar Dutta and I am a blockchain Developer, Researcher and Freelancer. I am always looking forward to learning new things and I like to discuss Sitcoms. To know me better, you can check out my [Github](https://github.com/BhaskarDutta2209) profile.
 
-# References
+## References
 
 I found the following very helpful while learning:
 
-- [Hardhat Official Documentation](https://hardhat.org/)
-- [Matic Official Documentation](https://docs.matic.network/docs/develop/getting-started)
-- [OpenZeppelin Forum Page](https://forum.openzeppelin.com/t/function-settokenuri-in-erc721-is-gone-with-pragma-0-8-0/5978/3) about the setTokenURI change in Solidity 0.8.0.
+1. [Hardhat Official Documentation](https://hardhat.org/)
+2. [Matic Official Documentation](https://docs.matic.network/docs/develop/getting-started)
+3. [OpenZeppelin Forum Page](https://forum.openzeppelin.com/t/function-settokenuri-in-erc721-is-gone-with-pragma-0-8-0/5978/3) about the setTokenURI change in Solidity 0.8.0.

@@ -5,7 +5,7 @@ keywords: [Polygon, JS/TS, Solidity, Javascript, Solidity]
 date: '2021-09-13T22:08:11.260Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to create a Donation dApp on Polygon to award your favorite content creator with MATIC tokens and how to deploy your smart contract on the Polygon network.
 
@@ -13,11 +13,11 @@ This is what the dApp we will be creating looks like:
 
 ![Dapp Demo](./assets/polygon-create-a-donation-dapp-on-polygon-dapp-demo-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully follow along with this tutorial, you will need a basic knowledge and understanding of blockchain, Solidity smart contracts and React.
 
-# Requirements
+## Requirements
 
 - You will need Metamask installed in your browser from the official site <https://metamask.io>.
 - You must have a recent version of Node.js installed. We recommend using v14.17.6 LTS for compatibility.
@@ -42,17 +42,17 @@ To successfully follow along with this tutorial, you will need a basic knowledge
 - Using IPFS to upload images'
 - Publishing the smart contract to Polygon Testnet
 
-# Project setup
+## Project setup
 
 To set up the project files, we will have to install a few packages using the node package manager npm. This software comes bundled with recent versions of Node.js, but you will still want to make sure it is installed with the command `npm -v`. Run the following commands in order to install the packages and create the project directories:
 
+Install truffle globally so that you can use truffle from any directory, also install Next.js and setup TypeScript for your project. `truffle init` create a `truffle-config.js`, `test/` and `contracts/` directory for you.
+
 ```bash
-npm install -g truffle # Install truffle globally so that you can use truffle from any directory
-
-npx create-next-app --typescript # Install nextjs and setup typescript for your project
-
+npm install -g truffle
+npx create-next-app --typescript
 cd polygon-dapp
-truffle init # Create truffle-config.js test/ and contracts/ directory
+truffle init
 ```
 
 When asked during the `create-next-app` setup, use "polygon-dapp" as the project name so that it will be easy for you to follow along with this tutorial. This is how the folder structure will be after initial setup:
@@ -66,7 +66,7 @@ The `truffle init` command creates the following directories:
 - `test/`: All the test scripts for smart contracts are stored in this directory.
 - `truffle-config.js`: Contains configuration settings for truffle.
 
-# Creating the Solidity smart contract
+## Creating the Solidity smart contract
 
 Create a new file called `DonationContract.sol` in the `contracts` directory and add the following code:
 
@@ -164,7 +164,7 @@ function donateImageOwner(uint256 _id) public payable {
 
 That's all for the smart contract, now we can move forward with the compilation and migration process.
 
-# Compiling and deploying with Truffle
+## Compiling and deploying with Truffle
 
 Now that we have our smart contract written, it's time to compile it. Open your terminal and run the following command:
 
@@ -226,7 +226,7 @@ This command will deploy your contract to Ganache, and will give you output that
 
 ![Output Image](./assets/polygon-create-a-donation-dapp-on-polygon-output-image-4.png)
 
-# Writing tests for the smart contract
+## Writing tests for the smart contract
 
 Writing tests for your smart contract is a very crucial task. Once a smart contract is added to the blockchain it cannot be modified, so if anything goes wrong because of a bug in the code then all the subsequent interactions with the contract will have issues. This makes it very important to test your code thoroughly before deploying it to the mainnet.
 
@@ -322,7 +322,7 @@ The output of the command should be similar to this: -
 
 ![Output image](./assets/polygon-create-a-donation-dapp-on-polygon-output-image-5.png)
 
-# Connecting to a frontend with web3js
+## Connecting to a frontend with web3js
 
 Now the smart contract and tests are dealt with, it's time to integrate our smart contracts with the frontend application.
 
@@ -490,7 +490,7 @@ export default MyApp;
 
 Now we can access all context variables in any of our components.
 
-# Creating the UI using TailwindCSS in Next.js
+## Creating the UI using TailwindCSS in Next.js
 
 For the User Interface (UI) we will be using [TailwindCSS](https://tailwindcss.com/) and [HeadlessUI](https://headlessui.dev/). To install these packages run the following command:
 
@@ -794,7 +794,7 @@ export const UploadImage: React.FC<Props> = ({ isOpen, closeModal }) => {
 };
 ```
 
-# Using IPFS to upload images
+## Using IPFS to upload images
 
 In `UploadImage.tsx`, we are using IPFS as decentralized file storage to upload the user images. For this, we have to install another package.
 
@@ -820,7 +820,7 @@ This hash value can later be used to access the image on IPFS by appending the h
 https://ipfs.infura.io/ipfs/${hash}
 ```
 
-# Publishing the smart contract to Mumbai testnet
+## Publishing the smart contract to Mumbai testnet
 
 Publishing your smart contract is relatively simple. You will have to add provider details for Matic testnet in your `truffle-config.js`.
 
@@ -968,10 +968,10 @@ This is how our Dapp will look like at the end:
 
 ![Demo GIF](./assets/polygon-create-a-donation-dapp-on-polygon-demo-gif-6.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing the tutorial! Thank you for taking the time to complete it. In this tutorial, you have learned how to create a smart contract in Solidity, how to use IPFS to upload images, how to interact with smart contracts in frontend applications using web3js and how to publish your smart contract to the Polygon testnet. This donation dApp is one of the endless possibilities of Web 3 development.
 
-# About the Author
+## About the author
 
 I'm Viral Sangani, a tech enthusiast working on blockchain projects & love Web3 community. Feel free to connect with me on [GitHub](https://github.com/viral-sangani).

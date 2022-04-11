@@ -5,14 +5,14 @@ keywords: [Celo, JS/TS, NodeJS]
 date: '2021-07-21T10:06:57.733Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will set up a Virtual Machines and install the necessary software to create a full node, then run a light client to monitor the network.\
 Full nodes are a major part of the Celo blockchain. A full node is a constantly running program that will help to write, and validate new changes in the network. Multiple full nodes work together, validating the blockchain in a decentralized way.
 
 Please watch the videos linked below and follow along with the written tutorial!
 
-# Prerequisites
+## Prerequisites
 
 - Have a basic understanding of Virtual Machines (VM), and the Linux terminal.
 - Install the Valora app on iOS or Android: <https://valoraapp.com/>
@@ -20,7 +20,7 @@ Please watch the videos linked below and follow along with the written tutorial!
 - Download VirtualBox, the Oracle VM host: <https://www.virtualbox.org/>
 - Download Signal for iOS or Android: <https://www.signal.org/>
 
-# Creating the VM
+## Creating the VM
 
 **Video 1 -** Creating the Virtual Machine in VirtualBox
 
@@ -42,9 +42,9 @@ The installation of Debian is complete and the VM is now ready.
 
 [![SC2 Video](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-sc-2-video-2.png)](http://www.youtube.com/watch?v=l8qAISLJZq8)
 
-### Gain sudo on the VM
+## Gain sudo on the VM
 
-On Linux, the command `sudo` stands for "substitute user do".\
+On Linux, the command `sudo` stands for "substitute user do".
 Once a user account is added to the `sudo` group, it will be able to act with administrator or "root" privileges on the VM.
 
 The following commands are entered into the VM terminal:
@@ -53,9 +53,11 @@ The following commands are entered into the VM terminal:
 
 - You will be required to enter the root password of the VM.
 
-`usermod -aG sudo YOURUSERNAME`
+```text
+usermod -aG sudo YOURUSERNAME
+```
 
-- YOURUSERNAME needs to be replaced with the currently logged in users' account name. By default this should be displayed in the terminal prompt, but you can use the command `who` to make sure which account you are currently logged in with.
+- `YOURUSERNAME` needs to be replaced with the currently logged in users' account name. By default this should be displayed in the terminal prompt, but you can use the command `who` to make sure which account you are currently logged in with.
 - Restart the VM
 
 `id`
@@ -246,11 +248,11 @@ Understanding this unit of measurement: 1e16 = 0.01 CUSD, 1e15 = 0.1 CUSD, 1e14 
 
 ![image](./assets/celo-how-to-run-a-celo-full-node-in-a-virtual-machine-image-9.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations, the full node and light client should now be operational!\
 Keep in mind this is not the only way to set up a full node. This node is now under your control and part of the Celo blockchain, so remember to store all related keys and passwords safely to avoid losing any money. Please experiment with this setup and personalize it. The `start_celo.sh` and `celo.env` files can be altered to suit your needs.
 
-# About the Author
+## About the author
 
 This tutorial was put together by [Aidan Dedecker](https://github.com/Aidandedecker/), a bright young member of the Learn community.

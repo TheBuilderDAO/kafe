@@ -5,15 +5,15 @@ keywords: [Polygon, JS/TS, Solidity, React, Javascript]
 date: '2021-11-01T22:56:46.400Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to build a skill verification system using blockchain from scratch and deploy it on the Polygon Mumbai test network. Before diving into the building part, let's first see why we need a skill verification system using blockchain.
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have some beginner-level programming knowledge with Solidity, web3.js, React.js, and an understanding of basic blockchain principles.
 
-# Requirements
+## Requirements
 
 We will need the following things on your PC to start with this tutorial rest of the things we will tell you when they are required.
 
@@ -25,11 +25,11 @@ We will need the following things on your PC to start with this tutorial rest of
 
 **Note:** Check the reference section at the end of this document if you want to know more about these requirements.
 
-# Problem Statement
+## Problem Statement
 
 One of the most basic yet most important tasks for every firm is the verification of the candidate's qualifications and experience before hiring. With an increasing number of applying candidates especially in larger firms, verifying candidate qualifications and experience is becoming very time-consuming, and as a result is overlooked many times. This problem of candidates falsifying their information is an increasing concern for the HR department and while conventional skill verification systems are useful, they are still far from perfect to handle this.
 
-# How we plan to tackle the problem
+## How we plan to tackle the problem
 
 Blockchain-based skill verification will be an ideal solution to this problem as it provides a transparent, trustworthy, and independent platform that also reduces the time spent on conducting competency checks. With blockchain, any user can enter their details regarding skills, certifications, and work experience and get those details verified by their respective company coworkers, managers, and team leaders with complete transparency.
 
@@ -37,19 +37,19 @@ Our solution provides every user with a unique id. It will be straightforward to
 
 New users and companies shall be cross verified by platforms such as LinkedIn via OAuth to add an additional verification layer. The creation of companies will also require at least two verified manager-level employees along with the other standard details. The users can add a company to their work experience only after getting their joining request approved by the company.
 
-# Implementation
+## Implementation
 
 For this implementation, we shall be using React.js and Web3.js for the frontend of the web app and Solidity to create Ethereum compatible smart contracts, to be deployed on the Polygon network. By using the Polygon network, we are relying on the security of the Ethereum network while benefitting from low gas fees and high throughput of Polygon's layer 2 scaling at the same time. This will allow for a much more robust solution by increasing the number of peak allowable simultaneous users while maintaining a viable response time.
 
 Here we are using React.js for the frontend but you can use any frontend framework of your choice.
 
-# Roadmap
+## Roadmap
 
 We will first start with building the contracts using solidity and deploying them locally then we will move to the development of front end with react and connect to our contracts using web3 and at last deploying the contracts on the Polygon Mumbai network and for the deployment of frontend, we will show it using netlify.
 
-# Project Environment Setup
+## Project Environment Setup
 
-## Setup project using Create React App
+### Setup project using Create React App
 
 Create and setup the React project in the Decentraskill directory.
 
@@ -58,7 +58,7 @@ npx create-react-app Decentraskill
 cd Decentraskill
 ```
 
-## Install and setup required dependencies
+### Install and setup required dependencies
 
 Install the required node modules and setup the truffle project in the Decentraskill directory.
 
@@ -72,7 +72,7 @@ After following these steps, you should have a folder structure like:
 
 ![str](./assets/polygon-create-a-blockchain-skill-verification-system-str-1.png)
 
-## Configure truffle-config.js
+### Configure truffle-config.js
 
 Replace the contents of your `truffle-config.js` file with the following code snippet:
 
@@ -95,7 +95,7 @@ module.exports = {
 };
 ```
 
-## Configure initial migrations
+### Configure initial migrations
 
 Update the `1_initial_migration.js` file with the desired smart contract file name:
 
@@ -107,7 +107,7 @@ module.exports = function (deployer) {
 };
 ```
 
-# Smart Contracts in Solidity
+## Smart Contracts in Solidity
 
 Let us start by creating the `Decentraskill.sol` smart contract in the `contracts` folder. Here we first define the global/storage variables of the smart contracts. The first two lines define the smart contract license type and the compatible Solidity version respectively.
 
@@ -136,7 +136,7 @@ mapping(address => uint256) public address_to_id;
 mapping(address => bool) public is_company;
 ```
 
-## Account Structure
+### Account Structure
 
 Whenever a user signs up, there can be two kinds of accounts: A company account or a user account.
 
@@ -182,7 +182,7 @@ struct experience {
 }
 ```
 
-## Sign Up Process
+### Sign Up Process
 
 For the signup function, the contract takes in the user email, name, and account type (user/company). Depending on the account type, we add a new entry to the company global array or the employee's global array and then update the parameters of the newly created object. After the account is created, its id (index of the object in its respective global array) is linked with the email address and account type in the global mappings we have defined above.
 
@@ -244,7 +244,7 @@ function strcmp(string memory a, string memory b) // string comparison function
 }
 ```
 
-## Login Process
+### Login Process
 
 For the login function, the contract simply checks if the wallet address of the account is the same as the wallet address of the person trying to sign in. If the address matches, then it returns the account type (company/user).
 
@@ -261,7 +261,7 @@ function login(string calldata email) public view returns (string memory) {
 }
 ```
 
-## Updating a wallet address
+### Updating a wallet address
 
 We need to consider that a user might want to change the wallet address linked to their email/user id. To do this, all the user needs to do is just provide the new wallet address while connected to their current/previous wallet address.
 
@@ -280,7 +280,7 @@ function update_wallet_address(string calldata email, address new_address)
 }
 ```
 
-## Skill Verification
+### Skill Verification
 
 Every single skill of the user shall be linked to the list of endorsements and certifications for that particular skill. These skills will only be marked as verified when a manager-level account of their current or previous companies endorse it. So whenever a potential employer visits their profile they will get a complete list of skills from which the verified ones can be easily located. These skills can be endorsed by any user and a distinctive tag shall be shown for the endorsements made by the user's coworkers and managers. These endorsements shall include a personalized review of the user's skill thus reducing the number of spam endorsements.
 
@@ -467,7 +467,7 @@ function endorse_skill(
 }
 ```
 
-# Connecting frontend with smart contracts using web3
+## Connecting frontend with smart contracts using web3
 
 To connect the smart contract with the React.js frontend, we are going to be using Web3.js. We shall be storing all the important details which shall be reused in various components in a react state variable using the useState hook to persist object across rerenders.
 
@@ -663,9 +663,9 @@ const endorseSkill = async (empId, skillId, comment) => {
 };
 ```
 
-# Deploying smart contacts
+## Deploying smart contacts
 
-## To a local network
+### To a local network
 
 To deploy the smart contracts locally, we need to check our `truffle.config.js` to make sure that we have the same port from ganache (the default is port 8545) in development and the root of our truffle project is set properly.
 
@@ -693,7 +693,7 @@ Compiler Error: Stack too deep when compiling inline assembly: Variable headStar
 
 To resolve this error, you need to change the storage type of some input/output function parameters from calldata to memory. Read [this](https://medium.com/coinmonks/stack-too-deep-error-in-solidity-608d1bd6a1ea) article to know more.
 
-## To the Mumbai testnet
+### To the Mumbai testnet
 
 To deploy smart contracts in the Polygon Mumbai network we will use the services of the [DataHub](https://datahub.figment.io) platform. In DataHub login using your email account, select Polygon from the available protocols and get your private RPC url.
 
@@ -759,23 +759,23 @@ Now, you are all set to run the deployment and get the contracts on to the Polyg
 truffle migrate --network matic
 ```
 
-# Frontend using Reactjs
+## Frontend using Reactjs
 
 Link to the wireframe: <https://whimsical.com/decentraskill-UukeCuFudL9kNGsC6rqaGJ>
 
 So far we have successfully set up smart contracts and deployed them on the Polygon network and connected with our frontend using web3.js. The only thing we have left to do is make some great user interface screens. You can use any of your favorite frameworks for this part. We are going to use React. We are not going to be explaining this part as this is a bit out of scope for this article and there are various great resources out there about React. Still, If you come across some problems, we are providing you with the GitHub repository link (see below) and the wireframes for it, and if the problem still persists find us in the author's section.
 
-# Deploying frontend
+## Deploying frontend
 
 For Deploying the frontend you can use any service of your choice. For React you can refer to the _Netlify for React docs_ in the reference section.
 
-# Conclusion
+## Conclusion
 
 Link to GitHub repo: <https://github.com/iamsdas/Decentraskill>
 
 Congratulations! After completing this tutorial, you should have a good understanding of how to create a dApp for a blockchain-based skill verification system and how to deploy it on Polygon.
 
-# Next Steps
+## Next Steps
 
 Awesome guys, you have finally created a blockchain-based skill verification system on your own but you must not stop now. There is always room for improvements and innovation. following are some features that you can add to this platform of yours to make it better.
 
@@ -794,7 +794,7 @@ Awesome guys, you have finally created a blockchain-based skill verification sys
     - Automation of addition and removal of employees via company database.
     - Anonymous company review system for employees to give the company an understanding of the flaws in their departments.
 
-# About the Authors
+## About the Authors
 
 **Hardik Agarwal:**
 
@@ -804,7 +804,7 @@ I am a tech-savvy pre-final year CSE student from India I am passionate about we
 
 I am a full-stack web developer and a blockchain enthusiast. I love exploring the latest technologies. Feel free to check out my profile at [iamsdas.me](https://iamsdas.me) and connect with me on [Twitter](https://twitter.com/_iamsdas) and [LinkedIn](https://linkedin.com/in/iamsdas).
 
-# References
+## References
 
 - _node and npm docs:_ <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>
 - _solidity docs:_ <https://docs.soliditylang.org/en/v0.8.1/>

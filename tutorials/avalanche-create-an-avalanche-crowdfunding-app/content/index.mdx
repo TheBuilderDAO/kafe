@@ -5,22 +5,22 @@ keywords: [Avalanche, JS/TS, React, Javascript, Solidity]
 date: '2022-02-17T23:53:39.662Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to build a decentralized Kickstarter dApp having features namely create a project, fund a project, withdraw fund, get refund if funding isn't successful etc. We will build the smart contract in Solidity and the frontend of our application with the help of ReactJS.\
 Avalanche is a low cost, high-speed blockchain network on which we can deploy smart contracts written in solidity. Due to its low gas fees and a high number of transactions per second, Avalanche is a good platform for deploying dApps on it.
 
-# Prerequisites
+## Prerequisites
 
 - Familiarity with ReactJS and Solidity.
 - Should've completed [Deploy a Smart Contract on Avalanche using Remix and MetaMask](https://learn.figment.io/tutorials/deploy-a-smart-contract-on-avalanche-using-remix-and-metamask) tutorial
 
-# Requirements
+## Requirements
 
 - [Node.js](https://nodejs.org/en/download/releases/) v10.18.0+
 - [Metamask extension](https://metamask.io/download/) on your browser
 
-# Implementing the smart contract
+## Implementing the smart contract
 
 ![Image displaying contract_architecture](./assets/avalanche-create-an-avalanche-crowdfunding-app-image-displaying-contract-architecture-1.png)
 
@@ -332,15 +332,15 @@ function claimRefund(uint256 _index) validIndex(_index) external {
 
 We have now completed the smart contract implementation. Now let's move to contract deployment.
 
-# Deploying the smart contract
+## Deploying the smart contract
 
-## Setting up Metamask
+### Setting up Metamask
 
 Log in to Metamask -> Click the Network drop-down -> Select custom RPC
 
 ![image of metamask](./assets/avalanche-create-an-avalanche-crowdfunding-app-image-of-metamask-2.png)
 
-#### FUJI Tesnet Settings:
+##### FUJI Tesnet Settings:
 
 - **Network name:** Avalanche FUJI C-Chain
 - **New RPC URL:** <https://api.avax-test.network/ext/bc/C/rpc>
@@ -350,7 +350,7 @@ Log in to Metamask -> Click the Network drop-down -> Select custom RPC
 
 Fund your address from the Avalanche testnet [faucet](https://faucet.avax-test.network/).
 
-## Deploy using Remix
+### Deploy using Remix
 
 Open [Remix](https://remix.ethereum.org/) --> Select Solidity
 
@@ -633,7 +633,7 @@ Before deploying the smart contract on testnet, make sure the deployment environ
 
 Approve the transaction on Metamask pop-up interface. Once our contract is deployed successfully, make note of the deployed `contract address`.
 
-# Creating a frontend in React
+## Creating a frontend in React
 
 Now, we are going to create a react app and set up the frontend of the application.\
 Open a terminal and navigate to the directory where we will create the application.
@@ -652,68 +652,68 @@ npm install
 
 In our React application we keep all the React components in the `src/components` directory.
 
-## HomeComponent
+### HomeComponent
 
 It renders the home page of the dApp. The home page displays various projects which are being posted on the dApp for funding. The home page has three sections, mainly a featured project section, a recommended project section, and a recent upload section. The recommended project section recommends some projects for you to check out. The recent upload section displays projects which were uploaded recently for funding. Also, at the top of the home page, the total number of projects posted on the site is displayed along with the total amount of AVAX funded to date and also the number of unique users who funded the projects.
 
-## CreateProjectComponent
+### CreateProjectComponent
 
 It renders a form for creating a new project. The form has various inputs, required to create a new project such as project category, project name, project description, creator name, image, project site link, funding goal, duration of the funding, refund policy. The project details are sent to the smart contract upon submission of the form. The image provided in the form is then uploaded to IPFS before sending the project details to the smart contract. Thus, the smart contract doesn't contain the image itself, but an IPFS link to the image.
 
-## ProjectComponent
+### ProjectComponent
 
 The project component renders all the details about an individual project. At the top, it displays the project name and image, then the total funding it received till now, the number of unique people who funded the project and a button for a user to fund the project with AVAX. After that, it displays the project description and other project information such as project owner name, project link, refund policy, project category and creation date. At the bottom, a table is rendered, listing all the contributors who contributed to the project to date and the amount they contributed, sorted in the descending order of amount contributed.
 
-## PaymentModal
+### PaymentModal
 
 This component renders the modal for payment upon clicking the **back this project** button. The modal has an input for the amount of AVAX you want to fund and a **fund** button to send the fund to the contract. The modal automatically closes once the transfer of the AVAX token is successful.
 
-## ProfileComponent
+### ProfileComponent
 
 This component renders the profile information of a user. This component has three sections, namely **Ongoing projects** section, **Completed projects** section and **Projects funded** section. The **Ongoing projects** section displays all the projects that the user has created and the funding period for which hasn't ended yet. The **Completed projects** section displays all the projects that the user has created and the funding period for which is over. **Projects funded** section displays all the projects to which the user has provided some funding. The **Projects funded** section isn't rendered if you visit some other user's profile.\
 To visit your profile, click the account address displayed on the right end of the navbar.
 
-## DiscoverComponent
+### DiscoverComponent
 
 This component renders a list of projects posted on the site, based on the project category selected. There are four categories, namely Design & tech, Film, Arts and Games.
 
-## ConnectWallet
+### ConnectWallet
 
 This component renders the first page of the site. It contains a **Connect to metamask** button, which allows you to connect your Metamask account to the dApp.
 
-## ScrollShowbarComponent
+### ScrollShowbarComponent
 
 This component renders a carousel which is used by various other components to display a list of projects.
 
 Don't forget to change the contract address in `App.js` file before starting up the React app.
 
-# Walkthrough
+## Walkthrough
 
 You can check out the live demo of the dApp [here](https://hyp3r5pace.github.io/crowdfunding-platform-avalanche/)
 
-## Create Project
+### Create Project
 
 ![gif displaying the process of creating a project](./assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-creating-a-project-4.png)
 
-## Fund Project
+### Fund Project
 
 ![gif displaying the process of funding a project](./assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-funding-a-project-5.png)
 
-## Claim Fund
+### Claim Fund
 
 ![gif displaying the process of claiming refund](./assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-6.png)
 
-## Claim Refund
+### Claim Refund
 
 ![gif displaying the process of claiming refund](./assets/avalanche-create-an-avalanche-crowdfunding-app-gif-displaying-the-process-of-claiming-refund-7.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have successfully developed a working decentralized crowdfunding application where users can create projects, fund various projects and even claim refunds if possible. As a next step, you can try adding new features to the dApp, such as royalties for the dApp owner or providing NFTs to the top contributors of a project.
 
-# Troubleshooting
+## Troubleshooting
 
-## Transaction Failure
+### Transaction Failure
 
 - Check if your account has sufficient balance at [Fuji block-explorer](https://cchain.explorer.avax-test.network/). You can fund your address from the Avalanche testnet [faucet](https://faucet.avax-test.network/).
 
@@ -723,10 +723,10 @@ Congratulations! We have successfully developed a working decentralized crowdfun
 
 ![metamask wallet with multiple account display](./assets/avalanche-create-an-avalanche-crowdfunding-app-metamask-wallet-with-multiple-account-display-9.png)
 
-# About the author(s)
+## About the author(s)
 
 This tutorial was created by [Soumyajit Deb](https://github.com/hyp3r5pace) and [Sayan Kar](https://github.com/SayanKar). You can reach out to [Soumyajit Deb](https://www.linkedin.com/in/soumyajitdeb/) and [Sayan Kar](https://www.linkedin.com/in/sayan-kar-/) for any query regarding the tutorial.
 
-# References
+## References
 
 [Deploy a smart contract on Avalanche using Remix and Metamask](https://docs.avax.network/build/tutorials/smart-contracts/deploy-a-smart-contract-on-avalanche-using-remix-and-metamask/)

@@ -5,7 +5,7 @@ keywords: [Avalanche, Go, JS/TS, NodeJS]
 date: '2021-07-21T06:13:49.177Z'
 ---
 
-# Introduction
+## Introduction
 
 Whether you are looking to create your own token, provide liquidity for existing tokens or trade on Pangolin that is deployed on Avalanche's c-chain, you will need to create a token pair on Pangolin.
 
@@ -17,7 +17,7 @@ In this tutorial, we will illustrate how to create your own Pangolin exchange lo
 
 Pangolin is a fork of Uniswap V2 and the first decentralized exchange (DEX) on Avalanche c-chain where users can swap their [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens.
 
-# Prerequisites
+## Prerequisites
 
 If you have completed the Avalanche tutorial on [Using Truffle with the Avalanche C-Chain](https://docs.avax.network/build/tutorials/smart-contracts/using-truffle-with-the-avalanche-c-chain), you will have completed most of the prerequisites.
 
@@ -27,15 +27,15 @@ In addition, you will need to
 
 - Install pangolin DEX exchange contracts:
 
-<!---->
-
-    npm install --dev @pangolindex/exchange-contracts
+```text
+npm install --dev @pangolindex/exchange-contracts
+```
 
 - Install OpenZepplin contracts
 
-<!---->
-
-    npm install --dev @openzeppelin/contracts
+```text
+npm install --dev @openzeppelin/contracts
+```
 
 ## Copy ERC20 Open Zeppelin Contracts to build directory
 
@@ -43,13 +43,16 @@ We now need to make sure we have access to ERC20 token contracts that we will us
 
 These contracts will be found in the `node_modules` directory
 
-    cp node_modules/\@openzeppelin/contracts/build/contracts/ERC20.json build/contracts/
+```text
+cp node_modules/\@openzeppelin/contracts/build/contracts/ERC20.json build/contracts/
+```
 
 Similarly, we need to copy the IPangolinFactory and IPangolinPair interface contracts to our build directory.
 
-    cp node_modules/\@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinPair.sol/IPangolinPair.json build/contracts/
-
-    cp node_modules/\@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinFactory.sol/IPangolinFactory.json build/contracts/
+```text
+cp node_modules/\@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinPair.sol/IPangolinPair.json build/contracts/
+cp node_modules/\@pangolindex/exchange-contracts/artifacts/contracts/pangolin-core/interfaces/IPangolinFactory.sol/IPangolinFactory.json build/contracts/
+```
 
 ## Create a new Migration file
 
@@ -128,7 +131,7 @@ module.exports = function (deployer, network, accounts) {
 };
 ```
 
-# Import Required Contracts/Bytecode
+## Import Required Contracts/Bytecode
 
 The first thing we need to do is to import the ERC20 contracts as well as the bytecode for the Pangolin Factory, Router, Pair Interface and Factory Interface and the Wrapped AVAX (wAVAX).
 
@@ -193,7 +196,7 @@ const wAVAXAddress = (
 ).contractAddress;
 ```
 
-# Router
+## Router
 
 After we have deployed the bytecode for both the factory and WAVAX, we will take the address and append them as arguments to the router bytecode.
 
@@ -226,7 +229,7 @@ However, if we were going to access these through another contract, they would a
 
 For example, if you wanted to modify PangolinPair and PangolinRouter without changing the contracts you may have already deployed (assuming they have a way to pull in the new address), then you will easily be able to do this if you deployed your contracts with the interfaces.
 
-## Create Pair with router and pair interfaces
+## Create Pair with Router and Pair interfaces
 
 For the final step, we need to access the instance of the factory address through the interface.
 
@@ -246,7 +249,7 @@ const PangoPairAddress = PangoPairTx['logs'][0]['args']['pair'];
 const PangoPair = await IPangolinPair.at(PangoPairAddress);
 ```
 
-# Conclusion
+## Conclusion
 
 In this tutorial we have covered:
 
@@ -261,6 +264,6 @@ In this tutorial we have covered:
 
 You have now deployed Pangolin to your local testnet with your two ERC20 tokens, created a pair token from the ERC20 tokens and now are ready to interact with pangolin through the router as you would on Uniswap v2.
 
-# About the Author
+## About the author
 
 This Tutorial was created by [Cinque McFarlane-Blake](https://github.com/cinquemb). Cinque is a reluctant software engineer and he worked on projects at labs related to brain-computer interfaces, back office stuff for trading in futures markets, and academic publishing tools in developing markets. Overall, He is just trying to help build a more decentralized hyper-connected world while pushing on the boundaries of our existence.

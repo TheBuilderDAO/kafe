@@ -5,7 +5,7 @@ keywords: [Celo, JS/TS, Truffle, Javascript, CLI]
 date: '2021-07-21T07:25:36.086Z'
 ---
 
-# Introduction
+## Introduction
 
 This tutorial is designed for developers who have deployed dapps on ethereum before and now want to learn how to do the same with the Celo blockchain.
 
@@ -13,7 +13,7 @@ One of the biggest advantages of using Celo is that it is EVM compatible which m
 
 We will be redeploying the famous **Pet Shop** dApp. A complete walkthrough of pet shop is outside the scope of this tutorial, but you can find it [here](https://www.trufflesuite.com/tutorials/pet-shop). The current tutorial is not limited to just this example and can be used as a guide to redeploy any other Ethereum smart contract to Celo.
 
-# Getting Started
+## Getting Started
 
 Start by cloning the following repository
 
@@ -31,7 +31,7 @@ npm install
 
 Now we have all the tools to start on your journey.
 
-# Using the Celo CLI
+## Using the Celo CLI
 
 First, we need to find a way to interact with Celo blockchain. For this tutorial, we will be using `Celo CLI` to do the same.
 
@@ -79,7 +79,7 @@ celocli account:balance <YOUR_PUBLIC_ADDRESS>
 
 ![](./assets/celo-redeploy-ethereum-dapps-on-celo-image-3.png)
 
-# Changing truffle-config.js
+## Changing truffle-config.js
 
 To deploy our dapp to the Celo blockchain, all we need to do now is to change the `truffle-config.js` so that it can work with Celo blockchain. We will be taking help of `ContractKit` and `Wallet-local` made by Celo. We also need to install `dotenv` to use our Private Key.
 
@@ -138,6 +138,8 @@ and after compiling is completed, let's migrate our smart contracts to Celo.
 ```text
 truffle migrate --network testnet
 ```
+
+## Conclusion
 
 Congratulations! With that, we have deployed our Ethereum DApp to Celo.
 

@@ -10,7 +10,7 @@ date: '2021-06-29T19:55:07.851Z'
   caption="Subgraphs for Celo video tutorial"
 />
 
-# What is the Graph Protocol?
+## What is the Graph Protocol?
 
 The Graph protocol lets you create GraphQL APIs called subgraphs for your smart contracts. Sounds like a lot? We'll break it down.
 
@@ -38,7 +38,7 @@ In contrast, you can directly query GraphQL from your app or command line.
 2.  Smart contracts let us define and trigger events. For example, when we transfer ERC20 tokens to someone, a `transfer` event is triggered. Graph protocol listens to these events in real time and updates it's data. This way, we always get the latest data.
 3.  The Graph protocol is decentralized. We don't need to worry about API server going down.
 
-# Show me the code!
+## Show me the code!
 
 **Resources:**
 
@@ -91,10 +91,10 @@ npm install
 3.  Deploying
 
 ```bash
-# Authenticate Graph CLI. The access token is displayed on your subgraph dashboard.
+## Authenticate Graph CLI. The access token is displayed on your subgraph dashboard.
 graph auth https://api.thegraph.com/deploy/ <ACCESS_TOKEN>
 
-# Deploy to The Graph
+## Deploy to The Graph
 graph deploy \
     --debug \
     --node https://api.thegraph.com/deploy/ \
@@ -137,7 +137,7 @@ Subscriptions (WS): wss://api.thegraph.com/subgraphs/name/secretshardul/celo-sub
 5.  Time to run a GraphQL query! A default query is given which gets data of the first five gravatars. Press the run button. Here's the query again for reference:
 
 ```graphql
-# Get details of first five gravatars
+## Get details of first five gravatars
 {
   gravatars(first: 5) {
     id
@@ -185,7 +185,7 @@ curl --location --request POST 'https://api.thegraph.com/subgraphs/name/secretsh
     --data-raw '{"query":"{\n  gravatars(first: 5) {\n    id\n    owner\n    displayName\n    imageUrl\n  }\n}\n","variables":{}}'
 ```
 
-# Explanation
+## Explanation
 
 We have a pre-deployed contract `GravatarRegistry`.
 
@@ -273,7 +273,7 @@ dataSources:
     name: Gravity
     network: celo
     source:
-    address: '0x56d04968f959ae609a32c8eadb8cd3db90490a7f' # Deployed contract address
+    address: '0x56d04968f959ae609a32c8eadb8cd3db90490a7f'
     abi: Gravity
     mapping:
     kind: ethereum/events
@@ -355,7 +355,7 @@ module.exports = async function (deployer) {
 };
 ```
 
-# Creating subgraphs for your own contracts
+## Creating subgraphs for your own contracts
 
 Make changes to the contracts. You may want to edit or replace [Gravity.sol](https://github.com/secretshardul/the-graph-celo/blob/master/contracts/Gravity.sol) with your custom contract.
 Create a file `.env` which will contain environment variables. Look at [.env-template](https://github.com/secretshardul/the-graph-celo/blob/master/.env-template) for the required format.
@@ -456,7 +456,11 @@ Generate Graph build files using
 
 ```bash
 yarn codegen
-# or
+```
+
+Or:
+
+```text
 npm run codegen
 ```
 
@@ -500,11 +504,11 @@ Run the Graph protocol [deployment script](subgraphs-on-celo.md#3-show-me-the-co
 - [The Graph documentation](https://thegraph.com/docs/)
 - [graphql.org](https://graphql.org/)
 
-# Conclusion
+## Conclusion
 
 We have learned how the Graph protocol is helpful, and how we can build and deploy our own subgraphs.
 
-# About the author
+## About the author
 
 This tutorial was created by Shardul Aeer, a full stack developer exploring the brave new world of Web3 and blockchain. Follow his journey on:
 

@@ -5,7 +5,7 @@ keywords: [The Graph, Graphql, Smart contracts, GraphQL]
 date: '2021-09-27T22:27:09.188Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial you will learn how to create a subgraph from an ERC-721 smart contract on Ethereum mainnet, deploy it to the Subgraph Studio, and then use the Subgraph Studio Playground to query the subgraph for information about the indexed transactions.
 
@@ -17,11 +17,11 @@ You can build a subgraph schema if you know the address of the smart contract. I
 
 The Subgraph Studio is where you can build and create subgraphs. You can add metadata to your graphs (even after deploying your subgraphs), deploy multiple versions of your subgraphs, as well as publish them to the decentralized Graph Explorer. You can also test your subgraphs in the Playground, where you can run graphql queries without incurring any querying fees. In this tutorial, you shall also learn how to create and deploy your subgraph to Subgraph Studio as well as query it using the Playground.
 
-# Requirements
+## Requirements
 
 - You need to have a recent version of Node.js installed. We recommend using v14.17.6 LTS for compatibility.
 
-# Project setup
+## Project setup
 
 Run the following command to install the Graph Protocol CLI globally. This is required to deploy your subgraph.
 
@@ -31,7 +31,7 @@ npm i -g @graphprotocol/graph-cli@0.21.1
 
 Because the latest version of the Graph Protocol CLI breaks compatibility with OpenZeppelin subgraphs, for this tutorial you will need to specifically install **v0.21.1** and not the latest version.
 
-# Getting the NFT smart contract address
+## Getting the NFT smart contract address
 
 Head over to [OpenSea](https://opensea.io/assets), the largest NFT marketplace.
 
@@ -49,7 +49,7 @@ Click on any of the NFTs to view its display page:
 
 From here you can click on the **Details** tab, to view the contract address for the NFT: <https://etherscan.io/address/0xa08126f5e1ed91a635987071e6ff5eb2aeb67c48>.
 
-# Creating the project in Subgraph Studio
+## Creating the project in Subgraph Studio
 
 Now that you have the address of a smart contract that you want to index using the Graph Protocol, you can head over to the Subgraph Studio at <https://thegraph.com/studio/>.
 
@@ -63,7 +63,7 @@ Click the "Create a Subgraph" button to begin. You need to give your subgraph a 
 
 ![GalaxyEggs NFT subgraph](./assets/the-graph-query-nft-data-with-subgraphs-galaxy-eggs-nft-subgraph-7.png)
 
-# Creating the subgraph
+## Creating the subgraph
 
 On your local machine or remote development environment, create a directory called `galaxyEggsNFT`, change into that directory, then initialize it as a new **npm** project by running:
 
@@ -131,7 +131,7 @@ It also creates a directory named `generated` containing two files:
 
 Now we are ready to deploy the subgraph.
 
-# Deploying the subgraph
+## Deploying the subgraph
 
 Run the following command to set the deploy key for your subgraph project:
 
@@ -207,7 +207,7 @@ Publishing meaning pushing your subgraph on-chain to either Ethereum mainnet or 
 
 For now, let's skip publishing this subgraph.
 
-# Querying the NFT data
+## Querying the NFT data
 
 Your subgraph is composed of schema types called `Entities`, defined in `schema.graphql` file. For each Entity, The Graph will generate an `entity` and `entities` fields, as seen in <https://thegraph.com/studio/subgraph/galaxyeggnft>.
 
@@ -362,10 +362,10 @@ You shall get the below output:
 
 You can view the transaction on Etherscan ([0x31663947a...](https://etherscan.io/tx/0x31663947a5619c75217d127caa7c128d868c5b4cc3d8145d9b78e0e9a6e4a155)). As you can see it's the sale of **Galaxy Eggs #2174** made by the account `0x98c2...05d1`, which is exactly what is in the output!
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing this tutorial! You have learned how to retrieve the smart contract address of an NFT collection from OpenSea. You also learned how to create and deploy a subgraph for an NFT collection on Subgraph Studio, as well as query the subgraph for specific information using GraphQL and the Subgraph Studio Playground.
 
-# About the Author
+## About the author
 
 I'm Robin Thomas, a blockchain enthusiast with few years of experience working with various blockchain protocols. Feel free to connect with me on [GitHub](https://github.com/robin-thomas).

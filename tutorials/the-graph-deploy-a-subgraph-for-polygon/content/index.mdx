@@ -5,7 +5,7 @@ keywords: [The Graph, JS/TS, Solidity, Javascript, Solidity, Hardhat]
 date: '2021-10-28T18:37:51.032Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial you will learn how to deploy a Solidity smart contract to the Polygon Mumbai testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio.
 
@@ -17,16 +17,16 @@ When you deploy a subgraph, you alone shall have access to it. But when you publ
 
 In this tutorial, you shall learn how to create and deploy your subgraph to Subgraph Studio using a Polygon smart contract.
 
-# Prerequisites
+## Prerequisites
 
 To successfully complete this tutorial, you will need to have a basic understanding of Polygon and the NodeJS ecosystem. You will also need to have advanced knowledge of Solidity.
 
-# Requirements
+## Requirements
 
 - You will need Metamask installed in your browser. You can install it from <https://metamask.io/>
 - You need to have a recent version of Node.js installed. We recommend using v14.18.1 LTS for compatibility.
 
-# Project setup
+## Project setup
 
 Run the following command to install the yarn package manager and the Graph Protocol CLI globally. These are required to build and deploy your subgraph.
 
@@ -42,7 +42,7 @@ cd nft
 yarn init --yes
 ```
 
-## Setting up Hardhat
+### Setting up Hardhat
 
 Run the following command to install `hardhat` as a dev-dependency of the project (meaning that it is a package that is only needed for local development and testing).
 
@@ -104,7 +104,7 @@ Run the following command to install Hardhat plugins that are required for compi
 yarn add --dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle hardhat-abi-exporter
 ```
 
-# Writing the smart contract
+## Writing the smart contract
 
 To simplify writing our NFT smart contract, we shall be using the OpenZeppelin contracts npm package. You can install it as a dev-dependency by running:
 
@@ -206,7 +206,7 @@ contract FunNFT is ERC721URIStorage {
 }
 ```
 
-# Compiling the smart contract
+## Compiling the smart contract
 
 By default, Hardhat will not export the ABI after compiling the solidity smart contract. But having the ABI makes it easier to create a subgraph for it.
 
@@ -240,7 +240,7 @@ Compilation finished successfully
 
 The `nft.sol` smart contract has now been compiled successfully. The ABI will be stored in `abi/contracts/nft.sol/FunNFT.json`.
 
-# Deploying the smart contract
+## Deploying the smart contract
 
 Add the constants `MUMBAI_PRIVATE_KEY` and `DATAHUB_API_KEY` as well as a **networks** entry in your `hardhat.config.js` file:
 
@@ -269,7 +269,7 @@ module.exports = {
 };
 ```
 
-## Getting your Datahub API Key
+### Getting your Datahub API Key
 
 To get your `DATAHUB_API_KEY`, head over to <https://datahub.figment.io/sign_up> and create a free account.
 
@@ -281,7 +281,7 @@ Click on the `Polygon` button to view the Polygon Services Dashboard at <https:/
 
 ![Datahub Polygon API Key](./assets/the-graph-deploy-a-subgraph-for-polygon-datahub-polygon-api-key-3.png)
 
-## Getting your Metamask private key
+### Getting your Metamask private key
 
 You need to add a connection to the Polygon Mumbai testnet to your Metamask by following the instructions below (remember to replace `<YOUR_DATAHUB_API_KEY>` in the JSON-RPC URL with your actual DataHub API key):
 
@@ -306,7 +306,7 @@ To get your `MUMBAI_PRIVATE_KEY`, open your browser and open Metamask. Select **
 
 **Never ever share your private key with anyone!**
 
-## Deploying your smart contract
+### Deploying your smart contract
 
 Create a subdirectory inside the HardHat project called `scripts`, and paste the following code into a new file `deploy.js` inside the `scripts` directory:
 
@@ -349,7 +349,7 @@ Congratulations! You just deployed your smart contract successfully to Mumbai te
 
 You will need the contract address when creating the subgraph, so remember to copy it.
 
-# Creating the subgraph
+## Creating the subgraph
 
 Run the following command to create the subgraph by downloading the contract ABI from the Mumbai testnet. A new directory called `funnft` will be created, and all node dependencies will be installed automatically.
 
@@ -395,7 +395,7 @@ Next steps:
 Make sure to visit the documentation on https://thegraph.com/docs/ for further information.
 ```
 
-# Creating the project in Subgraph Studio
+## Creating the project in Subgraph Studio
 
 First, you will want to head over to the Subgraph Studio at <https://thegraph.com/studio/>.
 
@@ -411,7 +411,7 @@ Next, you need to give your subgraph a name. Give the name as **FunNFT**. Once t
 
 On this screen, you can see details about the subgraph like your deploy key, the subgraph slug and status.
 
-# Deploying the subgraph
+## Deploying the subgraph
 
 Before you can deploy your subgraph, you need to get your deploy key from <https://thegraph.com/studio/subgraph/funnft/>. This is used to authenticate your account with the Subgraph Studio.
 
@@ -468,10 +468,10 @@ Done in 14.68s.
 
 You have now deployed the subgraph to your Subgraph Studio account!
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing this tutorial! You have learned how to deploy a smart contract to the Polygon Mumbai testnet using HardHat. You also learned how to create and deploy a subgraph for the smart contract on Subgraph Studio.
 
-# About the Author
+## About the author
 
 I'm Robin Thomas, a blockchain enthusiast with few years of experience working with various blockchain protocols. Feel free to connect with me on [GitHub](https://github.com/robin-thomas).

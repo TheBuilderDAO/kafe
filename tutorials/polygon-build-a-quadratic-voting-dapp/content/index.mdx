@@ -5,7 +5,7 @@ keywords: [Polygon, Solidity, Truffle, Solidity, IPFS]
 date: '2021-11-04T16:00:34.361Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will be learning how to create a quadratic voting app with collaboratively managed ranked lists. This is a fairly complex application and a good exercise in serious dApp development. We're going to write a smart contract in Solidity and a front-end in Vue.js, then deploy our dApp on the Polygon testnet.
 
@@ -13,7 +13,7 @@ Here's a preview of what we will be building:
 
 ![app demo](./assets/polygon-build-a-quadratic-voting-dapp-app-demo-1.png)
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes basic knowledge of blockchain, Solidity and Vue.js.
 
@@ -28,9 +28,9 @@ By the end of this tutorial you will be able to:
 - Serve images with IPFS
 - Deploy smart contracts to the Polygon Mumbai testnet
 
-# Requirements
+## Requirements
 
-## Node, NPM and Yarn
+- Node, NPM and Yarn
 
 Node.js is a runtime environment that allows us to execute JavaScript outside of a web browser.
 
@@ -40,19 +40,19 @@ NPM and Yarn are package managers. Which you use is a matter of preference. We w
 2.  Check NPM installation: `npm -v`
 3.  Install yarn: `npm i -g yarn`
 
-## Truffle
+- Truffle
 
 [Truffle](https://www.trufflesuite.com/truffle) is a development environment for Ethereum that we will use to compile and deploy our smart contract.
 
 `npm i -g truffle`
 
-## Ganache
+- Ganache
 
 [Ganache](https://www.trufflesuite.com/ganache) is a personal Ethereum blockchain you can deploy on your computer for development purposes.
 
 This is mostly optional, but it is recommended to install it so we can use it later to run our tests.
 
-## MetaMask
+- MetaMask
 
 MetaMask is a browser extension that allows you to access your Ethereum wallet and interact with dApps.
 
@@ -62,7 +62,7 @@ Use the following configuraton to add the Polygon Mumbai testnet.
 
 ![MetaMask config](./assets/polygon-build-a-quadratic-voting-dapp-meta-mask-config-2.png)
 
-## Preview
+- Stack Preview
 
 These are the additional technologies we will be using later.
 
@@ -73,7 +73,7 @@ These are the additional technologies we will be using later.
 - [Vue.js](https://vuejs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
-# Project setup
+## Project setup
 
 To generate initial project files, we will use the Truffle and Vue CLI tools.
 
@@ -92,7 +92,7 @@ Your project should look like this.
 
 ![file structure](./assets/polygon-build-a-quadratic-voting-dapp-file-structure-3.png)
 
-# Creating the smart contract in Solidity
+## Creating the smart contract in Solidity
 
 Create a new file called `QuadraticVoting.sol` in the `contracts` folder.
 
@@ -245,7 +245,7 @@ This allows the owner of an item to transfer any reward to their wallet.
 
 And there we go! Our smart contract is finished. Now let's learn how to deploy it.
 
-# Compiling and deploying with Truffle
+## Compiling and deploying with Truffle
 
 We'll need to compile our contracts before we can use them. We can do this with the Truffle CLI tool we installed earlier.
 
@@ -335,7 +335,7 @@ You should see similar output.
 
 ![truffle migrate](./assets/polygon-build-a-quadratic-voting-dapp-truffle-migrate-5.png)
 
-# Writing tests for the smart contract
+## Writing tests for the smart contract
 
 Next we will be writing tests for our contract. Tests allow us to ensure our contract code is working as intended in a programmatic way.
 
@@ -401,7 +401,7 @@ You should see similar output.
 
 ![truffle test](./assets/polygon-build-a-quadratic-voting-dapp-truffle-test-6.png)
 
-# Communicating with the smart contract with Web3
+## Communicating with the smart contract with Web3
 
 Now we'll be using web3.js to communicate with our smart contracts from JavaScript.
 
@@ -550,7 +550,7 @@ These exported functions allow us to serialize/deserialize data to and from our 
 
 We'll be using these from our Vue components later.
 
-# Uploading image files with IPFS
+## Uploading image files with IPFS
 
 We'll need to add a few things to our `quadratic-voting.js` file to add support for image uploads.
 
@@ -596,11 +596,9 @@ export async function uploadFile(file) {
 
 That's all for now!
 
-# Creating the front-end with Vue.js
+## Creating the front-end with Vue.js
 
 It's finally time to create our Vue components and build our app UI.
-
-## App
 
 Edit the `src/App.vue` file.
 
@@ -628,7 +626,7 @@ export default {
 
 This is a simple component containing the item creation form and ranked list of items we will be creating later. It's the root component of our application.
 
-## CreateItem
+### CreateItem
 
 The `CreateItem` component is a form that allows us to fill in data for item creation.
 
@@ -687,7 +685,7 @@ When you click on the "Create Item" button you should see MetaMask prompt you to
 
 ![create item MetaMask](./assets/polygon-build-a-quadratic-voting-dapp-create-item-meta-mask-8.png)
 
-## RankedList
+### RankedList
 
 The `RankedList` component displays a sorted list of all items previously published to the contract.
 
@@ -733,7 +731,7 @@ export default {
 
 In the `created` function we wait until the contract and IPFS node are defined, checking every 100ms, before filling the page with list items.
 
-## Item
+### Item
 
 We will need to create the `Item` component next so that our `RankedList` code will compile.
 
@@ -861,11 +859,9 @@ Clicking the "Submit Vote" button should allow you to confirm a transaction.
 
 ![submit vote MetaMask](./assets/polygon-build-a-quadratic-voting-dapp-submit-vote-meta-mask-12.png)
 
-# Styling the components with Tailwind CSS
+## Styling the components with Tailwind CSS
 
 Our last step will be styling our Vue components to make the app look prettier.
-
-## Configuration
 
 We'll need the following packages to style our components with Tailwind CSS.
 
@@ -1059,18 +1055,18 @@ We're done! Our app should now have a much better appearance.
 
 ![completed app](./assets/polygon-build-a-quadratic-voting-dapp-completed-app-13.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! After completing this tutorial, you should now know how to create a smart contract in Solidity, interact with smart contracts using Web3, deploy contracts to the Polygon testnet and build a front-end with Vue/Tailwind. You are now on your way to becoming a full stack dApp developer.
 
-# About the author
+## About the author
 
 I'm giraffekey, a free software developer interested in decentralized technologies. Feel free to connect with me on [GitHub](https://github.com/giraffekey).
 
-# References
+## References
 
-- Truffle docs: https://www.trufflesuite.com/docs/truffle/overview
-- Polygon (Matic) docs: https://docs.polygon.technology/docs/develop/getting-started
-- MetaMask docs: https://docs.metamask.io/guide/
-- Web3 docs: https://web3js.readthedocs.io/en/v1.5.2/
-- IPFS docs: https://docs.ipfs.io/concepts/what-is-ipfs/
+1. Truffle docs: https://www.trufflesuite.com/docs/truffle/overview
+2. Polygon (Matic) docs: https://docs.polygon.technology/docs/develop/getting-started
+3. MetaMask docs: https://docs.metamask.io/guide/
+4. Web3 docs: https://web3js.readthedocs.io/en/v1.5.2/
+5. IPFS docs: https://docs.ipfs.io/concepts/what-is-ipfs/

@@ -26,7 +26,6 @@ import {
   NODE_ENV,
 } from '@app/constants';
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
-import { PublicKey } from '@solana/web3.js';
 import { getApplicationFetcher } from '../../hooks/useDapp';
 import { BuilderDaoConfigJson, BuilderDaoLockJson } from '@builderdao/cli';
 
@@ -57,6 +56,7 @@ const TutorialPage: NextPage<
         tutorialId={lock.proposalId}
         frontMatter={frontMatter}
         config={config}
+        lock={lock}
         toc={toc}
         next={frontMatter.next}
         prev={frontMatter.prev}
@@ -115,27 +115,27 @@ export const getStaticProps: GetStaticProps = async context => {
     if (NODE_ENV === 'production') {
       const applicationFetcher = getApplicationFetcher();
       const tutorial = await applicationFetcher.getTutorialBySlug(tutorialSlug);
-      const ceramicCLient = new CeramicApi({
-        nodeUrl: NEXT_PUBLIC_CERAMIC_NODE_URL,
-      });
-      const ceramicMetadata = await ceramicCLient.getMetadata(
-        tutorial.streamId,
-      );
       return {
         config: {
-          title: ceramicMetadata.title,
-          description: ceramicMetadata.description,
+          title: tutorial.title,
+          description: tutorial.description,
           // TODO:  Ceramic calls it tags lock file calls it categories.
-          categories: ceramicMetadata.tags,
+          categories: tutorial.tags,
           imageUrl: '',
         },
         lock: {
-          authors: [],
-          creator: tutorial.creator,
-          content: ceramicMetadata.content,
-          slug: tutorial.slug,
-          reviewers: {},
           proposalId: tutorial.id,
+          creator: tutorial.creator,
+          content: tutorial.content,
+          slug: tutorial.slug,
+          reviewers: {
+            reviewer1: {
+              pubkey: tutorial.reviewer1.toString(),
+            },
+            reviewer2: {
+              pubkey: tutorial.reviewer2.toString(),
+            },
+          },
           href: `learn/${tutorial.slug}`,
         },
       };

@@ -5,25 +5,25 @@ keywords: [Polygon, JS/TS, Solidity, Javascript, Solidity, Remix]
 date: '2021-09-10T18:57:03.759Z'
 ---
 
-# Introduction
+## Introduction
 
 This tutorial will introduce you to generating random numbers in Solidity smart contracts using Chainlink VRF ([Verifiable Random Function](https://docs.chain.link/docs/chainlink-vrf/#generate-random-numbers-in-your-smart-contracts)). Chainlink VRF is used as a verifiable source of randomness on-chain. We will be using the Polygon (Matic) Mumbai testnet and the Remix IDE.
 
-# Why use Chainlink VRF?
+## Why use Chainlink VRF?
 
 Solidity contracts are deterministic, therefore anyone who figures out how your contract produces randomness could predict its results. Chainlink VRF generates a random number off-chain with a cryptographic proof used to verify the result.
 
-# Prerequisites
+## Prerequisites
 
 To follow this tutorial, you should have a basic understanding of Solidity [smart contracts](https://solidity-by-example.org/) & the [Remix IDE](https://remix.ethereum.org/). You should also complete the [Polygon (Matic) Pathway](https://learn.figment.io/network-documentation/matic/polygon-matic-pathway).
 
-# Requirements
+## Requirements
 
 - You will need to have the [MetaMask](https://metamask.io) browser extension installed.
 
-# Using Chainlink VRF
+## Using Chainlink VRF
 
-## Getting testnet tokens
+### Getting testnet tokens
 
 You will need some testnet MATIC and LINK. These can be acquired from the [Polygon Faucet](https://faucet.polygon.technology/). MATIC token will be used to pay for contract deployment and making transactions. LINK token will be used to pay the Chainlink oracle for randomness.
 
@@ -43,7 +43,7 @@ To see LINK tokens in your Metamask:
 4.  Click the Confirm button to add LINK tokens to your list of assets in Metamask
     ![](./assets/polygon-chainlink-vrf-on-polygon-image-1.png)
 
-## Using the Remix IDE
+### Using the Remix IDE
 
 We will use the Remix IDE - an online development environment for smart contracts, provided by the Ethereum Foundation.
 
@@ -51,7 +51,7 @@ Head over to [https://remix.ethereum.org](https://remix.ethereum.org/). Click on
 
 ![](./assets/polygon-chainlink-vrf-on-polygon-image-2.png)
 
-## Creating the smart contract
+### Creating the smart contract
 
 In `RandomNumber.sol`, copy the entire smart contract code below and paste it into the Remix editor panel.
 
@@ -135,7 +135,7 @@ function fulfillRandomness(bytes32 requestId, uint256 randomness) internal overr
 }
 ```
 
-## Deploy the contract with Remix
+### Deploy the contract with Remix
 
 In Remix, click on the Solidity Compiler icon on the sidebar:
 
@@ -157,7 +157,7 @@ Metamask should popup, allowing you to click the Confirm button to complete the 
 
 ![](./assets/polygon-chainlink-vrf-on-polygon-image-6.png)
 
-## Fund the contract with LINK
+### Fund the contract with LINK
 
 You will need to fund your contract with LINK tokens to pay the Chainlink oracle for VRF to work. Click on the Copy Icon to copy your contract address.
 
@@ -176,7 +176,7 @@ You can go to the Mumbai block explorer <https://mumbai.polygonscan.com/> to che
 
 ![](./assets/polygon-chainlink-vrf-on-polygon-image-8.png)
 
-## Using the contract
+### Using the contract
 
 Click on the Arrow Icon to see your contract methods
 
@@ -190,23 +190,23 @@ When the transaction is successful, click on the "randomResult" button and you s
 
 ![](./assets/polygon-chainlink-vrf-on-polygon-image-10.png)
 
-# Possible errors & solutions
+## Possible errors & solutions
 
 If you get this error, it means that your contract does not have enough LINK token to pay the oracle fee. To solve this, you should send some LINK token to your contract address.
 
 ![](./assets/polygon-chainlink-vrf-on-polygon-image-11.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! This tutorial introduced you to Chainlink Verifiable Random Function (VRF). Now you can generate random numbers in your smart contracts using the Chainlink oracle.
 
 To learn more about Chainlink VRF, visit the [Chainlink docs](https://docs.chain.link/docs/chainlink-vrf/).
 
-# About The Author
+## About The Author
 
 This tutorial was created by [You Song Hou](https://github.com/ysongh) who is a full stack developer.
 
-# References
+## References
 
 - Chainlink VRF Documentation: https://docs.chain.link/docs/chainlink-vrf/
 - Polygon (Matic) Documentation: https://docs.matic.network/docs/develop/getting-started
