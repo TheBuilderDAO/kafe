@@ -34,7 +34,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "turbo": "^1.2.1"
   },
   "lint-staged": {
     "apps/**/*.{js,ts,jsx,tsx}": [

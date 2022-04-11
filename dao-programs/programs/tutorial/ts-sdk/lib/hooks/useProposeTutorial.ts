@@ -16,12 +16,12 @@ export const useProposeTutorial = <AD>(): [
   const tutorialProgram = useTutorialProgram();
 
   const handleAction = useCallback(
-    async data => {
+    async (data: AD) => {
       try {
         setError(null);
         setSubmitting(true);
-
-        const txHash = await tutorialProgram?.createTutorial(data);
+        // TODO: add types for create Tutorial.
+        const txHash = await tutorialProgram?.createTutorial(data as any);
 
         console.log('TX Hash', txHash);
 

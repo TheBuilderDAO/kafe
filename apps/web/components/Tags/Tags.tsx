@@ -25,6 +25,7 @@ const Tags: React.FC<TagsProps> = props => {
     leftOverCount = tags.length - shortenedTags.length;
   }
   const getTagValue = tag => {
+    console.log(tag);
     return tag?.value?.toUpperCase() || tag?.toUpperCase();
   };
   return (

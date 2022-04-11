@@ -17,7 +17,8 @@ export const useGuideTipping = <AD>(): [
   const tutorialProgram = useTutorialProgram();
 
   const handleAction = useCallback(
-    async data => {
+    // TODO: Add types.
+    async (data: any) => {
       try {
         setError(null);
         setSubmitting(true);
