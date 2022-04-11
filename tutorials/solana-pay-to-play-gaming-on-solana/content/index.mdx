@@ -5,7 +5,7 @@ keywords: [Solana, JS/TS, Javascript, IPFS, Arweave]
 date: '2022-01-13T01:27:55.095Z'
 ---
 
-# Introduction
+## Introduction
 
 Blockchains are constantly evolving with every release and there are lots of Layer 1 blockchains which are now solving real world problems.
 Solana is one of the fastest blockchains in terms of transaction rate per second and it has low transaction fees. These features make Solana a perfect blockchain to build applications which can scale up in terms of traffic, while keeping transactions affordable to end users.
@@ -14,16 +14,16 @@ Considering these factors we are going to build a decentralized gaming platform 
 
 This tutorial does not cover any actual gameplay, it focuses on the creation of a React application that requires users to pay using the Phantom wallet for Solana before using the application.
 
-# Prerequisites
+## Prerequisites
 
 Although the tutorial doesn’t require you to know everything about Solana or be an experienced developer, having some basic knowledge of JavaScript, React, Web3.js and the Solana blockchain will be useful.
 
-# Requirements
+## Requirements
 
 - A code editor like Visual Studio Code (VSCode) to follow along with this tutorial
 - Install the Phantom wallet browser extention from <https://phantom.app>
 
-# Features
+## Features
 
 The decentralized application (DApp) will include the following features:
 
@@ -32,7 +32,7 @@ The decentralized application (DApp) will include the following features:
 3.  Game play (We will be able to pick any open source game and copy the code)
 4.  NFT creation for the game play high score
 
-# Folder structure
+## Folder structure
 
 The complete code for this tutorial can be found at <https://github.com/solanauniversity/solana-games>
 
@@ -70,19 +70,19 @@ This will download the project onto your local drive and allow you to modify and
     - index.js
   - package.json
 
-# Flowchart of the DApp
+## Flowchart of the DApp
 
 ![Solana Games](./assets/solana-pay-to-play-gaming-on-solana-solana-games-1.png)
 
 Keeping this in mind, we will go over the details of the code and how it operates:
 
-# Accept fees from the game player
+## Accept fees from the game player
 
 The DApp (Decentralised Application) which we are building accepts the payment in the form of SOL tokens and lets users play the game after they have paid.
 The tokens which we receive can be interpreted as a game fee. The same model can be applied to any DApp which can provide service after receiving the payment.
 To make the payment to the DApp possible, we will first integrate the Phantom wallet which will enable users to send the payment.
 
-## Connect to the Phantom wallet
+### Connect to the Phantom wallet
 
 To transfer the SOL from your wallet to the game's wallet, you first need to connect to the wallet. Without the connection, you will not be able to transfer SOL and move forward. This is accomplished within the file `src/App.js`.
 
@@ -129,7 +129,7 @@ useEffect(() => {
 
 Now that the `provider` is set, we can use the `provider` instance for all subsequent transactions. When the user connects their wallet, then it becomes important to assign the `provider` which can be used throughout the DApp to sign transactions.
 
-## Signing transactions
+### Signing transactions
 
 **Once we are ready to send a transaction, it must be signed** - the signTransaction function from `@solana/web3.js` is used.
 
@@ -170,7 +170,7 @@ In the code above, we are preparing the transaction object to get signed and add
 **Proof of history**: Proof of History is a sequence of computation that can provide a way to cryptographically verify the passage of time between two events. Validator nodes "timestamp" blocks with cryptographic proofs that some duration of time has passed since the last proof. All data hashed into the proof most certainly have occurred before the proof was generated. The node then shares the new block with validator nodes, which are able to verify those proofs. The blocks can arrive at validators in any order or even could be replayed years later. With such reliable synchronization guarantees, Solana is able to break blocks into smaller batches of transactions called _entries_. Entries are streamed to validators in realtime, before any notion of block consensus.
 This is very different and efficient from the **Proof of Work** model where the energy consumption is high as every node in the blockchain has to perform the action to validate a transaction. The winner gets the reward but other validator’s work gets wasted in the process.
 
-## Connection provider to the Phantom Wallet
+### Connection provider to the Phantom Wallet
 
 In the utility function below, we are attempting to connect to the wallet if it is not connected already. The function will alert the user if there is no Phantom Wallet present as a browser extension.
 
@@ -199,7 +199,7 @@ export const connectOrGetPhantomProvider = connectToWallet => {
 };
 ```
 
-## Transfer SOL from user wallet to Games wallet
+### Transfer SOL from user wallet to Games wallet
 
 To transfer the SOL from the user’s wallet to our game wallet we need to create a new transaction which will hold the information about the sender of the SOL, receiver of the SOL and the amount of the SOL.
 
@@ -274,13 +274,13 @@ export const transferCustomToken = async (
 
 - **provider.publicKey** is going to use the public key of the currently selected account in the Phantom wallet.
 
-# How to create the NFT on Solana
+## How to create the NFT on Solana
 
 A non-fungible token (NFT) is a unique and non-interchangeable unit of data stored on a blockchain, a form of digital ledger. So to make ourselves proud by possessing the one and only scorecard of our gameplay we will convert our scores into a NFT. Once we convert it to an NFT, then we can claim the highest score made while playing the game.
 
 Let's dive into the NFT creation process for Solana.
 
-## Create NFT utility functions
+### Create NFT utility functions
 
 NFT stands for non-fungible token, which basically means that it's a one-of-a-kind digital asset that belongs to you and you only. The most popular NFTs right now include artwork and music, but can also include videos and even tweets.
 
@@ -361,7 +361,7 @@ export const TOKEN_PROGRAM_ID = programIds.token;
 
 Other variables mentioned are the predefined standards from Metaplex which internally uses an on-chain program to store all the metadata and artifacts of the NFT. You can find more information on the [Metaplex documentation](https://docs.metaplex.com/).
 
-# On-chain program’s data structures
+## On-chain program’s data structures
 
 On-chain programs written in Rust expect the data passed to them to be in 'struct' format.
 The class needs to be created to use in Web3 (JavaScript), but to send it through the transaction first the 'class' data structure needs to be converted to 'struct' data structure and then serialized (so it can be sent over the network) via the borsh serializer.
@@ -491,7 +491,7 @@ class MintPrintingTokensArgs {
 }
 ```
 
-## HTML DOM to Image utility function
+### HTML DOM to Image utility function
 
 To create an NFT which can hold the image as metadata we need to provide the image in the form of a base64 encoded string and from base64 to file object which eventually gets uploaded to Arweave.
 
@@ -519,7 +519,7 @@ export const dataURLtoFile = (dataurl, filename) => {
 };
 ```
 
-## Borsh extended functionality
+### Borsh extended functionality
 
 This functionality is provided by the Metaplex team where they added an extra util function to the BinaryReader to make the communication seamless with Metaplex on-chain programs.
 
@@ -946,7 +946,7 @@ function createAssociatedTokenAccountInstruction(
 }
 ```
 
-# Transaction which needs to be signed
+## Transaction which needs to be signed
 
 - **sendTransactionWithRetry:** Used to retry the transaction in case of failure. While performing any transaction on a blockchain there is always a chance of transaction failure and it can lead to bad user experience if it fails in the first go. Hence this function helps to re-initiate the transaction in case of failure.
 
@@ -1179,7 +1179,7 @@ async function getEdition(tokenMint) {
 }
 ```
 
-# Schema mapping of the required classes
+## Schema mapping of the required classes
 
 For Solana programs, Rust only supports the struct data structure hence the 'classes' need to be converted to 'struct' to perform valid serialization and deserialization.
 
@@ -1615,12 +1615,12 @@ export default App;
 
 3.  Add the source code for the game you want to integrate with this application.
 
-## Setting up the Phantom wallet
+### Setting up the Phantom wallet
 
 1.  If you do not already have it installed, please install the Phantom wallet extension from <https://phantom.app> - it supports Chrome, Brave, Firefox and Edge browsers.
 2.  Add some SOL to the wallet on **devnet** for testing: Go to <https://www.spl-token-ui.com/#/sol-airdrop> and switch to devnet by clicking on the dropdown at the top right of the menu bar (it will show **Mainnet-beta** by default). You can paste your Phantom wallet address and change the amount to 2 SOL to receive an airdrop. Even though the site says you can receive up to 10 SOL per request, attempting to get more than 2 SOL at a time will not work so don't waste your time.
 
-# Conclusion
+## Conclusion
 
 In this tutorial we learned about:
 
@@ -1633,18 +1633,18 @@ In this tutorial we learned about:
 7.  What are on-chain programs
 8.  What is an NFT and how it is different from regular tokens
 
-# What's Next
+## What's Next
 
 - Once you complete this tutorial then you can build a pay-per-use gaming platform on Solana.
 - You can provide services for which you can charge some amount of SOL from the users.
 - You can extend the Aolana games learning and build your own gaming platform.
 - You can use the knowledge of NFT creation and build NFT marketplaces like OpenSea.
 
-# About The Author
+## About The Author
 
 This tutorial is written by [Sandeep Ghosh](https://github.com/blocksan). You can connect with him on [LinkedIn](https://www.linkedin.com/in/ersandy/). He is a passionate blockchain engineer, an avid thinker who is currently working on building multiple products in the Solana ecosystem.
 
-# References
+## References
 
 1.  [Solgames.fun - Superset of this tutorial](https://solgames.fun/)
 2.  [Solana Docs](https://docs.solana.com)

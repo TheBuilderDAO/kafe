@@ -5,19 +5,19 @@ keywords: [Solana, JS/TS, Rust, Javascript, Rust]
 date: '2021-10-28T16:51:21.280Z'
 ---
 
-# Introduction
+## Introduction
 
 Many existing tutorials about Solana focus on writing _programs_ (commonly known as smart contracts on other blockchains), minting tokens or NFTs - however a decentralized app is incomplete without an interface and needs to be hosted on the web to reach a wider audience. In this tutorial, we will explain how to develop a frontend interface for Solana programs and how to make beautiful web apps with the help of Chakra UI.
 
 The code for this tutorial is available in the repository <https://github.com/kanav99/solana-boilerplate>. Each part of the tutorial refers to the repository, which is mentioned at the end of the part. If you are comfortable with using git on the commandline, you can `git checkout <commit hash>` or just click on the link to the code to refer to the code at that checkpoint.
 
-# Prerequisites
+## Prerequisites
 
 - Have a basic understanding of Solana backend and have gone through the helloworld example [here](https://github.com/solana-labs/example-helloworld).
 
 - A basic understanding of React.js is required.
 
-# Requirements
+## Requirements
 
 For this tutorial, we need the following software installed -
 
@@ -26,7 +26,7 @@ For this tutorial, we need the following software installed -
 - The Solana CLI, which can be found at <https://docs.solana.com/cli/install-solana-cli-tools>
 - A Solana Wallet (like Phantom, Solflare, etc.), check out the Wallet guide [here](https://docs.solana.com/wallet-guide).
 
-# Create an empty Chakra App
+## Create an empty Chakra App
 
 To get started, we will create an empty Chakra UI app using `create-react-app`, which is a program used to set up a React development environment and generate a starting point from templates. Run the following commands in your terminal:
 
@@ -69,7 +69,7 @@ To start the development server, use the command `npm start` in your terminal. O
 
 If this is your first time seeing a Chakra UI app, here is a refresher. All chakra components must be wrapped between `ChakraProvider`, which controls the theming of all children components. `Box` is equivalent to `div` tag of HTML. `VStack` is a vertical stack of elements spaced evenly.
 
-# Basic interaction with the Solana Network
+## Basic interaction with the Solana Network
 
 To interact with the Solana Networks (mainnet, devnet, local etc.), we use the Solana [JSON RPC API](https://docs.solana.com/developing/clients/jsonrpc-api). Instead of making raw jRPC calls, we will use the package `@solana/web3.js`, which interacts with the API.
 
@@ -141,7 +141,7 @@ You can also use `connection.getBalance` to get only balance as well.
 
 All the code till now is present in the [`d7ecab7`](https://github.com/kanav99/solana-boilerplate/tree/d7ecab78045b74447df797d989a70247f633c4c4) commit of the final repository.
 
-# Getting Airdrops
+## Getting Airdrops
 
 To work with the Solana network, we need some SOLs. To get them on the mainnet, we need to buy them from any exchange and transfer them to the public key displayed on the page. However, we are on devnet, so we can just get them for free through airdrops. We can do it from the CLI, but let's make an easy button to get them on click.
 
@@ -178,7 +178,7 @@ And add a button in the rendering part -
 
 Get code on commit [`83fa3e5`](https://github.com/kanav99/solana-boilerplate/tree/83fa3e5877bf1a5b21a0d1c47054d2ca5158978b).
 
-# Get Transaction history
+## Get Transaction history
 
 Suppose we want to get the ten most recent transactions whenever we load the page. We can create a new react state `transactions`, and update the code inside the `init` function.
 
@@ -220,7 +220,7 @@ But we also want to call this `init` function after we airdrop, so that the tran
 
 You might be seeing a problem over here - the transaction, balance, or account status, in general, is not real-time. This is what we will fix in the next section. For the code till now, refer to the commit [`f50143c`](https://github.com/kanav99/solana-boilerplate/tree/f50143cb9d9c1956a57f1bff55b09cebcfdbf1fc).
 
-# Realtime account updates using polling and custom React Hooks
+## Realtime account updates using polling and custom React Hooks
 
 Ever wondered how functions like `useToast` (in chakra), `useWallet` (in most web3 frameworks) work? These are all custom hooks. Right now, in our code, we have all of the code for frontend, wallet info, getting airdrop is all in a single function `App`. The account info is not real-time. The code in the `App` functional component should not have access to `setAccounnt` or `setTransactions`; it should just receive account info and a list of transactions and show it as a list. We will fix all of it using React custom hooks. Using hooks, we can localize a part of the application's state inside a separate function that internally manages and updates the value of those states, returning only the value of the real-time state. If you do not understand any part of what is coming, bear with me until the code for the hook is complete.
 
@@ -300,7 +300,7 @@ const [airdropProcessing, setAirdropProcessing] = useState(false);
 
 Voila! No more `setAccount` and `setTransactions` inside the App component. No more manually updating the state after every change. Try sending some SOLs from the CLI to this account and see it update in real-time! As an exercise to the reader, try using [`connection.onAccountChange`](https://solana-labs.github.io/solana-web3.js/classes/Connection.html#onAccountChange) instead of setInterval for getting updates :). Code until now is present in the commit [`c598b22`](https://github.com/kanav99/solana-boilerplate/tree/c598b220eac2070cfa4b6fc146d8cdf071ee1f40).
 
-# Using an actual wallet
+## Using an actual wallet
 
 Now, before spending any of their precious SOLs, we want our users to feel safe about how we handle wallets. It is always good to leave the wallet logic and how the private key is stored to existing well-known projects. Solana has many wallet options like Solflare, Sollet, Phantom etc. We will make our application compatible with all of these using [`solana/wallet-adapter`](https://github.com/solana-labs/wallet-adapter) package(s). The goal of this section would be to remove this particular piece of code -
 
@@ -518,7 +518,7 @@ There is still one issue in this, which I am leaving as an exercise - the user m
 
 The code till now is present in the commit [`92c4c88`](https://github.com/kanav99/solana-boilerplate/tree/92c4c885a4a190e3edafcfdbe33309adfab38f8b).
 
-# Sending transactions - Greeting yourself
+## Sending transactions - Greeting yourself
 
 Until this point, we only read from the blockchain; we have not written anything on it actively (airdrops happen due to a public program). In this part, we will learn to "write" on the blockchain by interacting with the programs deployed on it. Now, we will make a button component that says hi to a person's account, and the account maintains a counter of the number of accounts that greeted it.
 
@@ -809,7 +809,7 @@ Yay! You can now greet yourself! ... Doesn't seem exciting? Let us greet others 
 
 Possible improvements - As `PublicKey.createWithSeed` might be an expensive operation, try memoizing using `useMemo`? Set the button in loading state while the transaction is being sent?
 
-# Greeting others
+## Greeting others
 
 Now, we might want to greet others as greeting ourselves is not that cool. For greeting others, we will need a public key for that account; then we can send them a greeting. Our goal of the section is to send greetings to others by adding a textbox to our application where you can write the public key of your friend and then click a button to send a greeting their way.
 
@@ -898,7 +898,7 @@ return (
 
 Code till here is present in the commit [`746ff70`](https://github.com/kanav99/solana-boilerplate/tree/746ff7095bb45af822fa3be5bd999a3d1ce29dca).
 
-# Organizing things
+## Organizing things
 
 The logic is good enough now, but the page looks like everything is crammed into a single page. Let us clean this up. We will use Chakra UI tabs on the homepage to split the page into two pages - Home and Transaction History. So, in the Home, we change the rendering code to
 
@@ -1064,15 +1064,15 @@ return (
 
 The code till here is available in the commit [`e56e2d5`](https://github.com/kanav99/solana-boilerplate/tree/e56e2d5ee69df21e9a3cfd4f2e6dcc2dd42436e5), or just the current master branch.
 
-# Conclusion
+## Conclusion
 
 Congratulations on completing this tutorial! What we developed and understood was how we can use Chakra UI and Solana to make beautiful and fast dApps. Now, you should be able to use this knowledge to power your big idea and easily use Solana to make blazing fast applications while using the ease of Chakra to develop the frontend with confidence. There is still much that can be improved in this simple application, but I will leave that to the imagination of the reader.
 
-# About the author
+## About the author
 
 This tutorial was created by Kanav Gupta. He can be found on [Github](https://github.com/kanav99) and on their [website](https://kanavgupta.xyz).
 
-# References
+## References
 
-- [Solana example-helloworld repository](https://github.com/solana-labs/example-helloworld)
-- [Chakra UI Documentation](https://chakra-ui.com/docs/getting-started)
+1. [Solana example-helloworld repository](https://github.com/solana-labs/example-helloworld)
+2. [Chakra UI Documentation](https://chakra-ui.com/docs/getting-started)

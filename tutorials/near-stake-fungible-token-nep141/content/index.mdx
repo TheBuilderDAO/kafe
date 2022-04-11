@@ -28,9 +28,9 @@ Anyone can earn staking rewards by delegating their NEAR tokens to a validator t
 3.  While delegated NEAR is deposited in the staking pool, it is effectively locked. While being staked, the delegated NEAR is owned by the staking pool contract (which is owned by the validator). Effectively, delegators are lending their NEAR to validators through the staking pool contract. Delegators' return on investment is their share of staking rewards - assuming the validator acquires a seat and does his job.
 4.  When delegators choose to withdraw their NEAR they must first unstake the NEAR tokens. The unstaked NEAR will remain locked within the staking pool for 4 epoch periods (2 days) before being eligible for withdrawal from the staking pool contract.
 
-## ATTENTION: How Unstaking Affects Withdrawals
+## How Unstaking Affects Withdrawals
 
-> One thing users need to be aware of and careful about is how the unstaking lock period functions in the current version of the staking pool contract. Each time the user submits a request to unstake NEAR it resets the lock period to 4 epochs (2 days). For example, if a user unstaked 1000 NEAR in epoch (1), then the 1000 NEAR will be available for withdrawal in epoch (4). What happens if the user submits another request to unstake 1 NEAR on epoch (3)? When you try to withdraw the 1000 NEAR in epoch (4), it is still locked because the lock period has been reset and extended for all unstaked NEAR. The 1001 NEAR will then be available for withdrawal in epoch (7).
+> ATTENTION: One thing users need to be aware of and careful about is how the unstaking lock period functions in the current version of the staking pool contract. Each time the user submits a request to unstake NEAR it resets the lock period to 4 epochs (2 days). For example, if a user unstaked 1000 NEAR in epoch (1), then the 1000 NEAR will be available for withdrawal in epoch (4). What happens if the user submits another request to unstake 1 NEAR on epoch (3)? When you try to withdraw the 1000 NEAR in epoch (4), it is still locked because the lock period has been reset and extended for all unstaked NEAR. The 1001 NEAR will then be available for withdrawal in epoch (7).
 
 For more information on how staking works on NEAR see:
 
@@ -72,7 +72,7 @@ That's pretty cool because if you are eager to start using new features then you
 
 - **NOTE**: to view the corresponding Rust docs, you will need to clone the above git projects and generate the Rust docs locally.
 
-## Show Me the Design
+### Show Me the Design
 
 To keep the code clean we will first design the interfaces separate from the implementation. The contract API will be defined explicitly via an interface. In Rust, interfaces are called [traits](https://doc.rust-lang.org/book/ch10-02-traits.html). The design approach will be to leverage Rust strongly typed system to model the domain. The [NEP-141](2-fungible-token.md) standard defined the API using the lowest common denominator to keep the API programming language-neutral as much as possible. In doing so, we lost type safety. For example, numeric amounts were specified as `string` types. With Rust, we get type safety back. We will be working with a typed domain model that makes the code clear and precise.
 
@@ -98,7 +98,7 @@ To keep the code clean we will first design the interfaces separate from the imp
 - The keyword here to notice is **private** - it means that even though the function is exposed on the contract, only the contract itself is allowed to call the function. If any other account tries to call the private function, then it should fail.
 - **NOTE**: the callback function signature is not explicitly defined by the FT standard (NEP-141). I am presenting to you my implementation, but you may choose to name your callback whatever you want
 
-## Show Me the Code
+### Show Me the Code
 
 You can refer to the full [source code](https://github.com/oysterpack/oysterpack-near-stake-token/blob/main/contract/src/contract/fungible_token.rs) on Github. I will be reviewing the most important parts of the code below.
 
@@ -159,22 +159,19 @@ fn ft_transfer(
 - The transfer amount is debited from the sender and then credited to the receiver
 - In order to commit the transfer to the blockchain, we must remember to persist the state change to storage. Both the sender and receiver accounts are saved to storage.
 
-<Hint
-  type="info">
-  Best Practices
-
-1. You should always use [ValidAccountId](https://docs.rs/near-sdk/2.0.1/near_sdk/json_types/struct.ValidAccountId.html) as the contract function argument type
-2. Contract API function should be easy to read to understand the business logic
-3. Remember to commit contract state changes to storage
-
+<Hint type="info">
+  Best Practices 1. You should always use
+  [ValidAccountId](https://docs.rs/near-sdk/2.0.1/near_sdk/json_types/struct.ValidAccountId.html)
+  as the contract function argument type 2. Contract API function should be easy
+  to read to understand the business logic 3. Remember to commit contract state
+  changes to storage
 </Hint>
 
-# Best Practices
+## Best Practices
 
 1.  You should always use [ValidAccountId](https://docs.rs/near-sdk/2.0.1/near_sdk/json_types/struct.ValidAccountId.html) as the contract function argument type
 2.  Contract API function should be easy to read to understand the business logic
 3.  Remember to commit contract state changes to storage
-    {% endhint %}
 
 ```rust
  #[payable]
@@ -253,8 +250,6 @@ Each module function that is generated for the external contract appends argumen
 On NEAR, think of [promises](https://docs.rs/near-sdk/2.0.1/near_sdk/struct.Promise.html) as a way to compose **actions** to run asynchronously on remote contracts. I use the term actions because promises support more than just calling remote functions. You can perform other actions, such as creating and deleting accounts, adding keys, deploying contracts, and of course transferring NEAR - see the [docs](https://docs.rs/near-sdk/2.0.1/near_sdk/struct.Promise.html) for details. For now, we'll focus the discussion on using promises for remote function calls.
 
 Remote function calls are always scheduled to run async after the current function is committed to the blockchain. This means contract state will be persisted to blockchain storage before the remote function is executed in a future block - most likely in the next block. If the contract requires to handle the remote contract function call results or perform error handling, then the contract must schedule a callback that is triggered when the remote function call completes. We used [Promise::then](https://docs.rs/near-sdk/2.0.1/near_sdk/struct.Promise.html#method.then) to connect the two function calls and compose them into the transfer call workflow.
-
-## NEAR Promises Considerations:
 
 1.  Promises always run async.
 2.  In order to handle promise results, the contract must schedule a callback.
@@ -345,11 +340,11 @@ Certain business rules and checks are executed to guard against receiver contrac
 
 The NEAR Rust SDK currently has no high-level support for handling promise failures in cross contract calls - but it's on the NEAR Rust SDK roadmap. The `transfer_call_receiver_unused_amount` function shows how to use the low level NEAR SDK API to handle the promise result, which requires us to manually deserialize the result: `serde_json::from_slice(&result).expect("unused token amount")`
 
-# Show Me the Demo: Earn Some NEAR
+## Show Me the Demo: Earn Some NEAR
 
 As a bonus, you can earn some NEAR by taking the STAKE token contract for a test drive on testnet and running through the demo below using the [NEAR CLI](https://github.com/near/near-cli). I have deployed the STAKE contract to `stake-demo.oysterpack.testnet` on testnet for the demo. To earn NEAR rewards for exercising the demo, you will need to submit the NEAR requests through [DataHub](https://datahub.figment.io/) using your DataHub access key. If you have earned NEAR on previous NEAR tutorials, then you should already be set. Otherwise, follow the instructions in the following link on [how to obtain your DataHub access key](https://learn.figment.io/network-documentation/near/tutorials/intro-pathway-write-and-deploy-your-first-near-smart-contract/1.-connecting-to-a-near-node-using-datahub#configure-environment). We will use the NEAR CLI to submit the transactions. Plugin your DataHub API Key and NEAR account at the top, and then you should be all set to go.
 
-```bash
+````bash
 export DATAHUB_APIKEY=<DATAHUB_APIKEY>
 export NEAR_ACCOUNT=<YOUR-NEAR-ACCOUNT.testnet>
 
@@ -357,41 +352,67 @@ export CONTRACT=stake-demo.oysterpack.testnet
 export NEAR_NODE_URL=https://near-testnet--rpc.datahub.figment.io/apikey/$DATAHUB_APIKEY
 export NEAR_ENV=testnet
 
-# register account
+Register account
+
+```text
 near call $CONTRACT register_account --node_url $NEAR_NODE_URL --accountId $NEAR_ACCOUNT --amount 1
+````
 
-# deposit and stake some NEAR to get some STAKE tokens
+Deposit and stake some NEAR to get some STAKE tokens
+
+```text
 near call $CONTRACT deposit_and_stake --node_url $NEAR_NODE_URL --accountId $NEAR_ACCOUNT --amount 1 --gas 200000000000000
+```
 
-# check balance
+Check balance
+
+```text
 near view $CONTRACT ft_balance_of --node_url $NEAR_NODE_URL --args "{\"account_id\":\"$NEAR_ACCOUNT\"}"
+```
 
-# check total supply
+Check total supply
+
+```text
 near view $CONTRACT ft_total_supply --node_url $NEAR_NODE_URL
+```
 
-# check balance for receiver contract - before transfer call
+Check balance for receiver contract - before transfer call
+
+```text
 near view $CONTRACT ft_balance_of --node_url $NEAR_NODE_URL --args '{"account_id":"dev-1611907846758-1343432"}'
+```
 
-# transfer STAKE via a simple transfer
+Transfer STAKE via a simple transfer
+
+```text
 near call $CONTRACT ft_transfer --node_url $NEAR_NODE_URL --accountId $NEAR_ACCOUNT  --args '{"receiver_id":"dev-1611907846758-1343432", "amount":"10000000"}' --amount 0.000000000000000000000001
+```
 
-# check balance for transfer receiver contract - before transfer call
+Check balance for transfer receiver contract - before transfer call
+
+```text
 near view $CONTRACT ft_balance_of --node_url $NEAR_NODE_URL --args "{\"account_id\":\"dev-1611907846758-1343432\"}"
+```
 
-# transfer STAKE via a transfer call to another contract
+Transfer STAKE via a transfer call to another contract
+
+```text
 near call $CONTRACT ft_transfer_call --node_url $NEAR_NODE_URL --accountId $NEAR_ACCOUNT  --args '{"receiver_id":"dev-1611907846758-1343432", "amount":"1000000", "memo":"merry christmas", "msg":"{\"Accept\":{\"refund_percent\":50}}"}' --amount 0.000000000000000000000001
+```
 
-# check balance for transfer receiver contract - after transfer call
+Check balance for transfer receiver contract - after transfer call
+
+```text
 near view $CONTRACT ft_balance_of --node_url $NEAR_NODE_URL --args "{\"account_id\":\"dev-1611907846758-1343432\"}"
 ```
 
 - **NOTE**: in case you wondering what **dev-1611907846758-1343432** is, it's a mock contract that implements the **TransferReceiver** contract interface. The `near dev-deploy` CLI command was used to deploy the contract, which automatically creates the account and auto-generated the contract account ID. For those that are even more curious about the mock contract, the code is located within the same STAKE project: [ft-transfer-receiver-mock](https://github.com/oysterpack/oysterpack-near-stake-token/tree/main/contract/ft-transfer-receiver-mock).
 
-# Conclusion
+## Conclusion
 
 That was longer than expected, but time flies by when you are having fun. We learned about staking on NEAR and how you can earn staking rewards as a delegator. I went over, at a high level, how the STAKE contract unlocks value in your staked NEAR by providing you with fungible tokens for your staked NEAR. We then implemented the Fungible Token Core Standard (NEP-141) for the STAKE contract. We did some design and coding. Along the way, we also got a little taste of how cross contract calls and promises work on NEAR using the NEAR Rust SDK. Finally, you got a chance to earn some NEAR while learning with us. I invite you to join the Figment and NEAR communities and embark on our common mission to take back the Internet together.
 
-# Next Steps
+## Next Steps
 
 ![](./assets/near-stake-fungible-token-nep141-image-5.png)
 

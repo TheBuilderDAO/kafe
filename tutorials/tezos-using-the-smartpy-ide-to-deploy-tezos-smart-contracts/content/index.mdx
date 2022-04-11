@@ -5,7 +5,7 @@ keywords: [Tezos, Python, Smart contracts]
 date: '2021-10-07T23:45:33.232Z'
 ---
 
-# Introduction
+## Introduction
 
 Hey Reader! Welcome to this Tutorial on How to write, deploy & interact with a smart contract on Tezos in SmartPy. We will be learing a lot and having fun alongside!
 You will be able to understand the industry standards of coding on SmartPy and be able to deploy your own Calculator Smart Contract whilist Understading the code as well.
@@ -13,15 +13,15 @@ You will be able to understand the industry standards of coding on SmartPy and b
 - Tezos is an open-source blockchain protocol for assets and applications backed by a global community of validators, researchers, and builders. The Tezos protocol is secure, upgradable, and built to last.
 - SmartPy is an intuitive and powerful smart contract development platform for Tezos and is available through a Python library for building and analyzing Tezos smart contracts.
 
-# Prerequisites
+## Prerequisites
 
 To complete this tutorial, you will need a basic understanding of the Python programming language. Everything else will be explained, from getting XTZ from the faucet to coding and deployment.
 
-# Requirements
+## Requirements
 
 You will need to have Temple Wallet Installed in your browser. Get it from https://templewallet.com/
 
-# SmartPy IDE
+## SmartPy IDE
 
 SmartPy is a high-level smart contracts library and comes with related tools in the form of [SmartPy.io](https://smartpy.io/) to greatly ease the accessibility, understandability and provability of smart contracts on Tezos.
 
@@ -170,7 +170,7 @@ class Calculator(sp.Contract):
 
 You will notice that I have added two EntryPoints named `square` and `factorial`. These are to demonstrate how we do basic Python operations with SmartPy.
 
-# Test Scenarios
+## Test Scenarios
 
 Before we move on to deploying our contract on the Tezos network, we need to first make sure all of the code is working as we expect it to by testing it. Once deployed, smart contracts are immutable (and we do not want to waste our XTZ tokens).
 
@@ -218,7 +218,7 @@ Now we can call all our entrypoints and see in the output panel if the value is 
 
 Now that the code has been tested and works properly, we will need to get some Tezos tokens on the testnet so that we can pay for deployment.
 
-# Faucet and Temple Wallet
+## Faucet and Temple Wallet
 
 Before we can deploy anything, let's first get some Testnet ꜩ from the [Tezos Faucet](https://faucet.tzalpha.net/).
 
@@ -237,7 +237,7 @@ Now select Faucet File as the source and upload the JSON file you got from the f
 
 Now that we have a funded wallet on the Tezos testnet, we can move on to deploying the code.
 
-# Deployment
+## Deployment
 
 Coming back to SmartPy.io:
 
@@ -307,7 +307,7 @@ Copy the contract address as seen on the screen and wait for at least 3 block co
 
 ![Deploy](./assets/tezos-using-the-smartpy-ide-to-deploy-tezos-smart-contracts-deploy-9.png)
 
-# Interacting with the contract
+## Interacting with the contract
 
 Now we are at the final step of this tutorial. We are going to learn how to explore our contract on-chain and how to interact with it.
 
@@ -349,19 +349,19 @@ Finally, go to the **Operations** tab on BetterCallDev and you will be able to s
 
 As we can see our transaction changed the **value** in storage to the sum of the parameters we supplied to the `add` entrypoint (i.e. 5 + 11 = 16).
 
-# Conclusion
+## Conclusion
 
 In this Tutorial we learned about coding in SmartPy, how to get testnet XTZ from the faucet, how to deploy a contract on the blockchain and how to interact with the contract using a block explorer. We also saw how our entrypoints can change a contract's storage.
 
-# Next Steps
+## Next Steps
 
 I would like for you to try out all the entrypoints that we have created and check what changes they make to the storage! Once you are comfortable with this basic contract you can go about creating more complex contracts, NFT tokens and much more.
 
-# About The Author
+## About The Author
 
 This tutorial was written by Udit Kapoor, who is a Tezos India 2.0 Fellow and a blockchain enthusiast. Their signature project is CryptoWill and they like to dabble in Flutter as well! Reach out to Udit on [GitHub](https://github.com/Udit-Kapoor) and you can find them on Discord as user **pichkari#56**.
 
-# References
+## References
 
 - Calculator example code from SmartPy.io
 - [OpenTezos](https://opentezos.com/)

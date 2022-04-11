@@ -5,7 +5,7 @@ keywords: [Solana, JS/TS, Rust, React, Rust]
 date: '2021-11-01T21:30:11.002Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to create a simple blog post dapp on Solana blockchain. while building this dapp we will learn how to write the Solana rust program, Test the program and finally integrate the program with React frontend.
 
@@ -13,7 +13,7 @@ In this tutorial, we will learn how to create a simple blog post dapp on Solana 
 
 ![](./assets/solana-create-a-simple-blog-dapp-on-solana-image-1.png)
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have,
 
@@ -21,7 +21,7 @@ This tutorial assumes that you have,
 - Basic understanding of Rust
 - completed [Solana 101 Pathway](https://learn.figment.io/protocols/Solana)
 
-# Requirements
+## Requirements
 
 This tutorial covers how to build a dapp on the Solana, but does not go through the installation of individual dependencies(as it assumes you already completed the Solana 101 Pathway on Figment learn).
 
@@ -38,7 +38,7 @@ This tutorial covers how to build a dapp on the Solana, but does not go through 
 - **Vs code -**
   I will recommend using vscode with rust analyzer extension as it has a great support for Rust language.
 
-# Solana Programming model
+## Solana Programming model
 
 **Program -** Solana is a fast and low-cost blockchain, to achieve speed and low-cost Solana has slight different programming model. Solana uses Rust programing language to create programs as, you notice we keep saying Solana program instead of Solana smart contract from choosing programing language to naming concepts Solana is different, in Solana world smart contracts are known as Solana Programs.
 
@@ -47,7 +47,7 @@ This tutorial covers how to build a dapp on the Solana, but does not go through 
 **Rent -** on Solana, you need to pay rent regularly to store data on the blockchain according to the space the data requires,
 The account can be made rent exempt (means you won't have to pay rent) if its balance is higher than some threshold that depends on the space it is consuming.
 
-# Application design decision
+## Application design decision
 
 As we have learned, we need an account to create our blog dapp that has a fixed size so, if we create a single account with X size and start pushing posts inside that account, eventually the account will exceeds its size limit and we won't be able to create new posts.
 If you know Solidity, in Solidity we create a dynamic array and push as many items to it as we want, but in Solana our accounts will be fixed in size so we have to find a solution to this problem.
@@ -58,7 +58,7 @@ If you know Solidity, in Solidity we create a dynamic array and push as many ite
 
 Linked 🤔 yeah, you guessed it right. We will use LinkedList to connect all the posts.
 
-# Setting up Local development
+## Setting up Local development
 
 Before we start with actual development. We learn some Solana CLI commands [docs](https://docs.Solana.com/cli/conventions):
 
@@ -118,7 +118,7 @@ Before writing program code update Anchor.toml
 wallet = "your Keypair Path from the output of solana config get"
 ```
 
-# Creating the blog program
+## Creating the blog program
 
 Now we are ready to start with the Solana rust program. Open up the `lib.rs` file located inside `/program/blog/src/` folder.
 
@@ -519,7 +519,7 @@ That was the last function of our Rust Program.
 
 Next is the Testing program. Don't worry, we'll fast forward to the next section.
 
-# Writing tests for blog program
+## Writing tests for blog program
 
 Before we dive into writing test cases, every test needs an initialized blog, a brand new user, and a post. To avoid repetition, we will create 3 simple reusable utility functions.
 
@@ -808,7 +808,7 @@ Run again:
 anchor test
 ```
 
-# Building frontend
+## Building frontend
 
 Now, We're ready to build out the front end. We will create a new react app inside the existing app directory.
 
@@ -918,7 +918,7 @@ node copy_idl.js
 
 It will copy the idl file to `/app/src` directory, now you will see the `idl.json` file inside `/app/src` directory.
 
-## Initialize Blog
+### Initialize Blog
 
 Now we will initialize the blog. Initializing blog is one-time process. Let's create `init_blog.js` file inside the `/app/src` folder and copy the code given below.
 
@@ -1004,7 +1004,7 @@ const BLOG_KEY = new PublicKey(your - blog - key);
 
 Your blog is initialized now you can comment out the `init blog` button as well the `_initBlog` function.
 
-## Signup user
+### Signup user
 
 Now we will move to the part where the user enters his/her name and avatar URL and we will initialize his/her account.
 
@@ -1128,7 +1128,7 @@ useEffect(() => {
 }
 ```
 
-## Create post
+### Create post
 
 First we will create a form to take post title and post content from user input.
 
@@ -1267,7 +1267,7 @@ Show posts in the UI
 }
 ```
 
-## Todo
+### Todo
 
 Till now, we have integrated initialization of blog, user signup, fetch user, create post, fetch all the posts there still some part is remaining like,
 
@@ -1277,7 +1277,7 @@ Till now, we have integrated initialization of blog, user signup, fetch user, cr
 
 If you follow the same steps as we have learned, you can be able to complete the remaining to-do tasks.
 
-## Deploying to Devnet
+### Deploying to Devnet
 
 Deploying to a live network is straightforward:
 
@@ -1305,7 +1305,7 @@ anchor build
 anchor deploy
 ```
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing the tutorial. In this tutorial, We have successfully created a Rust program for Blog post Dapp on Solana Blockchain. We have also integrated the Blog post Rust program with React.js on the client side. Here, we followed a little different approach to storing and retrieving posts. The Solana blockchain is still in its beta phase so, don't bother to try experimenting. Who knows, you might find some cool patterns out of it.
 
@@ -1317,10 +1317,10 @@ There is still room for improvements in the Blog Dapp like,
 - Creating user timeline(posts created by the user)
 - Adding Rxjs to fetch posts(streaming posts)
 
-# About Author
+## About Author
 
 This tutorial was created by [Kiran Bhalerao](https://github.com/kiran-bhalerao). For any suggestions/questions, you can connect with author on [twitter](https://twitter.com/_KiranBhalerao).
 
-# References
+## References
 
 <https://github.com/kiran-bhalerao/blog-dapp-Solana>

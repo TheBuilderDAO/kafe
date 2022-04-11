@@ -5,7 +5,7 @@ keywords: [Polkadot, JS/TS, NodeJS]
 date: '2021-07-21T10:44:55.090Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial we will cover how to set up and utilize social recovery for a Polkadot proxy account. This tutorial assumes the reader has a working knowledge of JavaScript and Node JS. Although not necessary, it would help to have gone through the Polkadot Pathway which introduces the Polkadot JS API.
 
@@ -22,7 +22,7 @@ For the purposes of this tutorial, we will assume the role of all involved parti
 
 > Throughout this tutorial, when `...` appears in an output block, it indicates that the text has been trimmed for readability. Also, the terminal output from running the code locally will differ slightly from the examples, so do not be overly concerned if they do not match.
 
-# Setup
+## Setup
 
 Performing these setup steps for the purposes of following the tutorial should not be construed as the only way to implement social recovery. This is solely intended to enable readers to reach a minimum viable product, touching on all the relevant transaction types. This tutorial has two dependencies :
 
@@ -57,7 +57,7 @@ CHARLIE_ADDRESS=
 CHARLIE_MNEMONIC=
 ```
 
-## Create 4 accounts
+## Creating the accounts
 
 Create a file called `create_account.js` and paste the following code :
 
@@ -95,7 +95,7 @@ Get Alice some funding to afford the deposit fees by going to <https://faucet.fi
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-1.png)
 
-# Add a proxy account for Alice
+## Add a proxy account for Alice
 
 Create a file called `create_proxy.js` and paste the following code :
 
@@ -214,7 +214,7 @@ The `formatBalance.setDefaults()` call specifies the symbol for each unit of cur
 //             1,337 = 0.0000000001337 WND (1337 pWND)
 ```
 
-# Fund Bob & Charlie
+## Fund Bob & Charlie
 
 Create a file called `fund_friends.js` and paste the following code :
 
@@ -288,7 +288,7 @@ The submitted values are the hashed data for the transfer functions we set in th
 
 At this point, we are set up and should have a funded main account with a reserved balance of just over 1 WND, a functioning proxy account, and two separate accounts with 0.5 WND each. The next step is to create a recovery configuration.
 
-# Create a recovery configuration
+## Create a recovery configuration
 
 > **NOTE:** This step must be completed **_before_** a seed phrase is lost!
 
@@ -388,7 +388,7 @@ Be aware that we may encounter an `Error: 1010: Invalid Transaction` if there is
 
 At this point, we have the option to either remove the recovery store to regain the deposit amount with `removeRecovery()`, or start the recovery process by calling `initiateRecovery()` .
 
-# Initiate recovery from the proxy account
+## Initiate recovery from the proxy account
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-4.png)
 
@@ -451,7 +451,7 @@ The way to be sure it has completed successfully is to follow the link to the Su
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-5.png)
 
-# Vouch for recovery
+## Vouch for recovery
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-6.png)
 
@@ -508,7 +508,7 @@ Charlie vouch tx: https://westend.subscan.io/extrinsic/...
 
 In a live scenario involving accounts with actual value (DOT instead of WND), these functions would be called by separate individuals at different times. It would therefore be preferable (although not entirely necessary) to communicate with our social recovery contacts _in real time_ to coordinate this process.
 
-# Claim a recovery configuration
+## Claim a recovery configuration
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-7.png)
 
@@ -555,7 +555,7 @@ Follow the link in the terminal output to check that the AliceProxy has successf
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-8.png)
 
-# Send transactions as the recovered account
+## Send transactions as the recovered account
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-9.png)
 
@@ -623,7 +623,7 @@ Submitted values : asRecovered(
 asRecovered tx: https://westend.subscan.io/extrinsic/...
 ```
 
-# Clean up with removeRecovery()
+## Clean up with removeRecovery()
 
 Create a file called `remove_recovery.js` and paste the following code :
 
@@ -708,7 +708,7 @@ The events for successful removal of the recovery configuration and refund of th
 
 ![](./assets/polkadot-implement-social-recovery-on-polkadot-image-10.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! In this tutorial, we learned how to configure social recovery on Polkadot using functions like `createRecovery()` as well as transferring the associated deposit fees. We learned how to use the `formatBalance()` helper function to display readable amounts. We covered how to create a Staking type proxy account, as well as batching multiple transactions.
 

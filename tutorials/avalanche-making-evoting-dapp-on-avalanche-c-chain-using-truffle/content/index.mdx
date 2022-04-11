@@ -5,16 +5,16 @@ keywords: [Avalanche, JS/TS, Solidity, NodeJS, Truffle, Solidity, Metamask]
 date: '2021-07-21T06:18:43.282Z'
 ---
 
-# Introduction
+## Introduction
 
 Today we will be learning how to code a decentralized application on Avalanche's Fuji network from scratch. It will be a simple application, in which we will be holding an election between the candidates. Users will be able to vote for their chosen candidate. So, to vote easily and efficiently using the browser, we also need a client-side application to interact with the blockchain. For developing this project we will be using [Trufflesuite](https://www.trufflesuite.com), which is a toolkit for launching decentralized applications (dApps) on [EVM](https://en.wikipedia.org/wiki/Ethereum#Virtual_machine) compatible blockchains. With Truffle you can write and compile smart contracts, build artifacts, run migrations and interact with deployed contracts. This tutorial illustrates how Truffle can be used with Avalanche's C-Chain, which is an instance of the EVM.
 
-# Prerequisites
+## Prerequisites
 
 You will need a [DataHub](https://datahub.figment.io/sign_up?service=avalanche) account and an API key for the Avalanche service.
 This tutorial assumes that you are familiar with [Avalanche's architecture](https://docs.avax.network/learn/platform-overview).
 
-# Requirements
+## Requirements
 
 - [NodeJS](https://nodejs.org/en) v8.9.4 or later.
 - Truffle, which you can install with `npm install -g truffle`
@@ -22,7 +22,7 @@ This tutorial assumes that you are familiar with [Avalanche's architecture](http
 - Express.js, dotenv and @truffle/hdwallet-provider (instructions to install these are below)
 - You will also need to have performed a cross-chain swap via the [Transfer AVAX Between X-Chain and C-Chain](https://docs.avax.network/build/tutorials/platform/transfer-avax-between-x-chain-and-c-chain) tutorial to get funds to your C-Chain address on the Fuji testnet.
 
-# Project setup
+## Project setup
 
 Open a new terminal tab, so that we can create a `evoting` directory and install some further dependencies.
 
@@ -113,7 +113,7 @@ MNEMONIC="<avalanche-wallet-mnemonic>"
 APIKEY=<your-api-key>
 ```
 
-# Add Election.sol
+## Add Election.sol
 
 In the `contracts` directory add a new file called `Election.sol` and add the following block of code:
 
@@ -161,7 +161,7 @@ contract Election {
 
 `Election` is a solidity smart contract which lets us view candidates standing in an election and voting them. This is a basic contract for election and we will advance to more sophisticated smart contract, in which we can even create new elections, add new candidates etc. in the next tutorial of this series.
 
-# Understanding the smart contract
+## Understanding the smart contract
 
 - **Structure to store candidates** - We are using `struct` to store the details of candidates like `name`, `id` and `voteCount`. And further store each candidate in a mapping between candidate's id and their structure.
 
@@ -212,7 +212,7 @@ contract Election {
   }
 ```
 
-# Add new migration
+## Add new migration
 
 Create a new file in the `migrations` directory named `2_deploy_contracts.js`, and add the following block of code. This handles deploying the `Election` smart contract to the blockchain.
 
@@ -224,7 +224,7 @@ module.exports = function (deployer) {
 };
 ```
 
-# Compile Contracts with Truffle
+## Compile Contracts with Truffle
 
 Any time you make a change to `Election.sol` you need to run `truffle compile`.
 
@@ -246,7 +246,7 @@ Compiling your contracts...
 
 > **Note** : There might be an error `Error: Cannot find module 'pify'`, if the `pify` module is somehow not installed automatically while installing `truffle`. Resolve this by installing `pify` manually, using the command `npm install pify --save`
 
-# Fund the account and run migrations on the C-Chain
+## Fund the account and run migrations on the C-Chain
 
 When deploying smart contracts to the C-Chain, it will require some deployment cost. As you can see inside `truffle-config.js`, HDWallet Provider will help us in deploying on Fuji C-chain and deployment cost will be managed by account whose mnemonic has been stored in the `.env` file. Therefore we need to fund the account.
 
@@ -254,7 +254,7 @@ When deploying smart contracts to the C-Chain, it will require some deployment c
 
 Fund your account using the the faucet link <https://faucet.avax-test.network/> and pasting your Fuji's C-Chain address in the input field. You'll need to send at least `135422040` nAVAX to the account to cover the cost of contract deployments. Here `nAVAX` refers to nano AVAX, which is one-billionth of an AVAX token. Minimum AVAX required for deployment, will vary from contract to contract, depending upon what variables and data structures our contract is using. Though faucet will give you enough `AVAX` to deploy and transact multiple times on Avalanche's Fuji network.
 
-# Run Migrations
+## Run Migrations
 
 Now everything is in place to run migrations and deploy the `Election` contract:
 
@@ -339,7 +339,7 @@ Error:  *** Deployment Failed ***
 
 The information and ABI of the deployed contract is present in the `/build/contract` directory as `Election.json`. Information like contract address, network info etc. could be found here.
 
-# Building the UI for interacting with the blockchain
+## Building the UI for interacting with the blockchain
 
 - Make a `src` directory where we will keep all our files for interacting with the blockchain.
 - Go to the `src` directory using `cd src`
@@ -589,20 +589,20 @@ Now run `node server.js` in the `src` directory.
 
 ![](./assets/avalanche-making-evoting-dapp-on-avalanche-c-chain-using-truffle-image-1.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! You have successfully built a complete dApp and deployed the smart contract on the Fuji testnet using Trufflesuite. Along with that, you have also built the client side application for interacting with the network.
 
-# Next Steps
+## Next Steps
 
 The dapp which we built just now is a very simple e-voting application, where for every new election, we need to update the smart contract with new candidates and deploy it on the Avalanche network. In order make it more scalable and sophisticated, you could add more features like creating custom elections, adding new candidates, setting up starting and ending dates for each election and much more.
 
-# About the author
+## About the author
 
 This tutorial was created by [Raj Ranjan](https://www.linkedin.com/in/iamrajranjan), You can get in touch with the author on [GitHub](https://github.com/rajranjan0608)
 
 If you had any difficulties following this tutorial or simply want to discuss Avalanche tech with us you can [**join our community today**](https://discord.gg/fszyM7K)!
 
-# References
+## References
 
 This tutorial has been made by taking reference from [Dapp University](https://github.com/dappuniversity/election).

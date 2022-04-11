@@ -5,17 +5,17 @@ keywords: [Polygon, JS/TS, Solidity, Smart contracts, Solidity, Hardhat]
 date: '2021-10-13T23:39:18.352Z'
 ---
 
-# Building an NFT Marketplace Smart Contract
+## Building an NFT Marketplace Smart Contract
 
-# Introduction
+## Introduction
 
 In this tutorial we are going to learn how to build an NFT Marketplace smart contract. Our marketplace smart contract will enable its users to list their NFT on the contract by paying a small fee. This NFT marketplace is a medium where people can buy and sell their NFTs. We will learn about writing unit tests and how to deploy our contract to the Polygon Mumbai testnet using HardHat, as well as how to verify the contract source code on Polygonscan so it is publicly available.
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes you have completed the [Create an NFT smart contract with HardHat](https://learn.figment.io/tutorials/create-nft-smart-contract-with-hardhat) tutorial. We are using that project build as the starting point of this tutorial. Although it is not necessary to have completed that tutorial, it will give you a better understanding on environment setup and how to build smart contracts using HardHat.
 
-# Requirements
+## Requirements
 
 - [Node.js](https://nodejs.org/en/) v14.17.6 LTS or higher, for installing packages.
 - [HardHat](https://hardhat.org/) is the framework we will be using for developing our smart contracts.
@@ -24,7 +24,7 @@ This tutorial assumes you have completed the [Create an NFT smart contract with 
   - Remember to get your account funded with testnet MATIC tokens using the [Polygon Faucet](https://faucet.polygon.technology/).
 - A [Polygonscan API key](https://polygonscan.com/login?cmd=last) which will be used for automatically verifying our smart contract source code on Polygonscan using a HardHat plugin.
 
-# Environment setup
+## Environment setup
 
 We will start by creating an empty HardHat project.
 
@@ -39,13 +39,20 @@ We will be starting from scratch. Using the arrow keys on your keyboard, select 
 This will create an empty `hardhat.config.js` file and a `package.json` file. We have discussed the use of this file in detail in our previous tutorial, [Create an NFT smart contract with HardHat](https://learn.figment.io/tutorials/create-nft-smart-contract-with-hardhat). The `package.json` contains all the `npm` packages we install. Before proceeding further we will be creating some folders for organising our work. Type the following in the terminal:
 
 ```bash
-mkdir contracts    # This directory will contain all the smart contract code
-mkdir scripts      # This directory will store the scripts we write
-mkdir test         # This directory will store all the test scripts we write
-touch .env         # This file will store all our private keys
-touch .gitignore   # This file will list all the files that are to ignore by the version control system
-touch README.md    # The README file for our project which contains descriptive information about it
+mkdir contracts
+mkdir scripts
+mkdir test
+touch .env
+touch .gitignore
+touch README.md
 ```
+
+- `contracts` will contain all the smart contract code
+- `scripts` will store the scripts we write
+- `test` will store all the test scripts we write
+- the `.env` file will store all our private keys
+- the `.gitignore` file will list all the files that are to ignore by the version control system
+- the `README.md` file for our project which contains descriptive information about it
 
 ![Folder Structure](./assets/polygon-build-an-nft-marketplace-using-hardhat-folder-structure-2.png)
 
@@ -82,7 +89,7 @@ This command will install all the required code libraries for the project. All t
 
 Congratulations 🎉🎉🎉, you are now ready to start writing smart contracts.
 
-# Developing the Smart Contract
+## Developing the Smart Contract
 
 Inside the `contracts` folder create a new file named `Marketplace.sol`. The filename of our smart contract should indicate its functionality in some way although the filename is entirely your choice.
 
@@ -97,7 +104,7 @@ contract Marketplace {
 
 We start by defining the license for our smart contract. For the purposes of this tutorial we are going to keep our contract as `Unlicensed`. Next we define the Solidity version we are using with the `pragma` keyword. We will be using Solidity version `0.8.4` . We also define the name of the smart contract using the `contract` keyword. Please make sure that the contract name defined matches with the name of the file you created.
 
-## Importing libraries
+### Importing libraries
 
 Add the following import statements to the code:
 
@@ -114,7 +121,7 @@ contract Marketplace {
 
 The `import` keyword is used to import the `IERC721` smart contract from the OpenZeppelin contracts which was installed as a dependency. IERC721 is read as **_Interface - ERC721_**. An interface of a smart contract provides a high level overview of all the public functions and events present in that smart contract. An interface contains only the function signature and event declarations of the functions. It helps our smart contract to make calls to other smart contracts present on the blockchain. We are importing `IERC721` because it is an interface for ERC721 smart contracts which form the basis for many NFTs on the blockchain.
 
-## Defining global variables
+### Defining global variables
 
 Make the following changes to the smart contract:
 
@@ -185,7 +192,7 @@ Finally we initialise the following variables in the constructor:
 - owner: By default the account deploying the smart contract (address of the deploying account is returned by `msg.sender` keyword) is set as the owner of the smart contract. We use the keyword `payable` while assigning the value to typecast the address returned by `msg.sender` to an address type that can receive payment from the smart contract.
 - listingPrice: A price is charged for listing each NFT on the smart contract. We specify this price in the `listingPrice` variable. The default value is set to `0.01 ether` which means 0.01 Matic has to be paid for listing an NFT. `ether` is a special type of unit defined in Solidity. You can read more about the unit `ether` in the official documentation [here](https://docs.soliditylang.org/en/v0.8.9/units-and-global-variables.html?highlight=ether#ether-units).
 
-## Creating the listMarketItem function
+### Creating the listMarketItem function
 
 Add the following function:
 
@@ -269,7 +276,7 @@ IERC721(nftContractAddress).transferFrom(
 
 - We increment the value of `itemCounter` by 1 so that the next NFT listed will have a new `itemId`.
 
-## Creating the buyMarketItem function
+### Creating the buyMarketItem function
 
 Add the following function:
 
@@ -303,7 +310,7 @@ Now lets understand the code:
 - After this the item is marked as Sold and the owner of the NFT is changed from from blank to the address of the account calling the function.
 - We again use the IERC721 interface to create an interface for the ERC721 contract present and transfer the NFT from the contract itself (denoted by `address(this)`) to the account that called the function (denoted by `msg.sender`).
 
-## Creating the getMarketItem function
+### Creating the getMarketItem function
 
 Write the following function:
 
@@ -321,7 +328,7 @@ This function is used to return the details of an item as listed in the smart co
 
 Here we see a new syntax for the `returns` keyword where we can pass the variable name to be returned. In solidity 0.8.0 and higher, this syntax and the traditional syntax are both valid. One of the main advantages of using this syntax is that it's not necessary to return the value at the end of the function. The function returns the value stored in the `items` variable. After the function execution, whatever value is stored in the `items` variable would be returned.
 
-## Creating the changeListingPrice function
+### Creating the changeListingPrice function
 
 Add the following function:
 
@@ -339,7 +346,7 @@ function changeListingPrice(uint256 newPrice) public {
 
 This function will take in only one parameter that is `newPrice` which denotes the new listing price that will be charged. The contract first makes sure that the new listing price is greater than 0. Since only the owner of the contract can modify the listing price, next we must check that the account calling the function is the owner account. After the checks are passed, the `listingPrice` variable is updated to hold the new value passed with `newPrice` parameter.
 
-## Putting it all together
+### Putting it all together
 
 The final smart contract should be:
 
@@ -462,7 +469,7 @@ contract Marketplace {
 
 Congratulations 🎉🎉🎉 ! Your smart contract is ready to be tested.
 
-# Testing our smart contract
+## Testing our smart contract
 
 Now that our smart contract is complete, it is important to test its functionality to avoid any obvious bugs making it into production. We will test our smart contract for the following:
 
@@ -475,7 +482,7 @@ Now that our smart contract is complete, it is important to test its functionali
   - NFT can't be bought by paying a lower price
   - NFT can't be bought twice
 
-## Setup for testing
+### Setup for testing
 
 Although we already have installed the require node packages for writing our test cases, there is one last prerequisite for writing our test cases. That is, we will need an ERC721 contract that we can use to create NFTs while testing. For this we are going to copy the contract we have developed in the [Create an NFT smart contract with HardHat](https://learn.figment.io/tutorials/create-nft-smart-contract-with-hardhat#testing-the-smart-contract) tutorial.
 
@@ -536,7 +543,7 @@ const { expect } = require('chai');
 const { ethers } = require('hardhat');
 ```
 
-## Writing tests
+### Writing tests
 
 Now we are ready to write our test cases. Lets start with the following:
 
@@ -826,7 +833,7 @@ And the expected output will be:
 
 ![Second Test](./assets/polygon-build-an-nft-marketplace-using-hardhat-second-test-4.png)
 
-# Console.log() in solidity
+## Console.log() in solidity
 
 One of the cool features presented by hardhat is the ability to log data onto the console. HardHat makes it possible to use `console.log()` statement in our smart contract. This makes it possible to print anything to the console/terminal which comes in very handy during testing and debugging. Let's take a quick look into it.
 
@@ -853,7 +860,7 @@ The `console.log()` statement prints the value while we run our tests.
 
 Please note that the `console.log()` statement has no use when the contract is deployed to any blockchain and is used solely for testing. Hence it is important to remove this line before we move towards deploying our contract else it will consume more gas.
 
-# Deploying the contract
+## Deploying the contract
 
 Before we deploy our smart contract to the Polygon Mumbai testnet, we will need to set up some environment variables.
 Create a new file in the root directory of our project called `.env` and store the API Key for Polygonscan and the private key for the account you want to use to deploy the smart contract.
@@ -941,22 +948,22 @@ Now we open the Marketplace contract in Polygonscan:
 
 Congratulations 🎉🎉🎉. You have successfully listed your NFT in the marketplace and it is ready to be traded.
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned how to create a Marketplace smart contract that can be used to buy and sell NFTs. We wrote the underlying smart contract for the marketplace, unit tested it to make sure it works as intended, deployed it to the Mumbai testnet and verified the source code so it is visible on Polygonscan.
 We also learned how to print values to the console from our smart contract using HardHat's `console.log()` functionality. We covered how one smart contract can make calls to another smart contract on the same blockchain and that we can allow other accounts/smart contracts to spend token on our behalf.
 
-# Next Steps
+## Next Steps
 
 The journey of learning never stops! Coming up next we will learn how we can use a 3D Game Engine like Unity3D to create an interactive art gallery where the player can freely move around and view various NFT artworks that are listed in our Marketplace smart contract.
 
-# About The Author
+## About The author
 
 Hi, my name is Bhaskar Dutta and I am a blockchain Developer, Researcher and Freelancer. I am always looking forward to learn new things and discuss about Sitcoms. To know me better, you can checkout my [Github](https://github.com/BhaskarDutta2209).
 
-# References
+## References
 
 The following resources turned out to be very helpful to me:
 
-1.  [HardHat Official Documentation](https://hardhat.org/)
-2.  [Polygon Official Documentation](https://docs.polygon.technology/)
+1. [HardHat Official Documentation](https://hardhat.org/)
+2. [Polygon Official Documentation](https://docs.polygon.technology/)

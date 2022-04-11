@@ -5,21 +5,21 @@ keywords: [The Graph, JS/TS, GraphQL, Javascript]
 date: '2021-09-10T15:23:34.944Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial we'll take a look at how to setup matchstick and write unit tests for the MasterChefV2 subgraph.\
 This tutorial will typically show a call to action in the form of a codebox.\
 Please note that if you need help with or would like to explore the usage of any command referenced in this tutorial, add the `--help` flag after the command.\
 If you have any difficulty following this tutorial, you can join the Figment Learn [discord](https://discord.gg/fszyM7K) for help!
 
-# Prerequisites
+## Prerequisites
 
 - Basic familiarity with a command-line interface.
 - Basic familiarity with Git & GitHub.
 - Basic familiarity with how TheGraph works.
 - Basic understanding of why [unit-tests](https://en.wikipedia.org/wiki/Unit_testing) are important.
 
-# Requirements
+## Requirements
 
 The following software must be installed:
 
@@ -41,7 +41,7 @@ SushiSwap has a couple of different subgraphs. For this tutorial, we will go thr
 cd sushiswap-subgraph/subgraphs/masterchefV2
 ```
 
-# Getting Started
+## Getting Started
 
 We will begin by installing and building the MasterChefV2 SushiSwap subgraph. From the root directory of the cloned repository, run yarn to install the dependencies:
 
@@ -127,7 +127,7 @@ The final line of your output should be:
 Build completed: /home/user/sushiswap-subgraph/subgraphs/masterchefV2/build/subgraph.yaml
 ```
 
-# Installing the matchstick testing framework
+## Installing the matchstick testing framework
 
 Follow the [installation instructions](https://github.com/LimeChain/matchstick) for matchstick.\
 I'm using Ubuntu 20.04 so this is the command I will use.
@@ -174,7 +174,7 @@ ARGS:
     <DATASOURCE>    Sets the name of the datasource to use.
 ```
 
-# Creating Tests
+## Creating Tests
 
 Create a folder in the current directory called `tests`:
 
@@ -203,8 +203,10 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
-      file: ./src/mappings/masterchefV2.ts # This line right here!
+      file: ./src/mappings/masterchefV2.ts
 ```
+
+`file: ./src/mappings/masterchefV2.ts` - This line right here!
 
 Now we can create a simple test case to see if empty tests work. Write the following code in `masterchefV2.test.ts`:
 
@@ -253,7 +255,7 @@ All tests passed! 😎
 1 tests executed in 18.472016ms.
 ```
 
-# Understanding the SushiSwap subgraph
+## Understanding the SushiSwap subgraph
 
 - MasterChefV2 is a contract at `0xEF0881eC094552b2e128Cf945EF17a6752B4Ec5d`.
 - Refer to template.yaml for the `eventHandlers` that are hooked.
@@ -278,7 +280,7 @@ eventHandlers:
 
 This is the list of functions that should be tested. For this tutorial, we will go through the deposit event handler function.
 
-# Testing the Deposit Function
+## Testing the Deposit Function
 
 **SushiSwap's Deposit ABI**
 
@@ -542,23 +544,23 @@ export function runTests(): void {
 }
 ```
 
-# Conclusion
+## Conclusion
 
 1.  We went through how to setup, prepare and build the MasterChefV2 Subgraph.
 2.  We went through how to install matchstick for unit testing.
 3.  We went through how to figure out the parameters for the ethereum events.
 4.  We went through how to write a simple unit test for the deposit function.
 
-# Next Steps
+## Next Steps
 
 1.  Try changing `assert.fieldEquals("Pool", "1000", "id", "1000");` to make the test fail! What happens?
 2.  What other tests cases can you think of? Try writing more unit tests.
 
-# About the author
+## About the author
 
 - This tutorial was created by Anton Yip. He can be found on [Github](https://github.com/antonyip).
 
-# References
+## References
 
 - https://github.com/sushiswap/sushiswap-subgraph
 - https://github.com/LimeChain/matchstick

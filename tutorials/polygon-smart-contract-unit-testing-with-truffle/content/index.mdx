@@ -5,15 +5,15 @@ keywords: [Polygon, Solidity, Truffle, Solidity, Metamask]
 date: '2021-11-04T18:06:04.511Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to deploy & unit test smart contracts in solidity using Truffle. Before diving into unit testing we will implement a smart contract for testing. Grab a cup of tea, review the Smart-Contract and unit test them!
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have a basic understanding of Solidity, Truffle, and blockchains.
 
-# Requirements
+## Requirements
 
 - [Truffle](https://www.trufflesuite.com/)
 - The [Solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler (this is installed automatically by Truffle)
@@ -22,7 +22,7 @@ This tutorial assumes that you have a basic understanding of Solidity, Truffle, 
 
 The complete code used in this tutorial is available [on Github](https://github.com/PowerStream3604/Polygon-unit-testing)
 
-# Unit testing smart contracts with Truffle
+## Unit testing smart contracts with Truffle
 
 **What is unit testing?**
 Unit testing is a way of **testing a unit** - the smallest piece of code that can be logically isolated in a system. These units are mostly functions, subroutine, methods or properties.
@@ -70,7 +70,7 @@ event OwnerRemoval(address indexed owner);
 event Transfer(address indexed receiver, uint256 amount);
 ```
 
-## Defining the smart contract
+### Defining the smart contract
 
 \*Notes: We name this smart Contract as **Company** and use solidity version **0.8.7\***
 
@@ -389,7 +389,7 @@ Let's then go to unit test the above contract with Truffle.
 As I mentioned above, unit testing is testing the **smallest** unit which can be functions, subroutines, methods, etc.
 Truffle provides a convinient library to test smart contracts, by using **truffle-assert** library, we'll check if all scenarios stand by our expectation.
 
-## Initialize Truffle project
+### Initialize Truffle project
 
 To initialize a new Truffle project, run the command `truffle init` inside the directory you want to use, for example `polygon-unit-testing`. You can name the directory whatever you want, but we recommend using this example to follow the tutorial:
 
@@ -403,13 +403,13 @@ Then, you'll see a project directory like this:
 
 ![project overview](./assets/polygon-smart-contract-unit-testing-with-truffle-project-overview-1.png)
 
-## Paste your smart contract into the contracts folder
+### Paste your smart contract into the contracts folder
 
 Create a new file named `Company.sol` file under `/contracts`
 
 **Then**, paste the smart contract **implementation** from the previous section into `Company.sol`.
 
-## Configure the network settings
+### Configure the network settings
 
 **Edit** the Truffle configuration file, `truffle-config.js`.
 
@@ -449,7 +449,7 @@ You will need **3 distinct private keys** for this test. You can refer to this m
 
 **NOTE**: The accounts should be funded with test **MATIC** on Mumbai. Use the [Polygon faucet](https://faucet.polygon.technology/).
 
-## Create company.js file in test folder
+### Create company.js file in test folder
 
 In order to create tests in a Truffle project, create a test file under the `test` folder.
 
@@ -458,7 +458,7 @@ cd test
 touch company.js
 ```
 
-## Create deployment file to deploy Company Contract
+### Create deployment file to deploy Company Contract
 
 ```text
 cd migrations
@@ -476,7 +476,7 @@ module.exports = function (deployer, networks, accounts) {
 };
 ```
 
-## Before unit testing smart contract
+### Before unit testing smart contract
 
 We'll use the JavaScript library of Truffle to test the functions. Before going in, we'll import the contract we want to test and the Truffle library for testing. Add this code to the test file:
 
@@ -497,7 +497,7 @@ const user2 = accounts[1];
 const user3 = accounts[2];
 ```
 
-## Writing unit tests
+### Writing unit tests
 
 1.  Test if the Master address is set appropariately by the constructor.
 
@@ -737,7 +737,7 @@ contract('Company', accounts => {
 });
 ```
 
-## Run the test
+### Run the test
 
 ```text
 truffle test --network mumbai
@@ -747,15 +747,15 @@ The result of the test should look similar:
 
 ![Test Result](./assets/polygon-smart-contract-unit-testing-with-truffle-test-result-2.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations, you have finished this tutorial about unit testing Solidity smart contracts with Truffle. After completing this tutorial you'll able to write a basic smart contract with Solidity and use the Truffle library to unit test it.
 
-# About the Author
+## About the author
 
 David Kim is a Blockchain developer interested in NFTs and DeFi. Contact him on [GitHub](https://github.com/PowerStream3604).
 
-# References
+## References
 
 - [Truffle](https://www.trufflesuite.com/)
 - [Solidity](https://docs.soliditylang.org/en/v0.8.9/)

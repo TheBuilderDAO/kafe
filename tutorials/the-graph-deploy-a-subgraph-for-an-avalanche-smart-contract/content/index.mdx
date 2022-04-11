@@ -5,7 +5,7 @@ keywords: [The Graph, Graphql, JS/TS, GraphQL, Hardhat]
 date: '2021-09-30T23:47:16.048Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial you will learn how to deploy a Solidity smart contract to the Avalanche Fuji testnet using HardHat, then create and deploy its subgraph to the Subgraph Studio.
 
@@ -17,16 +17,16 @@ You can also test your subgraphs in the Playground, where you can run graphql qu
 
 When you know the address of a smart contract, assuming that the contract is verified on etherscan, you can easily build a subgraph schema for it. If not, you can provide the local path of the Application Binary Interface (ABI) to the Graph CLI in order to create a subgraph schema. By default, HardHat does not export the ABI after compilation of the smart contract. However it is possible to use a HardHat plugin to automatically export the ABI when a smart contract is compiled.
 
-# Prerequisites
+## Prerequisites
 
 To successfully complete this tutorial, you will need to have a basic understanding of Avalanche, Solidity, and the NodeJS ecosystem.
 
-# Requirements
+## Requirements
 
 - You will need Metamask installed in your browser. You can install it from <https://metamask.io/>
 - You need to have a recent version of Node.js installed. We recommend using v14.17.6 LTS for compatibility.
 
-# Project setup
+## Project setup
 
 Run the following command to install the yarn package manager and the Graph Protocol CLI globally. These are required to build and deploy your subgraph.
 
@@ -86,7 +86,7 @@ Since Avalanche network is compatible with Ethereum's Virtual Machine (EVM), you
 yarn add --dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle
 ```
 
-# Writing the smart contract
+## Writing the smart contract
 
 Create a new directory called `contracts` inside the `vending` directory, then create a file inside the `contracts` directory called `vending.sol`.
 
@@ -145,7 +145,7 @@ contract VendingMachine {
 }
 ```
 
-# Compiling the smart contract
+## Compiling the smart contract
 
 We will install the `hardhat-abi-exporter` plugin so that HardHat will export the smart contract ABI after compilation:
 
@@ -186,7 +186,7 @@ Compilation finished successfully
 
 The `vending.sol` smart contract has now been compiled successfully. The ABI will be stored in `abi/contracts/vending.sol/VendingMachine.json`.
 
-# Deploying the smart contract
+## Deploying the smart contract
 
 Though this step is not necessary for creating your subgraph, you can still deploy your smart contract to learn about the Avalanche network and DataHub.
 
@@ -217,7 +217,7 @@ module.exports = {
 };
 ```
 
-## Getting your Datahub API Key
+### Getting your Datahub API Key
 
 To get your `DATAHUB_API_KEY`, head over to <https://datahub.figment.io/sign_up> and create a free account.
 
@@ -231,7 +231,7 @@ Click on the `Avalanche` button to view the Avalanche Services Dashboard at <htt
 
 ![Datahub Avalanche API Key](./assets/the-graph-deploy-a-subgraph-for-an-avalanche-smart-contract-datahub-avalanche-api-key-4.png)
 
-## Getting your Metamask private key
+### Getting your Metamask private key
 
 You need to add a connection to the Avalanche Fuji testnet to your Metamask by following the instructions below (remember to replace `<YOUR DATAHUB_API_KEY>` in the RPC URL with your actual DataHub API key):
 
@@ -296,7 +296,7 @@ Contract address: <YOUR FUJI SMART CONTRACT ADDRESS>
 
 Congratulations! You just deployed your smart contract successfully to Fuji testnet! We will need the contract address when creating the subgraph, so remember to copy it.
 
-# Creating the subgraph
+## Creating the subgraph
 
 Run the following command to create the subgraph by downloading the contract ABI from the Fuji testnet. A new directory called `vending` will be created, and all node dependencies will be installed automatically.
 
@@ -351,7 +351,7 @@ It shall create three files:
 - `schema.graphql`: This defines the data to be stored and how it can be queried using GraphQL
 - `src/mapping.ts`: This [AssemblyScript](https://www.assemblyscript.org/) file defines the mapping between blockchain events to the schema entities
 
-# Creating the project in Subgraph Studio
+## Creating the project in Subgraph Studio
 
 First, you will want to head over to the Subgraph Studio at <https://thegraph.com/studio/>.
 
@@ -367,7 +367,7 @@ Next, you need to give your subgraph a name. Give the name as **vending**. Once 
 
 On this screen, you can see details about the subgraph like your deploy key, the subgraph slug and status.
 
-# Deploying the subgraph
+## Deploying the subgraph
 
 Before you can deploy your subgraph, you need to get your deploy key from <https://thegraph.com/studio/subgraph/vending/>. This is used to authenticate your account with the Subgraph Studio.
 
@@ -424,10 +424,10 @@ Done in 13.39s.
 
 You have now deployed the subgraph to your Subgraph Studio account!
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing this tutorial! You have learned how to deploy a smart contract to the Avalanche Fuji testnet using HardHat. You also learned how to create and deploy a subgraph for the smart contract on Subgraph Studio.
 
-# About the Author
+## About the author
 
 I'm Robin Thomas, a blockchain enthusiast with few years of experience working with various blockchain protocols. Feel free to connect with me on [GitHub](https://github.com/robin-thomas).

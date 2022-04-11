@@ -5,22 +5,22 @@ keywords: [Polygon, Smart contracts]
 date: '2021-11-01T23:26:23.348Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial we are going to create an art gallery where users can move around freely and see various artworks. These artworks will be stored as NFTs on the blockchain. Our application is comprised of two parts, an NFT Marketplace Smart contract that will be present on the blockchain (we are using Mumbai Testnet in this tutorial) and a 3D game built using Unity3D game engine that will be used to fetch the NFTs listed in the Marketplace smart contract and display them inside an interactive 3D art gallery.
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes you have completed the [Create an NFT smart contract with HardHat](https://learn.figment.io/tutorials/create-nft-smart-contract-with-hardhat) and [Building an NFT Marketplace using HardHat](https://learn.figment.io/tutorials/build-an-nft-marketplace-using-hardhat) tutorial. It is also recommend to have basic idea of Unity3D game engine. It is highly recommended that you complete the [Create a Personal 3D Gallery Project with Unity](https://learn.unity.com/project/create-a-personal-3d-gallery-project-with-unity?uv=2019.4) with Unity version `2019.4`. Besides this, knowledge and understanding of C# and how to use C# Script with Unity3D will be very helpful.
 
-# Requirements
+## Requirements
 
 The requirements for this tutorial are:
 
 - Install [Unity Hub](https://unity.com/) and Unity3D version `2019.4`. Using UnityHub you can install multiple versions of Unity3D simultaneously.
 - Already have an NFT Marketplace smart contract deployed to the Mumbai Testnet.
 
-# Environment setup
+## Environment setup
 
 Open Unity Hub and create a new Unity3D project with the `3D` template. Make sure you are using version `2019.4` (the subversion may differ). It is recommended to use a relatable name. We will name our project **Figment 3D Art Gallery**, however any other name will work as well.
 
@@ -32,7 +32,7 @@ This will create an Empty Unity3D project to begin with
 
 The interface of Unity3D is divided into various **Window,** each with it's own unique purpose. These windows can be arranged freely by the developers and hence they are referred to by their name rather than location. You can get a detailed tour of Unity's User Interface [here](https://docs.unity3d.com/2019.4/Documentation/Manual/UsingTheEditor.html).
 
-# Project Initiation
+## Project Setup
 
 It is important to visualise how our end project should look and what features we want in our project. The kew feature that we want in our project are:
 
@@ -60,7 +60,7 @@ Drag this to `The Hierarchy Window` . From The Inspector Window make sure that c
 
 ![ShowingMuseumAssetImported.png](./assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-showing-museum-asset-imported-png-5.png)
 
-## Adding Mesh Collider
+### Adding Mesh Collider
 
 Collider is a special type of component used by Unity to detect collision. You can think of the Collider as like a layer of Skin. You can read more about Colliders [here](https://docs.unity3d.com/2019.4/Documentation/Manual/CollidersOverview.html). We will be adding a Mesh Collider to our Museum model so that we can detect collisions once we add our player game object.
 
@@ -68,7 +68,7 @@ Expand the `museum` gameobject and select all the child component. Then from the
 
 ![SettingMeshCollider.png](./assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-setting-mesh-collider-png-6.png)
 
-## Creating the basic player
+### Creating the basic player
 
 Now that we have our game world ready, let's create a character to represent the player in the game world. In this tutorial, we will be creating the game as a FPS (First Person Shooter), which means the player will interact with the game world in first person view.
 
@@ -88,7 +88,7 @@ The `FirstPerson-AIO` already have a camera attached to it which will act as our
 
 Click on the Play button. You will be able to move around freely inside the game.
 
-# Displaying Artwork
+## Displaying Artwork
 
 Before we start displaying NFTs from the blockchain, let's create a demo artwork to be displayed.
 
@@ -102,7 +102,7 @@ We will convert this game object into a Prefab and later use it to spawn new Art
 
 Before creating the prefab, create a Folder called `Prefabs` in the root asset directory and open it. Drag the `picture` asset from `Hierarchy Window` into the `Project Window` . A pop up will appear, select `Original Prefab`. This will create a new Prefab for the art work.
 
-## Displaying Image details
+### Displaying Image details
 
 Now that we have our artwork in place, we want to display various informations associated with the image on screen when the player moves close to the artwork. This information will be displayed as UI element for which we will need a `Canvas` game component. You can read more about `Canvas` in the official documentation [here](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-Canvas.html).
 
@@ -134,7 +134,7 @@ Now you can switch back to the 3D view. Quickly click on the `Game Window` to ha
 
 ![In game view](./assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-in-game-view-14.png)
 
-## Writing scripts for displaying information
+### Writing scripts for displaying information
 
 If now we try to play our game, you will notice that the texts constantly appear on the screen. We want the text to appear only when we move close to some artwork. In order to do this, we will have to take the help of scripts (Uinty3D uses C# for writing scripts). Before we start writing our scripts we do two small tweaks:
 
@@ -288,7 +288,7 @@ If not so, some of the possible errors can be:
 - There is some error in the C# Script.
 - The tags were not properly associated with various game objects.
 
-# Importing Libraries
+## Importing Libraries
 
 For interacting with the blockchain we need to make RPC call. In case of traditional front end applications build using Javascript, we would use libraries like `web3.js`. In case of Unity3D, there is no simple and easy way to use Javascript libraries, rather we have to depend on `Nethereum` that is a C# library used for interacting with the Ethereum Blockchain. The same can also be used to interact with Polygon chain and in this example with Mumbai Testnet. We will also need separate libraries so that we can make Asynchronous calls from our game.
 
@@ -300,7 +300,7 @@ For the simplicity of this tutorial, the content of both the folders are uploade
 
 The `NEther` contains all the required files and scripts needed to use the `Nethereum` library while the `Plugins` folder contain `AsyncAwaitUtil` plugin that will be used for making Asynchronous calls. Although there are many other available Libraries for Asynchronous calls, this particular one seems to work smoothly with `Nethereum` while others ran into various errors.
 
-# Writing scripts to interact with the blockchain
+## Writing scripts to interact with the blockchain
 
 Now it's the time we all were waiting for. Now we are ready to write our Scripts to interact with the blockchain. To start with we create a new folder inside `Scripts` folder called `HelperScripts`. This folder will store all those scripts that are not directly used by our game but act as "Helpers". Inside this folder create a new C# script called `Constants` and open it in your favourite IDE. This script is going to store all the various constants that we are going to use. Paste the following code:
 
@@ -323,7 +323,7 @@ The Contract Address of the Marketplace smart contract will be stored in `MARKET
 
 Since this script is not going to be used to control any game object, we are not importing any Libraries nor are we inheriting the `MonoBehaviour` class.
 
-## Query the Marketplace Smart Contract
+### Query the Marketplace Smart Contract
 
 Inside the `HelperScripts` folder, create another C# script and let's name it `QueryMarketplace`. Let's start by importing some libraries:
 
@@ -541,7 +541,7 @@ public class QueryMarketplace
         public bool isSold { get; set; }
     }
 
-    // #################################### Public Callable Functions ####################################
+    // ----------------------------------- Public Callable Functions ------------------------------------
 
     // Function to get itemCounter
     public async Task<BigInteger> GetItemCounter()
@@ -592,7 +592,7 @@ To solve this, open `Player Settings` from the `Build Settings` window, and sele
 
 ![NET4x.png](./assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-net-4-x-png-22.png)
 
-## Query the NFT
+### Query the NFT
 
 Similar to `QueryMarketplace` script, we create a new script inside the `HelperScripts` directory called `QueryNFT`. This will be used to Query the NFT smart contract to get the `tokenURI` of the NFT listed in the Marketplace smart contract.
 
@@ -633,7 +633,7 @@ Like incase of QueryMarketplace, we first create a Function Message that will be
 
 We define `GetTokenURI` function that takes two parameters, `tokenId` which represents the tokenId of the NFT we want to query and `contractAddress` which contains the address of the NFT.
 
-## Additional Helper Scripts
+### Additional Helper Scripts
 
 Besides this two Helper Scripts, we need two other Helper Scripts, `ArtworkDetails` and `MetadataFormat`, that would help us create an object that represents all the details to be displayed and create an object of the Metadata that is stored in the tokenURI respectively.
 
@@ -689,7 +689,7 @@ With this we are ready with all our helper scripts. Before moving to the next se
 
 ![Helper Scripts](./assets/polygon-building-a-3d-art-gallery-using-unity3d-and-nethereum-helper-scripts-23.png)
 
-## Getting the artwork
+### Getting the artwork
 
 We have our script to query the Marketplace smart contract and NFT smart contract ready along with some other helper scripts. The steps to be followed to fetch and display an artwork are:
 
@@ -891,7 +891,7 @@ Before moving on to the next section, attach the `GetArtwork` script to the `pic
 
 With the `picture` object selected in the `Hierarchy Window`, click on the `Overrides` button on the `Inspector Window` and click on **Apply All** button. This will add all the changes made to the game object to its prefab as well.
 
-# Spawning Artworks
+## Spawning Artworks
 
 Now we are almost ready to display the artworks listed in the Marketplace smart contract. However before doing so we should be able to spawn the artworks into our museum depending on the number of NFTs listed. Since our museum is of fixed dimension, there will be a maximum number of artworks that can be listed.
 
@@ -911,7 +911,7 @@ In order to keep our project organised, in the `Hierarchy Window` create a new *
 
 Finally, you can safely delete the `picture` game object.
 
-## Writing script to spawn artworks
+### Writing script to spawn artworks
 
 Inside the `GameScripts` directory, we will create another script that is going to help us spawn the Artworks. Create a new C# script called `ArtworkSpawner`.
 
@@ -995,13 +995,13 @@ Now that we have our script ready, we attach this script to the `ArtworkSpawner`
 
 Now we are finally ready to test our product.
 
-# Running our game
+## Running our game
 
 Create a new NFT and list it in the marketplace smart contract. I am using [this](https://mumbai.polygonscan.com/address/0x12Fc3C44b4092aD55cf0212fa3A84a1210fCED5f#writeContract) contract to create NFT and [this](https://mumbai.polygonscan.com/address/0x9a606932f7F0d07EAd02693D71768268FECc9c88#writeContract) is my Marketplace contract. Now click on the play button. The artwork will spawn at the first spawn point listed. When you move closer to the artwork, the details to appear on the screen.
 
 Congratulations 🎉🎉🎉, your game is ready.
 
-## Building the game
+### Building the game
 
 Before we wrap up, there is one last step remaining, i.e. to build our game so that it can run on a browser. Follow the following steps:
 
@@ -1012,19 +1012,19 @@ Before we wrap up, there is one last step remaining, i.e. to build our game so t
 
 This will start the built process and once done, it will run the game. You can play the game and also share it with your friends.
 
-# Conclusion
+## Conclusion
 
 Congratulations on making it all the way through this tutorial! We have learned how to interact with a smart contract from a Unity3D game. We have learned how to read data from the blockchain and display information to the user. We also learned the basics of Nethereum, which is a C# library used for interacting with Ethereum based blockchains.
 
-# Next Steps
+## Next Steps
 
 For simplicity purposes, we have limited this tutorial to just reading from the blockchain. It is also possible to connect wallets and submit transactions to the blockchain. As next step, you can also try to build an VR version of the game which would create a more immersive experience.
 
-# About The Author
+## About The Author
 
 Hi, my name is Bhaskar Dutta and I am a blockchain Developer, Researcher and Freelancer. I am always looking forward to learn new things and discuss about Sitcoms. To know me better, you can checkout my [Github](https://github.com/BhaskarDutta2209).
 
-# References
+## References
 
 - The best place to learn about various aspects of Unity3D is their [official documentation](https://docs.unity3d.com/Manual/index.html).
 - To know about Nethereum, refer to their [official documentation](http://docs.nethereum.com/en/latest/#:~:text=Nethereum%20is%20the%20.,private%2C%20like%20Quorum%20and%20Besu.).

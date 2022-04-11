@@ -5,17 +5,17 @@ keywords: [Polygon, JS/TS, Solidity, Smart contracts, Truffle, Solidity]
 date: '2021-10-13T22:33:53.889Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to build a Social Media dApp (Decentralized Application) similar to Instagram and how to deploy it on the Polygon (Matic) Mumbai test network. So grab your favorite drink and let's get started ☕️!
 
 PetGram is a decentralized version of the Instagram platform for pets where users can browse cute photos of their favorite pets, see details of a specific pet, create a post and earn NFTs.
 
-# Prerequisites
+## Prerequisites
 
 For this tutorial, it is recommendable to complete the [Polygon pathway](https://learn.figment.io/protocols/polygon). As well as having a basic understanding of Solidity, working knowledge of React and JavaScript.
 
-# Requirements
+## Requirements
 
 You will need the following software on your computer to build this dApp:
 
@@ -37,7 +37,7 @@ When this is complete, check your Metamask & you'll see some MATIC tokens there.
 
 ![](./assets/polygon-build-petgram-an-nft-sharing-dapp-image-2.png)
 
-# Project Setup
+## Project Setup
 
 To avoid potential version related errors & instead of installing the supporting code libraries (dependencies) one-by-one, we'll start building the Petgram dApp by cloning a GitHub repository that contains the project files and installing all the necessary dependencies.
 
@@ -59,7 +59,7 @@ Now that our project has all the dependencies we can run it using the command `n
 
 > **Note**: As you move forward with this tutorial, make sure your project is reflecting similar results at a given point. There are screenshots as checkpoints for almost every step.
 
-# Smart Contracts in Solidity
+## Smart Contracts in Solidity
 
 Now let’s start setting up the environment for coding the smart contract. We are going to use Truffle which is a development environment, testing framework and asset pipeline for Ethereum and other EVM compatible blockchains like Polygon.
 
@@ -176,7 +176,7 @@ module.exports = {
 };
 ```
 
-# Pet.sol
+## Pet.sol
 
 Now let’s start coding the smart contract. Create a new file in the contracts folder, you can open your project in a new terminal and use the command `touch ./contracts/Pet.sol` on Linux/macOS or `type nul > contracts\Pet.sol` on Windows.
 
@@ -297,7 +297,7 @@ You should see similar results.
 
 ![](./assets/polygon-build-petgram-an-nft-sharing-dapp-image-7.png)
 
-# Deploying the smart contract to Polygon Mumbai Testnet
+## Deploying the smart contract to Polygon Mumbai Testnet
 
 To deploy the smart contract on the Polygon Mumbai testnet you need to fund your account. If you need help with this check out this [guide](https://learn.figment.io/tutorials/fund-a-polygon-account).
 
@@ -313,7 +313,7 @@ If you're deploying it for the second time or more, use the `--reset` flag to av
 As long as the deployment was successful, the output should be similar:
 ![](./assets/polygon-build-petgram-an-nft-sharing-dapp-image-8.png)
 
-# Building the React front-end
+## Building the React front-end
 
 Path: `/src/components/`
 
@@ -328,7 +328,7 @@ React loads a single HTML page (`/public/index.html`) which is then populated wi
   - `gallery/`: This directory is where we will keep code related to fetching all Pets from nft.storage and rendering them with their basic information.
   - `pet-details/`: This ditrectory holds the component we will use to display all the information of a pet, as well as mint NFTs.
 
-# App.js
+## App.js
 
 Let’s work on the main file of our React UI: `App.js` will contain all of the components that make up our React application (navbar, main, footer, home, etc).
 
@@ -478,7 +478,7 @@ Have you noticed that we are using the Async/Await? Here is a breve explanation 
 
 You can find a simple explanation of Async/Await function [here](https://www.geeksforgeeks.org/async-await-function-in-javascript/).
 
-# navbar.js
+## navbar.js
 
 - path: `src/components/layout/navbar/navbar.js`
 
@@ -535,7 +535,7 @@ In this snippet of code, we are checking if the account exists then we display t
 
 ![](./assets/polygon-build-petgram-an-nft-sharing-dapp-image-9.png)
 
-# CreatePet.js
+## CreatePet.js
 
 - path: `src/components/create-post/CreatePet.js`
 
@@ -712,7 +712,7 @@ Also, it should send the information to the nft.storage. To check, go to https:/
 
 Yay!! Now that we are able to create new posts, let's move to the pet gallery. At this point, feel free to add a few posts so that we can display them in the `PetGallery.js` component.
 
-# PetGallery.js
+## PetGallery.js
 
 - path: `src/components/home-container/gallery/PetGallery.js`
 
@@ -851,7 +851,7 @@ In our case, we should have at least one pet in our petsData array. Feel free to
 
 ![](./assets/polygon-build-petgram-an-nft-sharing-dapp-image-14.png)
 
-# PetDetails.js
+## PetDetails.js
 
 - path: `src/components/home-container/pet-details/PetDetails.js`
 
@@ -1147,15 +1147,15 @@ We are adding the user's account and the comment to the UI. Try to post a commen
 
 Remember that we are not saving the comments, so as soon as you refresh the page the comments will disappear.
 
-# Conclusion
+## Conclusion
 
 Congratulations! You have created your own fullstack dApp😎🦄!! After completing this tutorial, you should have a good understanding of how to create a dApp for creating and managing NFTs.
 
-# About the Author
+## About the author
 
 Albert Carbajal is a web developer, blockchain enthusiast with a passion for Software Development, & Decentralization. Feel free to connect with me on [GitHub](https://github.com/electrone901).
 
-# References
+## References
 
 - Truffle docs: https://www.trufflesuite.com/docs/truffle/overview
 - Polygon (Matic) docs: https://docs.matic.network/docs/develop/getting-started

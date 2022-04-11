@@ -77,7 +77,7 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
               >
                 <a
                   href={`${item.href}`}
-                  className="font-mono break-all text-md"
+                  className="font-mono break-words text-md"
                   onClick={event => handleLinkClick(event, `${item.id}`)}
                 >
                   {'∘'.repeat(item.depth - 1)} {item.title}

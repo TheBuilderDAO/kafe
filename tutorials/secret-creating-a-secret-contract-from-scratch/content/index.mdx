@@ -5,11 +5,11 @@ keywords: [Secret, Rust, Smart contracts, Rust]
 date: '2021-07-21T10:58:12.580Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial you will learn the basics of creating a new secret contract from scratch. You will learn the basics of handling messages and storing data for your contract on the chain. The contract that you make will allow individual users to store a private reminder on the secret network that can be read back at a later time. Using a secret contract for such a task is probably overkill, but it will teach you the basics of secret contract construction which provides a foundation for building more complex secret dapps using the same principles.
 
-# Prerequisites
+## Prerequisites
 
 Make sure you have completed the [Secret Pathway](https://learn.figment.io/protocols/secret/) prior to doing this tutorial. You should also have a working knowledge of the Rust programming language. If you have never used Rust before, you can learn more [here](https://doc.rust-lang.org/book/). You can use any IDE that supports Rust or just a text editor. Here are some options:
 
@@ -17,7 +17,7 @@ Make sure you have completed the [Secret Pathway](https://learn.figment.io/proto
 - [IntelliJ Rust plugin](https://www.jetbrains.com/rust/)
 - [Sublime Text 3 Rust Enhanced package](https://github.com/rust-lang/rust-enhanced)
 
-# Generating our project
+## Generating our project
 
 To generate a new project we follow the directions from the Secret Pathway, however we choose a new name, in this case `reminder`.
 
@@ -27,7 +27,7 @@ cargo generate --git https://github.com/enigmampc/secret-template --name reminde
 
 In addition to everything we need to compile a contract, this template includes sample code for the simple counter contract. We are going to remove that in order to start from scratch. **Go into the `src` directory and empty the contents of the following three files `contract.rs`, `msg.rs`, and `state.rs`.** Do NOT remove or edit `lib.rs`.
 
-# Secret contract functions
+## Secret contract functions
 
 There are three main functions that any secret contract can execute once it has been deployed to the network:
 
@@ -89,11 +89,11 @@ At the top of this file, we have a number of module imports, some of which will 
 
 A keen eye will note that `deps` is defined as `&mut Extern<S, A, Q>` in `init` and `handle`, but in `query` it is not mutable: `&Extern<S, A, Q>`. This is because a `query` is unable to change the `storage`, it is read-only. In addition, `query` does not have access to the external state of the contract, which importantly means that the address of the sender of the query is not available from within the `query` function. The reason for this is explained in more detail in the [Privacy Model of Secret Networks](https://build.scrt.network/dev/privacy-model-of-secret-contracts.html#verified-values-during-contract-execution).
 
-# Secret contract messages
+## Secret contract messages
 
 Now we need to specify the valid structure of input messages and output responses for each of our three main contract functions. We will define these message structures in `src/msg.rs`.
 
-### Sketching out our contract's functionality
+**Sketching out our contract's functionality**:
 
 Before we specify any message structures, let's step back and detail some functionality we want our contract to implement by coming up with some simple user stories:
 
@@ -219,7 +219,7 @@ pub enum QueryAnswer {
 
 Sometimes an incoming message or a response will have an optional field. Those are defined with Rust `Option` types. The secret contract SDK will include those fields as needed in the response to the client automatically. In our `Read` response we define `reminder` and `timestamp` using an `Option` type, because it is possible that there is no reminder for the user.
 
-### A note about data types between the client and contract
+**A note about data types between the client and contract**:
 
 A message is, in fact, received by the contract as an encrypted and then Base64-encoded version of the JSON stringify'd version of the original message (i.e., Javascript object) defined in the client code. This transformation is transparent to you as a secret contract developer, but awareness of this process is important because of how it affects data types. Your contract will create a schema document for each message type if you add `derive(JsonSchema)` macro to your message definitions. But you might still need to do some additional value checking and type casting in your contract code depending on the context.
 
@@ -227,7 +227,7 @@ In addition, number values in Javascript are limited in range. The maximum safe 
 
 Likewise, a message type that has a `HumanAddr` or `CanonicalAddr` as a field value will also be sent from the client using string values.
 
-# Secret contract storage
+## Secret contract storage
 
 Now we are going to define how we want to model our contract's state in the contract storage. We will put that code in `src/state.rs`. Once we have completed that we will wire everything together in our `init`, `handle`, and `query` functions in `src/contract.rs` and we will have a fully working secret contract.
 
@@ -295,11 +295,11 @@ pub fn may_load<T: DeserializeOwned, S: ReadonlyStorage>(storage: &S, key: &[u8]
 }
 ```
 
-# Wiring it all together in our secret contract functions
+## Wiring it all together in our secret contract functions
 
 Now we are ready to fill in our three contract functions in `contract.rs`: `init`, `handle`, and `query`.
 
-### `init` function
+### init function
 
 In `state.rs` we have said that `max_size` will be stored as a `u16` type, which means that highest maximum reminder size that we can set is 65535 bytes. If the `i32` value for `max_size` sent in `InitMsg` is outside of those bounds we need to throw an error. We can create a helper function to test that:
 
@@ -345,7 +345,7 @@ If no error is returned, we create a new instantiation for the `State` struct th
 }
 ```
 
-### `handle` function
+### handle function
 
 Unlike `init` when you create a `handle` function you will likely need to implement logic for multiple types of handle messages. Instead of one large `handle` function we can easily create a helper function for each type of message. We will name them with the form `try_*` where `*` denotes the message type. The parameters of our message depend on how we defined them in `msg.rs`. In our case, we have two handle message types. The first, `HandleMsg::Record`, has one field `reminder` that we pass on to `try_record` along with `deps` and `env`. The second message type, `HandleMsg:Read` takes no parameters so we only pass on `deps` and `env`.
 
@@ -362,7 +362,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-#### `try_record`
+### try_record function
 
 The main logic for our record message handling goes in the `try_record` function:
 
@@ -413,13 +413,13 @@ fn try_record<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-First thing we do is define a String that will hold our `status` message and convert the incoming `reminder` message into a byte slice. Next, we load the config state from storage and put it in a variable called `config`. We can use `load` and the `?` operator because we know that it was created in `init`. We test the length of our incoming reminder (# of bytes) against the `max_size` field in our config struct. If the message is too long, we indicate it in `status`.
+First thing we do is define a String that will hold our `status` message and convert the incoming `reminder` message into a byte slice. Next, we load the config state from storage and put it in a variable called `config`. We can use `load` and the `?` operator because we know that it was created in `init`. We test the length of our incoming reminder (number of bytes) against the `max_size` field in our config struct. If the message is too long, we indicate it in `status`.
 
 If the incoming reminder is an acceptable length, then we need to store the new reminder and its timestamp using a key derived from the current sender's address. Once that is done we increment the `reminder_count`. To get the address we use `deps.api.canonical_address` method and pass it the current sender from `env`. The result is stored in `sender_address`. We construct a `Reminder` struct and set the `content` to a `vec<u8>` representation of the reminder byte slice and the current block time, also from `env`. Keys in storage are byte sequences, so to use `sender_address` as a key we need to call `.as_slice().to_vec()`. We use `save` to write the new `Reminder` at this key. Finally, we update the config by incrementing `reminder_count`, overwrite it in storage, and set the `status` message.
 
 The return value of our function is a `StdResult<HandleResponse>`. The `msg` field in `HandleResponse` is a vector of `CosmosMsg`s which are actions that are taken after execution, and `log` is a vector of logging attributes as key-value pairs. For this contract we do not need those, and can simply return empty vectors for those two fields. We want to send our `HandleAnswer::Record` response back to the client in binary-encoded form so we pass it through the `to_binary` Cosmos SDK function.
 
-#### `try_read`
+### try_read function
 
 The logic for handling a read function uses many of the same components. One difference from previous code is that we use the `may_load` function to read the `Reminder` from storage. This allows us to the handle situation where a sender tries to read a reminder and none exists on storage. We can send a message to that effect in `status` without sending an error message.
 
@@ -460,7 +460,7 @@ fn try_read<S: Storage, A: Api, Q: Querier>(
 }
 ```
 
-### `query` function
+### query function
 
 The implementation of our `Stats` query is quite straightforward compared to the handle requests. One difference is that `query` simply returns a `StdResult<Binary>`, because it only needs to return the binary-encoded `Stats` struct containing `reminder_count`. A `query` does not access `env` and does not affect on-chain transactions, so there is no need to wrap it up with `messages` and `log` like in a `HandleResponse`.
 
@@ -483,17 +483,17 @@ fn query_stats<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdRes
 
 You now have a working reminder secret contract! The completed contract code can be found [here](https://github.com/darwinzer0/secret-contract-tutorials/tree/main/tutorial1/code).
 
-# Next Steps
+## Next Steps
 
 Unlike a normal web service, there is no mechanism for a secret contract to repeatedly push information through an open socket connection in response to a handle or query message. Instead, if you want to support that behavior, then you must develop a pull mechanism where the client makes repeated executions of the contract. However, as our contract currently implements the functionality of reading a reminder as a handle execution that would very quickly cost the user a lot of `SCRT` due to gas fees! The solution is to create a private viewing key that allows a user to see their own reminder using a query instead of a handle message. In the next tutorial we will show how that can be done in the context of a simple React application.
 
-# Notes
+## Notes
 
-**1**: Although, queries do not impose a fee, they are metered by gas. This allows a node to reject a long-running query.[↩](creating-a-secret-contract-from-scratch.md#a1)
+1. Although, queries do not impose a fee, they are metered by gas. This allows a node to reject a long-running query.[↩](creating-a-secret-contract-from-scratch.md#a1)
 
-**2**: These functions are based on the [Sealed Bid Auction contract code](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/src/state.rs).[↩](creating-a-secret-contract-from-scratch.md#a2)
+2. These functions are based on the [Sealed Bid Auction contract code](https://github.com/baedrik/SCRT-sealed-bid-auction/blob/master/src/state.rs).[↩](creating-a-secret-contract-from-scratch.md#a2)
 
-# About the author
+## About the author
 
 This tutorial was written by Ben Adams, a senior lecturer in computer science and software engineering at the University of Canterbury in New Zealand.
 

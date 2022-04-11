@@ -5,7 +5,7 @@ keywords: [Secret, JS/TS, NodeJS, Smart contracts]
 date: '2021-07-21T11:04:35.166Z'
 ---
 
-# Introduction
+## Introduction
 
 [Non-Fungible Tokens](https://en.wikipedia.org/wiki/Non-fungible_token) implement the idea of uniqueness in the blockchain world. With classical, fungible tokens the only important characteristic is how _many_ of them you own. You can think of those as currency, or to make a more exotic example, carrots. It is interesting to know how many kilograms of carrots you have, but nobody is likely to be really into you telling them which carrots you own precisely. For non-fungible tokens on the other hand, the number you are holding is not as important as _which_ token you hold. Given an example: If I tell you that I own three paintings, it's not that impressive. If I tell you on the other hand that I own the Mona Lisa, Guernica and The Persistence of Time you might be impressed and still want me to prove it.
 
@@ -13,11 +13,11 @@ At a high level, an NFT has a number of important properties. First we are inter
 
 <Embed url="https://youtu.be/jRuSOos9ig4" />
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have completed the [Secret Pathway](https://learn.figment.io/protocols/secret) already, as we will be building upon that foundation of knowledge and skill. If you have not already done so, you would be wise to take the time to complete the Pathway. We will start with the same project folder as in section 5 of the Pathway.
 
-# Requirements
+## Requirements
 
 - The latest version of NodeJS installed (use of nvm, the node version manager, is _encouraged_ for Web 3 developers)
 - A code editor like VSCode, Theia, Atom, _etc_.
@@ -27,17 +27,17 @@ This tutorial assumes that you have completed the [Secret Pathway](https://learn
 
 It is not required to install docker and the Rust toolchain _yet_, as we are using a pre-deployed contract in this case. A future installment in this series will guide you through writing and compiling your own variant of a snip721 token.
 
-# What is different between ERC721 and snip721
+## What is different between ERC721 and snip721
 
 As mentioned above each NFT contains unique data or at least a way to identify the unique data. Due to the distributed public ledger property of most blockchains, this means that anyone can read this data. So even if you bought an expensive painting as an NFT no one is stopping me from finding the NFT on a blockchain explorer, having a look at the data and downloading that image for myself.
 
 Secret Network is focused on privacy by default and this paradigm extends to its implementation of NFT standards. The snip721 standard mimics the functionality of the corresponding ERC721 standard on the Ethereum blockchain but provides more granular control over what information is private, rather than everything being publicly available. When a new snip721 token contract is deployed to the secret network you can define if the total supply and the owners of tokens should be publicly available. The deployer of the contract decides which data is public and which is only available to the current owner of the NFT.
 
-# Getting started with secretNFTs
+## Getting started with secretNFTs
 
 We will connect to an already deployed instance of the [snip721 reference implementation](https://github.com/baedrik/snip721-reference-impl): The _SecretFigment token_. We will build the functionality needed to interact with an NFT on secret. Namely the ability to mint new tokens, to set the Viewing key on tokens and to query the token private metadata.
 
-# Minting
+## Minting
 
 As we will be frequently communicating with the contract, the first thing we will do is add the contract address to our `.env` file:
 
@@ -177,7 +177,7 @@ console.log('response: ', response);
 
 Congratulations! We have just minted a Non-Fungible Token on the Secret network using an already deployed contract!
 
-### Querying the contract
+## Querying the contract
 
 In this section, we want to query information about our token from the contract. For this create a new file called `query_token.js` and paste the following code into it:
 
@@ -437,7 +437,7 @@ Take note of how we changed `queryMsg` to specify who is viewing the contract in
       }
     }
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have made it to the end of the first instalment of this Secret NFT series. We have covered a lot of information, and I feel you can really be proud of what you have achieved. Just to recap:
 
@@ -447,7 +447,7 @@ Congratulations! We have made it to the end of the first instalment of this Secr
 
 This is a solid foundation to play with and build upon!
 
-# Next Steps
+## Next Steps
 
 Of course, we are not yet at the end of our journey. In the coming tutorial, we will have a look together into interesting and more complex examples of NFT properties. You can look forward to:
 
@@ -458,6 +458,6 @@ Of course, we are not yet at the end of our journey. In the coming tutorial, we 
 
 Let's keep on building!
 
-# About the author
+## About the author
 
 This tutorial was created by [Florian Uhde](https://twitter.com/florianuhde), a software engineer and game developer with a passion for blockchain, creativity and systemic design. You can get in touch with the author on [twitter](https://twitter.com/florianuhde) if you have any queries pertaining to the tutorial, secretNFTs, etc.

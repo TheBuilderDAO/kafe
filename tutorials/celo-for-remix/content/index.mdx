@@ -5,18 +5,18 @@ keywords: [Celo, Solidity, Smart contracts, Solidity, Metamask, Remix]
 date: '2021-07-21T07:56:37.840Z'
 ---
 
-# Introduction
+## Introduction
 
 Remix is an in-browser Solidity IDE that’s used to write, compile and debug Solidity code. Solidity is a high-level, contract-oriented programming language for writing smart contracts. Celo is a close cousin of Ethereum so Celo developers can use many of the resources available for ethereum, Remix being one of them. In this tutorial, we will learn how to set up our development environment on Remix so that we can deploy and interact with celo smart contracts on Alfajores testnet and mainnet directly from Remix.
 
-# Prerequisites
+## Prerequisites
 
 1.  Chromium based browser (Example- Google Chrome and Brave)
 2.  Celo Extension Wallet can be downloaded from [here](https://chrome.google.com/webstore/detail/celoextensionwallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh?hl=en).
 3.  Funds to deploy contracts on the blockchain. Faucet for Alfajores Testnet can be reached from [here](https://celo.org/developers/faucet).
 4.  Some previous experience of working with Metamask, Solidity and Remix.
 
-# Adding Celo extension to Remix
+## Adding Celo extension to Remix
 
 Head over to [Remix](https://remix.ethereum.org/) and click on `Plugin Manger`. Here search for **Celo** Plugin and click on **Activate**.
 
@@ -28,7 +28,7 @@ Our development area should look like this.
 
 ![](./assets/celo-for-remix-image-2.png)
 
-# Connecting Celo Extension Wallet to Remix
+## Connecting Celo Extension Wallet to Remix
 
 After making sure we have selected Alfajores testnet account in Celo Extension Wallet 1. Click on the **Connect** button in the account tab. 2. Allow celo-extension-wallet to connect to Remix.
 
@@ -36,7 +36,7 @@ Now we will be able to see our Celo Balance in the Balance tab.
 
 **MAKE SURE NETWORK SELECTED IS `Alfajores`**
 
-# Deploying Smart Contract on Alfajores Testnet
+## Deploying Smart Contract on Alfajores Testnet
 
 We will deploy a very simple smart contract for this tutorial.
 
@@ -85,12 +85,12 @@ Yay! we have successfully deployed our contract to the Alfajores Testnet. We can
 
 Now try playing around with the store and retrieve the functionality of our smart contract. We can use similar instructions for deploying contracts on mainnet by selecting **Celo Main Network** in celo-extension-wallet but we will need real celo in that case.
 
-# Potential errors and their solutions
+## Troubleshooting
 
-## Connect button in Celo extension connects to Metamask.
+### Connect button in Celo extension connects to Metamask.
 
 If you have both metamask and Celo extension wallet installed then this problem can arise. You can uninstall metamask and everything will work fine. If you don't want to remove metamask extension then you can work with celo extension wallet in incognito mode. Just click on the Extensions icon on the chrome extension tray, select celo extension wallet and click on options, and select manage extension, Here click on allow In Incognito. Now you are all set to go.
 
-## Celo extension doesn't work on incognito mode
+### Celo extension doesn't work on incognito mode
 
 Celo extension requires your cookie permissions to work properly which is not given by default in incognito mode. Head over to `chrome://settings/content/cookies` and select allow all cookies option in general settings.

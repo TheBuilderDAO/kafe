@@ -7,13 +7,13 @@ date: '2021-08-25T03:42:59.614Z'
 
 ![](./assets/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-1.png)
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to build a Social Media DApp (Decentralized Application) like YouTube & how to Deploy it on the Polygon (Matic) Mumbai test network. So, grab a cup of coffee ☕️ and let's get started!
 
 The DTube project was created by Akhilesh Thite during the ETHOdyssey Virtual Hackathon in July-Aug 2021. All the resources used to create this DApp are linked at in the "References" section at the end of this tutorial.
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have some beginner-level experience in programming & blockchain understanding.
 
@@ -25,28 +25,28 @@ After this tutorial you will be able to:
 - Understand Web3 concepts.
 - Host the DApp on [IPFS](https://docs.ipfs.io/concepts/) using [Fleek](https://docs.fleek.co/) platform.
 
-# Requirements
+## Requirements
 
 We need the following things on your computer to build our DApp.
 
-### Node & npm
+- Node & npm
 
 Node is a JavaScript runtime environment that executes JavaScript code outside a web browser and npm is a JavaScript package installer.
 To install Node.js & npm on your computer, click on this [link](https://nodejs.org/en/download/) -> download the file as per your computer requirement -> Install the file.
 To check the successful installation type `npm -v` in cmd prompt or terminal, It'll show the version that means you've successfully installed it on your computer.
 
-### Truffle
+- Truffle
 
 Truffle is the best development environment for developing blockchain applications. Truffle gives us boilerplate code (template code) to start building our DApp.
 
 To install truffle, open a terminal (windows cmd prompt or mac terminal) and run the following command:
 `npm install -g truffle`
 
-### Ganache (Optional for this tutorial)
+- Ganache (Optional for this tutorial)
 
 Ganache is a personal blockchain environment for DApp development. It provides a local blockchain with 10 default accounts, each already funded with 100 ETH. This can be very useful for testing and development, [check it out](https://www.trufflesuite.com/ganache) if you are interested.
 
-### MetaMask Setup
+## MetaMask Setup
 
 MetaMask is used to interact with the Ethereum blockchain. It allows users to access their Ethereum wallet through a browser extension or mobile app, which can then be used to interact with decentralized applications.
 
@@ -63,7 +63,7 @@ Done! check your wallet, you'll see some Matic there. _(We only need small amoun
 
 ![](./assets/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-3.png)
 
-### Tech Stack
+## Tech Stack
 
 - **Languages:** `Solidity, JavaScript, HTML5, CSS3`
 - **Libraries:** `React.js, Web3.js`
@@ -71,7 +71,7 @@ Done! check your wallet, you'll see some Matic there. _(We only need small amoun
 - **Network:** `Polygon (Matic)`
 - **Platforms:** `Ethereum, Fleek`
 
-### Roadmap
+## Roadmap
 
 First, we'll setup our coding environment with the help of **Truffle**, after that we'll write **Smart Contracts** in **solidity**.
 After writing Smart Contracts, To build the front-end of our DApp we'll use [React.js](https://reactjs.org/docs/getting-started.html) Javascript library plus some **HTML5, CSS3 & JavaScript**.
@@ -90,7 +90,7 @@ Web3.js is a set of JavaScript libraries that acts as a port to the blockchain w
 
 In this section, we introduced the technologies that will be used and provided a roadmap for building the DApp. Now on to the the interesting part - Let's make the DApp!
 
-# Project Setup
+## Project Setup
 
 To avoid dealing with any annoying version errors & instead of installing the supporting code libraries (dependencies) one-by-one, we'll start building our DApp by cloning a GitHub repository which contains the project files and installing all the necessary dependencies.
 
@@ -113,7 +113,7 @@ Note:- As the tutorial moves further, for each section you can clear the code fr
 
 _There are path and GitHub repo links with each section of the tutorial, so you won't need to scroll around looking for them._
 
-# Smart Contracts in Solidity
+## Smart Contracts in Solidity
 
 Path:`/src/contracts/DTube.sol`
 
@@ -180,7 +180,7 @@ Finally, we'll add the video to the contract by including the variables `videoCo
 }
 ```
 
-# Truffle Migrations
+## Truffle Migrations
 
 - Path:`/src/contracts/`
 - Path:`/migrations/`
@@ -212,7 +212,7 @@ module.exports = function (deployer) {
 };
 ```
 
-# Front-end with React.js
+## Front-end with React.js
 
 Path: `/src/components/`
 
@@ -418,7 +418,7 @@ In `<Navbar>` we want to display the account address of the user, hence `<Navbar
 export default App;
 ```
 
-### Navbar.js
+## Navbar.js
 
 ![](./assets/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-7.png)
 
@@ -494,7 +494,7 @@ We're displaying the user address in this component with the `this.props.account
               <span></span>
 ```
 
-### Main.js
+## Main.js
 
 ![](./assets/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-8.png)
 
@@ -624,7 +624,7 @@ Wow, that's a lot of code! You can run the React app locally with the command `n
 
 _The `<Footer>` component was created in bootstrap for hackathon purposes. It's not related to our DApp. You can simply modify that part as per your needs._
 
-# Smart Contracts Deployment on Polygon (Matic)
+## Smart Contracts Deployment on Polygon (Matic)
 
 ### truffle-config
 
@@ -733,7 +733,7 @@ Now let's run the React app on http://localhost:3000/ with the command `npm star
 
 ![](./assets/polygon-build-a-social-media-dapp-and-deploy-it-on-polygon-image-11.png)
 
-# Host the DApp on IPFS using Fleek
+## Host the DApp on IPFS using Fleek
 
 You cannot call this project a "Decentralized Application" if you are hosting it on any centralized server. To make it decentralized, again we're going to use IPFS. But the problem here is you cannot update/modify the project with same IPFS hash. IPFS uses content based addressing, hence each asset has its own unique address. This is where we're going to use "Fleek" IPFS hosting and Filecoin storage platform where you can **deploy the project, get a link, get SSL certificate, assign the domain, and update the project by simply connecting your GitHub repository**. When you push any changes on that repo, fleek will automatically update the changes with new IPFS hash on the same Fleek url. How cool is that? Let's see how it's done.
 
@@ -757,15 +757,15 @@ _`Sign up on `[Fleek](https://fleek.co/) `-> Add new site -> Connect GitHub repo
 
 That's it! you'll get the fleek link of your DApp after deploying the site, you can assign a domain and share your DApp link with anyone in the world. Congratulations! You've built a truly Decentralized Social Media Application.
 
-# Conclusion
+## Conclusion
 
 Congratulations! After completing this tutorial, you should have a good understanding of how to create a dApp for video content and how to deploy it on Polygon.
 
-# About the Author
+## About the author
 
 I'm Akhilesh Thite, an Indian tech enthusiast with a passion for Software Development, Open-Source & Decentralization. Feel free to connect with me on [GitHub](https://github.com/AkhileshThite) & [Twitter](https://twitter.com/AkhileshThite_).
 
-# References
+## References
 
 - _Truffle docs: https://www.trufflesuite.com/docs/truffle/overview_
 - _Polygon (Matic) docs: https://docs.matic.network/docs/develop/getting-started_

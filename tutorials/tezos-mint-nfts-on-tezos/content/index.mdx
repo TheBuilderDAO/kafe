@@ -5,22 +5,22 @@ keywords: [Tezos, Python, Smart contracts]
 date: '2021-10-28T18:55:50.674Z'
 ---
 
-# Introduction
+## Introduction
 
 Hi, in this tutorial, we will learn how to mint NFTs on Tezos. We will write a smart contract in SmartPy and deploy it, upload the NFT metadata on IPFS and mint the token using better-call.dev. We will also cover how to mint it using React and taquito.
 
-# Prerequisites
+## Prerequisites
 
 - Basic Knowledge of SmartPy
 - React
 
-# Requirements
+## Requirements
 
 - Temple Wallet Installed in your browser. Get it from https://templewallet.com/
 - Few XTZs on Granada Testnet is also needed in the wallet account. To get it, you can refer to Faucet and Temple Wallet section in this [tutorial](https://learn.figment.io/tutorials/using-the-smartpy-ide-to-deploy-tezos-smart-contracts#faucet-and-temple-wallet).
 - NodeJS, npm and git needs to be installed for the frontend.
 
-# SmartPy
+## SmartPy
 
 SmartPy is an intuitive and powerful smart contract development platform for Tezos.\
 The SmartPy language is available through a Python library for building and analyzing Tezos smart contracts.\
@@ -32,7 +32,7 @@ So, Let's start. Open https://smartpy.io/ide
 You can explore and look at the template codes given.\
 To move to the editor, click CLOSE.
 
-# Token Contract and FA2 Standard
+## Token Contract and FA2 Standard
 
 The left panel is where we are going to code.\
 We are going to follow the FA2 token standard([TZIP-12](https://tzip.tezosagora.org/proposal/tzip-12/)) for our NFTs.\
@@ -144,7 +144,7 @@ We can check it according to the tests defined. We defined the heading in h1 in 
 
 ![SmartPy](./assets/tezos-mint-nfts-on-tezos-smart-py-3.png)
 
-# Deploy Contract
+## Deploy Contract
 
 It’s time to deploy this contract. For this tutorial, we are going to deploy the contract on Granada testnet.\
 We can deploy the contract using smartpy IDE itself.
@@ -178,7 +178,7 @@ Contract Originated Successfully will be shown. Copy the contract address(KT1Rv5
 
 Hurray, we deployed our contract successfully.
 
-# IPFS
+## IPFS
 
 IPFS is a distributed system for storing and accessing files, websites, applications, and data.\
 And, we will use IPFS to store the metadata of our tokens. And to upload our files to IPFS, we will use nft.storage. It provides us with a user interface and also a js library to upload files.\
@@ -237,7 +237,7 @@ Now we will upload this JSON file to IPFS using nft.storage.
 **Small Exercise:-**\
 Repeat the same procedure we did to upload the image and upload this JSON file and store the hash that will be needed later. Also, view the file in browser.
 
-# Mint using better-call.dev
+## Mint using better-call.dev
 
 It’s time to mint our first NFT. Open up [better-call.dev](https://better-call.dev/).
 
@@ -268,7 +268,7 @@ You can look at the NFT token metadata in tokens section.
 
 Hurray, we minted our token.
 
-# Frontend
+## Frontend
 
 Import this boilerplate code using the following command.
 
@@ -743,16 +743,16 @@ Open locahost:3000 in browser and mint a token using `/mint` and view them on `/
 
 We completed the frontend. You can checkout the complete code on [Github](https://github.com/PriyanshuDangi/Tutorial_Mint_NFTs) and view the demo [here](tutorial-mint-nfts.vercel.app)
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned about coding in SmartPy, deploying a contract on the blockchain, and interacting with the contract using better-call.dev. We also built the frontend using React and learned how to interact using taquito.
 
 And most importantly, we learned how to mint NFTs on Tezos.
 
-# Next Steps
+## Next Steps
 
 Try out all the other entry points of FA2. You can modify the smart code and using transfer entrypoint can make a marketplace for NFTs. Can refer to this [tutorial](https://learn.figment.io/tutorials/create-an-nft-marketplace-on-tezos).
 
-# About The Author
+## About The Author
 
 This tutorial was written by Priyanshu Dangi, who is a Tezos India 2.0 Fellow. You can reach out to him on [Github](https://github.com/PriyanshuDangi).

@@ -5,11 +5,11 @@ keywords: [Near, JS/TS, Rust, Smart contracts]
 date: '2021-07-22T13:06:11.758Z'
 ---
 
-# Introduction
+## Introduction
 
 Ever since Bitcoin entered the scene, it has been changing the world. Bitcoin is the first successful proof of concept for decentralized money, i.e., cryptocurrency. It was a technological breakthrough for money. Bitcoin has proven to be a fantastic secure store of value that puts people in full control of their money (assuming you own secure possession of the private keys). However, it simply cannot scale to meet the demands of today's global economy - or local economy for that matter. This is where NEAR can step in and bridge the gap. NEAR shines in terms of speed, scalability, and cost.
 
-# Motivation Behind NEP-141
+## Motivation Behind NEP-141
 
 NEAR's first attempt to bootstrap the ecosystem with an FT (**F**ungible **T**oken) standard was [NEP-21](https://nomicon.io/Standards/Tokens/FungibleToken.html). NEP-21 was designed as a port of Ethereum's first attempt [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token standard. However, after living in the wild for a while, ERC-20 problems were exposed:
 
@@ -22,7 +22,7 @@ The first result of that collective effort has produced [Fungible Token Core Sta
 
 **NOTE**: as of this writing, NEP-141 official documentation has not yet been published. I will be sharing with you my knowledge and understanding of NEP-141 based on the discussions and meetings I have personally been involved in.
 
-## NEP-141 Advantages: Less is More
+### NEP-141 Advantages: Less is More
 
 Overall, NEP-141 is superior (vs NEP-21) because it is
 
@@ -38,7 +38,7 @@ This results in removing UX flaws and optimizes contract storage usage. Because 
 
 In addition, this adds overhead and costs to each transfer workflow while providing no value. NEP-141 simplifies and optimizes the UX and workflows to transfer tokens to contracts. Furthermore, removing all this complexity, makes it simpler for developers to implement and integrate. The overall mental model is easier to grasp and understand.
 
-## Fungible Token Core Standard (NEP-141)
+### Fungible Token Core Standard (NEP-141)
 
 NEP-141 defines the "core" standard API that focuses on token transfer. It is not the full and final FT solution, but Rome wasn't built in a day. At a minimum, NEP-141 will be dependent on 2 future standards to be developed:
 
@@ -55,7 +55,7 @@ It probably is more obvious why standardizing contract metadata is needed:
 
 What is less obvious and what I will dive a little deeper into is how account registration fits into the picture ...
 
-## What does account registration have to do with fungible tokens?
+### What does account registration have to do with fungible tokens?
 
 This is a trick question. The key issue that account registration addresses is not specific to FT contracts. Account registration is needed to address who will pay for [storage staking](https://docs.near.org/docs/concepts/storage#how-much-does-it-cost). This is an issue that needs to be addressed by any multi-user contract that allocates storage for the user on the blockchain. Storage staking costs are the most expensive costs to consider for the contract on NEAR. If storage costs are not managed properly, then they can [break the bank](https://docs.near.org/docs/concepts/storage#the-million-cheap-data-additions-attack) for the contract.
 
@@ -68,7 +68,7 @@ There's no such thing as a free lunch (TNSTAAFL) ... Everyone must pay for their
 
 > **NOTE**: account registration has other benefits, but we can save that for the [account registration standard discussion](https://github.com/near/NEPs/discussions/145)
 
-# Fungible Token Core Standard - The Big Picture
+## Fungible Token Core Standard - The Big Picture
 
 ![](./assets/near-stake-fungible-token-image-1.png)
 
@@ -79,7 +79,7 @@ There's no such thing as a free lunch (TNSTAAFL) ... Everyone must pay for their
 - Account token balance queries
 - Token total supply queries
 
-## NOTES
+### NOTES
 
 - API functions are specified using the lowest common denominator with the goal of being programming language neutral (as much as possible)
 - String type is used as the de facto platform neutral type - but we will be leveraging Rust's type system when building the smart contract implementation
@@ -91,7 +91,7 @@ There's no such thing as a free lunch (TNSTAAFL) ... Everyone must pay for their
 
 Next, we will walk through each function.
 
-# Fungible Token API
+## Fungible Token API
 
 This API is implemented by the FT contract. It provides the core fungible token functionality. Key aspects to call out are:
 
@@ -103,7 +103,7 @@ Due to the nature of function-call permission access keys on NEAR protocol, the 
 
 Similarly to bank transfer and payment orders, the memo argument enables to reference the transfer to another event (on-chain or off-chain). It is schema less, so user can use it to reference an external document, invoice, order ID, ticket ID, or other on-chain transaction. With memo you can set a transfer reason, often required for compliance. This is also useful and very convenient for implementing FATA (Financial Action Task Force) [guidelines](http://www.fatf-gafi.org/media/fatf/documents/recommendations/RBA-VA-VASPs.pdf) (section 7(b)). Especially a requirement for VASPs (Virtual Asset Service Providers) to collect and transfer customer information during transactions. VASP is any entity which provides to a user token custody, management, exchange or investment services. With ERC-20 and NEP-21 it is not possible to do it in atomic way. With memo field, we can provide such reference in the same transaction and atomically bind it to the money transfer.
 
-### Function
+### ft_transfer function
 
 ```javascript
 #[payable]
@@ -134,7 +134,7 @@ Enables simple transfer between accounts.
 - If transfer `amount` is zero
 - If the sender account has insufficient funds to fulfill the transfer request
 
-### Function
+### ft_transfer_call function
 
 ```javascript
 #[payable]
@@ -174,7 +174,7 @@ Returns a promise to resolve transfer call which will return the unused amount t
 - If transfer `amount` is zero
 - If the sender account has insufficient funds to fulfill the transfer request
 
-### Function
+### ft_total_supply function
 
 ```javascript
 function ft_total_supply(): string
@@ -184,7 +184,7 @@ _view method_
 
 Returns the total supply of the token in a decimal string representation.
 
-### Function
+### ft_balance_of function
 
 ```javascript
 function ft_balance_of(account_id: string): string
@@ -198,11 +198,11 @@ Returns the balance for the given account in a decimal string representation. If
 
 - `account_id` - the NEAR account ID to retrieve the balance for
 
-## Transfer Receiver API
+### Transfer Receiver API
 
 Receiver contracts intended for `ft_transfer_call` flow must implement this interface.
 
-### Function
+### ft_on_treansfer function
 
 ```javascript
 function ft_on_transfer(sender_id: string, amount: string, msg: string):  Promise<string>
@@ -254,7 +254,7 @@ In summary, the 2 main use cases for `msg` are the **method_name** and **argumen
 
 The transfer resolver callback interface is designed to be private on the FT contract. This means that the `ft_resolve_transfer_call` should only be allowed to be invoked by the FT contract itself. If the `ft_resolve_transfer_call` function is called by any other account, then the function call should panic and fail.
 
-### Function
+### ft_resolve_transfer_call function
 
 ```javascript
 #[private]
@@ -281,10 +281,10 @@ Promise result data dependency (`unused_amount`):
 
 Returns amount that was refunded back to the sender.
 
-# Conclusion
+## Conclusion
 
 Money makes the world go round because it is the root source of all the functionality in the world. In reality, money is one of the crucial elements in human life. Getting money/tokens right on NEAR is crucial for adoption and success. NEP-141 is a step in the right direction, but the NEAR community has a lot more work ahead. I invite you to join the Figment and NEAR communities and embark on our common mission to take back the Internet together.
 
-# Next Steps
+## Next Steps
 
 Stay on the lookout for my [next tutorial](https://learn.figment.io/tutorials/stake-fungible-token-nep141) where I will show you how I implemented NEP-41 for the [STAKE token](https://github.com/oysterpack/oysterpack-near-stake-token) contract written in Rust.

@@ -5,21 +5,21 @@ keywords: [The Graph, JS/TS, React, GraphQL, Javascript]
 date: '2021-10-13T23:46:22.505Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial you will learn how to create a simple React app by leveraging some existing Graph Protocol subgraphs. It includes configuring GraphQL queries and explains how to perform simple data visualization using a pie chart.
 
-# Prerequisites
+## Prerequisites
 
 In order to complete this tutorial, you will need to have some basic knowledge about NodeJS, ECharts library and GraphQL query. Also, get familiar with existing subgraph schema and the Graph Explorer can be super helpful.
 
 In this tutorial, you will interact with the `Hopr on Mainnet` subgraph. You can use this [playground](https://thegraph.com/explorer/subgraph?id=0x77d63a93c90a9860ab07ee6bc7bc5becad1cbfde-0&view=Playground) to explore it.
 
-# Requirements
+## Requirements
 
 You will need to have `Node.js >= 14.0.0` and `npm >= 5.6` on your machine.
 
-# Project setup
+## Project setup
 
 Run the following command to create a new project.
 
@@ -56,7 +56,7 @@ To create a production build, use yarn build.
 
 Then, you are able to see your project at http://localhost:3000 by default.
 
-# Create Query Client
+## Create Query Client
 
 Create a new file called `QueryClients.js` under the `src` folder. Add the following script to configure a query client to interact with [HOPR Subgraph Mainnet](https://thegraph.com/legacy-explorer/subgraph/minatofund/hopr-subgraph-mainnet). You need this client to send GraphQL queries to the subgraph endpoint.
 
@@ -69,7 +69,7 @@ export const hoprClient = new ApolloClient({
 });
 ```
 
-# Configure Query and Visualization
+## Configure Query and Visualization
 
 Create the file `HolderBalance.js` under the `src` folder. Add the following code:
 
@@ -432,11 +432,11 @@ Please remember to save all of the changes to the code, then refresh the localho
 
 ![Graph React App Pie Chart](./assets/the-graph-explore-an-existing-subgraph-graph-react-app-pie-chart-2.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations, you have completed the tutorial! You have learned how to configure a GraphQL query to retrieve data from an existing subgraph. You also understand how to visualize the data properly in a React app.
 
-# About the Author
+## About the author
 
 This tutorial was created by [Minato Fund](https://github.com/minatofund), an active group helping merge blockchain projects operating as a validator. We are positively working on building and utilizing subgraphs. If you have any questions, please do not hesitate to contact us by:
 

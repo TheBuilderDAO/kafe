@@ -5,7 +5,7 @@ keywords: [Near, Rust, Smart contracts, Rust]
 date: '2021-07-21T10:29:38.722Z'
 ---
 
-# Introduction
+## Introduction
 
 [Non-Fungible Tokens](https://en.wikipedia.org/wiki/Non-fungible_token) are unique records of ownership on the blockchain. Usually an NFT is tied to something interesting and rare, such as an artwork, a concert ticket, a collectable cat, a domain name, or a real physical object. NFTs can be bought, sold, given away, and can even be minted or destroyed, depending on the rules of the contract. [Cryptokitties](https://www.cryptokitties.co/) and [SuperRare](https://superrare.co/) are two popular examples of Ethereum-based NFTs. We can implement NFTs just as easily on NEAR.
 
@@ -23,7 +23,7 @@ In the NEAR Pathway, the smart contract was written in AssemblyScript, which was
 
 The NEAR team recommends using Rust for any smart contracts of a financial nature, and their reference implementation of NEP-4 NFTs is written in Rust. So we will start with that reference implementation, and add some useful features.
 
-# Prerequisites
+## Prerequisites
 
 If you have completed the NEAR Pathway, you should have already taken care of these prerequisites. For this tutorial you must:
 
@@ -31,7 +31,7 @@ If you have completed the NEAR Pathway, you should have already taken care of th
 - Create an account on the NEAR Testnet
 - Install the NEAR CLI
 
-# Installing the Toolchain
+## Installing the Toolchain
 
 Before we can start working on the Rust contract, we need to install a few more tools.
 
@@ -58,8 +58,6 @@ Run this command to add the WASM target to the Rust toolchain:
 ```text
 rustup target add wasm32-unknown-unknown
 ```
-
-## yarn
 
 If you haven't already, we need to install the `yarn` package manager. The example code we're working with uses `yarn` as its build tool. Run this command to install `yarn`:
 
@@ -168,11 +166,9 @@ test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
 If you see `test result: ok`, all is well.
 
-# Getting to know a Rust Contract
+## Getting to know a Rust Contract
 
 The Rust smart contract that we will modify is at `contracts/rust/src/lib.rs`. Open that file in your editor. We'll visit all the sections, and make a few important additions.
-
-## Preamble
 
 The first section is some boilerplate that imports useful features and configures the Rust compiler.
 
@@ -475,8 +471,6 @@ Scroll to the bottom of `lib.rs`. The very last line in the file has just one cl
 }
 ```
 
-## Check our work
-
 Now that we've added some code, let's try building and testing again, and see if we broke anything. As before, type this command to build the project:
 
 ```text
@@ -499,7 +493,7 @@ You'll see that there are now 11 unit tests running, and they should all pass.
 (output)
 ```
 
-# Deploying and using the contract
+## Deploying and using the contract
 
 We can use the NEAR CLI to deploy this contract, and to test that it's working. If you configured your environment in Tutorials 1 and 2, the CLI will connect to DataHub's high-availability testnet. If you don't have DataHub access you can still run the CLI with its defaults, though the default testnet node may be slower to respond. Run this command to deploy the contract you just built:
 
@@ -527,11 +521,11 @@ In this step, the CLI created a new user account on the testnet and deployed the
 
 Our NFT smart contract is now deployed on NEAR! Let's use the CLI to test this interface.
 
-## Contract arguments
+**Contract arguments**:
 
 First, we we need to call our contract's `new()` method, to initialize the blockchain data store. If we call any other method before that, we'll get an error. The 'new' method takes one argument, `owner_id`, the accountID of the user who will be allowed to mint new Flarns from this contract.
 
-## CLI arguments
+**CLI arguments**:
 
 To call that `new()` method from the CLI, run this command, replacing `CALLER-ID`, `RECEIVER-ID` and `OWNER-ID` with the test account ID you got from the previous step. (Here, `CALLER-ID` is the account the CLI will use to make the call, `RECEIVER-ID` is the account where the contract is deployed, and `OWNER-ID` is the account that the contract will authorize to mint Flarns. For this test, we'll use the same account in all three roles.)
 
@@ -548,7 +542,7 @@ To see the transaction in the transaction explorer, please open this url in your
 https://explorer.testnet.near.org/transactions/9PZZFWJUco7f33vJEjTbcjzsGhiigtYiSSyNh5FmJdNb
 ```
 
-# Mint an NFT!
+## Mint an NFT!
 
 Now we'll make a call to `mint_token()`. We'll need a block of JSON containing the two arguments to that method: an ID for the token, which can be any integer, and an account ID of the token's first owner. We'll use the same test account ID as before, and give `1234` as a token ID.
 
@@ -574,12 +568,12 @@ The output is similar, but the last line contains the return value in JSON:
 
 The actual number you see will be different from this, if the random number generator is good at generating random numbers. But here is our NFT metadata, stored in the NEAR blockchain.
 
-# Conclusion
+## Conclusion
 
 You now have deployed an NFT smart contract on the NEAR testnet, and have minted one CryptoFlarn NFT. From here you could use the CLI or the NEAR Javascript SDK to transfer ownership of that token, or to make more tokens. NFT marketplaces are already under development on NEAR; when they support NEP-4, you'll be able to trade these tokens there. If your next NFT project needs more complex metadata, you've seen how that can be added.
 
 The complete code for this tutorial can be found on [Github](https://github.com/figment-networks/tutorials/tree/main/near/6_NFT).
 
-# About the Author
+## About the author
 
 This tutorial was created by [Mykle Hansen](https://github.com/myklemykle), a contributor to the [Plantary](https://github.com/myklemykle/plantary) project which allows users to grow and harvest plant NFTs on NEAR.
