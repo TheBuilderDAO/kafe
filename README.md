@@ -1,6 +1,6 @@
 # Builder DAO
 
-Welcome to the Kafé by [Builder DAO](https://builderdao.notion.site) repo!
+Welcome to the Kafé repo by [Builder DAO](https://builderdao.notion.site)!
 
 ![Social shield](https://img.shields.io/twitter/follow/TheBuilderDAO?style=social)
 
@@ -9,7 +9,7 @@ Welcome to the Kafé by [Builder DAO](https://builderdao.notion.site) repo!
 
 ## What is Kafé?
 
-Kafé is a learning platform for developers to grow their web3 toolbox. Check out this short [frontend demo video](https://youtu.be/eYGO8irDl-g)!
+Kafé is a learning platform for developers to grow their web3 toolbox. Check out this short [demo](https://youtu.be/eYGO8irDl-g)!
 
 ## Who's building Kafé?
 
@@ -91,15 +91,11 @@ Click each heading below for details:
 
 ## How to use?
 
-This repo is structured as a monorepo using [turborepo](https://turborepo.org), which keeps things modular and gives us the ability to build on top of the Builder DAO SDK independent of Kafé. We use [Yarn](https://yarnpkg.com/) as a package manager. See the repo contents in the previous section to understand how the repo is structured.
-
-## Contributing
-
-If you're interesting in contributing to this project, we'd love to have you! Please take a look at the contribution guidelines in `CONTRIBUTING.md` and reach out.
+This repo is structured as a [monorepo](https://monorepo.tools) using [turborepo](https://turborepo.org), which keeps things modular and gives us the ability to build on top of the Builder DAO SDK independent of Kafé. We use [Yarn](https://yarnpkg.com/) as a package manager.
 
 ## Quick start for guide authors
 
-Getting started is easy. Follow these steps and you'll be on your way to writing great guides for other web3 developers. Note that we elaborate on each of these steps below, so if you're ever confused, please keep reading.
+Getting started is easy. Follow these steps and you'll be on your way to writing great guides for other web3 developers. Note that we elaborate on each of these steps in the next section, so if you're ever confused, please keep reading.
 
 - Propose your guide on Kafé: [https://dev.builderdao.io/write](https://dev.builderdao.io/write)
 - Once your proposal has enough votes to be funded, [Fork the Kafé repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) on GitHub
@@ -194,3 +190,7 @@ Once your PR is active, your assigned reviewers will look it over carefully and 
 After they have approved your guide, it will be merged and automatically published. Kafé will issue the publishing rewards directly to your wallet, and the guide will become available on the Kafé platform.
 
 Your guide is now ready to share with the world!
+
+## Contributing
+
+If you're interested in contributing to this project, we'd love to have you! Please take a look at the contribution guidelines in [`CONTRIBUTING.md`](./CONTRIBUTING.md) and reach out.
