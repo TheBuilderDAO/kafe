@@ -1,5 +1,13 @@
 # @builderdao/apis
 
+## 0.0.4
+
+### Patch Changes
+
+- Rename the tutorial Program
+- Updated dependencies
+  - @builderdao/program-tutorial@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes

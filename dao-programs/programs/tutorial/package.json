@@ -1,6 +1,6 @@
 {
   "name": "@builderdao/program-tutorial",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "BuilderDAO SDK for interacting with the DAO program",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -28,7 +28,7 @@
   },
   "scripts": {
     "idl:copy": "cp -fv ../../target/types/tutorial.ts ts-sdk/lib/idl && cp -fv ../../target/idl/tutorial.json ts-sdk/lib/idl",
-    "build": "tsup ts-sdk/index.ts --format esm,cjs --dts --external react ",
+    "build": "tsup ts-sdk/index.ts --format esm,cjs --dts",
     "dev": "yarn build --watch",
     "lint": "TIMING=1 eslint ts-sdk --fix",
     "clean": "rm -rf node_modules && rm -rf dist",
@@ -43,10 +43,8 @@
     "@solana/web3.js": "^1.32.0",
     "bs58": "^4.0.1",
     "lodash": "^4.17.21",
+    "react": "^18.0.0",
     "swr": "^1.2.1"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2"
   },
   "devDependencies": {
     "@builderdao/config": "*",

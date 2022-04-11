@@ -1,5 +1,22 @@
 # @builderdao/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- Add React as dependency
+- Updated dependencies
+  - @builderdao/program-tutorial@0.0.5
+
+## 0.0.4
+
+### Patch Changes
+
+- Rename the tutorial Program
+- Updated dependencies
+  - @builderdao/program-tutorial@0.0.4
+  - @builderdao/apis@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
