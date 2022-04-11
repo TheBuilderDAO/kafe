@@ -159,7 +159,7 @@ First, you will need to select your guide by its **slug** which will match the t
 - Select the keywords you would like to use (maximum of 5) - This list can be scrolled with the arrow keys, but unless you want to add any tags here it will already have the tags you added when submitting the proposal so you can press Enter to continue.
 - Push changes? - **Answer "y" for Yes**.
 
-When this is complete, a new directory will be created for your guide inside the `guides` directory, matching the guide slug.
+When this is complete, a new directory will be created for your guide inside the `tutorials` directory, matching the guide slug.
 
 Inside, you will find:
 
