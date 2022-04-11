@@ -42,8 +42,6 @@ export const TutorialLayout: React.FC<Props> = ({
   const { slug, date, title, description, keywords } = frontMatter;
   const path = `/learn/${query.slug[0]}`;
 
-  console.log('HEREEEE', lock);
-
   return (
     <div className="flex justify-between">
       <SectionContainer>
