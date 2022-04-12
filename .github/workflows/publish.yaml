@@ -106,6 +106,10 @@ jobs:
         run: |
           builderdao tutorial publish $SLUG
 
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
+
   set_state:
     name: Set state to published
     needs: [ publish_tutorial, fetch_proposal ]
