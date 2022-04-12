@@ -26,7 +26,8 @@
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "9db00e1fd20b3965c0e422537093313ea05612cb011194ee2d3b71e882b8056a"
+      "digest": "b9182d5c755c90b368aab65ec18faa8d052672e794053104d1430f3428af5375",
+      "arweaveHash": "xlb8FvWjBKUwg3uIPKg0dhlkTLWtJ8vchTVNQTwpY8w"
     }
   },
   "href": "/learn/publishing-assets-in-github-actions"
