@@ -1,5 +1,11 @@
 # @builderdao/ui
 
+## 0.0.4
+
+### Patch Changes
+
+- 998fd8f: Fix Build
+
 ## 0.0.3
 
 ### Patch Changes
