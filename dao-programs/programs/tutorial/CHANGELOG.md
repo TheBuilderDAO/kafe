@@ -1,5 +1,12 @@
 # @builderdao/program-tutorial
 
+## 0.0.6
+
+### Patch Changes
+
+- 998fd8f: Fix Build
+- 89996e0: fix the built
+
 ## 0.0.5
 
 ### Patch Changes

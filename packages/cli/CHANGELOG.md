@@ -1,5 +1,17 @@
 # @builderdao/cli
 
+## 0.0.6
+
+### Patch Changes
+
+- 998fd8f: Fix Build
+- Updated dependencies [998fd8f]
+- Updated dependencies [89996e0]
+  - @builderdao/program-tutorial@0.0.6
+  - @builderdao/apis@0.0.5
+  - @builderdao/data@0.0.4
+  - @builderdao/md-utils@0.0.4
+
 ## 0.0.5
 
 ### Patch Changes
