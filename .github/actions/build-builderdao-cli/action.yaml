@@ -5,5 +5,19 @@ runs:
   using: "composite"
   steps:
     # - uses: ./.github/actions/install-node-dependencies
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'yarn'
+        cache-dependency-path: yarn.lock
+    - name: Turbo Cache
+      id: turbo-cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          .turbo
+        key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+        restore-keys: |
+          turbo-${{ github.job }}-${{ github.ref_name }}-
     - run: yarn global add @builderdao/cli 
       shell: bash
