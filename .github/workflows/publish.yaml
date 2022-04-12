@@ -109,6 +109,8 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit_author: github-actions[bot] <actions@github.com>        
           commit_message: 🚀 Deployed ${{ needs.get_proposal_slug.outputs.slug }} tutorial.
 
   set_state:
