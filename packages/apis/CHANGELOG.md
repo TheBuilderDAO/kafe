@@ -1,5 +1,11 @@
 # @builderdao/apis
 
+## 0.0.6
+
+### Patch Changes
+
+- 6280209: Downgrade Ceramic version
+
 ## 0.0.5
 
 ### Patch Changes
