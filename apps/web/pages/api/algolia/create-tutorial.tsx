@@ -9,6 +9,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
+import { captureException } from '@app/utils/errorLogging';
 
 const handler = async (
   req: NextApiRequest,
@@ -51,6 +52,7 @@ const handler = async (
     res.status(200).json(record);
   } catch (err) {
     console.log('ERR', err);
+    captureException(err);
     res.status(500).json(err);
   }
 };

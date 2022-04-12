@@ -26,7 +26,6 @@ import {
   NODE_ENV,
 } from '@app/constants';
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
-import { PublicKey } from '@solana/web3.js';
 import { getApplicationFetcher } from '../../hooks/useDapp';
 import { BuilderDaoConfigJson, BuilderDaoLockJson } from '@builderdao/cli';
 

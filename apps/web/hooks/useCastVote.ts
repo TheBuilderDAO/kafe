@@ -7,6 +7,7 @@ import {
   useGetDaoState,
   useTutorialProgram,
 } from '@builderdao-sdk/dao-program';
+import { captureException } from '@app/utils/errorLogging';
 
 type IndexVotesData = {
   id: number;
@@ -57,6 +58,7 @@ export const useCastVote = (): [
         });
       } catch (err) {
         console.log('Err:', err);
+        captureException(err);
         setError(err);
         throw new err();
       } finally {

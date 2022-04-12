@@ -8,6 +8,7 @@ import {
   ALGOLIA_SEARCH_ADMIN_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
+import { captureException } from '@app/utils/errorLogging';
 
 type ResponseData = {
   success: boolean;
@@ -29,6 +30,7 @@ const handler = async (
     await algoliaApi.updateTutorial(id, data);
   } catch (err) {
     console.log('ERR', err);
+    captureException(err);
   }
 
   res.status(200).json({
