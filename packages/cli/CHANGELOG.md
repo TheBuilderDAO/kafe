@@ -1,5 +1,11 @@
 # @builderdao/cli
 
+## 0.0.9
+
+### Patch Changes
+
+- Change the way determining the installation location
+
 ## 0.0.8
 
 ### Patch Changes
