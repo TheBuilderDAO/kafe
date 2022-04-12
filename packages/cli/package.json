@@ -10,7 +10,8 @@
     "import": "./dist/index.js"
   },
   "files": [
-    "dist/**"
+    "dist/**",
+    ".env.local"
   ],
   "bin": {
     "builderdao": "./dist/cli.cjs"
