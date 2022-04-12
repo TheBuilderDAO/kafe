@@ -4,6 +4,6 @@ description: "Build BuilderDAO CLI"
 runs:
   using: "composite"
   steps:
-    - uses: ./.github/actions/install-node-dependencies
-    - run: yarn build --scope=@builderdao/cli --include-dependencies --no-deps
+    # - uses: ./.github/actions/install-node-dependencies
+    - run: yarn global add @builderdao/cli 
       shell: bash
