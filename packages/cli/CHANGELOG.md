@@ -1,5 +1,11 @@
 # @builderdao/cli
 
+## 0.0.8
+
+### Patch Changes
+
+- add RootFolder Check for yarn
+
 ## 0.0.7
 
 ### Patch Changes
