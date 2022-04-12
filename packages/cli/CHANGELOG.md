@@ -1,5 +1,11 @@
 # @builderdao/cli
 
+## 0.0.7
+
+### Patch Changes
+
+- Add .env.local with package
+
 ## 0.0.6
 
 ### Patch Changes
