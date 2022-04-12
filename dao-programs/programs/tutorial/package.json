@@ -1,6 +1,6 @@
 {
   "name": "@builderdao/program-tutorial",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "BuilderDAO SDK for interacting with the DAO program",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
