@@ -1,7 +1,7 @@
 {
   "proposalId": 163,
   "slug": "auto-generate-cli-program-from-anchor",
-  "creator": "",
+  "creator": "8JDKJA3pW7xbxGKkRraZiQCd6nTF9MZtrBv6Ah8BNyvU",
   "authors": [
     {
       "name": "The Builder Dao",
@@ -23,15 +23,17 @@
     }
   },
   "content": {
-    "content/fetching.mdx": {
-      "name": "fetching.mdx",
-      "path": "content/fetching.mdx",
-      "digest": "4ef8af402d0bbc11efd3b4cc6798ca1fe2ec9e9da972e3b67b6f221823fb1574"
-    },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "1a74161a87a259e6113dae6a31525327348dc511eded58e9d07c55db6b958568"
+      "digest": "3c52ceed0c22812b41882dc8378cbdd85e5a6e8ad121c4a578565e141b9eb6ed",
+      "arweaveHash": "xytnQvJ0ppcteK1mPfaqyweWFVho2pUVWB45K6UbK34"
+    },
+    "content/fetching.mdx": {
+      "name": "fetching.mdx",
+      "path": "content/fetching.mdx",
+      "digest": "2112310ff58578fa797d02eb1b784a4d4a5fc772f13ab164d5b6db53368e35e4",
+      "arweaveHash": "CElbEU3XDHOIhijQdkw2QbyznU5lIcWpPskXjgNgi7E"
     }
   },
   "href": "/learn/auto-generate-cli-program-from-anchor"
