@@ -71,6 +71,7 @@ jobs:
       - id: fetch
         env:
           SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+          CERAMIC_NODE_URL: ${{ secrets.CERAMIC_NODE_URL }}
         run: |
           builderdao proposal get -s $SLUG
           PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id)
