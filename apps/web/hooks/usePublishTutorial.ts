@@ -3,6 +3,7 @@ import { useDapp } from './useDapp';
 import useApiCall from './useApiCall';
 import routes from '../routes';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
+import { captureException } from '@app/utils/errorLogging';
 
 export const usePublishTutorial = (): [
   (tutorialId: number) => Promise<void>,
@@ -33,6 +34,7 @@ export const usePublishTutorial = (): [
         await triggerWorkflow();
       } catch (err) {
         console.log('ERR:', err);
+        captureException(err);
         setError(err);
         throw new err();
       } finally {

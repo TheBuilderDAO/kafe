@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { withSentry } from '@sentry/nextjs';
 
 import { AlgoliaApi } from '@builderdao/apis';
 import {
@@ -7,15 +8,16 @@ import {
   ALGOLIA_SEARCH_ADMIN_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
+import { captureException } from '@app/utils/errorLogging';
 
 type ResponseData = {
   success: boolean;
 };
 
-export default async function handler(
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
-) {
+) => {
   const { id, ...data } = req.body;
 
   const algoliaApi = new AlgoliaApi({
@@ -28,9 +30,12 @@ export default async function handler(
     await algoliaApi.updateTutorial(id, data);
   } catch (err) {
     console.log('ERR', err);
+    captureException(err);
   }
 
   res.status(200).json({
     success: true,
   });
-}
+};
+
+export default withSentry(handler);

@@ -21,6 +21,7 @@
     "@ceramicnetwork/http-client": "^1.5.7",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@sentry/nextjs": "^6.19.6",
     "@solana/wallet-adapter-base": "^0.9.3",
     "@solana/wallet-adapter-react": "^0.15.3",
     "@solana/wallet-adapter-react-ui": "^0.9.5",
