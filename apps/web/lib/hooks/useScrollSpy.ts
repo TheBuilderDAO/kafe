@@ -51,7 +51,6 @@ const useScrollSpy = (
 
     return () => currentObserver.disconnect();
   }, [elements, options, rootMargin]);
-
   return [currentActiveSectionIndex, scrolledSections];
 };
 
