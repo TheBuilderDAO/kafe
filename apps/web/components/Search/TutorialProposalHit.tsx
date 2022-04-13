@@ -43,7 +43,7 @@ const TutorialProposalHit = props => {
                 </div>
               </div>
               <IsLoggedIn>
-                <div className="absolute left-0 right-0 top-0 p-2">
+                <div className="absolute p-2 left-0 right-0 top-0">
                   <VoteButton
                     id={props.hit.objectID}
                     currentState={props.hit.state}
