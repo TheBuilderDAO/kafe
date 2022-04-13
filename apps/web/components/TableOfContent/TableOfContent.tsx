@@ -44,28 +44,34 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
    * to have its corresponding title highlighted in the
    * table of content
    */
-  const [currentActiveIndex] = useScrollSpy(
+  const [currentActiveIndex, scrolledSections] = useScrollSpy(
     typeof document !== 'undefined'
       ? toc.map(item => document.querySelector(`section[id="${item.id}"]`))
       : [],
     { offset: OFFSET },
   );
+  const shouldShowInList = (index: number, depth: number) => {
+    switch (true) {
+      case depth === 2:
+        return true;
+      case scrolledSections.length - 1 <= currentActiveIndex &&
+        currentActiveIndex < index + 2:
+        return true;
+    }
+  };
   return (
     <div className={`flex flex-row py-4`}>
       <ProgressBar progress={readingProgress} />
       {toc.length > 0 ? (
         <ul className="ml-2">
-          <motion.p className="p-2 pb-6 text-xl font-larken">Contents</motion.p>
+          <motion.p className="p-2 pb-6 text-xl font-larken">
+            Contents {currentActiveIndex}{' '}
+          </motion.p>
           {toc.map((item, index) => {
             return (
               <motion.li
                 className={`
-                  ${
-                    currentActiveIndex < index + 2 - item.depth &&
-                    item.depth > 2
-                      ? 'hidden'
-                      : 'block'
-                  }
+                  ${shouldShowInList(index, item.depth) ? 'block' : 'hidden'}
                   px-4
                   py-1
                   ${

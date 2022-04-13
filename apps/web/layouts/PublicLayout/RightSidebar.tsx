@@ -2,7 +2,7 @@ import React from 'react';
 
 const RightSidebar = ({ children }) => {
   return (
-    <div className="dark:bg-kafedarker bg-kafelighter ml-3 rounded-2xl text-sm w-menu mt-0 h-fit sticky top-28">
+    <div className="mt-0 ml-3 text-sm dark:bg-kafedarker bg-kafelighter rounded-2xl w-menu h-fit ">
       {children}
     </div>
   );
