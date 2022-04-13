@@ -4,4 +4,4 @@
 
 
 # Prevent unreviewed lock files beign merge to main.  
-/tutorials/**/builderdao.lock.json  @TheBuilderDAO/reviewers
+# /tutorials/**/builderdao.lock.json  @TheBuilderDAO/reviewers
