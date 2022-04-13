@@ -1,7 +1,7 @@
 const withTM = require('next-transpile-modules')([
   '@builderdao/ui',
-  '@builderdao/program-tutorial',
   '@builderdao/md-utils',
+  '@builderdao/use-program-tutorial',
 ]);
 
 module.exports = withTM({
