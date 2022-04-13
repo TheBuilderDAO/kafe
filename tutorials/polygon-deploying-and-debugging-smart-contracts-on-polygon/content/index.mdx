@@ -5,22 +5,22 @@ keywords: [Polygon, Solidity, Smart contracts, Truffle, Solidity]
 date: '2021-08-25T04:08:43.649Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to deploy smart contracts to the Polygon (Matic) Mumbai test network.
 We'll also cover some of the possible errors which might occur during the deployment, and how to fix them.
 So, grab a cup of coffee ☕️ and follow along!
 
-# Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have some beginner-level experience in programming & blockchain understanding.
 
-# Requirements
+## Requirements
 
 - [Truffle](https://www.trufflesuite.com/)
 - [MetaMask](https://metamask.io)
 
-# Getting started
+## Getting started
 
 To be able to interact with the Mumbai testnet via MetaMask, you first have to add an RPC endpoint to your MetaMask wallet. This will allow you to view your MATIC balance, also to send and receive MATIC tokens. Open the extension in your browser by clicking on the Fox icon, then click on the Identicon at the top right of the extension window, then click through `Settings -> Networks -> Add network`. When you have entered the information as shown in the image below, click on **Save** to complete the process.
 
@@ -32,7 +32,7 @@ When you are done, open MetaMask and check your wallet - you'll see the MATIC to
 
 ![](./assets/polygon-deploying-and-debugging-smart-contracts-on-polygon-image-2.png)
 
-# truffle-config
+## truffle-config
 
 The truffle-config file is an important file to understand. In this file, we must configure the paths to the Solidity files (`contracts_directory`) and the contract Application Binary Interface (`contracts_build_directory`). We also need to define the available **networks**.
 
@@ -84,7 +84,7 @@ The network ID for Mumbai is `80001`. Here you can also set the gas limit and ga
     },
 ```
 
-# Deploy smart contracts with Truffle
+## Deploy smart contracts with Truffle
 
 - Command: `truffle migrate --network matic`
 
@@ -128,7 +128,7 @@ Summary
 > Final cost:          0 ETH
 ```
 
-# Deployment errors and solutions
+## Deployment errors and solutions
 
 If you encounter any of these errors, follow the instructions to solve them:
 
@@ -193,18 +193,18 @@ Just add `networkCheckTimeout: 100000`:
 
 _If you discover any new errors and If you know the solution for it, then feel free to make a PR, we'll add your Error-Fix here._
 
-# Conclusion
+## Conclusion
 
 After this tutorial you will be able to:
 
 - Deploy smart contracts on Polygon (Matic) Mumbai testnet using Truffle.
 - Solve any errors that occur while deploying the smart contracts.
 
-# About the Author
+## About the author
 
 Akhilesh Thite is an Indian tech enthusiast with a passion for Software Development, Open-Source & Decentralization. You can connect with him on [GitHub](https://github.com/AkhileshThite).
 
-# References
+## References
 
 - Truffle docs: https://www.trufflesuite.com/docs/truffle/overview
 - Polygon (Matic) docs: https://docs.matic.network/docs/develop/getting-started

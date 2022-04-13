@@ -5,18 +5,18 @@ keywords: [Polkadot, Rust, Rust]
 date: '2021-10-13T23:20:34.972Z'
 ---
 
-# Introduction
+## Introduction
 
 Decentralization of blockchains has advantages and disadvantages, one of the major advantages is that there is no single unit which has complete power over a system.
 From the other side, a disadvantage is that in the environment without centralized control, upgrading is hard due to the need for coordinating so many nodes at one time. One of the well known solutions of upgrading blockchains is the so-called "hard fork", however this has many potential vectors of attack and is hard to coordinate.
 
 The newest solution for upgrading decentralized systems based on the Substrate framework is called `runtime-upgrade`. The solution works smoothly and in this tutorial, I will show you how you can easily upgrade your Substrate based chain. We will examine how adaptability is implemented in the Substrate framework.
 
-# Prerequisites
+## Prerequisites
 
 To successfully follow this tutorial, you should have a basic knowledge about the Rust programming language and Polkadot's Substrate framework.
 
-# Getting started
+## Getting started
 
 ![](./assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-1.png)
 
@@ -34,7 +34,7 @@ Upgrading the runtime state transition function consists of the following steps:
 - Build the WASM file: `WASM_TARGET_DIRECTORY="$(pwd)" cargo build`
 - Use the `sudo` command to start the runtime
 
-# Building a simple Substrate blockchain
+## Building a simple Substrate blockchain
 
 Checkout the master branch of https://github.com/TomaszWaszczyk/substrate-runtime-upgrade-tutorial, then execute the command make init and after around 10 minutes (depends on performance of your machine) you should see something like:
 
@@ -51,7 +51,7 @@ Finished dev [unoptimized + debuginfo] target(s) in 13m 01s
 
 > Note: If you want to build an optimized version of the project execute `cargo build --release`
 
-# Run the Substrate node locally
+## Run the Substrate node locally
 
 Use the `make run` command:
 
@@ -87,7 +87,7 @@ Access the front-end of the local node via: <https://polkadot.js.org/apps/#/extr
 
 We can see that the kitties pallet has only a create() function, it is our current state transition function in the runtime. To demonstrate how adaptable Substrate based blockchains are, we can add a new feature - the breed() function.
 
-# Adding a feature to the runtime
+## Adding a feature to the runtime
 
 Before making an upgrade, spec_version would be 1. Now that we are making an upgrade, we have incremented the field, so it will now be 2 as shown below:
 
@@ -141,7 +141,7 @@ Here is a link to the whole new implementation: https://github.com/TomaszWaszczy
 
 After performing the upgrade, we expect that the kitties pallet will contain the new `breed` function without needing to restart the running Substrate node. Real adaptability of the blockchain!
 
-# Building the runtime WASM file
+## Building the runtime WASM file
 
 Run the terminal command `WASM_TARGET_DIRECTORY="$(pwd)" cargo build` in order to build the runtime WASM file.
 
@@ -149,7 +149,7 @@ After a successful build, we expect to have a new file in the current directory:
 
 ![](./assets/polkadot-perform-forkless-upgrade-of-a-substrate-pallet-image-3.png)
 
-# Upgrading the runtime
+## Upgrading the runtime
 
 We have a running Substrate node with version 1 and want to upgrade the runtime into version 2. Proof of a successful upgrade will be our freshly added breed function. Let's check, using the front-end.
 
@@ -163,9 +163,9 @@ After successfully upgrade you should see updated `spec_version` and have access
 
 In the screenshot above, we can see the result of a successful upgrade. Notice that `spec_version` has been incremented to 2 (where it says "node-template/2").
 
-# Troubleshooting
+## Troubleshooting
 
-## Problem: Rust errors when building
+### Problem: Rust errors when building
 
 You may encounter an error while building, such as the one shown below. This means that you do not have the proper version of Rust installed.
 
@@ -230,16 +230,16 @@ nightly-2020-08-23-x86_64-unknown-linux-gnu (default)
 rustc 1.47.0-nightly (663d2f5cd 2020-08-22)
 ```
 
-# Conclusion
+## Conclusion
 
 Congratulations! You have already understood the importance of how adaptability is important in decentralized blockchains and how the feature is implemented in Substrate framework.
 
 During reading the tutorial you have learnt basics of Rust language, how to compile Substrate based chain and how to generate and then upload wasm file in order to deliver new feature for the chain.
 
-# About The Author
+## About The author
 
 The tutorial was created by Tomasz Waszczyk. In case any questions, you can reach out to Tomasz on [Github](https://github.com/tomaszwaszczyk) for help or explaining doubts pertaining to Polkadot/Kusama ecosystem and this guide.
 
-# References
+## References
 
-When you have completed the tutorial, you are ready to learn more about [Forkless upgrading runtime](https://substrate.dev/docs/en/tutorials/forkless-upgrade/) tutorial by Jimmy Chu.
+When you have completed the tutorial, you are ready to learn more about [Forkless upgrading runtime](https://docs.substrate.io/tutorials/v3/forkless-upgrades/) tutorial by Jimmy Chu.

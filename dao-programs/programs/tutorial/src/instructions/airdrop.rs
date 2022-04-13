@@ -43,7 +43,8 @@ pub struct Airdrop<'info> {
   pub authority: Signer<'info>,
 }
 
-pub fn handler(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8) -> Result<()> {
+pub fn handler(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8, is_kafe_drop: bool, is_bdr_drop: bool) -> Result<()> {
+  if is_kafe_drop {
     let cpi_program = ctx.accounts.token_program.to_account_info();
     let cpi_accounts = Transfer {
       from: ctx.accounts.dao_vault_kafe.to_account_info(),
@@ -63,8 +64,9 @@ pub fn handler(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8) -> Result<()>
       ),
       AIRDROP_AMOUNT_KAFE,
     )?;
+  }
 
-
+  if is_bdr_drop {
     if ctx.accounts.bdr_token_account.is_frozen() { 
       let cpi_program = ctx.accounts.token_program.to_account_info();
       let cpi_accounts = ThawAccount {
@@ -124,6 +126,7 @@ pub fn handler(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8) -> Result<()>
         ]],
       ),
     )?;
+  }
 
   Ok(())
 }

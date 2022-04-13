@@ -5,7 +5,7 @@ keywords: [Cosmos, JS/TS, Javascript]
 date: '2021-07-21T13:01:03.861Z'
 ---
 
-# Introduction
+## Introduction
 
 Figment's Transaction Search API allows users to filter and query by account, transaction type, and date range. Users can also search by memo field and logs. Developers can now manipulate transaction data the way they want to instead of the way the blockchain intended them to.
 
@@ -16,14 +16,14 @@ This tutorial describes how to create a simple Javascript widget showing the las
   will be necessary to complete the tutorial.
 </Hint>
 
-# Prerequisites
+## Prerequisites
 
 - Basic knowledge of Javascript (fetch API)
 - Basic knowledge of HTML (templates)
 - Basic knowledge of CSS (to style the component)
 - Datahub API key (which you can get from the Datahub Services Dashboard: <https://datahub.figment.io/services/cosmos>)
 
-# Creation of Datahub proxy
+## Creation of Datahub proxy
 
 <Hint type="info">
   TL;DR Just copy paste and run code at the end of this step.
@@ -159,11 +159,11 @@ http
   .listen(PORT);
 ```
 
-# Creation of application scheme
+## Creation of application scheme
 
 The first step for the frontend app will be to create three files: `index.html` `style.css` and `lib.js`
 
-## index.html
+### index.html
 
 ```markup
 <!DOCTYPE html>
@@ -182,7 +182,7 @@ The first step for the frontend app will be to create three files: `index.html` 
 </html>
 ```
 
-## style.css
+### style.css
 
 ```css
 body {
@@ -212,7 +212,7 @@ body {
 }
 ```
 
-## lib.js
+### lib.js
 
 ```javascript
 class SearchRequest {
@@ -294,7 +294,7 @@ In order to check if our script is working, let's add a javascript snippet at th
 </html>
 ```
 
-# Simple request
+## Simple request
 
 Let's now add a data request ability for the transactions widget. In order to do so, we will add a few methods to the `Widget` class:
 
@@ -345,13 +345,13 @@ function compareTransactions(a,b) {
 
 We will use `transactionsMap` as the filter for the transactions so we don't add the same transaction twice. We can do that based on the `tx.id` field that is guaranteed to be unique in the `network` scope.
 
-# Rendering
+## Rendering
 
 We will now call the `makeRequest(sr)` render function so that we can construct the widget contents. There are many different ways to handle this call, such as rendering cycles or event reducing processes, but for the sake of this tutorial, we will use the most straightforward approach.
 
 To render the data, we'll use the simplest approach of HTML templates. So let's add the templates first by loading the following functions:
 
-## index.html
+### index.html
 
 ```markup
 <template id="transactionRow">
@@ -586,11 +586,11 @@ reformatDates() {
   }
 ```
 
-# Interaction
+## Interaction
 
 To interact with the widget, users will need to attach external values to the initial state and resetting it.
 
-## Initialization
+### Initialization
 
 On the `init` widget, we would like to get the initial transaction values:
 
@@ -600,7 +600,7 @@ initialRequest() {
   }
 ```
 
-## Load More
+### Load More
 
 Then, the data can be paginated by storing the page variables in an external variable and incrementing it after every call. We also need to attach an event handler to the proper HTML elements:
 
@@ -618,7 +618,7 @@ attachEvents() {
   }
 ```
 
-## Pick type
+### Pick type
 
 To attach a type filter to the widget, we need to create HTML inputs, and then attach them to the change events.
 
@@ -682,7 +682,7 @@ attachEvents() {
 
 Finally, we need to clear the previous list before applying filters and make sure that we start from the first page. It can be done using some sophisticated caching mechanism, but for this tutorial, this approach will be sufficient.
 
-# Initial Parameters
+## Initial Parameters
 
 If we would like this widget to work in a narrow scope, we need to pass it through the initial request. Let's say that this widget is supposed to show data from only our account.
 
@@ -722,7 +722,7 @@ initialRequest() {
 
 > Narrowing down the search time range would significantly improve its performance and allow it to receive a response much faster. In such a case, both parameters (pair `after_time` and `before_time` or `after_height` and `before_height` ) are required.
 
-# Conclusion
+## Conclusion
 
 Congratulations, you've built your first implementation of the Transaction Search API. You should now have what it takes to implement it in your DApp and leverage the full power of Transaction Search.
 

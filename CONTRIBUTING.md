@@ -24,6 +24,7 @@ It's early days. We haven't formally adopted a code of conduct yet, but our valu
 - If you want to take on an issue:
   - Please comment on the issue so the community knows someone is working on it.
   - If a contributor has been silent on their progress for more than two weeks, feel free to reach out to them and take on the issue if you don't hear back. Maybe they got busy before finishing and forgot to comment back. That's OK.
+<<<<<<< HEAD
   - You should also check [open pull requests](https://github.com/TheBuilderDAO/kafe/pulls?q=is%3Apr+is%3Aopen+) (PRs) for duplicates.
 - To submit a change or fix, use a PR from a fork:
   - Fork the repo, clone it to your local environment and create an issue-specific branch from the `dev` branch.
@@ -31,3 +32,12 @@ It's early days. We haven't formally adopted a code of conduct yet, but our valu
   - Please add tests if you have added new core functionality or fixed an issue that wasn't tested before.
   - Please remember to format your code. We use [prettier](https://prettier.io/).
   - In your PR, please provide a concise and comprehensive description of the work so reviewers can approve or request changes expeditiously.
+=======
+  - You should also check open pull requests (PRs) for duplicates.
+- To submit a change or fix, use a PR from a fork:
+  - Fork the repo and create an issue-specific branch from the main branch.
+  - Run yarn.
+  - Please add tests if you added new core functionality or fixed an issue that wasn't tested before.
+  - Please format your code.
+  - In your PR, please provide a concise and comprehensive description of the work so reviewers can approve or request comments expeditiously.
+>>>>>>> dev

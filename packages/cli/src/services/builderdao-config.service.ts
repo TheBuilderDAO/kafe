@@ -11,7 +11,7 @@ export type BuilderDaoLockJson = {
   proposalId: number;
   slug: string;
   creator: string;
-  authors: {
+  authors?: {
     name: string;
     nickname: string;
     avatarUrl: string;
@@ -28,9 +28,9 @@ export type BuilderDaoLockJson = {
   reviewers: {
     [reviwerIndex: string | 'reviewer1' | 'reviewer1']:
     {
-      pda: string;
+      pda?: string;
       pubkey: string;
-      githubName: string;
+      githubName?: string;
     }
   };
   href: string;

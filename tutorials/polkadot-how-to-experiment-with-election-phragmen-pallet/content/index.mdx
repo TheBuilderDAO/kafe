@@ -5,7 +5,7 @@ keywords: [Polkadot, Rust, Rust]
 date: '2022-02-07T00:40:06.115Z'
 ---
 
-# Introduction
+## Introduction
 
 During your studies of the Polkadot protocol, you will come across several pallets that act in different categories such as Consensus, Runtime, Identity, etc. But what exactly is a pallet? We can define a pallet as a blockchain module that is responsible for one aspect of our blockchain. For example, if we want to make elections in our blockchain, we need to install an election pallet!
 
@@ -13,17 +13,17 @@ In this tutorial, **you will learn how to work with a governance pallet, used in
 
 Before we begin, we need to clarify one thing: what is a governance pallet? A governance pallet is a pallet that solves problems related to the governance of a blockchain. For example, the elements of Polkadot like elections, democracy, and the council, are all implemented based on governance pallets.
 
-# Prerequisites
+## Prerequisites
 
 Although **this tutorial has no formal prerequisites**, we recommend that you understand the basics of [what pallets are](https://docs.substrate.io/v3/runtime/frame/#pallets) and how blockchains work. This will give you a better understanding of the tutorial.
 
 Even if you don't have the prerequisites listed, give this tutorial a try anyway. We will do our best to make sure you are not confused by the instructions and understand what is going on.
 
-# Requirements
+## Requirements
 
 Make sure you have Node v14+ and yarn installed. You also need to [setup your computer for Substrate development](https://docs.substrate.io/v3/getting-started/installation/).
 
-# Getting started
+## Getting started
 
 In this tutorial, we will use the Substrate node template to build our blockchain. This template includes all the necessary structures to work with pallets, so we will add the Phragmen Election pallet to this template.
 
@@ -671,15 +671,15 @@ The gif below shows some features of the application we developed in this tutori
 
 ![Elections dApp preview](./assets/polkadot-how-to-experiment-with-election-phragmen-pallet-elections-d-app-preview-2.png)
 
-# Conclusion
+## Conclusion
 
 Congratulations! We have successfully created a blockchain that holds elections. We have added and configured governance pallets to a blockchain and created a unique component for interaction with the Elections Phragmen pallet. You can make improvements to the Election component and also make changes to the Config trait of the pallets (such as the number of members for example).
 
-# About the Author
+## About the author
 
 This tutorial was created by [Kelvin Welter](https://github.com/kelvinwelter).
 
-# References
+## References
 
 [Polkadot Sequential Phragmén Method Documentation](https://wiki.polkadot.network/docs/learn-phragmen)
 [Elections Phragmen Pallet Documentation](https://docs.substrate.io/rustdocs/latest/pallet_elections_phragmen/index.html)

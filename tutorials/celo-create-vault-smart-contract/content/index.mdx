@@ -5,7 +5,7 @@ keywords: [Celo, JS/TS, Solidity, React, NodeJS, Smart contracts, Truffle]
 date: '2021-07-23T07:14:34.201Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will create, deploy, and interact with our first Vault Smart Contract on the Celo Ecosystem.
 
@@ -18,7 +18,7 @@ This tutorial has 3 parts as mentioned below -
 - Second, we will be deploying a Vault Smart Contract to the Alfajores Testnet using DataHub and Truffle.
 - Third, we will interface with the deployed Vault Smart Contract and demonstrate its functionalities using a frontend with React and Web3.
 
-# Prerequisites
+## Prerequisites
 
 - Go get a connection to Celo's Alfajores testnet through [DataHub](https://datahub.figment.io/services/celo) and come back when you have a Celo API key, this is required for the next steps in the tutorial.
 - Please make sure that you completed the tutorials:
@@ -27,7 +27,7 @@ This tutorial has 3 parts as mentioned below -
   - [Transfer CELO tokens](https://learn.figment.io/tutorials/transfer-celo-token)
   - [Deploy your first Celo smart contract](https://learn.figment.io/tutorials/deploy-celo-contract)
 
-# Creating Project (Central Base)
+## Creating Project (Central Base)
 
 Since Celo runs the Ethereum Virtual Machine, we can use Truffle to compile our smart contract. But just to do things right, let's first initialize a node project (silently...).
 
@@ -85,7 +85,7 @@ OK, I'd love to congratulate you, we just initialized a node and a truffle proje
                6 Dir(s)  231,304,970,240 bytes free
 ```
 
-# Get Account and Funds
+## Get Account and Funds
 
 Our next step is to get an Account (Address / PrivateKey) from the Celo Alfajores Network. We are going to use Truffle Console to get one real quick.
 
@@ -128,7 +128,7 @@ module.exports = {
 
 Here we initialized a provider using our environment variable `DATAHUB_NODE_URL`.
 
-# Connect to Alfajores with the console
+## Connect to Alfajores with the console
 
 Now we can connect to Alfajores using `truffle console` . Run the following on your console.
 
@@ -165,15 +165,15 @@ you can exit from console with `ctrl+C` or `ctrl+D`.
 
 From here we need the address, and `privateKey` as I mentioned.
 
-Success! We got and account, before we forget let's save it into our `.env` as we will use it later. Your `.env` should look like this.
+Success! We got and account, before we forget let's save it into our `.env` as we will use it later. Your `.env` should look like this, including your account address and private key.
 
 ```text
 DATAHUB_NODE_URL=https://celo-alfajores--rpc.datahub.figment.io/apikey/<YOUR API KEY>/
-ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC # your address
-PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650 # your private key
+ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC
+PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650
 ```
 
-# Funding the account
+## Funding the account
 
 Let's add funds to our account using the Alfajores Faucet, go there with your address. (Do you also wish to have one but for the Mainnet): Go here -> [Alfajores Faucet](https://celo.org/developers/faucet) and you will get:
 
@@ -187,7 +187,7 @@ you can verify your balance in [Alfajores Blockscout](https://alfajores-blocksco
 
 We are finally done with this section. We are getting closer by the minute.
 
-# Deploy the Vault smart contract
+## Deploy the Vault smart contract
 
 Now that we have an account and funds, let's add a smart contract to our Truffle project. From the console, run the following:
 
@@ -198,7 +198,7 @@ npx truffle create contract Vault
 The above command will create a new Smart Contract in the following location:
 
 ```bash
-ls -la vault-dapp/contracts # Listing directory: vault-dapp/contracts:
+ls -la vault-dapp/contracts
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
@@ -342,7 +342,7 @@ withdrawTokens(address);
 address _withdrawer => The address which was registered in our contract when the deposit was made _withdrawer
 ```
 
-# Compiling the contract
+## Compiling the contract
 
 We are now ready to compile our solidity code using Truffle. From your terminal run the following:
 
@@ -375,7 +375,7 @@ Compiling your contracts...
 Truffle automatically puts our Vault smart contract bytecode and ABI inside the following json file. Make sure you can see it!
 
 ```bash
-$ ls -la  vault-dapp/build/contracts # Directory Listing: vault-dapp/build/contracts
+$ ls -la  vault-dapp/build/contracts
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
@@ -384,7 +384,7 @@ Mode                 LastWriteTime         Length Name
 
 I hope you are ready for deployment, because that's next!
 
-# Deploying contract
+## Deploying contract
 
 One last step, is necessary to make a new migration to deploy the Vault Contract, create the file `migrations/2_vault_deployment.js` to achieve this
 
@@ -446,7 +446,7 @@ Starting migrations...
    > contract address:    0xB017aD96e31B43AFB670dAB020561dA8E2154C5B
    > block number:        4661756
    > block timestamp:     1618659332
-   > account:             0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC # save this address to next steps
+   > account:             0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC
    > balance:             4.89973486
    > gas used:            1916762 (0x1d3f5a)
    > gas price:           20 gwei
@@ -466,13 +466,15 @@ Summary
 > Final cost:          0.04326108 ETH
 ```
 
+Remember to save the address listed as **account** from the deployment output, we'll need it for the next step.
+
 Awesome!, our Vault Smart Contract is now in Alfajores, and we can deposit funds into it, lock them, and withdraw them. Let's build an interface in React for our Vault Smart Contract next.
 
 ## Take a break!
 
 In this section, we’ve learned how to create our first Celo Vault contract, compile and deploy it to Alfajores, also some of the language constructors of Solidity. Congratulations for making it this far! Have a break, stand up and stretch, get some water and then come back for the React finale!
 
-# Create the React dApp
+## Create the React dApp
 
 Now that we have our vault contract, let's connect the methods with an interface.
 
@@ -497,10 +499,14 @@ Let's also transfer our .env file over to this new project, with a quick fix:
 
 ```bash
 REACT_APP_DATAHUB_NODE_URL=https://alfajores-forno.celo-testnet.org
-REACT_APP_ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC # your recently created account address
-REACT_APP_PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650 # your recently created account private key
-REACT_APP_VAULT_ADDRESS=0xB017aD96e31B43AFB670dAB020561dA8E2154C5B # the recently created address of the vault contract (see 2_vault_deployment.js deploy output above)
+REACT_APP_ADDRESS=0x7cdf6c19E5491EA23aB14132f8a76Ff1C74ccAFC
+REACT_APP_PRIVATE_KEY=0x167ed276fb95a17de53c6b0fa4737fc2f590f3e6c5b9de0793d9bcdf63140650
+REACT_APP_VAULT_ADDRESS=0xB017aD96e31B43AFB670dAB020561dA8E2154C5B
 ```
+
+- `REACT_APP_ADDRESS` is your recently created account address.
+- `REACT_APP_PRIVATE_KEY` is your recently created account private key.
+- `REACT_APP_VAULT_ADDRESS` is the recently created address of the vault contract (see 2_vault_deployment.js deploy output above).
 
 This is how mine looks like, as you can see we still have the same variables, juts added the `REACT_APP` prefix.
 
@@ -941,7 +947,7 @@ It's important to see that always we use `try/catch` clauses to verify the rever
 
 The code repository is here: [Link](https://github.com/helpicelo/vault-dapp)
 
-# Conclusion
+## Conclusion
 
 This tutorial was aimed to provide a bare-bones implementation of a dApp in the Celo Ecosystem. We covered the Vault Smart Contract development and deployment, together with the bootstrapping of a React Application to interact with its basic functions (approve, lock, withdraw). We hope to continue extending this documentation.
 

@@ -5,7 +5,7 @@ keywords: [Celo, JS/TS, Solidity, React Native, NodeJS, Truffle]
 date: '2021-08-13T13:20:01.122Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will build a functioning DAO (Distributed Autonomous Organization) by first writing the Solidity smart contract code which will be deployed on the Celo network and then building a React Native App to interact with the smart contract.
 
@@ -21,7 +21,7 @@ Read more [here](https://ethereum.org/en/dao/).
 
 In this tutorial, you will learn how to build a functioning Charity DAO. The smart contract code is deployed on the Alfajores testnet of the Celo network. The contract allows its members to contribute to the DAO. Members can initiate charity proposals which Stakeholders will have to vote on within a specified period of time. After that time has elapsed, the DAO contract will disburse the pooled funds.
 
-# Prerequisites
+## Prerequisites
 
 These tutorials assume that you have basic knowledge of Solidity, JavaScript/TypeScript, and also how to start a React Native App using [expo](https://expo.io/). It is also assumed that you have read the expo documentation and have basic knowledge of the Celo Wallet.
 
@@ -31,7 +31,7 @@ These tutorials assume that you have basic knowledge of Solidity, JavaScript/Typ
 - The Celo dAppKit [documentation](https://docs.celo.org/developer-guide/dappkit/setup) is also going to be useful.
 - Learn about [Redux](https://redux.js.org/introduction/getting-started) as well.
 
-# Requirements
+## Requirements
 
 For this tutorial, following software needs to be installed:
 
@@ -50,7 +50,7 @@ We will begin by outlining a visual representation of the dApp, its features, an
 
 ![](./assets/celo-build-a-dao-on-celo-image-1.png)
 
-# Features
+## Features
 
 The functionality of the dApp includes:
 
@@ -69,7 +69,7 @@ Building the React Native App, in which we show you how to quickly put together 
 
 Connecting the React Native App to the Smart Contract using Redux, which brings it all together and allows our mobile dApp to utilize Celo efficiently.
 
-# Writing the DAO Smart Contract in Solidity
+## Writing the DAO Smart Contract in Solidity
 
 In this tutorial, we are going to build the foundations of a functional DAO by writing the smart contract.
 
@@ -90,8 +90,8 @@ Starting init...
 Init successful, sweet!
 
 Try our scaffold commands to get started:
-  $ truffle create contract YourContractName # scaffold a contract
-  $ truffle create test YourTestName         # scaffold a test
+  $ truffle create contract YourContractName
+  $ truffle create test YourTestName
 
 http://trufflesuite.com/docs
 ```
@@ -609,11 +609,9 @@ function isContributor() public view returns (bool) {
 
 The `isContributor()` function returns true/false depending on whether the caller is a contributor or not.
 
-## Next Steps
-
 Now that we have written the smart contract code, the next step is to build the React Native App!
 
-# Building the React Native App
+## Building the React Native App
 
 Note: If you have never built an app using React Native to connect to the Celo wallet before, you can follow the guide [here](https://learn.figment.io/tutorials/how-to-successfully-connect-to-a-celo-wallet-with-a-react-native-dapp#project-setup).
 
@@ -644,11 +642,11 @@ First, we will outline the UI and then write out the code for building each of t
 
 At this stage of making the dApp, we will outline how the actions of the smart contract are carried out with a connection to the dApp. First, let’s put the code in place for all the screens. The screens at this point do not yet interact with the smart contract.
 
-## Initialize the dApp
+### Initialize the dApp
 
 This section assumes that you already know how to initialize and start a React Native App. This will serve as a high level overview on how to start your React Native app.
 
-## Setting up UI Kitten
+### Setting up UI Kitten
 
 UI Kitten is a customizable React Native UI Library based on Eva Design System specifications, it is a framework of UI components that can easily be added to a React Native app.\
 Initializing the app with the `expo init` command and the blank managed workflow as the selected template sets up a basic @ui-kitten/components configuration for us. If this does not work for you, install UI Kitten using the following command instead:
@@ -1321,15 +1319,13 @@ const closeIcon = props => {
 };
 ```
 
-## Next Steps
-
 All of our app pages are now complete!
+
+## Bringing it together with Redux
 
 To be able to interact with the smart contract on Celo, we will use Redux actions and reducers to connect with the functions in the smart contract. The next tutorial covers Redux and how to make these connections between actions performed by users and the smart contract functionality.
 
-# Bringing it together with Redux
-
-In this tutorial, we will complete our DAO and its dApp interface, writing the Redux code to connect our React Native app to the smart contract on Celo. We will look into how to connect the mobile app to the smart contract on the Celo network. This section contains Redux action creators for connecting to the contract, contributing to the DAO and so forth.
+In this part of the tutorial, we will complete our DAO and its dApp interface, writing the Redux code to connect our React Native app to the smart contract on Celo. We will look into how to connect the mobile app to the smart contract on the Celo network. This section contains Redux action creators for connecting to the contract, contributing to the DAO and so forth.
 
 If you are unfamiliar with Redux, please read their [Getting Started](https://redux.js.org/introduction/getting-started) guide.
 
@@ -1460,7 +1456,7 @@ export const ProfilePage = ({ navigation }) => {
 }
 ```
 
-# Conclusion
+## Conclusion
 
 In this tutorial, you learned how to build a complete Charity DAO. We covered the complete smart contract code using the Solidity programming language. We scaffolded the App using React Native and then used Redux to tie the actions together!
 
@@ -1470,6 +1466,6 @@ The App is available in an Open Source code repository on [Github](https://githu
 
 Congratulations for completing these tutorials. There are no limits to what you can build using the tools and techniques we have discussed.
 
-# About the Authors
+## About the Authors
 
 This tutorial was created by [Segun Ogundipe](https://github.com/Segun-Ogundipe) and [Emmanuel Oaikhenan](https://github.com/emmaodia).

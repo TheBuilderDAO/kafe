@@ -5,7 +5,7 @@ keywords: [Polygon, JS/TS, Truffle, IPFS, Typescript]
 date: '2021-11-19T00:15:30.158Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to create a [Polymarket](https://polymarket.com/) clone. Polymarket is a decentralized information market, harnessing the power of free markets to demystify the real-world events that matter most.
 
@@ -15,18 +15,18 @@ This is what the dApp we will be creating looks like:
 
 ![Demo GIF](./assets/polygon-create-a-polymarket-clone-on-polygon-demo-gif-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully follow this tutorial, you will need a good understanding of smart contracts, the Solidity programming language, the Truffle and Next.js frameworks, and TailwindCSS. We will be using the web3.js Javascript library to connect to the Polygon network and the Next.js framework for frontend and backend logic for our dApp.
 
-# Requirements
+## Requirements
 
 - [Truffle](https://github.com/trufflesuite/truffle) - Truffle provides a local development environment for creating and testing blockchain applications.
 - [Metamask](https://metamask.io/) - You will need a Metamask wallet installed in your browser.
 - [NodeJs](https://nodejs.org/en/) - You must have Node.js installed. We recommend using v16.13.0 LTS.
 - [IPFS](https://ipfs.io/) - We will store thumbnail images for a market on IPFS.
 
-# Project Setup
+## Project Setup
 
 Run the following commands in the terminal to create project directories and install required packages.
 
@@ -40,7 +40,7 @@ yarn add @openzeppelin/contracts @truffle/hdwallet-provider web3 dotenv tailwind
 
 `npm install -g truffle` command will install the Truffle framework in the system. `npx create-next-app --typescript polymarket` will create a Next.js project with typescript support, and `truffle init` will scaffold a Truffle project.
 
-# Configuring truffle-config.js
+## Configuring truffle-config.js
 
 We have to configure `truffle-config.js` to deploy our smart contract to the Matic testnet. Open `truffle-config.js` and replace the content with the following code:
 
@@ -91,7 +91,7 @@ We have to get the Secret Recovery Phrase (mnemonic) of our Metamask account to 
 
 If you don't have any MATIC tokens on the Polygon Mumbai testnet, then use the [Polygon Faucet](https://faucet.polygon.technology/) to get 1 MATIC token to pay gas fees.
 
-# Creating PolyToken Smart Contract
+## Creating PolyToken Smart Contract
 
 Create a new file called `PolyToken.sol` in the `contracts` directory and add the following code:
 
@@ -118,7 +118,7 @@ contract PolyToken is ERC20 {
 
 We create a new ERC20 token named PolyToken, using the OpenZeppelin ERC20 contract. This is the token we will use in our Polymarket clone. We can use any stable taken like USDT or USDC, but for the simplicity of this tutorial, we will just create our token for testing. In the constructor of our token contract, we are minting and sending 100,000 POLY tokens to the contract's owner (the account deploying the contract).
 
-# Creating Polymarket Smart Contract
+## Creating Polymarket Smart Contract
 
 Create a new file called `Polymarket.sol` in the `contracts` directory and add the following code:
 
@@ -336,7 +336,7 @@ For No event - `amount = (totalYesAmount * amount) / totalNoAmount;`
 
 We are done with `PolyToken.sol` and `Polymarket.sol`, let's deploy these smart contracts on Polygon Testnet.
 
-# Compiling and deploying with Truffle
+## Compiling and deploying with Truffle
 
 Go to the `migrations` directory, create a new file `2_polytoken_polymarket.js` and add the following code:
 
@@ -361,7 +361,7 @@ truffle compile
 truffle deploy --network matic
 ```
 
-# Creating Frontend
+## Creating Frontend
 
 In our dApp, we will be creating five pages:
 
@@ -1688,12 +1688,12 @@ This is what the Polymarket clone at the end looks like:
 
 [Demo Video](https://vimeo.com/645127735)
 
-# Conclusion
+## Conclusion
 
 Congratulation on finishing this tutorial. Thank you for taking the time to complete it. In this tutorial, we have learned how to make an ERC20 token and how to create an Information market similar to Polymarket. To extend this dApp you can create an authentication system and add a build-in wallet for users to enhance the user experience.
 
 Keep building on Web3.
 
-# About the Author
+## About the author
 
 I'm Viral Sangani, a tech enthusiast working on blockchain projects & love the Web3 community. Feel free to connect with me on [Github](https://github.com/viral-sangani).

@@ -5,23 +5,23 @@ keywords: [Tezos, Python, Smart contracts]
 date: '2021-11-18T23:59:32.079Z'
 ---
 
-# Introduction
+## Introduction
 
 This tutorial explains how to mint fungible tokens on the Tezos blockchain. In this tutorial, we will write a smart contract in SmartPy and deploy it on Granadanet, upload the token metadata to IPFS and then mint the token using better-call.dev. We will also cover how to mint tokens using React and taquito.
 
-# Prerequisites
+## Prerequisites
 
 - Basic Knowledge of SmartPy
 - Basic Knowledge of functional components and React Hooks (mainly useState)
 
-# Requirements
+## Requirements
 
 - Temple Wallet installed in your browser. Get it from <https://templewallet.com/>
 - You will need some XTZs on Granada Testnet in your wallet account. To get them, you can refer to the Faucet and Temple Wallet section in [this tutorial.](https://learn.figment.io/tutorials/using-the-smartpy-ide-to-deploy-tezos-smart-contracts#faucet-and-temple-wallet).
 - [NodeJS](https://nodejs.org/en/download/) v14 LTS or higher and npm installed
 - [git](https://git-scm.com/downloads) installed
 
-# SmartPy
+## SmartPy
 
 SmartPy is an intuitive and powerful smart contract development platform for Tezos. It provides a Python library for building and analyzing Tezos smart contracts. With the SmartPy IDE, we can quickly write our code in the browser itself. We can also deploy our code from the browser. No local setup is required. So, Let's get started! Open <https://smartpy.io/ide>
 
@@ -30,7 +30,7 @@ SmartPy is an intuitive and powerful smart contract development platform for Tez
 You can explore and look at the template codes given.\
 To move to the editor, click CLOSE.
 
-# Token Contract and FA2 Standard
+## Token Contract and FA2 Standard
 
 The left panel is where we are going to code.\
 We are going to follow the FA2 token standard([TZIP-12](https://tzip.tezosagora.org/proposal/tzip-12/)) for our token.
@@ -174,7 +174,7 @@ In the end, the contract storage shows that there are eight tokens in Tom's addr
 
 ![SmartPy](./assets/tezos-mint-your-own-fungible-token-on-tezos-smart-py-4.png)
 
-# Deploy Contract
+## Deploy Contract
 
 It’s time to deploy this contract. For this tutorial, we are going to deploy the contract on the Granada testnet. We can deploy the contract using the Smartpy IDE itself. After running the tests, we get the option to Deploy Michelson Contract in the output panel.
 
@@ -204,7 +204,7 @@ Contract Originated Successfully will be shown. Copy the contract address(KT1VUv
 
 Hurray, we deployed our contract successfully.
 
-# IPFS
+## IPFS
 
 IPFS is a distributed system for storing and accessing files, websites, applications, and data.\
 And, we will use IPFS to store the metadata of our tokens. And to upload our files to IPFS, we will use nft.storage.\
@@ -239,7 +239,7 @@ The file will get uploaded, and this is your hash.
 
 You can view your files visiting ipfs://{hash} - If your browser doesn’t support IPFS, you can use <https://ipfs.io/ipfs/{hash}>
 
-# Mint using better-call.dev
+## Mint using better-call.dev
 
 It's time to mint our token. Open up [better-call.dev](https://better-call.dev/).
 
@@ -270,7 +270,7 @@ You can look at the metadata of the token in the tokens section.
 
 Hurray, we minted our token.
 
-# Frontend
+## Frontend
 
 Import this boilerplate code using the following command.
 
@@ -637,12 +637,12 @@ Open your browser, and navigate to locahost:3000. You can now mint a token from 
 
 We completed the frontend. You can checkout the complete code on [Github](https://github.com/PriyanshuDangi/Tutorial_Fungible_Tokens).
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned about coding in SmartPy, deploying a contract on the blockchain, and interacting with the contract using better-call.dev. We also built the frontend using React and learned how to interact using taquito.
 
 And most importantly, we learned how to mint and transfer fungible tokens on Tezos.
 
-# About The Author
+## About The Author
 
 This tutorial was written by Priyanshu Dangi, who is a Tezos India 2.0 Fellow. You can reach out to him on [Github](https://github.com/PriyanshuDangi).

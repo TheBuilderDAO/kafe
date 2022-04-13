@@ -5,25 +5,23 @@ keywords: [Solana, Rust, React, Rust]
 date: '2021-10-13T23:07:19.770Z'
 ---
 
-# Introduction
+## Introduction
 
 Solana is a decentralized blockchain built to enable scalable, user-friendly apps for the world at $0.00025 average cost per transaction. In this tutorial, we are going to build a decentralized mail app to showcase the potential of Solana, we will build the on-chain program with [Rust](https://www.rust-lang.org/) and the web UI with [React](https://reactjs.org/) and [MaterialUI](https://material-ui.com/). We'll go through the code together, building the program and web UI step by step.
 
 You can find the final code to the on-chain program [here](https://github.com/Segun-Ogundipe/solana-mail) and the UI [here](https://github.com/Segun-Ogundipe/solana-mail-web)
 
-# Prerequisites
+## Prerequisites
 
 A good understanding of the Rust programming language and React is very important to grasping the contents of this tutorial. I suggest a primer on both following the links provided in the introduction section.
 
-# Requirements
+## Requirements
 
 - Install rust from [HERE](https://rustup.rs/)
 - [Git](https://git-scm.com/downloads) and
 - Solana CLI [HERE](https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool)
 
-# Building the mail program
-
-# Project setup
+## Project setup
 
 Head over to [this template](https://github.com/mvines/solana-bpf-program-template) on Github and click on **Use this template** button, which will allow you to create a new repository. Give your repo a new name and check the 'Include all branches' box, then click on **Create repository from template** button. Now clone the repository to your local machine with your preferred method, or simply by using `git clone https://github.com/<your Github username>/<what you named the repo>`.
 
@@ -47,7 +45,7 @@ test-bpf = []
 crate-type = ["cdylib", "lib"]
 ```
 
-# entrypoint, programs, and accounts
+## Entrypoint, programs, and accounts
 
 Open `lib.rs` in the `src` folder. It currently contains:
 
@@ -116,7 +114,7 @@ The function takes three arguments:
 - `accounts` - Solana programs are stateless, the programs themselves don't store data between transactions. To store state, we use [accounts](https://docs.solana.com/developing/programming-model/accounts)
 - `instruction_data` - This is the data passed to the program by the calling code
 
-# Code structure
+**Code structure**:
 
 We are going to structure our code using the following format:
 
@@ -159,7 +157,7 @@ Create the following files in the src folder:
 - processor.rs
 - state.rs
 
-# State, part 1
+## State, part 1
 
 Open the file `lib.rs`, remove the existing content then add the following code, which defines the modules we will use:
 
@@ -230,7 +228,7 @@ pub struct MailAccount {
 
 With this, we are done with `state.rs` for now.
 
-# Entrypoint
+**Entrypoint**:
 
 Open the file `entrypoint.rs` in the editor and paste the following:
 
@@ -260,7 +258,7 @@ The `process_instruction()` serves as the entrypoint of our program, every reque
 
 In the body of the `process_instruction()` function, we have just one line of code, a call to a yet to be declared function, `process()`, of the `Processor` struct from the processor module. This function is going to be handling all the requests that come to our program.
 
-# Instruction, part 1
+## Instruction, part 1
 
 The `instruction.rs` module will contain the API definition of our program. The first endpoint we are going to define here is the `InitAccount` endpoint.
 
@@ -301,7 +299,7 @@ In the first line of the `unpack()` method, we call the [split_first()](https://
 
 This code won't compile because we have yet to define the custom error.
 
-# Error
+## Error
 
 In the `error.rs` module:
 
@@ -340,7 +338,7 @@ Here, we implement the [From](https://doc.rust-lang.org/std/convert/trait.From.h
 
 Now that we have a basic setup for our error, entrypoint and instruction, we are now ready to code `processor.rs`
 
-# Processor, part 1
+## Processor, part 1
 
 In the `processor.rs` module, paste:
 
@@ -469,7 +467,7 @@ You might notice the tricky `&mut &mut account.data.borrow_mut()[..]` expression
 
 We are done with our account initialization, we can now move on to adding the logic to handle requests for sending mails between two accounts.
 
-# Instruction, part 2
+## Instruction, part 2
 
 In the `instruction.rs` module, we stopped at:
 
@@ -539,7 +537,7 @@ Ok(match tag {
 
 This case matches instances where the value of the first element of the instruction data is `1`. If the value is `1`, the function returns a `SendMail` enum with the mail instance that was deserialized from the rest of the `data`.
 
-# Processor, part 2
+## Processor, part 2
 
 In the `process()` method, add another case to the match expression:
 
@@ -671,7 +669,7 @@ msg!("{:?}", data_length);
 
 With the above example in mind, lets focus back on our program. We now know the reason the `process_send_mail()` method will fail, we need to pass a slice that holds only the bytes of a serialized `MailAccount` struct instance to the `try_from_slice()`. To do this, we need to store the length of the `MailAccount` instance in a user's account.
 
-# State, part 2
+## State, part 2
 
 We need to add another struct to the state module:
 
@@ -684,7 +682,7 @@ pub struct DataLength {
 
 This struct has one `u32` field, `length`. We will use an instance of this struct to store the length of the serialized `MailAccount` instance stored in the user's account data every time we update the data
 
-# Processor, part 3
+## Processor, part 3
 
 By adding the `DataLength` struct, we now have what we need to fix the bug in `process_send_mail()`. Update the `process_send_mail()` method from the **processor part 2** section to:
 
@@ -818,7 +816,7 @@ data_length.serialize(&mut &mut account.data.borrow_mut()[..offset])?;
 mail_account.serialize(&mut &mut account.data.borrow_mut()[offset..])?;
 ```
 
-# Build and Deploy the program
+## Build and Deploy the program
 
 Now that we are done building the on-chain program, we should build and deploy it. We will deploy the program to a local cluster so lets set that up. Open up your console and type:
 
@@ -873,13 +871,11 @@ This command deploys the program to our local cluster. The `deploy` command take
 
 Note: The code in the Github repo won't be an exact match of the code in the tutorial as some edits have been made to clean up the program. Please have a look at the Github repo for the latest code!
 
-# Building the web UI
+**Building the web UI**:
 
 We are going to build the web client for our on-chain program in this chapter. We will build the project with React and MaterialUI.
 
-# Project setup
-
-Install React with:
+Initialize a new React project with:
 
 ```text
 npx create-react-app <the-name-of-the-project>
@@ -1032,7 +1028,7 @@ mv ./src/App.js ./src/App.jsx
 
 Now that we're done setting up our project, let's start building the pages.
 
-# Drawer menu and Navbar
+## Drawer menu and Navbar
 
 The first component we are going to write here is the `Navbar` component. Add a new directory to the `src` directory and name it `components`. In the `components` directory, add a new file and name it `Navbar.jsx`. Open the file in the editor and paste:
 
@@ -1269,7 +1265,7 @@ return (
 Here, we used the [Drawer](https://mui.com/components/drawers/) component to render our side menu. The addition to this code is the `Drawer` component. We used two of these to render the menu component we declared earlier twice, one for large screen devices and the other for small screen devices. After this, the UI should look like this:
 ![](./assets/solana-create-a-fullstack-mail-dapp-on-solana-image-3.png)
 
-# Signin page
+### Signin page
 
 Now that we have a side menu, we need to configure navigation. Let's add [react-router-dom](https://reactrouter.com/web/guides/quick-start):
 
@@ -1364,7 +1360,7 @@ The user interface should look like this now:
 
 ![](./assets/solana-create-a-fullstack-mail-dapp-on-solana-image-4.png)
 
-# Inbox page
+### Inbox page
 
 Next, add a new directory to the `pages` directory and name it `loggedin`. Then create an `index.jsx` file in the `loggedin` directory. Inside the `index.jsx` file, add:
 
@@ -1442,7 +1438,7 @@ export function Inbox(props) {
 
 The inbox page only renders a floating action button for now. What we'll do next is add a table to display the user's inbox. The sent page is pretty much the same as the inbox page so we won't be looking into that here. Again, the complete code can be found at the [Gihub repo](https://github.com/Segun-Ogundipe/solana-mail-web).
 
-# Navbar
+### Navbar
 
 Before we move on to building our table, let's wire up navigation into the drawer menu. In the `Navbar` component, right where we used the `List` component to render our `menuItems` objects, wrap the `ListItemButton` component and its children with the `Link` component from `react-router-dom`:
 
@@ -1481,7 +1477,7 @@ const handleLogout = async () => {
 
 For now, the function only sends the user back to the sign-in page. What we should do now is add a table component to render the list of mails in the user's inbox.
 
-# Inbox Table
+### Inbox Table
 
 The first thing we are going to do here is to add a table head component. Create a new file in the `components` directory and name it `MailTableHead.jsx`. Paste the following code into the file:
 
@@ -1653,7 +1649,7 @@ return (
 
 We passed an empty array to the data props of the `MailTable` component. This will be changed to an array of mail objects when we fetch that data from the user's account. Now that we are done with the inbox component, let's add the file for the send mail page.
 
-# Send Mail page
+### Send Mail page
 
 Create a new file in the `pages` directory and name it `SendMail.jsx`, this will be the file that will be rendered when a user wants to send a new mail. Open the file and paste:
 
@@ -1743,7 +1739,7 @@ One more thing, in the inbox section, I said we won't be writing the `Sent` page
 
 The last page we will write here before we move on to connecting the User Interface with the on-chain program is the `ViewMail` page.
 
-# View Mail page
+### View Mail page
 
 Add a new file to the `loggedin` directory and name it `ViewMail.jsx`, open it and paste:
 
@@ -1868,7 +1864,7 @@ The `ViewMail` page should look like this:
 
 Now that we are done with the pages, let's connect the User Interface with the on-chain program.
 
-# Redux
+## Redux
 
 To connect User Inteface with the program, we have to fetch the data the program stores in the user's generated PDA account and also send transactions to the program's endpoints. To send the transactions, we will need to sign them with the user's private key. To sign the transactions with the user's private key, we will need a wallet. For this project, we will use the [sollet](https://www.sollet.io/) wallet to get the user's public key and also sign transactions. To connect to sollet from our project, we will need the [sol-wallet-adapter](https://github.com/project-serum/sol-wallet-adapter) library so let's add that:
 
@@ -1894,7 +1890,7 @@ As mentioned in the `State, part 1` section, the data stored in a user's account
 yarn add borsh
 ```
 
-# Models
+### Models
 
 Now that we have added the required libraries, let's write the model classes that we'll use to represent the state objects from our on-chain program. Add a new directory in the `src` directory and name it `models`. In the `models` directory, add an `index.js` file.
 
@@ -2002,7 +1998,7 @@ const SCHEMA = new Map([
 
 The `SCHEMA` declaration maps each model to its struct counterpart and its fields.
 
-# Action Types
+### Action Types
 
 Add a new directory to the `src` directory and name it `store`. This directory will contain the redux code for our state management. In the `store` directory, add another directory and name it `action_types`, the action types will be defined in this directory. Add a new file to the `action_types` directory and name it `accountTypes.js`, open it and paste:
 
@@ -2020,7 +2016,7 @@ Account actions will hae three types:
 - CREATE_SUCCESS - Dispatched when account creation is successful
 - CREATE_FAILURE - Dispatched when account creation fails
 
-# Reducers
+### Reducers
 
 Create a new directory in the `store` directory and name it `reducers`. In the `reducers` directory, create a new file and name it `AccountReducer.js`. Open the file and paste:
 
@@ -2078,7 +2074,7 @@ export function account(state = initialState, action) {
 
 The account reducer updates the state with the values gotten from dispatched actions of the types declared in the `accountTypes.js` file. Now that we have our reducer, let's define the actions that go with it
 
-# Actions
+## Actions
 
 Create a directory in the `store` directory and name it `actions`. In the new `actions` directory add a new file and name it `accountActions.js`. The `accountActions` file will contain the code that allows us to connect to the sollet wallet, get the user's public key and also sign transactions.
 
@@ -2381,12 +2377,12 @@ We assigned the `handleSignin` function to the `onClick` prop of the `LoadingBut
 
 The only thing left to complete the User Interface is to write the action creator for sending mails. I will leave this as an assignment. If in doubt you can check the repo on Github but I suggest you try it out without checking the repo.
 
-# Conclusion
+## Conclusion
 
 In this tutorial, you learned how to build a mail dAPP on Solana. We covered the on-chain program's code using the Rust programming language. We built the User Interface with React and MaterialUI then tied everything together with Redux.
 
 There's still a lot of grounds to cover on this project. For instance, data store on Solana is not private,it can be accessed and read by the public. A consequence of this for this project is that mails sent between users are visible to the public. It'll be nice to add end-to-end encryption to the mails sent between two parties, this way users can be sure that their messages can only be read by them. This will make for a nice challenge.
 
-# About the Author
+## About the author
 
 This tutorial was created by [Segun Ogundipe](https://www.linkedin.com/in/segun-ogundipe). You can get in touch with the author on [GitHub](https://github.com/segun-ogundipe)

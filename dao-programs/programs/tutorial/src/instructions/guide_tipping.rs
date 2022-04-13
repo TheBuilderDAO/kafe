@@ -24,6 +24,7 @@ use crate::constants::{
   TIPPING_SEED,
   CREATOR_TIP_REWARD,
   REVIEWER_TIP_REWARD,
+  DUST_BDR
 };
 use vipers::unwrap_int;
 
@@ -230,14 +231,6 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
     )?;
   }
 
-  let adjusted_sol_amount: u64 = unwrap_int!((amount)
-  .checked_div(100)
-  .and_then(|v| v.to_u64()));
-
-  let bdr_amount: u64 = unwrap_int!((adjusted_sol_amount)
-    .checked_add(50000000)
-    .and_then(|v| v.to_u64()));
-
   let cpi_program = ctx.accounts.token_program.to_account_info();
   let cpi_accounts4 = Transfer {
     from: ctx.accounts.dao_vault_bdr.to_account_info(),
@@ -255,7 +248,7 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
         &[bump_bdr],
       ]],
     ),
-    bdr_amount,
+    DUST_BDR,
   )?;
 
   let cpi_program6 = ctx.accounts.token_program.to_account_info();

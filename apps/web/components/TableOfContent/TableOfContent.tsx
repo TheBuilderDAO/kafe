@@ -44,12 +44,21 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
    * to have its corresponding title highlighted in the
    * table of content
    */
-  const [currentActiveIndex] = useScrollSpy(
+  const [currentActiveIndex, scrolledSections] = useScrollSpy(
     typeof document !== 'undefined'
       ? toc.map(item => document.querySelector(`section[id="${item.id}"]`))
       : [],
     { offset: OFFSET },
   );
+  const shouldShowInList = (index: number, depth: number) => {
+    switch (true) {
+      case depth <= 2:
+        return true;
+      case scrolledSections.length - 1 <= currentActiveIndex &&
+        currentActiveIndex < index + 2:
+        return true;
+    }
+  };
   return (
     <div className={`flex flex-row py-4`}>
       <ProgressBar progress={readingProgress} />
@@ -60,12 +69,7 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
             return (
               <motion.li
                 className={`
-                  ${
-                    currentActiveIndex < index + 2 - item.depth &&
-                    item.depth > 2
-                      ? 'hidden'
-                      : 'block'
-                  }
+                  ${shouldShowInList(index, item.depth) ? 'block' : 'hidden'}
                   px-4
                   py-1
                   ${
@@ -77,7 +81,7 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
               >
                 <a
                   href={`${item.href}`}
-                  className="font-mono break-all text-md"
+                  className="font-mono break-words text-md"
                   onClick={event => handleLinkClick(event, `${item.id}`)}
                 >
                   {'∘'.repeat(item.depth - 1)} {item.title}

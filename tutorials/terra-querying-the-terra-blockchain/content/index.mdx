@@ -5,7 +5,7 @@ keywords: [Terra, JS/TS, NodeJS, Javascript]
 date: '2021-07-22T10:19:49.870Z'
 ---
 
-# Introduction
+## Introduction
 
 Often times you will need to pull information about the blockchain and its state such as:
 
@@ -23,7 +23,7 @@ In this tutorial, we will explore different queries that we can run again our [D
 - Luna exchange rates
 - Governance proposals
 
-## **Prerequisites**
+## Prerequisites
 
 1.  Please make sure that you completed tutorials #1 ("Connecting to a Terra node with DataHub") and #2 ("Creating your first Terra account with the Terra SDK") before moving forward. We will be building on top of the Nodejs application created in these tutorials.
 2.  Make sure that you connect to an archive Tequila node available on DataHub.
@@ -34,7 +34,7 @@ In this tutorial, we will explore different queries that we can run again our [D
   Archive nodes allow you to query historical data, no matter how old it is.
 </Hint>
 
-## **Query blockchain details**
+## Query blockchain details
 
 In your root directory, create a new file `query.js` and place in it below the following code snippet:
 
@@ -633,16 +633,14 @@ This should yield a response similar to:
 
 In this response, you can find a list of proposals. Each one comes with an ID, title, description, status, deposit, and final tally result. You can read more about governance on Terra [**here**](https://docs.terra.money/governance.html#proposals).
 
-## **Conclusion**
+## Next steps
+
+Being able to query a Terra node is fun, but wouldn’t it be great if you could not only read but also write to the blockchain? In the next tutorial, we will explore the use of transactions in order to write to the blockchain state.
+
+## Conclusion
 
 Congratulations! Now you know how to query a Terra node with [DataHub](https://datahub.figment.io/) to get the information you need.
 
 For more queries please refer to the Terra documentation for the **Tendermint RPC** and **Terra LCD** - [**HERE**](https://docs.figment.io/network-documentation/terra)
 
 The complete code for this tutorial can be found [**here**](https://github.com/figment-networks/tutorials/blob/main/terra/3_query_node/query.js).
-
-## **Next steps**
-
-Being able to query a Terra node is fun, but wouldn’t it be great if you could not only read but also write to the blockchain? In the next tutorial, we will explore the use of transactions in order to write to the blockchain state.
-
-If you had any difficulties following this tutorial or simply want to discuss Terra tech with us you can [**join our community today**](https://discord.gg/fszyM7K)!

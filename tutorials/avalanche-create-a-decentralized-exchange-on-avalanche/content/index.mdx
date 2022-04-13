@@ -5,18 +5,18 @@ keywords: [Avalanche, JS/TS, Solidity, React, Smart contracts, Solidity]
 date: '2021-08-25T04:34:12.311Z'
 ---
 
-# Introduction
+## Introduction
 
 A decentralised exchange is a network that allows anybody to swap cryptocurrency tokens over the blockchain by performing a transaction between two tokens, such as the AVAX-LINK pair. Centralized exchanges (CEX), such as [Binance](https://www.binance.com/en), are online trading platforms that use an orderbook to match buyers and sellers. They work in a similar fashion to online brokerage accounts, which is why they're so popular with investors.
 Decentralized exchanges (DEX), such as [PancakeSwap](https://pancakeswap.finance/) or [Uniswap](https://uniswap.org/), are self-contained financial protocols powered by smart contracts that let cryptocurrency traders to convert their holdings.
 
 The major difference between centralised and decentralised exchanges is that the former maintains control over your funds while you interact on the trading platform, whereas the latter allows you to keep control of your cash when trading.
 
-# Prerequisites
+## Prerequisites
 
 You must have gone through this tutorial [Create a Local Test Network on Avalanche](https://learn.figment.io/tutorials/create-a-local-test-network) and have performed a cross-chain swap via the [Transfer AVAX Between X-Chain and C-Chain](https://learn.figment.io/tutorials/transfer-avax-between-the-x-chain-and-c-chain) tutorial to get AVAX test tokens to your C-Chain address.
 
-# Requirements
+## Requirements
 
 - [NodeJS](https://nodejs.org/en)
 - [ReactJS](https://reactjs.org/)
@@ -88,7 +88,7 @@ module.exports = {
 
 Note that you can change the `protocol`, `ip` and `port` if you want to direct API calls to a different AvalancheGo node. Also, note that we're setting the `gasPrice` and `gas` to the appropriate values for the Avalanche C-Chain.
 
-# Add DevToken.sol
+## Add DevToken.sol
 
 In the contracts directory create `Devtoken.sol` and add the following block of code:
 
@@ -161,7 +161,7 @@ constructor() public {
 }
 ```
 
-# Add AvaSwap.sol
+## Add AvaSwap.sol
 
 In the contracts directory add a new file called `AvaSwap.sol` and add the following block of code:
 
@@ -245,7 +245,7 @@ contract AvaSwap {
 }
 ```
 
-# Add a new migration
+## Add a new migration
 
 Create a new file in the `migrations` directory named `2_deploy_contracts.js`, and add the following block of code. This handles deploying the `AvaSwap` smart contract to the blockchain.
 
@@ -264,7 +264,7 @@ module.exports = function (deployer) {
 };
 ```
 
-# Compile contracts with Truffle
+## Compile contracts with Truffle
 
 Any time you make a change to `AvaSwap.sol` you must compile the contracts again.
 
@@ -284,7 +284,7 @@ Compiling your contracts...
    - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
 ```
 
-# Create and unlock an account on the C-Chain
+## Create and unlock an account on the C-Chain
 
 When deploying smart contracts to the C-Chain, Truffle will default to the first available account provided by your C-Chain client as the `from` address used during migrations.
 
@@ -330,7 +330,7 @@ This returns:
 true
 ```
 
-# Run migrations
+## Run migrations
 
 Now everything is in place to run the migrations and deploy the contract:
 
@@ -419,7 +419,7 @@ Error:  *** Deployment Failed ***
 "Migrations" -- Returned error: authentication needed: password or unlock.
 ```
 
-# UI interaction with smart contracts
+## UI interaction with smart contracts
 
 To interact with the contract, we will create a React app using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html).
 
@@ -810,17 +810,17 @@ export default SellForm;
 
 ![TODO:NOT_FOUND ](./assets/avalanche-create-a-decentralized-exchange-on-avalanche-image-3.png)
 
-# Conclusion
+## Conclusion
 
 Now you know about creating a Decentralized Exchange (DEX) with Truffle suite and ReactJS on the Avalanche network.
 
 If you had any difficulties following this tutorial or simply want to discuss Avalanche tech with us you can [**join our discord channel**](https://discord.gg/fszyM7K)!
 
-# About the author
+## About the author
 
 [Devendra Yadav](https://twitter.com/de_villa7)
 
-# References
+## References
 
 - https://learn.figment.io/tutorials/using-truffle-with-the-avalanche-c-chain
 - https://github.com/OpenZeppelin/openzeppelin-contracts

@@ -5,23 +5,23 @@ keywords: [Tezos, Python, Smart contracts]
 date: '2021-11-01T23:14:52.198Z'
 ---
 
-# Introduction
+## Introduction
 
 Hey Reader! Welcome to this Tutorial on Testing a smart contract on Tezos in SmartPy. We will be learning how to run unit tests and make sure our code works before deployment because once deployed, smart contracts are immutable (and we do not want to waste our XTZ tokens).
 
 - Tezos is an open-source blockchain protocol for assets and applications backed by a global community of validators, researchers, and builders. The Tezos protocol is secure, upgradable, and built to last.
 - SmartPy is an intuitive and powerful smart contract development platform for Tezos and is available through a Python library for building and analyzing Tezos smart contracts.
 
-# Prerequisites
+## Prerequisites
 
 To complete this tutorial, you will need a basic understanding of the Python programming language and know-how of how to write and deploy Tezos Contracts.
 I will suggest you take a look at this [Tutorial](https://learn.figment.io/tutorials/using-the-smartpy-ide-to-deploy-tezos-smart-contracts) first.
 
-# Requirements
+## Requirements
 
 Any modern Browser!
 
-# Smart Contract
+## Smart Contract
 
 Before we go to the depths of testing the contract, we need to first have a sample contract that is complex enough so that we can understand its testing.
 
@@ -81,7 +81,7 @@ A secret code is hashed and stored in the contract which acts as the password fo
 
 Now a contract of such high importance must be iron-clad and no bug should allow either of the parties to claim the amount before the specified task is completed. Hence the need for testing it extensively arises.
 
-# Test Scenarios
+## Test Scenarios
 
 In SmartPy we can simulate all kinds of transaction possibilities and test out our contract without having to spend a single XTZ.
 
@@ -111,7 +111,7 @@ def test():
     scenario.h1("Escrow")
 ```
 
-# Test Accounts
+## Test Accounts
 
 Test Accounts are unique dummy accounts provided to us via the SmartPy library so that we can simulate real-world user accounts which will interact with our contract.
 It is instatiated the following way:
@@ -132,7 +132,7 @@ Test Accounts have the following properties for us to use:
 
 These represent the values that the user will have in their account. For us, the most important is their **Address**.
 
-# Originating a Contract
+## Originating a Contract
 
 Now we have the two parties of the Escrow contract namely **bob** and **udit** and we are ready to Originate our contract in our **test scenario**.
 According to our contract above we need the following parameters:
@@ -157,7 +157,7 @@ Now in our **test scenario** we have added a Smart Contract between two users (b
 
 > I have used blake2b as my cryptographic hash function. Read more about it [HERE](https://www.blake2.net/)
 
-# Run Method
+## Run Method
 
 As we know that we can directly call our contract's EntryPoints using the `.` operator like `ob.addBalanceOwner()` but to simulate the intricate parameters of a real-world transaction we user the `.run()` method which has the following parameters :
 
@@ -176,12 +176,12 @@ exception | If we expect a transaction to fail then we can also specify the expe
 
 For our tutorial, we will be focusing on the `sender` , `amount`, `now`, `valid` , `show` parameters.
 
-# Unit Tests
+## Unit Tests
 
 We write all our verifying conditions in the contract and create transactions that would test all the functionalities of our contract.
 My advice here is to proceed by isolating an EntryPoint and then testing all its variables and then moving on to the next EntryPoint:
 
-## addBalanceOwner()
+### addBalanceOwner()
 
 ```python
 ob.addBalanceOwner().run(sender=udit , amount = sp.tez(25) , valid = False)
@@ -197,7 +197,7 @@ ob.addBalanceOwner().run(sender = bob , amount = sp.tez(25) , valid = False)
 3.  The third transaction has both the owner and stake amount correct and we expect it to be a valid transaction.
 4.  In the fourth transaction even though all the parameters are correct, the owner has already staked once in the contract and can not stake again. Hence, we expect our transaction to fail and have **valid** set as **False**.
 
-## addBalanceCounterparty()
+### addBalanceCounterparty()
 
 ```python
 ob.addBalanceCounterparty().run(sender=bob , amount = sp.tez(5) , valid = False)
@@ -213,7 +213,7 @@ ob.addBalanceCounterparty().run(sender = udit, amount = sp.tez(5) , valid = Fals
 3.  The third transaction has both the counterparty and stake amount correct and we expect it to be a valid transaction.
 4.  In the fourth transaction even though all the parameters are correct, the counter arty has already staked once in the contract and can not stake again. Hence, we expect our transaction to fail and have **valid** set as **False**.
 
-## claimCounterparty()
+### claimCounterparty()
 
 ```python
 ob.claimCounterparty(secret = s).run(sender = bob , valid = False)
@@ -229,7 +229,7 @@ ob.claimCounterparty(secret = s).run(sender = udit)
 3.  The third transaction has both the counterparty and secret key correct but the timestamp is for 25th October 2021 which is past our deadline set during origination.
 4.  The fourth transaction has everything in order and hence is a valid transaction.
 
-## claimOwner()
+### claimOwner()
 
 ```python
 ob.claimOwner().run(sender = udit , valid = False)
@@ -243,7 +243,7 @@ ob.claimOwner().run(sender = bob ,now = sp.timestamp(1635192186) )
 2.  The second transaction has the correct **sender** but the time limit has not yet expired. Hence, we expect our transaction to fail and have **valid** set as **False**.
 3.  The third transaction has everything in order and hence is a valid transaction with the timestamp simulated as of 25th October 2021.
 
-# Accessing Contract Data
+## Accessing Contract Data
 
 We can also access a lot of parameters associated with the contract using the `.` operator like `ob.data`. We have the following options :
 
@@ -259,11 +259,11 @@ balance | Fetches contract's balance amount in XTZ
 baker | Fetches contract's optional delegated baker
 address | Fetches contract's deployed address within the scenario
 
-# Scenario Methods
+## Scenario Methods
 
 The scenario we made in the above tutorial also provides us with various tools to verify, compute and show in HTML Output.
 
-## Verify
+### Verify
 
 We can verify all the parameters of our storage or any condition using **verify** method.
 
@@ -271,7 +271,7 @@ We can verify all the parameters of our storage or any condition using **verify*
 scenario.verify(ob.data.owner == bob.address)
 ```
 
-## Compute
+### Compute
 
 Using **compute** we perform calculations and store them in local variables inside the scenario.
 
@@ -279,7 +279,7 @@ Using **compute** we perform calculations and store them in local variables insi
 x = scenario.compute(ob.data.fromOwner + sp.tez(15))
 ```
 
-## Show
+### Show
 
 **show** method is used to add expressions that are not transactions into the HTML Output. This will compute the expression and add it to our output panel
 
@@ -288,7 +288,7 @@ scenario.show(ob.data)
 scenario.show(ob.data.fromOwner + sp.tez(15))
 ```
 
-## HTML Tags
+### HTML Tags
 
 We are also provided with 6 levels of headings in our scenario so that we can beautify and segregate our output panel.
 
@@ -302,7 +302,7 @@ scenario.p("<p> HTML tag.")
 
 Now that we have completed the depths of testing our smart contract we are ready to deploy it in the real world and have real users interact with it.
 
-# Final Code
+## Final Code
 
 ```python
 import smartpy as sp
@@ -400,19 +400,19 @@ def test():
     scenario.show(ob.data.fromOwner + sp.tez(15))
 ```
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned how to create test scenarios, simulate complex transactions in SmartPy, and how to use the various functionalities provided by SmartPy to test and make our code bug-free. You can create your test scenarios like above and save yourself a lot of time and XTZ by ironing out the bugs before deployment.
 
-# Next Steps
+## Next Steps
 
 I would like for you to make your contracts and test all their EntryPoints, Storage and make sure they are perfect before deploying them to the chain.
 
-# About The Author
+## About The Author
 
 This tutorial was written by Udit Kapoor, who is a Tezos India 2.0 Fellow and a blockchain enthusiast. Their signature project is CryptoWill and they like to dabble in Flutter as well! Reach out to Udit on [GitHub](https://github.com/Udit-Kapoor).
 
-# References
+## References
 
 - Escrow example code from SmartPy.io
 - [SmartPy Docs](https://smartpy.io/docs/)

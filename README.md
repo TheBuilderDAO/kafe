@@ -134,10 +134,17 @@ Reviewers consisting of protocol DevRels and community stewards are assigned to 
 
 ## Writing a guide for Kafé
 
+<<<<<<< HEAD
 Each guide has its own subdirectory below `tutorials`. The only files you need to edit when writing a guide are in the `content` directory of your guide. To prepare the guide directory, metadata and markdown template for your proposal, run the command:
 
 ```text
 builderdao tutorial init
+=======
+Each guide has its own subdirectory below `guides`. The only files you need to edit when writing a guide are in the `content` directory of your guide. To prepare the guide directory, metadata and markdown template for your proposal, run the command:
+
+```text
+builderdao guide init
+>>>>>>> dev
 ```
 
 Complete the interactive prompts to prepare the template and checkout the correct branch.

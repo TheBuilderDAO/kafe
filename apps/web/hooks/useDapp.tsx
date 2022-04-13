@@ -31,7 +31,8 @@ type ApplicationFetcherConfig = {
 
 export const getApplicationFetcher = () => {
   const network = NEXT_PUBLIC_SOLANA_NETWORK as TutorialProgramConfig.Network;
-  const url = NEXT_PUBLIC_SOLANA_NODE_URL || clusterApiUrl(network as Cluster);
+  const url =
+    NEXT_PUBLIC_SOLANA_NODE_URL || TutorialProgramConfig.getClusterUrl(network);
   const connection = new Connection(url, 'confirmed');
 
   const solanaApi = new SolanaApi({

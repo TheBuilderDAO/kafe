@@ -5,17 +5,17 @@ keywords: [The Graph, Graphql, GraphQL]
 date: '2021-09-16T17:02:58.240Z'
 ---
 
-# Introduction
+## Introduction
 
 In this tutorial, you will learn how to create a subgraph from an already deployed smart contract on the Ethereum Rinkeby testnet, deploy it to the Subgraph Studio, and then use the Subgraph Studio Playground to query the subgraph.
 
 ![Subgraph Studio](./assets/the-graph-query-ethereum-data-with-the-graph-subgraph-studio-1.png)
 
-# Prerequisites
+## Prerequisites
 
 To successfully complete this tutorial, you will need to have a basic understanding of Ethereum, the Metamask wallet and the NodeJS ecosystem.
 
-# Requirements
+## Requirements
 
 - You will need Metamask installed in your browser. You can install it from <https://metamask.io/>
 - You need to have a recent version of Node.js installed. We recommend using v14.17.6 LTS for compatibility.
@@ -32,7 +32,7 @@ Topics not covered in this tutorial:
 
 - Writing the smart contract and then deploying it to Rinkeby testnet
 
-# Project setup
+## Project setup
 
 Run the below commands to install the npm dependencies globally. These are required to build and deploy your subgraph.
 
@@ -41,7 +41,7 @@ npm i -g yarn
 npm i -g @graphprotocol/graph-cli
 ```
 
-# Creating the graph project in Subgraph Studio
+## Creating the graph project in Subgraph Studio
 
 First, you will want to head over to the Subgraph Studio at <https://thegraph.com/studio/>.
 
@@ -57,7 +57,7 @@ Next, you need to give your subgraph a name. Give the name as **vending**. Once 
 
 On this screen, you can see details about the subgraph like your deploy key, the subgraph slug and status.
 
-# Creating and deploying the subgraph
+## Creating and deploying the subgraph
 
 - Run the following command to create the subgraph by downloading the contract ABI from the Rinkeby testnet. A new directory called `vending` will be created, and all node dependencies will be installed automatically.
 
@@ -199,7 +199,7 @@ Subgraph Studio might take few minutes to sync the graph from the Rinkeby testne
 
 Once the sync is complete, you can access the subgraph on the Playground to run your queries.
 
-# Querying the graph
+## Querying the graph
 
 Head over to <https://thegraph.com/studio/subgraph/vending/> to start querying data with the Playground.
 
@@ -324,10 +324,10 @@ You will see the information about the purchase you just created!
 }
 ```
 
-# Conclusion
+## Conclusion
 
 Congratulations on finishing this tutorial! You have learned how to create and deploy your first subgraph, as well as query the subgraph using the Subgraph Studio Playground.
 
-# About the Author
+## About the author
 
 I'm Robin Thomas, a blockchain enthusiast with few years of experience working with various blockchain protocols. Feel free to connect with me on [GitHub](https://github.com/robin-thomas).

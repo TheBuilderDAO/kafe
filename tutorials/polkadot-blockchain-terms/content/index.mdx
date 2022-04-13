@@ -5,7 +5,7 @@ keywords: [Polkadot]
 date: '2021-07-21T10:51:04.993Z'
 ---
 
-# Introduction
+## Introduction
 
 Polkadot allows blockchains and applications to come together and work with each other in parallel. To have a decentralized web, an internet of interoperable blockchains is key. **A sharded blockchain protocol.** Polkadot considers itself to be a next-generation blockchain, or better yet, a foundational network layer that will truly drive the "web 3.0 vision" to create a unified network of specialized, self-governed, optimal blockchains that work together via interoperability. Polkadot offers scalability through its shared model, where blockchains that used to operate in isolation can take advantage of the Polkadot architecture to eliminate bottlenecks and network traffic.
 
@@ -17,7 +17,7 @@ This guide will outline key blockchain concepts through the eyes of Polkadot by 
 
 This is done through _true interoperability_, _pooled security_, _heterogeneous chains_ and _thought-through governance_.
 
-# Prerequisites
+## Prerequisites
 
 This tutorial aims to be beginner-friendly. Nonetheless, it is recommended that you are familiar with the following:
 
@@ -25,9 +25,9 @@ This tutorial aims to be beginner-friendly. Nonetheless, it is recommended that 
 - An understanding of Polkadot's architecture: [Polkadot: Are You Ready to Start Building?](https://www.youtube.com/watch?v=_-k0xkooSlA).
 - [Getting Started with Polkadot](https://wiki.polkadot.network/docs/en/getting-started).
 
-# Introduction to Advanced Concepts in Polkadot
+## Introduction to Advanced Concepts in Polkadot
 
-## Polkadot and Smart Contracts
+### Polkadot and Smart Contracts
 
 A `smart contract` is a set of instructions (in the form of code) that are deployed on-chain. These instructions represent an agreement between parties that are presented as an executable computer program. The computer program is executed by a blockchain-based platform that enables the deployment of smart contracts. In other words, the smart contract allows for application-level source code to be deployed on-chain. The execution only takes place when predetermined conditions are met. External actors can call upon the smart contract only after it is executed on-chain. The smart contract that is created from the set of instructions will be associated with a specific chain address.
 
@@ -41,7 +41,7 @@ If these external chains would like to offer support for smart contracts, they c
 
 In addition, Substrate also offers a built-in [contract pallet](https://substrate.dev/rustdocs/v3.0.0/pallet_contracts/index.html) that parachains can adapt to. This provides the necessary specs for the deployment and execution of _WebAssembly_ smart contracts.
 
-## Background
+### Background
 
 As the name suggests, the `Ethereum Virtual Machine` is a virtual machine for Ethereum. The EVM abstracts necessary computational resources into a virtual stack and acts as a runtime environment for smart contracts. [Solidity](https://docs.soliditylang.org/en/v0.8.4/#) is the programming language used for developing smart contracts that run on the EVM.
 
@@ -51,7 +51,7 @@ As the name suggests, the `Ethereum Virtual Machine` is a virtual machine for Et
 
 ![](./assets/polkadot-blockchain-terms-image-2.png)
 
-## Advantages of Smart Contracts
+### Advantages of Smart Contracts
 
 **_Trustfulness, Transparency, Reliability, Accuracy & Automative_**
 
@@ -63,7 +63,7 @@ As the name suggests, the `Ethereum Virtual Machine` is a virtual machine for Et
 
   (DeFi), governance, and digital identity management.
 
-## Disadvantages of Smart Contracts
+### Disadvantages of Smart Contracts
 
 **_Scalability, Limitations, Dependencies_**
 
@@ -79,7 +79,7 @@ As the name suggests, the `Ethereum Virtual Machine` is a virtual machine for Et
   - Because the smart contract is resource dependant, the code that is executed needs to use the resources of the chain's ecosystem. If there are aspects of the smart contract that are heavy on computational resources, this can be problematic, resulting in a halting problem. With a powerful language, it is impossible to know ahead of time whether or not a program will cease execution. Some platforms address this through a very restricted scripting language (e.g. Bitcoin). Other web 3.0 ecosystems charge a fee, usually referred to as a "gas fee" - for the rights to execute the code on-chain and use those computational resources (e.g. Ethereum). However, if a smart contract executes indefinitely, it will cease its own execution by "running out of gas". Limiting a smart contract's execution is also necessary for preventing DOS attacks.
   - Smart contracts are Immutable: if there are updates to be made in the code within the smart contract, that means an entirely new smart contract needs to be deployed that will be tied to a new chain address; anything referring to the previous chain address also needs to be moved over to the new chain address.
 
-# What is a Parachain?
+## What is a Parachain?
 
 The Polkadot network has a central chain called the [relay chain](https://wiki.polkadot.network/docs/en/learn-architecture#relay-chain). Polkadot's Nominated Proof of Stake (NPoS) model is used to select validators, allowing them to participate in the consensus protocol. These validators are staked on the Relay chain. Parachains are maintained by a network maintainer known as a [_collator_](https://wiki.polkadot.network/docs/en/learn-collator).
 
@@ -93,7 +93,7 @@ Polkadot is considered to be a _layer-0 multi-chain network_, and Parachains run
 
 > A prominent issue in the Ethereum ecosystem is the ability to scale where a dependency is created on possible _layer-2_ scaling solutions.
 
-## Comparing Parachains and Smart Contracts
+### Comparing Parachains and Smart Contracts
 
 After developing a smart contract, the next thing to do is to deploy it. This means there is a need for a target chain, where the target chain has its own environment. Using a parachain, the developer can declare the environment of their own chain. Parachains can also upgrade themselves through a root command or the governance pallet, allowing developers to update code. This is an essential parachain feature to prevent forks - unlike smart contracts, which have exhaustive upgrade issues.
 
@@ -111,7 +111,7 @@ Polkadot
 - Smart contracts can call each other synchronously in the same parachain.
 - Smart contracts can call each other asynchronously across parachains.
 
-## Benefits in becoming a Parachain
+### Benefits in becoming a Parachain
 
 **_Security, Scability, Developer friendly, On-chain Governance, Crowdloan functionality_**
 
@@ -129,7 +129,7 @@ Polkadot
 
 Parachain's participation on polkadot is auction-based and requires the parachain to secure an available parachain slot on the relay chain.
 
-## What about Parathreads?
+### What about Parathreads?
 
 `Parathreads` are parachains that do not stay connected to the relay chain. Parathreads are essentially pay-as-you-go parachains and temporarily participate on the network on a per-block basis \[2].
 
@@ -137,7 +137,7 @@ Parachain's participation on polkadot is auction-based and requires the parachai
 
 The main difference between parachains and parathreads is **economic**. A parachain auction happens every six months for securing a slot on the network. A fee auction happens every block for a parathread.
 
-# Polkadot and dApps
+## Polkadot and dApps
 
 `dApp` stands for decentralized application; no single entity has complete control. dApps run on peer-to-peer, distributed networks. Smart contracts are known as the core pillar for dApps, as application-level source code is within the logic of the contract itself. Since the apps are based on a decentralized blockchain, there is an incentivization system for the validators through some form of digital asset (often a token). A dApp requires a consensus mechanism to convey the proof of value in the system.
 
@@ -169,11 +169,11 @@ This [article](https://www.parity.io/wasm-smart-contract-development/#:~:text=Wh
 
 > NOTE: Remember, Polkadot supports parachains that are not built on Substrate. Chains can also be built on Substrate and are not required to be deployed onto Polkadot \[1].
 
-# Conclusion
+## Conclusion
 
 Congratulations! This tutorial offered a friendly architectural view of Polkadot, in the eyes of Polkadot. The tutorial branched off from "what the blockchain space has" to "where it's going" by discussing the differences between smart contracts, parachains, parathreads and DApps.
 
-# What's next?
+## What's next?
 
 To dive more into these concepts, see the following pages on the official Polkadot Wiki.
 
@@ -185,14 +185,14 @@ To dive more into these concepts, see the following pages on the official Polkad
 
 Why not try building your first Substrate-based chain!
 
-# About the Author
+## About the author
 
 This guide was created by Danny Salman. You can reach out to Danny on [GitHub](https://github.com/DannyS03) for help or if you have questions pertaining to Polkadot and this guide.
 
-# References
+## References
 
-\[1] [A brief summary of everything Substrate and Polkadot](https://www.parity.io/a-brief-summary-of-everything-substrate-polkadot/)\
-\[2] [Parathreads: Pay-as-you-go Parachains](https://polkadot.network/parathreads-parathreads-pay-as-you-go-parachains/)\
-\[3] [Polkadot: The Foundation of a New Internet](https://medium.com/polkadot-network/polkadot-the-foundation-of-a-new-internet-e8800ec81c7)\
-\[4] [Polkadot, Substrate and Ethereum](https://medium.com/polkadot-network/polkadot-substrate-and-ethereum-f0bf1ccbfd13)\
-\[5] [Research at Web3 Foundation](https://research.web3.foundation/en/latest/polkadot/overview/1-polkadot-introduction.html?highlight=parachains)
+1. [A brief summary of everything Substrate and Polkadot](https://www.parity.io/a-brief-summary-of-everything-substrate-polkadot/)
+2. [Parathreads: Pay-as-you-go Parachains](https://polkadot.network/parathreads-parathreads-pay-as-you-go-parachains/)
+3. [Polkadot: The Foundation of a New Internet](https://medium.com/polkadot-network/polkadot-the-foundation-of-a-new-internet-e8800ec81c7)
+4. [Polkadot, Substrate and Ethereum](https://medium.com/polkadot-network/polkadot-substrate-and-ethereum-f0bf1ccbfd13)
+5. [Research at Web3 Foundation](https://research.web3.foundation/en/latest/polkadot/overview/1-polkadot-introduction.html?highlight=parachains)
