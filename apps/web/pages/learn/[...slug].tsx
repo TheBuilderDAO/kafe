@@ -112,34 +112,46 @@ export const getStaticProps: GetStaticProps = async context => {
     config: BuilderDaoConfigJson;
     lock: BuilderDaoLockJson;
   }> => {
-    if (NODE_ENV === 'production') {
-      const applicationFetcher = getApplicationFetcher();
-      const tutorial = await applicationFetcher.getTutorialBySlug(tutorialSlug);
-      return {
-        config: {
-          title: tutorial.title,
-          description: tutorial.description,
-          // TODO:  Ceramic calls it tags lock file calls it categories.
-          categories: tutorial.tags,
-          imageUrl: '',
-        },
-        lock: {
-          proposalId: tutorial.id,
-          creator: tutorial.creator,
-          content: tutorial.content,
-          slug: tutorial.slug,
-          reviewers: {
-            reviewer1: {
-              pubkey: tutorial.reviewer1.toString(),
-            },
-            reviewer2: {
-              pubkey: tutorial.reviewer2.toString(),
-            },
+    try {
+      if (NODE_ENV === 'production') {
+        const applicationFetcher = getApplicationFetcher();
+        const tutorial = await applicationFetcher.getTutorialBySlug(
+          tutorialSlug,
+        );
+        return {
+          config: {
+            title: tutorial.title,
+            description: tutorial.description,
+            // TODO:  Ceramic calls it tags lock file calls it categories.
+            categories: tutorial.tags,
+            imageUrl: '',
           },
-          href: `learn/${tutorial.slug}`,
-        },
-      };
-    } else {
+          lock: {
+            proposalId: tutorial.id,
+            creator: tutorial.creator,
+            content: tutorial.content,
+            slug: tutorial.slug,
+            reviewers: {
+              reviewer1: {
+                pubkey: tutorial.reviewer1.toString(),
+              },
+              reviewer2: {
+                pubkey: tutorial.reviewer2.toString(),
+              },
+            },
+            href: `learn/${tutorial.slug}`,
+          },
+        };
+      } else {
+        const rootFolder = getPathForRootFolder(tutorialSlug);
+        const { config, lock } = await getTutorialContentByPath({ rootFolder });
+        return {
+          config,
+          lock,
+        };
+      }
+    } catch (err) {
+      console.log(err);
       const rootFolder = getPathForRootFolder(tutorialSlug);
       const { config, lock } = await getTutorialContentByPath({ rootFolder });
       return {
@@ -148,6 +160,7 @@ export const getStaticProps: GetStaticProps = async context => {
       };
     }
   };
+
   const getPost = async (): Promise<{ content: string; data: any }> => {
     if (NODE_ENV === 'production') {
       try {
