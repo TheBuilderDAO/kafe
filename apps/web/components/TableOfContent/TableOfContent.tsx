@@ -52,7 +52,7 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
   );
   const shouldShowInList = (index: number, depth: number) => {
     switch (true) {
-      case depth === 2:
+      case depth <= 2:
         return true;
       case scrolledSections.length - 1 <= currentActiveIndex &&
         currentActiveIndex < index + 2:
@@ -64,9 +64,7 @@ const TableOfContent = ({ toc }: TableOfContentProps) => {
       <ProgressBar progress={readingProgress} />
       {toc.length > 0 ? (
         <ul className="ml-2">
-          <motion.p className="p-2 pb-6 text-xl font-larken">
-            Contents {currentActiveIndex}{' '}
-          </motion.p>
+          <motion.p className="p-2 pb-6 text-xl font-larken">Contents</motion.p>
           {toc.map((item, index) => {
             return (
               <motion.li
