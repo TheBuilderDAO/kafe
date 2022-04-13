@@ -1,13 +1,13 @@
-import routes from '../routes';
 import { useCallback, useState } from 'react';
 import { mutate } from 'swr';
-import { useTutorialProgram } from './index';
-import { PublicKey } from '@solana/web3.js';
+import * as anchor from '@project-serum/anchor';
+import { useTutorialProgram } from './useTutorialProgram';
+import routes from '../routes';
 
 type ActionData = {
   id: number;
-  authorityPk: PublicKey;
-  reviewerPks: PublicKey[];
+  authorityPk: anchor.web3.PublicKey;
+  reviewerPks: anchor.web3.PublicKey[];
 };
 
 export const useReviewersAssign = (): [
@@ -33,7 +33,7 @@ export const useReviewersAssign = (): [
         mutate(routes.tutorialById(data.id));
       } catch (err) {
         if (err instanceof Error) {
-          console.log('Err:', err);
+          console.error('Err:', err);
           setError(err);
         }
 

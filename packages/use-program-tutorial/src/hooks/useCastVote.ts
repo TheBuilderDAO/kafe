@@ -1,8 +1,8 @@
-import routes from '../routes';
 import { useCallback, useState } from 'react';
 import { mutate } from 'swr';
-import { useTutorialProgram } from './index';
 import { BN } from '@project-serum/anchor';
+import { useTutorialProgram } from './useTutorialProgram';
+import routes from '../routes';
 
 export const useCastVote = (): [
   (tutorialId: number) => Promise<void>,
@@ -32,14 +32,12 @@ export const useCastVote = (): [
         mutate(routes.tutorialById(tutorialId));
         mutate(
           routes.listOfVotersById(tutorialId),
-          async (voters: any) => {
-            return [
-              ...voters,
-              {
-                account: newVote,
-              },
-            ];
-          },
+          async (voters: any) => [
+            ...voters,
+            {
+              account: newVote,
+            },
+          ],
           {
             revalidate: false,
             populateCache: true,
@@ -51,9 +49,7 @@ export const useCastVote = (): [
             tutorialId,
             tutorialProgram?.provider?.wallet?.publicKey!,
           ),
-          async (vote: any) => {
-            return newVote;
-          },
+          async (vote: any) => newVote,
           {
             revalidate: false,
             populateCache: true,

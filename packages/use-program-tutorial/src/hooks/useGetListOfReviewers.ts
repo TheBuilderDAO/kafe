@@ -1,12 +1,12 @@
 import { ReviewerAccount, AccountResult } from '@builderdao/program-tutorial';
 import useSWR from 'swr';
 import routes from '../routes';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
-type reviewersMap = {
+type ReviewersMap = {
   [publicKey: string]: ReviewerAccount
 }
-export const useGetListOfReviewers = <D>() => {
+export const useGetListOfReviewers = () => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error, ...otherProps } = useSWR(
@@ -16,10 +16,10 @@ export const useGetListOfReviewers = <D>() => {
 
   return {
     reviewers: data,
-    reviewersMap: data?.reduce((prev: reviewersMap, curr: AccountResult<ReviewerAccount>) => {
+    reviewersMap: data?.reduce((prev: ReviewersMap, curr: AccountResult<ReviewerAccount>) => {
       prev[curr.publicKey.toString()] = curr.account;
       return prev;
-    }, {} as reviewersMap),
+    }, {} as ReviewersMap),
     loading: !error && !data,
     error,
     ...otherProps,

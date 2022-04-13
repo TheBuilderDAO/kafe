@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "yarn build --watch",
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react @builderdao/program-tutorial",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -40,6 +40,7 @@
   "dependencies": {
     "@builderdao/program-tutorial": "*",
     "@project-serum/anchor": "^0.23.0",
+    "@solana/wallet-adapter-react": "^0.15.4",
     "swr": "^1.2.1"
   }
 }

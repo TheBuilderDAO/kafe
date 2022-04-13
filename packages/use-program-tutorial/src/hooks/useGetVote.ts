@@ -1,9 +1,9 @@
 import useSWR from 'swr';
+import * as anchor from '@project-serum/anchor';
 import routes from '../routes';
-import { PublicKey } from '@solana/web3.js';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetVote = <D>(tutorialId: number, publicKey: PublicKey) => {
+export const useGetVote = (tutorialId: number, publicKey: anchor.web3.PublicKey) => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error } = useSWR(routes.vote(tutorialId, publicKey), async () =>

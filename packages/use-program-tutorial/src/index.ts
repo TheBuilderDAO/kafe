@@ -1,4 +1,4 @@
+
 export * from './hooks';
-export * from './routes';
-// export { ProposalStateE, ProposalAccount, VoteAccount, AccountResult, DaoAccount, TipperAccount,  } from '@builderdao/program-tutorial';
+export { default as routes } from './routes';
 export * from '@builderdao/program-tutorial';

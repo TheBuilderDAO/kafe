@@ -1,7 +1,7 @@
-import routes from '../routes';
 import { useCallback, useState } from 'react';
 import { mutate } from 'swr';
-import { useTutorialProgram } from './index';
+import routes from '../routes';
+import { useTutorialProgram } from './useTutorialProgram';
 
 export const useCancelVote = (): [
   (tutorialId: number) => Promise<void>,
@@ -25,13 +25,11 @@ export const useCancelVote = (): [
 
         mutate(
           routes.listOfVotersById(tutorialId),
-          async (voters: any) => {
-            return voters.filter(
-              (voter: any) =>
-                voter.account.author.toString() !==
-                tutorialProgram.provider.wallet.publicKey.toString(),
-            );
-          },
+          async (voters: any) => voters.filter(
+            (voter: any) =>
+              voter.account.author.toString() !==
+              tutorialProgram.provider.wallet.publicKey.toString(),
+          ),
           {
             revalidate: false,
             populateCache: true,
@@ -43,9 +41,7 @@ export const useCancelVote = (): [
             tutorialId,
             tutorialProgram?.provider?.wallet?.publicKey!,
           ),
-          async (vote: any) => {
-            return {};
-          },
+          async (vote: any) => ({}),
           {
             revalidate: false,
             populateCache: true,

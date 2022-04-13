@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 import routes from '../routes';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetTutorialBySlug = <D>(slug: string) => {
+export const useGetTutorialBySlug = (slug: string) => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error } = useSWR(routes.tutorialBySlug(slug), async () =>

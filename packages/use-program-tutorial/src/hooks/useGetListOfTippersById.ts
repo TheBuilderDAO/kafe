@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 import routes from '../routes';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetListOfTippersById = <D>(id: number) => {
+export const useGetListOfTippersById = (id: number) => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error } = useSWR(routes.listOfTippersById(id), async () =>

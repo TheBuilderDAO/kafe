@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import routes from '../routes';
 import { mutate } from 'swr';
-import { useTutorialProgram } from './index';
+import routes from '../routes';
+import { useTutorialProgram } from './useTutorialProgram';
 
 export const useProposeTutorial = <AD>(): [
   (data: AD) => Promise<string | undefined>,

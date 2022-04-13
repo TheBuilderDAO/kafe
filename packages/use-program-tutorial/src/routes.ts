@@ -1,7 +1,6 @@
-/* eslint-disable import/no-anonymous-default-export */
-import { PublicKey } from '@solana/web3.js';
+import * as anchor from '@project-serum/anchor';
 
-export default {
+const routes = {
   daoState: '/dao/state',
   admin: '/admin',
   tutorialBySlug: (slug: string) => ['tutorials/slug', slug],
@@ -24,13 +23,13 @@ export default {
     ...tutorialIds,
     'tippers-by-id',
   ],
-  listOfTippersByUser: (tipperPk: PublicKey) => [
+  listOfTippersByUser: (tipperPk: anchor.web3.PublicKey) => [
     'tutorials',
     tipperPk,
     'tippers-by-user',
   ],
-  reviewer: (publicKey: PublicKey) => ['reviewers', publicKey.toString()],
-  vote: (tutorialId: number, publicKey: PublicKey) => [
+  reviewer: (publicKey: anchor.web3.PublicKey) => ['reviewers', publicKey.toString()],
+  vote: (tutorialId: number, publicKey: anchor.web3.PublicKey) => [
     'tutorials',
     tutorialId,
     'voters',
@@ -38,3 +37,4 @@ export default {
   ],
   proposal: '/proposal',
 };
+export default routes

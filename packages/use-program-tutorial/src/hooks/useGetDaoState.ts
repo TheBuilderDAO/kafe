@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 import routes from '../routes';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetDaoState = <D>() => {
+export const useGetDaoState = () => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error } = useSWR(

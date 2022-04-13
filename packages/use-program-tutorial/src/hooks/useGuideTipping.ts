@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import * as anchor from '@project-serum/anchor';
 import { mutate } from 'swr';
 import routes from '../routes';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
 export const useGuideTipping = <AD>(): [
   (data: AD) => Promise<string | undefined>,
@@ -59,14 +59,14 @@ export const useGuideTipping = <AD>(): [
               newTipper.account.amount = newTipper.account.amount.add(amount);
 
               return [newTipper];
-            } else {
+            } 
               return [
                 ...tippers,
                 {
                   account: newTip,
                 },
               ];
-            }
+            
           },
           {
             revalidate: false,

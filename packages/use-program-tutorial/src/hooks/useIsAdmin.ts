@@ -1,9 +1,9 @@
 import useSWR from 'swr';
-import routes from '../routes';
-import { useTutorialProgram } from './index';
 import { useWallet } from '@solana/wallet-adapter-react';
+import routes from '../routes';
+import { useTutorialProgram } from './useTutorialProgram';
 
-export const useIsAdmin = <D>() => {
+export const useIsAdmin = () => {
   const wallet = useWallet();
   const tutorialProgram = useTutorialProgram();
 
@@ -14,7 +14,7 @@ export const useIsAdmin = <D>() => {
 
   return {
     isAdmin: data,
-    loading: !error && data == undefined,
+    loading: !error && data === undefined,
     error,
   };
 };

@@ -1,9 +1,9 @@
 import { VoteAccount } from '@builderdao/program-tutorial';
 import useSWR from 'swr';
 import routes from '../routes';
-import { useTutorialProgram } from './index';
+import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetHashmapVoterAccountListByIds = <D>(
+export const useGetHashmapVoterAccountListByIds = (
   tutorialIds: number[],
 ) => {
   const tutorialProgram = useTutorialProgram();

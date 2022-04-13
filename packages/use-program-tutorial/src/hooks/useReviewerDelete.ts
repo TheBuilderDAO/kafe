@@ -1,12 +1,12 @@
-import routes from '../routes';
 import { useCallback, useState } from 'react';
 import { mutate } from 'swr';
-import { useTutorialProgram } from './index';
-import { PublicKey } from '@solana/web3.js';
+import * as anchor from '@project-serum/anchor';
+import { useTutorialProgram } from './useTutorialProgram';
+import routes from '../routes';
 
 type ActionData = {
-  authorityPk: PublicKey;
-  reviewerPk: PublicKey;
+  authorityPk: anchor.web3.PublicKey;
+  reviewerPk: anchor.web3.PublicKey;
 };
 
 export const useReviewerDelete = (): [
