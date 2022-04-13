@@ -1,3 +1,4 @@
+import { captureException } from '@app/utils/errorLogging';
 import axios, { AxiosResponse } from 'axios';
 import { useState } from 'react';
 
@@ -51,6 +52,8 @@ export default function useApiCall<D, R>(
       return resp.data;
     } catch (err) {
       setError(err);
+
+      captureException(err);
 
       if (mutationOptions?.onError) {
         mutationOptions.onError(err);

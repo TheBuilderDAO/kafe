@@ -6,7 +6,8 @@
       "@app/components/*": ["components/*"],
       "@app/lib/*": ["lib/*"],
       "@app/types/*": ["types/*"],
-      "@app/constants": ["constants.ts"]
+      "@app/constants": ["constants.ts"],
+      "@app/utils/*": ["utils/*"]
     }
   },
   "include": [

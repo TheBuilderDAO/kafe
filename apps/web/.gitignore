@@ -1,2 +1,5 @@
 public/tutorials
 .vercel
+
+# Sentry
+.sentryclirc
