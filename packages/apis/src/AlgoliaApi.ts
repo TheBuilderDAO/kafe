@@ -11,6 +11,7 @@ export type TutorialIndex = {
   difficulty: string;
   numberOfVotes: number;
   lastUpdatedAt: number;
+  publishedAt: number;
   totalTips: number;
 };
 
