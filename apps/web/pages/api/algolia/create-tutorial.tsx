@@ -45,6 +45,7 @@ const handler = async (
       numberOfVotes: 0,
       totalTips: 0,
       lastUpdatedAt,
+      publishedAt: 0,
     };
 
     await algoliaApi.createTutorial(record);
