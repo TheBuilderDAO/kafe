@@ -12,7 +12,7 @@ on:
 jobs:
   get_proposal_slug:
     name: Get Proposal Slug
-    if: ${{startsWith(github.head_ref, 'tutorials/')}}
+    if: ${{startsWith(github.event.pull_request.head.ref, 'tutorials/')}}
     runs-on: ubuntu-latest
     defaults:
       run:
