@@ -1,0 +1,15 @@
+{
+  "title": "Propose",
+  "description": "Lorem",
+  "imageUrl": "",
+  "categories": [
+    {
+      "name": "Arweave",
+      "slug": "arweave"
+    },
+    {
+      "name": "Solana",
+      "slug": "solana"
+    }
+  ]
+}
