@@ -3,7 +3,7 @@ import { TileDocument } from '@ceramicnetwork/stream-tile';
 import KeyDidResolver from 'key-did-resolver';
 import { DID } from 'dids';
 import { Ed25519Provider } from 'key-did-provider-ed25519';
-import fromString from 'uint8arrays/from-string';
+import { fromString } from 'uint8arrays/from-string';
 
 export type TutorialContent = {
   name: string;
