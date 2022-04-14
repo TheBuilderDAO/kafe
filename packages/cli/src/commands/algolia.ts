@@ -224,7 +224,7 @@ export function makeAlgoliaCommand() {
               numberOfVotes: t.solana.numberOfVoter.toNumber(),
               totalTips: t.solana.tippedAmount.toNumber(),
               lastUpdatedAt: Date.now(),
-              publisedAt: Date.now(),
+              publishedAt: Date.now(),
             };
           })
           await algoliaClient.upsertTutorials(tutorials);
