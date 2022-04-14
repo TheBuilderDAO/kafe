@@ -1,0 +1,20 @@
+{
+  "name": "@builderdao-learn/test-prop-400",
+  "version": "1.0.0",
+  "description": "Going from 0 to 1 at the speed of light.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": "AssemblyScript",
+  "author": "",
+  "license": "ISC"
+}
