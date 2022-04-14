@@ -40,6 +40,7 @@
     "axios": "^0.26.0",
     "dids": "^2.4.3",
     "key-did-provider-ed25519": "^1.1.0",
-    "key-did-resolver": "^1.4.4"
+    "key-did-resolver": "^1.4.4",
+    "uint8arrays": "^3.0.0"
   }
 }

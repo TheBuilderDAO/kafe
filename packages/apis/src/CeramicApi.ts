@@ -3,6 +3,7 @@ import { TileDocument } from '@ceramicnetwork/stream-tile';
 import KeyDidResolver from 'key-did-resolver';
 import { DID } from 'dids';
 import { Ed25519Provider } from 'key-did-provider-ed25519';
+import { fromString } from 'uint8arrays/from-string';
 
 export type TutorialContent = {
   name: string;
@@ -56,7 +57,7 @@ class CeramicApi {
     };
     this.client.did = new DID({ resolver });
 
-    const seed = new Uint8Array(this.seed.split(' ').map(i => parseInt(i, 10)));
+    const seed = fromString(this.seed, 'base58btc');
     const provider = new Ed25519Provider(seed);
 
     this.client.did.setProvider(provider);
