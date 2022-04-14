@@ -88,6 +88,13 @@ class CeramicApi {
       streamId,
     );
 
+    console.log("controllers", JSON.stringify(doc.metadata.controllers));
+    console.log("content", JSON.stringify(doc.content));
+    if (this.client.did) {
+      console.log("did", this.client.did.id.toString());
+    }
+    console.log("metadata", JSON.stringify(metadata));
+
     return doc.update(metadata);
   }
 }
