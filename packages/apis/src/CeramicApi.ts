@@ -58,7 +58,8 @@ class CeramicApi {
     this.client.did = new DID({ resolver });
 
     const seed = fromString(this.seed, 'base58btc');
-    const provider = new Ed25519Provider(seed);
+    const slicedSeed = seed.slice(0, 32);
+    const provider = new Ed25519Provider(slicedSeed);
 
     this.client.did.setProvider(provider);
 
