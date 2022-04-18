@@ -46,4 +46,12 @@ export const deprecated_tutorials: string[] = [
   'publishing-tutorial',
   'special-near-tutorial',
   'special-tutorial',
+  'test-prop-100',
+  'test-prop-200',
+  'test-prop-300',
+  'test-prop-400',
+  'test-prop-500',
+  'bh-test-33',
+  'solana-instructions-101',
+  'solana-transactions',
 ];
