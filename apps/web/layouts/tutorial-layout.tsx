@@ -7,7 +7,7 @@ import { TutorialFrontMatter } from '@builderdao/md-utils';
 import RightSidebar from './PublicLayout/RightSidebar';
 import Tags from '@app/components/Tags/Tags';
 import TutorialTips from '@app/components/TutorialTips/TutorialTips';
-import { BuilderDaoConfigJson } from '@builderdao/cli';
+import { BuilderDaoConfigJson, BuilderDaoLockJson } from '@builderdao/cli';
 import _ from 'lodash';
 import { formatDate } from '@app/lib/utils/format-date';
 import UserAvatar from '../components/UserAvatar/UserAvatar';
@@ -17,6 +17,7 @@ interface Props {
   frontMatter: TutorialFrontMatter;
   children: ReactNode;
   config: BuilderDaoConfigJson;
+  lock: BuilderDaoLockJson;
   toc: {
     id: string;
     title: string;
@@ -33,6 +34,7 @@ export const TutorialLayout: React.FC<Props> = ({
   next,
   prev,
   config,
+  lock,
   toc,
   children,
 }) => {
@@ -45,30 +47,35 @@ export const TutorialLayout: React.FC<Props> = ({
       <SectionContainer>
         {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
         <article className="z-50 inline-flex mt-8 border dark:bg-kafeblack bg-kafewhite border-1 border-kafeblack dark:border-kafewhite">
-          <div className="px-7 py-4">
+          <div className="py-4 px-7">
             <header>
               <div className="pb-5 space-y-1 text-center">
-                {/* The below snippet of code will be uncommented out when we have the author and reviewer info as part of props */}
-                {/* <dl>
+                <dl>
                   <div className="flex justify-between text-xs">
-                    <div className="flex space-x-1 items-center">
+                    <div className="flex items-center space-x-1">
                       <p>Guide by</p>
-                      <UserAvatar address={'eskimo.sol'} ellipsis={false} />
+                      <UserAvatar address={lock.creator} ellipsis={true} />
                       <div>
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-xs font-medium leading-6 ml-4">
+                        <dd className="ml-4 text-xs font-medium leading-6">
                           <time dateTime={date}>{formatDate(date)}</time>
                         </dd>
                       </div>
                     </div>
-                    <div className="flex space-x-2 items-center">
+                    <div className="flex items-center space-x-2">
                       <p>Reviewed by</p>
-                      <UserAvatar address={'dustin54.sol'} ellipsis={false} />
-                      <UserAvatar address={'hsdragon.sol'} ellipsis={false} />
+                      <UserAvatar
+                        address={lock.reviewers.reviewer1.pubkey}
+                        ellipsis={true}
+                      />
+                      <UserAvatar
+                        address={lock.reviewers.reviewer2.pubkey}
+                        ellipsis={true}
+                      />
                     </div>
                   </div>
-                </dl> */}
-                <div className="font-larken pt-12">
+                </dl>
+                <div className="pt-12 font-larken">
                   <PageTitle>{title}</PageTitle>
                 </div>
                 <p className="pt-4 pb-2 font-thin text-left">{description}</p>
@@ -119,12 +126,14 @@ export const TutorialLayout: React.FC<Props> = ({
         </article>
       </SectionContainer>
       <div className="sticky">
-        <RightSidebar>
-          <div className="p-6">
-            <TutorialTips id={tutorialId} />
-          </div>
+        <div className="sticky top-28">
+          <RightSidebar>
+            <div className="p-6">
+              <TutorialTips id={tutorialId} />
+            </div>
+          </RightSidebar>
           <TableOfContent toc={toc} />
-        </RightSidebar>
+        </div>
       </div>
     </div>
   );

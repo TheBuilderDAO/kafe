@@ -18,5 +18,13 @@ export const Image = ({ getFile, ...rest }: any) => {
     );
   }
 
-  return <NextImage {...rest} />;
+  return (
+    <NextImage
+      {...rest}
+      width="100%"
+      height="100%"
+      layout="responsive"
+      objectFit="contain"
+    />
+  );
 };

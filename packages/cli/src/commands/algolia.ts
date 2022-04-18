@@ -224,6 +224,7 @@ export function makeAlgoliaCommand() {
               numberOfVotes: t.solana.numberOfVoter.toNumber(),
               totalTips: t.solana.tippedAmount.toNumber(),
               lastUpdatedAt: Date.now(),
+              publishedAt: Date.now(),
             };
           })
           await algoliaClient.upsertTutorials(tutorials);
@@ -305,7 +306,7 @@ export function makeAlgoliaCommand() {
           indexName: string;
         },
       ) => {
-        const client = new AlgoliaApi({
+        const algoliaClient = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
           indexName: options.indexName,
@@ -323,11 +324,12 @@ export function makeAlgoliaCommand() {
         const categories = config.chain.get('categories').value();
 
 
-        await client.updateTutorial(proposalId, {
+        await algoliaClient.updateTutorial(proposalId, {
           title,
           description,
           tags: categories,
           state: ProposalStateE.published,
+          publishedAt: Date.now(),
           lastUpdatedAt: Date.now(),
         });
       },

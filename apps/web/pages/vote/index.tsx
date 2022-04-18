@@ -19,7 +19,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
-import HitFilter from '@app/components/Search/HitFilter';
+import TutorialProposalHitFilter from '@app/components/Search/TutorialProposalHitFilter';
 import Loader from '@app/components/Loader/Loader';
 import useSearchState from '../../hooks/useSearchState';
 import TutorialProposalHits from '@app/components/Search/TutorialProposalHits';
@@ -91,7 +91,7 @@ const Home: NextPage = () => {
                 <Pagination />
               </div>
               <RightSidebar>
-                <HitFilter />
+                <TutorialProposalHitFilter />
               </RightSidebar>
             </div>
           </InstantSearch>
