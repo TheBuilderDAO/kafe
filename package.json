@@ -10,7 +10,7 @@
     "dao-programs/programs/*"
   ],
   "scripts": {
-    "postinstall": "yarn copy:.env.local && yarn copy:.env",
+    "postinstall": "yarn copy:.env.local",
     "copy:.env": "cp -f ./.env ./packages/cli/ && cp -f ./.env ./apps/web/",
     "copy:.env.local": "cp -f ./.env.local ./packages/cli/ && cp -f ./.env.local ./apps/web/",
     "builderdao": "builderdao",
