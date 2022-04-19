@@ -115,7 +115,7 @@ const Proposals = connectHits(Wrapper);
 
 const ProposalsCarousel = () => {
   return (
-    <div className="relative h-[420px] top-10">
+    <div className="relative h-[420px] top-10 cursor-pointer">
       <InstantSearch
         searchClient={searchClient}
         indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
