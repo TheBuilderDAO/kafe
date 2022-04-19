@@ -1,6 +1,6 @@
 import React from 'react';
 import LearnLight from 'public/assets/images/learn_l.png';
-import LearnDark from 'public/assets/images/learn_d.png';
+import LearnDark from 'public/assets/images/learn_d.jpeg';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import ImageStack from '../ImageStack';
 import Tags from '../Tags/Tags';

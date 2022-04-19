@@ -8,7 +8,7 @@ import ProposalsCarousel from '@app/components/Carousel/ProposalsCarousel';
 import PropL from 'public/assets/images/prop_card_l.png';
 import PropD from 'public/assets/images/prop_card_d.png';
 import ProposeLight from 'public/assets/images/propose_l.png';
-import ProposeDark from 'public/assets/images/propose_d.png';
+import ProposeDark from 'public/assets/images/propose_d.jpeg';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
@@ -20,10 +20,10 @@ const LandingPage: NextPage = () => {
       <Head>
         <title>Builder DAO</title>
       </Head>
-      <div className="flex relative z-0">
+      <div className="relative z-0 flex">
         <div className="w-0.5 h-[1500px] -mt-24 bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61]"></div>
-        <main className="pt-60 px-24 flex flex-col w-9/12 z-10">
-          <div className="flex z-10">
+        <main className="z-10 flex flex-col w-9/12 px-24 pt-60">
+          <div className="z-10 flex">
             <div className="text-kafedarkred">
               <HomeCTA
                 headline="Learn from guides written by our community"
@@ -36,9 +36,9 @@ const LandingPage: NextPage = () => {
             </div>
           </div>
 
-          <div className="flex items-center mt-44 z-10">
+          <div className="z-10 flex items-center mt-44">
             <ProposalsCarousel />
-            <div className="text-kafedarkpurple z-10 pl-48">
+            <div className="z-10 pl-48 text-kafedarkpurple">
               <HomeCTA
                 headline="Vote on proposals for guides you want to be written"
                 path={routes.vote.index}
@@ -47,8 +47,8 @@ const LandingPage: NextPage = () => {
             </div>
           </div>
 
-          <div className="flex justify-between py-16 relative z-0">
-            <div className="text-kafedarkred mr-48">
+          <div className="relative z-0 flex justify-between py-16">
+            <div className="mr-48 text-kafedarkred">
               <HomeCTA
                 headline="Create your own proposal and get rewarded in KAFE"
                 path={routes.write.index}
