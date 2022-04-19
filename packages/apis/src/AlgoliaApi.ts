@@ -185,6 +185,10 @@ class AlgoliaApi {
     return this.index.partialUpdateObjects(records, { createIfNotExists: true }).wait();
   }
 
+  async deleteTutorials(records: string[]) {
+    return this.index.deleteObjects(records)
+  }
+
   async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {
     await this.index
       .partialUpdateObject({
