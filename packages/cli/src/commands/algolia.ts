@@ -6,6 +6,7 @@ import path from 'path';
 
 import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex } from '@builderdao/apis';
 import { ProposalStateE, getProposalState } from '@builderdao-sdk/dao-program';
+import { deprecated_tutorials } from '@builderdao/data';
 import { BuilderDaoConfig } from 'src/services';
 import { getClient } from 'src/client';
 import { log as _log } from 'src/utils';
@@ -207,9 +208,18 @@ export function makeAlgoliaCommand() {
         });
         const allProposals = await client.getProposals()
         let processedCount = 0;
-        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Array<{ solana: any, ceramic: TutorialMetadata, config?: BuilderDaoConfigJson, lock?: BuilderDaoLockJson }>) => {
-          // console.log(proposals.map(p => p.));
-          const tutorials: Array<TutorialIndex> = tasks.map(t => {
+        type Tasks = Array<{ solana: any, ceramic: TutorialMetadata, config?: BuilderDaoConfigJson, lock?: BuilderDaoLockJson }>
+        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Tasks) => {
+          const { deprecate, update } = tasks.reduce((prev, t) => {
+            if (deprecated_tutorials.includes(t.solana.slug)) {
+              prev.deprecate.push(t);
+            } else {
+              prev.update.push(t);
+            }
+            return prev;
+          }, { deprecate: [] as Tasks, update: [] as Tasks })
+          await algoliaClient.deleteTutorials(deprecate.map(t => t.solana.id));
+          const tutorials: Array<TutorialIndex> = update.map(t => {
             return {
               objectID: t.solana.id.toNumber(),
               author: t.solana.creator.toString(),
