@@ -217,8 +217,12 @@ export function makeAlgoliaCommand() {
               prev.update.push(t);
             }
             return prev;
-          }, { deprecate: [] as Tasks, update: [] as Tasks })
-          await algoliaClient.deleteTutorials(deprecate.map(t => t.solana.id));
+          }, { deprecate: [] as Tasks, update: [] as Tasks });
+
+          if (deprecate.length > 0) {
+            await algoliaClient.deleteTutorials(deprecate.map(t => t.solana.id.toNumber()));
+          }
+
           const tutorials: Array<TutorialIndex> = update.map(t => {
             return {
               objectID: t.solana.id.toNumber(),
@@ -226,7 +230,7 @@ export function makeAlgoliaCommand() {
               title: t.ceramic.title,
               // TODO: if It's published use the config description. This is Monkey patch till we have Ceramic metadata update.
               // https://figmentio.atlassian.net/jira/software/c/projects/LR/boards/71/backlog?view=detail&selectedIssue=LR-328&issueLimit=100&search=ceramic
-              description: getProposalState(t.solana.state) === ProposalStateE.published ? t.config?.description : t.ceramic.description,
+              description: getProposalState(t.solana.state) === ProposalStateE.published ? t.config?.description! : t.ceramic.description,
               state: getProposalState(t.solana.state),
               slug: t.solana.slug,
               tags: t.ceramic.tags,
@@ -242,6 +246,7 @@ export function makeAlgoliaCommand() {
           log({
             message: 'Updated index',
             tutorials: tutorials.map(t => t.slug),
+            deprecate: deprecate.map(t => t.solana.slug),
             status: `${processedCount}/${allProposals.length}`,
           })
         }, 1, 10);
