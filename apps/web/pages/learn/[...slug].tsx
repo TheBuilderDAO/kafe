@@ -3,6 +3,7 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import fs from 'fs-extra';
 import path from 'path';
 import {
   getFileByPath,
@@ -115,6 +116,12 @@ export const getStaticProps: GetStaticProps = async context => {
     if (NODE_ENV === 'production') {
       const applicationFetcher = getApplicationFetcher();
       const tutorial = await applicationFetcher.getTutorialBySlug(tutorialSlug);
+      const rootFolder = getPathForRootFolder(tutorialSlug);
+      let content = tutorial.content;
+      if (fs.existsSync(rootFolder)) {
+        const { config, lock } = await getTutorialContentByPath({ rootFolder });
+        content = { ...lock.content, ...content };
+      }
       return {
         config: {
           title: tutorial.title,
@@ -126,7 +133,7 @@ export const getStaticProps: GetStaticProps = async context => {
         lock: {
           proposalId: tutorial.id,
           creator: tutorial.creator,
-          content: tutorial.content,
+          content,
           slug: tutorial.slug,
           reviewers: {
             reviewer1: {
