@@ -5,7 +5,7 @@ import { withSentry } from '@sentry/nextjs';
 import { AlgoliaApi } from '@builderdao/apis';
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
-  ALGOLIA_SEARCH_ADMIN_KEY,
+  ALGOLIA_WRITE_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
 import { captureException } from '@app/utils/errorLogging';
@@ -22,7 +22,7 @@ const handler = async (
 
   const algoliaApi = new AlgoliaApi({
     appId: NEXT_PUBLIC_ALGOLIA_APP_ID,
-    accessKey: ALGOLIA_SEARCH_ADMIN_KEY,
+    accessKey: ALGOLIA_WRITE_API_KEY,
     indexName: NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   });
 
