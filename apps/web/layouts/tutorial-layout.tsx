@@ -12,8 +12,6 @@ import _ from 'lodash';
 import { formatDate } from '@app/lib/utils/format-date';
 import UserAvatar from '../components/UserAvatar/UserAvatar';
 
-import 'prismjs/themes/prism-tomorrow.css';
-
 interface Props {
   tutorialId: number;
   frontMatter: TutorialFrontMatter;

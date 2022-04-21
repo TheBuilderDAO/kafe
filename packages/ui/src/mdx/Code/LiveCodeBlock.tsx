@@ -103,23 +103,22 @@ const StyledLiveCodeWrapper = tw('div')<CodeSnippetWrapperProps>`
   align-items: center;
 `;
 
-const StyledEditorWrapper = tw('div')`
+const StyledEditorWrapper = tw(styled('div')`
   flex: 60 1 0%;
   height: 100%;
   max-height: 600px;
   overflow: auto;
   margin: 0;
 
-  border shadow rounded-lg rounded-l-none bg-[#e2e4e933] dark:bg-[#21242c80] dark:border-[#2b303b]
   border-top-right-radius: border-2
   border-bottom-right-radius: border-2
 
   * > textarea:focus {
     outline: none;
   }
-`;
+`)`border shadow rounded-lg rounded-l-none bg-[#e2e4e933] dark:bg-[#21242c80] dark:border-[#2b303b]`;
 
-const StyledPreviewWrapper = tw('div')<{
+const StyledPreviewWrapper = styled('div')<{
   height?: number;
   withEditor?: boolean;
 }>`
