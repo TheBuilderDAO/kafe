@@ -107,7 +107,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.addLabels({
+            github.rest.issues.setLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -161,31 +161,22 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            try {
-              github.rest.issues.deleteLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                name: ['pending_review'],
-              });
-            } catch (err) {
-              console.log(err);
-            }
-            github.rest.issues.addLabels({
+            github.rest.issues.setLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['ready_to_publish']
+              labels: ['tutorial_proposal', 'ready_to_publish']
             })
       - name: pending_label
         if: contains(steps.check_all_reviewers_approved.outputs.state, 'writing')
         uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.addLabels({
+            github.rest.issues.setLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['pending_review']
+              labels: ['tutorial_proposal', 'pending_review']
             })
   update_algolia_index:
     name: Update Algolia Index
