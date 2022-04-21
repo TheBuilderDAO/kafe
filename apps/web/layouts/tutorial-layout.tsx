@@ -12,6 +12,8 @@ import _ from 'lodash';
 import { formatDate } from '@app/lib/utils/format-date';
 import UserAvatar from '../components/UserAvatar/UserAvatar';
 
+import 'prismjs/themes/prism-tomorrow.css';
+
 interface Props {
   tutorialId: number;
   frontMatter: TutorialFrontMatter;
@@ -92,7 +94,7 @@ export const TutorialLayout: React.FC<Props> = ({
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
               <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0">
-                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:bg-kafemellow prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite prose-td:break-all first:prose-td:break-normal prose-td:border prose-td:border-kafemellow prose-td:p-1">
+                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite prose-td:break-all first:prose-td:break-normal prose-td:border prose-td:border-kafemellow prose-td:p-1">
                   {children}
                 </div>
               </div>
