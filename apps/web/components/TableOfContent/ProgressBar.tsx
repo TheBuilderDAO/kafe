@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { motion, useReducedMotion } from 'framer-motion';
 import React from 'react';
 

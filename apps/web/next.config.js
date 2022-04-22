@@ -10,6 +10,10 @@ const moduleExports = {
   images: {
     domains: ['i.imgur.com', 'github.com', 'raw.githubusercontent.com'],
   },
+  compiler: {
+    // ssr and displayName are configured by default
+    styledComponents: true,
+  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;
