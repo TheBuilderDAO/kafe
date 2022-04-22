@@ -9,10 +9,10 @@ import CopyToClipboardButton from '../../CopyToClipboardButton';
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 
 /**
- * This imports the syntax highlighting style for the Swift language
+ * This imports the syntax highlighting style for the solidity & rust language
  */
-require('prismjs/components/prism-swift');
 require('prismjs/components/prism-solidity');
+require('prismjs/components/prism-rust');
 
 export const HighlightedCodeText = (props: HighlightedCodeTextProps) => {
   const { title, codeString, language, highlightLine } = props;
