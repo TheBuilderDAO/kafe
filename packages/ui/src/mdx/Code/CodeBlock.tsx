@@ -12,6 +12,7 @@ import CopyToClipboardButton from '../../CopyToClipboardButton';
  * This imports the syntax highlighting style for the Swift language
  */
 require('prismjs/components/prism-swift');
+require('prismjs/components/prism-solidity');
 
 export const HighlightedCodeText = (props: HighlightedCodeTextProps) => {
   const { title, codeString, language, highlightLine } = props;
@@ -95,30 +96,28 @@ const CodeBlock = (props: CodeBlockProps) => {
 
 export default CodeBlock;
 
-const Pre = tw('pre')<{ title?: string }>`
+const Pre = tw(styled('pre')<{ title?: string }>`
   margin-top: 0;
   margin-bottom: 0;
   text-align: left;
   overflow: auto;
-  margin: 0 !important;
-
-  border-b border-none
 
   ${p =>
     p.title
       ? ''
       : `
       border-top-left-radius: border-2;
-    border-top-right-radius: border-2;
+      border-top-right-radius: border-2;
     `}
-`;
+`)`border-b border-none`;
 
 const Line = styled('div')`
   display: table;
   border-collapse: collapse;
   border-left: 3px solid transparent;
   &.highlight-line {
-    border-l-4 border-kafeblack 
+    border-left-width: 4px;
+    border-color: rgb(255 255 255);
   }
 
   &:hover {
@@ -139,11 +138,10 @@ const LineContent = styled('span')`
   width: 100%;
 `;
 
-const CodeSnippetTitle = tw('p')`
+const CodeSnippetTitle = tw(styled('p')`
   font-size: 14px;
   margin-bottom: 0px;
-  font-mono font-bold text-kafeblack
-`;
+`)`font-mono font-bold text-kafeblack dark:text-kafewhite`;
 
 const CodeSnippetHeader = tw(styled('div')`
   @media (max-width: 500px) {
@@ -151,11 +149,11 @@ const CodeSnippetHeader = tw(styled('div')`
     padding: 0px 8px;
   }
 
-  display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 30px;
-`)`border-t border-b px-4 rounded-t-lg dark:border-[#2b303b]`;
+  margin-top: 0; important!;
+`)`px-2  dark:border-[#2b303b] flex flex-center py-1 not-prose`;
 
 const CodeSnippetWrapper = tw(styled('div')`
   @media (max-width: 750px) {
@@ -171,4 +169,4 @@ const CodeSnippetWrapper = tw(styled('div')`
     border-radius: 0px;
   }
   margin-bottom: 32px;
-`)`border shadow rounded-lg bg-[#e2e4e988] dark:bg-[#21242c80] dark:border-[#2b303b] px-1`;
+`)`border shadow rounded-lg bg-[#e2e4e988] dark:bg-[#21242c80] dark:border-[#2b303b] px-1 py-1`;
