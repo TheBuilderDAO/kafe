@@ -81,6 +81,7 @@ jobs:
           echo "::set-output name=creator::$CREATOR"
           echo "::set-output name=streamId::$STREAM_ID"
           echo "::set-output name=state::$STATE"
+          echo "STATE IS: $STATE"
 
   publish_tutorial:
     name: Publish Tutorial
