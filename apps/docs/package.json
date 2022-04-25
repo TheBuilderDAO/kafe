@@ -1,0 +1,23 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Public documentation for Builder DAO and Kafe",
+  "repository": "https://github.com/TheBuilderDAO/kafe",
+  "author": "TheBuilderDAO",
+  "private": false,
+  "scripts": {
+    "dev": "yarn next"
+  },
+  "dependencies": {
+    "next": "^12.1.5",
+    "nextra": "^1.1.0",
+    "nextra-theme-docs": "^1.2.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@builderdao/config": "*",
+    "@builderdao/tsconfig": "*",
+    "eslint": "^8.14.0"
+  }
+}
