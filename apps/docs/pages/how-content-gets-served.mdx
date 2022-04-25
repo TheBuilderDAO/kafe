@@ -1,0 +1,36 @@
+---
+title: How Content Gets Served
+description: Documentation explaining how content gets served in Kafe
+---
+
+# Index
+
+* [How Content Gets Served](#how-content-gets-served)
+* [How Content Stored and served in Kafe.](#how-content-stored-and-served-in-kafe)
+* [What is builderdao.config.json file](#what-is-builderdao-config-json-file)
+* [What is builderdao.lock.json file](#what-is-builderdao-lock-json-file)
+
+
+## How Content Gets Served
+We are utilizing Next.js [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) to serve content. As a result, we are able to serve content incrementally and only as needed. This is an essential feature for providing fast performance. Upon the first request, we can use CDN to deliver content as a static file in the cache.
+
+
+## How Content Stored and served in Kafe.
+We have three different environments where data is being retrieved. The Kafe application is based on Next.js, and serves content from three different sources:
+  * The file system.
+  * Raw files from Github.
+  * [Arweave](www.arweave.org)
+
+### Local Environment
+As you work on the guide for Kafe by running locally via *yarn dev*, the content is pulled directly from the local filesystem. The authors can see the content while it is being developed locally at [localhost:3000/learn/<guide_slug>](http://localhost:3000/learn/<guide_slug>).
+
+### Preview Environment
+We are unable to serve content directly from the filesystem at Vercel due to the [limitation of serverless function sizes](https://github.com/vercel/community/discussions/103). Our approach instead of preloading the whole content of the repository is to use github raw as a proxy to access filesystem on demand. Through preview links, authors and reviewers who work on the project can see the content as it is being developed before it is fully published to Arweave.
+
+### Production Environment
+The environment where the content is being published to Arweave. Upon approval, a guide is automatically published to Arweave. The metadata is being stored at ceramic and the [builderdao.lock.json](#what-is-builderdao-lock-json-file) file is being updated. 
+<!-- TODO: add links to publishing flow. -->
+
+
+
+
