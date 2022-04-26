@@ -156,7 +156,7 @@ export const TutorialInitCommand = () => {
           await template.copy(q.answer);
           ui.log.write('🧱 Copying template folder...');
           await template.setName(proposalSlug);
-          ui.log.write('🚧  Updating slugs folder...');
+          ui.log.write('🚧 Updating slugs folder...');
 
           const config = new BuilderDaoConfig(getTutorialFolder(proposalSlug));
           const defaults = await BuilderDaoConfig.initial({

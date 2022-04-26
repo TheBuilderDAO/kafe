@@ -1,0 +1,33 @@
+{
+  "proposalId": 213,
+  "slug": "rust-smart-contract-basics",
+  "creator": "",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://builderdao.io",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "DdjeXVxsC8wgTWTAMRcq5aPqTTHEzzc12sRnMweqGsnU",
+      "pubkey": "5uKXYaHes21BoBN3EcNDf13EFqUybzirLwSUfSF218As",
+      "githubName": "dgamboa"
+    },
+    "reviewer2": {
+      "pda": "2xGUbjpkPf6vmSvkWaUaJAKtTX6RQqmfaS1deVwXxoa8",
+      "pubkey": "9c8oxENj8XrEM2EMadxUoifZgB1Vbc8GEYqKTxTfPo3i",
+      "githubName": "pyr0gan"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "57b24edde5a67d1e7927a0a8cd2d7e95a48edc01becaa48aac9fec13591fe1a8"
+    }
+  },
+  "href": "/learn/rust-smart-contract-basics"
+}
