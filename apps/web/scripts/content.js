@@ -40,11 +40,9 @@ async function main() {
     await fs.copy(configFile, path.join(target, 'builderdao.config.json'), {
       filter: filterFunc,
     });
-    await fs.copy(
-      path.join(source, 'package.json'),
-      path.join(target, 'package.json'),
-      { filter: filterFunc },
-    );
+    await fs.copy(configFile, path.join(target, 'package.json'), {
+      filter: filterFunc,
+    });
   }
 }
 
