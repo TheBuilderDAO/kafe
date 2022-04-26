@@ -68,7 +68,9 @@ jobs:
           echo "::set-output name=proposalState::$PROPOSAL_STATE"
           echo "::set-output name=reviewer1_githubName::$REVIEWER1_GITHUBNAME"
           echo "::set-output name=reviewer2_githubName::$REVIEWER2_GITHUBNAME"
-  label:
+  comment:
+    name: Create comment
+
     needs: [fetch_proposal, get_proposal_slug]
     if: ${{ needs.get_proposal_slug.outputs.slug }} != ''
     runs-on: ubuntu-latest
@@ -104,15 +106,6 @@ jobs:
             REVIEWER2: [${{ needs.fetch_proposal.outputs.reviewer2_githubName }}](https://github.com/${{ needs.fetch_proposal.outputs.reviewer2_githubName }})
             See [:scroll: Proposal](https://kafe-git-${{steps.extract_branch.outputs.branch}}-builder-dao.vercel.app/vote/${{ needs.get_proposal_slug.outputs.slug }})
           edit-mode: replace
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['tutorial_proposal']
-            })
   check_review_status:
     needs: [fetch_proposal]
     name: Check reviewers approved
@@ -161,31 +154,22 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            try {
-              github.rest.issues.deleteLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                name: ['pending_review'],
-              });
-            } catch (err) {
-              console.log(err);
-            }
-            github.rest.issues.addLabels({
+            github.rest.issues.setLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['ready_to_publish']
+              labels: ['tutorial', 'ready_to_publish']
             })
       - name: pending_label
         if: contains(steps.check_all_reviewers_approved.outputs.state, 'writing')
         uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.addLabels({
+            github.rest.issues.setLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['pending_review']
+              labels: ['tutorial', 'pending_review']
             })
   update_algolia_index:
     name: Update Algolia Index
@@ -237,3 +221,4 @@ jobs:
                 "${{needs.fetch_proposal.outputs.reviewer2_githubName}}"
               ]
             });
+

@@ -80,7 +80,7 @@ jobs:
           echo "::set-output name=proposalId::$PROPOSAL_ID"
           echo "::set-output name=creator::$CREATOR"
           echo "::set-output name=streamId::$STREAM_ID"
-          echo "::set-output name=streamId::$STATE"
+          echo "::set-output name=state::$STATE"
 
   publish_tutorial:
     name: Publish Tutorial
@@ -109,6 +109,7 @@ jobs:
   set_state:
     name: Set state to published
     needs: [ publish_tutorial, fetch_proposal ]
+    if: contains(needs.fetch_proposal.outputs.state, 'readyToPublish')
     runs-on: ubuntu-latest
     defaults:
       run:
