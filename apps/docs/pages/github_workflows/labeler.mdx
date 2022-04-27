@@ -1,0 +1,21 @@
+# Labeller
+
+We are using [actions/labeler@v4](https://github.com/actions/labeler) from Github to identify the labels for the pull request. The labeler is a simple tool that allows you to label a pull request with a  coresponding label base on the content of the pull request.
+
+Defination of the labels is defineted in the [labeler.yml](../../../.github/labeler.yml) file.
+
+```yaml
+dao-program:
+- dao-programs/*
+- dao-programs/**/*
+
+frontend:
+- any: ['apps/web/**/*']
+
+tutorial:
+- any: ['tutorials/**/*']
+
+docs:
+- any: ['apps/docs/**/*']
+
+```
