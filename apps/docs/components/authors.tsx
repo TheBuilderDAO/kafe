@@ -1,3 +1,4 @@
+import React from 'react';
 const Authors = ({ date, children }) => {
   return (
     <div className="mt-8 mb-16 text-sm text-gray-400 ">
