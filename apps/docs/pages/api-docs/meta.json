@@ -1,0 +1,8 @@
+{
+  "algolia": "Algolia API",
+  "arweave": "Arweave API",
+  "ceramic": "Ceramic API",
+  "github": "GitHub API",
+  "solana": "Solana API",
+  "typescript-sdk": "TypeScript SDK"
+}
