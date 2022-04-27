@@ -40,6 +40,7 @@ import {
   guideTipping,
   proposalPublish,
   daoSetQuorum,
+  daoAddAdmin,
 } from './lib/instructions';
 
 import { Tutorial } from './lib/idl/tutorial';
@@ -320,6 +321,17 @@ export class TutorialProgramClient {
     return daoSetQuorum({
       program: this.tutorialProgram,
       quorum: data.quorum,
+      adminPk: data.adminPk,
+    });
+  }
+
+  async daoAddAdmin(data: {
+    userPk: anchor.web3.PublicKey;
+    adminPk: anchor.web3.PublicKey;
+  }): Promise<string> {
+    return daoAddAdmin({
+      program: this.tutorialProgram,
+      userPk: data.userPk,
       adminPk: data.adminPk,
     });
   }

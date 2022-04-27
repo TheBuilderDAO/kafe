@@ -3,6 +3,7 @@ import * as commander from 'commander';
 import { AdminAirdropCommand } from './airdrop';
 import { AdminBs58Command } from './utils';
 import { AdminSetAuthorCommand } from './setAuthor';
+import { AdminAddAdmin } from './addAdmin';
 
 export function makeAdminCommand() {
   const admin = new commander.Command('admin')
@@ -17,6 +18,7 @@ export function makeAdminCommand() {
   admin.addCommand(AdminAirdropCommand());
   admin.addCommand(AdminSetAuthorCommand());
   admin.addCommand(AdminBs58Command());
+  admin.addCommand(AdminAddAdmin());
 
   return admin;
 }
