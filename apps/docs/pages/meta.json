@@ -1,5 +1,5 @@
 {
-  "what_is_the_builder_dao": "Introduction",
+  "index": "Introduction",
   "products": "Products",
   "membership": "Membership",
   "digital_architecture": "Digital Architecture",
@@ -9,6 +9,6 @@
   "api-docs": "API Documentation",
   "github_actions": "GitHub Actions",
   "github_workflows": "GitHub Workflows",
-  "webapp-docs": "Web Application",
+  "builderdao-cli": "Builder DAO CLI",
   "typescript-sdk": "TypeScript SDK"
 }
