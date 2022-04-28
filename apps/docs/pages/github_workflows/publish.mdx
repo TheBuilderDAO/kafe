@@ -47,8 +47,7 @@ Output this job is the slug of the proposal.
 
 ### fetch_proposal:
 
-In this job, we fetch the proposal from the BuilderDAO CLI tool.
-And we are assigned as a variable to the context. The following jobs are tu
+In this job, we fetch the proposal from the Builder DAO CLI tool. And we are assigning as a variable to the context.
 
 ```bash
 builderdao proposal get -s $SLUG
@@ -79,7 +78,7 @@ In this Job we publish the tutorial via BuilderDAO CLI tool.
     builderdao tutorial publish $SLUG
 ```
 
-There's a few variables that we need to pass to the publish job. the Environment set by the workflow_dispatch trigger is get utilized here. In the case of trigger is `pull_request_target` is merged to `dev` or `main` branch, we use the environment of `Production` if it's `main` branch and `Preview` if it's `dev` branch.
+There are a few variables that we need to pass to the publish job. The environment set by the `workflow_dispatch` trigger is utilized here. If the trigger `pull_request_target` is merged to the `main` branch, we use the **Production** environment. If it's merged to the `dev` branch, use the **Preview** environment.
 
 The internals of `builderdao tutorial publish $SLUG` is explained here.
 
