@@ -7,3 +7,6 @@ frontend:
 
 tutorial:
 - any: ['tutorials/**/*']
+
+docs:
+- any: ['apps/docs/**/*']
