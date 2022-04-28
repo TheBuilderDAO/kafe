@@ -1,14 +1,14 @@
 {
-  "what_is_the_builder_dao": "Introduction",
+  "index": "Introduction",
   "products": "Products",
   "membership": "Membership",
-  "digital_architecture": "Digital Architecture",
+  "digital-architecture": "Digital Architecture",
   "tokenomics": "Tokenomics",
   "governance": "Governance",
-  "legal_architecture": "Legal Architecture",
+  "legal-architecture": "Legal Architecture",
   "api-docs": "API Documentation",
-  "github_actions": "GitHub Actions",
-  "github_workflows": "GitHub Workflows",
-  "webapp-docs": "Web Application",
+  "github-actions": "GitHub Actions",
+  "github-workflows": "GitHub Workflows",
+  "builderdao-cli": "Builder DAO CLI",
   "typescript-sdk": "TypeScript SDK"
 }
