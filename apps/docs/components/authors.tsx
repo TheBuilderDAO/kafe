@@ -69,7 +69,7 @@ const Authors = ({ path }) => {
   const { data } = useAuthors(path);
   return (
     <div className="flex items-center p-4 -space-x-2 overflow-hidden ">
-      <span className="mr-6 dark:text-gray-600">Last Edited by</span>
+      <span className="mr-6 dark:text-gray-600">Last edited by</span>
       {data &&
         data.map((author: AuthorProps) => (
           <Author key={author.id} author={author} />
