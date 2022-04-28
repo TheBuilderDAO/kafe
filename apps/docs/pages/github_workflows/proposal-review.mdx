@@ -2,8 +2,7 @@ import Authors, { Author } from '../../components/authors';
 
 # GitHub Workflows - proposal-review
 
-Github Action is responsible for checking the Guide Proposal Pull Requests.
-It checks the corresponding BuilderDAO guide proposal to find assigned reviewers and assign them to the pull request.
+The proposal-review Action is responsible for checking the pull requests created from the content proposals on Kafé. It checks the corresponding proposal to determine which reviewers need to be assigned to the pull request.
 
 ## Triggers
 
@@ -18,10 +17,10 @@ pull_request_target:
 
 ## Jobs
 
-### get_proposal_slug:
+### get_proposal_slug
 
-In this job, we get the slug of the proposal from the PR branch name.
-The branch name is in the format of `tutorials/<slug>`. By doing Regex we get the slug.
+In this job, we get the slug of the proposal from the pull request branch name.
+The branch name is in the format of `tutorials/<slug>`. We match the slug using a Regular Expression (regex).
 
 ```js
 const headBranch = context.payload.pull_request.head.ref;
@@ -32,12 +31,11 @@ return (slug && slug[1]) || '';
 
 #### Output
 
-Output this job is the slug of the proposal.
+The expected output of this job is the slug of the proposal, in lower-kebab-case.
 
-### fetch_proposal:
+### fetch_proposal
 
-In this job, we fetch the proposal from the BuilderDAO CLI tool.
-And we are assigned as a variable to the context. The following jobs are tu
+In this job, we fetch the proposal from the Builder DAO CLI tool. And we are assigning as a variable to the context.
 
 ```bash
 builderdao proposal get -s $SLUG
@@ -49,12 +47,12 @@ REVIEWER1_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER1 -k githubName)
 REVIEWER2_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER2 -k githubName)
 ```
 
-### comment:
+### comment
 
 In this job, we comment on the PR with the metadata of the proposal.
 ![proposal pull request comment example](./proposal-guide-comment.png)
 
-### check_review_status:
+### check_review_status
 
 In this job we are utilizing the GitHub API to check the status of the review from designated reviewers assigned by BuilderDAO.
 the [check-required-reviewer](../github_actions/check-required-reviewer) action is responsible for checking the required reviewers.
@@ -82,7 +80,7 @@ If both reviewers are approved, we are setting the `state` of the proposal
       echo "::set-output name=state::$STATUS"
 ```
 
-#### set_state:
+#### set_state
 
 In this job, we are setting the state of the proposal in Solana Program via BuilderDAO CLI tool.
 
@@ -96,20 +94,18 @@ In this job, we are setting the state of the proposal in Solana Program via Buil
         builderdao proposal setstate $PROPOSAL_ID --state=$NEW_STATE --adminKp $TESTNET_ADMIN_KP
 ```
 
-#### ready_label:
+#### ready_label
 
-If the proposal state is ready to publish, in this step we are setting the `tutorial` and `ready_to_publish` labels to PR to give
-visual clue for the contributors.
+If the proposal state is `ready_to_publish`, in this step we are adding the `tutorial` and `ready_to_publish` labels to the PR to give a visual cue for the contributors and anybody looking at the list of pull requests.
 
-#### pending_label:
+#### pending_label
 
-While the proposal is in the `writing` state, we are setting the `tutorial` and `pending_review` labels to PR to give
-visual clue for the contributors.
+As the outcome of the review process, the state of the proposal might change to `writing` or `readyToPublish`. In this job, we are updating the Algolia index of the proposal. You can find an explanation of this step in the Algolia documentation.
 
-### update_algolia_index:
+### update_algolia_index
 
-As the outcome of the review process the state of the proposal might change to `readyToPublish` or `writing`.
-In this job, we are updating the Algolia index of the proposal. You could find in depth explanation of this step in algolia documentation {/* TODO: add documentation link. */}
+As the outcome of the review process, the state of the proposal might change to `writing` or `readyToPublish`. In this job, we are updating the Algolia index of the proposal. You can find an explanation of this step in the Algolia documentation.
+{/* TODO: add documentation link. */}
 
 ```
   - id: update_algolia_index
@@ -123,15 +119,15 @@ In this job, we are updating the Algolia index of the proposal. You could find i
         builderdao algolia updateIndex $OBJECT_ID --data='{"state": "$PROPOSAL_STATE"}' --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
 ```
 
-### request_reviews:
+### request_reviews
 
-This is the job where we requesting review from the designated reviewers.
+This is the job where we request reviews of the pull request from the designated reviewers.
 
 ```
     if: contains(needs.check_review_status.outputs.state, 'writing')
 ```
 
-We are doing this by utilizing github-script action to use Github Api.
+This leverages the github-script action to use the GitHub API to request reviewers.
 
 ```
   uses: actions/github-script@v6

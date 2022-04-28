@@ -4,7 +4,7 @@ import Authors, { Author } from '@app/components/authors';
 
 # Publish Workflow.
 
-This a Github Action responsible of publishing the guides after they got approval from designated reviewers set by the BuilderDAO admins.
+This GitHub Action is responsible for publishing the guides after they have been approved by the designated reviewers set by the Builder DAO admins.
 
 ## Triggers
 
@@ -24,15 +24,14 @@ pull_request_target:
     - closed
 ```
 
-There's a 2 way to trigger this action. The first is to use the workflow_dispatch trigger. This trigger is used to dispatch the action to the right environment.
-Only collabrators can trigger this action. The second way is to use the pull_request_target trigger. This trigger is used to trigger the action when a pull request is closed. as It's merged to `dev` or `main` branch.
+This action has two possible triggers. The first is to use the `workflow_dispatch` trigger. This trigger is used to dispatch the action to the right environment. Only collabrators can trigger this action. The second way is to use the `pull_request_target` trigger. This is used to trigger the action when a pull request is closed, as It's merged to the `dev` or `main` branch.
 
 ## Jobs
 
 ### get_proposal_slug:
 
 In this job, we get the slug of the proposal from the PR branch name.
-The branch name is in the format of `tutorials/<slug>`. By doing Regex we get the slug.
+The branch name is in the format of `tutorials/.` We match the slug using a regular expression (regex).
 
 ```js
 const headBranch = context.payload.pull_request.head.ref;
@@ -43,7 +42,7 @@ return (slug && slug[1]) || '';
 
 #### Output
 
-Output this job is the slug of the proposal.
+The expected output of this job is the slug of the proposal, in lower-kebab-case.
 
 ### fetch_proposal:
 
