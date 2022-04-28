@@ -1,11 +1,5 @@
 # Index
 
-* [How Content Gets Served](#how-content-gets-served)
-* [How Content Stored and served in Kafe.](#how-content-stored-and-served-in-kafe)
-* [What is builderdao.config.json file](#what-is-builderdao-config-json-file)
-* [What is builderdao.lock.json file](#what-is-builderdao-lock-json-file)
-
-
 ## How Content Gets Served
 We are utilizing Next.js [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) to serve content. As a result, we are able to serve content incrementally and only as needed. This is an essential feature for providing fast performance. Upon the first request, we can use CDN to deliver content as a static file in the cache.
 
