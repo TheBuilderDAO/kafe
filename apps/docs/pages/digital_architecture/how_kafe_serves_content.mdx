@@ -1,8 +1,7 @@
 # Index
 
 ## How Content Gets Served
-We are utilizing Next.js [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) to serve content. As a result, we are able to serve content incrementally and only as needed. This is an essential feature for providing fast performance. Upon the first request, we can use CDN to deliver content as a static file in the cache.
-
+Kafé uses the Next.js feature [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) to serve content. As a result, we are able to serve content incrementally and only as needed. This is an essential feature for providing fast performance. Upon the first request, we can use a CDN to deliver content as a static file in the cache.
 
 ## How Content Stored and served in Kafe.
 We have three different environments where data is being retrieved. The Kafe application is based on Next.js, and serves content from three different sources:
