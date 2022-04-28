@@ -1,12 +1,14 @@
-import Authors, { Author } from '../../components/authors'
+import Authors, { Author } from '../../components/authors';
 
 # GitHub Actions - check-required-reviewer
-This Action is responsible for checking the existing pull request reviewers by filtering the Input `AUTHOR` GitHub name. 
+
+This Action is responsible for checking the existing pull request reviewers by filtering the Input `AUTHOR` GitHub name.
 This Action runs as [composite action.](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
 
-
 To get a pull request review list from GitHub API, you need to provide the following inputs:
+
 ## Inputs
+
 ```
   AUTHOR:  # id of the input
     description: 'Reviewer Github Login'
@@ -22,6 +24,7 @@ To get a pull request review list from GitHub API, you need to provide the follo
 ```
 
 We are using Github Graphql API to get the list of pull request reviews.
+
 ```Graphql
   query($name: String!, $owner: String!, $pr_number: Int!, $author: String!) {
     repository(owner: $owner, name: $name) {
@@ -38,15 +41,13 @@ We are using Github Graphql API to get the list of pull request reviews.
 
 If the `$AUTHOR` is not in the list of the pull request reviews, we will return `PENDING` as the result.
 
-
-
 ## Outputs
+
 ```
   state:
     description: "Status of the review"
     value: ${{ steps.result.outputs.state }}
 ```
-
 
 <Authors date="April 27th, 2022">
   <Author name="Necmttn" link="https://twitter.com/Necmttn" />
