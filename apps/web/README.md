@@ -49,5 +49,5 @@ vc link
 ```
 
 ```bash
-vercel env pull .env
+vercel env pull .env.development.local
 ```

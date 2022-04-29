@@ -1,3 +1,5 @@
+const { colors } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx}',
@@ -15,6 +17,7 @@ module.exports = {
         },
       },
       colors: {
+        primary: colors.kafeblack,
         kafeblack: '#1E1C1E',
         kafewhite: '#EAE4D9',
         kafepurple: '#9462F7',

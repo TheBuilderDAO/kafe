@@ -141,7 +141,9 @@ export const TutorialPublishCommand = () => {
             console.log({ file })
             const fileContent = await fs.readFile(file.fullPath, 'utf8');
             const digest = await hashSumDigest(file.fullPath);
-            if (!file.options?.skipArweave) {
+            const isImage = /\.(png|jpg|jpeg|gif)$/.test(file.path)
+            const shouldSkipArweave = !file.options?.skipArweave || isImage && options.skipImages;
+            if (!shouldSkipArweave) {
               const arweaveHash = await arweave.publishTutorial(
                 fileContent,
                 options.arweave_wallet,
@@ -205,14 +207,7 @@ export const TutorialPublishCommand = () => {
         (k: string) => k === 'published',
       );
 
-      const files = Object.values(content).filter(file => {
-        if (options.skipImages) {
-          if (/\.(png|jpg|jpeg|gif)$/.test(file.path)) {
-            return false;
-          }
-        }
-        return true;
-      });
+      const files = Object.values(content)
       if (isReadyToPublish || isPublished) {
         console.log('Kicking initial process.');
         files.forEach(async file => {

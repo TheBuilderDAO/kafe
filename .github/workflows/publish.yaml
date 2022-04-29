@@ -80,7 +80,7 @@ jobs:
           echo "::set-output name=proposalId::$PROPOSAL_ID"
           echo "::set-output name=creator::$CREATOR"
           echo "::set-output name=streamId::$STREAM_ID"
-          echo "::set-output name=streamId::$STATE"
+          echo "::set-output name=state::$STATE"
 
   publish_tutorial:
     name: Publish Tutorial
@@ -96,11 +96,11 @@ jobs:
       - id: publish_tutorial
         env:
           SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
-          ARWEAVE_WALLET: ${{ secrets.NEXT_PUBLIC_ARWEAVE_WALLET }}
-          ARWEAVE_APP_NAME: ${{ secrets.NEXT_PUBLIC_ARWEAVE_APP_NAME }}
-          ARWEAVE_HOST: ${{ secrets.NEXT_PUBLIC_ARWEAVE_HOST }}
-          ARWEAVE_PORT: ${{ secrets.NEXT_PUBLIC_ARWEAVE_PORT }}
-          ARWEAVE_PROTOCOL: ${{ secrets.NEXT_PUBLIC_ARWEAVE_PROTOCOL }}
+          ARWEAVE_WALLET: ${{ secrets.ARWEAVE_WALLET }}
+          ARWEAVE_APP_NAME: ${{ secrets.ARWEAVE_APP_NAME }}
+          ARWEAVE_HOST: ${{ secrets.ARWEAVE_HOST }}
+          ARWEAVE_PORT: ${{ secrets.ARWEAVE_PORT }}
+          ARWEAVE_PROTOCOL: ${{ secrets.ARWEAVE_PROTOCOL }}
           CERAMIC_NODE_URL: ${{ secrets.CERAMIC_NODE_URL }}
           CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
         run: |
@@ -109,6 +109,7 @@ jobs:
   set_state:
     name: Set state to published
     needs: [ publish_tutorial, fetch_proposal ]
+    if: contains(needs.fetch_proposal.outputs.state, 'readyToPublish')
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -136,8 +137,8 @@ jobs:
       - id: update_algolia_index
         env:
           SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
-          ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.NEXT_PUBLIC_ALGOLIA_INDEX_NAME }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ACCESS_KEY: ${{ secrets.ALGOLIA_WRITE_API_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
         run: |
           builderdao algolia publish $SLUG --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME

@@ -1,5 +1,5 @@
 import { findAfter } from 'unist-util-find-after';
-import { visitParents } from 'unist-util-visit-parents';
+import visitParents from 'unist-util-visit-parents';
 
 const MAX_HEADING_DEPTH = 4;
 
