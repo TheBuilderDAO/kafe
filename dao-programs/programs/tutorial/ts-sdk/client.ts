@@ -41,6 +41,7 @@ import {
   proposalPublish,
   daoSetQuorum,
   daoAddAdmin,
+  daoRemoveAdmin,
 } from './lib/instructions';
 
 import { Tutorial } from './lib/idl/tutorial';
@@ -330,6 +331,17 @@ export class TutorialProgramClient {
     adminPk: anchor.web3.PublicKey;
   }): Promise<string> {
     return daoAddAdmin({
+      program: this.tutorialProgram,
+      userPk: data.userPk,
+      adminPk: data.adminPk,
+    });
+  }
+
+  async daoRemoveAdmin(data: {
+    userPk: anchor.web3.PublicKey;
+    adminPk: anchor.web3.PublicKey;
+  }): Promise<string> {
+    return daoRemoveAdmin({
       program: this.tutorialProgram,
       userPk: data.userPk,
       adminPk: data.adminPk,
