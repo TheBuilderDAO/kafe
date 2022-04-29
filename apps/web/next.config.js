@@ -20,6 +20,10 @@ const moduleExports = {
     }
     return config;
   },
+  sentry: {
+    disableServerWebpackPlugin: process.env.NEXT_PUBLIC_SENTRY_ENABLED,
+    disableClientWebpackPlugin: process.env.NEXT_PUBLIC_SENTRY_ENABLED,
+  },
 };
 
 const sentryWebpackPluginOptions = {
