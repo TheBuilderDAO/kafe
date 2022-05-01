@@ -8,15 +8,15 @@ import { getClient } from '../../client';
 import { createKeypairFromSecretKey } from '../../utils';
 
 const helpText = `
-Add an admin Solana pubkey to the Kafe Admin list
+Remove an admin Solana pubkey to the Kafe Admin list
 
 Example call to admin:
-$ builderdao admin addAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
+$ builderdao admin removeAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
 `;
 
 export const AdminRemoveAdmin = () => {
-  const removeAdmin = new commander.Command('addAdmin')
-    .description('Add Admin to Kafe List')
+  const removeAdmin = new commander.Command('removeAdmin')
+    .description('Remove Admin to Kafe List')
     .addHelpText(
       'after',
       helpText
