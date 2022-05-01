@@ -1,7 +1,11 @@
 name: Sentry Release
 
 on:
-  push: ['main', 'dev', 'nk/add_sentry_env']
+  push: 
+    braches: 
+      - 'main'
+      - 'dev'
+      - 'nk/add_sentry_env'
 
 jobs:
   release:
