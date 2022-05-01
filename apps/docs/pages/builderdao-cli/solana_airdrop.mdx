@@ -1,3 +1,5 @@
+import Authors, { Author } from '@app/components/authors';
+
 # The airdop command
 
 The following guide shows you how to send $KAFE and $BDR tokens to alpha testnet users.
@@ -18,73 +20,73 @@ The following guide shows you how to send $KAFE and $BDR tokens to alpha testnet
 2. Go to the directory where you plan to keep a local version of the Kafe repo.
 3. Clone the repository locally by running the following:
 
-   ```text
-   gh repo clone TheBuilderDAO/kafe
-   cd kafe
-   ```
+```text
+git clone repo clone TheBuilderDAO/kafe
+cd kafe
+```
 
 4. Build the CLI tool:
 
-   ```text
-   yarn install
-   yarn build:client
-   ```
+```text
+yarn install
+yarn build:cli
+```
 
-5. Confirm that you’re linked to the right `builderdao` cli tool by running the following:
+5. Confirm that you’re linked to the right `builderdao` CLI tool by running the following:
 
-   ```text
-   cd packages/cli
-   yarn unlink
-   ```
+```text
+cd packages/cli
+yarn unlink
+```
 
-6. You should now have access to the `builderdao` cli tool. In order to test this, you can run `builderdao -h` → this will show some brief documentation, options and commands.
+6. You should now have access to the `builderdao` CLI tool. In order to test this, you can run `builderdao -h` → this will show some brief documentation, options and commands.
 7. In order to send tokens, we will need the `admin` command. This command has three sub-commands that you can see by running `builderdao admin -h`:
 
-   ```text
-   builderdao admin --help
+```text
+builderdao admin --help
 
-   Usage: builderdao admin [options] [command]
+Usage: builderdao admin [options] [command]
 
-   admin command
+admin command
 
-   Options:
-   -h, --help display help for command
+Options:
+-h, --help display help for command
 
-   Commands:
-   airdrop [options] Airdrop token to user
-   bs58 [options] helper
-   setAuthor [options] set the author of a migrated tutorial from LV2
-   ```
+Commands:
+airdrop [options] Airdrop token to user
+bs58 [options] helper
+setAuthor [options] set the author of a migrated tutorial from LV2
+```
 
 8. Intuitively, we can use the airdrop command to send tokens. Before we do that, we can use the `builderdao admin airdrop -h` command to see what options we need to pass for the command to execute:
 
-   ```text
-   builderdao admin airdrop --help
-   Usage: builderdao admin airdrop [options]
+```text
+builderdao admin airdrop --help
+Usage: builderdao admin airdrop [options]
 
-   Airdrop token to user
+Airdrop token to user
 
-   Options:
-   --adminKp <adminKp> Admin KeyPair (bs58 encoded) (env: ADMIN_KP)
-   --address <address> address of the receiver
-   --onlyKafe Airdrop only Kafe Token
-   --onlyBDR Airdrop only BDR Token
-   -h, --help display help for command
+Options:
+--adminKp <adminKp> Admin KeyPair (bs58 encoded) (env: ADMIN_KP)
+--address <address> address of the receiver
+--onlyKafe Airdrop only Kafe Token
+--onlyBDR Airdrop only BDR Token
+-h, --help display help for command
 
-   Aidrop info:
+Aidrop info:
 
-   - 1 Kafe Token
-   - 100 BDR Token (frozen)
+- 1 Kafe Token
+- 100 BDR Token (frozen)
 
-   Example call to airdrop both Kafe and BDR token:
-   $ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey>
+Example call to airdrop both Kafe and BDR token:
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey>
 
-   Example call to airdrop only BDR token:
-   $ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyBDR
+Example call to airdrop only BDR token:
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyBDR
 
-   Example call to airdrop only Kafe token:
-   $ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyKafe
-   ```
+Example call to airdrop only Kafe token:
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyKafe
+```
 
 9. Here we see that we need to pass a public address for the account we want to send tokens using the option `--address`. Moreover, we need to pass a private key using the `--adminKp` option to authenticate ourselves as an admin. We also see that we have the option to send 1 $KAFE and 100 $BDR at the same time, or to choose one to send by itself.
 
@@ -97,10 +99,14 @@ The following guide shows you how to send $KAFE and $BDR tokens to alpha testnet
 
 11. With your private key in your clipboard, go back to your terminal and issue the following command:
 
-    ```markdown
-    builderdao admin airdrop --adminKp <paste-your-private-key-here>
-    --address <paste-destination-public-address-here>\*\*
-    ✔ signature: <some-signature-hash-if-the-transaction-was-successful>
-    ```
+```text
+builderdao admin airdrop --adminKp <paste-your-private-key-here>
+--address <paste-destination-public-address-here>\*\*
+✔ signature: <some-signature-hash-if-the-transaction-was-successful>
+```
 
 12. If the transaction fails, it will show an error and give a reason at the top of the error message along with a longer error message that you can safely ignore. If this happens, check your private key. And if you can’t resolve it, please contact @Daniel Gamboa or @Moises Beltran.
+
+---
+
+<Authors path="apps/docs/pages/api-docs/typescript-sdk.mdx" />
