@@ -21,8 +21,8 @@ const moduleExports = {
     return config;
   },
   sentry: {
-    disableServerWebpackPlugin: process.env.NEXT_PUBLIC_SENTRY_ENABLED,
-    disableClientWebpackPlugin: process.env.NEXT_PUBLIC_SENTRY_ENABLED,
+    disableServerWebpackPlugin: process.env.NEXT_PUBLIC_SENTRY_RELEASE_DISABLED,
+    disableClientWebpackPlugin: process.env.NEXT_PUBLIC_SENTRY_RELEASE_DISABLED,
   },
 };
 

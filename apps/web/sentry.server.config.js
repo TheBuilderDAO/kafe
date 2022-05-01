@@ -12,7 +12,7 @@ Sentry.init({
   tracesSampleRate:
     parseFloat(process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE) || 1.0,
   // ...
-  release: 'kafe@' + process.env.npm_package_version,
+  // release: 'kafe@' + process.env.npm_package_version,
   // Note: if you want to override the automatic release value, do not set a
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so
   // that it will also get attached to your source maps
