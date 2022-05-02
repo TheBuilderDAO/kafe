@@ -34,9 +34,15 @@ Click each heading below for details:
  <summary>/apps</summary>
 
 - `/web` - Kafé by Builder DAO frontend
+
   - `/components` - ReactJS components
   - `/hooks` - React Hooks specific to Kafé
   - `/pages` - Next.js API & page routes
+  - `/styles` - This project uses [TailwindCSS](https://tailwindcss.com/)
+
+- `/docs` - Builder DAO public documentation uses [Nextra](https://nextra.vercel.app)
+  - `/components` - ReactJS components for use in the docs
+  - `/pages` - Raw markdown files get deployed at [https://docs.builderdao.io](https://docs.builderdao.io)
   - `/styles` - This project uses [TailwindCSS](https://tailwindcss.com/)
   </details>
 
