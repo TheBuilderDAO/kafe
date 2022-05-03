@@ -1,4 +1,3 @@
-// import { Network } from '@builderdao/dao-utils';
 import { FC, ReactNode } from 'react';
 import { NetworkContext } from './useNetwork';
 
