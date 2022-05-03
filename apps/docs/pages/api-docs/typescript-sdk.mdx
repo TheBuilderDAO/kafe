@@ -2,22 +2,238 @@ import Authors, { Author } from '@app/components/authors';
 
 # Kafé TypeScript SDK
 
-## Imports
+## Methods
 
+```typescript
+async getDaoAccount()
 ```
 
+Method returning the daoAccount
+
+```typescript
+async getNonce()
 ```
 
-## Exports
+Method returning the nonce
 
+```typescript
+async getProposals(
+  filter: Buffer | GetProgramAccountsFilter[] | undefined = undefined,
+)
 ```
 
+Method returning the selected proposals based on filtering features
+
+```typescript
+async getIsAdmin()
 ```
 
-## Classes & Functions
+Method returning if the connected user is an admin
 
+```typescript
+async getReviewers()
 ```
 
+Method returning the reviewers list
+
+```typescript
+async getReviewerByReviewerPk(reviewerPk: PublicKey)
+```
+
+Method returning reviewer for a given pubkey
+
+```typescript
+async getReviewerByReviewerAccountPDA(reviewerAccountPk: PublicKey)
+```
+
+Method returning reviewer for a given pda
+
+```typescript
+async getDaoVaultAccountBalance(mintPk: anchor.web3.PublicKey)
+```
+
+Method returning vault balance for given vault
+
+```typescript
+async getTutorialBySlug(slug: string)
+```
+
+Method returning a tutorial by slug
+
+```typescript
+async getTutorialById(id: number)
+```
+
+Method returning a tutorial by id
+
+```typescript
+async getVoteAccountListByTutorialId(tutorialId: number)
+```
+
+Method returning the voter accounts list for a given id
+
+```typescript
+async getVoteAccountListHashmapByTutorialIds(tutorialIds: number[])
+```
+
+Method returning the voter account hashmap from a list of tutorial id
+
+```typescript
+async getVote(tutorialId: number, publicKey: PublicKey)
+```
+
+Method returning the voter accounts list for a given id
+
+```typescript
+async getListOfTippers()
+```
+
+Method returning the list of tipper
+
+```typescript
+async getListOfTippersByUser(tipperPk: PublicKey)
+```
+
+Method returning the ist of tipper
+
+```typescript
+async getListOfTippersById(id: number)
+```
+
+Method returning the list of tipper for a tutorial id
+
+```typescript
+async getTipperAccountListHashmapByIds(ids: number[])
+```
+
+Method returning the list of tipper for a tutorial id
+
+```typescript
+async getTotalTipsById(id: number)
+```
+
+Method returning the tip amont for a tutorial id
+
+```typescript
+async castVote(proposalId: number)
+```
+
+Method casting a vote for a given proposal id
+
+```typescript
+async cancelVote(proposalId: number) {
+```
+
+Method canceling a vote for a given proposal id
+
+```typescript
+async createTutorial(data: {
+  id: number;
+  userPk: anchor.web3.PublicKey;
+  slug: string;
+  streamId: string;
+})
+```
+
+Method for tutorial creation
+
+```typescript
+async closeTutorial(data: {
+  id: number;
+  authorPk: anchor.web3.PublicKey;
+  userPk: anchor.web3.PublicKey;
+})
+```
+
+Method to close a tutorial
+
+```typescript
+async createReviewer(data: {
+  authorityPk: anchor.web3.PublicKey;
+  reviewerPk: anchor.web3.PublicKey;
+  githubName: string;
+})
+```
+
+Method to create a reviewer
+
+```typescript
+async deleteReviewer(data: {
+  authorityPk: anchor.web3.PublicKey;
+  reviewerPk: anchor.web3.PublicKey;
+  force?: boolean;
+})
+```
+
+Method to delete a reviewer
+
+```typescript
+async assignReviewer(data: {
+  authorityPk: anchor.web3.PublicKey;
+  reviewerPks: anchor.web3.PublicKey[];
+  id: number;
+  force?: boolean;
+})
+```
+
+Method to assign a reviewer
+
+```typescript
+async proposalSetState(data: {
+  newState: ProposalStateE;
+  adminPk: anchor.web3.PublicKey;
+  id: number;
+})
+```
+
+Method to set the state of a proposal
+
+```typescript
+async guideTipping(data: {
+  id: number;
+  tipperPk: anchor.web3.PublicKey;
+  amount: anchor.BN;
+})
+```
+
+Method to tip guide
+
+```typescript
+async daoSetQuorum(data: {
+  adminPk: anchor.web3.PublicKey;
+  quorum: number;
+})
+```
+
+Method to set the quorum
+
+```typescript
+async proposalPublish(data: {
+  authorPk: anchor.web3.PublicKey;
+  adminPk: anchor.web3.PublicKey;
+  id: number;
+})
+```
+
+Method to set the author of a proposal
+
+```typescript
+async proposalSetAuthor(data: {
+  creatorPk: anchor.web3.PublicKey;
+  adminKp: anchor.web3.Keypair;
+  id: number;
+})
+```
+
+Method to set the airdrop tokens
+
+```typescript
+async airdrop(data: {
+  memberPk: anchor.web3.PublicKey;
+  authority: anchor.web3.Keypair;
+  isKafeDrop?: boolean;
+  isBdrDrop?: boolean;
+})
 ```
 
 ---

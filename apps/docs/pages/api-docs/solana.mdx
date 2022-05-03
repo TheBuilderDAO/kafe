@@ -2,23 +2,224 @@ import Authors, { Author } from '@app/components/authors';
 
 # Solana API documentation
 
-## Imports
+## Instructions
 
+### Admin functions
+
+```rust
+pub fn airdrop(
+  ctx: Context<Airdrop>,
+  bump_kafe: u8,
+  bump_bdr: u8,
+  is_kafe_drop: bool,
+  is_bdr_drop: bool,
+) -> Result<()>
 ```
 
+Instruction dedicated to airdrop token
+
+```rust
+pub fn dao_add_admin(
+  ctx: Context<DaoAddAdmin>,
+  admin: Pubkey
+) -> Result<()>
 ```
 
-## Exports
+Instruction dedicated to add an admin to Kafe admin list
 
+```rust
+pub fn dao_remove_admin(
+  ctx: Context<DaoRemoveAdmin>,
+  admin: Pubkey
+) -> Result<()>
 ```
 
+Instruction dedicated to remove an admin to Kafe admin list
+
+```rust
+pub fn dao_close(
+  ctx: Context<DaoClose>
+) -> Result<()>
 ```
 
-## Classes & Functions
+Instruction dedicated to close the daoAccount
 
+```rust
+pub fn dao_initialize(
+  ctx: Context<DaoInitialize>,
+  bump: u8,
+  quorum: u64,
+  min_amount_to_create_proposal: u64,
+  super_admin: Pubkey,
+  authorities: Vec<Pubkey>,
+) -> Result<()>
 ```
 
+Instruction dedicated to initialize daoAccount
+
+```rust
+pub fn dao_set_amount_to_create_proposal(
+  ctx: Context<DaoSetAmountToCreateProposal>,
+  quorum: u64,
+) -> Result<()>
 ```
+
+Instruction dedicated to set the amount to create proposal
+
+```rust
+pub fn dao_set_nonce(
+  ctx: Context<DaoSetNonce>,
+  nonce: u64
+) -> Result<()>
+```
+
+Instruction dedicated to set nonce
+
+```rust
+pub fn dao_set_quorum(
+  ctx: Context<DaoSetQuorum>,
+  quorum: u64
+) -> Result<()>
+```
+
+Instruction dedicated to set the quorum
+
+```rust
+pub fn dao_vault_close(
+  ctx: Context<DaoVaultClose>,
+  bump: u8,
+  amount: u64,
+  freeze: bool,
+) -> Result<()>
+```
+
+Instruction dedicated to close token vault
+
+```rust
+pub fn dao_vault_initialize(
+  ctx: Context<DaoVaultInitialize>
+) -> Result<()>
+```
+
+Instruction dedicated to initialize vault
+
+```rust
+pub fn guide_tipping(
+  ctx: Context<GuideTipping>,
+  bump: u8,
+  amount: u64,
+  bump_vault: u8,
+  bump_bdr: u8,
+) -> Result<()>
+```
+
+Instruction dedicated to tip a guide
+
+```rust
+pub fn proposal_close(
+  ctx: Context<ProposalCreatorClose>,
+  bump: u8
+) -> Result<()>
+```
+
+Instruction dedicated to close a proposal
+
+```rust
+pub fn proposal_create(
+  ctx: Context<ProposalCreate>,
+  bump: u8,
+  bump_bdr: u8,
+  slug: String,
+  stream_id: String,
+) -> Result<()>
+```
+
+Instruction dedicated to create a proposal
+
+```rust
+pub fn proposal_publish(
+  ctx: Context<ProposalPublish>,
+  bump: u8,
+  bump_bdr: u8
+) -> Result<()>
+```
+
+Instruction dedicated to create a publish a proposal
+
+```rust
+pub fn proposal_set_state(
+  ctx: Context<ProposalSetState>,
+  state: String
+) -> Result<()>
+```
+
+Instruction dedicated to set the state of a proposal
+
+```rust
+pub fn proposal_set_creator(
+  ctx: Context<ProposalSetCreator>,
+  bump: u8,
+  bump_bdr: u8
+) -> Result<()>
+```
+
+Instruction dedicated to set the creator of a proposal
+
+```rust
+pub fn reviewer_assign(
+  ctx: Context<ReviewerAssign>,
+  force: bool
+) -> Result<()>
+```
+
+Instruction dedicated to assign a reviewer
+
+```rust
+pub fn reviewer_create(
+  ctx: Context<ReviewerCreate>,
+  bump: u8,
+  reviewer: Pubkey,
+  github_name: String,
+) -> Result<()>
+```
+
+Instruction dedicated to create a reviewer
+
+```rust
+pub fn reviewer_delete(
+  ctx: Context<ReviewerDelete>,
+  force: bool
+) -> Result<()>
+```
+
+Instruction dedicated to delete a reviewer
+
+```rust
+pub fn tipper_close(
+  ctx: Context<TipperClose>
+) -> Result<()>
+```
+
+Instruction dedicated to close a tipper account
+
+```rust
+pub fn vote_cancel(
+  ctx: Context<VoteCancel>
+) -> Result<()>
+```
+
+Instruction dedicated to cancel a vote
+
+```rust
+pub fn vote_cast(
+  ctx: Context<VoteCast>,
+  bump: u8,
+  tutorial_id: u64,
+  bump_bdr: u8
+) -> Result<()>
+```
+
+Instruction dedicated to cast a vote
 
 ---
 
