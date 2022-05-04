@@ -5,6 +5,7 @@ import { AdminBs58Command } from './utils';
 import { AdminSetAuthorCommand } from './setAuthor';
 import { AdminAddAdmin } from './addAdmin';
 import { AdminRemoveAdmin } from './removeAdmin';
+import { AdminSetAmountForProposal } from './setAmountForProposal';
 
 export function makeAdminCommand() {
   const admin = new commander.Command('admin')
@@ -21,6 +22,7 @@ export function makeAdminCommand() {
   admin.addCommand(AdminBs58Command());
   admin.addCommand(AdminAddAdmin());
   admin.addCommand(AdminRemoveAdmin());
+  admin.addCommand(AdminSetAmountForProposal());
 
   return admin;
 }
