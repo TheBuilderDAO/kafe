@@ -1,0 +1,67 @@
+---
+title: Airdrop KAFE and BDR
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# The airdop command
+
+The following guide shows you how to send $KAFE and $BDR tokens to alpha testnet users.
+
+🚨 Please confirm with Daniel Gamboa before sending tokens to non-Figment addresses.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You must be an admin on Kafé.
+- You must use your Solana account registered as an admin.
+
+## Instructions
+
+1. In order to send tokens, we will need the `airdrop` subcommand.
+2. Intuitively, we can use the airdrop command to send tokens. Before we do that, we can use the `builderdao admin airdrop -h` command to see what options we need to pass for the command to execute:
+
+```text
+builderdao admin airdrop --help
+Usage: builderdao admin airdrop [options]
+
+Airdrop token to user
+
+Options:
+--adminKp <adminKp> Admin KeyPair (bs58 encoded) (env: ADMIN_KP)
+--address <address> address of the receiver
+--onlyKafe Airdrop only Kafe Token
+--onlyBDR Airdrop only BDR Token
+-h, --help display help for command
+
+Aidrop info:
+
+- 1 Kafe Token
+- 100 BDR Token (frozen)
+
+Example call to airdrop both Kafe and BDR token:
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey>
+
+Example call to airdrop only BDR token:
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyBDR
+
+Example call to airdrop only Kafe token:
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyKafe
+```
+
+3. Here we see that we need to pass a public address for the account we want to send tokens using the option `--address`. Moreover, we need to pass a private key using the `--adminKp` option to authenticate ourselves as an admin. We also see that we have the option to send 1 $KAFE and 100 $BDR at the same time, or to choose one to send by itself.
+
+4. With your private key in your clipboard, go back to your terminal and issue the following command:
+
+```text
+builderdao admin airdrop --adminKp <paste-your-private-key-here>
+--address <paste-destination-public-address-here>
+```
+
+```text
+✔ signature: <some-signature-hash-if-the-transaction-was-successful>
+```
+
+---
+
+<Authors path="apps/docs/pages/builderdao-cli/solana-admin-airdrop.mdx" />

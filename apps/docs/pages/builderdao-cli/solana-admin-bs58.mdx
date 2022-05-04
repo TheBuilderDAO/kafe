@@ -1,0 +1,47 @@
+---
+title: Encode Your private key
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# The airdop command
+
+The following guide shows you how to convert a `keypair.json` into a base58 string.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+
+## Instructions
+
+1. We can use the `builderdao admin bs58 --help` command to see what options we need to pass for the command to execute:
+
+```text
+Usage: builderdao admin bs58 [options]
+
+helper
+
+Options:
+  --path <path>  keypair json file
+  -h, --help     helper
+
+Example call:
+$ builderdao admin bs58 --path <path_of_keypair.json>
+```
+
+2. Here we see that we need to pass the path of our keypair as an option.
+3. Once you have located the path of `keypair.json` holding your secret, go back to your terminal and issue the following command:
+
+```text
+builderdao admin bs58 --path test.json
+```
+
+4. Which output your encoded secret.
+
+```text
+49jUstVjaoJywSYn3a93qCng9DCqsXnRndQp6YPhEkcqgSn2NfuX6cekqMXJbkrLSZfAGagS62VPpk1yQvsvWEGE
+```
+
+---
+
+<Authors path="apps/docs/pages/builderdao-cli/solana-airdrop.mdx" />

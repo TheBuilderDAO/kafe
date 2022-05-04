@@ -1,4 +1,7 @@
 {
   "summary": "Summary",
-  "solana-airdrop": "Solana Airdrop"
+  "setup": "Setup the CLI",
+  "solana-admin": "Encode your private key",
+  "solana-admin-airdrop": "Airdrop KAFE and BDR",
+  "solana-admin-manage-kafe-list": "Manage Kafé list"
 }
