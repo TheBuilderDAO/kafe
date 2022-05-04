@@ -1,0 +1,52 @@
+---
+title: The Admins commands
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# The Admin commands
+
+The following guide shows you how and why to use the subcommands under admin command to manage the Kafé program.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+
+## Basic usage
+
+1. This command has many sub-commands that you can see by running `builderdao admin -h`:
+
+```text
+Usage: builderdao admin [options] [command]
+
+admin command
+
+Options:
+  -h, --help             display help for command
+
+Commands:
+  addAdmin [options]     Add Admin to Kafe List
+  airdrop [options]      Airdrop token to user
+  bs58 [options]         helper
+  removeAdmin [options]  Remove Admin to Kafe List
+  setAuthor [options]    set the author of a migrated tutorial from LV2
+```
+
+2. In order to use the command, you will need the base58 private key of the account you provided to be included as an admin.
+
+- If you’re using Phantom wallet, follow these steps:
+
+  1. Open the Settings by clicking on the gear on the bottom right of the wallet navigation bar.
+  2. Scroll to the bottom of Settings and click on the button labeled “Export Private Key”.
+  3. Enter your Phantom wallet password.
+  4. Copy the private key (it should go without saying, but please keep this safe, make sure no one is looking at your screen, etc).
+
+- If you’re using a `keypair.json` file you'll need to use the `bs58` subcommand:
+
+## help
+
+When using the afford mention subcommands if the transaction fails, it will show an error and give a reason at the top of the error message along with a longer error message that you can safely ignore. If this happens, check your private key. And if you can’t resolve it, please contact @Daniel Gamboa or @Moises Beltran.
+
+---
+
+<Authors path="apps/docs/pages/builderdao-cli/solana-admin.mdx" />
