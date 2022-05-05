@@ -10,7 +10,7 @@ import { createKeypairFromSecretKey } from '../../utils';
 const helpText = `
 Remove an admin Solana pubkey to the Kafe Admin list
 
-Example call to admin:
+Example call:
 $ builderdao admin removeAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
 `;
 
@@ -50,9 +50,9 @@ export const AdminRemoveAdmin = () => {
         const spinner = ora('Processing transaction')
         spinner.start();
 
-        const signature = await client.removeAdmin({
+        const signature = await client.daoRemoveAdmin({
           userPk: options.address,
-          adminPk: options.adminKp,
+          adminPk: options.adminKp.publicKey.toString(),
         });
 
         spinner.succeed(`signature: ${signature}`);
