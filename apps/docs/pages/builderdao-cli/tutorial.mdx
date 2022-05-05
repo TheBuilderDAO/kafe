@@ -1,0 +1,38 @@
+---
+title: Tutorial Pre-publish
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+## The Tutorial Commands
+
+The following guide shows you how and why to use the subcommands under tutorial command to manage the Kafé tutorials.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You must be either in the root of the tutorial folder or in a subfolder of the tutorial folder. `/tutorials/<tutorial-name>`
+
+## Basic usage
+
+1. This command has many sub-commands that you can see by running `builderdao tutorial -h`:
+
+```
+Usage: builderdao tutorial [options] [command]
+
+Initialize & publish Kafé tutorials
+
+Options:
+  -h, --help                               display help for command
+
+Commands:
+  get <learnPackageName>                   Display metadata for a single tutorial
+  init [options]                           Initialize a tutorial package from a proposal
+  list                                     List all tutorials and metadata
+  prepublish [options] [learnPackageName]  Perform pre-publishing tasks
+  publish [options] [learnPackageName]     Publish tutorial to Arweave & Ceramic
+```
+
+2. In order to use some of the commands, you must be in the root of the tutorial folder. (`init`, `prepublish` and `publish` commands are available in the root of the tutorial folder.) You can also run the commands in a subfolder of the tutorial folder. (`prepublish`, `publish`) some commands can run anywhere.(`get`, `list`)
+
+<Authors path="apps/docs/pages/builderdao-cli/tutorial.mdx" />

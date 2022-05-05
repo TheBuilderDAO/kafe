@@ -1,0 +1,31 @@
+---
+title: Tutorial Publish
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+## Publish
+
+The publish command is used for uploading the tutorial to arweave and updating ceramic metadata. This command meant to be run in Publish Github Action workflow. But it can also be run manually if it's necessary.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You must be either in the root of the tutorial folder or in a subfolder of the tutorial folder. `/tutorials/<tutorial-name>`
+- You must be an admin on Kafé.
+- You will need `ARWEAVE_WALLET` env variable set.
+- You will need `CERAMIC_SEED` env variable set.
+
+## Instructions
+
+1.  If you wish to run the `publish` command from the root folder you will need the provide learnPackageName
+
+```bash
+Example call:
+  $ builderdao tutorial publish near-101
+
+Notes:
+  - The publish workflow adds the tutorial to Arweave and Ceramic.
+```
+
+<Authors path="apps/docs/pages/builderdao-cli/tutorial-publish.mdx" />
