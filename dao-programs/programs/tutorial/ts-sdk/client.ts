@@ -42,6 +42,7 @@ import {
   daoSetQuorum,
   daoAddAdmin,
   daoRemoveAdmin,
+  daoSetAmountToCreateProposal,
 } from './lib/instructions';
 
 import { Tutorial } from './lib/idl/tutorial';
