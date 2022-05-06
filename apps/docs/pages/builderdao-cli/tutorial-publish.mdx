@@ -4,7 +4,7 @@ title: Tutorial Publish
 
 import Authors, { Author } from '@app/components/authors';
 
-## Publish
+# Tutorial Publish
 
 The publish command is used for uploading the tutorial to arweave and updating ceramic metadata. This command meant to be run in Publish Github Action workflow. But it can also be run manually if it's necessary.
 
@@ -58,7 +58,7 @@ Example call from tutorial subfolder:
 
 This will publish the tutorial to Arweave and Ceramic.
 
-## What it does ?
+## What does it do?
 
 1. Fetch proposal account from Solana & ceramic metadata of the tutorial.
 2. Check the state of the proposal if it's published or readyToPublish proceeed with publishing.Otherwise it will exit.

@@ -4,7 +4,7 @@ title: Tutorial Pre-publish
 
 import Authors, { Author } from '@app/components/authors';
 
-## Pre-publish
+# Tutorial Pre-publish
 
 The prepublish workflow deals with the builderdao-config.service to generate the
 builderdao config and lock files, also updating the hash digest of the tutorial folder.
@@ -34,13 +34,13 @@ Example call:
 $ builderdao tutorial prepublish near-101
 ```
 
-## What it does ?
+## What does it do?
 
 Keeps the builderdao config and lock files up to date base on the tutorial slug. BuilderDAO CLI makes a request to solana & Ceramic to get metadata about the tutorial.
 
-- Using Solana Client to get coresponding metadata from the tutorial.
-- Using Ceramic Client to get metadata from the tutorial.
-- Update reviewer and author information in the builderdao config file.
-- Update the hash digest of the tutorial folder. This allow us to check if the tutorial files has been modified or not.
+1. Using Solana Client to get coresponding metadata from the tutorial.
+2. Using Ceramic Client to get metadata from the tutorial.
+3. Update reviewer and author information in the builderdao config file.
+4. Update the hash digest of the tutorial folder. This allow us to check if the tutorial files has been modified or not.
 
 <Authors path="apps/docs/pages/builderdao-cli/tutorial-prepublish.mdx" />
