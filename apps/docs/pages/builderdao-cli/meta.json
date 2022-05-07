@@ -4,5 +4,8 @@
   "solana-admin": "The Admins command",
   "solana-admin-bs58": "Encode your private key",
   "solana-admin-airdrop": "Airdrop KAFE and BDR",
-  "solana-admin-manage-kafe-list": "Manage Kafé list"
+  "solana-admin-manage-kafe-list": "Manage Kafé list",
+  "tutorial": "The Tutorial command",
+  "tutorial-prepublish": "Prepublish the tutorial",
+  "tutorial-publish": "Publish the tutorial"
 }
