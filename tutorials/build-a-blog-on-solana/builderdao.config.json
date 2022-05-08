@@ -1,0 +1,6 @@
+{
+  "title": "Build a Blog on Solana",
+  "description": "Learn fullstack with Solana by building a Blog.",
+  "imageUrl": "./content/assets/example_image.png",
+  "categories": ["Solana", "JS/TS", "Next.js", "Rust", "Smart Contract"]
+}
