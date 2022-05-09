@@ -7,6 +7,7 @@ import { AdminAddAdmin } from './addAdmin';
 import { AdminRemoveAdmin } from './removeAdmin';
 import { AdminAddReviewer } from './addReviewer';
 import { AdminRemoveReviewer } from './removeReviewer';
+import { AdminSetAmountForProposal } from './setAmountForProposal';
 
 export function makeAdminCommand() {
   const admin = new commander.Command('admin')
@@ -25,6 +26,7 @@ export function makeAdminCommand() {
   admin.addCommand(AdminRemoveAdmin());
   admin.addCommand(AdminAddReviewer());
   admin.addCommand(AdminRemoveReviewer());
+  admin.addCommand(AdminSetAmountForProposal());
 
   return admin;
 }
