@@ -13,13 +13,13 @@ Aidrop info:
 - 100 BDR Token (frozen)
 
 Example call to airdrop both Kafe and BDR token:
-$ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey>
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey>
 
 Example call to airdrop only BDR token:
-$ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyBDR
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyBDR
 
 Example call to airdrop only Kafe token:
-$ builderdao airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyKafe
+$ builderdao admin airdrop --adminKp <bs58Secret> --address <bs58Pubkey> --onlyKafe
 `;
 
 export const AdminAirdropCommand = () => {

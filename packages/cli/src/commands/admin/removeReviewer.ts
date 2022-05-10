@@ -8,21 +8,21 @@ import { getClient } from '../../client';
 import { createKeypairFromSecretKey } from '../../utils';
 
 const helpText = `
-Add an admin Solana pubkey to the Kafe Admin list
+Remove an reviewer Solana pubkey to the Kafe program
 
 Example call:
-$ builderdao admin addAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
+$ builderdao admin removeReviewer --adminKp <bs58Secret> --reviewerPk <bs58Pubkey> --ghHandle <string>
 `;
 
-export const AdminAddAdmin = () => {
-  const addAdmin = new commander.Command('addAdmin')
-    .description('Add Admin to Kafe List')
+export const AdminRemoveReviewer = () => {
+  const removeReviewer = new commander.Command('removeReviewer')
+    .description('Remove a reviewer to Kafe program')
     .addHelpText(
       'after',
       helpText
     )
 
-  addAdmin
+  removeReviewer
     .addOption(
       new commander.Option(
         '--adminKp <adminKp>',
@@ -34,8 +34,8 @@ export const AdminAddAdmin = () => {
     )
     .addOption(
       new commander.Option(
-        '--address <address>',
-        'address of the new admin',
+        '--reviewerPk <reviewerPk>',
+        'address of the new reviewer',
       )
         .argParser(val => new anchor.web3.PublicKey(val))
         .makeOptionMandatory(),
@@ -43,16 +43,16 @@ export const AdminAddAdmin = () => {
     .action(
       async (options) => {
         const client = getClient({
-          network: addAdmin.optsWithGlobals().network,
+          network: removeReviewer.optsWithGlobals().network,
           payer: options.adminKp,
         });
-  
+
         const spinner = ora('Processing transaction')
         spinner.start();
 
-        const signature = await client.daoAddAdmin({
-          userPk: options.address,
-          adminPk: options.adminKp.publicKey.toString(),
+        const signature = await client.deleteReviewer({
+          reviewerPk: options.reviewerPk,
+          authorityPk: options.adminKp.publicKey.toString(),
         });
 
         spinner.succeed(`signature: ${signature}`);
@@ -60,5 +60,5 @@ export const AdminAddAdmin = () => {
       },
     );
 
-  return addAdmin;
+  return removeReviewer;
 }
