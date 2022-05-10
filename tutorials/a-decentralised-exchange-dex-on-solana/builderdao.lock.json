@@ -1,0 +1,43 @@
+{
+  "proposalId": 227,
+  "slug": "a-decentralised-exchange-dex-on-solana",
+  "creator": "",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://builderdao.io",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "2xGUbjpkPf6vmSvkWaUaJAKtTX6RQqmfaS1deVwXxoa8",
+      "pubkey": "9c8oxENj8XrEM2EMadxUoifZgB1Vbc8GEYqKTxTfPo3i",
+      "githubName": "pyr0gan"
+    },
+    "reviewer2": {
+      "pda": "dG8j9suLiqW7DgF9T9M8DXMXV3isg1ypsQBoiUBk7k5",
+      "pubkey": "AtjUFvd9Nmk1wX79KDUe6whxZPv6zFiz29bHyuow4GqL",
+      "githubName": "paulpomerleau"
+    }
+  },
+  "content": {
+    "content/assets/template_regex.png": {
+      "name": "template_regex.png",
+      "path": "content/assets/template_regex.png",
+      "digest": "5082770ef0c236cf811a6e1dc8aa474fec777c0c3693eefdc943a333f04013c6"
+    },
+    "content/assets/example_image.png": {
+      "name": "example_image.png",
+      "path": "content/assets/example_image.png",
+      "digest": "509f8de4db71a76bac40ea48615b09c6661c23eb4bec6512f295aebc496f1312"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "6b42113a491e95857fd503f9cda850b4362bb184072520a7b73db6c4aeedfd62"
+    }
+  },
+  "href": "/learn/a-decentralised-exchange-dex-on-solana"
+}

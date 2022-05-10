@@ -1,0 +1,6 @@
+{
+  "title": "A decentralised exchange(DEX) on solana.",
+  "description": "A decentralised exchange is a network that allows anybody to swap cryptocurrency tokens over the blockchain by performing a transaction between two tokens, such as the SOL-KAFE pair.  Decentralized exchanges (DEX), such as PancakeSwap or Uniswap, are self-contained financial protocols powered by smart contracts that let cryptocurrency traders to convert their holdings.",
+  "imageUrl": "",
+  "categories": ["Solana", "Javascript", "React", "Solidity"]
+}
