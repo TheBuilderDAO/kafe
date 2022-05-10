@@ -1,6 +1,6 @@
 # Guide Outline
 
-> Provide a one or two paragraph outline of your guide. You should mention the overall topic, and what you expect learners to acheive when completing your guide.
+> Provide a one or two paragraph outline of your guide. You should mention the overall topic, and what you expect learners to achieve when completing your guide.
 
 ## Link to Proposal
 
