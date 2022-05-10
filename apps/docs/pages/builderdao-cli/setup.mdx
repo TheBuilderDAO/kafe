@@ -26,11 +26,10 @@ yarn build:cli
 
 ```text
 cd packages/cli
-yarn unlink
 yarn link
 ```
 
-6. You should now have access to the `builderdao` CLI tool. In order to test this, you can run `builderdao -h` → this will show some brief documentation, options and commands.
+6. You should now have access to the `builderdao` CLI tool. In order to test this, you can run `builderdao -h` → this will show some brief documentation, options and commands. If its failing think to check your `PATH` environment variable or simply execute the following command `export PATH="$HOME/.yarn/bin:$PATH"` (to make the change permanent add this command at the end of your `.bashrc`).
 
 ---
 
