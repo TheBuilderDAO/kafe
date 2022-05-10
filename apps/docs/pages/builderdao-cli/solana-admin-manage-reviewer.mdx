@@ -1,0 +1,58 @@
+---
+title: Manage Reviewer
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Manage admin Kafé list
+
+The following guide shows you how to add and remove reviewer on Kafé.
+
+🚨 Please confirm with @Daniel Gamboa before adding or removing reviewer.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You must be an admin on Kafé.
+- You must use your Solana account registered as an admin.
+
+## Instructions
+
+1. Intuitively, we can use two commands to manage reviewer, `addReviewer` and `removeReviewer`. To know more, we can use the `builderdao admin addReviewer -h` command to see what options we need to pass:
+
+```text
+Usage: builderdao admin addReviewer [options]
+
+Add a reviewer to Kafe program
+
+Options:
+  --adminKp <adminKp>        Admin KeyPair (bs58 encoded) (env: ADMIN_KP)
+  --reviewerPk <reviewerPk>  address of the new reviewer
+  --ghHandle <ghHandle>      github handle of the new reviewer
+  -h, --help                 display help for command
+
+Add an reviewer Solana pubkey to the Kafe program
+
+Example call:
+$ builderdao admin addReviewer --adminKp <bs58Secret> --reviewerPk <bs58Pubkey> --ghHandle <string>
+```
+
+2. Here we see that we need to pass a public address for the account we want to add or remove from the reviewer list using the option `--address`. Moreover, we need to pass a private key using the `--adminKp` option to authenticate ourselves as an admin. Last but not least the `ghHandle` is the github handle of the reviewer
+
+3. With your private key in your clipboard, go back to your terminal and issue the following command:
+
+```text
+builderdao admin addReviewer --adminKp <paste-your-private-key-here> \
+--address <paste-destination-public-address-here> \
+--ghHandle <string>
+```
+
+```text
+✔ signature: <some-signature-hash-if-the-transaction-was-successful>
+```
+
+4. Once the reviewer added on Solana program, it's mandatory for the writing process to ensure that the reviewer as been added as a collaborator to the github repository.
+
+---
+
+<Authors path="apps/docs/pages/builderdao-cli/solana-admin-manage-reviewer.mdx" />
