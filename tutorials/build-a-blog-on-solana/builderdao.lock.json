@@ -1,0 +1,53 @@
+{
+  "proposalId": 217,
+  "slug": "build-a-blog-on-solana",
+  "creator": "",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://builderdao.io",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "2xGUbjpkPf6vmSvkWaUaJAKtTX6RQqmfaS1deVwXxoa8",
+      "pubkey": "9c8oxENj8XrEM2EMadxUoifZgB1Vbc8GEYqKTxTfPo3i",
+      "githubName": "pyr0gan"
+    },
+    "reviewer2": {
+      "pda": "DdjeXVxsC8wgTWTAMRcq5aPqTTHEzzc12sRnMweqGsnU",
+      "pubkey": "5uKXYaHes21BoBN3EcNDf13EFqUybzirLwSUfSF218As",
+      "githubName": "dgamboa"
+    }
+  },
+  "content": {
+    "content/assets/template_regex.png": {
+      "name": "template_regex.png",
+      "path": "content/assets/template_regex.png",
+      "digest": "5082770ef0c236cf811a6e1dc8aa474fec777c0c3693eefdc943a333f04013c6"
+    },
+    "content/assets/example_image.png": {
+      "name": "example_image.png",
+      "path": "content/assets/example_image.png",
+      "digest": "509f8de4db71a76bac40ea48615b09c6661c23eb4bec6512f295aebc496f1312"
+    },
+    "content/part_2.mdx": {
+      "name": "part_2.mdx",
+      "path": "content/part_2.mdx",
+      "digest": "4d3f504950acfc30913bfedda7b772ea05445130734b9603cb2d2fdb127f9694"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "35ea151fdad0e6c35874f96fb0f0a609f1bb0189c897a1ebe41ae628b16624da"
+    },
+    "content/part_3.mdx": {
+      "name": "part_3.mdx",
+      "path": "content/part_3.mdx",
+      "digest": "246de112f86745f89b73f3acd8b97dbfdf444b3ce7c09379198a9c5818405741"
+    }
+  },
+  "href": "/learn/build-a-blog-on-solana"
+}
