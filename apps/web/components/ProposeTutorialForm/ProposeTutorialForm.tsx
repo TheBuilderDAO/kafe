@@ -46,7 +46,10 @@ const ProposeTutorialForm = () => {
         await toast.promise(tx, {
           loading: `Proposing Tutorial`,
           success: `Tutorial ${data.title} proposed successfully`,
-          error: `Error proposing tutorial`,
+          error: error => {
+            console.log(error);
+            return error?.message || `Error proposing tutorial`;
+          },
         });
 
         reset();
