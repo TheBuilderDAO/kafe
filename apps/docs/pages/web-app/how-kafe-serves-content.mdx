@@ -28,8 +28,59 @@ Due to Vercel's [limitation of serverless function sizes](https://github.com/ver
 
 The production environment is where the content is published to and retrieved from Arweave and Ceramic. Upon approval from the review team, a guide is automatically published to Arweave and its metadata is stored on Ceramic. The builderdao.lock.json file is also updated at this stage.
 
+## Guides with multiple pages
+
+Currently, most of the guides on Kafé are single page guides.
+Our platforms supports multiple page guides as well.
+As an author of a guide you will be presented with an option to select weather you want to create a single-page guide or a multi-page guide when using BuilderDAO CLI (**builderdao tutorial init**)
+
+![cli guide type selection](/assets/images/cli-page-type-selection.png)
+
+## Markdown parsing
+
+Kafé uses [MDX](https://mdxjs.com/docs/) what makes it east to use JSX in your markdown content.
+
+### Frontmatter
+
+Eveny _.mdx_ file consists of frontmatter which describes the content that is inside of the file.
+Here is an example:
+
+```markdown
+---
+title: Create an Auction with Bidding on Avalanche using ReactJS
+description: Learn how to make an Auction smart contract on Avalanche
+keywords: [Avalanche, Solidity, React, Truffle, Solidity]
+date: '2021-09-03T14:50:28.100Z'
+---
+```
+
+It includes 3 main pieces of information:
+
+- **title** - Title of the page (It is used for page metadata)
+- **description** - Description of the page (It is used for page metadata)
+- **keywords** - Keywords describing content on the page (It is used for page metadata)
+
+### Custom MDX components
+
+Thanks to the MDX we can include custom React components in the body of the guide.
+Current we support below components:
+
+- **CodeBlock** - render block of code
+
+![codeblock](/assets/images/code-block.png)
+
+- **Hint** - render hint
+
+![hint warning](/assets/images/hint-warning.png)
+
+- **WhatsNext** - renders What's Next section
+
+All of the components can be found [here](https://github.com/TheBuilderDAO/kafe/tree/dev/packages/ui/src/mdx).
+
+If you decide to write a guide you will have above components to your disposal to make your content even better.
+
 {/* TODO: add links to publishing flow. */}
 
 ---
 
-<Authors path="apps/docs/pages/digital-architecture/how-kafe-serves-content.mdx" />
+<Authors path="apps/docs/pages/web-app/how-kafe-serves-content.mdx" />
