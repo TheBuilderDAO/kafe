@@ -64,7 +64,7 @@ export const TutorialInitCommand = () => {
       let proposal: any;
       let ceramicMetadata: TutorialMetadata;
 
-      const git = simpleGit().clean(CleanOptions.FORCE);
+      const git = simpleGit().clean(CleanOptions.DRY_RUN);
       const ceramic = new CeramicApi({
         nodeUrl: options.nodeURL,
       });
