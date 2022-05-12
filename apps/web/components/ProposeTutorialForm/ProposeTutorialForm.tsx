@@ -47,7 +47,6 @@ const ProposeTutorialForm = () => {
           loading: `Proposing Tutorial`,
           success: `Tutorial ${data.title} proposed successfully`,
           error: error => {
-            console.log(error);
             return error?.message || `Error proposing tutorial`;
           },
         });
