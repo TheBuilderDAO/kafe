@@ -35,7 +35,7 @@ const LeftSidebar = () => {
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
 
   return (
-    <div className="w-full sticky top-5">
+    <div className="sticky w-full top-10">
       <div>
         <Link key="learn" href={routes.home} passHref>
           <div className="z-0 mt-0 cursor-pointer">
@@ -43,7 +43,7 @@ const LeftSidebar = () => {
               <LogoSVG />
               {homepage && (
                 <motion.div
-                  className="text-right text-sm pt-2"
+                  className="pt-2 text-sm text-right"
                   style={{ fontSize: fontSizePx }}
                 >
                   Build a better internet, together
