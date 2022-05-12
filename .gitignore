@@ -46,6 +46,7 @@ programs/*/key.json
 dao-programs/.prettierrc.json
 dao-programs/tsconfig.json
 dao-programs/package.json
+dao-programs/yarn.lock
 tutorial-keypair.json
 dao-programs/program-id-testnet.json
 
