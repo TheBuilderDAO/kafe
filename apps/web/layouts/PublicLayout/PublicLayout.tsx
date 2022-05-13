@@ -41,11 +41,12 @@ const PublicLayout = (props: PublicLayoutProps) => {
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
-          <div className="col-span-1 z-10">
+          <div className="z-10 col-span-1">
+            <AlphaBadge />
             <LeftSidebar />
           </div>
-          <div className="col-span-11 lg:ml-8 ml-0 min-w-full">
-            <div className="sticky top-10 z-10">
+          <div className="min-w-full col-span-11 ml-0 lg:ml-8">
+            <div className="sticky z-10 top-10">
               <Header />
             </div>
             <div className="ml-4">
@@ -57,5 +58,11 @@ const PublicLayout = (props: PublicLayoutProps) => {
     </div>
   );
 };
-
+const AlphaBadge = () => {
+  return (
+    <div className="fixed top-0 z-50 px-2 py-1 text-[11px] bg-kafepurple">
+      alpha
+    </div>
+  );
+};
 export default PublicLayout;
