@@ -1,0 +1,70 @@
+---
+title: 'Kafé Guide Template - Single Page'
+keywords: ['kafe']
+date: '2022-04-24'
+description: 'A single page guide template written in MDX format (Markdown + React)'
+---
+
+# Integrating Personas in Your Apps
+
+{{description}}
+
+## Introduction
+
+It's a simple process to bring NEAR Persona data into your applications to use as you see fit. It's basically three steps:
+
+- install a NPM package
+- import the package and instantiate the Persona clas
+
+  s
+- call a method, passing it the name of the account you want data for
+
+### Step 1: Install the NPM Package
+
+Using yarn or npm (yarn shown here):
+
+```text
+yarn add @aluhning/get-personas-js
+```
+
+---
+
+## Step 2: Instantiate the class
+
+In your application code (e.g. React app):
+
+```text
+import Persona from '@aluhning/get-personas-js'
+...
+let persona = new Persona()
+```
+
+---
+
+## Step 3: Retrieve the Personas Data
+
+However you want to handle the data - calling following will return the persona's data to consume as needed in your app :
+
+- accountId (change) - the string representation of the NEAR account you want persona data for. Can pass it in as a variable or directly as a string - e.g. 'jimbean.near'
+- profile (don't change) - the alias of the Ceramic data model definition that is storing the data
+
+```text
+let personaData = await persona.getData('profile', accountId)
+```
+
+---
+
+That will return the following object. If you stored the data in personaData, you'd access the avatar (uploaded) by referring to personaData.avatar
+
+![personas object](https://cdn.vitalpoint.ai/vitalpointai-cdn/2022/03/persona-object.png)
+
+# Conclusion
+
+## And now your application has rich personas/profiles.
+
+# About the Author
+
+I'm [ALuhning](https://github.com/ALuhning), a blockchain junkie and adventurer who likes to build Web 3 tools to solve real world issues.
+If you enjoyed this guide, please connect with me on [GitHub](https://github.com/ALuhning).
+
+---
