@@ -1,0 +1,124 @@
+---
+title: GitHub Actions
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# GitHub Actions
+
+## `airdrop-solana`
+
+This Action is used for the Airdrop of Solana tokens for the wallet provided in `testnet` and `devnet` environment.
+
+---
+
+## `build-builderdao-cli`
+
+This Action is used for building the CLI for the Builder DAO. It's triggers scoped `yarn build` for CLI tool and it's dependencies.
+
+---
+
+## `build-tutorial`
+
+This Action is used for building the tutorial program of the Builder DAO. It's [composite action.](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action) Next step after this action can use the built tutorial program.
+
+---
+
+## `check-required-reviewer`
+
+This Action is responsible for checking the existing pull request reviewers by filtering the Input `AUTHOR` GitHub name.
+This Action runs as [composite action.](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
+
+To get a pull request review list from GitHub API, you need to provide the following inputs:
+
+## Inputs
+
+```
+  AUTHOR:  # id of the input
+    description: 'Reviewer Github Login'
+    required: true
+  GITHUB_TOKEN:
+    required: true
+  OWNER:
+    default: ${{ github.repository_owner }}
+  REPO:
+    default: ${{ github.event.repository.name }}
+  PR_NUMBER:
+    default: ${{ github.event.pull_request.number }}
+```
+
+We are using Github Graphql API to get the list of pull request reviews.
+
+```Graphql
+  query($name: String!, $owner: String!, $pr_number: Int!, $author: String!) {
+    repository(owner: $owner, name: $name) {
+      pullRequest(number: $pr_number) {
+        reviews(author: $author, last: 1) {
+          nodes {
+            state
+          }
+        }
+      }
+    }
+  }
+```
+
+If the `$AUTHOR` is not in the list of the pull request reviews, we will return `PENDING` as the result.
+
+## Outputs
+
+```
+  state:
+    description: "Status of the review"
+    value: ${{ steps.result.outputs.state }}
+```
+
+## `install-anchor-version-manager`
+
+This Action is used for installing the Anchor version manager.
+
+---
+
+## `install-anchor`
+
+This Action is used for installing the Anchor with cache enabled.
+
+---
+
+## `install-linux-build-deps`
+
+This Action is used for installing the Linux build dependencies.
+
+---
+
+## `install-node-dependencies`
+
+This Action is used for installing the Node dependencies with cache enabled.
+
+---
+
+## `install-rust`
+
+This action is used for installing the Rust dependencies and verifying the Rust version.
+
+---
+
+## `install-solana`
+
+This action is used for installing the Solana with cache enabled and verifying the Solana version.
+
+---
+
+## `test-tutorial`
+
+This action is used for building and testing the tutorial program.
+
+---
+
+## `upsert-keypair`
+
+This action is used for creating the keypair for the Solana wallet. If the keypair already exists, it will be updated and will get airdrop.
+
+---
+
+<Authors path="apps/docs/pages/github-actions.mdx" />
