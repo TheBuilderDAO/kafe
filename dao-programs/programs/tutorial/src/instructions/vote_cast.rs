@@ -11,6 +11,7 @@ use anchor_spl::token::{
 
 use crate::constants::*;
 use crate::state::*;
+use crate::events::EventVoteCast;
 
 #[derive(Accounts)]
 #[instruction(bump: u8, id: u64)]
@@ -114,6 +115,13 @@ pub fn handler(ctx: Context<VoteCast>, bump: u8, id: u64, bump_bdr: u8) -> Resul
       ),
     )?;
   }
+
+  emit!(EventVoteCast {
+    voter: ctx.accounts.vote_account.key(),
+    proposal_slug: ctx.accounts.proposal_account.slug.clone(),
+    proposal_id: ctx.accounts.proposal_account.id,
+    proposal_voter_counter: ctx.accounts.proposal_account.number_of_voter,
+  });
 
   Ok(())
 }

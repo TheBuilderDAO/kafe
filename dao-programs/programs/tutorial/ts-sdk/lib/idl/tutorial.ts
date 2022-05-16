@@ -1191,6 +1191,370 @@ export type Tutorial = {
       };
     },
   ];
+  events: [
+    {
+      name: 'EventDaoInitialize';
+      fields: [
+        {
+          name: 'nonce';
+          type: 'u64';
+          index: false;
+        },
+        {
+          name: 'numberOfProposal';
+          type: 'u64';
+          index: false;
+        },
+        {
+          name: 'quorum';
+          type: 'u64';
+          index: false;
+        },
+        {
+          name: 'minAmountToCreateProposal';
+          type: 'u64';
+          index: false;
+        },
+        {
+          name: 'superAdmin';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventDaoClose';
+      fields: [
+        {
+          name: 'daoAccount';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventAddAdmin';
+      fields: [
+        {
+          name: 'admin';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventRemoveAdmin';
+      fields: [
+        {
+          name: 'admin';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventSetMinAmountToCreateProposal';
+      fields: [
+        {
+          name: 'minAmountToCreateProposal';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventSetNonce';
+      fields: [
+        {
+          name: 'nonce';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventSetQuorum';
+      fields: [
+        {
+          name: 'quorum';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventVaultInitialize';
+      fields: [
+        {
+          name: 'mint';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventVaultClose';
+      fields: [
+        {
+          name: 'mint';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventProposalSetState';
+      fields: [
+        {
+          name: 'state';
+          type: {
+            defined: 'ProposalState';
+          };
+          index: false;
+        },
+        {
+          name: 'slug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'id';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventProposalClose';
+      fields: [
+        {
+          name: 'slug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'id';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventProposalCreate';
+      fields: [
+        {
+          name: 'creator';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'reviewer1';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'reviewer2';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'streamId';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'slug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'id';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventProposalPublish';
+      fields: [
+        {
+          name: 'slug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'id';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventSetGuideCreator';
+      fields: [
+        {
+          name: 'creator';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'slug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'id';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventReviewerAssign';
+      fields: [
+        {
+          name: 'reviewer1';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'reviewer2';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'proposalSlug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'proposalId';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventReviewerDelete';
+      fields: [
+        {
+          name: 'reviewer';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventReviewerCreate';
+      fields: [
+        {
+          name: 'reviewer';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventTipperClose';
+      fields: [
+        {
+          name: 'tipper';
+          type: 'publicKey';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventGuideTipping';
+      fields: [
+        {
+          name: 'tipper';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'slug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'amount';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventVoteCancel';
+      fields: [
+        {
+          name: 'voter';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'proposalSlug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'proposalId';
+          type: 'u64';
+          index: false;
+        },
+        {
+          name: 'proposalVoterCounter';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventVoteCast';
+      fields: [
+        {
+          name: 'voter';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'proposalSlug';
+          type: 'string';
+          index: false;
+        },
+        {
+          name: 'proposalId';
+          type: 'u64';
+          index: false;
+        },
+        {
+          name: 'proposalVoterCounter';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+    {
+      name: 'EventAirdrop';
+      fields: [
+        {
+          name: 'receiver';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'mint';
+          type: 'publicKey';
+          index: false;
+        },
+        {
+          name: 'amount';
+          type: 'u64';
+          index: false;
+        },
+      ];
+    },
+  ];
   errors: [
     {
       code: 6000;
@@ -2461,6 +2825,370 @@ export const IDL: Tutorial = {
           },
         ],
       },
+    },
+  ],
+  events: [
+    {
+      name: 'EventDaoInitialize',
+      fields: [
+        {
+          name: 'nonce',
+          type: 'u64',
+          index: false,
+        },
+        {
+          name: 'numberOfProposal',
+          type: 'u64',
+          index: false,
+        },
+        {
+          name: 'quorum',
+          type: 'u64',
+          index: false,
+        },
+        {
+          name: 'minAmountToCreateProposal',
+          type: 'u64',
+          index: false,
+        },
+        {
+          name: 'superAdmin',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventDaoClose',
+      fields: [
+        {
+          name: 'daoAccount',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventAddAdmin',
+      fields: [
+        {
+          name: 'admin',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventRemoveAdmin',
+      fields: [
+        {
+          name: 'admin',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventSetMinAmountToCreateProposal',
+      fields: [
+        {
+          name: 'minAmountToCreateProposal',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventSetNonce',
+      fields: [
+        {
+          name: 'nonce',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventSetQuorum',
+      fields: [
+        {
+          name: 'quorum',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventVaultInitialize',
+      fields: [
+        {
+          name: 'mint',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventVaultClose',
+      fields: [
+        {
+          name: 'mint',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventProposalSetState',
+      fields: [
+        {
+          name: 'state',
+          type: {
+            defined: 'ProposalState',
+          },
+          index: false,
+        },
+        {
+          name: 'slug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'id',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventProposalClose',
+      fields: [
+        {
+          name: 'slug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'id',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventProposalCreate',
+      fields: [
+        {
+          name: 'creator',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'reviewer1',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'reviewer2',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'streamId',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'slug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'id',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventProposalPublish',
+      fields: [
+        {
+          name: 'slug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'id',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventSetGuideCreator',
+      fields: [
+        {
+          name: 'creator',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'slug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'id',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventReviewerAssign',
+      fields: [
+        {
+          name: 'reviewer1',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'reviewer2',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'proposalSlug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'proposalId',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventReviewerDelete',
+      fields: [
+        {
+          name: 'reviewer',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventReviewerCreate',
+      fields: [
+        {
+          name: 'reviewer',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventTipperClose',
+      fields: [
+        {
+          name: 'tipper',
+          type: 'publicKey',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventGuideTipping',
+      fields: [
+        {
+          name: 'tipper',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'slug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'amount',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventVoteCancel',
+      fields: [
+        {
+          name: 'voter',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'proposalSlug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'proposalId',
+          type: 'u64',
+          index: false,
+        },
+        {
+          name: 'proposalVoterCounter',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventVoteCast',
+      fields: [
+        {
+          name: 'voter',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'proposalSlug',
+          type: 'string',
+          index: false,
+        },
+        {
+          name: 'proposalId',
+          type: 'u64',
+          index: false,
+        },
+        {
+          name: 'proposalVoterCounter',
+          type: 'u64',
+          index: false,
+        },
+      ],
+    },
+    {
+      name: 'EventAirdrop',
+      fields: [
+        {
+          name: 'receiver',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'mint',
+          type: 'publicKey',
+          index: false,
+        },
+        {
+          name: 'amount',
+          type: 'u64',
+          index: false,
+        },
+      ],
     },
   ],
   errors: [

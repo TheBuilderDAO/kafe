@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventRemoveAdmin;
 
 #[derive(Accounts)]
 pub struct DaoRemoveAdmin<'info> {
@@ -20,5 +21,10 @@ pub fn handler(
   admin: Pubkey
 ) -> Result<()> {
   ctx.accounts.dao_account.admins.retain(|&pk| pk != admin );
+
+  emit!(EventRemoveAdmin {
+    admin 
+  });
+
   Ok(())
 }

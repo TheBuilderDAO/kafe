@@ -12,6 +12,7 @@ use anchor_spl::token::{
 use crate::errors::*;
 use crate::constants::*;
 use crate::state::*;
+use crate::events::EventProposalCreate;
 
 #[derive(Accounts)]
 #[instruction(bump: u8, bump_bdr: u8, slug: String)]
@@ -153,6 +154,15 @@ pub fn handler(
       ]],
     ),
   )?;
+
+  emit!(EventProposalCreate {
+    creator: ctx.accounts.proposal_account.creator,
+    reviewer1: ctx.accounts.proposal_account.reviewer1,
+    reviewer2: ctx.accounts.proposal_account.reviewer2,
+    stream_id: ctx.accounts.proposal_account.stream_id.clone(),
+    slug: ctx.accounts.proposal_account.slug.clone(),
+    id: ctx.accounts.proposal_account.id,
+  });
 
   Ok(())
 }

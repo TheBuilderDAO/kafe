@@ -1307,6 +1307,7 @@ describe('tutorial-program', () => {
       pdaProposalById,
       nonce,
     );
+    console.log('>>>>', superAdmin.publicKey.toString());
     expect(proposalAccount.creator.toString()).toBe(user2.publicKey.toString());
   });
 

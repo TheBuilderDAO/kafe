@@ -4,6 +4,7 @@ use anchor_spl::token::{self, Mint, Token, TokenAccount, Transfer};
 use crate::constants::*;
 use crate::errors::*;
 use crate::state::*;
+use crate::events::EventProposalClose;
 
 #[derive(Accounts)]
 #[instruction(bump:u8)]
@@ -61,6 +62,11 @@ pub fn handler(ctx: Context<ProposalCreatorClose>, bump: u8) -> Result<()> {
     ),
     min_amount_to_create_proposal,
   )?;
+
+  emit!(EventProposalClose {
+    slug: ctx.accounts.proposal_account.slug.clone(),
+    id: ctx.accounts.proposal_account.id,
+  });
 
   Ok(())
 }

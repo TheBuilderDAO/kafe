@@ -12,6 +12,7 @@ use anchor_spl::token::{
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventAirdrop;
 
 use crate::constants::{
   PROGRAM_SEED,
@@ -64,6 +65,12 @@ pub fn handler(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8, is_kafe_drop:
       ),
       AIRDROP_AMOUNT_KAFE,
     )?;
+
+    emit!(EventAirdrop {
+      receiver: ctx.accounts.kafe_token_account.key(),
+      mint: ctx.accounts.mint_kafe.key(),
+      amount: AIRDROP_AMOUNT_KAFE,
+    });
   }
 
   if is_bdr_drop {
@@ -126,7 +133,16 @@ pub fn handler(ctx: Context<Airdrop>, bump_kafe: u8, bump_bdr: u8, is_kafe_drop:
         ]],
       ),
     )?;
+
+    emit!(EventAirdrop {
+      receiver: ctx.accounts.bdr_token_account.key(),
+      mint: ctx.accounts.mint_bdr.key(),
+      amount: AIRDROP_AMOUNT_BDR,
+    });
+
   }
+
+
 
   Ok(())
 }

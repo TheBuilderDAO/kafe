@@ -12,6 +12,7 @@ use anchor_spl::token::{
 use crate::state::*;
 use crate::errors::*;
 use crate::constants::*;
+use crate::events::EventProposalPublish;
 
 #[derive(Accounts)]
 pub struct ProposalPublish<'info> {
@@ -251,6 +252,11 @@ pub fn handler(ctx: Context<ProposalPublish>, bump: u8, bump_bdr: u8) -> Result<
       ]],
     ),
   )?;
+
+  emit!(EventProposalPublish {
+    id: ctx.accounts.proposal_account.id,
+    slug: ctx.accounts.proposal_account.slug.clone(),
+  });
 
   Ok(())
 }

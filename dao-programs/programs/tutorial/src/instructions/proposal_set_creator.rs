@@ -17,6 +17,7 @@ use num_traits::ToPrimitive;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventSetGuideCreator;
 
 use crate::constants::{
   PROGRAM_SEED,
@@ -188,5 +189,12 @@ pub fn handler(ctx: Context<ProposalSetCreator>, bump: u8, bump_bdr: u8) -> Resu
   )?;
 
   ctx.accounts.proposal_account.creator = ctx.accounts.creator.key();
+
+  emit!(EventSetGuideCreator {
+    creator: ctx.accounts.creator.key(),
+    slug: ctx.accounts.proposal_account.slug.clone(),
+    id: ctx.accounts.proposal_account.id,
+  });
+
   Ok(())
 }

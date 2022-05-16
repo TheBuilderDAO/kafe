@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventSetNonce;
 
 #[derive(Accounts)]
 pub struct DaoSetNonce<'info> {
@@ -16,5 +17,10 @@ pub struct DaoSetNonce<'info> {
 
 pub fn handler(ctx: Context<DaoSetNonce>, nonce: u64) -> Result<()> {
   ctx.accounts.dao_account.nonce = nonce;
+
+  emit!(EventSetNonce {
+    nonce
+  });
+
   Ok(())
 }
