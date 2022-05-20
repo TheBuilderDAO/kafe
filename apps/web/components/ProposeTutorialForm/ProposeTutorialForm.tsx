@@ -12,6 +12,8 @@ import routes from '../../routes';
 import { stringToSlug } from 'utils/strings';
 import Loader from '../Loader/Loader';
 import { useDapp } from '../../hooks/useDapp';
+import { Balance } from '../Sidebars/Balance';
+import { useBalance } from 'hooks/useBalance';
 
 type FormData = {
   title: string;
@@ -23,6 +25,7 @@ type FormData = {
 const ProposeTutorialForm = () => {
   const router = useRouter();
   const { wallet } = useDapp();
+  const { balance } = useBalance();
   const {
     register,
     handleSubmit,
@@ -34,10 +37,17 @@ const ProposeTutorialForm = () => {
   const { loading, error, tags } = useTags();
 
   const [proposeTutorial, { submitting }] = useProposeTutorial();
-
   const onSubmit = useCallback(
     async data => {
       try {
+        if (balance.sol_balance < 0.00001) {
+          toast.error('Not enough Sol');
+          return;
+        }
+        if (balance.kafe_balance < 1) {
+          toast.error('Not enough Kafe Token');
+          return;
+        }
         data.slug = stringToSlug(data.title);
         data.tags = data.tags.map(tag => tag.value);
 
@@ -46,7 +56,9 @@ const ProposeTutorialForm = () => {
         await toast.promise(tx, {
           loading: `Proposing Tutorial`,
           success: `Tutorial ${data.title} proposed successfully`,
-          error: `Error proposing tutorial`,
+          error: error => {
+            return error?.message || `Error proposing tutorial`;
+          },
         });
 
         reset();
@@ -82,6 +94,7 @@ const ProposeTutorialForm = () => {
       />
       <RightSidebar>
         <WriteSidebar submitting={submitting} />
+        <Balance />
       </RightSidebar>
     </WriteFormWrapper>
   );
