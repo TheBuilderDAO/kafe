@@ -1,0 +1,38 @@
+---
+title: The Tutorial Commands
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# The Algolia Commands
+
+The following guide shows you how and use the subcommands under algolia command to manage Algolia index.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You need an access to Algolia app
+
+## Basic usage
+
+1. This command has many sub-commands that you can see by running `builderdao algolia -h`:
+
+```text
+Usage: builderdao algolia [options] [command]
+
+Update the Algolia index for Kafé
+
+Options:
+  -h, --help                        display help for command
+
+Commands:
+  delete [options]                  Deletes Algolia index
+  index [options]                   Update index with all tutorials base on Ceramic & Fs
+  provision [options]               Provisions Algolia app
+  publish [options] [slug]          Update index when tutorial is published
+  updateIndex [options] <objectId>  Update index with random data
+```
+
+2. Make sure to run `builderdao algolia provision` in order to create and index and all the configuration for it first.
+
+<Authors path="apps/docs/pages/builderdao-cli/tutorial.mdx" />

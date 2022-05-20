@@ -17,7 +17,7 @@ export function makeAlgoliaCommand() {
 
   const algolia = new commander.Command('algolia')
     .addHelpCommand(false)
-    .description('Update the Algolia index for Kafé')
+    .description('Manage Algolia index')
     .configureHelp({
       helpWidth: 80,
       sortSubcommands: true,

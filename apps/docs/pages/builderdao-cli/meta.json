@@ -8,5 +8,6 @@
   "solana-admin-manage-reviewer": "Manage reviewer",
   "tutorial": "The Tutorial command",
   "tutorial-prepublish": "Prepublish the tutorial",
-  "tutorial-publish": "Publish the tutorial"
+  "tutorial-publish": "Publish the tutorial",
+  "algolia": "Manage Algolia index"
 }

@@ -1,0 +1,66 @@
+---
+title: Big picture
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Big picture
+
+Kafé consists of many systems working together to deliver guides marketplace for our users.
+
+![architecture](/assets/images/architecture.png)
+
+## Components
+
+Kafe is a set of components responsible for providing users with a marketplace of tutorials.
+
+Kafe app consists of following components:
+
+- **Web app**
+- **Smart contract**
+- **SDK**
+- **SPL Tokens**
+- **File storage**
+- **Streaming data**
+- **Indexed data**
+- **Collaboration tool**
+
+**Web app**
+
+This is a NextJS application which serves as a front-end for Kafe.
+
+**Smart contract**
+
+This is a Solana program built using the Anchor framework. This is the heart of the Kafe. This component will be responsible for handling voting, rewards distribution and validating user actions. Anchor framework makes it easier to develop and interact with Solana programs.
+
+**SDK**
+
+At the core of the web app will be a SDK which serves as a connector between Smart contract and Web app.
+
+**SPL Tokens**
+
+In order to accommodate all the needs of the Learning Platform (and BuilderDAO) we need to deploy 3 different SPL Tokens:
+
+- _$KAFE_ - token with economical value
+- _$BDR_ - secondary non-transferable token representing user’s experience
+- _$KAFEC_ - token allowing holders to become a BuilderDAO council member and an admin of Kafe (token name not decided yet)
+
+**Streaming data**
+
+All the metadata about proposals and tutorials, that is not needed by smart contract, will be stored as a stream in Ceramic.
+
+**Collaboration tool**
+
+GitHub will serve as a collaboration tool for writing tutorials. Once the tutorial is voted in, it will go to “Writing” state. Author (and other contributors) will collaborate on tutorial’s text using GitHub.
+
+**File storage**
+
+This component is responsible for storing published learning resources to permaweb on Arweave. For all written tutorials we will be storing MD files as well as images fetched from GitHub.
+
+**Indexed data**
+
+This component is responsible for indexing data about tutorials so that content on Kafe is easily searchable.
+
+---
+
+<Authors path="apps/docs/pages/web-app/big-picture.mdx" />
