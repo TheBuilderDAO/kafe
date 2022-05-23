@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::errors::*;
 use crate::state::*;
+use crate::events::EventReviewerDelete;
 
 #[derive(Accounts)]
 pub struct ReviewerDelete<'info> {
@@ -31,6 +32,10 @@ pub fn handler(ctx: Context<ReviewerDelete>, force: bool) -> Result<()> {
   if ctx.accounts.reviewer_account.number_of_assignment != 0 {
     return Err(error!(ErrorDao::CannotDeleteAnAssignedReviewer));
   }
+
+  emit!(EventReviewerDelete {
+    reviewer: ctx.accounts.reviewer_account.key()
+  });
 
   Ok(())
 }

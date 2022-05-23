@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::errors::*;
 use crate::state::*;
+use crate::events::*;
 
 #[derive(Accounts)]
 pub struct ReviewerAssign<'info> {
@@ -57,6 +58,13 @@ pub fn handler(ctx: Context<ReviewerAssign>, force: bool) -> Result<()> {
   ctx.accounts.reviewer2.number_of_assignment += 1;
   ctx.accounts.prev_reviewer1.number_of_assignment -= 1;
   ctx.accounts.prev_reviewer2.number_of_assignment -= 1;
+
+  emit!(EventReviewerAssign {
+    reviewer1: ctx.accounts.proposal_account.reviewer1,
+    reviewer2: ctx.accounts.proposal_account.reviewer1,
+    proposal_slug: ctx.accounts.proposal_account.slug.clone(),
+    proposal_id: ctx.accounts.proposal_account.id,
+  });
 
   return Ok(());
 }

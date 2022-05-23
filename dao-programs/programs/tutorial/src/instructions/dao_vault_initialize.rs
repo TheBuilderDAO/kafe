@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 use anchor_spl::token::{Mint, Token, TokenAccount};
 
 use crate::constants::*;
+use crate::events::EventVaultInitialize;
 
 #[derive(Accounts)]
 pub struct DaoVaultInitialize<'info> {
@@ -25,6 +26,10 @@ pub struct DaoVaultInitialize<'info> {
   pub payer: Signer<'info>,
 }
 
-pub fn handler(_ctx: Context<DaoVaultInitialize>) -> Result<()> {
+pub fn handler(ctx: Context<DaoVaultInitialize>) -> Result<()> {
+  emit!(EventVaultInitialize {
+    mint: ctx.accounts.mint.key()
+  });
+
   Ok(())
 }

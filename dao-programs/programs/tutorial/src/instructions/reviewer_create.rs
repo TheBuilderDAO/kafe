@@ -3,6 +3,7 @@ use anchor_lang::prelude::*;
 use crate::constants::*;
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventReviewerCreate;
 
 #[derive(Accounts)]
 #[instruction(bump: u8, reviewer: Pubkey, github_name: String)]
@@ -38,5 +39,9 @@ pub fn handler(ctx: Context<ReviewerCreate>, bump: u8, reviewer: Pubkey, github_
   ctx.accounts.reviewer_account.number_of_assignment = 0;
   ctx.accounts.reviewer_account.github_name = github_name;
 
+  emit!(EventReviewerCreate {
+    reviewer
+  });
+  
   Ok(())
 }
