@@ -25,11 +25,26 @@ class AlgoliaApi {
   private client: SearchClient;
 
   private index: SearchIndex;
+  private fulltextIndex: SearchIndex;
 
   constructor(config: ApiConfig) {
     this.client = algoliasearch(config.appId, config.accessKey);
 
     this.index = this.client.initIndex(config.indexName);
+    this.fulltextIndex = this.client.initIndex('tutorial_full_text');
+  }
+
+  async provisionFullText() {
+    const fullText = this.client.initIndex('tutorial_full_text')
+    fullText.setSettings({
+      attributeForDistinct: 'section',
+      distinct: true
+    })
+  }
+
+  async addFulltextIndex(objects: any[]) {
+    await this.fulltextIndex.clearObjects();
+    await this.fulltextIndex.saveObjects(objects);
   }
 
   async provision() {

@@ -36,10 +36,12 @@
     "@jsdevtools/rehype-toc": "^3.0.2",
     "fs-extra": "^10.0.1",
     "gray-matter": "^4.0.3",
+    "hast-util-to-html": "^8.0.3",
     "image-size": "^1.0.1",
     "mdx-bundler": "^8.0.1",
     "next": "^12.1.0",
     "next-mdx-remote": "^3.0.8",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "remark-html": "^15.0.1"
   }
 }

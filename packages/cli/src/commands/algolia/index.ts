@@ -1,16 +1,17 @@
-import { BuilderDaoConfigJson, BuilderDaoLockJson } from './../services/builderdao-config.service';
+import { BuilderDaoConfigJson, BuilderDaoLockJson } from '../../services/builderdao-config.service';
 import fs from 'fs-extra';
 /* eslint-disable no-console */
 import * as commander from 'commander';
 import path from 'path';
 
-import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex } from '@builderdao/apis';
+import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex, TutorialContent } from '@builderdao/apis';
 import { ProposalStateE, getProposalState } from '@builderdao-sdk/dao-program';
 import { deprecated_tutorials } from '@builderdao/data';
 import { BuilderDaoConfig } from 'src/services';
 import { getClient } from 'src/client';
 import { log as _log } from 'src/utils';
 import async from 'async';
+import { AlgoliaFullTextCommand } from './full-text';
 
 export function makeAlgoliaCommand() {
   const rootTutorialFolderPath = path.join(__dirname, '../../../', 'tutorials');
@@ -24,11 +25,15 @@ export function makeAlgoliaCommand() {
       sortOptions: true,
     });
 
+  algolia.addCommand(AlgoliaFullTextCommand());
+
+
   const log = (object: any) => _log(object, algolia.optsWithGlobals().key);
   algolia.configureHelp({
     sortSubcommands: true,
     sortOptions: false,
   });
+
 
   let client = getClient({
     kafePk: algolia.optsWithGlobals().kafePk,
@@ -36,6 +41,47 @@ export function makeAlgoliaCommand() {
     network: algolia.optsWithGlobals().network,
     payer: algolia.optsWithGlobals().payer,
   });
+
+
+  algolia
+    .command('provision-full-text')
+    .description('Provisions Algolia Full-text app')
+    .helpOption()
+    .addOption(
+      new commander.Option('--appId <appId>', 'Algolia App Id')
+        .env('ALGOLIA_APP_ID')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--indexName <indexName>', 'Algolia Index Name')
+        .env('ALGOLIA_INDEX_NAME')
+        .makeOptionMandatory(),
+    )
+    .addOption(
+      new commander.Option('--accessKey <accessKey>', 'Algolia Access Key')
+        .env('ALGOLIA_ACCESS_KEY')
+        .makeOptionMandatory(),
+    )
+    .action(
+      async (
+        options: {
+          indexName: string;
+          appId: string;
+          accessKey: string;
+        },
+      ) => {
+        const client = new AlgoliaApi({
+          appId: options.appId,
+          accessKey: options.accessKey,
+          indexName: options.indexName,
+        });
+        try {
+          await client.provisionFullText();
+        } catch (err) {
+          console.log('ERR:', err);
+        }
+      },
+    );
 
   algolia
     .command('provision')

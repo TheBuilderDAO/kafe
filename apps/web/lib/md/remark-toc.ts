@@ -11,11 +11,11 @@ export const remarkTOC =
           });
         });
       });
-
+      console.log({ data });
       anchors.push({
         title: data.title,
         section: section.data.hProperties.title,
-        permalink: `#${section.data.hProperties.id}`,
+        permalink: `${data.url}#${section.data.hProperties.id}`,
         content: text.join('\n'),
       });
       toc.push({
