@@ -27,9 +27,10 @@ yarn-error.log*
 # https://nextjs.org/docs/basic-features/environment-variables  .env loads last in env ENV of next.js app 
 **/.env
 **/.env.local
-**/.env.development.local
+**/.env.developpment.local
 **/.env.test.local
 **/.env.production.local
+
 
 # turbo
 .turbo
