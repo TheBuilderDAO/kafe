@@ -1,0 +1,51 @@
+---
+title: Algolia API
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Algolia API documentation
+
+## Imports
+
+```
+import algoliasearch, { SearchClient, SearchIndex } from 'algoliasearch';
+```
+
+## Exports
+
+```
+export type TutorialIndex = {};
+
+export type ApiConfig = {};
+```
+
+## Classes & Functions
+
+```
+class AlgoliaApi {
+private client: SearchClient;
+private index: SearchIndex;
+
+constructor(config: ApiConfig) {
+this.client = algoliasearch(config.appId, config.accessKey);
+this.index = this.client.initIndex(config.indexName);
+}
+
+async provision() {}
+
+async delete() {}
+
+async createTutorial(record: Partial<TutorialIndex>) {}
+
+async upsertTutorials(records: Array<Partial<TutorialIndex>>) {}
+
+async deleteTutorials(records: string[]) {}
+
+async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {}
+}
+```
+
+---
+
+<Authors path="apps/docs/pages/api-docs/algolia.mdx" />

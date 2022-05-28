@@ -8,6 +8,7 @@ import {
   useTutorialProgram,
 } from '@builderdao/use-program-tutorial';
 import { TutorialMetadata } from '@builderdao/apis/src';
+import { captureException } from '@app/utils/errorLogging';
 
 type StoreMetadataResponse = {
   did: string;
@@ -86,6 +87,7 @@ export const useProposeTutorial = <AD>(): [
         });
       } catch (err) {
         console.log('ERR:', err);
+        captureException(err);
         setError(err);
         throw err;
       } finally {

@@ -5,6 +5,7 @@ import {
   useCancelVote as solanaUseCancelVote,
   useTutorialProgram,
 } from '@builderdao/use-program-tutorial';
+import { captureException } from '@app/utils/errorLogging';
 
 type IndexVotesData = {
   id: number;
@@ -43,6 +44,7 @@ export const useCancelVote = (): [
         });
       } catch (err) {
         console.log('Err:', err);
+        captureException(err);
         setError(err);
         throw new err();
       } finally {

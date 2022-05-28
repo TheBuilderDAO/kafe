@@ -6,7 +6,7 @@ import RightSidebar from 'layouts/PublicLayout/RightSidebar';
 import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import Banner from '@app/components/Banner';
-import HitFilter from '@app/components/Search/HitFilter';
+import GuideHitFilter from '@app/components/Search/GuideHitFilter';
 import {
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
@@ -14,7 +14,6 @@ import {
 } from '@app/constants';
 import GuideStateTabs from '@app/components/Search/GuideStateTabs';
 import { ProposalStateE } from '@builderdao/use-program-tutorial';
-import GuideHit from '@app/components/Search/GuideHit';
 import Pagination from '@app/components/Search/Pagination';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import Link from 'next/link';
@@ -83,7 +82,7 @@ const LearnIndexPage: NextPage<
                 </div>
               </div>
               <RightSidebar>
-                <HitFilter />
+                <GuideHitFilter />
               </RightSidebar>
             </div>
           </InstantSearch>

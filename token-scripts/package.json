@@ -16,6 +16,8 @@
     "@solana/spl-token-registry": "^0.2.2012",
     "@types/mz": "^2.7.4",
     "dotenv": "^15.0.0",
-    "mz": "^2.7.0"
+    "mz": "^2.7.0",
+    "cross-fetch": "^3.0.6",
+    "node-fetch": "^2.6.7"
   }
 }

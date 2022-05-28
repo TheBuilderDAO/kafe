@@ -1,0 +1,14 @@
+{
+  "index": "Introduction",
+  "products": "Products",
+  "membership": "Membership",
+  "web-app": "Web app",
+  "tokenomics": "Tokenomics",
+  "governance": "Governance",
+  "legal-architecture": "Legal Architecture",
+  "api-docs": "API Documentation",
+  "github-actions": "GitHub Actions",
+  "github-workflows": "GitHub Workflows",
+  "builderdao-cli": "Builder DAO CLI",
+  "typescript-sdk": "TypeScript SDK"
+}

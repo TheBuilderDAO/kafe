@@ -1,0 +1,69 @@
+---
+title: Tutorial Publish
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Tutorial Publish
+
+The publish command is used for uploading the tutorial to arweave and updating ceramic metadata. This command meant to be run in Publish Github Action workflow. But it can also be run manually if it's necessary.
+
+This command has many env dependecies that you can see by running `builderdao tutorial -h`:
+
+```
+Usage: builderdao tutorial publish [options] [learnPackageName]
+
+Publish tutorial to Arweave & Ceramic
+
+Arguments:
+  learnPackageName                       Tutorial slug for complete tutorial package
+
+Options:
+  --nodeUrl <nodeUrl>                    Ceramic Node Url (env: CERAMIC_NODE_URL)
+  --seed <seed>                          Ceramic Seed (env: CERAMIC_SEED)
+  --arweave_wallet <arweave_wallet>      Arweave wallet (env: ARWEAVE_WALLET)
+  --arweave_appName <arweave_appName>    Arweave App Name (env: ARWEAVE_APP_NAME)
+  --arweave_host <arweave_host>          Arweave Host (env: ARWEAVE_HOST)
+  --arweave_port <arweave_port>          Arweave Port (env: ARWEAVE_PORT)
+  --arweave_protocol <arweave_protocol>  Arweave Protocol (default: "https", env: ARWEAVE_PROTOCOL)
+  --skip-images                          Skip uploading images (default: false)
+  --verbose                              Verbose (default: false)
+  --force                                Force (default: false)
+  -h, --help                             Display help for command
+```
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You must be either in the root of the tutorial folder or in a subfolder of the tutorial folder. `/tutorials/<tutorial-name>`
+- You will need `ARWEAVE_WALLET` env variable set.
+- You will need `CERAMIC_SEED` env variable set.
+
+## Instructions
+
+1.  If you wish to run the `publish` command from the root folder you will need the provide learnPackageName or alternatively you can `cd` into tutorial subfolder and run the command.
+
+Example call from root folder:
+
+```bash
+  $ builderdao tutorial publish near-101
+```
+
+Example call from tutorial subfolder:
+
+```bash
+  $ cd tutorials/near-101
+  $ builderdao tutorial publish
+```
+
+This will publish the tutorial to Arweave and Ceramic.
+
+## What does it do?
+
+1. Fetch proposal account from Solana & ceramic metadata of the tutorial.
+2. Check the state of the proposal if it's published or readyToPublish proceeed with publishing.Otherwise it will exit.
+3. Base on the `builderdao.lock.json` content values, We are looping over the tutorial files and will determine does the file has been published before at the current state before or not. The files that are not published will be pushed to deployment queue.
+4. In deployment queue we are pushing the files to Arweave first, and updating the `builderdao.lock.json` content.\*.arweaveHash value for that file.
+5. After the files are pushed to Arweave we are updating the Ceramic metadata with the new hash.
+
+<Authors path="apps/docs/pages/builderdao-cli/tutorial-publish.mdx" />

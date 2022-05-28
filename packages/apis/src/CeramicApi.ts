@@ -3,6 +3,7 @@ import { TileDocument } from '@ceramicnetwork/stream-tile';
 import KeyDidResolver from 'key-did-resolver';
 import { DID } from 'dids';
 import { Ed25519Provider } from 'key-did-provider-ed25519';
+import { fromString } from 'uint8arrays/from-string';
 
 export type TutorialContent = {
   name: string;
@@ -56,8 +57,9 @@ class CeramicApi {
     };
     this.client.did = new DID({ resolver });
 
-    const seed = new Uint8Array(this.seed.split(' ').map(i => parseInt(i, 10)));
-    const provider = new Ed25519Provider(seed);
+    const seed = fromString(this.seed, 'base58btc');
+    const slicedSeed = seed.slice(0, 32);
+    const provider = new Ed25519Provider(slicedSeed);
 
     this.client.did.setProvider(provider);
 
@@ -87,6 +89,13 @@ class CeramicApi {
       this.client,
       streamId,
     );
+
+    console.log("controllers", JSON.stringify(doc.metadata.controllers));
+    console.log("content", JSON.stringify(doc.content));
+    if (this.client.did) {
+      console.log("did", this.client.did.id.toString());
+    }
+    console.log("metadata", JSON.stringify(metadata));
 
     return doc.update(metadata);
   }

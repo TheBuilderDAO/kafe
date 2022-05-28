@@ -1,0 +1,54 @@
+---
+title: Manage Kafé list
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Manage admin Kafé list
+
+The following guide shows you how to add and remove admin on Kafé.
+
+🚨 Please confirm with @Daniel Gamboa before adding or removing admin.
+
+## Prerequisites
+
+- You must have setup the builderdao CLI.
+- You must be an admin on Kafé.
+- You must use your Solana account registered as an admin.
+
+## Instructions
+
+1. Intuitively, we can use two commands to manage admin Kafé list, `addAdmin` and `removeAdmin`. To know more, we can use the `builderdao admin addAdmin -h` command to see what options we need to pass:
+
+```text
+Usage: builderdao admin addAdmin [options]
+
+Add Admin to Kafe List
+
+Options:
+  --adminKp <adminKp>  Admin KeyPair (bs58 encoded) (env: ADMIN_KP)
+  --address <address>  address of the receiver
+  -h, --help           display help for command
+
+Add an admin Solana pubkey to the Kafe Admin list
+
+Example call to admin:
+$ builderdao admin addAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
+```
+
+2. Here we see that we need to pass a public address for the account we want to add or remove from the admin Kafé list using the option `--address`. Moreover, we need to pass a private key using the `--adminKp` option to authenticate ourselves as an admin.
+
+3. With your private key in your clipboard, go back to your terminal and issue the following command:
+
+```text
+builderdao admin addAdmin --adminKp <paste-your-private-key-here>
+--address <paste-destination-public-address-here>
+```
+
+```text
+✔ signature: <some-signature-hash-if-the-transaction-was-successful>
+```
+
+---
+
+<Authors path="apps/docs/pages/builderdao-cli/solana-admin-manage-kafe-list.mdx" />

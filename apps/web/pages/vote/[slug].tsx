@@ -14,7 +14,6 @@ import {
   useGetReviewer,
 } from '@builderdao/use-program-tutorial';
 import { PublicKey } from '@solana/web3.js';
-import { ZERO_ADDRESS } from '../../constants';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import BorderSVG from '@app/components/SVG/BorderSVG';
 import RightSidebar from '../../layouts/PublicLayout/RightSidebar';

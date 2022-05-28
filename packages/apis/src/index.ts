@@ -1,4 +1,5 @@
 export { default as AlgoliaApi } from './AlgoliaApi';
+export type { TutorialIndex } from './AlgoliaApi';
 export { default as ArweaveApi } from './ArweaveApi';
 export { default as CeramicApi } from './CeramicApi';
 export { default as GitHubApi } from './GitHubApi';

@@ -47,22 +47,22 @@ export const TutorialLayout: React.FC<Props> = ({
       <SectionContainer>
         {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
         <article className="z-50 inline-flex mt-8 border dark:bg-kafeblack bg-kafewhite border-1 border-kafeblack dark:border-kafewhite">
-          <div className="px-7 py-4">
+          <div className="py-4 px-7">
             <header>
               <div className="pb-5 space-y-1 text-center">
                 <dl>
                   <div className="flex justify-between text-xs">
-                    <div className="flex space-x-1 items-center">
+                    <div className="flex items-center space-x-1">
                       <p>Guide by</p>
                       <UserAvatar address={lock.creator} ellipsis={true} />
                       <div>
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-xs font-medium leading-6 ml-4">
+                        <dd className="ml-4 text-xs font-medium leading-6">
                           <time dateTime={date}>{formatDate(date)}</time>
                         </dd>
                       </div>
                     </div>
-                    <div className="flex space-x-2 items-center">
+                    <div className="flex items-center space-x-2">
                       <p>Reviewed by</p>
                       <UserAvatar
                         address={lock.reviewers.reviewer1.pubkey}
@@ -75,7 +75,7 @@ export const TutorialLayout: React.FC<Props> = ({
                     </div>
                   </div>
                 </dl>
-                <div className="font-larken pt-12">
+                <div className="pt-12 font-larken">
                   <PageTitle>{title}</PageTitle>
                 </div>
                 <p className="pt-4 pb-2 font-thin text-left">{description}</p>
@@ -92,7 +92,7 @@ export const TutorialLayout: React.FC<Props> = ({
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
               <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0">
-                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:bg-kafemellow prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite prose-td:break-all first:prose-td:break-normal prose-td:border prose-td:border-kafemellow prose-td:p-1">
+                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite prose-td:break-all first:prose-td:break-normal prose-td:border prose-td:border-kafemellow prose-td:p-1">
                   {children}
                 </div>
               </div>
@@ -126,12 +126,14 @@ export const TutorialLayout: React.FC<Props> = ({
         </article>
       </SectionContainer>
       <div className="sticky">
-        <RightSidebar>
-          <div className="p-6">
-            <TutorialTips id={tutorialId} />
-          </div>
+        <div className="sticky top-28">
+          <RightSidebar>
+            <div className="p-6">
+              <TutorialTips id={tutorialId} />
+            </div>
+          </RightSidebar>
           <TableOfContent toc={toc} />
-        </RightSidebar>
+        </div>
       </div>
     </div>
   );

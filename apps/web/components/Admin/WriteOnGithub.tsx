@@ -66,11 +66,17 @@ const WriteOnGitHub = ({ tutorial, RenderReviewer }) => {
                   )}
                 </div>
                 <div className="border-t-[0.5px] border-kafeblack dark:border-kafemellow break-all pt-4 pb-4 mt-10">
+                  <p>To start writing</p>
+                  <p>fork the Kafé repo and follow the instructions at: </p>
                   <p>
-                    Create guide at:{' '}
-                    <span className="text-kafemellow">
-                      https://github.com/clalancette/98898903ije093heibe23y36
-                    </span>
+                    <a
+                      className="text-kafemellow"
+                      href="https://github.com/TheBuilderDAO/kafe"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      https://github.com/TheBuilderDAO/kafe
+                    </a>
                   </p>
                 </div>
               </div>

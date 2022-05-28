@@ -17,7 +17,7 @@ export const Hint: React.FC<{
   };
   return (
     <div
-      className={`w-full p-2 border-2 rounded-lg border-kafedarker ${getBg()}`}
+      className={`w-full mt-2 mb-4 p-2 px-4 border-2 rounded-lg border-kafedarker ${getBg()} dark:text-kafeblack`}
     >
       {children}
     </div>

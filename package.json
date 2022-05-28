@@ -60,6 +60,9 @@
     "tutorials/**/content/**/*.{md,mdx}": [
       "prettier --write"
     ],
+    "apps/docs/pages/**/*.{md,mdx}": [
+      "prettier --write"
+    ],
     "*.json": [
       "prettier --write"
     ]

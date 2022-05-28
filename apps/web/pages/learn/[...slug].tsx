@@ -3,6 +3,7 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import fs from 'fs-extra';
 import path from 'path';
 import {
   getFileByPath,
@@ -17,12 +18,11 @@ import { getMDXComponents } from '@builderdao/ui';
 import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
+import { ArweaveApi } from '@builderdao/apis';
 import {
   NEXT_PUBLIC_ARWEAVE_HOST,
   NEXT_PUBLIC_ARWEAVE_PORT,
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
-  NEXT_PUBLIC_CERAMIC_NODE_URL,
   NODE_ENV,
 } from '@app/constants';
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
@@ -118,6 +118,14 @@ export const getStaticProps: GetStaticProps = async context => {
         const tutorial = await applicationFetcher.getTutorialBySlug(
           tutorialSlug,
         );
+        const rootFolder = getPathForRootFolder(tutorialSlug);
+        let content = tutorial.content;
+        if (fs.existsSync(rootFolder)) {
+          const { config, lock } = await getTutorialContentByPath({
+            rootFolder,
+          });
+          content = { ...lock.content, ...content };
+        }
         return {
           config: {
             title: tutorial.title,
@@ -129,7 +137,7 @@ export const getStaticProps: GetStaticProps = async context => {
           lock: {
             proposalId: tutorial.id,
             creator: tutorial.creator,
-            content: tutorial.content,
+            content,
             slug: tutorial.slug,
             reviewers: {
               reviewer1: {

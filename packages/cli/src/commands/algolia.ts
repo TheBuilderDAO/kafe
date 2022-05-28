@@ -6,6 +6,7 @@ import path from 'path';
 
 import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex } from '@builderdao/apis';
 import { ProposalStateE, getProposalState } from '@builderdao/program-tutorial';
+import { deprecated_tutorials } from '@builderdao/data';
 import { BuilderDaoConfig } from 'src/services';
 import { getClient } from 'src/client';
 import { log as _log } from 'src/utils';
@@ -16,7 +17,7 @@ export function makeAlgoliaCommand() {
 
   const algolia = new commander.Command('algolia')
     .addHelpCommand(false)
-    .description('Update the Algolia index for Kafé')
+    .description('Manage Algolia index')
     .configureHelp({
       helpWidth: 80,
       sortSubcommands: true,
@@ -207,16 +208,29 @@ export function makeAlgoliaCommand() {
         });
         const allProposals = await client.getProposals()
         let processedCount = 0;
-        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Array<{ solana: any, ceramic: TutorialMetadata, config?: BuilderDaoConfigJson, lock?: BuilderDaoLockJson }>) => {
-          // console.log(proposals.map(p => p.));
-          const tutorials: Array<TutorialIndex> = tasks.map(t => {
+        type Tasks = Array<{ solana: any, ceramic: TutorialMetadata, config?: BuilderDaoConfigJson, lock?: BuilderDaoLockJson }>
+        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Tasks) => {
+          const { deprecate, update } = tasks.reduce((prev, t) => {
+            if (deprecated_tutorials.includes(t.solana.slug)) {
+              prev.deprecate.push(t);
+            } else {
+              prev.update.push(t);
+            }
+            return prev;
+          }, { deprecate: [] as Tasks, update: [] as Tasks });
+
+          if (deprecate.length > 0) {
+            await algoliaClient.deleteTutorials(deprecate.map(t => t.solana.id.toNumber()));
+          }
+
+          const tutorials: Array<TutorialIndex> = update.map(t => {
             return {
               objectID: t.solana.id.toNumber(),
               author: t.solana.creator.toString(),
               title: t.ceramic.title,
               // TODO: if It's published use the config description. This is Monkey patch till we have Ceramic metadata update.
               // https://figmentio.atlassian.net/jira/software/c/projects/LR/boards/71/backlog?view=detail&selectedIssue=LR-328&issueLimit=100&search=ceramic
-              description: getProposalState(t.solana.state) === ProposalStateE.published ? t.config?.description : t.ceramic.description,
+              description: getProposalState(t.solana.state) === ProposalStateE.published ? t.config?.description! : t.ceramic.description,
               state: getProposalState(t.solana.state),
               slug: t.solana.slug,
               tags: t.ceramic.tags,
@@ -224,6 +238,7 @@ export function makeAlgoliaCommand() {
               numberOfVotes: t.solana.numberOfVoter.toNumber(),
               totalTips: t.solana.tippedAmount.toNumber(),
               lastUpdatedAt: Date.now(),
+              publishedAt: Date.now(),
             };
           })
           await algoliaClient.upsertTutorials(tutorials);
@@ -231,6 +246,7 @@ export function makeAlgoliaCommand() {
           log({
             message: 'Updated index',
             tutorials: tutorials.map(t => t.slug),
+            deprecate: deprecate.map(t => t.solana.slug),
             status: `${processedCount}/${allProposals.length}`,
           })
         }, 1, 10);
@@ -305,7 +321,7 @@ export function makeAlgoliaCommand() {
           indexName: string;
         },
       ) => {
-        const client = new AlgoliaApi({
+        const algoliaClient = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
           indexName: options.indexName,
@@ -323,11 +339,12 @@ export function makeAlgoliaCommand() {
         const categories = config.chain.get('categories').value();
 
 
-        await client.updateTutorial(proposalId, {
+        await algoliaClient.updateTutorial(proposalId, {
           title,
           description,
           tags: categories,
           state: ProposalStateE.published,
+          publishedAt: Date.now(),
           lastUpdatedAt: Date.now(),
         });
       },

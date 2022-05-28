@@ -1,18 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { withSentry } from '@sentry/nextjs';
 import { TutorialIndex } from '@app/types/index';
 import { AlgoliaApi } from '@builderdao/apis';
 import { ProposalStateE } from '@builderdao/use-program-tutorial';
 import {
-  ALGOLIA_SEARCH_ADMIN_KEY,
+  ALGOLIA_WRITE_API_KEY,
   NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
+import { captureException } from '@app/utils/errorLogging';
 
-export default async function handler(
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<TutorialIndex>,
-) {
+) => {
   const {
     id,
     title,
@@ -27,7 +29,7 @@ export default async function handler(
   try {
     const algoliaApi = new AlgoliaApi({
       appId: NEXT_PUBLIC_ALGOLIA_APP_ID,
-      accessKey: ALGOLIA_SEARCH_ADMIN_KEY,
+      accessKey: ALGOLIA_WRITE_API_KEY,
       indexName: NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
     });
 
@@ -43,6 +45,7 @@ export default async function handler(
       numberOfVotes: 0,
       totalTips: 0,
       lastUpdatedAt,
+      publishedAt: 0,
     };
 
     await algoliaApi.createTutorial(record);
@@ -50,6 +53,9 @@ export default async function handler(
     res.status(200).json(record);
   } catch (err) {
     console.log('ERR', err);
+    captureException(err);
     res.status(500).json(err);
   }
-}
+};
+
+export default withSentry(handler);

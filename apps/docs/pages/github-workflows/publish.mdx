@@ -1,0 +1,88 @@
+---
+title: GitHub Actions
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# GitHub Workflows - publish
+
+This GitHub Action is responsible for publishing the guides after they have been approved by the designated reviewers set by the Builder DAO admins.
+
+## Triggers
+
+```yaml
+workflow_dispatch:
+  inputs:
+    slug:
+      description: 'The slug of the tutorial to publish'
+      required: true
+    environment:
+      description: 'Environment to run tests against'
+      type: environment
+      required: true
+
+pull_request_target:
+  types:
+    - closed
+```
+
+This action has two possible triggers. The first is to use the `workflow_dispatch` trigger. This trigger is used to dispatch the action to the right environment. Only collabrators can trigger this action. The second way is to use the `pull_request_target` trigger. This is used to trigger the action when a pull request is closed, as It's merged to the `dev` or `main` branch.
+
+## Jobs
+
+### get_proposal_slug:
+
+In this job, we get the slug of the proposal from the PR branch name.
+The branch name is in the format of `tutorials/.` We match the slug using a regular expression (regex).
+
+```js
+const headBranch = context.payload.pull_request.head.ref;
+const regex = /tutorials\/([A-z0-9]+(?:[_-][A-z0-9]+)*)/;
+const slug = headBranch.match(regex);
+return (slug && slug[1]) || '';
+```
+
+#### Output
+
+The expected output of this job is the slug of the proposal, in lower-kebab-case.
+
+### fetch_proposal:
+
+In this job, we fetch the proposal from the Builder DAO CLI tool. And we are assigning as a variable to the context.
+
+```bash
+builderdao proposal get -s $SLUG
+REVIEWER1=$(builderdao proposal get -s $SLUG -k reviewer1 --skip-ceramic)
+REVIEWER2=$(builderdao proposal get -s $SLUG -k reviewer2 --skip-ceramic)
+PROPOSAL_ID=$(builderdao proposal get -s $SLUG -k id --skip-ceramic)
+PROPOSAL_STATE=$(builderdao proposal get -s $SLUG -k state --skip-ceramic)
+REVIEWER1_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER1 -k githubName)
+REVIEWER2_GITHUBNAME=$(builderdao reviewer get -p $REVIEWER2 -k githubName)
+```
+
+## publish_tutorial:
+
+In this Job we publish the tutorial via BuilderDAO CLI tool.
+
+```yaml
+- id: publish_tutorial
+  env:
+    SLUG: ${{ needs.get_proposal_slug.outputs.slug }}
+    ARWEAVE_WALLET: ${{ secrets.ARWEAVE_WALLET }}
+    ARWEAVE_APP_NAME: ${{ secrets.ARWEAVE_APP_NAME }}
+    ARWEAVE_HOST: ${{ secrets.ARWEAVE_HOST }}
+    ARWEAVE_PORT: ${{ secrets.ARWEAVE_PORT }}
+    ARWEAVE_PROTOCOL: ${{ secrets.ARWEAVE_PROTOCOL }}
+    CERAMIC_NODE_URL: ${{ secrets.CERAMIC_NODE_URL }}
+    CERAMIC_SEED: ${{ secrets.CERAMIC_SEED }}
+  run: |
+    builderdao tutorial publish $SLUG
+```
+
+There are a few variables that we need to pass to the publish job. The environment set by the `workflow_dispatch` trigger is utilized here. If the trigger `pull_request_target` is merged to the `main` branch, we use the **Production** environment. If it's merged to the `dev` branch, use the **Preview** environment.
+
+The internals of `builderdao tutorial publish $SLUG` is explained [here](/builderdao-cli/tutorial-publish).
+
+---
+
+<Authors path="apps/docs/pages/github-workflows/publish.mdx" />

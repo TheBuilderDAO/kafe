@@ -1,0 +1,40 @@
+---
+title: Technology stack
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Using Solana wallet
+
+The Kafé program is built on the Solana blockchain. In order to interact with Solana and therefore with Kafé, every user needs to have a wallet, and SOL tokens. There are many different wallets you can use:
+
+- Phantom
+- Solflare
+- Sollet
+- Glow Wallet
+- Torus Wallet
+- Ledger Wallet
+  To connect to those wallets, Kafé uses an NPM package called Solana Wallet Adapter. It comes with a set of React components and utility functions to make the connection process seamless.
+
+## How to connect your wallet?
+
+- 1.  Make sure that you use one of above links to install Solana wallet of your choice
+- 2. With Kafé web app click on Connect wallet button
+
+![connect wallet](/assets/images/connect-wallet.png)
+
+- 3. A modal window should open where you can see all of your installed wallets
+
+![solana-wallet-adapter](/assets/images/solana-wallet-adapter.png)
+
+- 4. Clicking on the wallet of your choice should redirect you to that wallet where you most likely will need to log in.
+
+That's it! Now to confirm that you are logged in, instead of Connect wallet button you should see a button with the icon of your wallet and your wallet address
+
+![logged-in](/assets/images/logged-in.png)
+
+Now you propose a guide, vote for a guide, or support your favourite content.
+
+---
+
+<Authors path="apps/docs/pages/web-app/technology-stack.mdx" />

@@ -7,6 +7,7 @@ import {
   useGuideTipping,
   useTutorialProgram,
 } from '@builderdao/use-program-tutorial';
+import { captureException } from '@app/utils/errorLogging';
 
 export const useTipTutorial = <AD>(): [
   (data: AD) => Promise<void>,
@@ -55,6 +56,7 @@ export const useTipTutorial = <AD>(): [
         });
       } catch (err) {
         console.log('ERR:', err);
+        captureException(err);
         setError(err);
         throw err;
       } finally {

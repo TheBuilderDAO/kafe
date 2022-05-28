@@ -11,6 +11,7 @@ export type TutorialIndex = {
   difficulty: string;
   numberOfVotes: number;
   lastUpdatedAt: number;
+  publishedAt: number;
   totalTips: number;
 };
 
@@ -56,6 +57,8 @@ class AlgoliaApi {
     const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_desc`);
     const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_asc`);
     const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_desc`);
+    const publishedAtAscReplica = this.client.initIndex(`${this.index.indexName}_published_at_asc`);
+    const publishedAtDescReplica = this.client.initIndex(`${this.index.indexName}_published_at_desc`);
     const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_total_tips_asc`);
     const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_total_tips_desc`);
 
@@ -71,6 +74,8 @@ class AlgoliaApi {
         numberOfVotesDescReplica.indexName,
         lastUpdatedAtAscReplica.indexName,
         lastUpdatedAtDescReplica.indexName,
+        publishedAtAscReplica.indexName,
+        publishedAtDescReplica.indexName,
         totalTipsAscReplica.indexName,
         totalTipsDescReplica.indexName,
       ]
@@ -91,6 +96,24 @@ class AlgoliaApi {
       attributesForFaceting,
       ranking: [
         "desc(lastUpdatedAt)",
+        ...defaultRanking,
+      ]
+    });
+
+    await publishedAtAscReplica.setSettings({
+      searchableAttributes,
+      attributesForFaceting,
+      ranking: [
+        "asc(publishedAt)",
+        ...defaultRanking,
+      ]
+    });
+
+    await publishedAtDescReplica.setSettings({
+      searchableAttributes,
+      attributesForFaceting,
+      ranking: [
+        "desc(publishedAt)",
         ...defaultRanking,
       ]
     });
@@ -137,6 +160,8 @@ class AlgoliaApi {
     const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_desc`);
     const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_asc`);
     const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_desc`);
+    const publishedAtAscReplica = this.client.initIndex(`${this.index.indexName}_published_at_asc`);
+    const publishedAtDescReplica = this.client.initIndex(`${this.index.indexName}_published_at_desc`);
     const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_total_tips_asc`);
     const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_total_tips_desc`);
 
@@ -144,6 +169,8 @@ class AlgoliaApi {
 
     await lastUpdatedAtAscReplica.delete();
     await lastUpdatedAtDescReplica.delete();
+    await publishedAtAscReplica.delete();
+    await publishedAtDescReplica.delete();
     await numberOfVotesAscReplica.delete();
     await numberOfVotesDescReplica.delete();
     await totalTipsAscReplica.delete();
@@ -156,6 +183,10 @@ class AlgoliaApi {
 
   async upsertTutorials(records: Array<Partial<TutorialIndex>>) {
     return this.index.partialUpdateObjects(records, { createIfNotExists: true }).wait();
+  }
+
+  async deleteTutorials(records: string[]) {
+    return this.index.deleteObjects(records)
   }
 
   async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {

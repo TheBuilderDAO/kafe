@@ -1,0 +1,36 @@
+---
+title: Setup the CLI
+---
+
+import Authors, { Author } from '@app/components/authors';
+
+# Instructions
+
+1. Open the terminal on your local machine.
+2. Go to the directory where you plan to keep a local version of the Kafe repo.
+3. Clone the repository locally by running the following:
+
+```text
+git clone repo clone TheBuilderDAO/kafe
+cd kafe
+```
+
+4. Build the CLI tool:
+
+```text
+yarn install
+yarn build:cli
+```
+
+5. Confirm that you’re linked to the right `builderdao` CLI tool by running the following:
+
+```text
+cd packages/cli
+yarn link
+```
+
+6. You should now have access to the `builderdao` CLI tool. In order to test this, you can run `builderdao -h` → this will show some brief documentation, options and commands. If its failing think to check your `PATH` environment variable or simply execute the following command `export PATH="$HOME/.yarn/bin:$PATH"` (to make the change permanent add this command at the end of your `.bashrc`).
+
+---
+
+<Authors path="apps/docs/pages/builderdao-cli/setup.mdx" />

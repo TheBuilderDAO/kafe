@@ -1,0 +1,20 @@
+{
+  "name": "@builderdao-learn/a-decentralised-exchange-dex-on-solana",
+  "version": "1.0.0",
+  "description": "A decentralised exchange is a network that allows anybody to swap cryptocurrency tokens over the blockchain by performing a transaction between two tokens, such as the SOL-KAFE pair.  Decentralized exchanges (DEX), such as PancakeSwap or Uniswap, are self-contained financial protocols powered by smart contracts that let cryptocurrency traders to convert their holdings.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": "Solana,Javascript,React,Solidity",
+  "author": "",
+  "license": "ISC"
+}
