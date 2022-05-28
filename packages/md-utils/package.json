@@ -42,6 +42,5 @@
     "next": "^12.1.0",
     "next-mdx-remote": "^3.0.8",
     "reading-time": "^1.5.0",
-    "remark-html": "^15.0.1"
   }
 }

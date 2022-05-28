@@ -50,9 +50,6 @@ export const AlgoliaFullTextCommand = () => {
         await lock.read();
         await config.read();
         const proposalId = lock.chain.get('proposalId').value().toString();
-        const title = config.chain.get('title').value().toString();
-        const description = config.chain.get('description').value().toString();
-        const categories = config.chain.get('categories').value();
 
         const tutorialMetadata = await getTutorialContentByPath({
           rootFolder,
@@ -73,8 +70,8 @@ export const AlgoliaFullTextCommand = () => {
                     frontMatter
                   }
                 })
-                console.log(anchors)
-                await algoliaClient.addFulltextIndex(anchors)
+
+                await algoliaClient.addFulltextIndex(proposalId, anchors)
               } catch (err) {
                 console.error(err)
               }

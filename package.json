@@ -27,7 +27,8 @@
     "content:prepublish": "turbo run content:prepublish --scope=@builderdao-learn/* --concurrency=4",
     "content:index": "turbo run content:index --scope='@builderdao-learn/*' --concurrency=4",
     "content:publish": "turbo run content:publish --scope='@builderdao-learn/*' --concurrency=3 --force --continue -- --skip-images",
-    "content:deploy": "turbo run content:prepublish content:index  --scope='@builderdao-learn/*' --concurrency=1"
+    "content:deploy": "turbo run content:prepublish content:index  --scope='@builderdao-learn/*' --concurrency=1",
+    "content:fulltext": "turbo run builderdao --scope=@builderdao-learn/* --concurrency=3 -- algolia fulltext"
   },
   "devDependencies": {
     "husky": "^7.0.4",

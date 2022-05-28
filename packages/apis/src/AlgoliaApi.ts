@@ -36,14 +36,16 @@ class AlgoliaApi {
 
   async provisionFullText() {
     const fullText = this.client.initIndex('tutorial_full_text')
-    fullText.setSettings({
+    await fullText.setSettings({
       attributeForDistinct: 'section',
-      distinct: true
+      distinct: 1,
     })
   }
 
-  async addFulltextIndex(objects: any[]) {
-    await this.fulltextIndex.clearObjects();
+  async addFulltextIndex(proposalId: string, objects: any[]) {
+    await this.fulltextIndex.deleteBy({
+      filters: `parentID = ${proposalId}`
+    })
     await this.fulltextIndex.saveObjects(objects);
   }
 

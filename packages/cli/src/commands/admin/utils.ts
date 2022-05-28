@@ -1,7 +1,7 @@
 import * as anchor from '@project-serum/anchor';
 import * as commander from 'commander';
 import { encode } from 'bs58';
-import fs from "mz/fs"
+import fs from "fs-extra"
 
 const loadKeypairJson = (path: string) =>
   anchor.web3.Keypair.fromSecretKey(
