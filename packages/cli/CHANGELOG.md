@@ -1,5 +1,18 @@
 # @builderdao/cli
 
+## 0.0.10
+
+### Patch Changes
+
+- NPM Publishing merged to dev branch
+- 193029b: NPM Publishing merged to main repo
+- Updated dependencies
+- Updated dependencies [193029b]
+  - @builderdao/program-tutorial@0.0.7
+  - @builderdao/apis@0.0.7
+  - @builderdao/data@0.0.5
+  - @builderdao/md-utils@0.0.5
+
 ## 0.0.9
 
 ### Patch Changes

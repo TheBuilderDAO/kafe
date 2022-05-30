@@ -1,5 +1,12 @@
 # @builderdao/config
 
+## 0.0.5
+
+### Patch Changes
+
+- NPM Publishing merged to dev branch
+- 193029b: NPM Publishing merged to main repo
+
 ## 0.0.4
 
 ### Patch Changes
