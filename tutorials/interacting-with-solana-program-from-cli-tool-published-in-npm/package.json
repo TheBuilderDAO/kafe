@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/interacting-with-solana-program-from-cli-tool-published-in-npm",
+  "version": "1.0.0",
+  "description": "In this tutorial, we are actually testing the npm published CLI tool.",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": "CLI,JS/TS",
+  "author": "",
+  "private": true,
+  "license": "ISC"
+}
