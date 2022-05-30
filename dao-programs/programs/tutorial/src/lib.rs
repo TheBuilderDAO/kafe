@@ -13,7 +13,7 @@ use solana_security_txt::security_txt;
 security_txt! {
   name: "Builder DAO",
   project_url: "dev.builderdao.io",
-  contacts: "email:yacine@figment.io,link:https://example.com/security,discord:zurgl#6851",
+  contacts: "email:yacine@figment.io,link:https://builderdao.notion.site,discord:zurgl#6851",
   policy: "https://github.com/solana-labs/solana/blob/master/SECURITY.md",
   preferred_languages: "en",
   source_code: "https://github.com/TheBuilderDAO/kafe/tree/dev/dao-programs/programs/tutorial/src",
