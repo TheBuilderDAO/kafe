@@ -6,7 +6,7 @@ import {
   useCastVote as solanaUseCastVote,
   useGetDaoState,
   useTutorialProgram,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/use-program-tutorial';
 import { captureException } from '@app/utils/errorLogging';
 
 type IndexVotesData = {

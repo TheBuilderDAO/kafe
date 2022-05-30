@@ -14,6 +14,7 @@
     "content:index": "builderdao algolia publish",
     "content:publish": "builderdao tutorial publish"
   },
+  "private": true,
   "keywords": "Solana,JS/TS,Next.js,Rust,Smart Contract",
   "author": "alpha tester",
   "license": "ISC"

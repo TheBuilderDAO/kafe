@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import { TutorialProgramConfig } from '@builderdao/program-tutorial';
 
 import { makeMigrationCommand } from './commands/solana';
 import { makeUtilsCommand } from './commands/utils';

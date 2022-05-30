@@ -4,8 +4,8 @@ import fs from 'fs-extra';
 import * as commander from 'commander';
 import path from 'path';
 
-import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex, TutorialContent } from '@builderdao/apis';
-import { ProposalStateE, getProposalState } from '@builderdao-sdk/dao-program';
+import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex } from '@builderdao/apis';
+import { ProposalStateE, getProposalState } from '@builderdao/program-tutorial';
 import { deprecated_tutorials } from '@builderdao/data';
 import { BuilderDaoConfig } from 'src/services';
 import { getClient } from 'src/client';

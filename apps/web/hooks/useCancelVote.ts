@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import {
   useCancelVote as solanaUseCancelVote,
   useTutorialProgram,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/use-program-tutorial';
 import { captureException } from '@app/utils/errorLogging';
 
 type IndexVotesData = {

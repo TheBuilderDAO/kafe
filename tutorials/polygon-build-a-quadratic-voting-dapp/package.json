@@ -22,5 +22,6 @@
     "IPFS"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

@@ -1,8 +1,8 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 const withTM = require('next-transpile-modules')([
   '@builderdao/ui',
-  '@builderdao-sdk/dao-program',
   '@builderdao/md-utils',
+  '@builderdao/use-program-tutorial',
 ]);
 
 const moduleExports = {

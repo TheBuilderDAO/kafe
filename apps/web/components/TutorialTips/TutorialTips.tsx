@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addEllipsis } from '../../utils/strings';
 import VoteButton from '../VoteButton/VoteButton';
-import { useGetListOfTippersById } from '@builderdao-sdk/dao-program';
+import { useGetListOfTippersById } from '@builderdao/use-program-tutorial';
 import IsLoggedIn from '@app/components/IsLoggedIn/IsLoggedIn';
 import TipTutorialForm from '@app/components/TipTutorialForm/TipTutorialForm';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';

@@ -1,15 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-type ContentProps = {
-  children: ReactNode;
-};
-
-const Content = (props: ContentProps) => {
-  const { children } = props;
-
-  return (
-    <div>{children}</div>
-  );
+const Content: React.FC = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 export default Content;

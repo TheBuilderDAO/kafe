@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { filterProposalByState, ProposalStateE } from '@builderdao-sdk/dao-program';
+import { filterProposalByState, ProposalStateE } from '@builderdao/program-tutorial';
 import { CeramicApi } from '@builderdao/apis';
 import _ from 'lodash';
 
@@ -228,32 +228,36 @@ Notes:
     )
     .action(async options => {
       // eslint-disable-next-line @typescript-eslint/no-shadow
-      let proposal: any;
+      let proposalAccount: any;
       if (options.slug) {
-        proposal = await client.getTutorialBySlug(options.slug)
+        proposalAccount = await client.getTutorialBySlug(options.slug)
       } else if (options.id) {
-        proposal = await client.getTutorialById(options.id)
+        proposalAccount = await client.getTutorialById(options.id)
       } else if (options.publicKey) {
-        proposal = await client.tutorialProgram.account.proposalAccount.fetch(
+        proposalAccount = await client.tutorialProgram.account.proposalAccount.fetch(
           options.publicKey,
         )
       } else {
         const rootFolder = process.cwd();
+        if (!rootFolder.includes('/tutorials/')) {
+          proposal.error('No tutorial found in this folder')
+          return
+        }
         const { lock } = new BuilderDaoConfig(rootFolder);
         await lock.read()
         const proposalId = lock.chain.get('proposalId').value();
         // eslint-disable-next-line no-param-reassign
         options.id = proposalId;
-        proposal = await client.getTutorialById(proposalId)
+        proposalAccount = await client.getTutorialById(proposalId)
       }
       if (!options.skipCeramic) {
         const ceramic = new CeramicApi({
           nodeUrl: options.nodeUrl,
         });
-        const proposalDetails = await ceramic.getMetadata(proposal.streamId);
-        proposal = _.merge(proposal, proposalDetails);
+        const proposalDetails = await ceramic.getMetadata(proposalAccount.streamId);
+        proposalAccount = _.merge(proposalAccount, proposalDetails);
       }
-      log(proposal);
+      log(proposalAccount);
 
 
       if (!Object.values(options).some(v => v)) {

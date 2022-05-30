@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::errors::*;
 use crate::state::*;
+use crate::events::EventVoteCancel;
 
 #[derive(Accounts)]
 pub struct VoteCancel<'info> {
@@ -32,6 +33,13 @@ pub fn handler(ctx: Context<VoteCancel>) -> Result<()> {
     return Err(error!(ErrorDao::CannotCancelVoteAnymore));
   }
   ctx.accounts.proposal_account.number_of_voter -= 1;
+
+  emit!(EventVoteCancel {
+    voter: ctx.accounts.vote_account.key(),
+    proposal_slug: ctx.accounts.proposal_account.slug.clone(),
+    proposal_id: ctx.accounts.proposal_account.id,
+    proposal_voter_counter: ctx.accounts.proposal_account.number_of_voter,
+  });
 
   Ok(())
 }

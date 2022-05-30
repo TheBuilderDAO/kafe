@@ -24,5 +24,6 @@
     "Solidity"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

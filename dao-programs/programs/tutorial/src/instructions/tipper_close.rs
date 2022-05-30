@@ -2,6 +2,8 @@ use anchor_lang::prelude::*;
 
 use crate::errors::*;
 use crate::state::*;
+use crate::events::EventTipperClose;
+
 
 #[derive(Accounts)]
 pub struct TipperClose<'info> {
@@ -23,6 +25,11 @@ pub struct TipperClose<'info> {
   pub authority: Signer<'info>,
 }
 
-pub fn handler(_ctx: Context<TipperClose>) -> Result<()> {
+pub fn handler(ctx: Context<TipperClose>) -> Result<()> {
+  
+  emit!(EventTipperClose {
+    tipper: ctx.accounts.tipper_account.key(),
+  });
+
   Ok(())
 }

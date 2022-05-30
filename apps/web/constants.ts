@@ -1,4 +1,4 @@
-import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import { TutorialProgramConfig } from '@builderdao/program-tutorial';
 
 const getEnvOrFail = <T>(
   val: string | number | undefined,

@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventSetQuorum;
 
 #[derive(Accounts)]
 pub struct DaoSetQuorum<'info> {
@@ -17,5 +18,10 @@ pub struct DaoSetQuorum<'info> {
 
 pub fn handler(ctx: Context<DaoSetQuorum>, quorum: u64) -> Result<()> {
   ctx.accounts.dao_account.quorum = quorum;
+
+  emit!(EventSetQuorum {
+    quorum
+  });
+
   Ok(())
 }

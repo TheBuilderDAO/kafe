@@ -1,18 +1,12 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{
-  self, 
-  Mint, 
-  Token, 
-  TokenAccount, 
-  Transfer,
-  CloseAccount,
-  SetAuthority,
-  ThawAccount, 
+  self, CloseAccount, Mint, SetAuthority, ThawAccount, Token, TokenAccount, Transfer,
 };
 
-use crate::errors::*;
-use crate::state::*;
 use crate::constants::*;
+use crate::errors::*;
+use crate::events::EventVaultClose;
+use crate::state::*;
 
 #[derive(Accounts)]
 pub struct DaoVaultClose<'info> {
@@ -32,7 +26,7 @@ pub struct DaoVaultClose<'info> {
 }
 
 pub fn handler(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool) -> Result<()> {
-  if ctx.accounts.super_admin_token_account.is_frozen() { 
+  if ctx.accounts.super_admin_token_account.is_frozen() {
     let cpi_program5 = ctx.accounts.token_program.to_account_info();
     let cpi_accounts5 = ThawAccount {
       account: ctx.accounts.super_admin_token_account.to_account_info(),
@@ -40,19 +34,16 @@ pub fn handler(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool)
       authority: ctx.accounts.dao_vault.to_account_info(),
     };
 
-    token::thaw_account(
-      CpiContext::new_with_signer(
-        cpi_program5,
-        cpi_accounts5,
-        &[&[
-          PROGRAM_SEED.as_bytes(),
-          ctx.accounts.mint.key().as_ref(),
-          &[bump],
-        ]],
-      ),
-    )?;
+    token::thaw_account(CpiContext::new_with_signer(
+      cpi_program5,
+      cpi_accounts5,
+      &[&[
+        PROGRAM_SEED.as_bytes(),
+        ctx.accounts.mint.key().as_ref(),
+        &[bump],
+      ]],
+    ))?;
   }
-  
   let cpi_program = ctx.accounts.token_program.to_account_info();
   let cpi_accounts = Transfer {
     from: ctx.accounts.dao_vault.to_account_info(),
@@ -100,17 +91,19 @@ pub fn handler(ctx: Context<DaoVaultClose>, bump: u8, amount: u64, freeze: bool)
     destination: ctx.accounts.super_admin.to_account_info(),
     authority: ctx.accounts.dao_vault.to_account_info(),
   };
-  token::close_account(
-    CpiContext::new_with_signer(
-      cpi_program,
-      cpi_accounts,
-      &[&[
-        PROGRAM_SEED.as_bytes(),
-        ctx.accounts.mint.key().as_ref(),
-        &[bump],
-      ]],
-    ),
-  )?;
+  token::close_account(CpiContext::new_with_signer(
+    cpi_program,
+    cpi_accounts,
+    &[&[
+      PROGRAM_SEED.as_bytes(),
+      ctx.accounts.mint.key().as_ref(),
+      &[bump],
+    ]],
+  ))?;
+
+  emit!(EventVaultClose {
+    mint: ctx.accounts.mint.key(),
+  });
 
   Ok(())
 }

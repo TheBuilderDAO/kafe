@@ -3,6 +3,7 @@ use std::str::FromStr;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventProposalSetState;
 
 #[derive(Accounts)]
 pub struct ProposalSetState<'info> {
@@ -19,7 +20,13 @@ pub struct ProposalSetState<'info> {
 }
 
 pub fn handler(ctx: Context<ProposalSetState>, state: String) -> Result<()> {
-  let current_state = &mut ctx.accounts.proposal_account.state;
-  *current_state = ProposalState::from_str(&state).unwrap();
+  ctx.accounts.proposal_account.state = ProposalState::from_str(&state).unwrap();
+
+  emit!(EventProposalSetState {
+    state: ctx.accounts.proposal_account.state.clone(),
+    slug: ctx.accounts.proposal_account.slug.clone(),
+    id: ctx.accounts.proposal_account.id,
+  });
+
   Ok(())
 }

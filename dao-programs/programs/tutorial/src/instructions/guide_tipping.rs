@@ -17,6 +17,7 @@ use anchor_lang::solana_program::{
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventGuideTipping;
 use crate::constants::{
   REVIEWER_TIP_WEIGHT, 
   CREATOR_TIP_WEIGHT,
@@ -269,6 +270,12 @@ pub fn handler(ctx: Context<GuideTipping>, bump: u8, amount: u64, bump_vault: u8
       ]],
     ),
   )?;
+
+  emit!(EventGuideTipping {
+    tipper: ctx.accounts.tipper_account.key(),
+    slug: ctx.accounts.proposal.slug.clone(),
+    amount
+  });
 
   Ok(())
 }

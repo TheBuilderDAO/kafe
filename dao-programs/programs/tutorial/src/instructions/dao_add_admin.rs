@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventAddAdmin;
 
 #[derive(Accounts)]
 pub struct DaoAddAdmin<'info> {
@@ -19,5 +20,10 @@ pub fn handler(ctx: Context<DaoAddAdmin>, admin: Pubkey) -> Result<()> {
   if !ctx.accounts.dao_account.admins.contains(&admin) {
     ctx.accounts.dao_account.admins.push(admin);
   }
+
+  emit!(EventAddAdmin {
+    admin 
+  });
+
   Ok(())
 }
