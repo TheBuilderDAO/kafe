@@ -16,5 +16,6 @@
   },
   "keywords": "Solana,Javascript,React,Solidity",
   "author": "",
+  "private": true,
   "license": "ISC"
 }
