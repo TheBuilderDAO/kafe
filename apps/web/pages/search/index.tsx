@@ -8,18 +8,13 @@ import {
 
 import Banner from '@app/components/Banner';
 
-import IsAdmin from '@app/components/IsAdmin/IsAdmin';
-import GuideHitFilter from '@app/components/Search/GuideHitFilter';
-import GuideHits from '@app/components/Search/GuideHits';
-import GuideStateTabs from '@app/components/Search/GuideStateTabs';
 import Pagination from '@app/components/Search/Pagination';
 import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
-import RightSidebar from 'layouts/PublicLayout/RightSidebar';
+import { ProposalStateE } from '@builderdao/program-tutorial';
 import algoliasearch from 'algoliasearch';
 import useSearchState from 'hooks/useSearchState';
 import Head from 'next/head';
