@@ -3,7 +3,7 @@ import * as anchor from '@project-serum/anchor';
 import {
   TutorialProgramClient,
   TutorialProgramConfig,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/program-tutorial';
 
 export const getClient = ({
   payer,

@@ -18,5 +18,6 @@
     "Polkadot"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

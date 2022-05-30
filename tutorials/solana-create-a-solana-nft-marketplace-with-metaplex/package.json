@@ -19,5 +19,6 @@
     "Arweave"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

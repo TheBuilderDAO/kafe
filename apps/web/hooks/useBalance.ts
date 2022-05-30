@@ -3,8 +3,7 @@ import {
   NEXT_PUBLIC_KAFE_MINT,
   NEXT_PUBLIC_SOLANA_NETWORK,
 } from '@app/constants';
-import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
-import { PublicKey } from '@solana/web3.js';
+import { TutorialProgramConfig } from '@builderdao/program-tutorial';
 import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import useSWR, { Fetcher } from 'swr';

@@ -16,5 +16,6 @@
   },
   "keywords": "GraphQL",
   "author": "",
+  "private": true,
   "license": "ISC"
 }

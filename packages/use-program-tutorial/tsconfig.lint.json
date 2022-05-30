@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["ts-sdk", "__tests__", "tests"],
+  "exclude": ["node_modules", "dist", ".turbo", "coverage"]
+}

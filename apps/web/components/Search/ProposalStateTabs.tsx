@@ -1,6 +1,6 @@
 import { connectRefinementList } from 'react-instantsearch-dom';
 import React from 'react';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import { ProposalStateE } from '@builderdao/use-program-tutorial';
 
 const ProposalStateTabs = ({ currentRefinement, refine, createURL }) => {
   return (

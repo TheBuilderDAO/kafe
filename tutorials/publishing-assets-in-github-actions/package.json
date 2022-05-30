@@ -1,0 +1,21 @@
+{
+  "name": "@builderdao-learn/publishing-assets-in-github-actions",
+  "version": "1.0.0",
+  "description": "Tutorial tests the publish flow",
+  "main": "index.js",
+  "files": [
+    "content",
+    "builderdao.config.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builderdao": "builderdao",
+    "content:prepublish": "builderdao tutorial prepublish",
+    "content:index": "builderdao algolia publish",
+    "content:publish": "builderdao tutorial publish"
+  },
+  "keywords": "Ceramic,Solana,CLI",
+  "author": "",
+  "private": true,
+  "license": "ISC"
+}

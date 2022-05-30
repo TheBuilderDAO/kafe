@@ -1,7 +1,7 @@
 import React from 'react';
 import { addEllipsis } from '../../utils/strings';
 import { useDapp } from '../../hooks/useDapp';
-import { useGetListOfReviewers } from '@builderdao-sdk/dao-program';
+import { useGetListOfReviewers } from '@builderdao/use-program-tutorial';
 import AddReviewerForm from '@app/components/AddReviewerForm/AddReviewerForm';
 import DeleteReviewerButton from '@app/components/DeleteReviewerButton/DeleteReviewerButton';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';

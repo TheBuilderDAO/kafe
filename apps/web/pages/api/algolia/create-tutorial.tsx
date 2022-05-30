@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { withSentry } from '@sentry/nextjs';
 import { TutorialIndex } from '@app/types/index';
 import { AlgoliaApi } from '@builderdao/apis';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import { ProposalStateE } from '@builderdao/use-program-tutorial';
 import {
   ALGOLIA_WRITE_API_KEY,
   NEXT_PUBLIC_ALGOLIA_APP_ID,

@@ -9,7 +9,7 @@ import { CeramicApi, AlgoliaApi } from '@builderdao/apis';
 import {
   ProposalStateE,
   filterProposalByState,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/program-tutorial';
 import { uniq } from 'lodash';
 
 import dump from '../../data/dump.json';

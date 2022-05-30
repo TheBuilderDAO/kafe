@@ -102,6 +102,10 @@ export const TutorialPublishCommand = () => {
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
+      if (!rootFolder.includes('/tutorials/')) {
+        tutorialPublish.error('No tutorial found in this folder')
+        return
+      }
       log({ rootFolder });
       const { lock } = new BuilderDaoConfig(rootFolder);
       await lock.read();

@@ -16,5 +16,6 @@
   },
   "keywords": [],
   "author": "",
+  "private": true,
   "license": "ISC"
 }
