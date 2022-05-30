@@ -1,5 +1,12 @@
 # @builderdao/program-tutorial
 
+## 0.0.7
+
+### Patch Changes
+
+- NPM Publishing merged to dev branch
+- 193029b: NPM Publishing merged to main repo
+
 ## 0.0.6
 
 ### Patch Changes
