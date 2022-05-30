@@ -1,8 +1,8 @@
 use anchor_lang::prelude::*;
 use std::str::FromStr;
 
-use crate::errors::*;
 use crate::constants::*;
+use crate::errors::*;
 
 #[account]
 pub struct ProposalAccount {
@@ -51,7 +51,6 @@ impl FromStr for ProposalState {
   }
 }
 
-
 impl Default for ProposalAccount {
   fn default() -> Self {
     let stream_id = String::with_capacity(LEN_STREAM_ID);
@@ -74,18 +73,20 @@ impl Default for ProposalAccount {
 
 impl ProposalAccount {
   pub fn space(slug: &str) -> usize {
-    LEN_DISCRIMINATOR 
-    + LEN_U64 
-    + LEN_U8 
-    + LEN_PUBKEY 
-    + LEN_PUBKEY 
-    + LEN_PUBKEY 
-    + LEN_U64 
-    + LEN_I64 
-    + LEN_U64 
-    + LEN_U64 
-    + LEN_ENUM 
-    + LEN_STRING_ALLOCATOR + LEN_STREAM_ID
-    + LEN_STRING_ALLOCATOR + slug.len()
+    LEN_DISCRIMINATOR
+      + LEN_U64
+      + LEN_U8
+      + LEN_PUBKEY
+      + LEN_PUBKEY
+      + LEN_PUBKEY
+      + LEN_U64
+      + LEN_I64
+      + LEN_U64
+      + LEN_U64
+      + LEN_ENUM
+      + LEN_STRING_ALLOCATOR
+      + LEN_STREAM_ID
+      + LEN_STRING_ALLOCATOR
+      + slug.len()
   }
 }

@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::state::*;
 use crate::constants::*;
+use crate::events::EventDaoInitialize;
 
 #[derive(Accounts)]
 pub struct DaoInitialize<'info> {
@@ -29,11 +30,21 @@ pub fn handler(
   super_admin: Pubkey, 
   authorities: Vec<Pubkey>
 ) -> Result<()> {
-  ctx.accounts.dao_account.bump = bump;
-  ctx.accounts.dao_account.quorum = quorum;
-  ctx.accounts.dao_account.min_amount_to_create_proposal = min_amount_to_create_proposal;
-  ctx.accounts.dao_account.super_admin = super_admin;
-  ctx.accounts.dao_account.admins = authorities.clone();
- 
+  let dao_account = &mut ctx.accounts.dao_account;
+
+  dao_account.bump = bump;
+  dao_account.quorum = quorum;
+  dao_account.min_amount_to_create_proposal = min_amount_to_create_proposal;
+  dao_account.super_admin = super_admin;
+  dao_account.admins = authorities.clone();
+
+  emit!(EventDaoInitialize {
+    nonce: dao_account.nonce,
+    number_of_proposal: dao_account.number_of_proposal,
+    quorum: dao_account.quorum,
+    min_amount_to_create_proposal: dao_account.min_amount_to_create_proposal,
+    super_admin: dao_account.super_admin,
+});
+
   Ok(())
 }

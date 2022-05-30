@@ -1,7 +1,8 @@
 use anchor_lang::prelude::*;
 
-use crate::state::*;
 use crate::errors::*;
+use crate::events::EventDaoClose;
+use crate::state::*;
 
 #[derive(Accounts)]
 pub struct DaoClose<'info> {
@@ -16,6 +17,10 @@ pub struct DaoClose<'info> {
   pub super_admin: Signer<'info>,
 }
 
-pub fn handler(_ctx: Context<DaoClose>) -> Result<()> {
-   Ok(())
+pub fn handler(ctx: Context<DaoClose>) -> Result<()> {
+  emit!(EventDaoClose {
+    dao_account: ctx.accounts.dao_account.key(),
+  });
+
+  Ok(())
 }

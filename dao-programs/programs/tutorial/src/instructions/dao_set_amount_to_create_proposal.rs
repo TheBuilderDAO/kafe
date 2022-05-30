@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 use crate::state::*;
 use crate::errors::*;
+use crate::events::EventSetMinAmountToCreateProposal;
 
 #[derive(Accounts)]
 pub struct DaoSetAmountToCreateProposal<'info> {
@@ -20,5 +21,10 @@ pub fn handler(
   min_amount_to_create_proposal: u64,
 ) -> Result<()> {
   ctx.accounts.dao_account.min_amount_to_create_proposal = min_amount_to_create_proposal;
+  
+  emit!(EventSetMinAmountToCreateProposal {
+    min_amount_to_create_proposal
+  });
+
   Ok(())
 }
