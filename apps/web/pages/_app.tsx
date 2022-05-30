@@ -8,6 +8,7 @@ import {
   ConnectionProvider,
   WalletProvider,
 } from '@solana/wallet-adapter-react';
+import { Provider as CeramicProvider } from '@self.id/react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import {
   LedgerWalletAdapter,
@@ -85,13 +86,15 @@ const App = ({ Component, pageProps }: AppProps) => {
           <SWRDevTools>
             <ConnectionProvider endpoint={endpoint}>
               <WalletProvider wallets={wallets} autoConnect>
-                <WalletModalProvider>
-                  <DappProvider>
-                    <PublicLayout>
-                      <Component {...pageProps} />
-                    </PublicLayout>
-                  </DappProvider>
-                </WalletModalProvider>
+                <CeramicProvider client={{ ceramic: 'testnet-clay' }}>
+                  <WalletModalProvider>
+                    <DappProvider>
+                      <PublicLayout>
+                        <Component {...pageProps} />
+                      </PublicLayout>
+                    </DappProvider>
+                  </WalletModalProvider>
+                </CeramicProvider>
               </WalletProvider>
             </ConnectionProvider>
           </SWRDevTools>
