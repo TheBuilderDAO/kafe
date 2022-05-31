@@ -20,7 +20,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,mdx}\"",
     "test": "turbo run test --parallel",
     "test:anchor": "cd dao-programs && ./deploy && anchor test",
-    "test:programs": "turbo run test:program --parallel --scope=@builderdao-sdk*",
+    "test:programs": "turbo run test:program --parallel --scope=@builderdao/program-tutorial",
     "clean": "turbo run clean --parallel",
     "prepare": "husky install",
     "content:setstate:publish": "turbo run builderdao --scope=@builderdao-learn/* --concurrency=3 -- proposal publish",
