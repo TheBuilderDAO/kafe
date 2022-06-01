@@ -84,7 +84,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             <link rel="shortcut icon" href="/favicon.ico" />
           </Head>
           <Script
-            id="pendo"
+            id="analytics-pendo"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
