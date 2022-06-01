@@ -45,8 +45,9 @@ const TutorialPage: NextPage<
     return <h1>Loading...</h1>;
   }
 
-  const { mdxSource, frontMatter, toc } = props.post;
+  const { mdxSource, frontMatter, toc, anchors } = props.post;
   const { config, lock, relativePath, rootFolder, servedFrom } = props;
+  console.log(anchors);
   return (
     <>
       <Head>
@@ -208,9 +209,14 @@ export const getStaticProps: GetStaticProps = async context => {
   const { config, lock } = await getBuilderdaoConfigLock(slug[0]);
   const post = await getPost();
 
+  console.log(post.data);
   const content = await serializeContent({
     content: post.content,
-    data: post.data,
+    data: {
+      ...post.data,
+      config,
+      lock,
+    },
   });
   return {
     props: {

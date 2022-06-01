@@ -71,7 +71,7 @@ export const AlgoliaFullTextCommand = () => {
                   }
                 })
 
-                await algoliaClient.addFulltextIndex(proposalId, anchors)
+                // await algoliaClient.addFulltextIndex(proposalId, anchors)
               } catch (err) {
                 console.error(err)
               }
