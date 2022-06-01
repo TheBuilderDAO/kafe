@@ -9,15 +9,35 @@ runs:
       with:
         cache: 'yarn'
         cache-dependency-path: yarn.lock
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: |
+          echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: Set yarn global bin path
+      run: |
+           yarn config set prefix $(yarn cache dir)
+
+    - name: Add yarn bin path to system path
+      run: |
+           echo $(yarn global bin) >> $GITHUB_PATH
+
+    - name: Set yarn global installation path
+      run: |
+           yarn config set global-folder $(yarn cache dir)
+
     - name: Turbo Cache
       id: turbo-cache
       uses: actions/cache@v2
       with:
         path: |
           node_modules
+          node_modules/.cache/turbo
           .turbo
+          ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
         restore-keys: |
           turbo-${{ github.job }}-${{ github.ref_name }}-
+          turbo-${{ github.job }}-
     - run: yarn global add @builderdao/cli 
       shell: bash

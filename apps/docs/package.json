@@ -13,6 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "private": true,
   "dependencies": {
     "date-fns": "^2.28.0",
     "graphql": "^16.4.0",

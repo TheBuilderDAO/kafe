@@ -1,5 +1,15 @@
 # @builderdao/md-formatter
 
+## 0.0.5
+
+### Patch Changes
+
+- NPM Publishing merged to dev branch
+- 193029b: NPM Publishing merged to main repo
+- Updated dependencies
+- Updated dependencies [193029b]
+  - @builderdao/cli@0.0.10
+
 ## 0.0.4
 
 ### Patch Changes
