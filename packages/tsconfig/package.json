@@ -1,11 +1,15 @@
 {
   "name": "@builderdao/tsconfig",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "private": true,
   "main": "index.js",
   "files": [
     "base.json",
     "nextjs.json",
     "react-library.json"
-  ]
+  ],
+  "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  }
 }

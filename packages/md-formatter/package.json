@@ -1,6 +1,6 @@
 {
   "name": "@builderdao/md-formatter",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "",
   "types": "./dist/cli.d.ts",
   "source": "./src/cli.ts",
@@ -15,8 +15,14 @@
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mdx",
+    "md"
+  ],
+  "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "ISC",
   "dependencies": {
     "@builderdao/cli": "*",

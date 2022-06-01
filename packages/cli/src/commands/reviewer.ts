@@ -1,6 +1,6 @@
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { TutorialProgramClient } from '@builderdao-sdk/dao-program';
+import { TutorialProgramClient } from '@builderdao/program-tutorial';
 
 import { getClient } from '../client';
 import { log as _log } from '../utils';

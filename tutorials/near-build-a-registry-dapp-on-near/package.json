@@ -20,5 +20,6 @@
     "AssemblyScript"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

@@ -1,6 +1,6 @@
 {
-  "name": "migration",
-  "version": "0.0.1",
+  "name": "@builderdao/migration",
+  "version": "0.0.4",
   "description": "",
   "types": "./dist/index.d.ts",
   "source": "./src/index.ts",
@@ -26,6 +26,9 @@
   },
   "keywords": [],
   "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
@@ -35,7 +38,7 @@
     "eslint": "^8.9.0"
   },
   "dependencies": {
-    "@builderdao-sdk/dao-program": "*",
+    "@builderdao/program-tutorial": "*",
     "@builderdao/apis": "*",
     "@builderdao/data": "*",
     "@project-serum/anchor": "^0.17.0",

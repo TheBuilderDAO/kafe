@@ -2,7 +2,7 @@ import { Connection, PublicKey } from '@solana/web3.js';
 import {
   TutorialProgramClient,
   TutorialProgramConfig,
-} from '@builderdao-sdk/dao-program';
+} from '@builderdao/program-tutorial';
 import { Wallet } from '@project-serum/anchor';
 
 export type ApiConfig = {

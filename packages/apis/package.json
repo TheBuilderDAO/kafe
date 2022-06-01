@@ -1,6 +1,6 @@
 {
   "name": "@builderdao/apis",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
@@ -21,6 +21,9 @@
   },
   "keywords": [],
   "author": "@builderdao",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "ISC",
   "devDependencies": {
     "@builderdao/config": "*",
@@ -29,7 +32,7 @@
     "eslint": "^8.9.0"
   },
   "dependencies": {
-    "@builderdao-sdk/dao-program": "*",
+    "@builderdao/program-tutorial": "*",
     "@ceramicnetwork/http-client": "^1.5.7",
     "@ceramicnetwork/stream-tile": "^1.5.7",
     "@project-serum/anchor": "^0.17.0",

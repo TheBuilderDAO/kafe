@@ -1,4 +1,4 @@
-import { useGetHashmapVoterAccountListByIds } from '@builderdao-sdk/dao-program';
+import { useGetHashmapVoterAccountListByIds } from '@builderdao/use-program-tutorial';
 import { connectHits } from 'react-instantsearch-dom';
 import TutorialProposalHit from './TutorialProposalHit';
 

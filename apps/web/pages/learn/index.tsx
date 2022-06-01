@@ -13,7 +13,7 @@ import {
   NEXT_PUBLIC_ALGOLIA_APP_ID,
 } from '@app/constants';
 import GuideStateTabs from '@app/components/Search/GuideStateTabs';
-import { ProposalStateE } from '@builderdao-sdk/dao-program';
+import { ProposalStateE } from '@builderdao/use-program-tutorial';
 import Pagination from '@app/components/Search/Pagination';
 import IsAdmin from '@app/components/IsAdmin/IsAdmin';
 import Link from 'next/link';

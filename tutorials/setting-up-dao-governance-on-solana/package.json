@@ -16,5 +16,6 @@
   },
   "keywords": "IPFS,Solana",
   "author": "",
+  "private": true,
   "license": "ISC"
 }

@@ -21,5 +21,6 @@
     "Smart contracts"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

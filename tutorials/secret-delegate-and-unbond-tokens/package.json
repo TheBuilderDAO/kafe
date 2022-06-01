@@ -20,5 +20,6 @@
     "NodeJS"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }

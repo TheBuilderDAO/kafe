@@ -12,7 +12,7 @@
   "scripts": {
     "postinstall": "cp -f ./.env.local ./packages/cli/ && cp -f ./.env.local ./apps/web/",
     "builderdao": "builderdao",
-    "build": "turbo run prebuild:content build link --ignore=@builderdao-learn/*",
+    "build": "turbo run prebuild:content build link --scope=@builderdao/*",
     "build:cli": "turbo run build link --scope=@builderdao/cli --include-dependencies --no-deps",
     "build:localnet": "turbo run build:localnet",
     "dev": "turbo run dev --parallel --ignore=@builderdao-learn/*",
@@ -20,20 +20,21 @@
     "format": "prettier --write \"**/*.{ts,tsx,mdx}\"",
     "test": "turbo run test --parallel",
     "test:anchor": "cd dao-programs && ./deploy && anchor test",
-    "test:programs": "turbo run test:program --parallel --scope=@builderdao-sdk*",
+    "test:programs": "turbo run test:program --parallel --scope=@builderdao/program-tutorial",
     "clean": "turbo run clean --parallel",
     "prepare": "husky install",
     "content:setstate:publish": "turbo run builderdao --scope=@builderdao-learn/* --concurrency=3 -- proposal publish",
     "content:prepublish": "turbo run content:prepublish --scope=@builderdao-learn/* --concurrency=4",
     "content:index": "turbo run content:index --scope='@builderdao-learn/*' --concurrency=4",
-    "content:publish": "turbo run content:publish --scope='@builderdao-learn/*' --concurrency=3 --force --continue -- --skip-images",
-    "content:deploy": "turbo run content:prepublish content:index  --scope='@builderdao-learn/*' --concurrency=1"
+    "content:publish": "turbo run content:publish --scope='@builderdao-learn/*' --concurrency=3 --force --continue -- --force --skip-images",
+    "content:deploy": "turbo run content:prepublish content:index  --scope='@builderdao-learn/*' --concurrency=1",
+    "release": "turbo run build && yarn changeset publish"
   },
   "devDependencies": {
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "turbo": "^1.2.1"
   },
   "lint-staged": {
     "apps/**/*.{js,ts,jsx,tsx}": [
@@ -70,5 +71,8 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@1.22.5"
+  "packageManager": "yarn@1.22.5",
+  "dependencies": {
+    "@changesets/cli": "^2.22.0"
+  }
 }

@@ -14,11 +14,10 @@ const LoginButton = (props: LoginButtonProps) => {
   } = props;
   const { wallet } = useDapp();
 
-  return (
-    <WalletMultiButton className={className}>
-      {wallet.connected ? null : children}
-    </WalletMultiButton>
-  );
+  return <WalletMultiButton className={className} />;
+
+  // {wallet.connected ? null : children}
+  // </WalletMultiButton>
 };
 
 export default LoginButton;

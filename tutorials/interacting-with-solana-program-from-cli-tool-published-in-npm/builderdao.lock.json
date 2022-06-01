@@ -1,0 +1,43 @@
+{
+  "proposalId": 235,
+  "slug": "interacting-with-solana-program-from-cli-tool-published-in-npm",
+  "creator": "",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://builderdao.io",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    },
+    "reviewer2": {
+      "pda": "CQoq1xYCyvybG3pzQRvjWR9zAW9NDJ8gmcm5kt3cSfhM",
+      "pubkey": "waL5Z5LodiuKg6baWHf7myhD2tKHye8XoHERAQiJLGA",
+      "githubName": "sudo"
+    }
+  },
+  "content": {
+    "content/assets/template_regex.png": {
+      "name": "template_regex.png",
+      "path": "content/assets/template_regex.png",
+      "digest": "5082770ef0c236cf811a6e1dc8aa474fec777c0c3693eefdc943a333f04013c6"
+    },
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "48e52cda5d2d5de9402377b2b0bf02e74df11331a7284519a679bb614193ea11"
+    },
+    "content/assets/example_image.png": {
+      "name": "example_image.png",
+      "path": "content/assets/example_image.png",
+      "digest": "509f8de4db71a76bac40ea48615b09c6661c23eb4bec6512f295aebc496f1312"
+    }
+  },
+  "href": "/learn/interacting-with-solana-program-from-cli-tool-published-in-npm"
+}

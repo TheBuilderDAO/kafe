@@ -11,7 +11,7 @@ dotenvExpand.expand(dotenv)
 import chalk from 'chalk';
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import { TutorialProgramConfig } from '@builderdao/program-tutorial';
 import { version } from '../package.json';
 
 import { makeProposalCommand } from './commands/proposal';

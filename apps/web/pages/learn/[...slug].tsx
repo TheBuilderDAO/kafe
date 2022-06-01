@@ -18,12 +18,11 @@ import { getMDXComponents } from '@builderdao/ui';
 import React from 'react';
 import { TutorialLayout } from 'layouts/tutorial-layout';
 import { serializeContent } from '@app/lib/md/serializeContent';
-import { ArweaveApi, CeramicApi } from '@builderdao/apis';
+import { ArweaveApi } from '@builderdao/apis';
 import {
   NEXT_PUBLIC_ARWEAVE_HOST,
   NEXT_PUBLIC_ARWEAVE_PORT,
   NEXT_PUBLIC_ARWEAVE_PROTOCOL,
-  NEXT_PUBLIC_CERAMIC_NODE_URL,
   NODE_ENV,
 } from '@app/constants';
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
@@ -113,40 +112,54 @@ export const getStaticProps: GetStaticProps = async context => {
     config: BuilderDaoConfigJson;
     lock: BuilderDaoLockJson;
   }> => {
-    if (NODE_ENV === 'production') {
-      const applicationFetcher = getApplicationFetcher();
-      const tutorial = await applicationFetcher.getTutorialBySlug(tutorialSlug);
-      const rootFolder = getPathForRootFolder(tutorialSlug);
-      let content = tutorial.content;
-      if (fs.existsSync(rootFolder)) {
-        const { config, lock } = await getTutorialContentByPath({ rootFolder });
-        content = { ...lock.content, ...content };
-      }
-      return {
-        config: {
-          title: tutorial.title,
-          description: tutorial.description,
-          // TODO:  Ceramic calls it tags lock file calls it categories.
-          categories: tutorial.tags,
-          imageUrl: '',
-        },
-        lock: {
-          proposalId: tutorial.id,
-          creator: tutorial.creator,
-          content,
-          slug: tutorial.slug,
-          reviewers: {
-            reviewer1: {
-              pubkey: tutorial.reviewer1.toString(),
-            },
-            reviewer2: {
-              pubkey: tutorial.reviewer2.toString(),
-            },
+    try {
+      if (NODE_ENV === 'production') {
+        const applicationFetcher = getApplicationFetcher();
+        const tutorial = await applicationFetcher.getTutorialBySlug(
+          tutorialSlug,
+        );
+        const rootFolder = getPathForRootFolder(tutorialSlug);
+        let content = tutorial.content;
+        if (fs.existsSync(rootFolder)) {
+          const { config, lock } = await getTutorialContentByPath({
+            rootFolder,
+          });
+          content = { ...lock.content, ...content };
+        }
+        return {
+          config: {
+            title: tutorial.title,
+            description: tutorial.description,
+            // TODO:  Ceramic calls it tags lock file calls it categories.
+            categories: tutorial.tags,
+            imageUrl: '',
           },
-          href: `learn/${tutorial.slug}`,
-        },
-      };
-    } else {
+          lock: {
+            proposalId: tutorial.id,
+            creator: tutorial.creator,
+            content,
+            slug: tutorial.slug,
+            reviewers: {
+              reviewer1: {
+                pubkey: tutorial.reviewer1.toString(),
+              },
+              reviewer2: {
+                pubkey: tutorial.reviewer2.toString(),
+              },
+            },
+            href: `learn/${tutorial.slug}`,
+          },
+        };
+      } else {
+        const rootFolder = getPathForRootFolder(tutorialSlug);
+        const { config, lock } = await getTutorialContentByPath({ rootFolder });
+        return {
+          config,
+          lock,
+        };
+      }
+    } catch (err) {
+      console.log(err);
       const rootFolder = getPathForRootFolder(tutorialSlug);
       const { config, lock } = await getTutorialContentByPath({ rootFolder });
       return {
@@ -155,6 +168,7 @@ export const getStaticProps: GetStaticProps = async context => {
       };
     }
   };
+
   const getPost = async (): Promise<{ content: string; data: any }> => {
     if (NODE_ENV === 'production') {
       try {

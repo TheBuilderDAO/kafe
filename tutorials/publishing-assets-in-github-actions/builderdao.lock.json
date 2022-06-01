@@ -1,0 +1,34 @@
+{
+  "proposalId": 189,
+  "slug": "publishing-assets-in-github-actions",
+  "creator": "",
+  "authors": [
+    {
+      "name": "The Builder Dao",
+      "avatarUrl": "https://github.com/TheBuilderDAO.png",
+      "url": "https://builderdao.io",
+      "nickname": "TheBuilderDAO"
+    }
+  ],
+  "reviewers": {
+    "reviewer1": {
+      "pda": "DdjeXVxsC8wgTWTAMRcq5aPqTTHEzzc12sRnMweqGsnU",
+      "pubkey": "5uKXYaHes21BoBN3EcNDf13EFqUybzirLwSUfSF218As",
+      "githubName": "dgamboa"
+    },
+    "reviewer2": {
+      "pda": "CmDvU7bVtdbyc9X4QrbV5LwtTGZ3NuJa1NYfrxvqzqJo",
+      "pubkey": "Ea43t5noyJAMLHpux9TfaTFv6wKsLnVqyDmJ87qtUCmy",
+      "githubName": "silentlight"
+    }
+  },
+  "content": {
+    "content/index.mdx": {
+      "name": "index.mdx",
+      "path": "content/index.mdx",
+      "digest": "b9182d5c755c90b368aab65ec18faa8d052672e794053104d1430f3428af5375",
+      "arweaveHash": "xlb8FvWjBKUwg3uIPKg0dhlkTLWtJ8vchTVNQTwpY8w"
+    }
+  },
+  "href": "/learn/publishing-assets-in-github-actions"
+}

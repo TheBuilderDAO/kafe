@@ -23,7 +23,7 @@ import { fetcherWithConfig } from '../utils/fetcher';
 import PublicLayout from '../layouts/PublicLayout/PublicLayout';
 import React, { useMemo } from 'react';
 import { DappProvider } from '../hooks/useDapp';
-import { TutorialProgramConfig } from '@builderdao-sdk/dao-program';
+import { TutorialProgramConfig } from '@builderdao/use-program-tutorial';
 import {
   NEXT_PUBLIC_SOLANA_NETWORK,
   NEXT_PUBLIC_SOLANA_NODE_URL,

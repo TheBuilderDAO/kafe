@@ -21,5 +21,6 @@
     "Javascript"
   ],
   "author": "",
+  "private": true,
   "license": "ISC"
 }
