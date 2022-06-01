@@ -1,12 +1,15 @@
 dao-program:
-- dao-programs/*
-- dao-programs/**/*
+  - dao-programs/*
+  - dao-programs/**/*
 
 frontend:
-- any: ['apps/web/**/*']
+  - any: ['apps/web/**/*']
 
 tutorial:
-- any: ['tutorials/**/*']
+  - any: ['tutorials/**/*']
 
 docs:
-- any: ['apps/docs/**/*']
+  - any: ['apps/docs/**/*']
+
+actions:
+  - any: ['.github/actions/**/*']
