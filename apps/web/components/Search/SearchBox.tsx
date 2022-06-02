@@ -1,27 +1,42 @@
+import { useCallback } from 'react';
+import { useRef } from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
+import useKeyboardJs from 'react-use/lib/useKeyboardJs';
 
-const SearchBox = ({ currentRefinement, isSearchStalled, refine }) => (
-  <form noValidate action="" role="search">
-    <div>
-      <label htmlFor="email" className="sr-only">
-        Email
-      </label>
-      <input
-        type="search"
-        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full text-black sm:text-sm border-gray-300 rounded-md"
-        value={currentRefinement}
-        onChange={event => refine(event.currentTarget.value)}
-        placeholder="Search..."
-      />
-    </div>
-    <button
-      className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      onClick={() => refine('')}
-    >
-      Reset query
-    </button>
-    {isSearchStalled ? 'My search is stalled' : ''}
-  </form>
-);
+const SearchBox = ({ currentRefinement, isSearchStalled, refine }) => {
+  const [isPressed] = useKeyboardJs('command + k');
+  const ref = useRef(null);
+  if (isPressed) {
+    ref.current.focus();
+  }
+  return (
+    <form noValidate action="" role="search" className="flex flex-row mb-4">
+      <div className="flex-1">
+        <label
+          htmlFor="search"
+          className="sr-only block text-sm font-medium text-gray-700"
+        >
+          Quick search
+        </label>
+        <div className="mt-1 relative flex items-center">
+          <input
+            type="search"
+            ref={ref}
+            className="shadow-sm focus:ring-kafered focus:border-kafered block w-full text-black sm:text-sm border-gray-300 rounded-md py-4"
+            value={currentRefinement}
+            onChange={event => refine(event.currentTarget.value)}
+            placeholder="Search..."
+          />
+          <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+            <kbd className="inline-flex items-center border border-gray-200 rounded px-2 text-sm font-sans font-medium text-gray-400">
+              {' '}
+              ⌘K{' '}
+            </kbd>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
+};
 
 export default connectSearchBox(SearchBox);

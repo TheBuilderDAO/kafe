@@ -1,10 +1,4 @@
-import {
-  InstantSearch,
-  Hits,
-  Highlight,
-  Configure,
-  connectHighlight,
-} from 'react-instantsearch-dom';
+import { InstantSearch, Hits, connectHighlight } from 'react-instantsearch-dom';
 
 import Banner from '@app/components/Banner';
 
@@ -14,13 +8,16 @@ import {
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
 } from '@app/constants';
-import { ProposalStateE } from '@builderdao/program-tutorial';
 import algoliasearch from 'algoliasearch';
 import useSearchState from 'hooks/useSearchState';
 import Head from 'next/head';
 import SearchBox from '@app/components/Search/SearchBox';
-import Link from 'next/link';
-import Tags from '@app/components/Tags/Tags';
+import CodeBlock from '@builderdao/ui/src/mdx/Code/CodeBlock';
+import { HashtagIcon } from '@app/components/SVG/Hashtag';
+import { DocumentIcon } from '@app/components/SVG/Document';
+import { CodeIcon } from '@app/components/SVG/Code';
+import { ListIcon } from '@app/components/SVG/List';
+import { HitTreeIcon } from '@app/components/SVG/HitTree';
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID as string,
@@ -73,6 +70,26 @@ export const SearchPage = () => {
   );
 };
 
+const HitIcon: React.FC<{
+  type: 'lvl0' | 'lvl1' | 'lvl2' | 'lvl3' | 'code' | 'paragraph';
+}> = ({ type }) => {
+  switch (type) {
+    case 'lvl1':
+      return <DocumentIcon />;
+    case 'code':
+      return <CodeIcon />;
+    case 'paragraph':
+      return <ListIcon />;
+    default:
+      return (
+        <div className="flex ">
+          <HitTreeIcon />
+          <HashtagIcon />
+        </div>
+      );
+  }
+};
+
 const SearchHitComponent = ({ hit, highlight }) => {
   const excerpt = (content: string, limit: number = 200) => {
     if (content.length > limit) {
@@ -86,46 +103,81 @@ const SearchHitComponent = ({ hit, highlight }) => {
     hit,
   });
 
-  const parsedHitSection = highlight({
-    highlightProperty: '_highlightResult',
-    attribute: 'section',
-    hit,
-  });
+  const findTheLinesHasHighlight = (content, matchedWords: string[]) => {
+    const lines = [];
+    content.split('\n').map((line, index) => {
+      if (matchedWords.some(word => line.includes(word))) {
+        lines.push(index + 1);
+      }
+    });
+    return lines.length > 0 ? `{${lines.join(',')}}` : '';
+  };
+  const formatHighlight = (rawString: string) =>
+    rawString.replace('ais-highlight-0000000000', 'em');
   return (
-    <div className="flex flex-col  border-kafegold rounded mb-4 p-2 border-opacity-20 border-2">
-      <div className="flex flex-row">
-        <Link href={hit.permalink}>
-          <h3 className="text-lg font-bold cursor-pointer">
-            {parsedHitSection.map((part, index) =>
-              part.isHighlighted ? (
-                <mark key={index}>{part.value}</mark>
-              ) : (
-                <span key={index}>{part.value}</span>
-              ),
-            )}
-          </h3>
-        </Link>
+    <div className="flex flex-row  border-kafegold rounded mb-4 p-4 border-opacity-20 border-2 algolia-highlight">
+      <div className="p-1 flex items-center justify-center min-w-[3rem]">
+        <HitIcon type={hit.type as any} />
       </div>
       <div>
-        <p>
-          {parsedHitContent.map((part, index) =>
-            part.isHighlighted ? (
-              <mark key={index}>{part.value}</mark>
-            ) : (
-              <span key={index}>{part.value}</span>
-            ),
+        <div className="flex row space-x-2 flex-wrap space-y-1 items-center justify-start">
+          <span className="font-bold">
+            <h1
+              dangerouslySetInnerHTML={{
+                __html: formatHighlight(hit._highlightResult.h1.value),
+              }}
+            />
+          </span>
+          {hit.h2 && (
+            <span className="flex flex-row flex-nowrap space-x-2">
+              <span>{'>'}</span>
+              <h2
+                dangerouslySetInnerHTML={{
+                  __html: formatHighlight(hit._highlightResult.h2.value),
+                }}
+              />
+            </span>
           )}
-        </p>
-      </div>
-      <div>
-        <Tags tags={hit.tags} />
-      </div>
-      <div>
-        <p className="dark:text-kafewhite text-sm">From {hit.title}</p>
+          {hit.h3 && (
+            <span className="flex flex-row flex-nowrap space-x-2">
+              <span>{'>'}</span>
+              <h3
+                dangerouslySetInnerHTML={{
+                  __html: formatHighlight(hit._highlightResult.h3.value),
+                }}
+              />
+            </span>
+          )}
+        </div>
+        <div className="mt-4 ">
+          {hit.type === 'code' && (
+            <figure className="relative flex box-content">
+              <CodeBlock
+                codeString={hit.content}
+                language={hit.lang}
+                metastring={findTheLinesHasHighlight(
+                  hit.content,
+                  hit._highlightResult.content.matchedWords,
+                )}
+              ></CodeBlock>
+            </figure>
+          )}
+          {hit.type === 'paragraph' && (
+            <div className="flex flex-col text-kafemellow">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: formatHighlight(hit._snippetResult.content.value),
+                }}
+              />
+            </div>
+          )}
+        </div>
+        <div>{/* <Tags tags={hit.tags} /> */}</div>
       </div>
     </div>
   );
 };
+
 const Hit = connectHighlight(SearchHitComponent);
 
 export default SearchPage;
