@@ -21,3 +21,4 @@ anchor-spl = "0.24.2"
 vipers = "^2"
 num-traits = "0.2"
 spl-token = { version = "3.1.1", features = ["no-entrypoint"] }
+solana-security-txt = { version = "1.0.1", features =["parser"] }
