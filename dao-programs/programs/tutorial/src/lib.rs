@@ -2,11 +2,23 @@ use anchor_lang::prelude::*;
 
 mod constants;
 mod errors;
-pub mod state;
 pub mod events;
+pub mod state;
 
 pub mod instructions;
 use instructions::*;
+
+use solana_security_txt::security_txt;
+
+security_txt! {
+  name: "Builder DAO",
+  project_url: "dev.builderdao.io",
+  contacts: "email:yacine@figment.io,link:https://builderdao.io,discord:zurgl#6851",
+  policy: "https://github.com/solana-labs/solana/blob/master/SECURITY.md",
+  preferred_languages: "en",
+  source_code: "https://github.com/TheBuilderDAO/kafe/tree/dev/dao-programs/programs/tutorial/src",
+  auditors: "None"
+}
 
 declare_id!("prg5qq3Tpr3mN8UgtVeqXYkp7QeFpHTb68ovzw2VwFp");
 
@@ -114,7 +126,11 @@ pub mod tutorial {
     instructions::proposal_set_state::handler(ctx, state)
   }
 
-  pub fn proposal_set_creator(ctx: Context<ProposalSetCreator>, bump: u8, bump_bdr: u8) -> Result<()> {
+  pub fn proposal_set_creator(
+    ctx: Context<ProposalSetCreator>,
+    bump: u8,
+    bump_bdr: u8,
+  ) -> Result<()> {
     instructions::proposal_set_creator::handler(ctx, bump, bump_bdr)
   }
 
