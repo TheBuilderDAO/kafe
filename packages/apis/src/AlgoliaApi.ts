@@ -38,8 +38,40 @@ class AlgoliaApi {
   async provisionFullText() {
     const fullText = this.client.initIndex('tutorial_full_text');
     await fullText.setSettings({
-      attributeForDistinct: 'section',
-      distinct: 1,
+      attributeForDistinct: 'parentID',
+      minWordSizefor1Typo: 4,
+      minWordSizefor2Typos: 8,
+      hitsPerPage: 10,
+      maxValuesPerFacet: 100,
+      searchableAttributes: [
+        'unordered(h1)',
+        'unordered(h2)',
+        'unordered(h3)',
+        'unordered(content)'
+      ],
+      distinct: 3,
+      attributesToSnippet: ['content:30'],
+      attributesToHighlight: ['content', 'h1', 'h2', 'h3'],
+      paginationLimitedTo: 1000,
+      exactOnSingleWordQuery: 'attribute',
+      ranking: [
+        'asc(importance)',
+        'typo',
+        'geo',
+        'words',
+        'filters',
+        'proximity',
+        'attribute',
+        'exact',
+        'custom'
+      ],
+      separatorsToIndex: '',
+      removeWordsIfNoResults: 'none',
+      queryType: 'prefixLast',
+      highlightPreTag: '<em>',
+      highlightPostTag: '</em>',
+      snippetEllipsisText: '',
+      alternativesAsExact: ['ignorePlurals', 'singleWordSynonym']
     });
   }
 
