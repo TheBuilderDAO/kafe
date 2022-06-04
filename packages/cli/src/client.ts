@@ -26,9 +26,5 @@ export const getClient = ({
   );
   const wallet = new anchor.Wallet(payer);
 
-  return new TutorialProgramClient(
-    connection,
-    wallet,
-    kafePk, bdrPk,
-  );
+  return new TutorialProgramClient(connection, wallet, kafePk, bdrPk);
 };

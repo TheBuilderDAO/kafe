@@ -1,66 +1,19 @@
-// import { visit } from 'unist-util-visit';
-// export const remarkTOC =
-//   ({ data, anchors, toc = [] }) =>
-//   tree => {
-//     visit(tree, 'section', section => {
-//       let text = [];
-//       section.children.forEach(child => {
-//         visit(child, 'paragraph', paragraph => {
-//           visit(paragraph, 'text', textNode => {
-//             text.push(textNode.value);
-//           });
-//         });
-//       });
-//       console.log({ data });
-//       anchors.push({
-//         title: data.title,
-//         section: section.data.hProperties.title,
-//         permalink: `${data.url}#${section.data.hProperties.id}`,
-//         content: text.join('\n'),
-//       });
-//       toc.push({
-//         id: section.data.hProperties.id,
-//         title: section.data.hProperties.title,
-//         href: `#${section.data.hProperties.id}`,
-//         depth: section.depth,
-//       });
-//     });
-//     return tree;
-//   };
-
 import { visit } from 'unist-util-visit';
 
-export const remarkTOC = ({
-  data,
-  anchors,
-  toc = [],
-}: {
-  data: any;
-  anchors: any[];
-  toc: any[];
-}) => (tree: any) => {
-  // console.log(JSON.stringify(tree, null, 2))
-  visit(tree, 'section', section => {
-    transformSectionToSearchIndex(section, data, anchors);
-    toc.push({
-      id: section.data.hProperties.id,
-      title: section.data.hProperties.title,
-      href: `#${section.data.hProperties.id}`,
-      depth: section.depth,
+export const remarkTOC =
+  ({ data, anchors, toc = [] }: { data: any; anchors: any[]; toc: any[] }) =>
+  (tree: any) => {
+    visit(tree, 'section', section => {
+      transformSectionToSearchIndex(section, data, anchors);
+      toc.push({
+        id: section.data.hProperties.id,
+        title: section.data.hProperties.title,
+        href: `#${section.data.hProperties.id}`,
+        depth: section.depth,
+      });
     });
-  });
-  return tree;
-};
-
-const getTitle = (heading: any, depth = 2) => {
-  let title = null;
-  if (heading.depth === depth) {
-    visit(heading, 'text', textNode => {
-      title = textNode.value;
-    });
-  }
-  return title;
-};
+    return tree;
+  };
 
 const transformSectionToSearchIndex = (
   section: any,
@@ -81,7 +34,6 @@ const transformSectionToSearchIndex = (
   };
 
   if (parent?.importance) {
-    console.log(section.data.hProperties);
     anchor.importance = parent.importance + 1;
   }
 

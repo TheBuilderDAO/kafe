@@ -170,4 +170,4 @@ const CodeSnippetWrapper = tw(styled('div')`
     border-radius: 0px;
   }
   margin-bottom: 32px;
-`)`border shadow rounded-lg bg-[#e2e4e988] dark:bg-[#21242c80] dark:border-[#2b303b] px-1 py-1 relative max-w-2xl`;
+`)`border shadow rounded-lg bg-[#e2e4e988] dark:bg-[#21242c80] dark:border-[#2b303b] px-1 py-1 relative max-w-2xl w-full`;

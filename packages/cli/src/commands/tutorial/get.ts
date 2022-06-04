@@ -17,10 +17,7 @@ export const TutorialGetCommand = () => {
   tutorialGet
     .description('Display metadata for a single tutorial')
     .helpOption('-h, --help', 'Display help for command')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText)
     .argument(
       '<learnPackageName>',
       'Tutorial slug for complete tutorial package',
@@ -33,4 +30,4 @@ export const TutorialGetCommand = () => {
       log(tutorialMetadata);
     });
   return tutorialGet;
-}
+};

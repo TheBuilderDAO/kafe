@@ -28,6 +28,7 @@ import {
   NEXT_PUBLIC_SOLANA_NETWORK,
   NEXT_PUBLIC_SOLANA_NODE_URL,
 } from '@app/constants';
+import { KBar } from '@app/components/KBar';
 
 require('nprogress/nprogress.css');
 require('@solana/wallet-adapter-react-ui/styles.css');
@@ -87,9 +88,11 @@ const App = ({ Component, pageProps }: AppProps) => {
               <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
                   <DappProvider>
-                    <PublicLayout>
-                      <Component {...pageProps} />
-                    </PublicLayout>
+                    <KBar>
+                      <PublicLayout>
+                        <Component {...pageProps} />
+                      </PublicLayout>
+                    </KBar>
                   </DappProvider>
                 </WalletModalProvider>
               </WalletProvider>

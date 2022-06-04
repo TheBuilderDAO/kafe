@@ -149,3 +149,4 @@ jobs:
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
         run: |
           builderdao algolia publish $SLUG --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY --indexName $ALGOLIA_INDEX_NAME
+          builderdao algolia fulltext $SLUG --appId $ALGOLIA_APP_ID --accessKey $ALGOLIA_ACCESS_KEY

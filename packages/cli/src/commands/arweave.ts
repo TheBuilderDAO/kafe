@@ -65,19 +65,17 @@ export function makeArweaveCommand() {
         .default('https'),
     )
     .action(
-      async (
-        options: {
-          content: string,
-          wallet: string;
-          arweaveHost: string;
-          arweavePort: string;
-          arweaveProtocol: string;
-          slug: string;
-          address: string;
-          appName: string;
-          contentType: string;
-        },
-      ) => {
+      async (options: {
+        content: string;
+        wallet: string;
+        arweaveHost: string;
+        arweavePort: string;
+        arweaveProtocol: string;
+        slug: string;
+        address: string;
+        appName: string;
+        contentType: string;
+      }) => {
         const client = new ArweaveApi({
           host: options.arweaveHost,
           port: parseInt(options.arweavePort, 10),
@@ -87,9 +85,9 @@ export function makeArweaveCommand() {
           options.content,
           options.wallet,
           {
-            'Slug': options.slug,
+            Slug: options.slug,
             'App-Name': options.appName,
-            'Address': options.address,
+            Address: options.address,
             'Content-Type': options.contentType,
           },
         );

@@ -1,7 +1,7 @@
 import * as anchor from '@project-serum/anchor';
 import * as commander from 'commander';
 import { encode } from 'bs58';
-import fs from "fs-extra"
+import fs from 'fs-extra';
 
 const loadKeypairJson = (path: string) =>
   anchor.web3.Keypair.fromSecretKey(
@@ -25,10 +25,7 @@ export const AdminBs58Command = () => {
   bs58
     .description('helper')
     .helpOption('-h, --help', 'helper')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText)
     .addOption(
       new commander.Option(
         '--path <path>',
@@ -41,4 +38,4 @@ export const AdminBs58Command = () => {
     });
 
   return bs58;
-}
+};

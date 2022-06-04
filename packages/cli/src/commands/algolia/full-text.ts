@@ -5,7 +5,12 @@ import * as commander from 'commander';
 import { rootTutorialFolderPath } from 'src/constants';
 import { BuilderDaoConfig } from 'src/services';
 import { AlgoliaApi, TutorialContent } from '@builderdao/apis';
-import { getFileByPath, getTutorialContentByPath, readFileByPath, serializeContent } from '@builderdao/md-utils';
+import {
+  getFileByPath,
+  getTutorialContentByPath,
+  readFileByPath,
+  serializeContent,
+} from '@builderdao/md-utils';
 
 export const AlgoliaFullTextCommand = () => {
   const algoliaFullText = new commander.Command('fulltext');
@@ -56,32 +61,39 @@ export const AlgoliaFullTextCommand = () => {
         });
 
         const parseQueue = async.queue(
-          async (file: { path: string; name: string; digest: string, arweaveHash?: string }) => {
+          async (file: {
+            path: string;
+            name: string;
+            digest: string;
+            arweaveHash?: string;
+          }) => {
             if (file.path.endsWith('.mdx')) {
               try {
-                const content = await readFileByPath(file.path)
-                const { frontMatter } = await getFileByPath(file.path)
+                const content = await readFileByPath(file.path);
+                const { frontMatter } = await getFileByPath(file.path);
 
                 const { anchors } = await serializeContent({
                   content: content,
                   data: {
                     config: config.data,
                     lock: lock.data,
-                    frontMatter
-                  }
-                })
-                await algoliaClient.addFulltextIndex(proposalId, anchors)
+                    frontMatter,
+                  },
+                });
+                await algoliaClient.addFulltextIndex(proposalId, anchors);
               } catch (err) {
-                console.error(err)
+                console.error(err);
               }
             }
-          }, 2)
-
+          },
+          2,
+        );
 
         tutorialMetadata.content.forEach(file => {
           parseQueue.push(file as TutorialContent);
         });
-      })
+      },
+    );
 
-  return algoliaFullText
-}
+  return algoliaFullText;
+};

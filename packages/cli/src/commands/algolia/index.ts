@@ -1,10 +1,18 @@
-import { BuilderDaoConfigJson, BuilderDaoLockJson } from '../../services/builderdao-config.service';
+import {
+  BuilderDaoConfigJson,
+  BuilderDaoLockJson,
+} from '../../services/builderdao-config.service';
 import fs from 'fs-extra';
 /* eslint-disable no-console */
 import * as commander from 'commander';
 import path from 'path';
 
-import { AlgoliaApi, CeramicApi, TutorialMetadata, TutorialIndex } from '@builderdao/apis';
+import {
+  AlgoliaApi,
+  CeramicApi,
+  TutorialMetadata,
+  TutorialIndex,
+} from '@builderdao/apis';
 import { ProposalStateE, getProposalState } from '@builderdao/program-tutorial';
 import { deprecated_tutorials } from '@builderdao/data';
 import { BuilderDaoConfig } from 'src/services';
@@ -27,13 +35,11 @@ export function makeAlgoliaCommand() {
 
   algolia.addCommand(AlgoliaFullTextCommand());
 
-
   const log = (object: any) => _log(object, algolia.optsWithGlobals().key);
   algolia.configureHelp({
     sortSubcommands: true,
     sortOptions: false,
   });
-
 
   let client = getClient({
     kafePk: algolia.optsWithGlobals().kafePk,
@@ -41,7 +47,6 @@ export function makeAlgoliaCommand() {
     network: algolia.optsWithGlobals().network,
     payer: algolia.optsWithGlobals().payer,
   });
-
 
   algolia
     .command('provision-full-text')
@@ -63,13 +68,11 @@ export function makeAlgoliaCommand() {
         .makeOptionMandatory(),
     )
     .action(
-      async (
-        options: {
-          indexName: string;
-          appId: string;
-          accessKey: string;
-        },
-      ) => {
+      async (options: {
+        indexName: string;
+        appId: string;
+        accessKey: string;
+      }) => {
         const client = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
@@ -103,13 +106,11 @@ export function makeAlgoliaCommand() {
         .makeOptionMandatory(),
     )
     .action(
-      async (
-        options: {
-          indexName: string;
-          appId: string;
-          accessKey: string;
-        },
-      ) => {
+      async (options: {
+        indexName: string;
+        appId: string;
+        accessKey: string;
+      }) => {
         const client = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
@@ -143,13 +144,11 @@ export function makeAlgoliaCommand() {
         .makeOptionMandatory(),
     )
     .action(
-      async (
-        options: {
-          indexName: string;
-          appId: string;
-          accessKey: string;
-        },
-      ) => {
+      async (options: {
+        indexName: string;
+        appId: string;
+        accessKey: string;
+      }) => {
         const client = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
@@ -239,78 +238,97 @@ export function makeAlgoliaCommand() {
         .makeOptionMandatory(),
     )
     .action(
-      async (
-        options: {
-          appId: string;
-          accessKey: string;
-          indexName: string;
-          nodeUrl: string;
-        },
-      ) => {
+      async (options: {
+        appId: string;
+        accessKey: string;
+        indexName: string;
+        nodeUrl: string;
+      }) => {
         const algoliaClient = new AlgoliaApi({
           appId: options.appId,
           accessKey: options.accessKey,
           indexName: options.indexName,
         });
-        const allProposals = await client.getProposals()
+        const allProposals = await client.getProposals();
         let processedCount = 0;
-        type Tasks = Array<{ solana: any, ceramic: TutorialMetadata, config?: BuilderDaoConfigJson, lock?: BuilderDaoLockJson }>
-        const algoliaUpdateIndexQueue = async.cargoQueue(async (tasks: Tasks) => {
-          const { deprecate, update } = tasks.reduce((prev, t) => {
-            if (deprecated_tutorials.includes(t.solana.slug)) {
-              prev.deprecate.push(t);
-            } else {
-              prev.update.push(t);
+        type Tasks = Array<{
+          solana: any;
+          ceramic: TutorialMetadata;
+          config?: BuilderDaoConfigJson;
+          lock?: BuilderDaoLockJson;
+        }>;
+        const algoliaUpdateIndexQueue = async.cargoQueue(
+          async (tasks: Tasks) => {
+            const { deprecate, update } = tasks.reduce(
+              (prev, t) => {
+                if (deprecated_tutorials.includes(t.solana.slug)) {
+                  prev.deprecate.push(t);
+                } else {
+                  prev.update.push(t);
+                }
+                return prev;
+              },
+              { deprecate: [] as Tasks, update: [] as Tasks },
+            );
+
+            if (deprecate.length > 0) {
+              await algoliaClient.deleteTutorials(
+                deprecate.map(t => t.solana.id.toNumber()),
+              );
             }
-            return prev;
-          }, { deprecate: [] as Tasks, update: [] as Tasks });
 
-          if (deprecate.length > 0) {
-            await algoliaClient.deleteTutorials(deprecate.map(t => t.solana.id.toNumber()));
-          }
-
-          const tutorials: Array<TutorialIndex> = update.map(t => {
-            return {
-              objectID: t.solana.id.toNumber(),
-              author: t.solana.creator.toString(),
-              title: t.ceramic.title,
-              // TODO: if It's published use the config description. This is Monkey patch till we have Ceramic metadata update.
-              // https://figmentio.atlassian.net/jira/software/c/projects/LR/boards/71/backlog?view=detail&selectedIssue=LR-328&issueLimit=100&search=ceramic
-              description: getProposalState(t.solana.state) === ProposalStateE.published ? t.config?.description! : t.ceramic.description,
-              state: getProposalState(t.solana.state),
-              slug: t.solana.slug,
-              tags: t.ceramic.tags,
-              difficulty: t.ceramic.difficulty,
-              numberOfVotes: t.solana.numberOfVoter.toNumber(),
-              totalTips: t.solana.tippedAmount.toNumber(),
-              lastUpdatedAt: Date.now(),
-              publishedAt: Date.now(),
-            };
-          })
-          await algoliaClient.upsertTutorials(tutorials);
-          processedCount += tutorials.length;
-          log({
-            message: 'Updated index',
-            tutorials: tutorials.map(t => t.slug),
-            deprecate: deprecate.map(t => t.solana.slug),
-            status: `${processedCount}/${allProposals.length}`,
-          })
-        }, 1, 10);
-
+            const tutorials: Array<TutorialIndex> = update.map(t => {
+              return {
+                objectID: t.solana.id.toNumber(),
+                author: t.solana.creator.toString(),
+                title: t.ceramic.title,
+                // TODO: if It's published use the config description. This is Monkey patch till we have Ceramic metadata update.
+                // https://figmentio.atlassian.net/jira/software/c/projects/LR/boards/71/backlog?view=detail&selectedIssue=LR-328&issueLimit=100&search=ceramic
+                description:
+                  getProposalState(t.solana.state) === ProposalStateE.published
+                    ? t.config?.description!
+                    : t.ceramic.description,
+                state: getProposalState(t.solana.state),
+                slug: t.solana.slug,
+                tags: t.ceramic.tags,
+                difficulty: t.ceramic.difficulty,
+                numberOfVotes: t.solana.numberOfVoter.toNumber(),
+                totalTips: t.solana.tippedAmount.toNumber(),
+                lastUpdatedAt: Date.now(),
+                publishedAt: Date.now(),
+              };
+            });
+            await algoliaClient.upsertTutorials(tutorials);
+            processedCount += tutorials.length;
+            log({
+              message: 'Updated index',
+              tutorials: tutorials.map(t => t.slug),
+              deprecate: deprecate.map(t => t.solana.slug),
+              status: `${processedCount}/${allProposals.length}`,
+            });
+          },
+          1,
+          10,
+        );
 
         const ceramic = new CeramicApi({
           nodeUrl: options.nodeUrl,
         });
         const ceramicFetchQueue = async.queue(async (task: { solana: any }) => {
-          const proposalDetails = await ceramic.getMetadata(task.solana.streamId);
-          const pathToTutorial = path.join(rootTutorialFolderPath, task.solana.slug);
+          const proposalDetails = await ceramic.getMetadata(
+            task.solana.streamId,
+          );
+          const pathToTutorial = path.join(
+            rootTutorialFolderPath,
+            task.solana.slug,
+          );
           if (!fs.existsSync(pathToTutorial)) {
             await algoliaUpdateIndexQueue.pushAsync({
               solana: task.solana,
-              ceramic: proposalDetails
-            })
+              ceramic: proposalDetails,
+            });
           } else {
-            const { config, lock } = new BuilderDaoConfig(pathToTutorial)
+            const { config, lock } = new BuilderDaoConfig(pathToTutorial);
             await config.read();
             await lock.read();
             await algoliaUpdateIndexQueue.pushAsync({
@@ -318,22 +336,24 @@ export function makeAlgoliaCommand() {
               ceramic: proposalDetails,
               config: config.data!,
               lock: lock.data!,
-            })
-
+            });
           }
-        }, 20)
-        allProposals.forEach(async (proposal) => {
+        }, 20);
+        allProposals.forEach(async proposal => {
           await ceramicFetchQueue.pushAsync({
             solana: proposal.account,
           });
-        })
+        });
 
-        if (algoliaUpdateIndexQueue.length() > 0 || ceramicFetchQueue.length() > 0) {
+        if (
+          algoliaUpdateIndexQueue.length() > 0 ||
+          ceramicFetchQueue.length() > 0
+        ) {
           await ceramicFetchQueue.drain();
           await algoliaUpdateIndexQueue.drain();
         }
 
-        console.log('All proposals are indexed')
+        console.log('All proposals are indexed');
       },
     );
 
@@ -383,7 +403,6 @@ export function makeAlgoliaCommand() {
         const title = config.chain.get('title').value().toString();
         const description = config.chain.get('description').value().toString();
         const categories = config.chain.get('categories').value();
-
 
         await algoliaClient.updateTutorial(proposalId, {
           title,

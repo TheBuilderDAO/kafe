@@ -1,7 +1,7 @@
-import { Parent, Node, Literal } from 'unist'
-import { visit } from 'unist-util-visit'
-import sizeOf from 'image-size'
-import fs from 'fs'
+import { Parent, Node, Literal } from 'unist';
+import { visit } from 'unist-util-visit';
+import sizeOf from 'image-size';
+import fs from 'fs';
 
 type ImageNode = Parent & {
   url: string;
@@ -21,7 +21,7 @@ export default function remarkImgToJsx() {
       (node: Parent) => {
         const imageNode = node.children.find(
           n => n.type === 'image',
-        ) as ImageNode
+        ) as ImageNode;
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
@@ -43,13 +43,13 @@ export default function remarkImgToJsx() {
                 name: 'height',
                 value: dimensions.height,
               },
-            ])
+            ]);
 
           // Change node type from p to div to avoid nesting error
-          node.type = 'div'
-          node.children = [imageNode]
+          node.type = 'div';
+          node.children = [imageNode];
         }
       },
-    )
-  }
+    );
+  };
 }
