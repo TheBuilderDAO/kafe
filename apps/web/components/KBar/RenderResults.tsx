@@ -1,6 +1,7 @@
-import { KBarResults, useMatches } from 'kbar';
+import { ActionImpl, KBarResults, useMatches } from 'kbar';
 import tw from 'tailwind-styled-components';
 import { ResultItem } from './ResultItem';
+import { HitResult } from './useFullTextSearch';
 
 export const RenderResults: React.FC = () => {
   const { results } = useMatches();
@@ -13,7 +14,10 @@ export const RenderResults: React.FC = () => {
         typeof item === 'string' ? (
           <GroupName>{item}</GroupName>
         ) : (
-          <ResultItem action={item} active={active} />
+          <ResultItem
+            action={item as ActionImpl & { hit?: HitResult }}
+            active={active}
+          />
         )
       }
     />

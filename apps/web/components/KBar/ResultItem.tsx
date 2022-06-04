@@ -2,11 +2,12 @@ import CodeBlock from '@builderdao/ui/src/mdx/Code/CodeBlock';
 import { ActionImpl } from 'kbar';
 import React from 'react';
 import tw from 'tailwind-styled-components';
+import { HitResult } from './useFullTextSearch';
 
 export const ResultItem = React.forwardRef<
   {},
-  { action: ActionImpl; active: boolean }
->(({ action, active }, ref) => {
+  { action: ActionImpl & { hit?: HitResult }; active: boolean }
+>(({ action, active }, ref: React.Ref<HTMLDivElement>) => {
   return (
     <div
       className={`flex flex-row justify-between p-2 ${

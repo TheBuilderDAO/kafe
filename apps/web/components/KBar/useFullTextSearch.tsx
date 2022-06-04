@@ -71,6 +71,15 @@ export const useFullTextSearch = () => {
   );
 };
 
+export type HitResult = {
+  h1: string;
+  h2?: string;
+  h3?: string;
+  content?: string;
+  permalink: string;
+  objectID: string;
+  type: HitTypes;
+};
 export type HitTypes = 'lvl0' | 'lvl1' | 'lvl2' | 'lvl3' | 'code' | 'paragraph';
 
 const HitIcon: React.FC<{
