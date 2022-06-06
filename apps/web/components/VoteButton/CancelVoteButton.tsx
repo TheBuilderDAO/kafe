@@ -3,8 +3,6 @@ import { useCancelVote } from '../../hooks/useCancelVote';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import votedIcon from 'public/assets/icons/voted.png';
-import ReactTooltip from 'react-tooltip';
-import { useTheme } from 'next-themes';
 import Tooltip from '@app/components/Tooltip/Tooltip';
 
 type CancelVoteButtonProps = {
@@ -15,7 +13,6 @@ type CancelVoteButtonProps = {
 
 const CancelVoteButton = (props: CancelVoteButtonProps) => {
   const { id, variant, disable = false } = props;
-  const { theme } = useTheme();
   const [cancelVote, { submitting }] = useCancelVote();
 
   const handleClick = useCallback(async () => {
@@ -31,8 +28,6 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
       toast.error(err.message);
     }
   }, [id, cancelVote]);
-
-  console.log('Theme', theme);
 
   return (
     <div>
