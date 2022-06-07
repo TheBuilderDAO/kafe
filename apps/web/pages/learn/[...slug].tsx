@@ -56,7 +56,6 @@ const TutorialPage: NextPage<
       <NextSeo
         title={frontMatter.title}
         description={frontMatter.description}
-
         twitter={{
           handle: '@TheBuilderDAO',
           site: '@site',
@@ -67,6 +66,11 @@ const TutorialPage: NextPage<
           title: frontMatter.title,
           description: frontMatter.description,
           url: `https://dev.builderdao.io/${router.asPath}`,
+          images: [
+            {
+              url: 'https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg'
+            },
+          ],
           article: {
             authors: lock.authors.map(a => (a.url)),
             tags: _.uniq([...config.categories, ...frontMatter.keywords]),
@@ -88,9 +92,7 @@ const TutorialPage: NextPage<
         type={"Article"}
         title={frontMatter.title}
         images={[
-          'https://example.com/photos/1x1/photo.jpg',
-          'https://example.com/photos/4x3/photo.jpg',
-          'https://example.com/photos/16x9/photo.jpg',
+          'https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg',
         ]}
         keywords={_.uniq([...config.categories, ...frontMatter.keywords])}
         datePublished={new Date(lock?.publishedAt || new Date()).toISOString()}

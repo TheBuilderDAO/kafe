@@ -44,6 +44,16 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
             site: '@site',
             cardType: 'summary_large_image',
           }}
+          openGraph={{
+            title: tutorial.title,
+            description: tutorial.description,
+            url: `https://dev.builderdao.io/${router.asPath}`,
+            images: [
+              {
+                url: 'https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg'
+              },
+            ],
+          }}
         />
       </Head>
       <main className="flex flex-row mx-0 gap-10 z-10 w-full text-kafeblack dark:text-kafewhite mt-10 mb-40 text-xs justify-between">
