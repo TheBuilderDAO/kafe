@@ -3,7 +3,7 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
+import { ArticleJsonLd, CourseJsonLd, NextSeo } from 'next-seo';
 import fs from 'fs-extra';
 import path from 'path';
 import {
@@ -56,11 +56,49 @@ const TutorialPage: NextPage<
       <NextSeo
         title={frontMatter.title}
         description={frontMatter.description}
+
         twitter={{
           handle: '@TheBuilderDAO',
           site: '@site',
           cardType: 'summary_large_image',
         }}
+        openGraph={{
+          type: 'article',
+          title: frontMatter.title,
+          description: frontMatter.description,
+          url: `https://dev.builderdao.io/${router.asPath}`,
+          article: {
+            authors: lock.authors.map(a => (a.url)),
+            tags: _.uniq([...config.categories, ...frontMatter.keywords]),
+            publishedTime: new Date(lock?.publishedAt || new Date()).toISOString(),
+            modifiedTime: new Date(lock?.updatedAt || new Date()).toISOString(),
+          }
+        }}
+      />
+      <CourseJsonLd
+        courseName={frontMatter.title}
+        description={frontMatter.description}
+        provider={{
+          name: 'Builder DAO - Kafé',
+          url: 'https/dev.builderdao.io',
+        }}
+      />
+      <ArticleJsonLd
+        url={`https://dev.builderdao.io/${router.asPath}`}
+        type={"Article"}
+        title={frontMatter.title}
+        images={[
+          'https://example.com/photos/1x1/photo.jpg',
+          'https://example.com/photos/4x3/photo.jpg',
+          'https://example.com/photos/16x9/photo.jpg',
+        ]}
+        keywords={_.uniq([...config.categories, ...frontMatter.keywords])}
+        datePublished={new Date(lock?.publishedAt || new Date()).toISOString()}
+        dateModified={new Date(lock?.updatedAt || new Date()).toISOString()}
+        authorName={lock.authors.map(a => (a.url))}
+        publisherName="Builder DAO - Kafé"
+        publisherLogo="https://www.dev.builderdao.io/android-chrome-512x512.png"
+        description={frontMatter.description}
       />
       <TutorialLayout
         tutorialId={lock.proposalId}
