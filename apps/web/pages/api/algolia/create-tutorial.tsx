@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { withSentry } from '@sentry/nextjs';
 import { TutorialIndex } from '@app/types/index';
 import { AlgoliaApi } from '@builderdao/apis';
 import { ProposalStateE } from '@builderdao/use-program-tutorial';
 import {
-  ALGOLIA_WRITE_API_KEY,
+  ALGOLIA_ADMIN_KEY,
   NEXT_PUBLIC_ALGOLIA_APP_ID,
   NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
 } from '@app/constants';
@@ -29,7 +29,7 @@ const handler = async (
   try {
     const algoliaApi = new AlgoliaApi({
       appId: NEXT_PUBLIC_ALGOLIA_APP_ID,
-      accessKey: ALGOLIA_WRITE_API_KEY,
+      accessKey: ALGOLIA_ADMIN_KEY,
       indexName: NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
     });
 

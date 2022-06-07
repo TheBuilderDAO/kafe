@@ -1,4 +1,4 @@
-import { getServerSideSitemap } from 'next-sitemap';
+import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
 import algoliasearch from 'algoliasearch';
 import {
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   // Method to source urls from cms
   // const urls = await fetch('https//example.com/api')
 
-  const fields = [
+  const fields: ISitemapField[] = [
     {
       loc: 'https://dev.builderdao.io/vote', // Absolute url
       lastmod: new Date().toISOString(),
@@ -27,10 +27,11 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
   const parseResult = hits => {
     hits.forEach(hit => {
-      console.log(hit.state);
+      console.log(hit);
       fields.push({
         loc: `https://dev.builderdao.io/vote/${hit.slug}`,
-        lastmod: new Date().toISOString(),
+        lastmod: new Date(hit.lastUpdatedAt).toISOString(),
+        changefreq: 'hourly',
       });
     });
   };
