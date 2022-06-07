@@ -3,6 +3,7 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import fs from 'fs-extra';
 import path from 'path';
 import {
@@ -52,6 +53,15 @@ const TutorialPage: NextPage<
       <Head>
         <title>Kafé by Builder DAO - {config.title}</title>
       </Head>
+      <NextSeo
+        title={frontMatter.title}
+        description={frontMatter.description}
+        twitter={{
+          handle: '@TheBuilderDAO',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
       <TutorialLayout
         tutorialId={lock.proposalId}
         frontMatter={frontMatter}
