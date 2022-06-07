@@ -47,7 +47,7 @@ const Tutorial: NextPage = (props: PropsWithChildren<PageProps>) => {
           openGraph={{
             title: tutorial.title,
             description: tutorial.description,
-            url: `https://dev.builderdao.io/${router.asPath}`,
+            url: `https://dev.builderdao.io${router.asPath}`,
             images: [
               {
                 url: 'https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg'
