@@ -72,7 +72,7 @@ const TutorialPage: NextPage<
             },
           ],
           article: {
-            authors: lock.authors.map(a => (a.url)),
+            authors: lock?.authors?.map(a => (a.url)) || [],
             tags: _.uniq([...config.categories, ...frontMatter.keywords]),
             publishedTime: new Date(lock?.publishedAt || new Date()).toISOString(),
             modifiedTime: new Date(lock?.updatedAt || new Date()).toISOString(),
@@ -97,7 +97,7 @@ const TutorialPage: NextPage<
         keywords={_.uniq([...config.categories, ...frontMatter.keywords])}
         datePublished={new Date(lock?.publishedAt || new Date()).toISOString()}
         dateModified={new Date(lock?.updatedAt || new Date()).toISOString()}
-        authorName={lock.authors.map(a => (a.url))}
+        authorName={lock?.authors?.map(a => (a.url)) || []}
         publisherName="Builder DAO - Kafé"
         publisherLogo="https://www.dev.builderdao.io/android-chrome-512x512.png"
         description={frontMatter.description}
