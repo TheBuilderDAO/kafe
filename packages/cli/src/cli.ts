@@ -3,10 +3,10 @@
 import path from 'path';
 /* eslint-disable import/first */
 const dotenv = require('dotenv-flow').config({
-  path: path.resolve(__dirname, '../')
+  path: path.resolve(__dirname, '../'),
 });
-const dotenvExpand = require('dotenv-expand')
-dotenvExpand.expand(dotenv)
+const dotenvExpand = require('dotenv-expand');
+dotenvExpand.expand(dotenv);
 
 import chalk from 'chalk';
 import * as commander from 'commander';
@@ -38,11 +38,11 @@ program
   ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝
       `,
     ) +
-    chalk.white(
-      `
+      chalk.white(
+        `
   CLI to interact with Builder DAO programs.
         `,
-    ),
+      ),
   )
   .version(
     `Builder DAO CLI v${version}`,
@@ -60,16 +60,12 @@ program
 program.option('-k, --key <key>', 'Get key from the result');
 program.addOption(
   new commander.Option('--kafePk <kafePk>', 'Kafe Token PublicKey').default(
-    new anchor.web3.PublicKey(
-      'KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW',
-    ),
+    new anchor.web3.PublicKey('KAFE5ivWfDPP3dek2m36xvdU2NearVsnU5ryfCSAdAW'),
   ),
 );
 program.addOption(
   new commander.Option('--bdrPk <bdrPk>', 'BDR Token PublicKey').default(
-    new anchor.web3.PublicKey(
-      'BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2',
-    ),
+    new anchor.web3.PublicKey('BDR3oUcZLRQtufDahJskbsxwTvfWt9jiZkJPVr4kUQg2'),
   ),
 );
 program.addOption(

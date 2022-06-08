@@ -28,6 +28,7 @@ import {
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
 import { getApplicationFetcher } from '../../hooks/useDapp';
 import { BuilderDaoConfigJson, BuilderDaoLockJson } from '@builderdao/cli';
+import { useTutorialActions } from '@app/components/KBar/useTutorialActions';
 
 const getFile = (slug, pathForFile) => {
   if (NODE_ENV === 'production') {
@@ -41,12 +42,16 @@ const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const router = useRouter();
+  const { mdxSource, frontMatter, toc } = props.post;
+  const { config, lock, relativePath, rootFolder, servedFrom } = props;
+  useTutorialActions({
+    title: frontMatter.title,
+    link: `https://dev.builderdao.io${router.asPath}`,
+  });
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
 
-  const { mdxSource, frontMatter, toc } = props.post;
-  const { config, lock, relativePath, rootFolder, servedFrom } = props;
   return (
     <>
       <Head>
@@ -210,7 +215,11 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const content = await serializeContent({
     content: post.content,
-    data: post.data,
+    data: {
+      ...post.data,
+      config,
+      lock,
+    },
   });
   return {
     props: {

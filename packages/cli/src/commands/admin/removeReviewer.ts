@@ -17,10 +17,7 @@ $ builderdao admin removeReviewer --adminKp <bs58Secret> --reviewerPk <bs58Pubke
 export const AdminRemoveReviewer = () => {
   const removeReviewer = new commander.Command('removeReviewer')
     .description('Remove a reviewer to Kafe program')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText);
 
   removeReviewer
     .addOption(
@@ -40,25 +37,23 @@ export const AdminRemoveReviewer = () => {
         .argParser(val => new anchor.web3.PublicKey(val))
         .makeOptionMandatory(),
     )
-    .action(
-      async (options) => {
-        const client = getClient({
-          network: removeReviewer.optsWithGlobals().network,
-          payer: options.adminKp,
-        });
+    .action(async options => {
+      const client = getClient({
+        network: removeReviewer.optsWithGlobals().network,
+        payer: options.adminKp,
+      });
 
-        const spinner = ora('Processing transaction')
-        spinner.start();
+      const spinner = ora('Processing transaction');
+      spinner.start();
 
-        const signature = await client.deleteReviewer({
-          reviewerPk: options.reviewerPk,
-          authorityPk: options.adminKp.publicKey.toString(),
-        });
+      const signature = await client.deleteReviewer({
+        reviewerPk: options.reviewerPk,
+        authorityPk: options.adminKp.publicKey.toString(),
+      });
 
-        spinner.succeed(`signature: ${signature}`);
-        spinner.stop();
-      },
-    );
+      spinner.succeed(`signature: ${signature}`);
+      spinner.stop();
+    });
 
   return removeReviewer;
-}
+};

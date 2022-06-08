@@ -4,18 +4,21 @@ description: Est culpa enim ex laboris occaecat nisi. Nisi et nostrud amet minim
 keywords: [React, Javascript]
 date: 2020-01-01
 ---
+
 ![Logo](./assets/solblog.svg)
 
 A simple blog platform, powered by Solana with a SvelteKit front end.
 
-*   Solana (Rust)
-*   Anchor (Rust macros + IDL generation)
-*   Svelte & SvelteKit (JavaScript front end)
+- Solana (Rust)
+- Anchor (Rust macros + IDL generation)
+- Svelte & SvelteKit (JavaScript front end)
 
 YouTube video on building the Rust portion:
 
 <Embed
-  url="https://youtu.be/w-n87Aq3f8k" caption="SolBlog - Solana blog platform built with Anchor" />
+  url="https://youtu.be/w-n87Aq3f8k"
+  caption="SolBlog - Solana blog platform built with Anchor"
+/>
 
 # Introduction
 
@@ -31,7 +34,7 @@ Building Solana programs in Rust language can be tough. Anytime you want to save
 
 Anchor abstracts away from the low level construction of accounts, the packing and unpacking, and modifying the interfaces to your Solana program. It does this by bundling the boilerplate into rust macros! This gives users of Anchor a lot of shortcuts and speed to building Solana programs.
 
-There are always two parts to a Solana app -- the *on-chain* program and accounts, and the *off-chain* app that interacts with it. The other benefit Anchor brings is the alignments of the interaction between these two app segments. This alignment is called an Interface Description Language [(IDL)](https://en.wikipedia.org/wiki/Interface_description_language). Since the interface of the off-chain app (say, in JavaScript) must always match the on-chain Solana program, this is a really nice convenience feature to have.
+There are always two parts to a Solana app -- the _on-chain_ program and accounts, and the _off-chain_ app that interacts with it. The other benefit Anchor brings is the alignments of the interaction between these two app segments. This alignment is called an Interface Description Language [(IDL)](https://en.wikipedia.org/wiki/Interface_description_language). Since the interface of the off-chain app (say, in JavaScript) must always match the on-chain Solana program, this is a really nice convenience feature to have.
 
 ![](./assets/idl.svg)
 
@@ -39,18 +42,18 @@ There are always two parts to a Solana app -- the *on-chain* program and account
 
 Prior knowledge:
 
-*   Complete Solana 101 Pathway
-*   Basic understanding of Rust & Solana will be a plus.
-*   Basic JavaScript knowledge
-*   Basic Command Line Interface usage
+- Complete Solana 101 Pathway
+- Basic understanding of Rust & Solana will be a plus.
+- Basic JavaScript knowledge
+- Basic Command Line Interface usage
 
 # Technical Requirements
 
 We will use these installed tools throughout the tutorial:
 
-*   A Linux command line interface
-*   Anchor and Rust installed in accordance with the Setup section below
-*   Phantom.app Solana Wallet, with an address you are comfortable using on DevNet (can make a new address in Phantom if you like)
+- A Linux command line interface
+- Anchor and Rust installed in accordance with the Setup section below
+- Phantom.app Solana Wallet, with an address you are comfortable using on DevNet (can make a new address in Phantom if you like)
 
 ## Anchor Versions
 
@@ -67,7 +70,7 @@ anchor-cli 0.16.1
 
 Getting started with Anchor is fairly straightforward, and you can follow the [setup instructions on the Anchor website](https://project-serum.github.io/anchor/getting-started/installation.html).
 
-For test environments, you have the choice of [installing a local validator](https://docs.solana.com/developing/test-validator) or using the [Devnet online](https://explorer.solana.com/?cluster=devnet). We will be deploying to the Solana Devnet to practice deploying in real life. As the saying goes, *"deploy early, deploy often"*! The last thing you want is for your code to work in a development environment, and not in production.
+For test environments, you have the choice of [installing a local validator](https://docs.solana.com/developing/test-validator) or using the [Devnet online](https://explorer.solana.com/?cluster=devnet). We will be deploying to the Solana Devnet to practice deploying in real life. As the saying goes, _"deploy early, deploy often"_! The last thing you want is for your code to work in a development environment, and not in production.
 
 Once you have installed all the Anchor dependencies, it's time to initiate a project!
 
@@ -126,7 +129,7 @@ After including the anchor library, the program public key has this placeholder:
 declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 ```
 
-That default key is NOT our public key for *your* build. You need to generate that for your program. We generate it once, and then include it, and can make as many changes as we need to before deploying.
+That default key is NOT our public key for _your_ build. You need to generate that for your program. We generate it once, and then include it, and can make as many changes as we need to before deploying.
 
 Since that's not our key, let's fix that now and generate our key.
 
@@ -194,14 +197,14 @@ We will also need to include this same Program ID in the client side, in our `ap
 // app/src/lib/anchorClient.js
 
 // programId is the program public key, SoMeKeyThatIsUniqueTOmyPROGRAM
-const program = new anchor.Program(idl, programId, provider)
+const program = new anchor.Program(idl, programId, provider);
 ```
 
 We will get to that part once we build the client side. My only point at this time is to emphasize that the client side in javascript must match the Program side in Rust. For now, let's finish taking a look at the Rust code.
 
 ![](./assets/program-block.svg)
 
-The next code block under `#[program]` is our program's functions, how we make the program do anything. The function names here are lowercase snake\_case.
+The next code block under `#[program]` is our program's functions, how we make the program do anything. The function names here are lowercase snake_case.
 
 ![](./assets/accounts.svg)
 
@@ -276,7 +279,7 @@ pub mod solblog {
     }
 ```
 
-***
+---
 
 Once Anchor has helped us `initilize` our account and set the blog `authority` now we want to actually save some data to our BlogAccount. We follow similar steps:
 
@@ -384,9 +387,9 @@ We can generate a Program Authority keypair by using the [solana-web3.js](https:
 ```js
 // imported by deploy.js
 
-import { Keypair } from "@solana/web3.js"
+import { Keypair } from '@solana/web3.js';
 
-let programAuthorityKeypair = new Keypair()
+let programAuthorityKeypair = new Keypair();
 ```
 
 To deploy our code, we need cryptocurrency SOL in our newly created account. On Devnet, we can call an airdrop to fund our account.
@@ -394,15 +397,15 @@ To deploy our code, we need cryptocurrency SOL in our newly created account. On 
 ```js
 // imported by deploy.js
 
-import { Connection, LAMPORTS_PER_SOL } from "@solana/web3.js"
+import { Connection, LAMPORTS_PER_SOL } from '@solana/web3.js';
 
-this.connection = new Connection("https://api.devnet.solana.com", "confirmed")
+this.connection = new Connection('https://api.devnet.solana.com', 'confirmed');
 
 const signature = await this.connection.requestAirdrop(
-    programAuthorityKeypair.publicKey,
-    LAMPORTS_PER_SOL * 5
-)
-await this.connection.confirmTransaction(signature)
+  programAuthorityKeypair.publicKey,
+  LAMPORTS_PER_SOL * 5,
+);
+await this.connection.confirmTransaction(signature);
 ```
 
 I like to use the library's constant `LAMPORTS_PER_SOL` because that way you can ensure you get a full SOL or 2, just multiply by however much you need. For this deployment, we should need between 2 - 3 SOL, so let's drop 5 SOL in there just to make sure we aren't hassled with airdropping more.
@@ -414,37 +417,37 @@ Now that we have our Program Authority Account keypair created and funded, let's
 
 // ... [snip]
 
-const programAuthorityKeyfileName = `deploy/programauthority-keypair.json`
+const programAuthorityKeyfileName = `deploy/programauthority-keypair.json`;
 const programAuthorityKeypairFile = path.resolve(
-    `${__dirname}${SLASH}${programAuthorityKeyfileName}`
-)
+  `${__dirname}${SLASH}${programAuthorityKeyfileName}`,
+);
 
 // ... [snip]
 
 fs.writeFileSync(
-    programAuthorityKeypairFile,
-    `[${Buffer.from(programAuthorityKeypair.secretKey.toString())}]`
-)
+  programAuthorityKeypairFile,
+  `[${Buffer.from(programAuthorityKeypair.secretKey.toString())}]`,
+);
 
 // ... [snip]
 ```
 
-The second keypair that we need is our program keypair. This was generated for you when you ran `anchor build` and is saved in `target/deploy/solblog-keypair.json`. We need to get the programId from that keypair. We *could* just copy and paste, or we can retrieve the keys programmatically liek this:
+The second keypair that we need is our program keypair. This was generated for you when you ran `anchor build` and is saved in `target/deploy/solblog-keypair.json`. We need to get the programId from that keypair. We _could_ just copy and paste, or we can retrieve the keys programmatically liek this:
 
 ```js
 // deploy.js
 
 // ...[snip]
-const SLASH = path.sep
+const SLASH = path.sep;
 
-const programKeyfileName = `target/deploy/solblog-keypair.json`
+const programKeyfileName = `target/deploy/solblog-keypair.json`;
 const programKeypairFile = path.resolve(
-    `${__dirname}${SLASH}${programKeyfileName}`
-)
+  `${__dirname}${SLASH}${programKeyfileName}`,
+);
 
-let programKeypair = readKeyfile(programKeypairFile)
+let programKeypair = readKeyfile(programKeypairFile);
 
-let programId = programKeypair.publicKey.toString()
+let programId = programKeypair.publicKey.toString();
 ```
 
 Now we have both keys that we need to deploy!
@@ -454,19 +457,19 @@ The command in Anchor to deploy is `anchor deploy` and we want to call this from
 ```js
 // deploy.js
 
-let method = ["deploy"] // we are deploying for the first time, using 'deploy'
+let method = ['deploy']; // we are deploying for the first time, using 'deploy'
 
 spawn.sync(
-    "anchor",
-    [
-        ...method, // we use a variable so we when we want to upgrade, we can use 'upgrade' instead
-        "--provider.cluster", // we want to specify the node cluster
-        "Devnet", // the node cluster as the Devnet
-        "--provider.wallet", // we need to pass in a keyfile to pay for the deployment
-        `${programAuthorityKeypairFile}`, // this is the keypair file we created just a moment ago
-    ],
-    { stdio: "inherit" }
-)
+  'anchor',
+  [
+    ...method, // we use a variable so we when we want to upgrade, we can use 'upgrade' instead
+    '--provider.cluster', // we want to specify the node cluster
+    'Devnet', // the node cluster as the Devnet
+    '--provider.wallet', // we need to pass in a keyfile to pay for the deployment
+    `${programAuthorityKeypairFile}`, // this is the keypair file we created just a moment ago
+  ],
+  { stdio: 'inherit' },
+);
 ```
 
 If we want to update our program after the initial deployment, we can use `anchor upgrade` instead. We would need to specify what program we are upgrading, and specify the built code we want to replace it with. So we get:
@@ -513,21 +516,21 @@ Since this tutorial is about Anchor, I'll gloss over some of the finer details i
 
 //... [snip]
 
-method = ["deploy"]
+method = ['deploy'];
 
 //... [snip]
 
 spawn.sync(
-    "anchor",
-    [
-        ...method,
-        "--provider.cluster",
-        "Devnet", // or on Figment DataHub, https://solana--devnet.datahub.figment.io/apikey/yourApiKeyHere/
-        "--provider.wallet",
-        `${programAuthorityKeypairFile}`,
-    ],
-    { stdio: "inherit" }
-)
+  'anchor',
+  [
+    ...method,
+    '--provider.cluster',
+    'Devnet', // or on Figment DataHub, https://solana--devnet.datahub.figment.io/apikey/yourApiKeyHere/
+    '--provider.wallet',
+    `${programAuthorityKeypairFile}`,
+  ],
+  { stdio: 'inherit' },
+);
 ```
 
 When choosing to deploy, you can use Solana's Devnet or choose Figment's DataHub as well for deploying the program.
@@ -536,7 +539,7 @@ To use Figment's Datahub, Go to https://datahub.figment.io -> Make an account (I
 
 You may want to consider Figment's endpoint, as Public endpoints, for example native Devnet, have some limitations like rate limits, latency, per day req. limit/quota etc. However, DataHub resolves all these problems and breaks barriers that devs come across while scaling their projects. I myself ran into a couple of these issues working with Devnet, so it's a valid considering for you too.
 
-The first run through, the deploy script uses `anchor deploy`, whereas in *subsequent* deploys with the same program, it will use `anchor upgrade` with all the required flags included for convenience:
+The first run through, the deploy script uses `anchor deploy`, whereas in _subsequent_ deploys with the same program, it will use `anchor upgrade` with all the required flags included for convenience:
 
 ```js
 // ./deploy.js
@@ -625,7 +628,7 @@ async initialize() {
 
 There are a few references to assets that we haven't coded in yet, like `this.program` but we'll make that in our setup constructor.
 
-The RPC nature of Anchor means that all our functions are exposed through `program.rpc.<method name>`. So our make\_post call looks very similar:
+The RPC nature of Anchor means that all our functions are exposed through `program.rpc.<method name>`. So our make_post call looks very similar:
 
 ```js
 // anchorClient.js
@@ -710,7 +713,7 @@ In SvelteKit, which uses Vite, we can import the `json` into our code by simply 
 // anchorClient.js
 
 // Read the generated IDL
-import idl from "../../../target/idl/solblog.json"
+import idl from '../../../target/idl/solblog.json';
 ```
 
 If you're using a different framework for front end, you may need to change this. But for this tutorial, it works.
@@ -729,17 +732,17 @@ Similar to the previous `json` file, we can bring this `programId` into our code
 ```js
 // anchorClient.js
 
-import solblog_keypair from "../../../target/deploy/solblog-keypair.json"
+import solblog_keypair from '../../../target/deploy/solblog-keypair.json';
 
 // ... [snip]
 
 const getDevPgmId = () => {
-    // get the program ID from the solblog-keyfile.json
-    let pgmKeypair = anchor.web3.Keypair.fromSecretKey(
-        new Uint8Array(solblog_keypair)
-    )
-    return new anchor.web3.PublicKey(pgmKeypair.publicKey) // Address of the deployed program
-}
+  // get the program ID from the solblog-keyfile.json
+  let pgmKeypair = anchor.web3.Keypair.fromSecretKey(
+    new Uint8Array(solblog_keypair),
+  );
+  return new anchor.web3.PublicKey(pgmKeypair.publicKey); // Address of the deployed program
+};
 ```
 
 When you want to use a `program` in production, instead of calling `getDevPgmId()` you would simply pass in the `programId` to the constructor.
@@ -747,7 +750,7 @@ When you want to use a `program` in production, instead of calling `getDevPgmId(
 Lastly, we need a Wallet `Provider`. Anchor gives us the option of making a provider using:
 
 ```js
-new anchor.Provider(connection, wallet, opts)
+new anchor.Provider(connection, wallet, opts);
 ```
 
 Connection is straightforward enough, we just use the [Solana Web3 library](https://solana-labs.github.io/solana-web3.js/) (which is re-exported by Anchor) and pass in one of the Solana network endpoints, such as devnet:
@@ -756,9 +759,9 @@ Connection is straightforward enough, we just use the [Solana Web3 library](http
 // anchorClient.js
 
 connection = new anchor.web3.Connection(
-    "https://api.devnet.solana.com",
-    "confirmed"
-)
+  'https://api.devnet.solana.com',
+  'confirmed',
+);
 ```
 
 For a `Wallet`, Anchor only provides a `Nodejs` wallet. But since we want our code to run in the browser, we either need to provide a `keypair` or a mapping to a wallet provider, such as Phantom wallet. For ease of simplicity, I chose Phantom Wallet for the wallet provider. `WalletAdaptorPhantom` simply maps the Phantom functions to what Anchor loosk for:
@@ -768,28 +771,27 @@ For a `Wallet`, Anchor only provides a `Nodejs` wallet. But since we want our co
 // app\src\lib\helpers\wallet-adapter-phantom.ts
 
 export class WalletAdaptorPhantom {
-    constructor() {
-        if (!window.solana.isConnected)
-            throw new Error("Connect to Phantom first")
-        return
-        this.publicKey = window.solana.publicKey
-    }
+  constructor() {
+    if (!window.solana.isConnected) throw new Error('Connect to Phantom first');
+    return;
+    this.publicKey = window.solana.publicKey;
+  }
 
-    async signTransaction(tx: Transaction): Promise<Transaction> {
-        const signedTransaction = await window.solana.signTransaction(tx)
-        return signedTransaction
-    }
+  async signTransaction(tx: Transaction): Promise<Transaction> {
+    const signedTransaction = await window.solana.signTransaction(tx);
+    return signedTransaction;
+  }
 
-    async signAllTransactions(txs: Transaction[]): Promise<Transaction[]> {
-        const signedTransactions = await window.solana.signAllTransactions(
-            transactions
-        )
-        return signedTransactions
-    }
+  async signAllTransactions(txs: Transaction[]): Promise<Transaction[]> {
+    const signedTransactions = await window.solana.signAllTransactions(
+      transactions,
+    );
+    return signedTransactions;
+  }
 
-    get publicKey(): PublicKey {
-        return window.solana.publicKey
-    }
+  get publicKey(): PublicKey {
+    return window.solana.publicKey;
+  }
 }
 ```
 
@@ -797,7 +799,7 @@ Which means making a wallet essentially becomes:
 
 ```js
 // anchorClient.js
-const wallet = new WalletAdaptorPhantom()
+const wallet = new WalletAdaptorPhantom();
 ```
 
 ...with some fallback in case Phantom isn't the wallet of choice. The user has the option of passing in a keypair, or the code will generate a random keypair for use as a backup. In production, users will want to use a wallet such as Phantom, but in Dev mode we can use made up keys, because we can call `airDrop(publicKey)` to fund our accounts.
@@ -840,17 +842,17 @@ Since Anchor uses borsh, there may be a small hack you need to add in order to g
 // location: app\src\routes\__layout.svelte
 // Svelte layouts are code that apply to ALL pages, so we only add it once here:
 
-import { onMount } from "svelte"
+import { onMount } from 'svelte';
 
-import Header from "$lib/header/Header.svelte"
-import "../app.css"
+import Header from '$lib/header/Header.svelte';
+import '../app.css';
 
 onMount(async () => {
-    // setup some globals
-    import("buffer").then((Buffer) => {
-        global.Buffer = Buffer.Buffer
-    })
-})
+  // setup some globals
+  import('buffer').then(Buffer => {
+    global.Buffer = Buffer.Buffer;
+  });
+});
 ```
 
 ## Gotchya #2 - import in onMount()
@@ -862,11 +864,11 @@ The other issue is the solana / anchor code is NOT isomorphic, which means it do
 // such as
 // app\src\routes\blog\[slug].svelte
 
-import { loadAnchorClient } from "$lib/helpers/utils"
+import { loadAnchorClient } from '$lib/helpers/utils';
 
 onMount(async () => {
-    await loadAnchorClient()
-})
+  await loadAnchorClient();
+});
 ```
 
 Where `loadAnchorClient()` is defined in `utils.ts` as:
@@ -875,9 +877,9 @@ Where `loadAnchorClient()` is defined in `utils.ts` as:
 // location: app\src\lib\helpers\utils.ts
 
 export const loadAnchorClient = async () => {
-    let AnchorBlogLibrary = await import("$lib/anchorClient")
-    anchorClient.update((_) => new AnchorBlogLibrary.default()) // establish our Solana connection & load our little library helpers
-}
+  let AnchorBlogLibrary = await import('$lib/anchorClient');
+  anchorClient.update(_ => new AnchorBlogLibrary.default()); // establish our Solana connection & load our little library helpers
+};
 ```
 
 Embedding loading of our anchor Client into the Browser side ensires that the browser version of any non-isomorphic libraries gets loaded, and we don't get any nasty errors.
@@ -896,7 +898,7 @@ Recall that ProgramId is created during the first `anchor build`
 
 Program upgrade authority keys are creates and funded during the first deploy call `npm run deploy` in `deploy.js`
 
-The BlogAccount key is created on the fly during intilization, but if there was a reason you wanted to pick your key, it *could* be passed in, but that's pretty extra.
+The BlogAccount key is created on the fly during intilization, but if there was a reason you wanted to pick your key, it _could_ be passed in, but that's pretty extra.
 
 # Running the App
 
@@ -933,9 +935,9 @@ This tutorial was written by Doug Anderson. Doug is a computer engineer and reti
 
 # References
 
-*   Web3.js Library https://solana-labs.github.io/solana-web3.js/
-*   Anchor Website https://project-serum.github.io/anchor/
-*   Anchor Rust Docs https://docs.rs/anchor-lang/0.16.1/anchor\_lang/
-*   Credit to Decentology DappStarter for ideas on how to programmatically deploy a Solana program https://dappstarter.decentology.com/
-*   Figment Solana RPC API https://docs.figment.io/network-documentation/solana/rpc-and-rest-api
-*   Figment DataHub https://datahub.figment.io/
+- Web3.js Library https://solana-labs.github.io/solana-web3.js/
+- Anchor Website https://project-serum.github.io/anchor/
+- Anchor Rust Docs https://docs.rs/anchor-lang/0.16.1/anchor\_lang/
+- Credit to Decentology DappStarter for ideas on how to programmatically deploy a Solana program https://dappstarter.decentology.com/
+- Figment Solana RPC API https://docs.figment.io/network-documentation/solana/rpc-and-rest-api
+- Figment DataHub https://datahub.figment.io/

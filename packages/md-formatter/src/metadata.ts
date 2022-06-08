@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
-import async from 'async'
-import { Tutorial, tutorialDumpDB, tutorialDumpExtendedDB, TutorialExtended } from './data';
+import async from 'async';
+import {
+  Tutorial,
+  tutorialDumpDB,
+  tutorialDumpExtendedDB,
+  TutorialExtended,
+} from './data';
 import _ from 'lodash';
 
-
-let count = 0
+let count = 0;
 const writeQueue = async.queue(async (data: TutorialExtended) => {
-  await tutorialDumpExtendedDB.read()
-  tutorialDumpExtendedDB.chain
-    .set(data.slug, data)
-    .value()
-  await tutorialDumpExtendedDB.write()
-  count++
-}, 1)
+  await tutorialDumpExtendedDB.read();
+  tutorialDumpExtendedDB.chain.set(data.slug, data).value();
+  await tutorialDumpExtendedDB.write();
+  count++;
+}, 1);
 
 export const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
@@ -52,72 +54,86 @@ const parseCsvDifficulty = (value: string) => {
 };
 
 const extend = async () => {
-  await tutorialDumpDB.read()
+  await tutorialDumpDB.read();
 
   tutorialDumpExtendedDB.data = {};
   tutorialDumpExtendedDB.write();
-  
 
-  tutorialDumpDB.chain.forEach(async tutorial => {
-    // console.log(tutorial.slug)
-    const extended: Partial<TutorialExtended> = { ...tutorial }
-    const getSLug = () => {
-      const protocol = tutorial.tags[0].replace(' ', '').toLowerCase();
-      let slug = tutorial.slug
-      if (!tutorial.slug.startsWith(protocol)) {
-        slug = `${protocol.toLowerCase()}-${slug}`
+  tutorialDumpDB.chain
+    .forEach(async tutorial => {
+      // console.log(tutorial.slug)
+      const extended: Partial<TutorialExtended> = { ...tutorial };
+      const getSLug = () => {
+        const protocol = tutorial.tags[0].replace(' ', '').toLowerCase();
+        let slug = tutorial.slug;
+        if (!tutorial.slug.startsWith(protocol)) {
+          slug = `${protocol.toLowerCase()}-${slug}`;
+        }
+        return slug;
+      };
+
+      if (!tutorial?.author_url) {
+        extended.author_url = `https://github.com/TheBuilderDAO`;
       }
-      return slug
-    }
 
-    if (!tutorial?.author_url) {
-      extended.author_url = `https://github.com/TheBuilderDAO`
-    }
+      if (!tutorial?.author_github_account) {
+        extended.author_name = 'The Builder Dao';
+      } else {
+        extended.author_name = tutorial.author_github_account;
+      }
 
-    if (!tutorial?.author_github_account) {
-      extended.author_name = 'The Builder Dao'
-    } else {
-      extended.author_name = tutorial.author_github_account
-    }
+      if (tutorial.slug === 'celo-ubeswap-tutorial') {
+        // fix outdated link.
+        tutorial.pages[0].markdown_url =
+          'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/celo/celo-ubeswap-tutorial.md';
+      }
 
-    if (tutorial.slug === 'celo-ubeswap-tutorial') { // fix outdated link.
-      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/celo/celo-ubeswap-tutorial.md'
-    }
+      if (tutorial.slug === 'token-contracts') {
+        tutorial.pages[0].markdown_url =
+          'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/token-contracts.md';
+      }
 
-    if (tutorial.slug === 'token-contracts') {
-      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/tezos/token-contracts.md'
-    }
+      if (tutorial.slug === 'avalanche-deploy-pangolin-to-local-testnet') {
+        tutorial.pages[0].markdown_url =
+          'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-local-testnet-with-token-pair.md';
+      }
 
-    if (tutorial.slug === 'avalanche-deploy-pangolin-to-local-testnet') {
-      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-local-testnet-with-token-pair.md'
-    }
+      if (
+        tutorial.slug ===
+        'deploy-pangolin-to-your-local-testnet-and-create-token-pair'
+      ) {
+        tutorial.pages[0].markdown_url =
+          'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-your-local-testnet-and-create-token-pair.md';
+      }
 
-    if (tutorial.slug === 'deploy-pangolin-to-your-local-testnet-and-create-token-pair') {
-      tutorial.pages[0].markdown_url = 'https://raw.githubusercontent.com/figment-networks/learn-tutorials/master/avalanche/deploy-pangolin-to-your-local-testnet-and-create-token-pair.md'
-    }
+      extended.slug = getSLug();
+      (extended.author_github_account = extended.author_url?.replace(
+        /^https:\/\/github.com\//,
+        '',
+      )),
+        (extended.author_image_url = extended.author_url?.includes('github.com')
+          ? `${extended.author_url}.png`
+          : '');
+      extended.oldSlug = tutorial.slug;
+      extended.tags = tutorial.tags.map(parseTags);
 
-    extended.slug = getSLug()
-    extended.author_github_account = extended.author_url?.replace(/^https:\/\/github.com\//, ''),
-    extended.author_image_url = extended.author_url?.includes('github.com') ? `${extended.author_url}.png`: "";
-    extended.oldSlug = tutorial.slug;
-    extended.tags = tutorial.tags.map(parseTags)
-
-    if (extended.oldSlug !== extended.slug) {
-      console.log(`${tutorial.slug} -> ${extended.slug}`)
-    }
-    const sortedObject = extended as TutorialExtended
-    await writeQueue.pushAsync(sortedObject)
-    console.log(sortedObject)
-  }).value()
+      if (extended.oldSlug !== extended.slug) {
+        console.log(`${tutorial.slug} -> ${extended.slug}`);
+      }
+      const sortedObject = extended as TutorialExtended;
+      await writeQueue.pushAsync(sortedObject);
+      console.log(sortedObject);
+    })
+    .value();
   if (writeQueue.length() > 0) {
-    await writeQueue.drain()
+    await writeQueue.drain();
   }
-  console.log(`${count}/${tutorialDumpDB.data?.length} tutorials`)
-}
+  console.log(`${count}/${tutorialDumpDB.data?.length} tutorials`);
+};
 
 extend().then(() => {
-  console.log("#".repeat(20), "done", "#".repeat(20),)
-})
+  console.log('#'.repeat(20), 'done', '#'.repeat(20));
+});
 
 // interface TutorialsCsvRow {
 //   slug: string,
@@ -130,7 +146,6 @@ extend().then(() => {
 //   tags: string,
 //   difficulty_level: string
 // }
-
 
 // const generateMetadata = async () => {
 //   console.log('#'.repeat(80))
@@ -195,7 +210,3 @@ extend().then(() => {
 //   // await fs.copy(source, target, { filter: filterFunc })
 //   console.log('done')
 // })
-
-
-
-

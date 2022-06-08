@@ -5,10 +5,14 @@ import inquirerPrompt from 'inquirer-autocomplete-prompt';
 import Rx from 'rxjs';
 import simpleGit, { CleanOptions } from 'simple-git';
 import path from 'path';
-import fs from 'fs-extra'
+import fs from 'fs-extra';
 
 import { protocols, technologies } from '@builderdao/data';
-import { filterProposalByState, ProposalStateE, filterProposalBySlug } from '@builderdao/program-tutorial';
+import {
+  filterProposalByState,
+  ProposalStateE,
+  filterProposalBySlug,
+} from '@builderdao/program-tutorial';
 import { TutorialMetadata, CeramicApi } from '@builderdao/apis';
 
 import { getClient } from 'src/client';
@@ -286,6 +290,6 @@ export const TutorialInitCommand = () => {
       });
     });
 
-  tutorialInit
+  tutorialInit;
   return tutorialInit;
-}
+};

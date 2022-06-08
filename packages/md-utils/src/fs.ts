@@ -12,8 +12,12 @@ const TWEET_RE = /<StaticTweet\sid="[0-9]+"\s\/>/g;
 export const getFileByPath = async <T extends PostType>(
   pathForFile: string,
 ): Promise<FrontMatterPostType<T>> => {
-  const source = await fs.readFile(pathForFile, 'utf8');
+  const source = await readFileByPath(pathForFile);
   return await getFileParse<T>(source);
+};
+
+export const readFileByPath = async (pathForFile: string) => {
+  return await fs.readFile(pathForFile, 'utf8');
 };
 
 export const getFileParse = async <T extends PostType>(source: string) => {

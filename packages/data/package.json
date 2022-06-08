@@ -15,13 +15,17 @@
   "scripts": {
     "dev": "yarn build --watch",
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "lint": "TIMING=1 eslint src --fix",
+    "lint": "TIMING=1 eslint ./ --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "keywords": [],
   "author": "@builderdao",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@builderdao/config": "*",
+    "@builderdao/tsconfig": "*"
   },
   "license": "ISC"
 }
