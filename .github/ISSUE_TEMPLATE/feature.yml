@@ -32,7 +32,7 @@ body:
       label: Bounty
       description: Would you like to put a bounty on this feature request?
       options:
-        - Yes
-        - No
+        - 'Yes'
+        - 'No'
     validations:
       required: true
