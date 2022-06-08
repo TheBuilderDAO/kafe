@@ -1,10 +1,10 @@
 import path from 'path';
-import async from "async";
+import async from 'async';
 
-import { TutorialContent } from "@builderdao/apis";
-import { getTutorialContentByPath } from "@builderdao/md-utils";
-import { BuilderDaoConfig } from "src/services";
-import { hashSumDigest } from "src/utils";
+import { TutorialContent } from '@builderdao/apis';
+import { getTutorialContentByPath } from '@builderdao/md-utils';
+import { BuilderDaoConfig } from 'src/services';
+import { hashSumDigest } from 'src/utils';
 
 export async function updateHashDigestOfFolder(rootFolder: string) {
   const tutorialMetadata = await getTutorialContentByPath({
@@ -13,7 +13,12 @@ export async function updateHashDigestOfFolder(rootFolder: string) {
   const { lock: db } = new BuilderDaoConfig(rootFolder);
   await db.read();
   const hashQueue = async.queue(
-    async (file: { path: string; name: string; digest: string, arweaveHash?: string }) => {
+    async (file: {
+      path: string;
+      name: string;
+      digest: string;
+      arweaveHash?: string;
+    }) => {
       const digest = await hashSumDigest(file.path);
       const relativePath = path.relative(rootFolder, file.path);
       const prev = db.chain.get(`content["${relativePath}"]`).value();

@@ -25,7 +25,9 @@ export namespace TutorialProgramConfig {
       throw new Error(`Program is not deployed`);
     }
     const PROGRAM_ID = new PublicKey(idl.metadata.address);
-    const getProgram = (provider: anchor.Provider): anchor.Program<Tutorial> => {
+    const getProgram = (
+      provider: anchor.Provider,
+    ): anchor.Program<Tutorial> => {
       return new anchor.Program(idl as any, PROGRAM_ID, provider);
     };
     return {

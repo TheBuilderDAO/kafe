@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export const deprecated_tutorials: string[] = [
   'avalanche-advanced-evoting-avalanche-reactjs',
   'avalanche-connect-datahub-to-metamask',

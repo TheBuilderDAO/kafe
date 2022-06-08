@@ -4,6 +4,7 @@ description: Est culpa enim ex laboris occaecat nisi. Nisi et nostrud amet minim
 keywords: [React, Javascript]
 date: 2020-01-01
 ---
+
 # Introduction
 
 Blockchains are constantly evolving with every release and there are lots of Layer 1 blockchains which are now solving real world problems.
@@ -19,8 +20,8 @@ Although the tutorial doesn’t require you to know everything about Solana or b
 
 # Requirements
 
-*   A code editor like Visual Studio Code (VSCode) to follow along with this tutorial
-*   Install the Phantom wallet browser extention from <https://phantom.app>
+- A code editor like Visual Studio Code (VSCode) to follow along with this tutorial
+- Install the Phantom wallet browser extention from <https://phantom.app>
 
 # Features
 
@@ -45,29 +46,29 @@ This will download the project onto your local drive and allow you to modify and
 
 **Folder structure expected of the React app to run this tutorial**:
 
-*   `solana-games`
-    *   node\_modules
-    *   public
-    *   src
-        *   assets
-            *   images
-                *   stack.png
-        *   games
-            *   stack
-                *   Stack.jsx
-                *   Styles.css
-        *   pages
-            *   CreateNFT.jsx
-        *   utils
-            *   transferToken.js
-            *   nftCreation.js
-            *   sleepUtil.js
-            *   walletUtils.js
-            *   programIds.js
-        *   App.js
-        *   App.css
-        *   index.js
-    *   package.json
+- `solana-games`
+  - node_modules
+  - public
+  - src
+    - assets
+      - images
+        - stack.png
+    - games
+      - stack
+        - Stack.jsx
+        - Styles.css
+    - pages
+      - CreateNFT.jsx
+    - utils
+      - transferToken.js
+      - nftCreation.js
+      - sleepUtil.js
+      - walletUtils.js
+      - programIds.js
+    - App.js
+    - App.css
+    - index.js
+  - package.json
 
 # Flowchart of the DApp
 
@@ -85,46 +86,45 @@ To make the payment to the DApp possible, we will first integrate the Phantom wa
 
 To transfer the SOL from your wallet to the game's wallet, you first need to connect to the wallet. Without the connection, you will not be able to transfer SOL and move forward. This is accomplished within the file `src/App.js`.
 
-*   First we need to get the "solana" variable from the window object, if the solana variable is present that means the Phantom wallet is installed as a browser extension.
-*   Once we have the provider, then we are calling the "connect" function to connect with the Phantom wallet. It will open a popup to ask the user for their Phantom password. Once they provide the correct password, it will connect the wallet to the application.
-*   Phantom provides a way to listen to the connected or disconnected events by using hooks like "connect" and "disconnect". Once Phantom is successfully authorised then it will trigger the "connect" method and we can use this method to start our DApp functionality
+- First we need to get the "solana" variable from the window object, if the solana variable is present that means the Phantom wallet is installed as a browser extension.
+- Once we have the provider, then we are calling the "connect" function to connect with the Phantom wallet. It will open a popup to ask the user for their Phantom password. Once they provide the correct password, it will connect the wallet to the application.
+- Phantom provides a way to listen to the connected or disconnected events by using hooks like "connect" and "disconnect". Once Phantom is successfully authorised then it will trigger the "connect" method and we can use this method to start our DApp functionality
 
 ```javascript
 // src/App.js
 
 // ...
 
-/** 
-  * React will call this useEffect everytime there is an update in the provider variable.
-  * Phantom provider provides 2 methods to listen on
-  * 1. connect -> This method gets triggered when the wallet connection is successful
-  * 2. disconnect -> This callback method gets triggered when the wallet gets disconnected from the application
-  */
+/**
+ * React will call this useEffect everytime there is an update in the provider variable.
+ * Phantom provider provides 2 methods to listen on
+ * 1. connect -> This method gets triggered when the wallet connection is successful
+ * 2. disconnect -> This callback method gets triggered when the wallet gets disconnected from the application
+ */
 
- useEffect(() => {
-   if (provider) {
-       provider.on("connect", async() => {
-         console.log("wallet got connected", provider.publicKey)
-         setProviderPub(provider.publicKey)
+useEffect(() => {
+  if (provider) {
+    provider.on('connect', async () => {
+      console.log('wallet got connected', provider.publicKey);
+      setProviderPub(provider.publicKey);
+    });
+    provider.on('disconnect', () => {
+      console.log('Disconnected from wallet');
+    });
+  }
+}, [provider]);
 
-       });
-       provider.on("disconnect", () => {
-         console.log("Disconnected from wallet");
-       });
-   }
- }, [provider]);
-
- /**
-  * React will call this useEffect only one time after page the loads
-  * We will check if the browser has Phantom wallet installed or not.
-  * If a phantom wallet is installed then it provides a "solana" variable on the window object.
-  */
- useEffect(() => {
-   if ("solana" in window && !provider) {
-     console.log("Phantom wallet present")
-     setProvider(window.solana)
-   }
- },[])
+/**
+ * React will call this useEffect only one time after page the loads
+ * We will check if the browser has Phantom wallet installed or not.
+ * If a phantom wallet is installed then it provides a "solana" variable on the window object.
+ */
+useEffect(() => {
+  if ('solana' in window && !provider) {
+    console.log('Phantom wallet present');
+    setProvider(window.solana);
+  }
+}, []);
 ```
 
 Now that the `provider` is set, we can use the `provider` instance for all subsequent transactions. When the user connects their wallet, then it becomes important to assign the `provider` which can be used throughout the DApp to sign transactions.
@@ -143,17 +143,17 @@ const createTransferTransaction = async (
   connection,
   fromTokenAccountPubkey,
   toTokenAccountPubkey,
-  tokenToTransferLamports
+  tokenToTransferLamports,
 ) => {
   let transaction = new Transaction().add(
     SystemProgram.transfer({
       fromPubkey: fromTokenAccountPubkey,
       toPubkey: toTokenAccountPubkey,
       lamports: tokenToTransferLamports,
-    })
+    }),
   );
   transaction.feePayer = ownerPubkey;
-  console.log("Getting recent blockhash");
+  console.log('Getting recent blockhash');
   transaction.recentBlockhash = (
     await connection.getRecentBlockhash()
   ).blockhash;
@@ -163,11 +163,11 @@ const createTransferTransaction = async (
 
 In the code above, we are preparing the transaction object to get signed and added to the Solana blockchain. To make the transaction valid, below are a few important properties which are required:
 
-*   **transaction.recentBlockhash** : As solana works on **proof of history**, hence every transaction in the solana blockchain requires the latest blockhash to be associated with the new transaction. Without the getRecentBlockhash, the validators will not be able to verify the transaction.
+- **transaction.recentBlockhash** : As solana works on **proof of history**, hence every transaction in the solana blockchain requires the latest blockhash to be associated with the new transaction. Without the getRecentBlockhash, the validators will not be able to verify the transaction.
 
-*   **transaction.feePayer** : This variable denotes the fee payer of the transaction which will pay the fees to sign the transaction and send it for validation.
+- **transaction.feePayer** : This variable denotes the fee payer of the transaction which will pay the fees to sign the transaction and send it for validation.
 
-**Proof of history**: Proof of History is a sequence of computation that can provide a way to cryptographically verify the passage of time between two events. Validator nodes "timestamp" blocks with cryptographic proofs that some duration of time has passed since the last proof. All data hashed into the proof most certainly have occurred before the proof was generated. The node then shares the new block with validator nodes, which are able to verify those proofs. The blocks can arrive at validators in any order or even could be replayed years later. With such reliable synchronization guarantees, Solana is able to break blocks into smaller batches of transactions called *entries*. Entries are streamed to validators in realtime, before any notion of block consensus.
+**Proof of history**: Proof of History is a sequence of computation that can provide a way to cryptographically verify the passage of time between two events. Validator nodes "timestamp" blocks with cryptographic proofs that some duration of time has passed since the last proof. All data hashed into the proof most certainly have occurred before the proof was generated. The node then shares the new block with validator nodes, which are able to verify those proofs. The blocks can arrive at validators in any order or even could be replayed years later. With such reliable synchronization guarantees, Solana is able to break blocks into smaller batches of transactions called _entries_. Entries are streamed to validators in realtime, before any notion of block consensus.
 This is very different and efficient from the **Proof of Work** model where the energy consumption is high as every node in the blockchain has to perform the action to validate a transaction. The winner gets the reward but other validator’s work gets wasted in the process.
 
 ## Connection provider to the Phantom Wallet
@@ -180,22 +180,22 @@ The Phantom wallet browser extension injects the `solana` property in the global
 // src/utils/nftCreation.js
 
 /**
-* Helper function to detect whether Phantom wallet extension is installed or not
-* @param {*} connectToWallet
-* @returns
-*/
-export const connectOrGetPhantomProvider = (connectToWallet) => {
-   if ("solana" in window) {
-     const provider = window.solana;
-     if (connectToWallet && !window.solana.isConnected) {
-           window.solana.connect();
-       }
-       if (provider.isPhantom) {
-           return provider;
-       }
-   } else if (connectToWallet) {
-     alert(`Please install the Phantom wallet from https://phantom.app/`);
-   }
+ * Helper function to detect whether Phantom wallet extension is installed or not
+ * @param {*} connectToWallet
+ * @returns
+ */
+export const connectOrGetPhantomProvider = connectToWallet => {
+  if ('solana' in window) {
+    const provider = window.solana;
+    if (connectToWallet && !window.solana.isConnected) {
+      window.solana.connect();
+    }
+    if (provider.isPhantom) {
+      return provider;
+    }
+  } else if (connectToWallet) {
+    alert(`Please install the Phantom wallet from https://phantom.app/`);
+  }
 };
 ```
 
@@ -211,52 +211,68 @@ As a safety check we have also added the `if` condition which will not let the t
 // src/utils/transferToken.js
 
 /**
-* This utility function will transfer the token from one user wallet to another user's wallet
-* @param {*} provider : provider of the Phantom wallet
-* @param {*} connection : connection to the Solana cluster
-* @param {*} tokenToTransfer : tokens to be transferred in lamports
-* @param {*} fromTokenAccountPubkey : sender of the token
-* @param {*} toTokenAccountPubkey : receiver of the token
-* @return {object} 
-* { status: true, signature: "transaction signature hash"} in case of success
-* { status: false, error: "error message"} in case of failure
-*/
+ * This utility function will transfer the token from one user wallet to another user's wallet
+ * @param {*} provider : provider of the Phantom wallet
+ * @param {*} connection : connection to the Solana cluster
+ * @param {*} tokenToTransfer : tokens to be transferred in lamports
+ * @param {*} fromTokenAccountPubkey : sender of the token
+ * @param {*} toTokenAccountPubkey : receiver of the token
+ * @return {object}
+ * { status: true, signature: "transaction signature hash"} in case of success
+ * { status: false, error: "error message"} in case of failure
+ */
 
-export const transferCustomToken = async (provider, connection, tokenToTransfer, fromTokenAccountPubkey, toTokenAccountPubkey) => {
+export const transferCustomToken = async (
+  provider,
+  connection,
+  tokenToTransfer,
+  fromTokenAccountPubkey,
+  toTokenAccountPubkey,
+) => {
+  if (tokenToTransfer <= 0) {
+    return {
+      status: false,
+      error:
+        'You can not transfer, Token to transfer should be greater than 0.',
+    };
+  }
+  const tokenToTransferLamports = tokenToTransfer * 1000000000;
+  const transaction = await createTransferTransaction(
+    provider.publicKey,
+    connection,
+    fromTokenAccountPubkey,
+    toTokenAccountPubkey,
+    tokenToTransferLamports,
+  );
 
- if (tokenToTransfer <= 0) {
-   return { status: false, error: "You can not transfer, Token to transfer should be greater than 0." }
- }
- const tokenToTransferLamports = tokenToTransfer * 1000000000
- const transaction = await createTransferTransaction(provider.publicKey, connection, fromTokenAccountPubkey, toTokenAccountPubkey, tokenToTransferLamports);
+  if (transaction) {
+    try {
+      let signed = await provider.signTransaction(transaction);
+      console.log('Got signature, submitting transaction');
 
- if (transaction) {
-   try {
-     let signed = await provider.signTransaction(transaction);
-     console.log('Got signature, submitting transaction');
+      let signature = await connection.sendRawTransaction(signed.serialize());
+      console.log(
+        'Submitted transaction ' + signature + ', awaiting confirmation',
+      );
 
-     let signature = await connection.sendRawTransaction(signed.serialize());
-     console.log('Submitted transaction ' + signature + ', awaiting confirmation');
+      await connection.confirmTransaction(signature);
+      console.log('Transaction ' + signature + ' confirmed');
 
-     await connection.confirmTransaction(signature);
-     console.log('Transaction ' + signature + ' confirmed');
-
-     return { status: true, signature }
-
-   } catch (e) {
-     console.warn(e);
-     console.log('Error: ' + e.message);
-     return { status: false, error: e.message }
-   }
- }
- return {
-   status: false,
-   error: "No transaction found"
- }
-}
+      return { status: true, signature };
+    } catch (e) {
+      console.warn(e);
+      console.log('Error: ' + e.message);
+      return { status: false, error: e.message };
+    }
+  }
+  return {
+    status: false,
+    error: 'No transaction found',
+  };
+};
 ```
 
-*   **provider.publicKey** is going to use the public key of the currently selected account in the Phantom wallet.
+- **provider.publicKey** is going to use the public key of the currently selected account in the Phantom wallet.
 
 # How to create the NFT on Solana
 
@@ -279,47 +295,44 @@ In this code snippet we will examine the different libraries which are needed to
 
 import { BinaryReader, BinaryWriter } from 'borsh';
 import base58 from 'bs58';
-import * as splToken from '@solana/spl-token'
+import * as splToken from '@solana/spl-token';
 import crypto from 'crypto';
 import BN from 'bn.js';
 import { serialize } from 'borsh';
 import {
-   Keypair,
-     PublicKey,
-     Transaction,
-     clusterApiUrl,
-     SystemProgram,
-     SYSVAR_RENT_PUBKEY,
-     TransactionInstruction
-   } from "@solana/web3.js";
-   
+  Keypair,
+  PublicKey,
+  Transaction,
+  clusterApiUrl,
+  SystemProgram,
+  SYSVAR_RENT_PUBKEY,
+  TransactionInstruction,
+} from '@solana/web3.js';
+
 export const TOKEN_PROGRAM_ID = new PublicKey(
- 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA',
+  'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA',
 );
 const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID = new PublicKey(
- 'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL',
+  'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL',
 );
 
-const METADATA_PROGRAM_ID =
-   'metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s';
+const METADATA_PROGRAM_ID = 'metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s';
 
-const MEMO_ID = new PublicKey(
- 'MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr',
-);
+const MEMO_ID = new PublicKey('MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr');
 
 const programIds = {
- token: TOKEN_PROGRAM_ID,
- associatedToken: SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
- metadata: METADATA_PROGRAM_ID,
- memo: MEMO_ID,
-}
+  token: TOKEN_PROGRAM_ID,
+  associatedToken: SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
+  metadata: METADATA_PROGRAM_ID,
+  memo: MEMO_ID,
+};
 
-const sleepUtil = (ms) => {
-   return new Promise(resolve => setTimeout(resolve, ms));
- }
-export const NETWORK = clusterApiUrl("devnet");
+const sleepUtil = ms => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
+export const NETWORK = clusterApiUrl('devnet');
 export const AR_SOL_HOLDER_ID = new PublicKey(
-   'HvwC9QSAzvGXhhVrgPmauVwFWcYZhne3hVot9EbHuFTm',
+  'HvwC9QSAzvGXhhVrgPmauVwFWcYZhne3hVot9EbHuFTm',
 );
 export const METADATA_PREFIX = 'metadata';
 export const EDITION = 'edition';
@@ -327,24 +340,24 @@ export const EDITION_MARKER_BIT_SIZE = 248;
 export const DEFAULT_TIMEOUT = 15000;
 export const RESERVED_TXN_MANIFEST = 'manifest.json';
 export const MetadataKey = {
-   Uninitialized : 0,
-   MetadataV1 : 4,
-   EditionV1 : 1,
-   MasterEditionV1 : 2,
-   MasterEditionV2 : 6,
-   EditionMarker : 7,
-}
-export const TOKEN_PROGRAM_ID = programIds.token
+  Uninitialized: 0,
+  MetadataV1: 4,
+  EditionV1: 1,
+  MasterEditionV1: 2,
+  MasterEditionV2: 6,
+  EditionMarker: 7,
+};
+export const TOKEN_PROGRAM_ID = programIds.token;
 ```
 
-*   **borsh:** It is a library which provides us the functionality of serialization or deserialization of data.
-*   **bs58:** It helps to encode the string to base 58 encoding.
-*   **@solana/spl-token:** It is a library containing all the utility functions to create the token on the Solana blockchain.
-*   **crypto:** It is an algorithm that performs data encryption and decryption.
-*   **bn.js:** The BN.js library for calculating with big numbers in JavaScript.
-*   **@solana/web3.js:** This JavaScript API helps to prepare the instructions for transactions made on Solana.
-*   **sleepUtil:** This function will help to make setTimeOut work as a synchronous function. With the help of this function we can wait synchronously at any place in the code.
-*   **NETWORK:** This parameter signifies to which cluster of Solana the application will be connected to.
+- **borsh:** It is a library which provides us the functionality of serialization or deserialization of data.
+- **bs58:** It helps to encode the string to base 58 encoding.
+- **@solana/spl-token:** It is a library containing all the utility functions to create the token on the Solana blockchain.
+- **crypto:** It is an algorithm that performs data encryption and decryption.
+- **bn.js:** The BN.js library for calculating with big numbers in JavaScript.
+- **@solana/web3.js:** This JavaScript API helps to prepare the instructions for transactions made on Solana.
+- **sleepUtil:** This function will help to make setTimeOut work as a synchronous function. With the help of this function we can wait synchronously at any place in the code.
+- **NETWORK:** This parameter signifies to which cluster of Solana the application will be connected to.
 
 Other variables mentioned are the predefined standards from Metaplex which internally uses an on-chain program to store all the metadata and artifacts of the NFT. You can find more information on the [Metaplex documentation](https://docs.metaplex.com/).
 
@@ -355,22 +368,22 @@ The class needs to be created to use in Web3 (JavaScript), but to send it throug
 
 Serialization is important as without it, an on-chain program written in Rust will not be able to deserialize the instruction data and it will return fatal error.
 
-*   **CreateMetadataArgs:** This defines the structure of the data which is expected from the Metaplex on-chain programs to perform the NFT creation action.
+- **CreateMetadataArgs:** This defines the structure of the data which is expected from the Metaplex on-chain programs to perform the NFT creation action.
 
-*   **UpdateMetadataArgs:** This defines the structure of the data to update the metadata of the NFT, without which we can not update the metadata of the NFT.
+- **UpdateMetadataArgs:** This defines the structure of the data to update the metadata of the NFT, without which we can not update the metadata of the NFT.
 
-*   **CreateMasterEditionArgs:** This defines the structure of the data which needs to create Master Edition of the NFT, which can be minted to other NFTs in the future. Users can set the max supply for the master edition which can be minted.
+- **CreateMasterEditionArgs:** This defines the structure of the data which needs to create Master Edition of the NFT, which can be minted to other NFTs in the future. Users can set the max supply for the master edition which can be minted.
 
-*   **Creator**: This defines the structure of the data for the creator of the NFT. This information will be injected to each NFT which gets minted on the blockchain.
+- **Creator**: This defines the structure of the data for the creator of the NFT. This information will be injected to each NFT which gets minted on the blockchain.
 
-*   **Metadata:** This defines the structure of the metadata data which will be associated with each NFT minted on the blockchain. In the metadata we can store the images, videos on the NFT which can be sold on NFT marketplaces.
+- **Metadata:** This defines the structure of the metadata data which will be associated with each NFT minted on the blockchain. In the metadata we can store the images, videos on the NFT which can be sold on NFT marketplaces.
 
 ```javascript
 // src/utils/nftCreation.js
 
 /**
-* Classes to be used to create the NFT
-*/
+ * Classes to be used to create the NFT
+ */
 
 class CreateMetadataArgs {
   instruction = 0;
@@ -494,7 +507,7 @@ To prepare the file object of the image, we write our custom function which can 
  * @returns {File} File object.
  */
 export const dataURLtoFile = (dataurl, filename) => {
-  let arr = dataurl.split(","),
+  let arr = dataurl.split(','),
     mime = arr[0].match(/:(.*?);/)[1],
     bstr = atob(arr[1]),
     n = bstr.length,
@@ -544,9 +557,9 @@ export const extendBorsh = () => {
 extendBorsh();
 ```
 
-*   **mintNFT:** It is a utility wrapper function which expects different parameters to create the NFT process. All the required parameters are explained below.
+- **mintNFT:** It is a utility wrapper function which expects different parameters to create the NFT process. All the required parameters are explained below.
 
-*   **createMint:** It is to create the minting address for the NFT with the required parameters.
+- **createMint:** It is to create the minting address for the NFT with the required parameters.
 
 1.  **Instructions**: It includes all the instructions related to mint creation, associate account creation and metadata upload.
 2.  **payer**: This parameter defines the payer of the transaction.
@@ -564,7 +577,7 @@ export const mintNFT = async function (
   provider,
   env,
   files,
-  metadata
+  metadata,
 ) {
   const wallet = provider;
   const metadataContent = {
@@ -577,7 +590,7 @@ export const mintNFT = async function (
     external_url: metadata.external_url,
     properties: {
       ...metadata.properties,
-      creators: metadata.creators.map((creator) => {
+      creators: metadata.creators.map(creator => {
         return {
           address: creator.address,
           share: creator.share,
@@ -587,7 +600,7 @@ export const mintNFT = async function (
   };
   const realFiles = [
     ...files,
-    new File([JSON.stringify(metadataContent)], "metadata.json"),
+    new File([JSON.stringify(metadataContent)], 'metadata.json'),
   ];
 
   const { instructions: pushInstructions, signers: pushSigners } =
@@ -595,7 +608,7 @@ export const mintNFT = async function (
 
   // Allocate memory for the account
   const mintRent = await connection.getMinimumBalanceForRentExemption(
-    splToken.MintLayout.span
+    splToken.MintLayout.span,
   );
 
   const payerPublicKey = wallet.publicKey.toBase58();
@@ -611,7 +624,7 @@ export const mintNFT = async function (
     // Some weird bug with Phantom where its public key doesn't mesh with data encode well
     new PublicKey(payerPublicKey),
     new PublicKey(payerPublicKey),
-    signers
+    signers,
   ).toBase58();
 
   const recipientKey = (
@@ -621,7 +634,7 @@ export const mintNFT = async function (
         programIds.token.toBuffer(),
         new PublicKey(mintKey).toBuffer(),
       ],
-      programIds.associatedToken
+      programIds.associatedToken,
     )
   )[0];
 
@@ -630,12 +643,12 @@ export const mintNFT = async function (
     new PublicKey(recipientKey),
     wallet.publicKey,
     wallet.publicKey,
-    new PublicKey(mintKey)
+    new PublicKey(mintKey),
   );
   const classData = new Data({
     symbol: metadata.symbol,
     name: metadata.name,
-    uri: " ".repeat(64), // size of url for arweave
+    uri: ' '.repeat(64), // size of url for arweave
     sellerFeeBasisPoints: metadata.sellerFeeBasisPoints,
     creators: metadata.creators,
   });
@@ -645,47 +658,47 @@ export const mintNFT = async function (
     mintKey,
     payerPublicKey,
     instructions,
-    wallet.publicKey.toBase58()
+    wallet.publicKey.toBase58(),
   );
   const { txid } = await sendTransactionWithRetry(
     connection,
     wallet,
     instructions,
-    signers
+    signers,
   );
   try {
     // return
-    await connection.confirmTransaction(txid, "max");
+    await connection.confirmTransaction(txid, 'max');
   } catch {
     // ignore
   }
 
-  await connection.getParsedConfirmedTransaction(txid, "confirmed");
+  await connection.getParsedConfirmedTransaction(txid, 'confirmed');
 
   const data = new FormData();
 
   const tags = realFiles.reduce((acc, f) => {
-    acc[f.name] = [{ name: "mint", value: mintKey }];
+    acc[f.name] = [{ name: 'mint', value: mintKey }];
     return acc;
   }, {});
-  data.append("tags", JSON.stringify(tags));
-  data.append("transaction", txid);
-  realFiles.map((f) => data.append("file[]", f));
+  data.append('tags', JSON.stringify(tags));
+  data.append('transaction', txid);
+  realFiles.map(f => data.append('file[]', f));
 
   const result = await (
     await fetch(
-      "https://us-central1-principal-lane-200702.cloudfunctions.net/uploadFile2",
+      'https://us-central1-principal-lane-200702.cloudfunctions.net/uploadFile2',
       {
-        method: "POST",
+        method: 'POST',
         body: data,
-      }
+      },
     )
   ).json();
 
   const metadataFile = result.messages?.find(
-    (m) => m.filename === RESERVED_TXN_MANIFEST
+    m => m.filename === RESERVED_TXN_MANIFEST,
   );
-  let arweaveLink = "";
+  let arweaveLink = '';
   if (metadataFile?.transactionId) {
     const updateInstructions = [];
     const updateSigners = [];
@@ -703,7 +716,7 @@ export const mintNFT = async function (
       mintKey,
       payerPublicKey,
       updateInstructions,
-      metadataAccount
+      metadataAccount,
     );
 
     updateInstructions.push(
@@ -713,8 +726,8 @@ export const mintNFT = async function (
         new PublicKey(recipientKey),
         new PublicKey(payerPublicKey),
         [],
-        1
-      )
+        1,
+      ),
     );
 
     await createMasterEdition(
@@ -723,28 +736,28 @@ export const mintNFT = async function (
       payerPublicKey,
       payerPublicKey,
       payerPublicKey,
-      updateInstructions
+      updateInstructions,
     );
 
     await sendTransactionWithRetry(
       connection,
       wallet,
       updateInstructions,
-      updateSigners
+      updateSigners,
     );
   }
   return { metadataAccount, arweaveLink, mintKey, account: recipientKey };
 };
 ```
 
-*   **prepPayForFilesTxn:** It is used to calculate the fees for the files which need to be uploaded to arweave. It is mentioned in the arweave documentation that you need Tokens to upload onto the arweave platform.
-    There are a few storage types which can be used to upload the images and metadata.
-    Two of the most common while working with Metaplex and Arweave are
+- **prepPayForFilesTxn:** It is used to calculate the fees for the files which need to be uploaded to arweave. It is mentioned in the arweave documentation that you need Tokens to upload onto the arweave platform.
+  There are a few storage types which can be used to upload the images and metadata.
+  Two of the most common while working with Metaplex and Arweave are
 
 1.  "arweave-sol" : Uploads to arweave but only accepts payment in SOL and only works in mainnet.
 2.  "arweave" : Uploads to arweave via Metaplex Google Cloud function. Best to be used in devnet and mainnet.
 
-*   **findProgramAddress:** It is to find the account address based on the program id and seed provided. It is a deterministic function, hence it will always provide the address for the same seed and same program id.
+- **findProgramAddress:** It is to find the account address based on the program id and seed provided. It is a deterministic function, hence it will always provide the address for the same seed and same program id.
 
 Deterministic function is needed because it will help to deduplicate any associated account with the same mintKey.
 
@@ -761,19 +774,19 @@ const prepPayForFilesTxn = async (wallet, files, metadata) => {
         fromPubkey: wallet.publicKey,
         toPubkey: AR_SOL_HOLDER_ID,
         lamports: 100000000,
-      })
+      }),
     );
   //Already uploading files on IPFS, hence no files to be transacted here
   for (let i = 0; i < files.length; i++) {
-    const hashSum = crypto.createHash("sha256");
+    const hashSum = crypto.createHash('sha256');
     hashSum.update(await files[i].text());
-    const hex = hashSum.digest("hex");
+    const hex = hashSum.digest('hex');
     instructions.push(
       new TransactionInstruction({
         keys: [],
         programId: memo,
         data: Buffer.from(hex),
-      })
+      }),
     );
   }
   return {
@@ -794,13 +807,13 @@ function createMint(
   decimals,
   owner,
   freezeAuthority,
-  signers
+  signers,
 ) {
   const account = createUninitializedMint(
     instructions,
     payer,
     mintRentExempt,
-    signers
+    signers,
   );
   instructions.push(
     splToken.Token.createInitMintInstruction(
@@ -808,8 +821,8 @@ function createMint(
       account,
       decimals,
       owner,
-      freezeAuthority
-    )
+      freezeAuthority,
+    ),
   );
   return account;
 }
@@ -820,21 +833,21 @@ const createTokenAccount = (
   accountRentExempt,
   mint,
   owner,
-  signers
+  signers,
 ) => {
   const account = createUninitializedAccount(
     instructions,
     payer,
     accountRentExempt,
-    signers
+    signers,
   );
   instructions.push(
     splToken.Token.createInitAccountInstruction(
       TOKEN_PROGRAM_ID,
       mint,
       account,
-      owner
-    )
+      owner,
+    ),
   );
   return account;
 };
@@ -848,7 +861,7 @@ function createUninitializedMint(instructions, payer, amount, signers) {
       lamports: amount,
       space: splToken.MintLayout.span,
       programId: TOKEN_PROGRAM_ID,
-    })
+    }),
   );
   signers.push(account);
   return account.publicKey;
@@ -863,18 +876,18 @@ function createUninitializedAccount(instructions, payer, amount, signers) {
       lamports: amount,
       space: splToken.AccountLayout.span,
       programId: TOKEN_PROGRAM_ID,
-    })
+    }),
   );
   signers.push(account);
   return account.publicKey;
 }
 ```
 
-*   **createUninitializedMint:** It is to create the basic mint account to hold the uninitialised token. The token which is just minted but not provided any value. This is needed to attach the metadata with the token before increasing the supply of the token to 1.
+- **createUninitializedMint:** It is to create the basic mint account to hold the uninitialised token. The token which is just minted but not provided any value. This is needed to attach the metadata with the token before increasing the supply of the token to 1.
 
-*   **createUninitializedAccount:** Used to create the associated account to hold the SPL token which is going to be NFT.
+- **createUninitializedAccount:** Used to create the associated account to hold the SPL token which is going to be NFT.
 
-*   **createAssociatedTokenAccountInstruction:** Used to create the associate token instruction, which will help to create an associate account which can hold the NFT.
+- **createAssociatedTokenAccountInstruction:** Used to create the associate token instruction, which will help to create an associate account which can hold the NFT.
 
 ```javascript
 // src/utils/nftCreation.js
@@ -884,7 +897,7 @@ function createAssociatedTokenAccountInstruction(
   associatedTokenAddress,
   payer,
   walletAddress,
-  splTokenMintAddress
+  splTokenMintAddress,
 ) {
   const keys = [
     {
@@ -928,41 +941,41 @@ function createAssociatedTokenAccountInstruction(
       keys,
       programId: programIds.associatedToken,
       data: Buffer.from([]),
-    })
+    }),
   );
 }
 ```
 
 # Transaction which needs to be signed
 
-*   **sendTransactionWithRetry:** Used to retry the transaction in case of failure. While performing any transaction on a blockchain there is always a chance of transaction failure and it can lead to bad user experience if it fails in the first go. Hence this function helps to re-initiate the transaction in case of failure.
+- **sendTransactionWithRetry:** Used to retry the transaction in case of failure. While performing any transaction on a blockchain there is always a chance of transaction failure and it can lead to bad user experience if it fails in the first go. Hence this function helps to re-initiate the transaction in case of failure.
 
-*   **getUnixTs:** Helps to get the correct Unix timestamp in milliseconds.
+- **getUnixTs:** Helps to get the correct Unix timestamp in milliseconds.
 
-*   **awaitTransactionSignatureConfirmation:** It waits for the transaction’s signature.
+- **awaitTransactionSignatureConfirmation:** It waits for the transaction’s signature.
 
-*   **sendSignedTransaction:** Used to send the signed transaction to the Solana blockchain, which will eventually write the data instruction on the solana blockchain.
+- **sendSignedTransaction:** Used to send the signed transaction to the Solana blockchain, which will eventually write the data instruction on the solana blockchain.
 
-*   **createMetadata:** Helps to create the metadata for the NFT. A metadata can contain anything from images, gif, urls or any piece of code as well. Hence using it logically with the different use-cases can serve many purposes.
+- **createMetadata:** Helps to create the metadata for the NFT. A metadata can contain anything from images, gif, urls or any piece of code as well. Hence using it logically with the different use-cases can serve many purposes.
 
 In this step we will be going through the flow of signing the transaction. To complete the mint process we need to write our block to the solana blockchain. To get this transaction on the blockchain it needs to be signed from the wallet owner and sent for the validation.
 
 Few key variables to be used in above function:
 
-*   **transaction.recentBlockhash** : As solana works on **proof of history**, hence every transaction in the solana blockchain requires the latest blockhash to be associated with the new transaction. Without the getRecentBlockhash, the validators will not be able to verify the transaction.
-    **proof of history**: Proof of History is a sequence of computation that can provide a way to cryptographically verify passage of time between two events. Validator nodes "timestamp" blocks with cryptographic proofs that some duration of time has passed since the last proof. All data hashed into the proof most certainly have occurred before the proof was generated. The node then shares the new block with validator nodes, which are able to verify those proofs. The blocks can arrive at validators in any order or even could be replayed years later. With such reliable synchronization guarantees, Solana is able to break blocks into smaller batches of transactions called *entries*. Entries are streamed to validators in real time, before any notion of block consensus.
-    This is very different and efficient from the **Proof of Work** or **Proof of Stake** where the energy consumption is high as every node in the blockchain has to perform the action to validate a node. The winner gets the reward but other validator’s work gets wasted in the process.
+- **transaction.recentBlockhash** : As solana works on **proof of history**, hence every transaction in the solana blockchain requires the latest blockhash to be associated with the new transaction. Without the getRecentBlockhash, the validators will not be able to verify the transaction.
+  **proof of history**: Proof of History is a sequence of computation that can provide a way to cryptographically verify passage of time between two events. Validator nodes "timestamp" blocks with cryptographic proofs that some duration of time has passed since the last proof. All data hashed into the proof most certainly have occurred before the proof was generated. The node then shares the new block with validator nodes, which are able to verify those proofs. The blocks can arrive at validators in any order or even could be replayed years later. With such reliable synchronization guarantees, Solana is able to break blocks into smaller batches of transactions called _entries_. Entries are streamed to validators in real time, before any notion of block consensus.
+  This is very different and efficient from the **Proof of Work** or **Proof of Stake** where the energy consumption is high as every node in the blockchain has to perform the action to validate a node. The winner gets the reward but other validator’s work gets wasted in the process.
 
-*   **wallet.publicKey** : Every transaction needs a fee to be paid to the computers who are making the transaction possible. This parameter tells Solana who will be paying the fees for this transaction.
-    `wallet.publicKey = provider.publicKey`
+- **wallet.publicKey** : Every transaction needs a fee to be paid to the computers who are making the transaction possible. This parameter tells Solana who will be paying the fees for this transaction.
+  `wallet.publicKey = provider.publicKey`
 
-*   **signers.map** : List of accounts which will be used to sign the ongoing transaction, that is defined by this list of signers. If any action is going to be taken on this account, it requires the signature using the account’s private key. This ensures that the program never updates the account of a user without the permission of the owner of that account.
+- **signers.map** : List of accounts which will be used to sign the ongoing transaction, that is defined by this list of signers. If any action is going to be taken on this account, it requires the signature using the account’s private key. This ensures that the program never updates the account of a user without the permission of the owner of that account.
 
-*   **transaction.serialize()** : All the data must be stored on the blockchain. To keep the content format agnostic of the programming language used, the data is serialized before storing.
+- **transaction.serialize()** : All the data must be stored on the blockchain. To keep the content format agnostic of the programming language used, the data is serialized before storing.
 
-*   **skipPreflight** : It’s a boolean data type
-    *   true: Skips the preflight transaction checks
-    *   false: (default value) : Transaction checks for the available methods before sending the transaction, which involves a very little latency.
+- **skipPreflight** : It’s a boolean data type
+  - true: Skips the preflight transaction checks
+  - false: (default value) : Transaction checks for the available methods before sending the transaction, which involves a very little latency.
 
 ```javascript
 // src/utils/nftCreation.js
@@ -972,23 +985,23 @@ const sendTransactionWithRetry = async (
   wallet,
   instructions,
   signers,
-  commitment = "singleGossip",
+  commitment = 'singleGossip',
   includesFeePayer = false,
   block,
-  beforeSend
+  beforeSend,
 ) => {
   let transaction = new Transaction();
-  instructions.forEach((instruction) => transaction.add(instruction));
+  instructions.forEach(instruction => transaction.add(instruction));
   transaction.recentBlockhash = (
     block || (await connection.getRecentBlockhash(commitment))
   ).blockhash;
   if (includesFeePayer) {
-    transaction.setSigners(...signers.map((s) => s.publicKey));
+    transaction.setSigners(...signers.map(s => s.publicKey));
   } else {
     transaction.setSigners(
       // fee payed by the wallet owner
       wallet.publicKey,
-      ...signers.map((s) => s.publicKey)
+      ...signers.map(s => s.publicKey),
     );
   }
   if (signers.length > 0) {
@@ -1014,8 +1027,8 @@ async function awaitTransactionSignatureConfirmation(
   txid,
   timeout,
   connection,
-  commitment = "recent",
-  queryStatus = false
+  commitment = 'recent',
+  queryStatus = false,
 ) {
   let done = false;
   let status = {
@@ -1030,7 +1043,7 @@ async function awaitTransactionSignatureConfirmation(
         return;
       }
       done = true;
-      console.log("Rejecting for timeout...");
+      console.log('Rejecting for timeout...');
       reject({ timeout: true });
     }, timeout);
     try {
@@ -1044,18 +1057,18 @@ async function awaitTransactionSignatureConfirmation(
             confirmations: 0,
           };
           if (result.err) {
-            console.log("Rejected via websocket", result.err);
+            console.log('Rejected via websocket', result.err);
             reject(status);
           } else {
-            console.log("Resolved via websocket", result);
+            console.log('Resolved via websocket', result);
             resolve(status);
           }
         },
-        commitment
+        commitment,
       );
     } catch (e) {
       done = true;
-      console.error("WS error in setup", txid, e);
+      console.error('WS error in setup', txid, e);
     }
     while (!done && queryStatus) {
       // eslint-disable-next-line no-loop-func
@@ -1067,22 +1080,22 @@ async function awaitTransactionSignatureConfirmation(
           status = signatureStatuses && signatureStatuses.value[0];
           if (!done) {
             if (!status) {
-              console.log("REST null result for", txid, status);
+              console.log('REST null result for', txid, status);
             } else if (status.err) {
-              console.log("REST error for", txid, status);
+              console.log('REST error for', txid, status);
               done = true;
               reject(status.err);
             } else if (!status.confirmations) {
-              console.log("REST no confirmations for", txid, status);
+              console.log('REST no confirmations for', txid, status);
             } else {
-              console.log("REST confirmation for", txid, status);
+              console.log('REST confirmation for', txid, status);
               done = true;
               resolve(status);
             }
           }
         } catch (e) {
           if (!done) {
-            console.log("REST connection error: txid", txid, e);
+            console.log('REST connection error: txid', txid, e);
           }
         }
       })();
@@ -1093,7 +1106,7 @@ async function awaitTransactionSignatureConfirmation(
   if (connection._signatureSubscriptions[subId])
     connection.removeSignatureListener(subId);
   done = true;
-  console.log("Returning status", status);
+  console.log('Returning status', status);
   return status;
 }
 
@@ -1108,7 +1121,7 @@ async function sendSignedTransaction({
   const txid = await connection.sendRawTransaction(rawTransaction, {
     skipPreflight: true,
   });
-  console.log("Started awaiting confirmation for", txid);
+  console.log('Started awaiting confirmation for', txid);
   let done = false;
   (async () => {
     while (!done && getUnixTs() - startTime < timeout) {
@@ -1123,29 +1136,28 @@ async function sendSignedTransaction({
       txid,
       timeout,
       connection,
-      "recent",
-      true
+      'recent',
+      true,
     );
     if (!confirmation)
-      throw new Error("Timed out awaiting confirmation on transaction");
+      throw new Error('Timed out awaiting confirmation on transaction');
     if (confirmation.err) {
       console.error(confirmation.err);
-      throw new Error("Transaction failed: Custom instruction error");
+      throw new Error('Transaction failed: Custom instruction error');
     }
     slot = confirmation?.slot || 0;
   } catch (err) {
   } finally {
     done = true;
   }
-  console.log("Latency", txid, getUnixTs() - startTime);
+  console.log('Latency', txid, getUnixTs() - startTime);
   return { txid, slot };
 }
-
 ```
 
-*   **getEdition:** Helps to find the correct edition of the NFT, based on the parameters passed.
+- **getEdition:** Helps to find the correct edition of the NFT, based on the parameters passed.
 
-*   **findProgramAddress:** This utility method is used to find the associated address with the mintkey and the metadata account.
+- **findProgramAddress:** This utility method is used to find the associated address with the mintkey and the metadata account.
 
 Associated token address is needed to mint the new token and add the metadata to the token.
 
@@ -1161,7 +1173,7 @@ async function getEdition(tokenMint) {
         new PublicKey(tokenMint).toBuffer(),
         Buffer.from(EDITION),
       ],
-      new PublicKey(programIds.metadata)
+      new PublicKey(programIds.metadata),
     )
   )[0];
 }
@@ -1176,126 +1188,126 @@ const METADATA_SCHEMA = new Map([
   [
     CreateMetadataArgs,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["instruction", "u8"],
-        ["data", Data],
-        ["isMutable", "u8"], // bool
+        ['instruction', 'u8'],
+        ['data', Data],
+        ['isMutable', 'u8'], // bool
       ],
     },
   ],
   [
     UpdateMetadataArgs,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["instruction", "u8"],
-        ["data", { kind: "option", type: Data }],
-        ["updateAuthority", { kind: "option", type: "pubkeyAsString" }],
-        ["primarySaleHappened", { kind: "option", type: "u8" }],
+        ['instruction', 'u8'],
+        ['data', { kind: 'option', type: Data }],
+        ['updateAuthority', { kind: 'option', type: 'pubkeyAsString' }],
+        ['primarySaleHappened', { kind: 'option', type: 'u8' }],
       ],
     },
   ],
   [
     CreateMasterEditionArgs,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["instruction", "u8"],
-        ["maxSupply", { kind: "option", type: "u64" }],
+        ['instruction', 'u8'],
+        ['maxSupply', { kind: 'option', type: 'u64' }],
       ],
     },
   ],
   [
     MintPrintingTokensArgs,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["instruction", "u8"],
-        ["supply", "u64"],
+        ['instruction', 'u8'],
+        ['supply', 'u64'],
       ],
     },
   ],
   [
     MasterEditionV1,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["key", "u8"],
-        ["supply", "u64"],
-        ["maxSupply", { kind: "option", type: "u64" }],
-        ["printingMint", "pubkeyAsString"],
-        ["oneTimePrintingAuthorizationMint", "pubkeyAsString"],
+        ['key', 'u8'],
+        ['supply', 'u64'],
+        ['maxSupply', { kind: 'option', type: 'u64' }],
+        ['printingMint', 'pubkeyAsString'],
+        ['oneTimePrintingAuthorizationMint', 'pubkeyAsString'],
       ],
     },
   ],
   [
     MasterEditionV2,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["key", "u8"],
-        ["supply", "u64"],
-        ["maxSupply", { kind: "option", type: "u64" }],
+        ['key', 'u8'],
+        ['supply', 'u64'],
+        ['maxSupply', { kind: 'option', type: 'u64' }],
       ],
     },
   ],
   [
     Edition,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["key", "u8"],
-        ["parent", "pubkeyAsString"],
-        ["edition", "u64"],
+        ['key', 'u8'],
+        ['parent', 'pubkeyAsString'],
+        ['edition', 'u64'],
       ],
     },
   ],
   [
     Data,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["name", "string"],
-        ["symbol", "string"],
-        ["uri", "string"],
-        ["sellerFeeBasisPoints", "u16"],
-        ["creators", { kind: "option", type: [Creator] }],
+        ['name', 'string'],
+        ['symbol', 'string'],
+        ['uri', 'string'],
+        ['sellerFeeBasisPoints', 'u16'],
+        ['creators', { kind: 'option', type: [Creator] }],
       ],
     },
   ],
   [
     Creator,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["address", "pubkeyAsString"],
-        ["verified", "u8"],
-        ["share", "u8"],
+        ['address', 'pubkeyAsString'],
+        ['verified', 'u8'],
+        ['share', 'u8'],
       ],
     },
   ],
   [
     Metadata,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["key", "u8"],
-        ["updateAuthority", "pubkeyAsString"],
-        ["mint", "pubkeyAsString"],
-        ["data", Data],
-        ["primarySaleHappened", "u8"], // bool
-        ["isMutable", "u8"], // bool
+        ['key', 'u8'],
+        ['updateAuthority', 'pubkeyAsString'],
+        ['mint', 'pubkeyAsString'],
+        ['data', Data],
+        ['primarySaleHappened', 'u8'], // bool
+        ['isMutable', 'u8'], // bool
       ],
     },
   ],
   [
     EditionMarker,
     {
-      kind: "struct",
+      kind: 'struct',
       fields: [
-        ["key", "u8"],
-        ["ledger", [31]],
+        ['key', 'u8'],
+        ['ledger', [31]],
       ],
     },
   ],
@@ -1313,17 +1325,17 @@ async function createMetadata(
   mintKey,
   mintAuthorityKey,
   instructions,
-  payer
+  payer,
 ) {
   const metadataProgramId = programIds.metadata;
   const metadataAccount = (
     await findProgramAddress(
       [
-        Buffer.from("metadata"),
+        Buffer.from('metadata'),
         new PublicKey(metadataProgramId).toBuffer(),
         new PublicKey(mintKey).toBuffer(),
       ],
-      new PublicKey(metadataProgramId)
+      new PublicKey(metadataProgramId),
     )
   )[0];
 
@@ -1372,7 +1384,7 @@ async function createMetadata(
       keys,
       programId: new PublicKey(metadataProgramId),
       data: txnData,
-    })
+    }),
   );
   return metadataAccount;
 }
@@ -1384,7 +1396,7 @@ async function updateMetadata(
   mintKey,
   updateAuthority,
   instructions,
-  metadataAccount
+  metadataAccount,
 ) {
   const metadataProgramId = programIds.metadata;
   metadataAccount =
@@ -1392,11 +1404,11 @@ async function updateMetadata(
     (
       await findProgramAddress(
         [
-          Buffer.from("metadata"),
+          Buffer.from('metadata'),
           new PublicKey(metadataProgramId).toBuffer(),
           new PublicKey(mintKey).toBuffer(),
         ],
-        new PublicKey(metadataProgramId)
+        new PublicKey(metadataProgramId),
       )
     )[0];
 
@@ -1426,10 +1438,10 @@ async function updateMetadata(
       keys,
       programId: new PublicKey(metadataProgramId),
       data: txnData,
-    })
+    }),
   );
   return metadataAccount;
-}						
+}
 ```
 
 The routes and component to display for each route are defined in `src/index.js`:
@@ -1439,59 +1451,59 @@ The routes and component to display for each route are defined in `src/index.js`
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import StackIt from './games/stack/Stack'
+import StackIt from './games/stack/Stack';
 import CreateNFT from './pages/CreateNFT';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
- <React.StrictMode>
+  <React.StrictMode>
     <Router>
-    <Switch>
-       <Route exact path="/">
-         <App />
-       </Route>
-       <Route exact path="/stack">
-         <StackIt />
-       </Route>
-       <Route path="/createNFT">
-         <CreateNFT />
-       </Route>
-    </Switch>
+      <Switch>
+        <Route exact path="/">
+          <App />
+        </Route>
+        <Route exact path="/stack">
+          <StackIt />
+        </Route>
+        <Route path="/createNFT">
+          <CreateNFT />
+        </Route>
+      </Switch>
     </Router>
- </React.StrictMode>,
- document.getElementById('root')
+  </React.StrictMode>,
+  document.getElementById('root'),
 );
 reportWebVitals();
 ```
 
 2.  Now we will add the code for the dashboard screen. The code below will act as a front page of the game, we can redirect the user to the main game based on the different conditions like:
 
-*   If the user has enough funds to play the game, then redirect user to the game
-*   If the user does not have the enough funds then prompt them to fund the wallet
+- If the user has enough funds to play the game, then redirect user to the game
+- If the user does not have the enough funds then prompt them to fund the wallet
 
 The code of the game can be put in any folder, the redirection should be made correctly.
 
 ```javascript
 // src/App.js
 
-import { useEffect, useState } from "react";
-import stack from "./assets/images/stack.png";
-import "./App.css";
-import { useHistory } from "react-router";
+import { useEffect, useState } from 'react';
+import stack from './assets/images/stack.png';
+import './App.css';
+import { useHistory } from 'react-router';
 import {
   clusterApiUrl,
   Connection,
   LAMPORTS_PER_SOL,
   PublicKey,
-} from "@solana/web3.js";
-import { transferCustomToken } from "./utils/transferToken";
-const NETWORK = clusterApiUrl("devnet");
+} from '@solana/web3.js';
+import { transferCustomToken } from './utils/transferToken';
+const NETWORK = clusterApiUrl('devnet');
 let lamportsRequiredToPlay = 0.1 * LAMPORTS_PER_SOL;
 const gameWalletPublicKey = new PublicKey(
-  "62AtDMhgaW1YQZCxv7hGBE7HDTU67L71vs4VQrRVBq3p"
+  '62AtDMhgaW1YQZCxv7hGBE7HDTU67L71vs4VQrRVBq3p',
 );
 
 function App() {
@@ -1515,7 +1527,7 @@ function App() {
 
     // Check if the user is logged in
     if (!providerPubKey) {
-      alert("Ooops... Please login via wallet");
+      alert('Ooops... Please login via wallet');
       return;
     }
 
@@ -1523,7 +1535,7 @@ function App() {
     const accountBalance = await connection.getBalance(providerPubKey);
     const balanceInLamports = accountBalance ? parseInt(accountBalance) : 0;
     if (balanceInLamports < lamportsRequiredToPlay) {
-      alert("Not enough balance, please fund your wallet");
+      alert('Not enough balance, please fund your wallet');
       return;
     }
 
@@ -1534,23 +1546,23 @@ function App() {
       connection,
       lamportsRequiredToPlay,
       providerPubKey,
-      gameWalletPublicKey
+      gameWalletPublicKey,
     );
 
     if (!result.status) {
-      alert("Error in sending the SOL tokens, Please try again!!!");
+      alert('Error in sending the SOL tokens, Please try again!!!');
       return;
     }
 
     // If the status is true, that means transaction was successful and we can proceed
-    history.push("/stack");
+    history.push('/stack');
   };
 
   const loginHandler = () => {
     if (!provider && window.solana) {
       setProvider(window.solana);
     } else if (!provider) {
-      console.log("No provider found");
+      console.log('No provider found');
       return;
     } else if (provider && !provider.isConnected) {
       provider.connect();
@@ -1559,19 +1571,19 @@ function App() {
 
   useEffect(() => {
     if (provider) {
-      provider.on("connect", async () => {
-        console.log("wallet got connected", provider.publicKey);
+      provider.on('connect', async () => {
+        console.log('wallet got connected', provider.publicKey);
         setProviderPub(provider.publicKey);
       });
-      provider.on("disconnect", () => {
-        console.log("Disconnected from wallet");
+      provider.on('disconnect', () => {
+        console.log('Disconnected from wallet');
       });
     }
   }, [provider]);
 
   useEffect(() => {
-    if ("solana" in window && !provider) {
-      console.log("Phantom wallet present");
+    if ('solana' in window && !provider) {
+      console.log('Phantom wallet present');
       setProvider(window.solana);
     }
   }, []);
@@ -1582,7 +1594,7 @@ function App() {
         <h2 className="gameHeader">Stack game on Solana</h2>
         {!providerPubKey && (
           <button className="loginButton" onClick={() => loginHandler()}>
-            {" "}
+            {' '}
             Login
           </button>
         )}
@@ -1623,10 +1635,10 @@ In this tutorial we learned about:
 
 # What's Next
 
-*   Once you complete this tutorial then you can build a pay-per-use gaming platform on Solana.
-*   You can provide services for which you can charge some amount of SOL from the users.
-*   You can extend the Aolana games learning and build your own gaming platform.
-*   You can use the knowledge of NFT creation and build NFT marketplaces like OpenSea.
+- Once you complete this tutorial then you can build a pay-per-use gaming platform on Solana.
+- You can provide services for which you can charge some amount of SOL from the users.
+- You can extend the Aolana games learning and build your own gaming platform.
+- You can use the knowledge of NFT creation and build NFT marketplaces like OpenSea.
 
 # About The Author
 

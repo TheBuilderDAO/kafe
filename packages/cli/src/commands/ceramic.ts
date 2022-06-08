@@ -16,7 +16,8 @@ export function makeCeramicCommand() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const log = (object: any) => _log(object, ceramic.optsWithGlobals().key);
 
-  ceramic.command('get')
+  ceramic
+    .command('get')
     .argument('<streamId>', 'Stream ID')
     .addOption(
       new commander.Option('--nodeUrl <nodeUrl>', 'Ceramic Node Url')
@@ -29,7 +30,7 @@ export function makeCeramicCommand() {
       });
       const metadata = await client.getMetadata(streamId);
       log(metadata);
-    })
+    });
 
   ceramic
     .command('updateMetadata')
@@ -75,7 +76,7 @@ export function makeCeramicCommand() {
           });
           log(result);
         } catch (err) {
-          console.error(err)
+          console.error(err);
         }
       },
     );

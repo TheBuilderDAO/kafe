@@ -2,7 +2,10 @@
 /* eslint-disable no-restricted-syntax */
 import * as commander from 'commander';
 import * as anchor from '@project-serum/anchor';
-import { filterProposalByState, ProposalStateE } from '@builderdao/program-tutorial';
+import {
+  filterProposalByState,
+  ProposalStateE,
+} from '@builderdao/program-tutorial';
 import { CeramicApi } from '@builderdao/apis';
 import _ from 'lodash';
 
@@ -78,7 +81,7 @@ export function makeProposalCommand() {
         if (!proposalId) {
           const rootFolder = process.cwd();
           const { lock } = new BuilderDaoConfig(rootFolder);
-          await lock.read()
+          await lock.read();
           tutorialId = lock.chain.get('proposalId').value();
         } else {
           tutorialId = proposalId;
@@ -91,8 +94,8 @@ export function makeProposalCommand() {
           id: tutorial.id.toNumber(),
         });
         log({ txId });
-      });
-
+      },
+    );
 
   proposal
     .command('setstate')
@@ -130,7 +133,7 @@ export function makeProposalCommand() {
         if (!proposalId) {
           const rootFolder = process.cwd();
           const { lock } = new BuilderDaoConfig(rootFolder);
-          await lock.read()
+          await lock.read();
           tutorialId = lock.chain.get('proposalId').value();
         } else {
           tutorialId = proposalId;
@@ -175,14 +178,16 @@ export function makeProposalCommand() {
 
         const currentQuorum = (await client.getDaoAccount()).quorum.toNumber();
         if (currentQuorum <= quorum) {
-          return
+          return;
         }
 
         const proposalsToUpdate = (
           await client.getProposals([
             filterProposalByState(ProposalStateE.submitted),
           ])
-        ).filter(data => data.account.numberOfVoter.toNumber() >= quorum).map(data => data.account);
+        )
+          .filter(data => data.account.numberOfVoter.toNumber() >= quorum)
+          .map(data => data.account);
 
         for (const proposalData of proposalsToUpdate) {
           const txId = await client.proposalSetState({
@@ -224,41 +229,43 @@ Notes:
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option('--skip-ceramic', 'Skip Ceramic').default(false)
+      new commander.Option('--skip-ceramic', 'Skip Ceramic').default(false),
     )
     .action(async options => {
       // eslint-disable-next-line @typescript-eslint/no-shadow
       let proposalAccount: any;
       if (options.slug) {
-        proposalAccount = await client.getTutorialBySlug(options.slug)
+        proposalAccount = await client.getTutorialBySlug(options.slug);
       } else if (options.id) {
-        proposalAccount = await client.getTutorialById(options.id)
+        proposalAccount = await client.getTutorialById(options.id);
       } else if (options.publicKey) {
-        proposalAccount = await client.tutorialProgram.account.proposalAccount.fetch(
-          options.publicKey,
-        )
+        proposalAccount =
+          await client.tutorialProgram.account.proposalAccount.fetch(
+            options.publicKey,
+          );
       } else {
         const rootFolder = process.cwd();
         if (!rootFolder.includes('/tutorials/')) {
-          proposal.error('No tutorial found in this folder')
-          return
+          proposal.error('No tutorial found in this folder');
+          return;
         }
         const { lock } = new BuilderDaoConfig(rootFolder);
-        await lock.read()
+        await lock.read();
         const proposalId = lock.chain.get('proposalId').value();
         // eslint-disable-next-line no-param-reassign
         options.id = proposalId;
-        proposalAccount = await client.getTutorialById(proposalId)
+        proposalAccount = await client.getTutorialById(proposalId);
       }
       if (!options.skipCeramic) {
         const ceramic = new CeramicApi({
           nodeUrl: options.nodeUrl,
         });
-        const proposalDetails = await ceramic.getMetadata(proposalAccount.streamId);
+        const proposalDetails = await ceramic.getMetadata(
+          proposalAccount.streamId,
+        );
         proposalAccount = _.merge(proposalAccount, proposalDetails);
       }
       log(proposalAccount);
-
 
       if (!Object.values(options).some(v => v)) {
         proposal
@@ -267,7 +274,6 @@ Notes:
           )
           .error('You must provide at least one option for fetching, -i or -s');
       }
-
     });
 
   return proposal;

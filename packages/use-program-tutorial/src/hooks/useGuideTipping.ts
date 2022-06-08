@@ -59,14 +59,13 @@ export const useGuideTipping = <AD>(): [
               newTipper.account.amount = newTipper.account.amount.add(amount);
 
               return [newTipper];
-            } 
-              return [
-                ...tippers,
-                {
-                  account: newTip,
-                },
-              ];
-            
+            }
+            return [
+              ...tippers,
+              {
+                account: newTip,
+              },
+            ];
           },
           {
             revalidate: false,

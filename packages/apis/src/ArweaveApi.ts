@@ -29,14 +29,18 @@ class ArweaveApi {
       host: config.host || 'localhost',
       port: config.port || 1984,
       protocol: config.protocol || 'http',
-      timeout: 200000
+      timeout: 200000,
     });
   }
 
-  async publishTutorial(data: string, wallet: string, tags: Partial<TutorialTags>): Promise<string> {
+  async publishTutorial(
+    data: string,
+    wallet: string,
+    tags: Partial<TutorialTags>,
+  ): Promise<string> {
     // Create Arweave transaction passing in data. Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
 
-    const parsedWallet = JSON.parse(wallet) as JWKPublicInterface
+    const parsedWallet = JSON.parse(wallet) as JWKPublicInterface;
     const transaction = await this.client.createTransaction(
       { data },
       parsedWallet,
@@ -48,7 +52,7 @@ class ArweaveApi {
     // - Address - Address of a user
     // - Path - Path to tutorial
     // Documentation can be found here: https://github.com/ArweaveTeam/arweave-js
-    Object.keys(tags).forEach((key) => {
+    Object.keys(tags).forEach(key => {
       const value = tags[key as keyof TutorialTags];
       transaction.addTag(key, value as string);
     });

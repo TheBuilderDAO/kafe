@@ -26,49 +26,105 @@ class AlgoliaApi {
 
   private index: SearchIndex;
 
+  private fulltextIndex: SearchIndex;
+
   constructor(config: ApiConfig) {
     this.client = algoliasearch(config.appId, config.accessKey);
 
     this.index = this.client.initIndex(config.indexName);
+    this.fulltextIndex = this.client.initIndex('tutorial_full_text');
+  }
+
+  async provisionFullText() {
+    const fullText = this.client.initIndex('tutorial_full_text');
+    await fullText.setSettings({
+      attributeForDistinct: 'parentID',
+      minWordSizefor1Typo: 4,
+      minWordSizefor2Typos: 8,
+      hitsPerPage: 10,
+      maxValuesPerFacet: 100,
+      searchableAttributes: [
+        'unordered(h1)',
+        'unordered(h2)',
+        'unordered(h3)',
+        'unordered(content)'
+      ],
+      distinct: 3,
+      attributesToSnippet: ['content:30'],
+      attributesToHighlight: ['content', 'h1', 'h2', 'h3'],
+      paginationLimitedTo: 1000,
+      exactOnSingleWordQuery: 'attribute',
+      ranking: [
+        'asc(importance)',
+        'typo',
+        'geo',
+        'words',
+        'filters',
+        'proximity',
+        'attribute',
+        'exact',
+        'custom'
+      ],
+      separatorsToIndex: '',
+      removeWordsIfNoResults: 'none',
+      queryType: 'prefixLast',
+      highlightPreTag: '<em>',
+      highlightPostTag: '</em>',
+      snippetEllipsisText: '',
+      alternativesAsExact: ['ignorePlurals', 'singleWordSynonym']
+    });
+  }
+
+  async addFulltextIndex(proposalId: string, objects: any[]) {
+    await this.fulltextIndex.deleteBy({
+      filters: `parentID = ${proposalId}`,
+    });
+    await this.fulltextIndex.saveObjects(objects);
   }
 
   async provision() {
-    const searchableAttributes = [
-      'title',
-      'tags',
-    ];
+    const searchableAttributes = ['title', 'tags'];
     const defaultRanking = [
-      "typo",
-      "geo",
-      "words",
-      "filters",
-      "proximity",
-      "attribute",
-      "exact",
-      "custom",
-    ]
-    const attributesForFaceting = [
-      "difficulty",
-      "state",
-      "tags",
+      'typo',
+      'geo',
+      'words',
+      'filters',
+      'proximity',
+      'attribute',
+      'exact',
+      'custom',
     ];
+    const attributesForFaceting = ['difficulty', 'state', 'tags'];
 
-    const numberOfVotesAscReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_asc`);
-    const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_desc`);
-    const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_asc`);
-    const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_desc`);
-    const publishedAtAscReplica = this.client.initIndex(`${this.index.indexName}_published_at_asc`);
-    const publishedAtDescReplica = this.client.initIndex(`${this.index.indexName}_published_at_desc`);
-    const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_total_tips_asc`);
-    const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_total_tips_desc`);
+    const numberOfVotesAscReplica = this.client.initIndex(
+      `${this.index.indexName}_number_of_votes_asc`,
+    );
+    const numberOfVotesDescReplica = this.client.initIndex(
+      `${this.index.indexName}_number_of_votes_desc`,
+    );
+    const lastUpdatedAtAscReplica = this.client.initIndex(
+      `${this.index.indexName}_last_updated_at_asc`,
+    );
+    const lastUpdatedAtDescReplica = this.client.initIndex(
+      `${this.index.indexName}_last_updated_at_desc`,
+    );
+    const publishedAtAscReplica = this.client.initIndex(
+      `${this.index.indexName}_published_at_asc`,
+    );
+    const publishedAtDescReplica = this.client.initIndex(
+      `${this.index.indexName}_published_at_desc`,
+    );
+    const totalTipsAscReplica = this.client.initIndex(
+      `${this.index.indexName}_total_tips_asc`,
+    );
+    const totalTipsDescReplica = this.client.initIndex(
+      `${this.index.indexName}_total_tips_desc`,
+    );
 
     await this.index.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "desc(lastUpdatedAt)",
-        ...defaultRanking,
-      ],
+      ranking: ['desc(lastUpdatedAt)', ...defaultRanking],
       replicas: [
         numberOfVotesAscReplica.indexName,
         numberOfVotesDescReplica.indexName,
@@ -78,92 +134,83 @@ class AlgoliaApi {
         publishedAtDescReplica.indexName,
         totalTipsAscReplica.indexName,
         totalTipsDescReplica.indexName,
-      ]
+      ],
     });
-
 
     await lastUpdatedAtAscReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "asc(lastUpdatedAt)",
-        ...defaultRanking,
-      ]
+      ranking: ['asc(lastUpdatedAt)', ...defaultRanking],
     });
 
     await lastUpdatedAtDescReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "desc(lastUpdatedAt)",
-        ...defaultRanking,
-      ]
+      ranking: ['desc(lastUpdatedAt)', ...defaultRanking],
     });
 
     await publishedAtAscReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "asc(publishedAt)",
-        ...defaultRanking,
-      ]
+      ranking: ['asc(publishedAt)', ...defaultRanking],
     });
 
     await publishedAtDescReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "desc(publishedAt)",
-        ...defaultRanking,
-      ]
+      ranking: ['desc(publishedAt)', ...defaultRanking],
     });
 
     await numberOfVotesAscReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "asc(numberOfVotes)",
-        ...defaultRanking,
-      ]
+      ranking: ['asc(numberOfVotes)', ...defaultRanking],
     });
 
     await numberOfVotesDescReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "desc(numberOfVotes)",
-        ...defaultRanking,
-      ]
+      ranking: ['desc(numberOfVotes)', ...defaultRanking],
     });
 
     await totalTipsAscReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "asc(totalTips)",
-        ...defaultRanking,
-      ]
+      ranking: ['asc(totalTips)', ...defaultRanking],
     });
 
     await totalTipsDescReplica.setSettings({
       searchableAttributes,
       attributesForFaceting,
-      ranking: [
-        "desc(totalTips)",
-        ...defaultRanking,
-      ]
+      ranking: ['desc(totalTips)', ...defaultRanking],
     });
   }
 
   async delete() {
-    const numberOfVotesAscReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_asc`);
-    const numberOfVotesDescReplica = this.client.initIndex(`${this.index.indexName}_number_of_votes_desc`);
-    const lastUpdatedAtAscReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_asc`);
-    const lastUpdatedAtDescReplica = this.client.initIndex(`${this.index.indexName}_last_updated_at_desc`);
-    const publishedAtAscReplica = this.client.initIndex(`${this.index.indexName}_published_at_asc`);
-    const publishedAtDescReplica = this.client.initIndex(`${this.index.indexName}_published_at_desc`);
-    const totalTipsAscReplica = this.client.initIndex(`${this.index.indexName}_total_tips_asc`);
-    const totalTipsDescReplica = this.client.initIndex(`${this.index.indexName}_total_tips_desc`);
+    const numberOfVotesAscReplica = this.client.initIndex(
+      `${this.index.indexName}_number_of_votes_asc`,
+    );
+    const numberOfVotesDescReplica = this.client.initIndex(
+      `${this.index.indexName}_number_of_votes_desc`,
+    );
+    const lastUpdatedAtAscReplica = this.client.initIndex(
+      `${this.index.indexName}_last_updated_at_asc`,
+    );
+    const lastUpdatedAtDescReplica = this.client.initIndex(
+      `${this.index.indexName}_last_updated_at_desc`,
+    );
+    const publishedAtAscReplica = this.client.initIndex(
+      `${this.index.indexName}_published_at_asc`,
+    );
+    const publishedAtDescReplica = this.client.initIndex(
+      `${this.index.indexName}_published_at_desc`,
+    );
+    const totalTipsAscReplica = this.client.initIndex(
+      `${this.index.indexName}_total_tips_asc`,
+    );
+    const totalTipsDescReplica = this.client.initIndex(
+      `${this.index.indexName}_total_tips_desc`,
+    );
 
     await this.index.delete();
 
@@ -182,11 +229,13 @@ class AlgoliaApi {
   }
 
   async upsertTutorials(records: Array<Partial<TutorialIndex>>) {
-    return this.index.partialUpdateObjects(records, { createIfNotExists: true }).wait();
+    return this.index
+      .partialUpdateObjects(records, { createIfNotExists: true })
+      .wait();
   }
 
   async deleteTutorials(records: string[]) {
-    return this.index.deleteObjects(records)
+    return this.index.deleteObjects(records);
   }
 
   async updateTutorial(objectID: string, record: Partial<TutorialIndex>) {
