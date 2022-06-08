@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 const config = {
-  siteUrl: process.env.VERCEL_URL || 'https://dev.builderdao.io',
+  siteUrl: 'https://dev.builderdao.io',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,
