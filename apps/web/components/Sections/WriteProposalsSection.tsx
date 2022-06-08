@@ -10,7 +10,6 @@ import routes from 'routes';
 export const WriteProposalsSection = () => {
   return (
     <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4 px-8">
-      <BgImage />
       <span className="text-kafedarkred">
         <HomeCTA
           headline="Create your own proposal and get rewarded in KAFE"
@@ -18,15 +17,16 @@ export const WriteProposalsSection = () => {
           cta="create a proposal"
         />
       </span>
+      <BgImage />
     </section>
   );
 };
 
 const BgImage = () => {
   return (
-    <div className="relative">
-      <div className="absolute -left-40 -top-36">
-        <span className="dark:block hidden">
+    <div className="relative -z-10 w-full object-contain max-w-[100vw]">
+      <div className="absolute -left-40 -top-36 overflow-hidden">
+        <span className="dark:block hidden w-full max-w-[420px]">
           <Image
             src={ProposeDark}
             width={400}
@@ -35,7 +35,7 @@ const BgImage = () => {
             priority={true}
           />
         </span>
-        <span className="dark:hidden block">
+        <span className="dark:hidden block w-full max-w-[420px]">
           <Image
             src={ProposeLight}
             width={400}
@@ -46,7 +46,7 @@ const BgImage = () => {
         </span>
       </div>
       <div className="absolute inset-0 w-[457px]">
-        <span className="dark:block hidden">
+        <span className="dark:block hidden w-full max-w-[420px]">
           <Image
             src={PropD}
             width={457}
@@ -55,7 +55,7 @@ const BgImage = () => {
             priority={true}
           />
         </span>
-        <span className="dark:hidden block">
+        <span className="dark:hidden block w-full max-w-[420px]">
           <Image
             src={PropL}
             width={457}
