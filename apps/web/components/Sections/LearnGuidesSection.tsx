@@ -10,14 +10,14 @@ import LearnDark from 'public/assets/images/learn_d.jpeg';
 
 export const LearnGuidesSection = () => {
   return (
-    <section className="z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem]">
+    <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4">
+      <Triangke />
       <HomeCTA
         headline="Learn from guides written by our community"
         path={routes.learn.index}
         cta="view all guides"
       />
       <GuidesCarousel />
-      <Triangke />
     </section>
   );
 };

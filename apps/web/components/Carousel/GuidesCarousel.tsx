@@ -31,10 +31,10 @@ const GuideCard = props => {
   return (
     <div
       className={
-        'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
+        'border  dark:border-kafewhite border-kafeblack max-w-[450px] min-w-[300px]  p-4 px-6 bg-kafewhite dark:bg-kafeblack'
       }
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <div className="flex items-center">
           <small className="mr-2 text-xs">Guide by</small>{' '}
           <UserAvatar ellipsis={true} address={hit.author} />
@@ -70,7 +70,10 @@ const Wrapper = ({ hits }) => {
 
   const hit = hits[currentIndex];
   return (
-    <div className="flex w-full flex-1 relative items-start justify-center">
+    <div className=" flex w-full flex-1 relative items-start justify-center shrink-0 min-h-[10rem]">
+      <div className="opacity-0 mt-4">
+        <GuideCard hit={hit} />
+      </div>
       <div key={hit.objectID} className={`absolute ml-4  z-20`}>
         <GuideCard hit={hit} />
       </div>
