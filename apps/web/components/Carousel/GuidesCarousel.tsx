@@ -31,7 +31,7 @@ const GuideCard = props => {
   return (
     <div
       className={
-        'border  dark:border-kafewhite border-kafeblack max-w-[450px] min-w-[300px]  p-4 px-6 bg-kafewhite dark:bg-kafeblack'
+        'border  dark:border-kafewhite border-kafeblack max-w-[450px] min-w-[300px]  p-4 px-6 bg-kafewhite dark:bg-kafeblack flex flex-col'
       }
     >
       <div className="flex items-center justify-between ">
@@ -43,9 +43,9 @@ const GuideCard = props => {
       </div>
       <div>
         <Link href={routes.learn.guide(hit.slug)}>
-          <h3 className="text-2xl font-larken mt-14">{hit.title}</h3>
+          <h3 className="text-2xl font-larken py-4">{hit.title}</h3>
         </Link>
-        <p className="text-xs tracking-wide">
+        <p className="text-xs tracking-wide py-4">
           {truncateString(hit.description)}
         </p>
         <div className="mt-4">
