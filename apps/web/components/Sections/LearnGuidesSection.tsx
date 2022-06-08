@@ -11,7 +11,7 @@ import LearnDark from 'public/assets/images/learn_d.jpeg';
 export const LearnGuidesSection = () => {
   return (
     <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4 px-8">
-      <Triangke />
+      <BgImage />
       <HomeCTA
         headline="Learn from guides written by our community"
         path={routes.learn.index}
@@ -43,9 +43,9 @@ const HomeCTA = ({ headline, path, cta }: CTAProps) => {
 };
 
 export default HomeCTA;
-export const Triangke = () => {
+export const BgImage = () => {
   return (
-    <div className="flex items-center justify-center w-full h-full absolute -z-10 -mt-10">
+    <div className="flex items-center justify-center w-full h-full absolute -z-10 -mt-52">
       <span className="dark:block hidden w-full max-w-[420px]">
         <Image
           src={LearnDark}
