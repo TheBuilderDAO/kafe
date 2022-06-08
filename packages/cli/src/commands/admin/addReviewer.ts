@@ -17,12 +17,9 @@ $ builderdao admin addReviewer --adminKp <bs58Secret> --reviewerPk <bs58Pubkey> 
 export const AdminAddReviewer = () => {
   const addReviewer = new commander.Command('addReviewer')
     .description('Add a reviewer to Kafe program')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText);
 
-    addReviewer
+  addReviewer
     .addOption(
       new commander.Option(
         '--adminKp <adminKp>',
@@ -44,29 +41,26 @@ export const AdminAddReviewer = () => {
       new commander.Option(
         '--ghHandle <ghHandle>',
         'github handle of the new reviewer',
-      )
-        .makeOptionMandatory(),
+      ).makeOptionMandatory(),
     )
-    .action(
-      async (options) => {
-        const client = getClient({
-          network: addReviewer.optsWithGlobals().network,
-          payer: options.adminKp,
-        });
-  
-        const spinner = ora('Processing transaction')
-        spinner.start();
+    .action(async options => {
+      const client = getClient({
+        network: addReviewer.optsWithGlobals().network,
+        payer: options.adminKp,
+      });
 
-        const signature = await client.createReviewer({
-          reviewerPk: options.reviewerPk,
-          authorityPk: options.adminKp.publicKey.toString(),
-          githubName: options.ghHandle,
-        });
+      const spinner = ora('Processing transaction');
+      spinner.start();
 
-        spinner.succeed(`signature: ${signature}`);
-        spinner.stop();
-      },
-    );
+      const signature = await client.createReviewer({
+        reviewerPk: options.reviewerPk,
+        authorityPk: options.adminKp.publicKey.toString(),
+        githubName: options.ghHandle,
+      });
+
+      spinner.succeed(`signature: ${signature}`);
+      spinner.stop();
+    });
 
   return addReviewer;
-}
+};

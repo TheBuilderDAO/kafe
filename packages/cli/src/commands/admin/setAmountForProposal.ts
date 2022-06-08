@@ -24,10 +24,7 @@ $ builderdao admin setAmountForProposal --adminKp <bs58Secret> --amount <number>
 export const AdminSetAmountForProposal = () => {
   const setAmountForProposal = new commander.Command('setAmountForProposal')
     .description('Set KAFE amount to create proposal')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText);
 
   setAmountForProposal
     .addOption(
@@ -47,25 +44,23 @@ export const AdminSetAmountForProposal = () => {
         .argParser(val => myParseInt(val))
         .makeOptionMandatory(),
     )
-    .action(
-      async (options) => {
-        const client = getClient({
-          network: setAmountForProposal.optsWithGlobals().network,
-          payer: options.adminKp,
-        });
+    .action(async options => {
+      const client = getClient({
+        network: setAmountForProposal.optsWithGlobals().network,
+        payer: options.adminKp,
+      });
 
-        const spinner = ora('Processing transaction')
-        spinner.start();
+      const spinner = ora('Processing transaction');
+      spinner.start();
 
-        const signature = await client.daoSetMinAmountForProposal({
-          amount: options.amount,
-          adminPk: options.adminKp,
-        });
+      const signature = await client.daoSetMinAmountForProposal({
+        amount: options.amount,
+        adminPk: options.adminKp,
+      });
 
-        spinner.succeed(`signature: ${signature}`);
-        spinner.stop();
-      },
-    );
+      spinner.succeed(`signature: ${signature}`);
+      spinner.stop();
+    });
 
   return setAmountForProposal;
-} 
+};

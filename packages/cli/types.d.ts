@@ -1,3 +1,3 @@
 declare module 'lowdb-node' {
-  export * from 'lowdb'
+  export * from 'lowdb';
 }

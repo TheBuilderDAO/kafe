@@ -2,7 +2,7 @@ import { findAfter } from 'unist-util-find-after';
 import visitParents from 'unist-util-visit-parents';
 
 const MAX_HEADING_DEPTH = 4;
-
+let count = 1;
 function sectionize(node: any, ancestors: any) {
   const start = node;
   const depth = start.depth;
@@ -20,7 +20,6 @@ function sectionize(node: any, ancestors: any) {
     startIndex,
     endIndex > 0 ? endIndex : undefined,
   );
-
   const section = {
     type: 'section',
     depth: depth,

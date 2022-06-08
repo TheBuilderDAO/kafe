@@ -1,0 +1,1 @@
+export { serializeContent } from './serializeContent';

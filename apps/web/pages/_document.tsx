@@ -1,16 +1,16 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { NextSeo } from 'next-seo';
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <meta
-            property="og:image"
-            content="https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg"
+          <NextSeo
+            defaultTitle='Kafé by Builder DAO'
+            titleTemplate='%s | Kafé by Builder DAO'
           />
-          <meta property="og:url" content="https://learn.figment.io/" />
         </Head>
         <body className="">
           <Main />
