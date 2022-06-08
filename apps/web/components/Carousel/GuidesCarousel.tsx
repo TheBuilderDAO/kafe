@@ -49,7 +49,7 @@ const GuideCard = props => {
           {truncateString(hit.description)}
         </p>
         <div className="mt-4">
-          <Tags tags={hit.tags} />
+          <Tags tags={hit.tags.slice(0, 3)} />
         </div>
       </div>
     </div>
@@ -77,10 +77,10 @@ const Wrapper = ({ hits }) => {
       <div key={hit.objectID} className={`absolute ml-4  z-20`}>
         <GuideCard hit={hit} />
       </div>
-      <div key="dummy-1" className={`absolute ml-2 mt-2 z-10`}>
+      <div key="dummy-1" className={`absolute ml-2 mt-2 mr-2 z-10`}>
         <GuideCard hit={hit} />
       </div>
-      <div key="dummy-2" className={`absolute  mt-4`}>
+      <div key="dummy-2" className={`absolute mt-4 mr-4`}>
         <GuideCard hit={hit} />
       </div>
     </div>
