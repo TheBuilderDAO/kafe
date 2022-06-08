@@ -11,6 +11,7 @@ import ProposeLight from 'public/assets/images/propose_l.png';
 import ProposeDark from 'public/assets/images/propose_d.jpeg';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { LearnGuidesSection } from '@app/components/Sections/LearnGuidesSection';
 
 const LandingPage: NextPage = () => {
   const { theme } = useTheme();
@@ -20,23 +21,15 @@ const LandingPage: NextPage = () => {
       <Head>
         <title>Builder DAO</title>
       </Head>
-      <div className="relative z-0 flex">
-        <div className="w-0.5 h-[1500px] -mt-24 bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61]"></div>
-        <main className="z-10 flex flex-col w-9/12 px-24 pt-60">
-          <div className="z-10 flex">
-            <div className="text-kafedarkred">
-              <HomeCTA
-                headline="Learn from guides written by our community"
-                path={routes.learn.index}
-                cta="view all guides"
-              />
-            </div>
-            <div className="-mt-8">
-              <GuidesCarousel />
-            </div>
-          </div>
+      <div className="w-0.5 h-[1500px]  bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61] fixed top-0"></div>
+      <div className="relative  flex  bg-opacity-10">
+        <main className="flex flex-col w-full">
+          <LearnGuidesSection />
+          <LearnGuidesSection />
+          <LearnGuidesSection />
+          <LearnGuidesSection />
 
-          <div className="z-10 flex items-center mt-44">
+          {/* <div className="z-10 flex items-center mt-44">
             <ProposalsCarousel />
             <div className="z-10 pl-48 text-kafedarkpurple">
               <HomeCTA
@@ -45,9 +38,9 @@ const LandingPage: NextPage = () => {
                 cta="view all proposals"
               />
             </div>
-          </div>
+          </div> */}
 
-          <div className="relative z-0 flex justify-between py-16">
+          {/* <div className="relative z-0 flex justify-between py-16">
             <div className="mr-48 text-kafedarkred">
               <HomeCTA
                 headline="Create your own proposal and get rewarded in KAFE"
@@ -55,7 +48,7 @@ const LandingPage: NextPage = () => {
                 cta="create a proposal"
               />
             </div>
-            <div className="relative w-[5000px]">
+            <div className="relative">
               <div className="absolute -left-40 -top-36">
                 {dark && (
                   <Image
@@ -97,7 +90,7 @@ const LandingPage: NextPage = () => {
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
         </main>
       </div>
     </div>

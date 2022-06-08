@@ -1,6 +1,4 @@
 import React from 'react';
-import LearnLight from 'public/assets/images/learn_l.png';
-import LearnDark from 'public/assets/images/learn_d.jpeg';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import ImageStack from '../ImageStack';
 import Tags from '../Tags/Tags';
@@ -72,34 +70,14 @@ const Wrapper = ({ hits }) => {
 
   const hit = hits[currentIndex];
   return (
-    <div className="relative w-96">
-      <div className="absolute w-[420px] h-[420px] -top-44 -left-6">
-        {dark && (
-          <Image
-            src={LearnDark}
-            width={420}
-            height={420}
-            alt="learn"
-            priority={true}
-          />
-        )}
-        {!dark && (
-          <Image
-            src={LearnLight}
-            width={420}
-            height={420}
-            alt="learn"
-            priority={true}
-          />
-        )}
-      </div>
-      <div key={hit.objectID} className={`absolute left-[125px] top-[30px]`}>
+    <div className="flex w-full flex-1 relative items-start justify-center">
+      <div key={hit.objectID} className={`absolute ml-4  z-20`}>
         <GuideCard hit={hit} />
       </div>
-      <div key="dummy-1" className={`absolute left-[135px] top-[20px]`}>
+      <div key="dummy-1" className={`absolute ml-2 mt-2 z-10`}>
         <GuideCard hit={hit} />
       </div>
-      <div key="dummy-2" className={`absolute left-[145px] top-[10px]`}>
+      <div key="dummy-2" className={`absolute  mt-4`}>
         <GuideCard hit={hit} />
       </div>
     </div>
@@ -110,19 +88,17 @@ const Guides = connectHits(Wrapper);
 
 const GuidesCarousel = () => {
   return (
-    <div className="cursor-pointer">
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
-      >
-        <Configure
-          hitsPerPage={PER_PAGE}
-          analytics={false}
-          filters="state:published"
-        />
-        <Guides />
-      </InstantSearch>
-    </div>
+    <InstantSearch
+      searchClient={searchClient}
+      indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
+    >
+      <Configure
+        hitsPerPage={PER_PAGE}
+        analytics={false}
+        filters="state:published"
+      />
+      <Guides />
+    </InstantSearch>
   );
 };
 
