@@ -6,7 +6,7 @@ const getEnvOrFail = <T>(
   optional = false,
 ): T => {
   if (val) {
-    return val as unknown as T;
+    return (val as unknown) as T;
   } else {
     if (key.startsWith('NEXT_PUBLIC') && !optional) {
       throw new Error(`Missing env ${key}`);
@@ -22,9 +22,9 @@ const getEnvOrFail = <T>(
 
 export const NODE_ENV = getEnvOrFail<string>(process.env.NODE_ENV, 'NODE_ENV');
 
-export const ALGOLIA_WRITE_API_KEY = getEnvOrFail<string>(
-  process.env.ALGOLIA_WRITE_API_KEY,
-  'ALGOLIA_WRITE_API_KEY',
+export const ALGOLIA_ADMIN_KEY = getEnvOrFail<string>(
+  process.env.ALGOLIA_ADMIN_KEY,
+  'ALGOLIA_ADMIN_KEY',
   true,
 );
 export const ARWEAVE_REQUIRED_CONFIRMATIONS = 2;
@@ -57,11 +57,9 @@ export const NEXT_PUBLIC_BDR_MINT = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_BDR_MINT,
   'NEXT_PUBLIC_BDR_MINT',
 );
-export const NEXT_PUBLIC_SOLANA_NETWORK =
-  getEnvOrFail<TutorialProgramConfig.Network>(
-    process.env.NEXT_PUBLIC_SOLANA_NETWORK,
-    'NEXT_PUBLIC_SOLANA_NETWORK',
-  );
+export const NEXT_PUBLIC_SOLANA_NETWORK = getEnvOrFail<
+  TutorialProgramConfig.Network
+>(process.env.NEXT_PUBLIC_SOLANA_NETWORK, 'NEXT_PUBLIC_SOLANA_NETWORK');
 export const NEXT_PUBLIC_SOLANA_NODE_URL = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_SOLANA_NODE_URL,
   'NEXT_PUBLIC_SOLANA_NODE_URL',
