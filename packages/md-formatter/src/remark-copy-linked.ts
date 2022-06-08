@@ -71,7 +71,6 @@ export const remarkCopyLinkedFiles = (options: { destination: string, sourceUrl:
         })
         node.alt = `TODO:NOT_FOUND ${node.alt}`
       } else {
-        console.log("RELATIVE", node.url, options.sourceUrl)
         throw Error("RELATIVE",)
       }
 

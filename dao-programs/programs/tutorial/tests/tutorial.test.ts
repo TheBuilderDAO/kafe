@@ -66,7 +66,6 @@ describe('tutorial-program', () => {
   const provider = anchor.Provider.env();
   anchor.setProvider(anchor.Provider.env());
   const program = anchor.workspace.Tutorial as Program<Tutorial>;
-  console.log('PROGRAM ID', program.programId.toString());
 
   // Declare our Mint & authority & user
   let auth1 = anchor.web3.Keypair.generate();
@@ -252,12 +251,15 @@ describe('tutorial-program', () => {
     const user2tokenAmount = await provider.connection.getTokenAccountBalance(
       user2Ata.address,
     );
-    const reviewer1tokenAmount =
-      await provider.connection.getTokenAccountBalance(reviewer1Ata.address);
-    const reviewer2tokenAmount =
-      await provider.connection.getTokenAccountBalance(reviewer2Ata.address);
-    const reviewer3tokenAmount =
-      await provider.connection.getTokenAccountBalance(reviewer3Ata.address);
+    const reviewer1tokenAmount = await provider.connection.getTokenAccountBalance(
+      reviewer1Ata.address,
+    );
+    const reviewer2tokenAmount = await provider.connection.getTokenAccountBalance(
+      reviewer2Ata.address,
+    );
+    const reviewer3tokenAmount = await provider.connection.getTokenAccountBalance(
+      reviewer3Ata.address,
+    );
 
     expect(user1tokenAmount.value.amount).toBe('2000000');
     expect(user2tokenAmount.value.amount).toBe('2000000');
@@ -397,12 +399,15 @@ describe('tutorial-program', () => {
     const user2tokenAmount = await provider.connection.getTokenAccountBalance(
       user2AtaBDR.address,
     );
-    const reviewer1tokenAmount =
-      await provider.connection.getTokenAccountBalance(reviewer1AtaBDR.address);
-    const reviewer2tokenAmount =
-      await provider.connection.getTokenAccountBalance(reviewer2AtaBDR.address);
-    const reviewer3tokenAmount =
-      await provider.connection.getTokenAccountBalance(reviewer3AtaBDR.address);
+    const reviewer1tokenAmount = await provider.connection.getTokenAccountBalance(
+      reviewer1AtaBDR.address,
+    );
+    const reviewer2tokenAmount = await provider.connection.getTokenAccountBalance(
+      reviewer2AtaBDR.address,
+    );
+    const reviewer3tokenAmount = await provider.connection.getTokenAccountBalance(
+      reviewer3AtaBDR.address,
+    );
 
     expect(user1tokenAmount.value.amount).toBe('1000000');
     expect(user2tokenAmount.value.amount).toBe('1000000');
@@ -1307,7 +1312,7 @@ describe('tutorial-program', () => {
       pdaProposalById,
       nonce,
     );
-    console.log('>>>>', superAdmin.publicKey.toString());
+
     expect(proposalAccount.creator.toString()).toBe(user2.publicKey.toString());
   });
 
@@ -1350,7 +1355,6 @@ describe('tutorial-program', () => {
     );
     let vaultAmount = new anchor.BN(parseInt(vaultBalance.value.amount));
     const bb = await provider.connection.getBalance(superAdmin.publicKey);
-    console.log(bb.toString());
 
     await daoVaultClose({
       program,

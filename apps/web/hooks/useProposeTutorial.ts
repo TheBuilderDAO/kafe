@@ -61,8 +61,6 @@ export const useProposeTutorial = <AD>(): [
           },
         });
 
-        console.log('StreamID', streamId);
-
         // Create tutorial in Solana program
         const txHash = await proposeTutorial({
           id,

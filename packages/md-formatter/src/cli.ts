@@ -138,7 +138,7 @@ const process = async () => {
       }
       // console.log(proposal)
     } else {
-      console.log("NOPE >> ", value.slug)
+      console.log(`Proposal not found for slug=${value.slug}`)
     }
   }).value()
 
