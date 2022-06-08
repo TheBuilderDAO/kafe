@@ -48,7 +48,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
             <AlphaBadge />
             <LeftSidebar />
           </div>
-          <div className="min-w-full col-span-11 md:col-span-9 ml-0 lg:ml-8">
+          <div className="min-w-full col-span-11 md:col-span-10 ml-0 lg:ml-8">
             <div className="sticky z-10 top-10">
               <Header />
             </div>

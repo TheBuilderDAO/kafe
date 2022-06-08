@@ -12,6 +12,7 @@ import ProposeDark from 'public/assets/images/propose_d.jpeg';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { LearnGuidesSection } from '@app/components/Sections/LearnGuidesSection';
+import { VoteProposalsSection } from '@app/components/Sections/VoteProposalsSection';
 
 const LandingPage: NextPage = () => {
   const { theme } = useTheme();
@@ -21,13 +22,16 @@ const LandingPage: NextPage = () => {
       <Head>
         <title>Builder DAO</title>
       </Head>
-      <div className="w-0.5 h-[1500px]  bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61] fixed top-0"></div>
+      <div className="z-10 w-0.5 h-[1500px]  bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61] fixed top-0"></div>
       <div className="relative  flex  bg-opacity-10">
         <main className="flex flex-col w-full">
           <LearnGuidesSection />
+          <VoteProposalsSection />
+          <VoteProposalsSection />
+          <VoteProposalsSection />
+          {/* <LearnGuidesSection />
           <LearnGuidesSection />
-          <LearnGuidesSection />
-          <LearnGuidesSection />
+          <LearnGuidesSection /> */}
 
           {/* <div className="z-10 flex items-center mt-44">
             <ProposalsCarousel />

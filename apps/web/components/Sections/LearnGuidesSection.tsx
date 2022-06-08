@@ -12,11 +12,13 @@ export const LearnGuidesSection = () => {
   return (
     <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4 px-8">
       <BgImage />
-      <HomeCTA
-        headline="Learn from guides written by our community"
-        path={routes.learn.index}
-        cta="view all guides"
-      />
+      <span className="text-kafedarkred">
+        <HomeCTA
+          headline="Learn from guides written by our community"
+          path={routes.learn.index}
+          cta="view all guides"
+        />
+      </span>
       <GuidesCarousel />
     </section>
   );
@@ -30,7 +32,7 @@ type CTAProps = {
 const HomeCTA = ({ headline, path, cta }: CTAProps) => {
   return (
     <div
-      className={`font-larken text-2xl tracking-wider max-w-[18rem] text-kafedarkred p-2 flex-1`}
+      className={`font-larken text-2xl tracking-wider max-w-[18rem]  p-2 flex-1`}
     >
       <h3>{headline}</h3>
       <Link href={path} passHref>
@@ -42,7 +44,6 @@ const HomeCTA = ({ headline, path, cta }: CTAProps) => {
   );
 };
 
-export default HomeCTA;
 export const BgImage = () => {
   return (
     <div className="flex items-center justify-center w-full h-full absolute -z-10 -mt-52">
@@ -52,6 +53,7 @@ export const BgImage = () => {
           width={420}
           height={420}
           layout="responsive"
+          className="-z-10"
           alt="learn"
           priority={true}
         />
