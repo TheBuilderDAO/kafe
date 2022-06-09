@@ -1,0 +1,6 @@
+{
+  "title": "Why Upgrade Smart Contracts? The How to guide!",
+  "description": "Smart Contracts are meant to be immutable! That is a principal pillar of decentralization. Why do we need to create(read upgrade) new versions of Smart Contracts? Well, the same reason the V2 of software is better than V1. In this article, the reader will learn what upgradable Smart Contracts are and how to write an upgradable contract. Using a code example, we will build and deploy a ticketing Smart Contract which is upgradeable using the Transparent Proxy Pattern.\n",
+  "imageUrl": "",
+  "categories": ["Hardhat", "Javascript", "Smart Contract", "Solidity"]
+}
