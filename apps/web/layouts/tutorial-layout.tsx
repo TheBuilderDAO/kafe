@@ -43,35 +43,36 @@ export const TutorialLayout: React.FC<Props> = ({
   const path = `/learn/${query.slug[0]}`;
 
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col md:flex-row justify-between">
       <SectionContainer>
-        {/* <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} /> */}
-        <article className="z-50 inline-flex mt-8 border dark:bg-kafeblack bg-kafewhite border-1 border-kafeblack dark:border-kafewhite">
-          <div className="py-4 px-7">
+        <article className="z-50  mt-8 md:border  dark:bg-kafeblack bg-kafewhite md:border-1 md:border-kafeblack md:dark:border-kafewhite">
+          <div className="py-4  md:px-7">
             <header>
               <div className="pb-5 space-y-1 text-center">
                 <dl>
-                  <div className="flex justify-between text-xs">
-                    <div className="flex items-center space-x-1">
+                  <div className="flex justify-between text-xs flex-wrap">
+                    <div className="order-2">
+                      <dt className="sr-only">Published on</dt>
+                      <dd className="sm:ml-4 text-xs font-medium leading-6">
+                        <time dateTime={date}>{formatDate(date)}</time>
+                      </dd>
+                    </div>
+                    <div className="flex flex-row items-center space-x-1 order-1">
                       <p>Guide by</p>
                       <UserAvatar address={lock.creator} ellipsis={true} />
-                      <div>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="ml-4 text-xs font-medium leading-6">
-                          <time dateTime={date}>{formatDate(date)}</time>
-                        </dd>
-                      </div>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <p>Reviewed by</p>
-                      <UserAvatar
-                        address={lock.reviewers.reviewer1.pubkey}
-                        ellipsis={true}
-                      />
-                      <UserAvatar
-                        address={lock.reviewers.reviewer2.pubkey}
-                        ellipsis={true}
-                      />
+                    <div className="flex items-start md:items-center space-x-2 flex-wrap flex-col md:flex-row  w-full order-3">
+                      <p className="mb-2 md:mb-0">Reviewed by</p>
+                      <div className="flex flex-col md:flex-row ml-4 gap-2">
+                        <UserAvatar
+                          address={lock.reviewers.reviewer1.pubkey}
+                          ellipsis={true}
+                        />
+                        <UserAvatar
+                          address={lock.reviewers.reviewer2.pubkey}
+                          ellipsis={true}
+                        />
+                      </div>
                     </div>
                   </div>
                 </dl>
@@ -91,13 +92,13 @@ export const TutorialLayout: React.FC<Props> = ({
               className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 "
               style={{ gridTemplateRows: 'auto 1fr' }}
             >
-              <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0">
-                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite prose-td:break-all first:prose-td:break-normal prose-td:border prose-td:border-kafemellow prose-td:p-1">
+              <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 ">
+                <div className="pt-10 pb-8 mx-auto text-base leading-8 prose-sm prose break-words dark:prose-invert prose-a:font-larken prose-a:no-underline prose:a-text-kafeblack dark:prose-a:text-kafewhite prose-a:text-lg hover:prose-a:underline prose-code:p-1 dark:prose-code:bg-kafedarker prose-code:rounded prose-code:b text-kafedark dark:text-kafewhite prose-td:break-all first:prose-td:break-normal prose-td:border prose-td:border-kafemellow prose-td:p-1 w-full prose-img:hidden">
                   {children}
                 </div>
               </div>
               {/*<Comments frontMatter={frontMatter} />*/}
-              <footer className="bg-">
+              <footer>
                 <div className="flex flex-row justify-between text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                   {prev && (
                     <div className="pt-4 xl:pt-8">

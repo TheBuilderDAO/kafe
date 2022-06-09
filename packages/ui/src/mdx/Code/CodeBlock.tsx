@@ -161,11 +161,11 @@ const CodeSnippetWrapper = tw(styled('div')`
     /**
      * Make it fullbleed!
      */
-    width: 100vw;
+    width: 90vw;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
+    // left: 50%;
+    // right: 50%;
+    // margin-left: -50vw;
     margin-right: -50vw;
     border-radius: 0px;
   }
