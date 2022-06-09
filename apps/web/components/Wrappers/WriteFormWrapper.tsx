@@ -8,7 +8,7 @@ const WriteFormWrapper = ({ children, handleSubmit, onSubmit }) => {
 
   return (
     <form
-      className="flex items-start justify-between w-full mb-40"
+      className="flex flex-col md:flex-row items-start justify-between w-full mb-40 "
       onSubmit={handleSubmit(onSubmit, onError)}
     >
       {children}
