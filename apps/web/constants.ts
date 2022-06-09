@@ -6,7 +6,7 @@ const getEnvOrFail = <T>(
   optional = false,
 ): T => {
   if (val) {
-    return (val as unknown) as T;
+    return val as unknown as T;
   } else {
     if (key.startsWith('NEXT_PUBLIC') && !optional) {
       throw new Error(`Missing env ${key}`);
@@ -57,9 +57,11 @@ export const NEXT_PUBLIC_BDR_MINT = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_BDR_MINT,
   'NEXT_PUBLIC_BDR_MINT',
 );
-export const NEXT_PUBLIC_SOLANA_NETWORK = getEnvOrFail<
-  TutorialProgramConfig.Network
->(process.env.NEXT_PUBLIC_SOLANA_NETWORK, 'NEXT_PUBLIC_SOLANA_NETWORK');
+export const NEXT_PUBLIC_SOLANA_NETWORK =
+  getEnvOrFail<TutorialProgramConfig.Network>(
+    process.env.NEXT_PUBLIC_SOLANA_NETWORK,
+    'NEXT_PUBLIC_SOLANA_NETWORK',
+  );
 export const NEXT_PUBLIC_SOLANA_NODE_URL = getEnvOrFail<string>(
   process.env.NEXT_PUBLIC_SOLANA_NODE_URL,
   'NEXT_PUBLIC_SOLANA_NODE_URL',

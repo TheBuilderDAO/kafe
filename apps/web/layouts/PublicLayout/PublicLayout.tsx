@@ -10,6 +10,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import routes from 'routes';
 import usePageLoadingProgress from '../../hooks/usePageLoadingProgress';
+import AlphaBadge from '@app/components/Badge/AlphaBadge';
+import NetworkBadge from '@app/components/Badge/NetworkBadge';
 
 type PublicLayoutProps = {
   children: ReactElement;
@@ -42,7 +44,10 @@ const PublicLayout = (props: PublicLayoutProps) => {
       <Wrapper>
         <div className="grid grid-cols-12">
           <div className="z-10 col-span-1">
-            <AlphaBadge />
+            <div className="fixed top-0 z-50">
+              <AlphaBadge />
+              <NetworkBadge />
+            </div>
             <LeftSidebar />
           </div>
           <div className="min-w-full col-span-11 ml-0 lg:ml-8">
@@ -58,11 +63,5 @@ const PublicLayout = (props: PublicLayoutProps) => {
     </div>
   );
 };
-const AlphaBadge = () => {
-  return (
-    <div className="fixed top-0 z-50 px-2 py-1 text-[11px] bg-kafepurple">
-      alpha
-    </div>
-  );
-};
+
 export default PublicLayout;

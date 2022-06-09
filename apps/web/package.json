@@ -61,6 +61,7 @@
     "react-instantsearch-hooks": "^6.26.0",
     "react-modal": "^3.14.4",
     "react-select": "^5.2.2",
+    "react-tooltip": "^4.2.21",
     "react-use": "^17.4.0",
     "remark-autolink-headings": "^7.0.1",
     "remark-slug": "^7.0.1",
