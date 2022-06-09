@@ -6,8 +6,8 @@ import { KBarButton } from '@app/components/Button/KBarButton';
 
 const Header = () => {
   return (
-    <div className="mt-0 flex justify-end w-full">
-      <div className="w-menu flex justify-between">
+    <div className="mt-0 flex sm:justify-end justify-around w-full sm:mt-0">
+      <div className="flex justify-between items-center">
         <div className="mr-1">
           <KBarButton />
         </div>

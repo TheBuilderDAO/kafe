@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import LeftSidebar from './LeftSidebar';
+import LeftSidebar, { AnimatedLogo } from './LeftSidebar';
 import Header from './Header';
 import Content from './Content';
 import { useGetDaoState } from '@builderdao/use-program-tutorial';
@@ -38,18 +38,21 @@ const PublicLayout = (props: PublicLayoutProps) => {
 
   return (
     <div
-      className="flex flex-wrap min-h-screen font-space p-9 relative
+      className="flex flex-wrap min-h-screen font-space p-2 sm:p-9 relative
      bg-kafewhite dark:text-kafewhite dark:bg-kafeblack tracking-wider mx-auto leading-relaxed"
     >
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
-          <div className="z-20 col-span-1">
-            <AlphaBadge />
+          <AlphaBadge />
+          <div className="z-20 col-span-1 hidden md:block">
             <LeftSidebar />
           </div>
-          <div className="min-w-full col-span-11 md:col-span-10 ml-0 lg:ml-8">
-            <div className="sticky z-10 top-10">
+          <div className="min-w-full col-span-12 md:col-span-10 ml-0 lg:ml-8">
+            <div className="mt-4 md:hidden">
+              <AnimatedLogo />
+            </div>
+            <div className="sticky z-30 top-10">
               <Header />
             </div>
             <Content>{children}</Content>

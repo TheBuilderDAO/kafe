@@ -14,15 +14,14 @@ import {
   useViewportScroll,
 } from 'framer-motion';
 
-const LeftSidebar = () => {
+export const AnimatedLogo = () => {
   const router = useRouter();
   const homepage = router.pathname === routes.home;
   const { scrollYProgress } = useViewportScroll();
-  const y = useMotionValue(0);
   const headingSize = useTransform(
     scrollYProgress,
     [0, 0.004],
-    [homepage ? 400 : 270, 150],
+    [homepage ? 340 : 270, 150],
   );
   const fontSize = useTransform(scrollYProgress, [0, 0.004], [14, 0]);
   const headingSizeSpring = useSpring(headingSize, {
@@ -33,23 +32,28 @@ const LeftSidebar = () => {
   });
   const fontSizePx = useMotionTemplate`${fontSizeSpring}px`;
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
+  return (
+    <motion.div style={{ width: headingSizePx }}>
+      <LogoSVG />
+      {homepage && (
+        <motion.div
+          className="pt-2 text-sm text-right"
+          style={{ fontSize: fontSizePx }}
+        >
+          Build a better internet, together
+        </motion.div>
+      )}
+    </motion.div>
+  );
+};
 
+const LeftSidebar = () => {
   return (
     <div className="sticky w-full top-10">
       <div>
         <Link key="learn" href={routes.home} passHref>
           <div className="z-0 mt-0 cursor-pointer">
-            <motion.div style={{ width: headingSizePx }}>
-              <LogoSVG />
-              {homepage && (
-                <motion.div
-                  className="pt-2 text-sm text-right"
-                  style={{ fontSize: fontSizePx }}
-                >
-                  Build a better internet, together
-                </motion.div>
-              )}
-            </motion.div>
+            <AnimatedLogo />
           </div>
         </Link>
         <Navigation />

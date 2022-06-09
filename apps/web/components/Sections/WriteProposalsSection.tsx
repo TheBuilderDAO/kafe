@@ -9,7 +9,7 @@ import routes from 'routes';
 
 export const WriteProposalsSection = () => {
   return (
-    <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4 px-8">
+    <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4 px-8 ">
       <span className="text-kafedarkred">
         <HomeCTA
           headline="Create your own proposal and get rewarded in KAFE"
@@ -18,6 +18,7 @@ export const WriteProposalsSection = () => {
         />
       </span>
       <BgImage />
+      <div className="w-full h-[400px] opacity-0" />
     </section>
   );
 };
@@ -25,7 +26,7 @@ export const WriteProposalsSection = () => {
 const BgImage = () => {
   return (
     <div className="relative -z-10 w-full object-contain max-w-[100vw]">
-      <div className="absolute -left-40 -top-36 overflow-hidden">
+      <div className="absolute md:-ml-48 md:-mt-40 -mt-32 overflow-hidden ">
         <span className="dark:block hidden w-full max-w-[420px]">
           <Image
             src={ProposeDark}
@@ -45,7 +46,7 @@ const BgImage = () => {
           />
         </span>
       </div>
-      <div className="absolute inset-0 w-[457px]">
+      <div className="absolute inset-0 max-w-[457px] w-full">
         <span className="dark:block hidden w-full max-w-[420px]">
           <Image
             src={PropD}

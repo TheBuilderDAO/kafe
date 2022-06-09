@@ -10,7 +10,7 @@ import LearnDark from 'public/assets/images/learn_d.jpeg';
 
 export const LearnGuidesSection = () => {
   return (
-    <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-center py-4 px-8">
+    <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-start py-4 px-8">
       <BgImage />
       <span className="text-kafedarkred">
         <HomeCTA

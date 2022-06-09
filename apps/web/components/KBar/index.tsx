@@ -39,7 +39,7 @@ const Positioner = tw(
 const Search = tw(KBarSearch)`w-full py-3 px-4 mb-4`;
 const Animator = tw(
   KBarAnimator,
-)`max-w-3xl bg-kafeblack p-4 w-full rounded overflow-hidden shadow-lg min-h-[40rem]`;
+)`max-w-3xl bg-kafeblack p-4 w-full rounded overflow-hidden shadow-lg min-h-[40rem] z-50`;
 
 const searchClient = algoliasearch(
   NEXT_PUBLIC_ALGOLIA_APP_ID as string,
