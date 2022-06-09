@@ -49,7 +49,7 @@ const PublicLayout = (props: PublicLayoutProps) => {
             <LeftSidebar />
           </div>
           <div className="min-w-full col-span-12 md:col-span-10 ml-0 lg:ml-8">
-            <div className="mt-4 md:hidden">
+            <div className="mt-6 md:hidden">
               <AnimatedLogo />
             </div>
             <div className="sticky z-30 top-10">

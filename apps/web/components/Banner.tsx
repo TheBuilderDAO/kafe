@@ -8,7 +8,7 @@ const Banner = ({ header, description, link }) => {
   return (
     <motion.div
       className={
-        'absolute left-0 right-0 top-12 text-xs leading-2 mx-auto w-[360px] lg:block'
+        'absolute left-4 sm:left-0 right-0 top-52 sm:top-16 text-xs leading-2 mx-auto w-[360px] lg:block'
       }
       style={{
         opacity,

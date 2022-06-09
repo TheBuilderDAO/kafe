@@ -68,7 +68,7 @@ export const KBar: React.FC = ({ children }) => {
       icon: <HomeIcon />,
     },
     {
-      id: 'learn',
+      id: 'go-to-learn',
       name: 'Learn',
       shortcut: ['g', 'l'],
       section: 'Go To',
@@ -119,7 +119,7 @@ export const KBar: React.FC = ({ children }) => {
     {
       id: 'github',
       name: 'Give a star on Github',
-      shortcut: ['g'],
+      shortcut: ['g', 'g'],
       section: 'Follow',
       keywords: 'github, star, follow',
       perform: () =>

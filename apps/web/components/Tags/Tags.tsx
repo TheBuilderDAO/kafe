@@ -28,7 +28,7 @@ const Tags: React.FC<TagsProps> = props => {
     return tag?.value?.toUpperCase() || tag?.toUpperCase();
   };
   return (
-    <span>
+    <span className="flex flex-wrap">
       {(!shortenedTags || !!overrideLengthCheck) &&
         tags.map((tag, index) => (
           <span

@@ -15,8 +15,8 @@ const GuideHitFilter = () => {
   const { theme } = useTheme();
   const customStyles = getCustomStyles(theme);
   return (
-    <div className="divide-y-2 dark:divide-kafeblack divide-kafewhite">
-      <div className="px-10 pt-5">
+    <div className="divide-y-2 dark:divide-kafeblack divide-kafewhite w-full  flex flex-col">
+      <div className="px-10 pt-5 w-full">
         <p className="text-kafemellow text-xs">sort by</p>
         <SortBy
           defaultRefinement={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_total_tips_desc`}
