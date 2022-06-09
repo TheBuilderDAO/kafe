@@ -31,6 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
       fields.push({
         loc: `https://dev.builderdao.io/learn/${hit.slug}`,
         lastmod: new Date(hit.publishedAt).toISOString(),
+        changefreq: 'weekly',
       });
     });
   };
