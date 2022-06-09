@@ -15,8 +15,8 @@ const TutorialProposalHit = props => {
   return (
     <div className="relative z-10 mb-6 text-kafeblack dark:text-kafewhite min-h-72 grow">
       <BorderSVG />
-      <div className="p-8 py-6 pr-14">
-        <div className="flex flex-row justify-between">
+      <div className="p-4 md:p-8 py-6 md:pr-14 pr-4">
+        <div className="flex flex-row justify-between flex-wrap">
           <div className="flex items-center flex-nowrap">
             <p className="mr-2 text-xs">Proposal by</p>
             <UserAvatar address={props.hit.author} />
@@ -26,7 +26,7 @@ const TutorialProposalHit = props => {
             <></>
           ) : (
             <div className="flex flex-row flex-wrap items-center justify-between text-right">
-              <div className="flex">
+              <div className="flex ">
                 <div className="mr-2 text-xs">
                   {voters.length}
                   <span className="text-[#8E8980]">
@@ -53,21 +53,19 @@ const TutorialProposalHit = props => {
             </div>
           )}
         </div>
-        <div className="flex flex-row content-center justify-between py-8">
-          <div>
-            <div className="mb-4">
-              <div className="text-4xl font-bold tracking-wider font-larken">
-                <Link href={routes.vote.proposal(props.hit.slug)}>
-                  {props.hit.title}
-                </Link>
-              </div>
-              <div className="w-10/12 pt-1 pb-6 text-xs font-thin leading-6 tracking-wider xl:leading-8 line-clamp-2">
-                <p>{props.hit.description}</p>
-              </div>
+        <div className="flex flex-col content-center justify-between py-8">
+          <div className="mb-4">
+            <div className="text-4xl font-bold tracking-wider font-larken">
+              <Link href={routes.vote.proposal(props.hit.slug)}>
+                {props.hit.title}
+              </Link>
             </div>
-            <div className="mt-4">
-              <Tags tags={props.hit.tags} />
+            <div className="w-10/12 pt-1 pb-6 text-xs font-thin leading-6 tracking-wider xl:leading-8 line-clamp-2">
+              <p>{props.hit.description}</p>
             </div>
+          </div>
+          <div className="mt-4">
+            <Tags tags={props.hit.tags} />
           </div>
         </div>
       </div>
