@@ -3,6 +3,7 @@ import Head from 'next/head';
 import _ from 'lodash';
 import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
+import { ArticleJsonLd, CourseJsonLd, NextSeo } from 'next-seo';
 import fs from 'fs-extra';
 import path from 'path';
 import {
@@ -28,6 +29,7 @@ import {
 import { getFileFromGithub, getGithubUrl } from '@app/lib/api/github';
 import { getApplicationFetcher } from '../../hooks/useDapp';
 import { BuilderDaoConfigJson, BuilderDaoLockJson } from '@builderdao/cli';
+import { useTutorialActions } from '@app/components/KBar/useTutorialActions';
 
 const getFile = (slug, pathForFile) => {
   if (NODE_ENV === 'production') {
@@ -41,17 +43,72 @@ const TutorialPage: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
 > = props => {
   const router = useRouter();
+  const { mdxSource, frontMatter, toc } = props.post;
+  const { config, lock, relativePath, rootFolder, servedFrom } = props;
+  useTutorialActions({
+    title: frontMatter.title,
+    link: `https://dev.builderdao.io${router.asPath}`,
+  });
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
 
-  const { mdxSource, frontMatter, toc } = props.post;
-  const { config, lock, relativePath, rootFolder, servedFrom } = props;
   return (
     <>
       <Head>
         <title>Kafé by Builder DAO - {config.title}</title>
       </Head>
+      <NextSeo
+        title={frontMatter.title}
+        description={frontMatter.description}
+        twitter={{
+          handle: '@TheBuilderDAO',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+        openGraph={{
+          type: 'article',
+          title: frontMatter.title,
+          description: frontMatter.description,
+          url: `https://dev.builderdao.io${router.asPath}`,
+          images: [
+            {
+              url: 'https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg',
+            },
+          ],
+          article: {
+            authors: lock?.authors?.map(a => a.url) || [],
+            tags: _.uniq([...config.categories, ...frontMatter.keywords]),
+            publishedTime: new Date(
+              lock?.publishedAt || new Date(),
+            ).toISOString(),
+            modifiedTime: new Date(lock?.updatedAt || new Date()).toISOString(),
+          },
+        }}
+      />
+      <CourseJsonLd
+        courseName={frontMatter.title}
+        description={frontMatter.description}
+        provider={{
+          name: 'Builder DAO - Kafé',
+          url: 'https/dev.builderdao.io',
+        }}
+      />
+      <ArticleJsonLd
+        url={`https://dev.builderdao.io${router.asPath}`}
+        type={'Article'}
+        title={frontMatter.title}
+        images={[
+          'https://figment.io/wp-content/uploads/2019/08/figment-networks-logo.jpg',
+        ]}
+        keywords={_.uniq([...config.categories, ...frontMatter.keywords])}
+        datePublished={new Date(lock?.publishedAt || new Date()).toISOString()}
+        dateModified={new Date(lock?.updatedAt || new Date()).toISOString()}
+        authorName={lock?.authors?.map(a => a.url) || []}
+        publisherName="Builder DAO - Kafé"
+        publisherLogo="https://www.dev.builderdao.io/android-chrome-512x512.png"
+        description={frontMatter.description}
+      />
       <TutorialLayout
         tutorialId={lock.proposalId}
         frontMatter={frontMatter}
@@ -210,7 +267,11 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const content = await serializeContent({
     content: post.content,
-    data: post.data,
+    data: {
+      ...post.data,
+      config,
+      lock,
+    },
   });
   return {
     props: {

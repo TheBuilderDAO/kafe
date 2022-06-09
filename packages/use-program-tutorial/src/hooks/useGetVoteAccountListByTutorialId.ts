@@ -3,12 +3,11 @@ import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './useTutorialProgram';
 
-
 export const useGetListOfVotersById = (tutorialId: number) => {
   const tutorialProgram = useTutorialProgram();
   const { data, error } = useSWR(
     tutorialProgram ? routes.listOfVotersById(tutorialId) : null,
-    async () => (tutorialProgram?.getVoteAccountListByTutorialId(tutorialId)),
+    async () => tutorialProgram?.getVoteAccountListByTutorialId(tutorialId),
   );
 
   return {

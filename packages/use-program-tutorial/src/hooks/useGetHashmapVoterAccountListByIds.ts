@@ -3,9 +3,7 @@ import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetHashmapVoterAccountListByIds = (
-  tutorialIds: number[],
-) => {
+export const useGetHashmapVoterAccountListByIds = (tutorialIds: number[]) => {
   const tutorialProgram = useTutorialProgram();
   const { data, error } = useSWR(
     tutorialProgram ? routes.listOfVotersByIds(tutorialIds) : null,

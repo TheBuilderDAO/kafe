@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dev.builderdao.io
+
+# Sitemaps
+Sitemap: https://dev.builderdao.io/sitemap.xml
+Sitemap: https://dev.builderdao.io/server-sitemap-index.xml
+Sitemap: https://dev.builderdao.io/learn/server-sitemap.xml
+Sitemap: https://dev.builderdao.io/vote/server-sitemap.xml

@@ -1,2 +1,2 @@
-export * from './tags'
-export * from './deprecated'
+export * from './tags';
+export * from './deprecated';

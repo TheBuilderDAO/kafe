@@ -15,3 +15,8 @@
     border-top-color: #5534B5;
     border-left-color: #5534B5;
 }
+
+
+.algolia-highlight  em {
+  @apply bg-kafered text-kafelighter shadow p-0.5 px-1
+}

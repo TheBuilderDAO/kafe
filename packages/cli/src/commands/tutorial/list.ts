@@ -18,10 +18,7 @@ export const TutorialListCommand = () => {
   tutorialList
     .description('List all tutorials and metadata')
     .helpOption('-h, --help', 'Display help for command')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText)
     .action(async () => {
       const { allTutorials } = await getTutorialPaths(rootTutorialFolderPath);
       log(
@@ -35,4 +32,4 @@ export const TutorialListCommand = () => {
     });
 
   return tutorialList;
-}
+};

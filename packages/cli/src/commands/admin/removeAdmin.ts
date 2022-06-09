@@ -17,10 +17,7 @@ $ builderdao admin removeAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
 export const AdminRemoveAdmin = () => {
   const removeAdmin = new commander.Command('removeAdmin')
     .description('Remove Admin to Kafe List')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText);
 
   removeAdmin
     .addOption(
@@ -33,32 +30,27 @@ export const AdminRemoveAdmin = () => {
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option(
-        '--address <address>',
-        'address of the receiver',
-      )
+      new commander.Option('--address <address>', 'address of the receiver')
         .argParser(val => new anchor.web3.PublicKey(val))
         .makeOptionMandatory(),
     )
-    .action(
-      async (options) => {
-        const client = getClient({
-          network: removeAdmin.optsWithGlobals().network,
-          payer: options.adminKp,
-        });
+    .action(async options => {
+      const client = getClient({
+        network: removeAdmin.optsWithGlobals().network,
+        payer: options.adminKp,
+      });
 
-        const spinner = ora('Processing transaction')
-        spinner.start();
+      const spinner = ora('Processing transaction');
+      spinner.start();
 
-        const signature = await client.daoRemoveAdmin({
-          userPk: options.address,
-          adminPk: options.adminKp.publicKey.toString(),
-        });
+      const signature = await client.daoRemoveAdmin({
+        userPk: options.address,
+        adminPk: options.adminKp.publicKey.toString(),
+      });
 
-        spinner.succeed(`signature: ${signature}`);
-        spinner.stop();
-      },
-    );
+      spinner.succeed(`signature: ${signature}`);
+      spinner.stop();
+    });
 
   return removeAdmin;
-}
+};

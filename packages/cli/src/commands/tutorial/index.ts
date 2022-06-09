@@ -6,7 +6,6 @@ import { TutorialListCommand } from './list';
 import { TutorialPrepublishCommand } from './prepublish';
 import { TutorialPublishCommand } from './publish';
 
-
 export function makeTutorialCommand() {
   const tutorial = new commander.Command('tutorial')
     .addHelpCommand(false)
@@ -16,7 +15,6 @@ export function makeTutorialCommand() {
       sortSubcommands: true,
       sortOptions: true,
     });
-
 
   tutorial.addCommand(TutorialGetCommand());
   tutorial.addCommand(TutorialInitCommand());

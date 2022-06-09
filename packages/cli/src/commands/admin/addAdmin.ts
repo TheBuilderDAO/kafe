@@ -17,10 +17,7 @@ $ builderdao admin addAdmin --adminKp <bs58Secret> --address <bs58Pubkey>
 export const AdminAddAdmin = () => {
   const addAdmin = new commander.Command('addAdmin')
     .description('Add Admin to Kafe List')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText);
 
   addAdmin
     .addOption(
@@ -33,32 +30,27 @@ export const AdminAddAdmin = () => {
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option(
-        '--address <address>',
-        'address of the new admin',
-      )
+      new commander.Option('--address <address>', 'address of the new admin')
         .argParser(val => new anchor.web3.PublicKey(val))
         .makeOptionMandatory(),
     )
-    .action(
-      async (options) => {
-        const client = getClient({
-          network: addAdmin.optsWithGlobals().network,
-          payer: options.adminKp,
-        });
-  
-        const spinner = ora('Processing transaction')
-        spinner.start();
+    .action(async options => {
+      const client = getClient({
+        network: addAdmin.optsWithGlobals().network,
+        payer: options.adminKp,
+      });
 
-        const signature = await client.daoAddAdmin({
-          userPk: options.address,
-          adminPk: options.adminKp.publicKey.toString(),
-        });
+      const spinner = ora('Processing transaction');
+      spinner.start();
 
-        spinner.succeed(`signature: ${signature}`);
-        spinner.stop();
-      },
-    );
+      const signature = await client.daoAddAdmin({
+        userPk: options.address,
+        adminPk: options.adminKp.publicKey.toString(),
+      });
+
+      spinner.succeed(`signature: ${signature}`);
+      spinner.stop();
+    });
 
   return addAdmin;
-}
+};

@@ -24,10 +24,7 @@ $ builderdao setAuthor --adminKp <bs58Secret> --address <bs58Pubkey> --tutorialI
 export const AdminSetAuthorCommand = () => {
   const setAuthor = new commander.Command('setAuthor')
     .description('set the author of a migrated tutorial from LV2')
-    .addHelpText(
-      'after',
-      helpText
-    )
+    .addHelpText('after', helpText);
 
   setAuthor
     .addOption(
@@ -40,34 +37,26 @@ export const AdminSetAuthorCommand = () => {
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option(
-        '--address <address>',
-        'address of the new author',
-      )
+      new commander.Option('--address <address>', 'address of the new author')
         .argParser(val => new anchor.web3.PublicKey(val))
         .makeOptionMandatory(),
     )
     .addOption(
-      new commander.Option(
-        '--tutorialId <tutorialId>',
-        'id of the tutorial',
-      )
+      new commander.Option('--tutorialId <tutorialId>', 'id of the tutorial')
         .argParser(val => myParseInt(val))
         .makeOptionMandatory(),
     )
     .action(
-      async (
-        options: {
-          address: anchor.web3.PublicKey;
-          adminKp: anchor.web3.Keypair;
-          tutorialId: number,
-        },
-      ) => {
+      async (options: {
+        address: anchor.web3.PublicKey;
+        adminKp: anchor.web3.Keypair;
+        tutorialId: number;
+      }) => {
         const solanaClient = getClient({
           network: setAuthor.optsWithGlobals().network,
           payer: options.adminKp,
         });
-        const spinner = ora('Processing setAuthor')
+        const spinner = ora('Processing setAuthor');
         spinner.start();
 
         const signature = await solanaClient.proposalSetAuthor({
@@ -78,9 +67,8 @@ export const AdminSetAuthorCommand = () => {
 
         spinner.succeed(`signature: ${signature}`);
         spinner.stop();
-
       },
     );
 
   return setAuthor;
-}
+};
