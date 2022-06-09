@@ -1,5 +1,12 @@
 # @builderdao/md-utils
 
+## 0.0.6
+
+### Patch Changes
+
+- 4e6a667: Added full-text search and prettier lint
+- 4e6a667: update algolia full-text indexing
+
 ## 0.0.5
 
 ### Patch Changes
