@@ -52,7 +52,6 @@ const ProposalCard = props => {
           </Link>
           <p className="text-xs tracking-wide">
             {truncateString(hit.description)}
-            {truncateString(hit.description)}
           </p>
           <div className="mt-4">
             <Tags tags={hit.tags} />
