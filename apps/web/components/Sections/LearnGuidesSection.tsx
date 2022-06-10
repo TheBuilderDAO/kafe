@@ -10,16 +10,18 @@ import LearnDark from 'public/assets/images/learn_d.jpeg';
 
 export const LearnGuidesSection = () => {
   return (
-    <section className=" z-10 grid grid-cols-1 md:grid-cols-2 relative min-h-[30rem] h-auto items-start py-4 px-8">
+    <section className=" z-10 flex flex-col md:flex-row relative min-h-[20rem] h-auto items-center justify-center py-4 px-8">
       <BgImage />
-      <span className="text-kafedarkred">
+      <span className="text-kafedarkred md:w-1/3">
         <HomeCTA
           headline="Learn from guides written by our community"
           path={routes.learn.index}
           cta="view all guides"
         />
       </span>
-      <GuidesCarousel />
+      <div className="md:w-2/3">
+        <GuidesCarousel />
+      </div>
     </section>
   );
 };
@@ -32,7 +34,7 @@ type CTAProps = {
 const HomeCTA = ({ headline, path, cta }: CTAProps) => {
   return (
     <div
-      className={`font-larken text-2xl tracking-wider max-w-[18rem]  p-2 flex-1`}
+      className={`font-larken text-2xl tracking-wider max-w-[18rem]  p-2 flex-1 `}
     >
       <h3>{headline}</h3>
       <Link href={path} passHref>
@@ -46,7 +48,7 @@ const HomeCTA = ({ headline, path, cta }: CTAProps) => {
 
 export const BgImage = () => {
   return (
-    <div className="flex items-center justify-center w-full h-full absolute -z-10 -mt-52">
+    <div className="flex items-center justify-center w-full h-full absolute -z-10 -mt-48">
       <span className="dark:block hidden w-full max-w-[420px]">
         <Image
           src={LearnDark}

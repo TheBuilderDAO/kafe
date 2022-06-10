@@ -10,6 +10,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import routes from 'routes';
 import usePageLoadingProgress from '../../hooks/usePageLoadingProgress';
+import AlphaBadge from '@app/components/Badge/AlphaBadge';
+import NetworkBadge from '@app/components/Badge/NetworkBadge';
 
 type PublicLayoutProps = {
   children: ReactElement;
@@ -38,18 +40,23 @@ const PublicLayout = (props: PublicLayoutProps) => {
 
   return (
     <div
-      className="flex flex-wrap min-h-screen font-space p-2 sm:p-9 relative
+      className="flex flex-wrap min-h-screen font-space p-2 sm:p-0 md:px-8 relative
      bg-kafewhite dark:text-kafewhite dark:bg-kafeblack tracking-wider mx-auto leading-relaxed"
     >
       <Notifications />
       <Wrapper>
         <div className="grid grid-cols-12">
-          <AlphaBadge />
-          <div className="z-20 col-span-1 hidden md:block">
-            <LeftSidebar />
+          <div className="z-10 col-span-1">
+            <div className="fixed top-0 z-50">
+              <AlphaBadge />
+              <NetworkBadge />
+            </div>
+            <div className="md:block hidden sticky top-10">
+              <LeftSidebar />
+            </div>
           </div>
           <div className="min-w-full col-span-12 md:col-span-10 ml-0 lg:ml-8">
-            <div className="mt-6 md:hidden">
+            <div className="mt-6 md:hidden z-10">
               <AnimatedLogo />
             </div>
             <div className="sticky z-30 top-10">
@@ -62,11 +69,5 @@ const PublicLayout = (props: PublicLayoutProps) => {
     </div>
   );
 };
-const AlphaBadge = () => {
-  return (
-    <div className="fixed top-0 z-50 px-2 py-1 text-[11px] bg-kafepurple">
-      alpha
-    </div>
-  );
-};
+
 export default PublicLayout;

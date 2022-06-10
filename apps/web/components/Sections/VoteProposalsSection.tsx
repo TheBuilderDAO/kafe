@@ -9,7 +9,7 @@ import HomeCTA from '../Index/HomeCTA';
 export const VoteProposalsSection = () => {
   return (
     <section className="z-10 flex flex-col-reverse md:flex-row relative min-h-[40rem] h-auto items-center py-4 px-8 w-full justify-between">
-      <div className="md:w-2/3 w-full z-10 -ml-10 md:ml-0">
+      <div className="md:w-2/3 w-full z-10 -ml-10 md:ml-0 ">
         <ProposalsCarousel />
       </div>
       <div className="text-kafedarkpurple  w-full flex md:w-1/3 items-end ">

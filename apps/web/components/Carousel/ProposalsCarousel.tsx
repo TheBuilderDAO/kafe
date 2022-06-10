@@ -34,11 +34,11 @@ const ProposalCard = props => {
   return (
     <div
       className={
-        'relative z-10 rounded-[35px] dark:border-kafewhite border-kafeblack max-w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack w-full'
+        'relative z-10 rounded-[35px] dark:border-kafewhite border-kafeblack md:max-w-[450px] md:w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack w-full grow flex shrink-0'
       }
     >
       <BorderSVG />
-      <div className="p-8">
+      <div className="p-8 w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <small className="mr-2 text-xs">Proposal by</small>{' '}
@@ -51,6 +51,7 @@ const ProposalCard = props => {
             <h3 className="text-2xl font-larken mt-14">{hit.title}</h3>
           </Link>
           <p className="text-xs tracking-wide">
+            {truncateString(hit.description)}
             {truncateString(hit.description)}
           </p>
           <div className="mt-4">
@@ -77,7 +78,7 @@ const Wrapper = ({ hits }) => {
   const hit = hits[currentIndex];
 
   return (
-    <div className="relative w-full flex items-start justify-start">
+    <div className="relative w-full flex items-start justify-start grow flex-1">
       <div className="opacity-10 mt-[12px]">
         <ProposalCard hit={hit} />
       </div>

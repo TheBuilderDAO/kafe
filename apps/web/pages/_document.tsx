@@ -8,8 +8,8 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <NextSeo
-            defaultTitle='Kafé by Builder DAO'
-            titleTemplate='%s | Kafé by Builder DAO'
+            defaultTitle="Kafé by Builder DAO"
+            titleTemplate="%s | Kafé by Builder DAO"
           />
         </Head>
         <body className="">

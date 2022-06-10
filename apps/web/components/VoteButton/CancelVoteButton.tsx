@@ -3,6 +3,7 @@ import { useCancelVote } from '../../hooks/useCancelVote';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import votedIcon from 'public/assets/icons/voted.png';
+import Tooltip from '@app/components/Tooltip/Tooltip';
 
 type CancelVoteButtonProps = {
   id: number;
@@ -12,7 +13,6 @@ type CancelVoteButtonProps = {
 
 const CancelVoteButton = (props: CancelVoteButtonProps) => {
   const { id, variant, disable = false } = props;
-
   const [cancelVote, { submitting }] = useCancelVote();
 
   const handleClick = useCallback(async () => {
@@ -39,6 +39,9 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
             : 'w-[52px] h-[52px] rounded-full dark:bg-kafedarker bg-kafelighter dark:hover:bg-kafelighter hover:bg-kafeblack group cursor-pointer'
         }`}
         onClick={handleClick}
+        data-for="main"
+        data-tip="Cancel vote"
+        data-iscapture="true"
       >
         <div className="flex items-center justify-center">
           {!variant && (
@@ -47,6 +50,7 @@ const CancelVoteButton = (props: CancelVoteButtonProps) => {
           {variant && <p>voted</p>}
         </div>
       </button>
+      <Tooltip id="main" effect="solid" />
     </div>
   );
 };

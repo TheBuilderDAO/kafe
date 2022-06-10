@@ -33,7 +33,7 @@ export const AnimatedLogo = () => {
   const fontSizePx = useMotionTemplate`${fontSizeSpring}px`;
   const headingSizePx = useMotionTemplate`${headingSizeSpring}px`;
   return (
-    <motion.div style={{ width: headingSizePx }}>
+    <motion.div style={{ width: headingSizePx }} className="z-30">
       <LogoSVG />
       {homepage && (
         <motion.div
@@ -49,8 +49,8 @@ export const AnimatedLogo = () => {
 
 const LeftSidebar = () => {
   return (
-    <div className="sticky w-full top-10">
-      <div>
+    <div className=" z-0 h-[calc(100vh - 3rem)]  ">
+      <div className="sticky">
         <Link key="learn" href={routes.home} passHref>
           <div className="z-0 mt-0 cursor-pointer">
             <AnimatedLogo />

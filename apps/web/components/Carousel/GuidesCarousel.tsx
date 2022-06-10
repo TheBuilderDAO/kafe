@@ -70,7 +70,7 @@ const Wrapper = ({ hits }) => {
 
   const hit = hits[currentIndex];
   return (
-    <div className=" flex w-full flex-1 relative items-start justify-center shrink-0 min-h-[10rem]">
+    <div className=" flex w-full flex-1 relative items-start justify-center shrink-0 min-h-[10rem] md:mt-8">
       <div className="opacity-0 mt-4">
         <GuideCard hit={hit} />
       </div>
