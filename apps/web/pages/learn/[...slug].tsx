@@ -126,7 +126,7 @@ const TutorialPage: NextPage<
         <div className="p-2 mt-16 border border-black divide-y-[1px] divide-gray-600 rounded-lg dark:border-white dark:text-kafewhite bg-kafegold dark:bg-kafedarker shadow:sm">
           <div className="p-2">
             <span>Digest</span>:{' '}
-            <span className="font-mono text-xs">
+            <span className="font-mono text-xs break-all">
               {lock?.content[relativePath].digest}
             </span>
           </div>

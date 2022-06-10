@@ -10,7 +10,7 @@ const Wrapper = ({ children }) => {
   dark:bg-kafeblack
   relative
   max-w-screen-xl
-  p-4
+  px-8
     `;
 
   return <StyledDiv>{children}</StyledDiv>;

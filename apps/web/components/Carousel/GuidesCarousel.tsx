@@ -1,6 +1,4 @@
 import React from 'react';
-import LearnLight from 'public/assets/images/learn_l.png';
-import LearnDark from 'public/assets/images/learn_d.jpeg';
 import UserAvatar from '@app/components/UserAvatar/UserAvatar';
 import ImageStack from '../ImageStack';
 import Tags from '../Tags/Tags';
@@ -33,10 +31,10 @@ const GuideCard = props => {
   return (
     <div
       className={
-        'border dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] p-4 px-6 bg-kafewhite dark:bg-kafeblack'
+        'border  dark:border-kafewhite border-kafeblack max-w-[450px] min-w-[300px]  p-4 px-6 bg-kafewhite dark:bg-kafeblack flex flex-col'
       }
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <div className="flex items-center">
           <small className="mr-2 text-xs">Guide by</small>{' '}
           <UserAvatar ellipsis={true} address={hit.author} />
@@ -45,13 +43,13 @@ const GuideCard = props => {
       </div>
       <div>
         <Link href={routes.learn.guide(hit.slug)}>
-          <h3 className="text-2xl font-larken mt-14">{hit.title}</h3>
+          <h3 className="text-2xl font-larken py-4">{hit.title}</h3>
         </Link>
-        <p className="text-xs tracking-wide">
+        <p className="text-xs tracking-wide py-4">
           {truncateString(hit.description)}
         </p>
         <div className="mt-4">
-          <Tags tags={hit.tags} />
+          <Tags tags={hit.tags.slice(0, 3)} />
         </div>
       </div>
     </div>
@@ -72,34 +70,17 @@ const Wrapper = ({ hits }) => {
 
   const hit = hits[currentIndex];
   return (
-    <div className="relative w-96">
-      <div className="absolute w-[420px] h-[420px] -top-44 -left-6">
-        {dark && (
-          <Image
-            src={LearnDark}
-            width={420}
-            height={420}
-            alt="learn"
-            priority={true}
-          />
-        )}
-        {!dark && (
-          <Image
-            src={LearnLight}
-            width={420}
-            height={420}
-            alt="learn"
-            priority={true}
-          />
-        )}
-      </div>
-      <div key={hit.objectID} className={`absolute left-[125px] top-[30px]`}>
+    <div className=" flex w-full flex-1 relative items-start justify-center shrink-0 min-h-[10rem] md:mt-8">
+      <div className="opacity-0 mt-4">
         <GuideCard hit={hit} />
       </div>
-      <div key="dummy-1" className={`absolute left-[135px] top-[20px]`}>
+      <div key={hit.objectID} className={`absolute ml-4  z-20`}>
         <GuideCard hit={hit} />
       </div>
-      <div key="dummy-2" className={`absolute left-[145px] top-[10px]`}>
+      <div key="dummy-1" className={`absolute ml-2 mt-2 mr-2 z-10`}>
+        <GuideCard hit={hit} />
+      </div>
+      <div key="dummy-2" className={`absolute mt-4 mr-4`}>
         <GuideCard hit={hit} />
       </div>
     </div>
@@ -110,19 +91,17 @@ const Guides = connectHits(Wrapper);
 
 const GuidesCarousel = () => {
   return (
-    <div className="cursor-pointer">
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
-      >
-        <Configure
-          hitsPerPage={PER_PAGE}
-          analytics={false}
-          filters="state:published"
-        />
-        <Guides />
-      </InstantSearch>
-    </div>
+    <InstantSearch
+      searchClient={searchClient}
+      indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
+    >
+      <Configure
+        hitsPerPage={PER_PAGE}
+        analytics={false}
+        filters="state:published"
+      />
+      <Guides />
+    </InstantSearch>
   );
 };
 

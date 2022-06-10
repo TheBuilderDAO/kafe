@@ -34,11 +34,11 @@ const ProposalCard = props => {
   return (
     <div
       className={
-        'relative z-0 rounded-[35px] dark:border-kafewhite border-kafeblack w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack'
+        'relative z-10 rounded-[35px] dark:border-kafewhite border-kafeblack md:max-w-[450px] sm:w-[400px] mx-auto md:w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack  grow flex shrink-0'
       }
     >
       <BorderSVG />
-      <div className="p-8">
+      <div className="p-8 w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <small className="mr-2 text-xs">Proposal by</small>{' '}
@@ -77,34 +77,17 @@ const Wrapper = ({ hits }) => {
   const hit = hits[currentIndex];
 
   return (
-    <div className="relative">
-      <div className="absolute w-[420px] h-[420px] -top-24 left-60">
-        {dark && (
-          <Image
-            src={VoteDark}
-            width={420}
-            height={400}
-            alt="vote"
-            priority={true}
-          />
-        )}
-        {!dark && (
-          <Image
-            src={VoteLight}
-            width={420}
-            height={400}
-            alt="vote"
-            priority={true}
-          />
-        )}
-      </div>
-      <div key={hit.objectID} className={`relative top-2 left-6`}>
+    <div className="relative w-full flex items-start justify-center grow flex-1">
+      <div className="opacity-10 mt-[12px]">
         <ProposalCard hit={hit} />
       </div>
-      <div key="dummy-1" className={`absolute top-4 left-4`}>
+      <div key="dummy-2" className={`absolute ml-[12px]`}>
         <ProposalCard hit={hit} />
       </div>
-      <div key="dummy-2" className={`absolute top-6 left-2`}>
+      <div key="dummy-1" className={`absolute mt-[6px] ml-[6px] mr-[6px]`}>
+        <ProposalCard hit={hit} />
+      </div>
+      <div key={hit.objectID} className={`absolute mt-[12px] mr-[12px]`}>
         <ProposalCard hit={hit} />
       </div>
     </div>
@@ -115,19 +98,17 @@ const Proposals = connectHits(Wrapper);
 
 const ProposalsCarousel = () => {
   return (
-    <div className="relative h-[420px] top-10 cursor-pointer">
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
-      >
-        <Configure
-          hitsPerPage={PER_PAGE}
-          analytics={false}
-          filters="state:submitted OR state:writing OR state:readyToPublish OR state:funded"
-        />
-        <Proposals />
-      </InstantSearch>
-    </div>
+    <InstantSearch
+      searchClient={searchClient}
+      indexName={`${NEXT_PUBLIC_ALGOLIA_INDEX_NAME}_last_updated_at_desc`}
+    >
+      <Configure
+        hitsPerPage={PER_PAGE}
+        analytics={false}
+        filters="state:submitted OR state:writing OR state:readyToPublish OR state:funded"
+      />
+      <Proposals />
+    </InstantSearch>
   );
 };
 

@@ -27,18 +27,22 @@ const TippersInfo = ({ tippers, id }) => {
 const GuideHit = props => {
   const { tippers } = props;
   return (
-    <div className="mb-4 border-[1px] border-kafeblack dark:border-kafewhite bg-kafelight dark:bg-kafedark z-10 relative min-h-72 text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack mt-0 p-6">
-      <div className="flex flex-row justify-between">
+    <div
+      className="mb-4 border-[1px] 
+    border-kafeblack dark:border-kafewhite bg-kafelight dark:bg-kafedark z-10 relative min-h-72 
+    text-kafeblack dark:text-kafewhite bg-kafewhite dark:bg-kafeblack mt-0 p-4 md:p-6 w-auto"
+    >
+      <div className="flex flex-row justify-between md:flex-nowrap flex-wrap">
         <div className="flex items-center text-xs">
           <p className="mr-2">Guide by</p>
           <UserAvatar address={props.hit.author} />
         </div>
         <TippersInfo tippers={tippers} id={props.hit.objectID} />
       </div>
-      <div className="flex flex-row content-center justify-between">
+      <div className="flex flex-row content-center justify-between ">
         <div>
-          <div className="mb-4 pr-40">
-            <div className="text-4xl font-bold tracking-wider font-larken mt-8 mb-2">
+          <div className="mb-4 md:pr-40 pr-2">
+            <div className="text-4xl font-bold tracking-wider font-larken mt-8 mb-2 break-words">
               <Link href={routes.learn.guide(props.hit.slug)}>
                 {props.hit.title}
               </Link>

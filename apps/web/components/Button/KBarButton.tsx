@@ -5,9 +5,9 @@ export const KBarButton = () => {
   return (
     <div
       onClick={query.toggle}
-      className="relative flex items-center justify-center  h-full mr-1 cursor-pointer"
+      className="relative flex items-center justify-center  h-full mr-1 cursor-pointer  "
     >
-      <kbd className="inline-flex items-center border border-gray-200 rounded px-2 text-sm font-sans font-medium text-kafewhite w-10 h-10">
+      <kbd className="inline-flex items-center border border-gray-200 rounded px-2 text-sm font-sans font-medium dark:text-kafewhite w-12 h-12 dark:bg-kafeblack  bg-kafelighter shadow">
         {' '}
         ⌘K{' '}
       </kbd>

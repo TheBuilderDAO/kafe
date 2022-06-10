@@ -5,7 +5,7 @@ const InputTextArea = ({ maxLength, register, name, watch }) => {
   return (
     <div>
       <p
-        className={`absolute right-14 bottom-16 text-md dark:bg-kafedarker select-none bg-kafelighter shadow-sm p-2 rounded-xl ${
+        className={`text-md dark:bg-kafedarker select-none bg-kafelighter shadow-sm p-2 rounded-xl ${
           input?.length / maxLength > 0.9 ? 'text-kafered' : null
         }`}
       >{`${input?.length || 0}/${maxLength}`}</p>

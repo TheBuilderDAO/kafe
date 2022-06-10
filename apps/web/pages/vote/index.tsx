@@ -75,8 +75,8 @@ const Home: NextPage = () => {
             {...searchStateProps}
           >
             <Configure hitsPerPage={PER_PAGE} analytics={false} />
-            <div className="flex items-start justify-between w-full">
-              <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px] w-screen">
+            <div className="flex items-start justify-between w-full flex-col-reverse md:flex-row">
+              <div className="flex flex-col mt-16 grow md:min-w-[500px] max-w-[800px] w-full">
                 <div className="z-30 mt-10 mb-4 lg:my-6 text-kafeblack dark:text-kafewhite">
                   <ProposalStateTabs
                     attribute="state"

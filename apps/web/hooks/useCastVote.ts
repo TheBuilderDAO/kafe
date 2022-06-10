@@ -38,9 +38,8 @@ export const useCastVote = (): [
         setError(null);
         setSubmitting(true);
 
-        const currentVotes = await tutorialProgram.getVoteAccountListByTutorialId(
-          tutorialId,
-        );
+        const currentVotes =
+          await tutorialProgram.getVoteAccountListByTutorialId(tutorialId);
 
         await castVote(tutorialId);
 

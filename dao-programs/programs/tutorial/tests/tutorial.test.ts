@@ -251,15 +251,12 @@ describe('tutorial-program', () => {
     const user2tokenAmount = await provider.connection.getTokenAccountBalance(
       user2Ata.address,
     );
-    const reviewer1tokenAmount = await provider.connection.getTokenAccountBalance(
-      reviewer1Ata.address,
-    );
-    const reviewer2tokenAmount = await provider.connection.getTokenAccountBalance(
-      reviewer2Ata.address,
-    );
-    const reviewer3tokenAmount = await provider.connection.getTokenAccountBalance(
-      reviewer3Ata.address,
-    );
+    const reviewer1tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer1Ata.address);
+    const reviewer2tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer2Ata.address);
+    const reviewer3tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer3Ata.address);
 
     expect(user1tokenAmount.value.amount).toBe('2000000');
     expect(user2tokenAmount.value.amount).toBe('2000000');
@@ -399,15 +396,12 @@ describe('tutorial-program', () => {
     const user2tokenAmount = await provider.connection.getTokenAccountBalance(
       user2AtaBDR.address,
     );
-    const reviewer1tokenAmount = await provider.connection.getTokenAccountBalance(
-      reviewer1AtaBDR.address,
-    );
-    const reviewer2tokenAmount = await provider.connection.getTokenAccountBalance(
-      reviewer2AtaBDR.address,
-    );
-    const reviewer3tokenAmount = await provider.connection.getTokenAccountBalance(
-      reviewer3AtaBDR.address,
-    );
+    const reviewer1tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer1AtaBDR.address);
+    const reviewer2tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer2AtaBDR.address);
+    const reviewer3tokenAmount =
+      await provider.connection.getTokenAccountBalance(reviewer3AtaBDR.address);
 
     expect(user1tokenAmount.value.amount).toBe('1000000');
     expect(user2tokenAmount.value.amount).toBe('1000000');

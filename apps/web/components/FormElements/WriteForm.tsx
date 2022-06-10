@@ -13,7 +13,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
   return (
     <div className="mb-6 mt-10 text-kafeblack z-10 grow dark:text-kafewhite relative min-h-72">
       <BorderSVG />
-      <div className="p-10">
+      <div className="md:p-10">
         <div className="mb-5">
           {wallet.connected && (
             <div className="text-sm flex items-center">
@@ -27,7 +27,7 @@ const WriteForm = ({ tags, register, Controller, control, watch }) => {
         </div>
 
         <div className="flex items-center justify-between mb-14 flex-wrap space-y-8">
-          <div className="flex-1 mr-20">
+          <div className="flex-1 md:mr-20">
             <label
               htmlFor="tags"
               className="block text-kafeblack dark:text-kafewhite text-sm"

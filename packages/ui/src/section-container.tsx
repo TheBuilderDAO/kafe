@@ -5,6 +5,8 @@
  */
 export const SectionContainer: React.FC = ({ children }) => {
   return (
-    <div className="z-10 min-w-[500px] px-4 text-sm leading-6">{children}</div>
+    <div className="z-10 md:min-w-[500px] md:px-4 text-sm leading-6">
+      {children}
+    </div>
   );
 };

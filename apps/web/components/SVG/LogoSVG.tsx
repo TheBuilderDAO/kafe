@@ -5,7 +5,7 @@ const LogoSVG = () => {
     <svg
       width={'100%'}
       viewBox="0 0 271 113"
-      className="origin-bottom-left fill-text-kafeblack dark:fill-kafewhite"
+      className="origin-bottom-left fill-text-kafeblack dark:fill-kafewhite z-10"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>

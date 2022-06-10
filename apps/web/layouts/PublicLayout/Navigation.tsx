@@ -23,7 +23,7 @@ const Navigation = () => {
   `;
 
   return (
-    <div className="mt-5">
+    <div className="mt-8">
       <nav className="space-y-1">
         <Link key="learn" href={routes.learn.index} passHref>
           <StyledNavigate

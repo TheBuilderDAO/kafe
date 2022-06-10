@@ -55,9 +55,9 @@ const LearnIndexPage: NextPage<
               analytics={false}
               filters="state:published"
             />
-            <div className="flex items-start justify-between w-full">
-              <div className="flex flex-col mt-16 grow min-w-[500px] max-w-[800px]">
-                <div className="lg:my-6 ">
+            <div className="flex flex-col-reverse md:flex-row items-start justify-between w-full ">
+              <div className="flex flex-col mt-16 grow md:min-w-[500px] max-w-[800px] ">
+                <div className="lg:my-6 w-full">
                   <IsAdmin>
                     <div className="mb-6">
                       <GuideStateTabs
@@ -69,9 +69,9 @@ const LearnIndexPage: NextPage<
                   <GuideHits />
                   <Pagination />
                   {process.env.NODE_ENV === 'development' ? (
-                    <div className="space-y-0.5 divide-y-2">
+                    <div className="space-y-0.5 divide-y-2 flex flex-col">
                       {allTutorials.map(tutorial => (
-                        <div key={tutorial.slug} className="">
+                        <div key={tutorial.slug} className="break-all">
                           <Link href={`/learn/${tutorial.slug}`}>
                             {tutorial.config.title}
                           </Link>

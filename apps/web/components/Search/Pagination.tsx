@@ -16,7 +16,7 @@ const Pagination = props => {
 
   return (
     <nav
-      className="relative z-0 flex justify-center rounded-md mb-40 mt-5"
+      className="relative z-0 flex justify-center rounded-md mb-40 mt-5 flex-wrap"
       aria-label="Pagination"
     >
       {pages.map((page, index) => {
