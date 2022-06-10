@@ -1,5 +1,14 @@
 # @builderdao/data
 
+## 0.0.6
+
+### Patch Changes
+
+- Update version of the packages
+- Updated dependencies
+  - @builderdao/config@0.0.6
+  - @builderdao/tsconfig@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
