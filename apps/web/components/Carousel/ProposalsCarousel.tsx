@@ -34,7 +34,7 @@ const ProposalCard = props => {
   return (
     <div
       className={
-        'relative z-10 rounded-[35px] dark:border-kafewhite border-kafeblack md:max-w-[450px] md:w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack w-full grow flex shrink-0'
+        'relative z-10 rounded-[35px] dark:border-kafewhite border-kafeblack md:max-w-[450px] sm:w-[400px] mx-auto md:w-[450px] min-h-[280px] bg-kafewhite dark:bg-kafeblack  grow flex shrink-0'
       }
     >
       <BorderSVG />
@@ -78,7 +78,7 @@ const Wrapper = ({ hits }) => {
   const hit = hits[currentIndex];
 
   return (
-    <div className="relative w-full flex items-start justify-start grow flex-1">
+    <div className="relative w-full flex items-start justify-center grow flex-1">
       <div className="opacity-10 mt-[12px]">
         <ProposalCard hit={hit} />
       </div>
