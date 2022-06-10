@@ -158,7 +158,7 @@ export function makeAlgoliaCommand() {
         try {
           await client.delete();
         } catch (err) {
-          console.log('Error: ', err);
+          console.log('ERR: ', err);
         }
       },
     );

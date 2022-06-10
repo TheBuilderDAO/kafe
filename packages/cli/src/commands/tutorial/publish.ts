@@ -142,7 +142,7 @@ export const TutorialPublishCommand = () => {
             const digest = await hashSumDigest(file.fullPath);
             const isImage = /\.(png|jpg|jpeg|gif)$/.test(file.path);
             const shouldSkipArweave =
-              !file.options?.skipArweave || (isImage && options.skipImages);
+              _.get(file, 'options.skipArweave', false) || (isImage && options.skipImages);
             if (!shouldSkipArweave) {
               const arweaveHash = await arweave.publishTutorial(
                 fileContent,
@@ -253,9 +253,8 @@ export const TutorialPublishCommand = () => {
         });
       } else {
         tutorialPublish.error(`
-        🛑 The tutorial is not ready to publish/update. 🚧 state: ${
-          Object.keys(proposal.state)[0]
-        }
+        🛑 The tutorial is not ready to publish/update. 🚧 state: ${Object.keys(proposal.state)[0]
+          }
         `);
       }
       await deployQueue.drain();

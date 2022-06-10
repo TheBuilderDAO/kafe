@@ -43,7 +43,7 @@ export const useCancelVote = (): [
           data: { id: tutorialId, numberOfVotes: currentVotes.length - 1 },
         });
       } catch (err) {
-        console.log('Err:', err);
+        console.log('ERR:', err);
         captureException(err);
         setError(err);
         throw new err();

@@ -66,7 +66,6 @@ describe('tutorial-program', () => {
   const provider = anchor.Provider.env();
   anchor.setProvider(anchor.Provider.env());
   const program = anchor.workspace.Tutorial as Program<Tutorial>;
-  console.log('PROGRAM ID', program.programId.toString());
 
   // Declare our Mint & authority & user
   let auth1 = anchor.web3.Keypair.generate();
@@ -1307,7 +1306,7 @@ describe('tutorial-program', () => {
       pdaProposalById,
       nonce,
     );
-    console.log('>>>>', superAdmin.publicKey.toString());
+
     expect(proposalAccount.creator.toString()).toBe(user2.publicKey.toString());
   });
 
@@ -1350,7 +1349,6 @@ describe('tutorial-program', () => {
     );
     let vaultAmount = new anchor.BN(parseInt(vaultBalance.value.amount));
     const bb = await provider.connection.getBalance(superAdmin.publicKey);
-    console.log(bb.toString());
 
     await daoVaultClose({
       program,

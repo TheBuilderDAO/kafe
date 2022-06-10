@@ -50,7 +50,6 @@ export const voteCast = async ({
 
   // const authorAtaBdr = await getAta(author, mintBdrPk);
 
-  console.log(creator.toString());
   let associatedToken = await getAssociatedTokenAddress(mintBdrPk, creator);
 
   const feePayer = !!signer
@@ -65,7 +64,7 @@ export const voteCast = async ({
 
   try {
     await getAccount(program.provider.connection, associatedToken);
-  } catch (error: unknown) {
+  } catch (error) {
     if (
       error instanceof TokenAccountNotFoundError ||
       error instanceof TokenInvalidAccountOwnerError

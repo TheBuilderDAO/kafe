@@ -57,7 +57,7 @@ export const useCastVote = (): [
           data: partialIndexData,
         });
       } catch (err) {
-        console.log('Err:', err);
+        console.log('ERR:', err);
         captureException(err);
         setError(err);
         throw new err();

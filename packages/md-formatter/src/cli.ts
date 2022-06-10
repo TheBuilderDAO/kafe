@@ -158,9 +158,8 @@ const process = async () => {
         if (value.slug === 'avalanche-on-chain-nft-game') {
           await processQueue.pushAsync({ tutorial: value, proposal });
         }
-        // console.log(proposal)
       } else {
-        console.log('NOPE >> ', value.slug);
+        console.log(`Proposal not found for slug=${value.slug}`)
       }
     })
     .value();

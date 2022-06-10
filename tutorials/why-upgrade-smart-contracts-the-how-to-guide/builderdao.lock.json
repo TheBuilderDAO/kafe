@@ -1,7 +1,7 @@
 {
   "proposalId": 238,
   "slug": "why-upgrade-smart-contracts-the-how-to-guide",
-  "creator": "",
+  "creator": "BdkD2p3ZfHS5facvjyTGLsQybcnc9pRmztrqWbGGpdvc",
   "authors": [
     {
       "name": "The Builder Dao",
@@ -22,22 +22,43 @@
       "githubName": "dgamboa"
     }
   },
+  "href": "/learn/why-upgrade-smart-contracts-the-how-to-guide",
   "content": {
-    "content/assets/template_regex.png": {
-      "name": "template_regex.png",
-      "path": "content/assets/template_regex.png",
-      "digest": "5082770ef0c236cf811a6e1dc8aa474fec777c0c3693eefdc943a333f04013c6"
+    "content/assets/deployed_2.png": {
+      "name": "deployed_2.png",
+      "path": "content/assets/deployed_2.png",
+      "digest": "3c0911f77c94cef0210fe60c0b6c7514480792700b6755ddd323b77d9e756550",
+      "arweaveHash": "luEpoNoTlGT3DaJwLQaW3ToJ45ClaMSLmtFVH9alCgg"
     },
-    "content/assets/example_image.png": {
-      "name": "example_image.png",
-      "path": "content/assets/example_image.png",
-      "digest": "509f8de4db71a76bac40ea48615b09c6661c23eb4bec6512f295aebc496f1312"
+    "content/assets/deployed_1.png": {
+      "name": "deployed_1.png",
+      "path": "content/assets/deployed_1.png",
+      "digest": "9854928811272bcc40031baae89aa142538b4cafbb870dd1441d2f20b6e0f9b4",
+      "arweaveHash": "iGFDREzZt5-iZYHuh_CD_mdcvkleI7o0xYs9p9gv2C0"
+    },
+    "content/assets/proxy_contract_verification.png": {
+      "name": "proxy_contract_verification.png",
+      "path": "content/assets/proxy_contract_verification.png",
+      "digest": "3b362a601ed8d7ec5cc9b977194343b273106a55408f6a0facc07d69155f8e31",
+      "arweaveHash": "zulSJp4CGHvvrx1J_igV6QAjVyhhd8boYcBBGmiyYdY"
+    },
+    "content/assets/proxy_contract.png": {
+      "name": "proxy_contract.png",
+      "path": "content/assets/proxy_contract.png",
+      "digest": "28296527205e2123340da65293c2a197da5c9c63b401a0a2faf91423090be277",
+      "arweaveHash": "0Pb6Y9IjvO6TmoI02bSMgBEgQdth1YX4Ja79riV74WA"
+    },
+    "content/assets/versions_upgrade_depiction.png": {
+      "name": "versions_upgrade_depiction.png",
+      "path": "content/assets/versions_upgrade_depiction.png",
+      "digest": "456e6f612f8d2d97ab85e77efaddad1a5172d014545b12c119ba9b18e88d413d",
+      "arweaveHash": "N8lRVM7GJ6z1xzDyqUiYXqn1jT__txIPOU7MH-G6K8I"
     },
     "content/index.mdx": {
       "name": "index.mdx",
       "path": "content/index.mdx",
-      "digest": "48e52cda5d2d5de9402377b2b0bf02e74df11331a7284519a679bb614193ea11"
+      "digest": "ff45a7f49ff30abafef01352e40512df23c20df2bf006b0cddabf15724deb885",
+      "arweaveHash": "TrZoVnTUtoRHofwOfywCxzAjFgG4eyKdM3WmTXzLZkU"
     }
-  },
-  "href": "/learn/why-upgrade-smart-contracts-the-how-to-guide"
+  }
 }

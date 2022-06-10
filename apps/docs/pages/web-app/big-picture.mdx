@@ -4,26 +4,50 @@ title: Big picture
 
 import Authors, { Author } from '@app/components/authors';
 
-# Big picture
+# 1. Overall Architecture
 
-Kafé consists of many systems working together to deliver guides marketplace for our users.
+BuilderDAO consists of 2 main parts:
+
+- DAO
+- Kafe - Learning Platform
+
+Below is the architecture diagram describing different components that comprise each part:
 
 ![architecture](/assets/images/architecture.png)
 
-## Components
+## 1.1 DAO
+
+For governance of BuilderDAO we will use an already existing and deployed web app and Solana program. Both of these components are still under active development but they should be ready when we ship the Learning Platform.
+
+BuilderDAO Governance app consists of 2 main components:
+
+- Web app
+- SPL Governance Solana program
+
+**Web app**
+
+This application is hosted by Mango project ([https://realms.today/realms](https://realms.today/realms)).
+
+BuilderDAO needs to be added to the list of available DAOs. All users who would like to take part in the governance process will use this web-app. There is no need to deploy this front-end app
+
+**SPL Governance**
+
+This is a Solana program actively developed and maintained by the Solana team. It is responsible for providing all the necessary information and instructions to handle governance of DAOs including BuilderDAO. This program is already deployed so there is no need to deploy it on our side. In order to create a realm in SPL Governance we need to have two SPL Tokens, one for community **\$BDR** and one for council **\$KAFEC (**working name**)**.
+
+## 1.2 KAFE - Learning Platform
 
 Kafe is a set of components responsible for providing users with a marketplace of tutorials.
 
 Kafe app consists of following components:
 
-- **Web app**
-- **Smart contract**
-- **SDK**
-- **SPL Tokens**
-- **File storage**
-- **Streaming data**
-- **Indexed data**
-- **Collaboration tool**
+- Web app
+- Smart contract
+- SDK
+- SPL Tokens
+- File storage
+- Streaming data
+- Indexed data
+- Collaboration tool
 
 **Web app**
 
@@ -41,9 +65,9 @@ At the core of the web app will be a SDK which serves as a connector between Sma
 
 In order to accommodate all the needs of the Learning Platform (and BuilderDAO) we need to deploy 3 different SPL Tokens:
 
-- _$KAFE_ - token with economical value
-- _$BDR_ - secondary non-transferable token representing user’s experience
-- _$KAFEC_ - token allowing holders to become a BuilderDAO council member and an admin of Kafe (token name not decided yet)
+- \$KAFE - token with economical value
+- \$BDR - secondary non-transferable token representing user’s experience
+- \$KAFEC - token allowing holders to become a BuilderDAO council member and an admin of Kafe
 
 **Streaming data**
 
@@ -60,6 +84,224 @@ This component is responsible for storing published learning resources to permaw
 **Indexed data**
 
 This component is responsible for indexing data about tutorials so that content on Kafe is easily searchable.
+
+# 2. BuilderDAO Governance Components
+
+## 2.1. Web app
+
+Web app is a front-end for SPL Governance Solana program. It is currently developed and maintained by Solana and Mango teams. It is a v2 of a web-app developed in-house by the Solana team. This component talks directly to the mentioned Solana program using Typescript bindings.
+
+Web app provides us with a UI for creating a DAO.
+
+**Deployment:**
+
+We do not need to deploy this component since it is already deployed and we can use what is already out there. If we decide that we want to have our own customized front-end we can fork the repo and deploy it under our own domain.
+
+**Technologies used:**
+
+- NextJS
+- Typescript
+- solana/web3.js
+- TailwindCSS
+
+**Dependencies:**
+
+- SPL Governance
+- SPL Tokens for community ($KAFE) and for council ($KAFEC)
+
+**References:**
+
+- Web app v1 - https://github.com/solana-labs/oyster
+- Web app v2 - https://github.com/solana-labs/governance-ui
+
+## 2.2. SPL Governance Solana program
+
+This is a Solana program allowing for creation and management of DAO. This program is actively developed and maintained by the Solana team.
+
+**Deployment:**
+
+This program is already deployed to mainnet so we do not have to deploy it.
+
+**Technologies used:**
+
+- Rust
+- Solana SDK
+
+**References:**
+
+- Docs: https://github.com/solana-labs/solana-program-library/blob/master/governance/README.md
+- Useful guide: https://github.com/coffeemug/spl-governance-docs
+
+# 3. Learning Platform Components
+
+## 3.1. Web app
+
+**Overview:**
+
+Web-app is a front-end for Kafe. It’s main purpose is to serve content to users. Using web app users will be able to perform 4 main actions:
+
+- Browse and read guides
+- Browse and vote on guide proposals
+- Propose a guide
+- Tip authors
+
+**Deployment:**
+
+BuilderDAO has a dedicated Vercel account which is used to deploy web app to preview and production environments.
+
+**Technologies:**
+
+- NextJS
+- Typescript
+- React
+- TailwindCSS
+- No state management at the beginning
+
+**Dependencies:**
+
+- SDK
+- Arweave
+- Ceramic
+- Algolia
+
+## 3.2. Smart contract
+
+**Overview:**
+
+Smart contracts is responsible for keeping the state of the Kafe and managing SPL tokens.
+
+Anchor framework is used to make the process of writing the program easier. Solana program will be the main back-end for the Kafe and it will expose a set of instructions that can be called by web app and/or by DAO.
+
+**Deployment:**
+
+We will use Anchor CLI to deploy program to testnet, devnet and mainnet.
+
+**Technologies:**
+
+- Rust
+- Anchor Framework
+
+**Dependencies:**
+
+- Solana node
+- SPL Tokens
+
+## 3.3. SDK
+
+SDK are a set of Typescript bindings for Solana program which serves as a way to communicate with our custom Solana program. It exposes a set to JS promises and React hooks.
+
+**Deployment:**
+
+N/A
+
+**Technologies used:**
+
+- Typescript
+
+**Dependencies:**
+
+- Solana program
+
+## 3.4. SPL Tokens
+
+**Overview:**
+
+Learning platform will have a dual-token strategy: $KAFE token which will have economical value and $BDR tokens which will be a non-transferable token received for being active within the platform. On top of that we will need a 3rd token which will serve as a council token (\$KAFEC).
+
+**Deployment:**
+
+Each SPL Token needs to be created using Solana CLI. Then for each token we need to create a PR in Token List in order to add metadata for each token.
+
+**Technologies:**
+
+- Solana CLI
+- SPL Token program
+- GitHub
+
+**Dependencies:**
+
+- Solana node
+- PR to [https://github.com/solana-labs/token-list](https://github.com/solana-labs/token-list)
+
+## 3.5. File storage
+
+**Overview:**
+
+All published learning materials will be stored on Arweave in MD file format. This will ensure that content published on the Kafe never gets lost. Along the content of the tutorial we will also store all images.
+
+**Deployment:**
+
+We need to create an Arweave wallet and load it with \$AR since we will be paying for storage of MD and image files.
+
+**Technologies:**
+
+- Arweave
+
+**Dependencies:**
+
+- Arweave node
+
+## 3.6. Streaming data
+
+**Overview:**
+
+Every tutorial will have a lot of metadata which needs to be stored somewhere. Our platform of choice for storing metadata is Ceramic. Ceramic under the hood stores metadata in the IPFS. The benefit of using Ceramic is that we can use mutable streams of data which are identified using StreamID. That StreamID never changes even when we edit the underlaying data.
+
+**Deployment:**
+
+N/A
+
+**Technologies:**
+
+- Typescript
+- Ceramic
+
+**Dependencies:**
+
+- Ceramic node
+
+## 3.7. Indexed data
+
+**Overview:**
+
+Search functionality on the web app will rely on indexed data. User will be able to search through proposals and/or guides using tags as well as guide state. We will use Algoila as a search engine.
+
+**Deployment:**
+
+Algolia is a hosted service so we do not need to deploy anything. Our BuilderDAO CLI will have a command responsible for provisioning Algolia index
+
+**Technologies:**
+
+- Algolia
+
+**Dependencies:**
+
+N/A
+
+## 3.8. Collaboration tool
+
+**Overview:**
+
+Github will be used as a default collaboration tool for writing guides.
+
+A dedicated repository within BuilderDAO account will be created to hold all the MD files.
+
+This repository will use a monorepo structure provided by Turborepo.
+
+**Deployment:**
+
+No deployment needed since GitHub is a hosted service.
+
+**Technologies:**
+
+- Git
+- GitHub
+- GitHub Actions
+- TurboRepo
+
+**Dependencies:**
+
+- BuilderDAO CLI
 
 ---
 

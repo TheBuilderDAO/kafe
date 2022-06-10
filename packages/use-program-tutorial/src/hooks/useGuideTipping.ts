@@ -77,7 +77,7 @@ export const useGuideTipping = <AD>(): [
         return txHash;
       } catch (err) {
         if (err instanceof Error) {
-          console.log('Err:', err);
+          console.log('ERR:', err);
           setError(err);
         }
 
