@@ -18,7 +18,7 @@ const LandingPage: NextPage = () => {
       <Head>
         <title>Builder DAO</title>
       </Head>
-      <div className="z-10 w-0.5 h-screen  bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61] fixed top-0 -ml-8"></div>
+      <div className="z-0 w-0.5 h-screen  bg-gradient-to-b from-[#B58954] via-[#6F086F] to-[#AE4F61] fixed top-0 -ml-8"></div>
       <div className="relative  flex  bg-opacity-10">
         <main className="flex flex-col w-full">
           <LearnGuidesSection />
