@@ -1,5 +1,20 @@
 # @builderdao/cli
 
+## 0.0.11
+
+### Patch Changes
+
+- 4e6a667c: Added full-text search and prettier lint
+- Update version of the packages
+- 4e6a667c: update algolia full-text indexing
+- Updated dependencies [4e6a667c]
+- Updated dependencies
+- Updated dependencies [4e6a667c]
+  - @builderdao/program-tutorial@0.0.8
+  - @builderdao/apis@0.0.8
+  - @builderdao/md-utils@0.0.6
+  - @builderdao/data@0.0.6
+
 ## 0.0.10
 
 ### Patch Changes

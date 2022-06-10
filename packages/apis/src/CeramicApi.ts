@@ -10,7 +10,7 @@ export type TutorialContent = {
   path: string;
   digest: string;
   arweaveHash?: string;
-}
+};
 
 export type TutorialMetadata = {
   title: string;

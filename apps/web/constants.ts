@@ -22,9 +22,9 @@ const getEnvOrFail = <T>(
 
 export const NODE_ENV = getEnvOrFail<string>(process.env.NODE_ENV, 'NODE_ENV');
 
-export const ALGOLIA_WRITE_API_KEY = getEnvOrFail<string>(
-  process.env.ALGOLIA_WRITE_API_KEY,
-  'ALGOLIA_WRITE_API_KEY',
+export const ALGOLIA_ADMIN_KEY = getEnvOrFail<string>(
+  process.env.ALGOLIA_ADMIN_KEY,
+  'ALGOLIA_ADMIN_KEY',
   true,
 );
 export const ARWEAVE_REQUIRED_CONFIRMATIONS = 2;

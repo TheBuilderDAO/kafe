@@ -28,7 +28,10 @@ const routes = {
     tipperPk,
     'tippers-by-user',
   ],
-  reviewer: (publicKey: anchor.web3.PublicKey) => ['reviewers', publicKey.toString()],
+  reviewer: (publicKey: anchor.web3.PublicKey) => [
+    'reviewers',
+    publicKey.toString(),
+  ],
   vote: (tutorialId: number, publicKey: anchor.web3.PublicKey) => [
     'tutorials',
     tutorialId,
@@ -37,4 +40,4 @@ const routes = {
   ],
   proposal: '/proposal',
 };
-export default routes
+export default routes;

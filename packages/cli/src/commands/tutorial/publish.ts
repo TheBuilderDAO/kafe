@@ -19,10 +19,10 @@ Notes:
   - The publish workflow adds the tutorial to Arweave and Ceramic.
 `;
 
-
 export const TutorialPublishCommand = () => {
   const tutorialPublish = new commander.Command('publish');
-  const log = (object: any) => _log(object, tutorialPublish.optsWithGlobals().key);
+  const log = (object: any) =>
+    _log(object, tutorialPublish.optsWithGlobals().key);
 
   const client = getClient({
     kafePk: tutorialPublish.optsWithGlobals().kafePk,
@@ -33,10 +33,7 @@ export const TutorialPublishCommand = () => {
   tutorialPublish
     .description('Publish tutorial to Arweave & Ceramic')
     .helpOption('-h, --help', 'Display help for command')
-    .addHelpText(
-      'after',
-      helpText,
-    )
+    .addHelpText('after', helpText)
     .argument(
       '[learnPackageName]',
       'Tutorial slug for complete tutorial package',
@@ -86,25 +83,23 @@ export const TutorialPublishCommand = () => {
         .default('https'),
     )
     .addOption(
-      new commander.Option('--skip-images', 'Skip uploading images').default(false)
+      new commander.Option('--skip-images', 'Skip uploading images').default(
+        false,
+      ),
     )
-    .addOption(
-      new commander.Option('--verbose', 'Verbose').default(false)
-    )
-    .addOption(
-      new commander.Option('--force', 'Force').default(false)
-    )
+    .addOption(new commander.Option('--verbose', 'Verbose').default(false))
+    .addOption(new commander.Option('--force', 'Force').default(false))
     .action(async (learnPackageName, options) => {
       if (options.verbose) {
         log(options);
-        console.log('-'.repeat(120))
+        console.log('-'.repeat(120));
       }
       const rootFolder = learnPackageName
         ? path.join(rootTutorialFolderPath, learnPackageName)
         : process.cwd();
       if (!rootFolder.includes('/tutorials/')) {
-        tutorialPublish.error('No tutorial found in this folder')
-        return
+        tutorialPublish.error('No tutorial found in this folder');
+        return;
       }
       log({ rootFolder });
       const { lock } = new BuilderDaoConfig(rootFolder);
@@ -125,7 +120,7 @@ export const TutorialPublishCommand = () => {
         protocol: options.arweave_protocol,
       });
       log(proposal);
-      console.log('-'.repeat(120))
+      console.log('-'.repeat(120));
       log(ceramicMetadata);
 
       const deployQueue = async.queue(
@@ -138,25 +133,26 @@ export const TutorialPublishCommand = () => {
           options?: {
             skipArweave?: boolean;
             skipCeramic?: boolean;
-          }
+          };
         }) => {
           try {
             console.log(`in deploy queue- ${file.name} - `);
-            console.log({ file })
+            console.log({ file });
             const fileContent = await fs.readFile(file.fullPath, 'utf8');
             const digest = await hashSumDigest(file.fullPath);
-            const isImage = /\.(png|jpg|jpeg|gif)$/.test(file.path)
-            const shouldSkipArweave = !file.options?.skipArweave || isImage && options.skipImages;
+            const isImage = /\.(png|jpg|jpeg|gif)$/.test(file.path);
+            const shouldSkipArweave =
+              _.get(file, 'options.skipArweave', false) || (isImage && options.skipImages);
             if (!shouldSkipArweave) {
               const arweaveHash = await arweave.publishTutorial(
                 fileContent,
                 options.arweave_wallet,
                 {
                   'App-Name': options.arweave_appName,
-                  'Slug': `/${proposal.slug}/${file.path}`,
+                  Slug: `/${proposal.slug}/${file.path}`,
                   'Content-Type': mimer(file.path),
-                  'Address': proposal.creator.toString(),
-                }
+                  Address: proposal.creator.toString(),
+                },
               );
               console.log(
                 `⛓ Arweave Upload Complete: ${file.name} = [${arweaveHash}]`,
@@ -168,25 +164,38 @@ export const TutorialPublishCommand = () => {
               await lock.write();
               console.log('🔒 Updated builderdao.lock.json!');
             } else {
-              console.log(`Skipping Arweave Upload`)
+              console.log(`Skipping Arweave Upload`);
             }
             await lock.read();
             console.log('🔶 Updating ceramic metadata');
             if (!file.options?.skipCeramic) {
               try {
-                const updatedFile = lock.chain.get(`content["${file.path}"]`).value();
-                const ceramicMetadataForFile = _.get(ceramicMetadata, `content["${file.path}"]`);
-                const isCeramicDataSync = _.isEqual(updatedFile, ceramicMetadataForFile)
+                const updatedFile = lock.chain
+                  .get(`content["${file.path}"]`)
+                  .value();
+                const ceramicMetadataForFile = _.get(
+                  ceramicMetadata,
+                  `content["${file.path}"]`,
+                );
+                const isCeramicDataSync = _.isEqual(
+                  updatedFile,
+                  ceramicMetadataForFile,
+                );
                 if (isCeramicDataSync) {
                   log({
-                    message: "Skiping ceramic update because it's already synced",
+                    message:
+                      "Skiping ceramic update because it's already synced",
                     ...ceramicMetadataForFile,
-                  })
+                  });
                 } else {
-                  const updatedMetadata = _.set(ceramicMetadata, `content["${file.path}"]`, updatedFile);
+                  const updatedMetadata = _.set(
+                    ceramicMetadata,
+                    `content["${file.path}"]`,
+                    updatedFile,
+                  );
                   await ceramic.updateMetadata(proposal.streamId, {
                     ...updatedMetadata,
-                  })
+                  });
                   console.log('🔶 Updated ceramic metadata');
                 }
               } catch (err) {
@@ -211,7 +220,7 @@ export const TutorialPublishCommand = () => {
         (k: string) => k === 'published',
       );
 
-      const files = Object.values(content)
+      const files = Object.values(content);
       if (isReadyToPublish || isPublished) {
         console.log('Kicking initial process.');
         files.forEach(async file => {
@@ -224,16 +233,16 @@ export const TutorialPublishCommand = () => {
             log({
               SKIPPING: {
                 reason: `Skipping file it is already uploaded.`,
-                ...file
-              }
-            })
+                ...file,
+              },
+            });
 
             deployQueue.push({
               ...file,
               fullPath: filePath,
               options: {
                 skipArweave: true,
-              }
+              },
             });
           } else {
             deployQueue.push({
@@ -251,11 +260,9 @@ export const TutorialPublishCommand = () => {
       await deployQueue.drain();
       // End of the Ceramic & Arweave process.
       log(await client.getTutorialById(proposalId));
-      console.log('-'.repeat(120))
-      log(await ceramic.getMetadata(
-        proposal.streamId as string,
-      ));
+      console.log('-'.repeat(120));
+      log(await ceramic.getMetadata(proposal.streamId as string));
       console.log('✅ All items have been processed!');
     });
-  return tutorialPublish;;
-}
+  return tutorialPublish;
+};

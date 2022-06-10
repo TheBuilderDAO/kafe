@@ -1,5 +1,17 @@
 # @builderdao/migration
 
+## 0.0.5
+
+### Patch Changes
+
+- Update version of the packages
+- Updated dependencies [4e6a667c]
+- Updated dependencies
+- Updated dependencies [4e6a667c]
+  - @builderdao/program-tutorial@0.0.8
+  - @builderdao/apis@0.0.8
+  - @builderdao/data@0.0.6
+
 ## 0.0.4
 
 ### Patch Changes

@@ -25,11 +25,12 @@ export const useCancelVote = (): [
 
         mutate(
           routes.listOfVotersById(tutorialId),
-          async (voters: any) => voters.filter(
-            (voter: any) =>
-              voter.account.author.toString() !==
-              tutorialProgram.provider.wallet.publicKey.toString(),
-          ),
+          async (voters: any) =>
+            voters.filter(
+              (voter: any) =>
+                voter.account.author.toString() !==
+                tutorialProgram.provider.wallet.publicKey.toString(),
+            ),
           {
             revalidate: false,
             populateCache: true,

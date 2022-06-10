@@ -3,9 +3,7 @@ import useSWR from 'swr';
 import routes from '../routes';
 import { useTutorialProgram } from './useTutorialProgram';
 
-export const useGetHashmapTipperAccountListByIds = (
-  tutorialIds: number[],
-) => {
+export const useGetHashmapTipperAccountListByIds = (tutorialIds: number[]) => {
   const tutorialProgram = useTutorialProgram();
 
   const { data, error } = useSWR(

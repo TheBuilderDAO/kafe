@@ -84,7 +84,6 @@ Notes:
   return reviewer;
 }
 
-
 export async function getReviewer(
   client: TutorialProgramClient,
   reviewerPK: anchor.web3.PublicKey,

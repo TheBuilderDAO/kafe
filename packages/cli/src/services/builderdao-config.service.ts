@@ -1,6 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
-import { Low, JSONFile, } from 'lowdb-node'
-import lodash from 'lodash'
+import { Low, JSONFile } from 'lowdb-node';
+import lodash from 'lodash';
 import path from 'path';
 import simpleGit, { SimpleGit, CleanOptions } from 'simple-git';
 import { getTutorialContentByPath } from '@builderdao/md-utils';
@@ -16,54 +16,56 @@ export type BuilderDaoLockJson = {
     nickname: string;
     avatarUrl: string;
     url: string;
-  }[]
+  }[];
   content: {
     [filename: string]: {
       name: string;
       path: string;
       digest: string;
       arweaveHash?: string;
-    }
+    };
   };
   reviewers: {
-    [reviwerIndex: string | 'reviewer1' | 'reviewer1']:
-    {
+    [reviwerIndex: string | 'reviewer1' | 'reviewer1']: {
       pda?: string;
       pubkey: string;
       githubName?: string;
-    }
+    };
   };
   href: string;
-}
+};
 
 export type BuilderDaoConfigJson = {
   title: string;
   description: string;
   imageUrl: string;
   categories: string[];
-}
+};
 export class LowWithLodash<T> extends Low<T> {
-  chain: lodash.ExpChain<this['data']> = lodash.chain(this).get('data')
+  chain: lodash.ExpChain<this['data']> = lodash.chain(this).get('data');
 }
 
 export class BuilderDaoConfig {
-  public rootFolder: string
+  public rootFolder: string;
 
-  public config: LowWithLodash<BuilderDaoConfigJson>
+  public config: LowWithLodash<BuilderDaoConfigJson>;
 
-  public lock: LowWithLodash<BuilderDaoLockJson>
+  public lock: LowWithLodash<BuilderDaoLockJson>;
 
-  public git: SimpleGit
+  public git: SimpleGit;
 
   constructor(rootFolder: string) {
     this.rootFolder = rootFolder;
     const configFilePath = path.join(rootFolder, 'builderdao.config.json');
-    this.config = new LowWithLodash(new JSONFile<BuilderDaoConfigJson>(configFilePath))
+    this.config = new LowWithLodash(
+      new JSONFile<BuilderDaoConfigJson>(configFilePath),
+    );
     const lockFilePath = path.join(rootFolder, 'builderdao.lock.json');
-    this.lock = new LowWithLodash(new JSONFile<BuilderDaoLockJson>(lockFilePath))
+    this.lock = new LowWithLodash(
+      new JSONFile<BuilderDaoLockJson>(lockFilePath),
+    );
     this.git = simpleGit().clean(CleanOptions.FORCE);
   }
-
 
   async updateHashDigestOfFolder() {
     const tutorialMetadata = await getTutorialContentByPath({
@@ -94,26 +96,28 @@ export class BuilderDaoConfig {
     await hashQueue.drain();
   }
 
-
-  static async initial({ proposalId, slug }: {
-    proposalId: number,
-    slug: string,
-  }): Promise<{ lock: BuilderDaoLockJson, config: BuilderDaoConfigJson }> {
+  static async initial({
+    proposalId,
+    slug,
+  }: {
+    proposalId: number;
+    slug: string;
+  }): Promise<{ lock: BuilderDaoLockJson; config: BuilderDaoConfigJson }> {
     // const name = (await this.git.getConfig('user.name')).value
     // const email = (await this.git.getConfig('user.email')).value
 
     const author = {
       name: 'The Builder Dao',
-      avatarUrl: "https://github.com/TheBuilderDAO.png",
+      avatarUrl: 'https://github.com/TheBuilderDAO.png',
       url: 'https://builderdao.io',
-      nickname: 'TheBuilderDAO'
-    }
+      nickname: 'TheBuilderDAO',
+    };
 
     return {
       lock: {
         proposalId,
         slug,
-        creator: "",
+        creator: '',
         authors: [author],
         reviewers: {},
         content: {},
@@ -121,10 +125,10 @@ export class BuilderDaoConfig {
       },
       config: {
         categories: [],
-        description: "",
-        imageUrl: "",
-        title: "",
-      }
-    }
+        description: '',
+        imageUrl: '',
+        title: '',
+      },
+    };
   }
 }

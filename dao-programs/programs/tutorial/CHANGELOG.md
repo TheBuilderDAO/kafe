@@ -1,5 +1,12 @@
 # @builderdao/program-tutorial
 
+## 0.0.8
+
+### Patch Changes
+
+- 4e6a667c: Added full-text search and prettier lint
+- Update version of the packages
+
 ## 0.0.7
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @builderdao/md-formatter
 
+## 0.0.6
+
+### Patch Changes
+
+- 4e6a667c: Added full-text search and prettier lint
+- Update version of the packages
+- Updated dependencies [4e6a667c]
+- Updated dependencies
+- Updated dependencies [4e6a667c]
+  - @builderdao/cli@0.0.11
+
 ## 0.0.5
 
 ### Patch Changes

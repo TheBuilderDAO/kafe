@@ -4,6 +4,7 @@ description: Est culpa enim ex laboris occaecat nisi. Nisi et nostrud amet minim
 keywords: [React, Javascript]
 date: 2020-01-01
 ---
+
 # Introduction
 
 In this tutorial, we will learn how to create a simple blog post dapp on Solana blockchain. while building this dapp we will learn how to write the Solana rust program, Test the program and finally integrate the program with React frontend.
@@ -16,26 +17,26 @@ In this tutorial, we will learn how to create a simple blog post dapp on Solana 
 
 This tutorial assumes that you have,
 
-*   Basic understanding of React.js
-*   Basic understanding of Rust
-*   completed [Solana 101 Pathway](https://learn.figment.io/protocols/Solana)
+- Basic understanding of React.js
+- Basic understanding of Rust
+- completed [Solana 101 Pathway](https://learn.figment.io/protocols/Solana)
 
 # Requirements
 
 This tutorial covers how to build a dapp on the Solana, but does not go through the installation of individual dependencies(as it assumes you already completed the Solana 101 Pathway on Figment learn).
 
-*   **Anchor Framework -**
-    Anchor is a framework used for Solana dapp development, It provides DSL to interact with the Solana program. If you are familiar with developing in Solidity, Truffle or Hardhat then consider the DSL is equivalent to ABI.
-    Follow the guide to install [Anchor](https://project-serum.github.io/anchor/getting-started/installation.html#install-rust) along with Rust and Solana cli.
+- **Anchor Framework -**
+  Anchor is a framework used for Solana dapp development, It provides DSL to interact with the Solana program. If you are familiar with developing in Solidity, Truffle or Hardhat then consider the DSL is equivalent to ABI.
+  Follow the guide to install [Anchor](https://project-serum.github.io/anchor/getting-started/installation.html#install-rust) along with Rust and Solana cli.
 
-*   **React.js -**
-    To interact with our Solana program we will create client-side app with React.js.
+- **React.js -**
+  To interact with our Solana program we will create client-side app with React.js.
 
-*   **Phantom Wallet -**
-    Phantom is a digital wallet that lets you connect your crypto account to any dapp that build on the Solana blockchain. We will use Phantom wallet to connect to our Blog Dapp.
+- **Phantom Wallet -**
+  Phantom is a digital wallet that lets you connect your crypto account to any dapp that build on the Solana blockchain. We will use Phantom wallet to connect to our Blog Dapp.
 
-*   **Vs code -**
-    I will recommend using vscode with rust analyzer extension as it has a great support for Rust language.
+- **Vs code -**
+  I will recommend using vscode with rust analyzer extension as it has a great support for Rust language.
 
 # Solana Programming model
 
@@ -51,9 +52,9 @@ The account can be made rent exempt (means you won't have to pay rent) if its ba
 As we have learned, we need an account to create our blog dapp that has a fixed size so, if we create a single account with X size and start pushing posts inside that account, eventually the account will exceeds its size limit and we won't be able to create new posts.
 If you know Solidity, in Solidity we create a dynamic array and push as many items to it as we want, but in Solana our accounts will be fixed in size so we have to find a solution to this problem.
 
-*   **Solution one -** What if we create an extremely large size account like in gigabytes? on Solana we need to pay rent of an account according to its size so, if our account grows in size the account rent will grow along with it.
+- **Solution one -** What if we create an extremely large size account like in gigabytes? on Solana we need to pay rent of an account according to its size so, if our account grows in size the account rent will grow along with it.
 
-*   **Solution two -** What if we create multiple accounts and connect them somehow? Yes, Thats the plan. we will create a new account for every single post and create a chain of posts linked one after another.
+- **Solution two -** What if we create multiple accounts and connect them somehow? Yes, Thats the plan. we will create a new account for every single post and create a chain of posts linked one after another.
 
 Linked 🤔 yeah, you guessed it right. We will use LinkedList to connect all the posts.
 
@@ -168,7 +169,7 @@ post {
 }
 ```
 
-As you have seen in the first basic example, we need to create functions that will define tasks that we want to perform on a program like, init\_blog, signup\_user, create\_post, etc.
+As you have seen in the first basic example, we need to create functions that will define tasks that we want to perform on a program like, init_blog, signup_user, create_post, etc.
 
 we will start with creating our very first function `init_blog`.
 
@@ -201,19 +202,19 @@ In the ctx type we have to define the account and the account will be provided b
 
 In `InitBlog` there are 4 accounts:
 
-*   **blog\_account**
-    *   init attribute to create/initialize a new account
-    *   space = 8 + 32 + 32. Here, We are creating a new account, that's why we have to specify account size. We will see later how to calculate the account size.
-    *   payer = authority. authority is one of the accounts provided by the client. Authority is rent payer of blog\_account.
-*   **genesis\_post\_account**
-    *   We are also creating this account, that's why the init, payer, and space attributes are there
-    *   To create LinkedList we initialize the blog account with the very first post so, we can link it to the next post.
-*   authority
-    *   program signer is a creator of the blog.
-*   system\_program
-    *   required by the runtime for creating the account.
+- **blog_account**
+  - init attribute to create/initialize a new account
+  - space = 8 + 32 + 32. Here, We are creating a new account, that's why we have to specify account size. We will see later how to calculate the account size.
+  - payer = authority. authority is one of the accounts provided by the client. Authority is rent payer of blog_account.
+- **genesis_post_account**
+  - We are also creating this account, that's why the init, payer, and space attributes are there
+  - To create LinkedList we initialize the blog account with the very first post so, we can link it to the next post.
+- authority
+  - program signer is a creator of the blog.
+- system_program
+  - required by the runtime for creating the account.
 
-With `init_blog` our plan is to initialize the blog account with current\_post\_key and authority as blog state so lets write code for that,
+With `init_blog` our plan is to initialize the blog account with current_post_key and authority as blog state so lets write code for that,
 
 ```rust
   pub fn init_blog(ctx: Context<InitBlog>) -> ProgramResult {
@@ -268,7 +269,7 @@ pub struct UserState {
 ```
 
 Here, We need three accounts and you already understand in the previous function all the attributes(like init, payer, space) so, I won't re-explain that here. But I will explain to you how to calculate the account space this time.
-To measure account space we need to take a look at what state the account is holding. In user\_account case **UserState** has 3 values to store name, avatar and authority.
+To measure account space we need to take a look at what state the account is holding. In user_account case **UserState** has 3 values to store name, avatar and authority.
 
 | State Values | Data Types | Size (in bytes) |
 | ------------ | ---------- | --------------- |
@@ -323,8 +324,8 @@ You guessed it right. We will create a function that allows the user to update n
 
 New attributes:
 
-*   **mut:** if we want to change/update account state/data we must specify the mut attribute
-*   **has\_one:** has\_one checks user\_account.authority is equal to authority accounts key ie. owner of user\_account is signer(caller) of update\_user function
+- **mut:** if we want to change/update account state/data we must specify the mut attribute
+- **has_one:** has_one checks user_account.authority is equal to authority accounts key ie. owner of user_account is signer(caller) of update_user function
 
 Our blog is initialized, a user is created, now what's remaining?? CRUD of the post. In the next section, We will look into the CRUD of the post entity. If you feel overwhelmed, take a break or go through what we have learned so far.
 
@@ -357,7 +358,7 @@ Now, Let's move to the CRUD of the post!! CRUD stands for Create Read Update Del
     }
 ```
 
-What do you think? Why do we need **blog\_account** as mut here? Do you remember **current\_post\_key** field in **BlogState**. Let's look at the function body.
+What do you think? Why do we need **blog_account** as mut here? Do you remember **current_post_key** field in **BlogState**. Let's look at the function body.
 
 ```rust
     pub fn create_post(ctx: Context<CreatePost>, title: String, content: String) -> ProgramResult {
@@ -437,7 +438,7 @@ Next, Update Post.
     }
 ```
 
-Updating post is really simple, take title and content from user and update the **mut post\_account**
+Updating post is really simple, take title and content from user and update the **mut post_account**
 
 Delete post is little challenging. To store posts, We have used LinkedList. If you know LinkedList, After deleting a node from LinkedList, we need to link the adjacent node of deleting a node. Let's understand this through a diagram.
 
@@ -482,7 +483,7 @@ Let's jump to the code, I know you will understand it easily.
 
 **constraint** attribute performs simple if check.
 
-So to delete a post, user needs to send post\_account and next\_post\_account. But what if there is no next\_post?? What if the user wants to delete the latest post that has no next post?? To handle this case, we need to create another function **delete\_latest\_post**
+So to delete a post, user needs to send post_account and next_post_account. But what if there is no next_post?? What if the user wants to delete the latest post that has no next post?? To handle this case, we need to create another function **delete_latest_post**
 
 ```rust
     pub fn delete_latest_post(ctx: Context<DeleteLatestPost>) -> ProgramResult {
@@ -522,14 +523,14 @@ Next is the Testing program. Don't worry, we'll fast forward to the next section
 
 Before we dive into writing test cases, every test needs an initialized blog, a brand new user, and a post. To avoid repetition, we will create 3 simple reusable utility functions.
 
-*   `createBlog` - Initialize new Blog account
-*   `createUser` - Create a new User
-*   `createPost` - Create new Post
+- `createBlog` - Initialize new Blog account
+- `createUser` - Create a new User
+- `createPost` - Create new Post
 
 **createBlog.js**
 
 ```js
-const anchor = require("@project-serum/anchor");
+const anchor = require('@project-serum/anchor');
 
 const { SystemProgram } = anchor.web3;
 
@@ -561,14 +562,14 @@ module.exports = {
 **createUser.js**
 
 ```js
-const anchor = require("@project-serum/anchor");
+const anchor = require('@project-serum/anchor');
 const { SystemProgram } = anchor.web3;
 
 async function createUser(program, provider) {
   const userAccount = anchor.web3.Keypair.generate();
 
-  const name = "user name";
-  const avatar = "https://img.link";
+  const name = 'user name';
+  const avatar = 'https://img.link';
 
   await program.rpc.signupUser(name, avatar, {
     accounts: {
@@ -591,13 +592,13 @@ module.exports = {
 **createPost.js**
 
 ```js
-const anchor = require("@project-serum/anchor");
+const anchor = require('@project-serum/anchor');
 const { SystemProgram } = anchor.web3;
 
 async function createPost(program, provider, blogAccount, userAccount) {
   const postAccount = anchor.web3.Keypair.generate();
-  const title = "post title";
-  const content = "post content";
+  const title = 'post title';
+  const content = 'post content';
 
   await program.rpc.createPost(title, content, {
     // pass arguments to the program
@@ -623,29 +624,29 @@ module.exports = {
 Now we are ready to write our first test case. Open up the test file located in `/test/blog.js` directory. We will write all the test cases inside the `blog.js` file.
 
 ```js
-const anchor = require("@project-serum/anchor");
-const assert = require("assert");
+const anchor = require('@project-serum/anchor');
+const assert = require('assert');
 
-describe("blog tests", () => {
+describe('blog tests', () => {
   const provider = anchor.Provider.env();
   anchor.setProvider(provider);
   const program = anchor.workspace.BlogSol;
 
-  it("initialize blog account", async () => {
+  it('initialize blog account', async () => {
     // call the utility function
     const { blog, blogAccount, genesisPostAccount } = await createBlog(
       program,
-      provider
+      provider,
     );
 
     assert.equal(
       blog.currentPostKey.toString(),
-      genesisPostAccount.publicKey.toString()
+      genesisPostAccount.publicKey.toString(),
     );
 
     assert.equal(
       blog.authority.toString(),
-      provider.wallet.publicKey.toString()
+      provider.wallet.publicKey.toString(),
     );
   });
 });
@@ -662,32 +663,32 @@ After running `anchor test` you will see the 1/1 test passing.
 Now we complete the remaining tests, we will write all the test cases below the previous test case inside `blog.js` file.
 
 ```js
-const anchor = require("@project-serum/anchor");
-const assert = require("assert");
+const anchor = require('@project-serum/anchor');
+const assert = require('assert');
 
-describe("blog tests", () => {
+describe('blog tests', () => {
   const provider = anchor.Provider.env();
   anchor.setProvider(provider);
   const program = anchor.workspace.BlogSol;
 
-  it("initialize blog account", async () => {
+  it('initialize blog account', async () => {
     const { blog, blogAccount, genesisPostAccount } = await createBlog(
       program,
-      provider
+      provider,
     );
 
     assert.equal(
       blog.currentPostKey.toString(),
-      genesisPostAccount.publicKey.toString()
+      genesisPostAccount.publicKey.toString(),
     );
 
     assert.equal(
       blog.authority.toString(),
-      provider.wallet.publicKey.toString()
+      provider.wallet.publicKey.toString(),
     );
   });
 
-  it("signup a new user", async () => {
+  it('signup a new user', async () => {
     const { user, name, avatar } = await createUser(program, provider);
 
     assert.equal(user.name, name);
@@ -695,11 +696,11 @@ describe("blog tests", () => {
 
     assert.equal(
       user.authority.toString(),
-      provider.wallet.publicKey.toString()
+      provider.wallet.publicKey.toString(),
     );
   });
 
-  it("creates a new post", async () => {
+  it('creates a new post', async () => {
     const { blog, blogAccount } = await createBlog(program, provider);
     const { userAccount } = await createUser(program, provider);
 
@@ -707,7 +708,7 @@ describe("blog tests", () => {
       program,
       provider,
       blogAccount,
-      userAccount
+      userAccount,
     );
 
     assert.equal(post.title, title);
@@ -716,23 +717,23 @@ describe("blog tests", () => {
     assert.equal(post.prePostKey.toString(), blog.currentPostKey.toString());
     assert.equal(
       post.authority.toString(),
-      provider.wallet.publicKey.toString()
+      provider.wallet.publicKey.toString(),
     );
   });
 
-  it("updates the post", async () => {
+  it('updates the post', async () => {
     const { blog, blogAccount } = await createBlog(program, provider);
     const { userAccount } = await createUser(program, provider);
     const { postAccount } = await createPost(
       program,
       provider,
       blogAccount,
-      userAccount
+      userAccount,
     );
 
     // now update the created post
-    const updateTitle = "Updated Post title";
-    const updateContent = "Updated Post content";
+    const updateTitle = 'Updated Post title';
+    const updateContent = 'Updated Post content';
     const tx = await program.rpc.updatePost(updateTitle, updateContent, {
       accounts: {
         authority: provider.wallet.publicKey,
@@ -748,25 +749,25 @@ describe("blog tests", () => {
     assert.equal(post.prePostKey.toString(), blog.currentPostKey.toString());
     assert.equal(
       post.authority.toString(),
-      provider.wallet.publicKey.toString()
+      provider.wallet.publicKey.toString(),
     );
   });
 
-  it("deletes the post", async () => {
+  it('deletes the post', async () => {
     const { blogAccount } = await createBlog(program, provider);
     const { userAccount } = await createUser(program, provider);
     const { postAccount: postAcc1 } = await createPost(
       program,
       provider,
       blogAccount,
-      userAccount
+      userAccount,
     );
 
     const { post: post2, postAccount: postAcc2 } = await createPost(
       program,
       provider,
       blogAccount,
-      userAccount
+      userAccount,
     );
 
     const {
@@ -795,7 +796,7 @@ describe("blog tests", () => {
     assert.equal(upPost3.user.toString(), userAccount.publicKey.toString());
     assert.equal(
       upPost3.authority.toString(),
-      provider.wallet.publicKey.toString()
+      provider.wallet.publicKey.toString(),
     );
   });
 });
@@ -830,10 +831,10 @@ Before we start writing the frontend part of the tutorial we will create a simpl
 Create `copy_idl.js` file in the root of your project and copy the code given below. The code is just copying the idl file from `/target/idl` to the `/app/src` directory.
 
 ```js
-const fs = require("fs");
-const blog_idl = require("./target/idl/blog_sol.json");
+const fs = require('fs');
+const blog_idl = require('./target/idl/blog_sol.json');
 
-fs.writeFileSync("./app/src/idl.json", JSON.stringify(blog_idl, null, 2));
+fs.writeFileSync('./app/src/idl.json', JSON.stringify(blog_idl, null, 2));
 ```
 
 Next, install dependencies.
@@ -846,12 +847,12 @@ Next, open `app/src/App.js` and update it with the following:
 import {
   ConnectionProvider,
   WalletProvider,
-} from "@solana/wallet-adapter-react";
-import { getPhantomWallet } from "@solana/wallet-adapter-wallets";
-import { Home } from "./home";
+} from '@solana/wallet-adapter-react';
+import { getPhantomWallet } from '@solana/wallet-adapter-wallets';
+import { Home } from './home';
 
 const wallets = [getPhantomWallet()];
-const endPoint = "http://127.0.0.1:8899";
+const endPoint = 'http://127.0.0.1:8899';
 
 const App = () => {
   return (
@@ -879,8 +880,8 @@ create button inside Home.js component with `onConnect` onClick handler like thi
 Then create `onConnect` function that handles the click event of connect button.
 
 ```js
-import { WalletName } from "@solana/wallet-adapter-wallets";
-import { useWallet } from "@solana/wallet-adapter-react";
+import { WalletName } from '@solana/wallet-adapter-wallets';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 // inside react component
 const { select } = useWallet();
@@ -906,8 +907,8 @@ anchor deploy
 
 If you run into an error,
 
-*   Make sure `solana-test-validator` is running
-*   Make sure your Solana config is in a valid state (I mean the RPC url, KeyPair path etc.)
+- Make sure `solana-test-validator` is running
+- Make sure your Solana config is in a valid state (I mean the RPC url, KeyPair path etc.)
 
 Once you successfully deploy the Rust program with the anchor CLI then run the `copy_idl.js` file like,
 
@@ -922,9 +923,9 @@ It will copy the idl file to `/app/src` directory, now you will see the `idl.jso
 Now we will initialize the blog. Initializing blog is one-time process. Let's create `init_blog.js` file inside the `/app/src` folder and copy the code given below.
 
 ```js
-import { Program } from "@project-serum/anchor";
-import { Keypair, PublicKey, SystemProgram } from "@solana/web3.js";
-import idl from "./idl.json";
+import { Program } from '@project-serum/anchor';
+import { Keypair, PublicKey, SystemProgram } from '@solana/web3.js';
+import idl from './idl.json';
 
 const PROGRAM_KEY = new PublicKey(idl.metadata.address);
 
@@ -943,7 +944,7 @@ export async function initBlog(walletKey, provider) {
     signers: [blogAccount, genesisPostAccount],
   });
 
-  console.log("Blog pubkey: ", blogAccount.publicKey.toString());
+  console.log('Blog pubkey: ', blogAccount.publicKey.toString());
 }
 ```
 
@@ -977,9 +978,9 @@ The `initBlog` function will create a brand new Blog and console log its publicK
 
 If you don't know how to connect the Phantom wallet to Localnet here are the steps,
 
-*   Go to settings tab in Phantom wallet
-*   Scroll down and select **change network**
-*   Finally choose **Localhost**
+- Go to settings tab in Phantom wallet
+- Scroll down and select **change network**
+- Finally choose **Localhost**
 
 Next, you need balance in your account on Localnet to get balance you need to run the following command.
 
@@ -1037,16 +1038,16 @@ If you remember the `initBlog` function, there we have randomly generated Keypai
 So we will create a seed by combining `PROGRAM_KEY` and users `wallet_key` so it will create a unique Keypair.
 
 ```js
-import { Keypair, PublicKey, SystemProgram } from "@solana/web3.js";
-import { Program, Provider } from "@project-serum/anchor";
+import { Keypair, PublicKey, SystemProgram } from '@solana/web3.js';
+import { Program, Provider } from '@project-serum/anchor';
 
 const genUserKey = (PROGRAM_KEY, walletKey) => {
   const userAccount = Keypair.fromSeed(
     new TextEncoder().encode(
       `${PROGRAM_KEY.toString().slice(0, 15)}__${walletKey
         .toString()
-        .slice(0, 15)}`
-    )
+        .slice(0, 15)}`,
+    ),
   );
 
   return userAccount;
@@ -1075,7 +1076,7 @@ const _signup = async () => {
 Now we have created user account next we will fetch the user account to see whether user has already signed up.
 
 ```jsx
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 // inside react component
 const fetchUser = async () => {
@@ -1093,10 +1094,10 @@ const [user, setUser] = useState();
 useEffect(() => {
   if (wallet?.publicKey) {
     fetchUser()
-      .then((user) => {
+      .then(user => {
         setUser(user);
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   }
 }, [wallet]);
 
@@ -1114,14 +1115,14 @@ useEffect(() => {
       <input
         placeholder="user name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={e => setName(e.target.value)}
       />
       <input
         placeholder="user avatar"
         value={avatar}
-        onChange={(e) => setAvatar(e.target.value)}
+        onChange={e => setAvatar(e.target.value)}
       />
-      <button onClick={_signup}>Signup</button>{" "}
+      <button onClick={_signup}>Signup</button>{' '}
     </>
   );
 }
@@ -1180,7 +1181,7 @@ here we have passed the `BLOG_KEY` the same key that we have obtained by initial
 Now we will fetch all the posts created on our Blog. If you remember the Rust program, we have attached the previous post id to the current post, here we will use the previous post id to iterate over the list of posts. To do so, we will create a function that finds the post of a given post id.
 
 ```js
-const getPostById = async (postId) => {
+const getPostById = async postId => {
   const provider = new Provider(connection, wallet, {});
   const program = new Program(idl, PROGRAM_KEY, provider);
 
@@ -1243,10 +1244,10 @@ const [posts, setPosts] = useState([]);
 useEffect(() => {
   if (wallet?.publicKey) {
     fetchAllPosts()
-      .then((posts) => {
+      .then(posts => {
         setPosts(posts);
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   }
 }, [wallet]);
 ```
@@ -1270,9 +1271,9 @@ Show posts in the UI
 
 Till now, we have integrated initialization of blog, user signup, fetch user, create post, fetch all the posts there still some part is remaining like,
 
-*   update user
-*   update post
-*   delete post
+- update user
+- update post
+- delete post
 
 If you follow the same steps as we have learned, you can be able to complete the remaining to-do tasks.
 
@@ -1310,11 +1311,11 @@ Congratulations on finishing the tutorial. In this tutorial, We have successfull
 
 There is still room for improvements in the Blog Dapp like,
 
-*   UI improvements
-*   Creating frontend app with Typescript
-*   Adding pagination while fetching all the posts
-*   Creating user timeline(posts created by the user)
-*   Adding Rxjs to fetch posts(streaming posts)
+- UI improvements
+- Creating frontend app with Typescript
+- Adding pagination while fetching all the posts
+- Creating user timeline(posts created by the user)
+- Adding Rxjs to fetch posts(streaming posts)
 
 # About Author
 
