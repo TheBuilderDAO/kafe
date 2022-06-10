@@ -34,8 +34,9 @@ export const useCancelVote = (): [
         setError(null);
         setSubmitting(true);
 
-        const currentVotes =
-          await tutorialProgram.getVoteAccountListByTutorialId(tutorialId);
+        const currentVotes = await tutorialProgram.getVoteAccountListByTutorialId(
+          tutorialId,
+        );
 
         await cancelVote(tutorialId);
 
@@ -43,7 +44,7 @@ export const useCancelVote = (): [
           data: { id: tutorialId, numberOfVotes: currentVotes.length - 1 },
         });
       } catch (err) {
-        console.log('Err:', err);
+        console.log('ERR:', err);
         captureException(err);
         setError(err);
         throw new err();

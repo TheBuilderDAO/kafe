@@ -51,7 +51,7 @@ export const useCancelVote = (): [
         );
       } catch (err) {
         if (err instanceof Error) {
-          console.log('Err:', err);
+          console.log('ERR:', err);
           setError(err);
         }
 

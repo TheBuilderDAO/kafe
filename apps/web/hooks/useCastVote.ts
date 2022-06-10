@@ -38,8 +38,9 @@ export const useCastVote = (): [
         setError(null);
         setSubmitting(true);
 
-        const currentVotes =
-          await tutorialProgram.getVoteAccountListByTutorialId(tutorialId);
+        const currentVotes = await tutorialProgram.getVoteAccountListByTutorialId(
+          tutorialId,
+        );
 
         await castVote(tutorialId);
 
@@ -57,7 +58,7 @@ export const useCastVote = (): [
           data: partialIndexData,
         });
       } catch (err) {
-        console.log('Err:', err);
+        console.log('ERR:', err);
         captureException(err);
         setError(err);
         throw new err();
