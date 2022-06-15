@@ -7,6 +7,9 @@ import {
   useGetDaoState,
   useTutorialProgram,
 } from '@builderdao/use-program-tutorial';
+import { trackEvent } from '../utils/analytics';
+import { EventType, VotedEventProps } from '../utils/analytics/types';
+import { useWallet } from '@solana/wallet-adapter-react';
 import { captureException } from '@app/utils/errorLogging';
 
 type IndexVotesData = {
@@ -22,6 +25,7 @@ export const useCastVote = (): [
     error: Error;
   },
 ] => {
+  const wallet = useWallet();
   const tutorialProgram = useTutorialProgram();
   const { daoState } = useGetDaoState();
   const [castVote] = solanaUseCastVote();
@@ -56,6 +60,11 @@ export const useCastVote = (): [
         await updateTutorialIndex({
           data: partialIndexData,
         });
+
+        trackEvent<VotedEventProps>(EventType.VOTED, {
+          tutorialId,
+          publicKey: wallet.publicKey.toString(),
+        });
       } catch (err) {
         console.log('ERR:', err);
         captureException(err);
@@ -65,7 +74,13 @@ export const useCastVote = (): [
         setSubmitting(false);
       }
     },
-    [castVote, daoState.quorum, tutorialProgram, updateTutorialIndex],
+    [
+      castVote,
+      daoState.quorum,
+      tutorialProgram,
+      updateTutorialIndex,
+      wallet.publicKey,
+    ],
   );
 
   return [handleAction, { submitting, error }];
