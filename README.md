@@ -1,12 +1,12 @@
 # Builder DAO
 
+
 Welcome to the Kafé repo by [Builder DAO](https://builderdao.notion.site)!
 
 ![Social shield](https://img.shields.io/twitter/follow/TheBuilderDAO?style=social)
 
 ![Contributor shield](https://img.shields.io/github/contributors/TheBuilderDAO/kafe?style=plastic)
 ![Commit activity shield](https://img.shields.io/github/commit-activity/m/TheBuilderDAO/kafe?style=plastic)
-
 ## What is Kafé?
 
 Kafé is a learning platform for developers to grow their web3 toolbox. Check out this short [demo](https://youtu.be/eYGO8irDl-g)!
@@ -200,3 +200,9 @@ Your guide is now ready to share with the world!
 ## Contributing
 
 If you're interested in contributing to this project, we'd love to have you! Please take a look at the contribution guidelines in [`CONTRIBUTING.md`](./CONTRIBUTING.md) and reach out.
+
+
+
+<a href="https://vercel.com/?utm_source=thebuilderdao&utm_campaign=oss" aria-label="Vercel logo" style="margin: 30px 0">
+<img src="./assets/powered-by-vercel.svg">
+</a>
