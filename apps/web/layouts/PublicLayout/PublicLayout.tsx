@@ -12,6 +12,7 @@ import routes from 'routes';
 import usePageLoadingProgress from '../../hooks/usePageLoadingProgress';
 import AlphaBadge from '@app/components/Badge/AlphaBadge';
 import NetworkBadge from '@app/components/Badge/NetworkBadge';
+import { PoweredByVercel } from '@app/components/SVG/PoweredByVercel';
 
 type PublicLayoutProps = {
   children: ReactElement;
@@ -65,6 +66,9 @@ const PublicLayout = (props: PublicLayoutProps) => {
             <Content>{children}</Content>
           </div>
         </div>
+        <footer className="flex justify-center pt-4 pb-2">
+          <PoweredByVercel />
+        </footer>
       </Wrapper>
     </div>
   );
