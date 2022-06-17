@@ -67,7 +67,9 @@ const PublicLayout = (props: PublicLayoutProps) => {
           </div>
         </div>
         <footer className="flex justify-center pt-4 pb-2">
-          <PoweredByVercel />
+          <a href="https://vercel.com/?utm_source=thebuilderdao&utm_campaign=oss">
+            <PoweredByVercel />
+          </a>
         </footer>
       </Wrapper>
     </div>
