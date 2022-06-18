@@ -204,5 +204,5 @@ If you're interested in contributing to this project, we'd love to have you! Ple
 
 
 <a href="https://vercel.com/?utm_source=thebuilderdao&utm_campaign=oss" aria-label="Vercel logo" style="margin: 30px 0">
-<img src="./assets/powered-by-vercel.svg">
+  <img src="./assets/powered-by-vercel.svg">
 </a>
